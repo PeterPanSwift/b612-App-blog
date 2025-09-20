@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Clock App 表格 cell  的 Auto Layout</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Clock App 表格 cell  的 Auto Layout</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+以下將示範如何利用 Auto Layout 設計模仿 Clock App 的 cell 畫面。
+</section>
+<section data-field="body" class="e-content">
+<section name="6329" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a719" id="a719" class="graf graf--h3 graf--leading graf--title">Clock App 表格 cell 的 Auto Layout</h3><figure name="4f64" id="4f64" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*lyMzTD2fqup9NpXBEqZkEQ.png" data-width="375" data-height="667" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*lyMzTD2fqup9NpXBEqZkEQ.png"></figure><p name="c1fa" id="c1fa" class="graf graf--p graf-after--figure">以下將示範如何利用 Auto Layout 設計模仿 Clock App 的 cell 畫面。</p><blockquote name="748f" id="748f" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1 將 table view 的 cell 高度設為 87。</strong></blockquote><p name="61ba" id="61ba" class="graf graf--p graf-after--blockquote">Clock App 表格 cell 的高度是固定的，因此將 cell 設成固定高度比較簡單，不需要用 Auto Layout 計算高度。</p><p name="f98b" id="f98b" class="graf graf--p graf-after--p">Table View 的 Row Height 設為 87，Estimate 的 Automatic 取消勾選。</p><figure name="78a3" id="78a3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9WfhHu_WTVCzkeX6bkQhCg.jpeg" data-width="518" data-height="208" src="https://cdn-images-1.medium.com/max/800/1*9WfhHu_WTVCzkeX6bkQhCg.jpeg"></figure><blockquote name="cad4" id="cad4" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">2 在 cell 上加入顯示時間的 label。</strong></blockquote><p name="c151" id="c151" class="graf graf--p graf-after--blockquote">點選右下角的 Add New Constraints，設定 leading &amp; top 間距 10。</p><figure name="5c2f" id="5c2f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Zuq6FuqcfQohBQl6UQYlgA.jpeg" data-width="1016" data-height="752" src="https://cdn-images-1.medium.com/max/800/1*Zuq6FuqcfQohBQl6UQYlgA.jpeg"></figure><p name="43b9" id="43b9" class="graf graf--p graf-after--figure">記得取消 Constrain to margins 的勾選，否則 label 跟 cell 邊界的間距將是 10 + margin。</p><p name="ceed" id="ceed" class="graf graf--p graf-after--p">結果:</p><figure name="9220" id="9220" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZZzCpLQWDqVWlcTpSVK68A.jpeg" data-width="474" data-height="288" src="https://cdn-images-1.medium.com/max/800/1*ZZzCpLQWDqVWlcTpSVK68A.jpeg"></figure><blockquote name="d497" id="d497" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">3 在 cell 上加入顯示 alarm 名稱的 label。</strong></blockquote><p name="69b2" id="69b2" class="graf graf--p graf-after--blockquote">點選右下角的 Add New Constraints，設定 top 間距 8。</p><figure name="4b3f" id="4b3f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*AvFORW7p7y-agjgon-sC5g.jpeg" data-width="1032" data-height="804" src="https://cdn-images-1.medium.com/max/800/1*AvFORW7p7y-agjgon-sC5g.jpeg"></figure><p name="8a5b" id="8a5b" class="graf graf--p graf-after--figure">選取時間和 alarm 名稱的 label，點選右下角的 Align，加入 Leading Edges 0 的條件，讓兩個 label 的左邊界對齊。</p><figure name="221e" id="221e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uQHzKj_q1M-gJ2oGyzkquw.jpeg" data-width="984" data-height="694" src="https://cdn-images-1.medium.com/max/800/1*uQHzKj_q1M-gJ2oGyzkquw.jpeg"></figure><p name="5efc" id="5efc" class="graf graf--p graf-after--figure">結果:</p><figure name="be44" id="be44" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4q22suOwkSLGhiBoyhM7Gw.jpeg" data-width="678" data-height="218" src="https://cdn-images-1.medium.com/max/800/1*4q22suOwkSLGhiBoyhM7Gw.jpeg"></figure><blockquote name="f545" id="f545" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">4 在 cell 上加入 switch 開關。</strong></blockquote><p name="5a10" id="5a10" class="graf graf--p graf-after--blockquote">設定 trailing 間距為 20，取消勾選 Constrain to margins。</p><figure name="2f46" id="2f46" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*R5CX_0KPJU5mQCUrIW1Aog.jpeg" data-width="748" data-height="756" src="https://cdn-images-1.medium.com/max/800/1*R5CX_0KPJU5mQCUrIW1Aog.jpeg"></figure><p name="cb34" id="cb34" class="graf graf--p graf-after--figure">加入垂直置中的條件，將 Vertically in Container 設為 0。</p><figure name="eead" id="eead" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_tgjepKOQSs4le3QuVTrFw.jpeg" data-width="814" data-height="648" src="https://cdn-images-1.medium.com/max/800/1*_tgjepKOQSs4le3QuVTrFw.jpeg"></figure><p name="408a" id="408a" class="graf graf--p graf-after--figure">結果:</p><figure name="1bad" id="1bad" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Un5aJU2LefCc5sb7iRF2iw.jpeg" data-width="656" data-height="200" src="https://cdn-images-1.medium.com/max/800/1*Un5aJU2LefCc5sb7iRF2iw.jpeg"></figure><blockquote name="82a4" id="82a4" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">5 讓 alarm 名字 label 的長度不要超過 switch。</strong></blockquote><p name="a469" id="a469" class="graf graf--p graf-after--blockquote">如下圖所示，當名字太長時，label 的長度將超過 swtich。</p><figure name="89ad" id="89ad" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aqLA8aX1yegV_lAfmaowGQ.jpeg" data-width="774" data-height="250" src="https://cdn-images-1.medium.com/max/800/1*aqLA8aX1yegV_lAfmaowGQ.jpeg"></figure><p name="a50b" id="a50b" class="graf graf--p graf-after--figure">我們不想要這樣，所以我們設定名字 label &amp; switch 之間有著5 pt 的安全距離。</p><p name="3b3b" id="3b3b" class="graf graf--p graf-after--p">從 switch 拉線到名字的 label。</p><figure name="d59b" id="d59b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8BpoTcCVgvjdNDrcOcaaOw.jpeg" data-width="676" data-height="208" src="https://cdn-images-1.medium.com/max/800/1*8BpoTcCVgvjdNDrcOcaaOw.jpeg"></figure><p name="67f4" id="67f4" class="graf graf--p graf-after--figure">選擇 Horizontal Spacing。</p><figure name="25c7" id="25c7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5zzm9qkIyyXYAdbQ_JjLTw.jpeg" data-width="438" data-height="496" src="https://cdn-images-1.medium.com/max/800/1*5zzm9qkIyyXYAdbQ_JjLTw.jpeg"></figure><p name="f6af" id="f6af" class="graf graf--p graf-after--figure">將條件的 Constant 設為 10，讓 switch 和名字 label 間有著 10 pt 的間距。</p><figure name="0770" id="0770" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JjSGisrp-CHMNZyjjwhUaQ.jpeg" data-width="526" data-height="452" src="https://cdn-images-1.medium.com/max/800/1*JjSGisrp-CHMNZyjjwhUaQ.jpeg"></figure><p name="e4b5" id="e4b5" class="graf graf--p graf-after--figure">然而這時候卻出現了紅色錯誤 ! 因為當名字的 label 字太多時，畫面的空間將無法同時顯示完整的文字並跟 switch 保持間距 10。</p><figure name="4863" id="4863" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*oHLmzJyR8tzF7L8MKf-wtw.jpeg" data-width="1068" data-height="354" src="https://cdn-images-1.medium.com/max/800/1*oHLmzJyR8tzF7L8MKf-wtw.jpeg"></figure><p name="f429" id="f429" class="graf graf--p graf-after--figure">解決的某個方法是讓其中一個犧牲自己，不要顯示完整的內容。因此我們調降名字 label 的 Horizontal Content Compression Resistance Priority，讓它變成小於 switch 的 749。如此到時候不夠空間顯示時，label 的文字將變成 …。</p><figure name="00c0" id="00c0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*n0r_PL_rj0zlBMps296gMQ.jpeg" data-width="532" data-height="1394" src="https://cdn-images-1.medium.com/max/800/1*n0r_PL_rj0zlBMps296gMQ.jpeg"></figure><p name="fd1d" id="fd1d" class="graf graf--p graf-after--figure">結果:</p><figure name="42df" id="42df" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pXzoc7efQC8BUFMoDkX9Ww.jpeg" data-width="662" data-height="210" src="https://cdn-images-1.medium.com/max/800/1*pXzoc7efQC8BUFMoDkX9Ww.jpeg"></figure><blockquote name="963c" id="963c" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">6 利用 static cells 或 UITableViewDataSource 設定表格的內容。</strong></blockquote><p name="f0cd" id="f0cd" class="graf graf--p graf-after--blockquote">以下我們將 Table View 的 content 設為 static cells。</p><figure name="ebca" id="ebca" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ORnwrFkw8lXq-zLbI_mdfA.jpeg" data-width="1134" data-height="544" src="https://cdn-images-1.medium.com/max/800/1*ORnwrFkw8lXq-zLbI_mdfA.jpeg"></figure><h3 name="c53c" id="c53c" class="graf graf--h3 graf-after--figure">執行 App</h3><p name="180f" id="180f" class="graf graf--p graf-after--h3">如下圖所示，App 在 iPhone XR &amp; iPhone 8 都能完美呈現 !</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="6c14" id="6c14" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50.375%;"><img class="graf-image" data-image-id="1*qz6EXVPJr0_-O20V3qIDhg.jpeg" data-width="674" data-height="1114" src="https://cdn-images-1.medium.com/max/800/1*qz6EXVPJr0_-O20V3qIDhg.jpeg"></figure><figure name="fcca" id="fcca" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure graf--trailing" style="width: 49.625%;"><img class="graf-image" data-image-id="1*3JWBuojA5hggpnW42JmX6A.jpeg" data-width="810" data-height="1360" src="https://cdn-images-1.medium.com/max/600/1*3JWBuojA5hggpnW42JmX6A.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/64b62335a1e0"><time class="dt-published" datetime="2019-03-25T07:53:14.652Z">March 25, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/clock-app-%E8%A1%A8%E6%A0%BC-cell-%E7%9A%84-auto-layout-64b62335a1e0" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

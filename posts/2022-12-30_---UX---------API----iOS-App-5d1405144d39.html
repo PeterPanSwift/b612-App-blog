@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>串接 UX 四神湯開放平台 API 開發 iOS App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">串接 UX 四神湯開放平台 API 開發 iOS App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近 UX 四神湯推出了收集設計資源的共享平台，包含了設計相關的文章，影片，作品集等豐富資源。現在他們大方地將背後的 AirTable 資料庫公開，有興趣的朋友可以直接複製資料庫，串接 AirTable API 開發有趣的 UX 資源 App。
+</section>
+<section data-field="body" class="e-content">
+<section name="5a11" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="00c7" id="00c7" class="graf graf--h3 graf--leading graf--title">串接 UX 四神湯開放平台 API 開發 iOS App</h3><p name="a66b" id="a66b" class="graf graf--p graf-after--h3">最近 UX 四神湯推出了收集設計資源的共享平台，包含了設計相關的文章，影片，作品集等豐富資源。現在他們大方地將背後的 AirTable 資料庫公開，有興趣的朋友可以直接複製資料庫，串接 AirTable API 開發有趣的 UX 資源 App。</p><div name="8f99" id="8f99" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://www.opendesign.tw/ux-api" data-href="https://www.opendesign.tw/ux-api" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.opendesign.tw/ux-api"><strong class="markup--strong markup--mixtapeEmbed-strong">UX 四神湯開放平台 - Design library for designers</strong><br><em class="markup--em markup--mixtapeEmbed-em">這是一個來自台灣的開放設計資源資料庫，我們為設計師和學生提供各類設計資源，供大家免費查閱和使用。</em>www.opendesign.tw</a><a href="https://www.opendesign.tw/ux-api" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9a5ef667b92b74b8fc5de3486fd034f9" data-thumbnail-img-id="0*ld9kjcBANP4tXuPA" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*ld9kjcBANP4tXuPA);"></a></div><p name="9c38" id="9c38" class="graf graf--p graf-after--mixtapeEmbed">串接 UX 四神湯開放平台 API 的步驟如下。</p><h3 name="fd79" id="fd79" class="graf graf--h3 graf-after--p">連到 UX 四神湯的 AirTable 資料庫</h3><p name="6e90" id="6e90" class="graf graf--p graf-after--h3"><a href="https://airtable.com/shrjwC2OTP1ZZus7y/tbldQNgK8PcDbBPjF/viwbPH0mdDa9PEOPN?blocks=hide" data-href="https://airtable.com/shrjwC2OTP1ZZus7y/tbldQNgK8PcDbBPjF/viwbPH0mdDa9PEOPN?blocks=hide" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">資料庫連結</a></p><figure name="dbb3" id="dbb3" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://airtable.com/embed/shrjwC2OTP1ZZus7y/tbldQNgK8PcDbBPjF/viwbPH0mdDa9PEOPN?blocks=hide" width="700" height="466" frameborder="0" scrolling="no"></iframe></figure><h3 name="f682" id="f682" class="graf graf--h3 graf-after--figure">將資料庫複製到自己的 AirTable 帳號</h3><p name="d4d7" id="d4d7" class="graf graf--p graf-after--h3">點選 Copy base。</p><figure name="fc21" id="fc21" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7nIw5iru8fj1OlJjkIw9ZQ.png" data-width="858" data-height="104" src="https://cdn-images-1.medium.com/max/800/1*7nIw5iru8fj1OlJjkIw9ZQ.png"></figure><p name="cbb0" id="cbb0" class="graf graf--p graf-after--figure">登入 Airtable。</p><figure name="7a6e" id="7a6e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UDn0nBrH_Rn-TjDgOgF8Cg.png" data-width="1044" data-height="922" src="https://cdn-images-1.medium.com/max/800/1*UDn0nBrH_Rn-TjDgOgF8Cg.png"></figure><p name="de0c" id="de0c" class="graf graf--p graf-after--figure">自己的 AirTable 帳號下成功地出現四神湯資料庫。</p><figure name="e591" id="e591" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pjNwO5KcESSGM43Fu91NDQ.png" data-width="1892" data-height="1290" src="https://cdn-images-1.medium.com/max/800/1*pjNwO5KcESSGM43Fu91NDQ.png"></figure><h3 name="7cc3" id="7cc3" class="graf graf--h3 graf-after--figure">串接 Airtable API 開發 UX 四神湯 App</h3><p name="e22c" id="e22c" class="graf graf--p graf-after--h3">參考以下連結串接 AirTable API。</p><div name="6d04" id="6d04" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%B8%B2%E6%8E%A5-airtable%E7%9A%84-api-%E9%96%8B%E7%99%BC-ios-app-5e5c86c8ca7d" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%B8%B2%E6%8E%A5-airtable%E7%9A%84-api-%E9%96%8B%E7%99%BC-ios-app-5e5c86c8ca7d" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%B8%B2%E6%8E%A5-airtable%E7%9A%84-api-%E9%96%8B%E7%99%BC-ios-app-5e5c86c8ca7d"><strong class="markup--strong markup--mixtapeEmbed-strong">串接 Airtable的 API 開發 iOS App</strong><br><em class="markup--em markup--mixtapeEmbed-em">在之前的文章，我們介紹了如何利用 Airtable 製作 iOS App 連結的後台資料，建立包含電影資料的表單。接下來我們將繼續介紹如何串接它的 API。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%B8%B2%E6%8E%A5-airtable%E7%9A%84-api-%E9%96%8B%E7%99%BC-ios-app-5e5c86c8ca7d" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="76cc70565b2703503b9cd0117f7125de" data-thumbnail-img-id="1*POydoxA9BzFJpE5--IsdnA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*POydoxA9BzFJpE5--IsdnA.png);"></a></div><p name="59a0" id="59a0" class="graf graf--p graf-after--mixtapeEmbed">比方下圖為抓取履歷-作品集列表的 curl 指令 &amp; 回傳的 JSON 格式。</p><figure name="1449" id="1449" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4-4guepHlANqsKeEgcRrCg.png" data-width="2716" data-height="1430" src="https://cdn-images-1.medium.com/max/800/1*4-4guepHlANqsKeEgcRrCg.png"></figure><p name="2c5d" id="2c5d" class="graf graf--p graf-after--figure">除了顯示資料，我們也可以開發新增資料的功能。比方下圖為 UX 四神湯新增資源的頁面。</p><figure name="c632" id="c632" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*wuXyPJs9zqdZzL8MuZdiGA@2x.jpeg" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*wuXyPJs9zqdZzL8MuZdiGA@2x.jpeg"></figure><h3 name="62d4" id="62d4" class="graf graf--h3 graf-after--figure">iOS App 範例畫面</h3><figure name="ce86" id="ce86" class="graf graf--figure graf-after--h3 graf--trailing"><img class="graf-image" data-image-id="1*28eh1TZFqbtik-1VA5Qxbw.png" data-width="1339" data-height="2716" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*28eh1TZFqbtik-1VA5Qxbw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5d1405144d39"><time class="dt-published" datetime="2022-12-30T05:04:58.387Z">December 30, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%B8%B2%E6%8E%A5-ux-%E5%9B%9B%E7%A5%9E%E6%B9%AF%E9%96%8B%E6%94%BE%E5%B9%B3%E5%8F%B0-api-%E9%96%8B%E7%99%BC-ios-app-5d1405144d39" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

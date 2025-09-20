@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>請 IDE 的 AI 從網路找圖後下載加到 Xcode 專案的 Assets</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">請 IDE 的 AI 從網路找圖後下載加到 Xcode 專案的 Assets</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，為了在 App 顯示美美的圖片，我們時常要辛苦地花時間做以下三件事。
+</section>
+<section data-field="body" class="e-content">
+<section name="7bc2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9abf" id="9abf" class="graf graf--h3 graf--leading graf--title">請 IDE 的 AI 從網路找圖後下載加到 Xcode 專案的 Assets</h3><p name="f1f8" id="f1f8" class="graf graf--p graf-after--h3">開發 iOS App 時，為了在 App 顯示美美的圖片，我們時常要辛苦地花時間做以下三件事。</p><ul class="postList"><li name="8e8b" id="8e8b" class="graf graf--li graf-after--p">從網路找圖。</li><li name="947b" id="947b" class="graf graf--li graf-after--li">下載圖片。</li><li name="3495" id="3495" class="graf graf--li graf-after--li">將圖片加到 Xcode 專案的 Assets.xcassets。</li></ul><p name="a84a" id="a84a" class="graf graf--p graf-after--li">不過這都是過去式了，隨著 AI 的進步，現在它已經能一條龍做完網路找圖、下載圖片、加到 Xcode 專案的 Assets 了。</p><p name="dbf5" id="dbf5" class="graf graf--p graf-after--p">以下我們以收集超多圖片的的 Openverse 為例，示範用 GitHub Copilot for Xcode、VS Code + Codex、VS Code + Claude Code 透過 Openverse API 將可愛的企鵝圖片加到 Assets。</p><figure name="4131" id="4131" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*IUqhxn7vvWy0TszFNqmPqw.png" data-width="2382" data-height="1038" src="https://cdn-images-1.medium.com/max/800/1*IUqhxn7vvWy0TszFNqmPqw.png"></figure><p name="2342" id="2342" class="graf graf--p graf-after--figure">Openverse API 的說明如下。</p><div name="3a63" id="3a63" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://api.openverse.org/v1/#tag/images" data-href="https://api.openverse.org/v1/#tag/images" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://api.openverse.org/v1/#tag/images"><strong class="markup--strong markup--mixtapeEmbed-strong">Openverse API</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>api.openverse.org</a><a href="https://api.openverse.org/v1/#tag/images" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="eeb0379dd7ddaf4797b79135895aec1a"></a></div><p name="270c" id="270c" class="graf graf--p graf-after--mixtapeEmbed">以搜尋企鵝圖片為例，API 網址如下。</p><pre data-code-block-mode="0" spellcheck="false" name="3b3f" id="3b3f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">https://api.openverse.org/v1/images/?q=penguin&amp;page_size=5</span></pre><p name="3ef2" id="3ef2" class="graf graf--p graf-after--pre">以下為 <a href="https://claude.ai/public/artifacts/7371f68c-190f-4421-b982-3725234fd8c3" data-href="https://claude.ai/public/artifacts/7371f68c-190f-4421-b982-3725234fd8c3" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Claude 的 Openverse API 格式說明</a>。</p><figure name="ab7a" id="ab7a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*f92zBSWT_dDohmfb1pitDA.png" data-width="1282" data-height="1110" src="https://cdn-images-1.medium.com/max/800/1*f92zBSWT_dDohmfb1pitDA.png"></figure><h3 name="01bc" id="01bc" class="graf graf--h3 graf-after--figure">GitHub Copilot for Xcode</h3><p name="eb80" id="eb80" class="graf graf--p graf-after--h3">prompt</p><pre data-code-block-mode="0" spellcheck="false" name="636d" id="636d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">下載連結的圖片，加到 assets <br>https://api.openverse.org/v1/images/?q=penguin&amp;page_size=5</span></pre><p name="027e" id="027e" class="graf graf--p graf-after--pre">AI 成功下載 JSON 裡連結的圖片，將圖片加到 Assets.xcassets。</p><figure name="3f59" id="3f59" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*mNdcSszmwD4RownKj6GkEA.png" data-width="1204" data-height="826" src="https://cdn-images-1.medium.com/max/800/1*mNdcSszmwD4RownKj6GkEA.png"></figure><figure name="9f07" id="9f07" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Bnq7-90UjwiB5lHVTuc0Bg.png" data-width="1202" data-height="1132" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Bnq7-90UjwiB5lHVTuc0Bg.png"></figure><figure name="363a" id="363a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Q7vo1HO06BC82WeCRbwbLQ.png" data-width="2094" data-height="1136" src="https://cdn-images-1.medium.com/max/800/1*Q7vo1HO06BC82WeCRbwbLQ.png"></figure><h3 name="cd8c" id="cd8c" class="graf graf--h3 graf-after--figure">VS Code + Codex</h3><p name="4898" id="4898" class="graf graf--p graf-after--h3">prompt</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="bash" name="7da5" id="7da5" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">下載連結的圖片，加到 Assets.xcassets<br />https://api.openverse.org/v1/images/?q=penguin&amp;page_size=5</span></pre><figure name="86d0" id="86d0" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*KHM9PHKtuvX6u7KLp3cwUw.png" data-width="1314" data-height="828" src="https://cdn-images-1.medium.com/max/800/1*KHM9PHKtuvX6u7KLp3cwUw.png"></figure><figure name="cf49" id="cf49" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*NN9h5kFBVcH8m_arYc-2Ig.png" data-width="2092" data-height="1108" src="https://cdn-images-1.medium.com/max/800/1*NN9h5kFBVcH8m_arYc-2Ig.png"></figure><h3 name="b646" id="b646" class="graf graf--h3 graf-after--figure">VS Code + Claude Code</h3><p name="2d42" id="2d42" class="graf graf--p graf-after--h3">prompt</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="bash" name="7970" id="7970" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">下載連結的圖片，加到 Assets.xcassets<br />https://api.openverse.org/v1/images/?q=penguin&amp;page_size=5</span></pre><figure name="942d" id="942d" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*7rdFGcoeFxsXZJWB248B1A.png" data-width="1040" data-height="780" src="https://cdn-images-1.medium.com/max/800/1*7rdFGcoeFxsXZJWB248B1A.png"></figure><figure name="7a61" id="7a61" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*KlsF4Vel0PAKmoyfV4qbSA.png" data-width="1018" data-height="1022" src="https://cdn-images-1.medium.com/max/800/1*KlsF4Vel0PAKmoyfV4qbSA.png"></figure><figure name="5e7f" id="5e7f" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*adGkGjFOvWcSSsijsLheGA.png" data-width="1622" data-height="1436" src="https://cdn-images-1.medium.com/max/800/1*adGkGjFOvWcSSsijsLheGA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d2ca3c69e64a"><time class="dt-published" datetime="2025-09-06T11:22:49.347Z">September 6, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AB%8B-ide-%E7%9A%84-ai-%E5%BE%9E%E7%B6%B2%E8%B7%AF%E6%89%BE%E5%9C%96%E5%BE%8C%E4%B8%8B%E8%BC%89%E5%8A%A0%E5%88%B0-xcode-%E5%B0%88%E6%A1%88%E7%9A%84-assets-d2ca3c69e64a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

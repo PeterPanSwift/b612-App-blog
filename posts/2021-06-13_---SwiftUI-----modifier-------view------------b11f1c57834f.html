@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>實現 SwiftUI 動畫時，modifier 的變化要在 view 已經加到畫面上後發生</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">實現 SwiftUI 動畫時，modifier 的變化要在 view 已經加到畫面上後發生</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SwiftUI 可以很方便地製作動畫效果，利用 modifier 的變化，SwiftUI 將能幫我們製造變化過程中的動畫。
+</section>
+<section data-field="body" class="e-content">
+<section name="558a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9ff6" id="9ff6" class="graf graf--h3 graf--leading graf--title">實現 SwiftUI 動畫時，modifier 的變化要在 view 已經加到畫面上後發生</h3><p name="4e19" id="4e19" class="graf graf--p graf-after--h3">SwiftUI 可以很方便地製作動畫效果，利用 modifier 的變化，SwiftUI 將能幫我們製造變化過程中的動畫。</p><p name="7b42" id="7b42" class="graf graf--p graf-after--p">比方以下例子，按下<code class="markup--code markup--p-code">Peter 轉轉轉</code>後，圖片的旋轉角度從原本的 0 度變成 70 度，因此圖片將以動畫的方式從 0 度轉到 70 度。</p><pre name="409f" id="409f" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    <br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var rotate = false<br>    <br>    var body: some View {<br>        VStack {<br>            Image(&quot;peter&quot;)<br>                .rotationEffect(.degrees(rotate ? 70 : 0))<br>            <br>            Text(&quot;Peter 轉轉轉&quot;)<br>                .font(.largeTitle)<br>                .onTapGesture {<br>                    withAnimation {<br>                        rotate = true<br>                    }<br>                }<br>        }<br>        <br>    }<br>}</pre></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="06c1" id="06c1" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--pre" style="width: 50%;"><img class="graf-image" data-image-id="1*MIWCeQuL4ipQlskjfS5sxA.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*MIWCeQuL4ipQlskjfS5sxA.png"></figure><figure name="2ba0" id="2ba0" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*yZYUR1K24NvxvdaDkIf0lA.png" data-width="1170" data-height="2532" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*yZYUR1K24NvxvdaDkIf0lA.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="5ed0" id="5ed0" class="graf graf--h3 graf-after--figure">問題</h3><p name="3edc" id="3edc" class="graf graf--p graf-after--h3">不過有一點要特別注意，modifier 的變化要在 view 已經加到畫面上後發生，才會產生動畫效果，讓我們用以下例子說明。</p><pre name="7839" id="7839" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    <br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var show = false<br>    <br>    var body: some View {<br>        VStack {<br>            if show {<br>                Image(&quot;peter&quot;)<br>                    .rotationEffect(.degrees(show ? 70 : 0))<br>            }<br>            <br>            Text(&quot;Peter 轉轉轉&quot;)<br>                .font(.largeTitle)<br>                .onTapGesture {<br>                    withAnimation {<br>                        show = true<br>                    }<br>                }<br>        }<br>        <br>    }<br>}</pre><p name="a507" id="a507" class="graf graf--p graf-after--pre">當我們按下<code class="markup--code markup--p-code"> Peter 轉轉轉</code>時，只有文字會有向下移動的動畫，圖片則會立即出現並轉到 70 度，沒有任何旋轉的動畫。為什麼會這樣呢? 因為當我們按下<code class="markup--code markup--p-code"> Peter 轉轉轉</code>時圖片才加到畫面上，此時它在畫面上的角度是 70 度，它沒有任何 modifier 的變化，它一出現就是 70 度，並不是從 0 度變到 70 度。</p><h3 name="6cbc" id="6cbc" class="graf graf--h3 graf-after--p">解法: 設定透明度</h3><p name="00d0" id="00d0" class="graf graf--p graf-after--h3">讓圖片一開始就在畫面上，但是將它的 opacity 設為 0，讓它變成隱藏。當我們按下<code class="markup--code markup--p-code"> Peter 轉轉轉</code>時，圖片的 opacity 從 0 變 1，旋轉角度從 0 度變 70 度，因此將順利出現圖片淡入和旋轉的動畫。</p><pre name="46a5" id="46a5" class="graf graf--pre graf-after--p graf--trailing">struct ContentView: View {<br>    <br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var show = false<br>    <br>    var body: some View {<br>        VStack {<br>            Image(&quot;peter&quot;)<br><strong class="markup--strong markup--pre-strong">                .opacity(show ? 1 : 0)<br></strong>                .rotationEffect(.degrees(show ? 70 : 0))<br>            <br>            <br>            Text(&quot;Peter 轉轉轉&quot;)<br>                .font(.largeTitle)<br>                .onTapGesture {<br>                    withAnimation {<br>                        show = true<br>                    }<br>                }<br>        }<br>        <br>    }<br>}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b11f1c57834f"><time class="dt-published" datetime="2021-06-13T14:40:04.358Z">June 13, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%AF%A6%E7%8F%BE-swiftui-%E5%8B%95%E7%95%AB%E6%99%82-modifier-%E7%9A%84%E8%AE%8A%E5%8C%96%E8%A6%81%E5%9C%A8-view-%E5%B7%B2%E7%B6%93%E5%8A%A0%E5%88%B0%E7%95%AB%E9%9D%A2%E4%B8%8A%E5%BE%8C%E7%99%BC%E7%94%9F-b11f1c57834f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

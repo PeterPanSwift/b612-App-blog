@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>function 不要寫在 function 裡</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">function 不要寫在 function 裡</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+dd
+</section>
+<section data-field="body" class="e-content">
+<section name="eef1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="75b7" id="75b7" class="graf graf--h3 graf--leading graf--title">function 不要寫在 function 裡</h3><p name="6ae6" id="6ae6" class="graf graf--p graf-after--h3">dd</p><pre name="4d18" id="4d18" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">override</strong> <strong class="markup--strong markup--pre-strong">func</strong> viewDidLoad() {</pre><pre name="35cb" id="35cb" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">super</strong>.viewDidLoad()</pre><pre name="7333" id="7333" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Do any additional setup after loading the view, typically from a nib.</em></pre><pre name="b356" id="b356" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="9901" id="9901" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">func</strong> test() {</pre><pre name="e19d" id="e19d" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="8ed6" id="8ed6" class="graf graf--pre graf-after--pre">}</pre><pre name="e055" id="e055" class="graf graf--pre graf-after--pre">}</pre><p name="da86" id="da86" class="graf graf--p graf-after--pre">dd</p><pre name="b99a" id="b99a" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">override</strong> <strong class="markup--strong markup--pre-strong">func</strong> viewDidLoad() {</pre><pre name="e619" id="e619" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">super</strong>.viewDidLoad()</pre><pre name="2965" id="2965" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Do any additional setup after loading the view, typically from a nib.</em></pre><pre name="941e" id="941e" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="4c42" id="4c42" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">override</strong> <strong class="markup--strong markup--pre-strong">func</strong> viewWillAppear(<strong class="markup--strong markup--pre-strong">_</strong> animated: Bool) {</pre><pre name="2b48" id="2b48" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="745e" id="745e" class="graf graf--pre graf-after--pre">}</pre><pre name="ade2" id="ade2" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="3826" id="3826" class="graf graf--pre graf-after--pre">}</pre><p name="b9ef" id="b9ef" class="graf graf--p graf-after--pre">dd</p><pre name="9609" id="9609" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">override</strong> <strong class="markup--strong markup--pre-strong">func</strong> viewDidLoad() {</pre><pre name="54bd" id="54bd" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">super</strong>.viewDidLoad()</pre><pre name="a1f5" id="a1f5" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Do any additional setup after loading the view, typically from a nib.</em></pre><pre name="4bad" id="4bad" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">@IBAction</strong> <strong class="markup--strong markup--pre-strong">func</strong> buttonPressed(<strong class="markup--strong markup--pre-strong">_</strong> sender: <strong class="markup--strong markup--pre-strong">Any</strong>) {</pre><pre name="7ac9" id="7ac9" class="graf graf--pre graf-after--pre">}</pre><pre name="0c54" id="0c54" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="05be" id="05be" class="graf graf--pre graf-after--pre">}</pre><pre name="8186" id="8186" class="graf graf--pre graf--empty graf-after--pre"><br></pre><p name="01bd" id="01bd" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/c6751c96ab31">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Simulated Metrics 為 controller 加上模擬的 navigation bar</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Simulated Metrics 為 controller 加上模擬的 navigation bar</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常透過 storyboard 的 segue 切換頁面，不過有時我們會採用其它方式，比方從程式呼叫 navigation controller 的 pushViewController 切換頁面，例如以下例子:
+</section>
+<section data-field="body" class="e-content">
+<section name="5123" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="23e8" id="23e8" class="graf graf--h3 graf--leading graf--title">利用 Simulated Metrics 為 controller 加上模擬的 navigation bar</h3><p name="cde8" id="cde8" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常透過 storyboard 的 segue 切換頁面，不過有時我們會採用其它方式，比方從程式呼叫 navigation controller 的 pushViewController 切換頁面，例如以下例子:</p><p name="ef65" id="ef65" class="graf graf--p graf-after--p">點選 button 想見你想見你想見你，切換到想見你的圖片頁面。</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="3c5d" id="3c5d" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*ocB6-GEvbOpygXm1P1Dc7A.jpeg" data-width="1452" data-height="934" src="https://cdn-images-1.medium.com/max/1200/1*ocB6-GEvbOpygXm1P1Dc7A.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="1944" id="1944" class="graf graf--p graf-after--figure">想見你圖片頁面的 storyboard ID 為 SeeYouViewController。</p><figure name="12ee" id="12ee" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*B0nEnjKp7Mdgv9LG_-Y7iA.jpeg" data-width="538" data-height="454" src="https://cdn-images-1.medium.com/max/800/1*B0nEnjKp7Mdgv9LG_-Y7iA.jpeg"></figure><p name="6e1b" id="6e1b" class="graf graf--p graf-after--figure">點選 button 時，利用 navigation controller 的 pushViewController 切換到 SeeYouViewController。</p><pre name="59a8" id="59a8" class="graf graf--pre graf-after--p"><a href="http://twitter.com/IBAction" data-href="http://twitter.com/IBAction" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBAction" rel="noopener" target="_blank">@IBAction</a> func buttonPressed(_ sender: Any) {<br>        <br>        if let controller = storyboard?.instantiateViewController(identifier: &quot;\(SeeYouViewController.self)&quot;) {<br>            navigationController?.pushViewController(controller, animated: true)<br>        }<br>     <br>}</pre><p name="7bff" id="7bff" class="graf graf--p graf-after--pre">以上程式完全沒問題，App 執行點選 button 後將出現想見你的圖片頁面，上方也會有 navigation bar &amp; back 鍵。不過此時有個小小的問題，storyboard 的想見你頁面並不會有 navigation bar，因此有些功能不方便從 storyboard 實現，比方設定 bar 的標題或加入 Bar Button Item。</p><figure name="41d1" id="41d1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*DCPxp-2ANRXMMvPdDPSznQ.jpeg" data-width="498" data-height="902" src="https://cdn-images-1.medium.com/max/800/1*DCPxp-2ANRXMMvPdDPSznQ.jpeg"></figure><p name="d422" id="d422" class="graf graf--p graf-after--figure">其實我們還是可以在 storyboard 設定 bar 的標題或加入 Bar Button Item，只要透過 Simulated Metrics 的幫忙，步驟如下:</p><h3 name="a87e" id="a87e" class="graf graf--h3 graf-after--p">點選 SeeYouViewController，切換到它的 Attributes inspector 頁面</h3><figure name="d84a" id="d84a" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*iGuE6fA1WJsoxhPqe-8jrQ.jpeg" data-width="946" data-height="1000" src="https://cdn-images-1.medium.com/max/800/1*iGuE6fA1WJsoxhPqe-8jrQ.jpeg"></figure><h3 name="3993" id="3993" class="graf graf--h3 graf-after--figure">將 Simulated Metrics 下的 Top Bar 改成 Translucent Navigation Bar</h3><p name="f59b" id="f59b" class="graf graf--p graf-after--h3">設定 Top Bar 為 Translucent Navigation Bar，讓畫面的上方出現 navigation bar，方便我們待會在 bar 上加入 Bar Button Item。</p><figure name="e088" id="e088" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hEh6QpKtJ-4QepCyKXUzkA.jpeg" data-width="1018" data-height="974" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*hEh6QpKtJ-4QepCyKXUzkA.jpeg"></figure><p name="4f95" id="4f95" class="graf graf--p graf-after--figure">值得注意的，Simulated Metrics 的設定只影響 storyboard 顯示的畫面，不影響 App 執行後的畫面。由於此頁面將透過 navigation controller 的 pushViewController 呈現，因此 App 執行時，上方的確會有 navigation bar。倘若它不是以 navigation controller 加入，App 執行時，頁面的上方將不會出現 navigation bar。</p><h3 name="6a54" id="6a54" class="graf graf--h3 graf-after--p">加入 Navigation Item</h3><p name="f809" id="f809" class="graf graf--p graf-after--h3">為了將 Bar Button Item 加到 navigation bar，我們必須先加入 Navigation Item。</p><figure name="5b9a" id="5b9a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JSPAxE5dBzPvZ2oTC06SiQ.jpeg" data-width="1714" data-height="376" src="https://cdn-images-1.medium.com/max/800/1*JSPAxE5dBzPvZ2oTC06SiQ.jpeg"></figure><figure name="dcb3" id="dcb3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*dIpteDtK1axjINDpNehv-A.jpeg" data-width="1192" data-height="982" src="https://cdn-images-1.medium.com/max/800/1*dIpteDtK1axjINDpNehv-A.jpeg"></figure><h3 name="b1f8" id="b1f8" class="graf graf--h3 graf-after--figure">加入 Bar Button Item</h3><figure name="a0ba" id="a0ba" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*K97AciTv0NqpbzpN2uTGvA.jpeg" data-width="1708" data-height="478" src="https://cdn-images-1.medium.com/max/800/1*K97AciTv0NqpbzpN2uTGvA.jpeg"></figure><figure name="6111" id="6111" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*ZaELeTlUwwm6JyvjeJR52g.jpeg" data-width="1270" data-height="958" src="https://cdn-images-1.medium.com/max/800/1*ZaELeTlUwwm6JyvjeJR52g.jpeg"></figure><p name="d686" id="d686" class="graf graf--p graf-after--figure">大功告成 ! 感謝 Simulated Metrics 的幫忙，就算沒有連 segue，現在我們依然可以從 storyboard 加入 Bar Button Item 呢。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="6d12" id="6d12" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*9HYMd3TAkBK1eWPuhmZHkQ.jpeg" data-width="832" data-height="1556" src="https://cdn-images-1.medium.com/max/600/1*9HYMd3TAkBK1eWPuhmZHkQ.jpeg"></figure><figure name="4c04" id="4c04" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure graf--trailing" style="width: 50%;"><img class="graf-image" data-image-id="1*2TUDlxl_7Onw0mLI_4Uf2Q.jpeg" data-width="832" data-height="1556" src="https://cdn-images-1.medium.com/max/600/1*2TUDlxl_7Onw0mLI_4Uf2Q.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b89a855484ea"><time class="dt-published" datetime="2020-09-26T15:37:21.686Z">September 26, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-simulated-metrics-%E7%82%BA-controller-%E5%8A%A0%E4%B8%8A%E5%81%87%E7%9A%84-navigation-bar-b89a855484ea" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

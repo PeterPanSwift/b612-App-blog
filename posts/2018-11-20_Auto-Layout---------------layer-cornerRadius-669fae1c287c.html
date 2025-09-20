@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Auto Layout 的元件該在何時設定圓角的  layer.cornerRadius</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Auto Layout 的元件該在何時設定圓角的  layer.cornerRadius</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 UIView 的 layer.cornerRadius，我們可以設定元件的圓角，比方將正方形元件的 cornerRadius 設為它寬度的一半，將它變成圓形。
+</section>
+<section data-field="body" class="e-content">
+<section name="ad60" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="bf50" id="bf50" class="graf graf--h3 graf--leading graf--title">Auto Layout 的元件該在何時設定圓角的 layer.cornerRadius</h3></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="8da9" id="8da9" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--h3" style="width: 50.301%;"><img class="graf-image" data-image-id="1*w6Vy01B1EfcJ3blLRezvgA.jpeg" data-width="846" data-height="1446" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*w6Vy01B1EfcJ3blLRezvgA.jpeg"></figure><figure name="f058" id="f058" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 49.699%;"><img class="graf-image" data-image-id="1*w8Fr6KR_KVIzJ-A-q6Ug6g.jpeg" data-width="932" data-height="1612" src="https://cdn-images-1.medium.com/max/600/1*w8Fr6KR_KVIzJ-A-q6Ug6g.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="a4ee" id="a4ee" class="graf graf--p graf-after--figure">利用 UIView 的 layer.cornerRadius，我們可以設定元件的圓角，比方將正方形元件的 cornerRadius 設為它寬度的一半，將它變成圓形。</p><p name="5e12" id="5e12" class="graf graf--p graf-after--p">然而當元件的大小由 Auto Layout 設定，隨著不同的 iPhone 尺寸改變大小時，我們就不能寫死 cornerRadius 了。我們必須等 Auto Layout 算出元件的大小後，再計算 cornerRadius。所以計算 cornerRadius 的程式要寫在哪呢 ?</p><p name="51a9" id="51a9" class="graf graf--p graf-after--p">計算 cornerRadius 的程式要可寫在以下兩個地方。</p><ul class="postList"><li name="82f6" id="82f6" class="graf graf--li graf-after--p">在 controller 的 function viewDidLayoutSubviews 裡計算 cornerRadius。</li><li name="6c4e" id="6c4e" class="graf graf--li graf-after--li">自訂 View 元件的類別 ，在 function layoutSubviews 裡計算 cornerRadius。</li></ul><p name="80e6" id="80e6" class="graf graf--p graf-after--li">接下來我們將以米老鼠圖片變圓形為例，瞧瞧兩種不同的寫法。</p><h3 name="af21" id="af21" class="graf graf--h3 graf-after--p">ps: 在 iOS 15 可利用 UIButton.Configuration 設定 button 的圓角，不須另外計算圓角</h3><div name="a43f" id="a43f" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-ios-15-%E7%9A%84-uibutton-configuration-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E7%B6%AD%E6%8C%81%E6%AF%94%E4%BE%8B%E7%9A%84-button-324cfc95001c" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-ios-15-%E7%9A%84-uibutton-configuration-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E7%B6%AD%E6%8C%81%E6%AF%94%E4%BE%8B%E7%9A%84-button-324cfc95001c" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-ios-15-%E7%9A%84-uibutton-configuration-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E7%B6%AD%E6%8C%81%E6%AF%94%E4%BE%8B%E7%9A%84-button-324cfc95001c"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 iOS 15 的 UIButton.Configuration 實現圖片維持比例的 button，圓形 button &amp; 點選時變色</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們時常會想要圖片可以點選，其中的一個方法是用 button 的 image 顯示圖片。不過 button 顯示圖片時要注意變形問題。當 button 尺寸小於圖片尺寸時，若 button…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-ios-15-%E7%9A%84-uibutton-configuration-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E7%B6%AD%E6%8C%81%E6%AF%94%E4%BE%8B%E7%9A%84-button-324cfc95001c" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f977204e134512771ae996950b3c9597" data-thumbnail-img-id="1*fOe8O9ssVQlUjoIFS9NyAA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*fOe8O9ssVQlUjoIFS9NyAA.png);"></a></div><h3 name="de6c" id="de6c" class="graf graf--h3 graf-after--mixtapeEmbed"><strong class="markup--strong markup--h3-strong">1 在 controller 的 function viewDidLayoutSubviews 裡計算 cornerRadius。</strong></h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="776a" id="776a" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />   <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">var</span> mickyImageView: <span class="hljs-type">CircleImageView</span>!<br /><br />   <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLayoutSubviews</span>() {<br />      <span class="hljs-keyword">super</span>.viewDidLayoutSubviews()<br />      mickyImageView.layer.cornerRadius <span class="hljs-operator">=</span> mickyImageView.bounds.midX<br />   }</span></pre><div name="4d04" id="4d04" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621398-viewdidlayoutsubviews" data-href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621398-viewdidlayoutsubviews" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621398-viewdidlayoutsubviews"><strong class="markup--strong markup--mixtapeEmbed-strong">viewDidLayoutSubviews() | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Notifies the view controller when its view finishes laying out its subviews.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621398-viewdidlayoutsubviews" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="1368c391d62118d2632164e0480ee210" data-thumbnail-img-id="0*cYBSE9jPR6g4mlZh" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*cYBSE9jPR6g4mlZh);"></a></div><p name="6606" id="6606" class="graf graf--p graf-after--mixtapeEmbed">viewDidLayoutSubviews() 是 UIViewController 的 function，當它執行時，controller 畫面上的元件都已依 auto layout 的 constraint 得到位置大小，因此我們可用 <code class="markup--code markup--p-code">mickyImageView.layer.cornerRadius = mickyImageView.bounds.midX</code> 計算 cornerRadius。</p><p name="d5ac" id="d5ac" class="graf graf--p graf-after--p">除了利用 midX，也可以用寬度除以 2 的寫法。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="ec98" id="ec98" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">mickyImageView.layer.cornerRadius <span class="hljs-operator">=</span> mickyImageView.bounds.width <span class="hljs-operator">/</span> <span class="hljs-number">2</span></span></pre><h3 name="2cbf" id="2cbf" class="graf graf--h3 graf-after--pre"><strong class="markup--strong markup--h3-strong">2 自訂 View 元件的類別 ，在 function layoutSubviews 裡計算 cornerRadius。</strong></h3><figure name="a50f" id="a50f" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*m7ydjBdthbk30PIy046ehQ.jpeg" data-width="1054" data-height="716" src="https://cdn-images-1.medium.com/max/800/1*m7ydjBdthbk30PIy046ehQ.jpeg"></figure><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4914" id="4914" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">CircleImageView</span>: <span class="hljs-title class_">UIImageView</span> {<br /><br />   <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">layoutSubviews</span>() {<br />      <span class="hljs-keyword">super</span>.layoutSubviews()<br />      layer.cornerRadius <span class="hljs-operator">=</span> bounds.midX<br />   }<br />}</span></pre><div name="e24f" id="e24f" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/uikit/uiview/1622482-layoutsubviews" data-href="https://developer.apple.com/documentation/uikit/uiview/1622482-layoutsubviews" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiview/1622482-layoutsubviews"><strong class="markup--strong markup--mixtapeEmbed-strong">layoutSubviews() | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Lays out subviews.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiview/1622482-layoutsubviews" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d31aa81ecb42bee0fe856395be30642f" data-thumbnail-img-id="0*t6-ZUnlbXSrBlhSg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*t6-ZUnlbXSrBlhSg);"></a></div><p name="44a3" id="44a3" class="graf graf--p graf-after--mixtapeEmbed">layoutSubviews() 是 UIView 的 function，當它執行時，它會依據 auto layout 的 constraint 排版 subviews。當我們在 function layoutSubviews 的super.layoutSubviews() 後寫程式時，此時元件 self 自己和它的 subviews 都已依 auto layout 的 constraint 得到位置大小，因此我們可用 <code class="markup--code markup--p-code">layer.cornerRadius = bounds.midX</code> 計算 cornerRadius。</p><h3 name="1ba2" id="1ba2" class="graf graf--h3 graf-after--p">利用 iOS 15 的 UIButton.Configuration 實現圓形 button</h3><div name="7b86" id="7b86" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-ios-15-%E7%9A%84-uibutton-configuration-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E7%B6%AD%E6%8C%81%E6%AF%94%E4%BE%8B%E7%9A%84-button-324cfc95001c" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-ios-15-%E7%9A%84-uibutton-configuration-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E7%B6%AD%E6%8C%81%E6%AF%94%E4%BE%8B%E7%9A%84-button-324cfc95001c" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-ios-15-%E7%9A%84-uibutton-configuration-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E7%B6%AD%E6%8C%81%E6%AF%94%E4%BE%8B%E7%9A%84-button-324cfc95001c"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 iOS 15 的 UIButton.Configuration 實現圖片維持比例的 button，圓形 button &amp; 點選時變色</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們時常會想要圖片可以點選，其中的一個方法是用 button 的 image 顯示圖片。不過 button 顯示圖片時要注意變形問題。當 button 尺寸小於圖片尺寸時，若 button…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-ios-15-%E7%9A%84-uibutton-configuration-%E5%AF%A6%E7%8F%BE%E5%9C%96%E7%89%87%E7%B6%AD%E6%8C%81%E6%AF%94%E4%BE%8B%E7%9A%84-button-324cfc95001c" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f977204e134512771ae996950b3c9597" data-thumbnail-img-id="1*fOe8O9ssVQlUjoIFS9NyAA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*fOe8O9ssVQlUjoIFS9NyAA.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/669fae1c287c"><time class="dt-published" datetime="2018-11-20T04:14:24.901Z">November 20, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/auto-layout-%E7%9A%84%E5%85%83%E4%BB%B6%E8%A9%B2%E5%9C%A8%E4%BD%95%E6%99%82%E8%A8%AD%E5%AE%9A%E5%9C%93%E8%A7%92%E7%9A%84-layer-cornerradius-669fae1c287c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

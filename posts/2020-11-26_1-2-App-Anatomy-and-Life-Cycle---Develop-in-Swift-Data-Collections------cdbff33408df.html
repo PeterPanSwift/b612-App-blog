@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>1.2 App Anatomy and Life Cycle — Develop in Swift Data Collections 重點整理</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">1.2 App Anatomy and Life Cycle — Develop in Swift Data Collections 重點整理</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Lab — App Event Count
+</section>
+<section data-field="body" class="e-content">
+<section name="82ec" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c8fb" id="c8fb" class="graf graf--h3 graf--leading graf--title">1.2 App Anatomy and Life Cycle — Develop in Swift Data Collections 重點整理</h3><div name="b1e5" id="b1e5" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://books.apple.com/tw/book/develop-in-swift-data-collections/id6468968766?l=en-GB" data-href="https://books.apple.com/tw/book/develop-in-swift-data-collections/id6468968766?l=en-GB" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://books.apple.com/tw/book/develop-in-swift-data-collections/id6468968766?l=en-GB"><strong class="markup--strong markup--mixtapeEmbed-strong">‎Develop in Swift Data Collections</strong><br><em class="markup--em markup--mixtapeEmbed-em">Download and read the ebook version of Develop in Swift Data Collections by Apple Education on Apple Books. Students…</em>books.apple.com</a><a href="https://books.apple.com/tw/book/develop-in-swift-data-collections/id6468968766?l=en-GB" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="78d885ca96cb34318cb082ba9b854d8f" data-thumbnail-img-id="0*aImxItKr9gmGRQx-" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*aImxItKr9gmGRQx-);"></a></div><figure name="b70a" id="b70a" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*bm_FQ4oaf0SMjHNfCge_Vw.png" data-width="966" data-height="1066" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*bm_FQ4oaf0SMjHNfCge_Vw.png"></figure><figure name="754e" id="754e" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*i0PUpB3TAzBO0I0LQMmgRQ.png" data-width="1236" data-height="1280" src="https://cdn-images-1.medium.com/max/800/1*i0PUpB3TAzBO0I0LQMmgRQ.png"></figure><h3 name="eddd" id="eddd" class="graf graf--h3 graf-after--figure"><strong class="markup--strong markup--h3-strong">Lab — App Event Count</strong></h3><figure name="71fa" id="71fa" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*ENqRgGKYKrxH-oRAZ2Vemg.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/800/1*ENqRgGKYKrxH-oRAZ2Vemg.png"></figure><p name="de30" id="de30" class="graf graf--p graf-after--figure">說明:</p><ol class="postList"><li name="de40" id="de40" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">重點 function</strong></li></ol><ul class="postList"><li name="53c9" id="53c9" class="graf graf--li graf-after--li">AppDelegate</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="26c2" id="26c2" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content">application(<span class="hljs-keyword">_</span>:didFinishLaunchingWithOptions:) <br />application(<span class="hljs-keyword">_</span>:configurationForConnecting:options:)</span></pre><ul class="postList"><li name="1734" id="1734" class="graf graf--li graf-after--pre">SceneDelegate</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="07a1" id="07a1" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content">scene(<span class="hljs-keyword">_</span>:willConnectTo:options:)<br />sceneDidBecomeActive(<span class="hljs-keyword">_</span>:)<br />sceneWillResignActive(<span class="hljs-keyword">_</span>:),<br />sceneWillEnterForeground(<span class="hljs-keyword">_</span>:)<br />sceneDidEnterBackground(<span class="hljs-keyword">_</span>:)</span></pre><p name="e1c7" id="e1c7" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">ViewController 宣告 property appDelegate</strong></p><p name="a23e" id="a23e" class="graf graf--p graf-after--p">方便存取 appDelegate。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="bbda" id="bbda" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> appDelegate <span class="hljs-operator">=</span> <span class="hljs-type">UIApplication</span>.shared.delegate <span class="hljs-keyword">as!</span> <span class="hljs-type">AppDelegate</span></span></pre><p name="0a03" id="0a03" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">3. SceneDelegate 宣告 property viewController</strong></p><p name="40a4" id="40a4" class="graf graf--p graf-after--p">方便存取 viewController。從 window?.rootViewController 取得第一個畫面的 view controller。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="9dcc" id="9dcc" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SceneDelegate</span>: <span class="hljs-title class_">UIResponder</span>, <span class="hljs-title class_">UIWindowSceneDelegate</span> {<br /><br />    <span class="hljs-keyword">var</span> window: <span class="hljs-type">UIWindow</span>?<br />    <span class="hljs-keyword">var</span> viewController: <span class="hljs-type">ViewController</span>?<br /><br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">scene</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">scene</span>: <span class="hljs-type">UIScene</span>, <span class="hljs-params">willConnectTo</span> <span class="hljs-params">session</span>: <span class="hljs-type">UISceneSession</span>, <span class="hljs-params">options</span> <span class="hljs-params">connectionOptions</span>: <span class="hljs-type">UIScene</span>.<span class="hljs-type">ConnectionOptions</span>) {<br />        viewController <span class="hljs-operator">=</span> window<span class="hljs-operator">?</span>.rootViewController <span class="hljs-keyword">as?</span> <span class="hljs-type">ViewController</span></span></pre><p name="d20d" id="d20d" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">4. 在 sceneDidBecomeActive 更新 controller 畫面</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3f08" id="3f08" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">sceneDidBecomeActive</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">scene</span>: <span class="hljs-type">UIScene</span>) {<br />       <br />        viewController<span class="hljs-operator">?</span>.didBecomeActiveCount <span class="hljs-operator">+=</span> <span class="hljs-number">1</span><br />        viewController<span class="hljs-operator">?</span>.updateView()<br />}</span></pre><h3 name="a56d" id="a56d" class="graf graf--h3 graf-after--pre">參考連結</h3><ul class="postList"><li name="659f" id="659f" class="graf graf--li graf-after--h3"><strong class="markup--strong markup--li-strong">App and Environment</strong></li></ul><div name="e6d5" id="e6d5" class="graf graf--mixtapeEmbed graf-after--li"><a href="https://developer.apple.com/documentation/uikit/app_and_environment" data-href="https://developer.apple.com/documentation/uikit/app_and_environment" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/app_and_environment"><strong class="markup--strong markup--mixtapeEmbed-strong">App and environment | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Manage life-cycle events and your app&#39;s UI scenes, and get information about traits and the environment in which your…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/app_and_environment" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="492d8eeb9081c886154ca7347a5871d4" data-thumbnail-img-id="0*WxqN7b9Hd25zR5J_" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*WxqN7b9Hd25zR5J_);"></a></div><ul class="postList"><li name="bbab" id="bbab" class="graf graf--li graf-after--mixtapeEmbed"><strong class="markup--strong markup--li-strong">Managing Your App’s Life Cycle</strong></li></ul><div name="4e9d" id="4e9d" class="graf graf--mixtapeEmbed graf-after--li graf--trailing"><a href="https://developer.apple.com/documentation/uikit/app_and_environment/managing_your_app_s_life_cycle" data-href="https://developer.apple.com/documentation/uikit/app_and_environment/managing_your_app_s_life_cycle" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/app_and_environment/managing_your_app_s_life_cycle"><strong class="markup--strong markup--mixtapeEmbed-strong">Managing your app&#39;s life cycle | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Respond to system notifications when your app is in the foreground or background, and handle other significant…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/app_and_environment/managing_your_app_s_life_cycle" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="10879ce84fbac71a29f61fc8a8c90b4b" data-thumbnail-img-id="0*CtvP_JnCJEDTfcBI" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*CtvP_JnCJEDTfcBI);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/cdbff33408df"><time class="dt-published" datetime="2020-11-26T07:30:03.378Z">November 26, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/1-2-app-anatomy-and-life-cycle-develop-in-swift-data-collections-%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86-cdbff33408df" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

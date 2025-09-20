@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓失去用武之地的 text field 游標消失 !</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓失去用武之地的 text field 游標消失 !</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+text field 有個閃閃發亮的游標，方便我們移動游標，輸入文字在想要的位置，但是有些時候，我們並不想看到它 ! 比方當 text field 的輸入鍵盤變成 date picker 時。
+</section>
+<section data-field="body" class="e-content">
+<section name="71d9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c806" id="c806" class="graf graf--h3 graf--leading graf--title">讓失去用武之地的 text field 游標消失 !</h3><p name="9770" id="9770" class="graf graf--p graf-after--h3">text field 有個閃閃發亮的游標，方便我們移動游標，輸入文字在想要的位置，但是有些時候，我們並不想看到它 ! 比方當 text field 的輸入鍵盤變成 date picker 時。</p><pre name="82b2" id="82b2" class="graf graf--pre graf-after--p">@IBOutlet weak var textField: UITextField!</pre><pre name="f59d" id="f59d" class="graf graf--pre graf-after--pre">@IBOutlet var datePicker: UIDatePicker!</pre><pre name="0965" id="0965" class="graf graf--pre graf-after--pre">override func viewDidLoad() {</pre><pre name="6e7c" id="6e7c" class="graf graf--pre graf-after--pre">   super.viewDidLoad()</pre><pre name="6807" id="6807" class="graf graf--pre graf-after--pre">   textField.inputView = datePicker</pre><figure name="67a0" id="67a0" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*2bdiN8wbOjcxUBkxNotpuA.jpeg" data-width="558" data-height="1002" src="https://cdn-images-1.medium.com/max/800/1*2bdiN8wbOjcxUBkxNotpuA.jpeg"></figure><p name="ecc3" id="ecc3" class="graf graf--p graf-after--figure">此時我們希望使用者從 date picker 選擇日期，所以游標毫無用武之地。讓它消失的方法很簡單，只要將 text field 的 tintColor 設為透明色即可。</p><pre name="f98e" id="f98e" class="graf graf--pre graf-after--p">textField.tintColor = UIColor.clear</pre><figure name="b81b" id="b81b" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*4FOU3sMWL1kY9Rz_swnHHA.jpeg" data-width="560" data-height="998" src="https://cdn-images-1.medium.com/max/800/1*4FOU3sMWL1kY9Rz_swnHHA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/da25fbbe383a"><time class="dt-published" datetime="2016-12-30T13:36:07.985Z">December 30, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AE%93%E5%A4%B1%E5%8E%BB%E7%94%A8%E6%AD%A6%E4%B9%8B%E5%9C%B0%E7%9A%84-text-field-%E6%B8%B8%E6%A8%99%E6%B6%88%E5%A4%B1-da25fbbe383a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

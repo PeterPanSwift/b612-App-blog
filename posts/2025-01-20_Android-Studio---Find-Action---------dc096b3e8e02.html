@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Android Studio 的 Find Action 快速鍵衝突問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Android Studio 的 Find Action 快速鍵衝突問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在 Android Studio 我們時常利用 Find Action 的快速鍵 cmd + shift + a 輸入指令，不過最近彼得潘按下 cmd + shift + a 遇到了 Shortcuts conflicts 的問題，原來它跟 macOS 內建的快速鍵起了衝突。
+</section>
+<section data-field="body" class="e-content">
+<section name="db99" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="74df" id="74df" class="graf graf--h3 graf--leading graf--title">Android Studio 的 Find Action 快速鍵衝突問題</h3><p name="d941" id="d941" class="graf graf--p graf-after--h3">在 Android Studio 我們時常利用 Find Action 的快速鍵 cmd + shift + a 輸入指令，不過最近彼得潘按下 cmd + shift + a 遇到了 Shortcuts conflicts 的問題，原來它跟 macOS 內建的快速鍵起了衝突。</p><figure name="1a61" id="1a61" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1t1scbVvi8lUr3viwVHiYA.png" data-width="812" data-height="272" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*1t1scbVvi8lUr3viwVHiYA.png"></figure><p name="44bb" id="44bb" class="graf graf--p graf-after--figure">點選 Modify Shortcuts 後看到 Find Actions 的快速鍵有衝突。</p><figure name="4bcf" id="4bcf" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xLrLN1hVKCNb8-xzJRH_tQ.png" data-width="1634" data-height="1474" src="https://cdn-images-1.medium.com/max/800/1*xLrLN1hVKCNb8-xzJRH_tQ.png"></figure><p name="3c87" id="3c87" class="graf graf--p graf-after--figure">甚至它還會在按下 cmd + shift + a 時跳出 Terminal 視窗，無法正常地輸入指令。</p><figure name="4ca7" id="4ca7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*wtFM8v9rKS5P9UhYxEUI4w.png" data-width="1136" data-height="1404" src="https://cdn-images-1.medium.com/max/800/1*wtFM8v9rKS5P9UhYxEUI4w.png"></figure><p name="9a32" id="9a32" class="graf graf--p graf-after--figure">解決的方法是關掉 macOS 內建快速鍵的 cmd + shift + a。</p><p name="84dd" id="84dd" class="graf graf--p graf-after--p">打開 System Settings App，點選 Keyboard 下的 Keyboard shortcuts。</p><figure name="58ee" id="58ee" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TvG5WQelo9EH299UfSc-1A.png" data-width="1430" data-height="1408" src="https://cdn-images-1.medium.com/max/800/1*TvG5WQelo9EH299UfSc-1A.png"></figure><p name="6879" id="6879" class="graf graf--p graf-after--figure">點選 Services，展開 Text 下的項目。</p><figure name="fdb5" id="fdb5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YuZugsjZdPSWvNrxK3vKLg.png" data-width="1376" data-height="924" src="https://cdn-images-1.medium.com/max/800/1*YuZugsjZdPSWvNrxK3vKLg.png"></figure><p name="f388" id="f388" class="graf graf--p graf-after--figure">取消 Search man Page in Terminal 的勾選。</p><figure name="7ae8" id="7ae8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6IlLE1iPZ-Rzumx7sMkX2A.png" data-width="1376" data-height="908" src="https://cdn-images-1.medium.com/max/800/1*6IlLE1iPZ-Rzumx7sMkX2A.png"></figure><h3 name="03a6" id="03a6" class="graf graf--h3 graf-after--figure">參考連結</h3><div name="cbe0" id="cbe0" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog" data-href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog"><strong class="markup--strong markup--mixtapeEmbed-strong">Cmd+Shift+A hotkey opens Terminal with &quot;apropos&quot; search instead of the Find Action dialog</strong><br><em class="markup--em markup--mixtapeEmbed-em">Symptoms When Cmd+Shift+A hotkey is invoked, Terminal search opens with &quot;appropos&quot; command instead of the Find Action…</em>intellij-support.jetbrains.com</a><a href="https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="2b9d90fc3df988b7d8e54dabd8b4838e" data-thumbnail-img-id="0*Ujk8_9gZTC-6wNZt" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Ujk8_9gZTC-6wNZt);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/dc096b3e8e02"><time class="dt-published" datetime="2025-01-20T05:52:53.544Z">January 20, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/android-studio-%E7%9A%84-find-action-%E5%BF%AB%E9%80%9F%E9%8D%B5%E8%A1%9D%E7%AA%81%E5%95%8F%E9%A1%8C-dc096b3e8e02" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

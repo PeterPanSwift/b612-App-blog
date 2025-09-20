@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>childNode(withName:) 搭配雙斜線 recursive 尋找 node tree 的 node</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">childNode(withName:) 搭配雙斜線 recursive 尋找 node tree 的 node</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+使用 SpriteKit 開發 iOS App 時，我們時常使用 childNode(withName:) 尋找 scene 裡 node tree 的 node，參數 withName 可傳入的資料有以下兩種:
+</section>
+<section data-field="body" class="e-content">
+<section name="d1b0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c221" id="c221" class="graf graf--h3 graf--leading graf--title">childNode(withName:) 搭配雙斜線 recursive 尋找 node tree 的 node</h3><figure name="8b97" id="8b97" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*rAahULSWrUbyNNakCKtffw.png" data-width="1734" data-height="1150" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*rAahULSWrUbyNNakCKtffw.png"></figure><p name="b3ca" id="b3ca" class="graf graf--p graf-after--figure">使用 SpriteKit 開發 iOS App 時，我們時常使用 childNode(withName:) 尋找 scene 裡 node tree 的 node，參數 withName 可傳入的資料有以下兩種:</p><ul class="postList"><li name="83e5" id="83e5" class="graf graf--li graf-after--p">傳入 node 的名字。</li></ul><p name="597b" id="597b" class="graf graf--p graf-after--li">用 <code class="markup--code markup--p-code">childNode(withName: &quot;movieTitle&quot;) </code>找出名字是 movieTitle 的 node。</p><figure name="07a9" id="07a9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sZGibWNQ2c7f-XWoxmXTYw.png" data-width="524" data-height="222" src="https://cdn-images-1.medium.com/max/800/1*sZGibWNQ2c7f-XWoxmXTYw.png"></figure><ul class="postList"><li name="0fb5" id="0fb5" class="graf graf--li graf-after--figure">傳入 node 的型別名字。</li></ul><p name="77d8" id="77d8" class="graf graf--p graf-after--li">用 <code class="markup--code markup--p-code">childNode(withName: &quot;Player&quot;) </code>找出型別是 Player 的 node。</p><figure name="4597" id="4597" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*FM0LN8YYW13Nq_6UBTsgmw.png" data-width="528" data-height="308" src="https://cdn-images-1.medium.com/max/800/1*FM0LN8YYW13Nq_6UBTsgmw.png"></figure><p name="c1c6" id="c1c6" class="graf graf--p graf-after--figure">不過有時我們會看到參數 withName 的字串開頭出現雙斜線，這是什麼意思呢？</p><pre name="087c" id="087c" class="graf graf--pre graf-after--p">let movieImageNode = childNode(withName: &quot;//movieTitle&quot;)</pre><p name="f66b" id="f66b" class="graf graf--p graf-after--pre">沒有雙斜線時，childNode 只會找下一層名為 movieTitle 的 node。有雙斜線時，它將不只找下一層。它將一路找到底，下下層，下下下層都會找，直到找到名為 movieTitle 的 node。若是不幸找遍所有的下層都還是找不到，它才會死心地回傳 nil。</p><p name="dc4b" id="dc4b" class="graf graf--p graf-after--p">比方下圖的 node Scene 下有 node movieImage，node movieImage 下有 node movieTitle。</p><figure name="d7c4" id="d7c4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Dn1X_R8d1GGSbHYnD_e_Xw.png" data-width="2248" data-height="1008" src="https://cdn-images-1.medium.com/max/800/1*Dn1X_R8d1GGSbHYnD_e_Xw.png"></figure><p name="74a8" id="74a8" class="graf graf--p graf-after--figure">當我們在程式裡從 scene node 呼叫 childNode(withName:) 找尋 movieTitle 時，<code class="markup--code markup--p-code">childNode(withName: &quot;movieTitle&quot;) </code>將得到 nil，因為 movieTitle 不是 scene 的下一層，必須用<code class="markup--code markup--p-code"> childNode(withName: &quot;//movieTitle&quot;)</code> 才能得到 node。</p><pre name="eafd" id="eafd" class="graf graf--pre graf-after--p">class GameScene: SKScene {<br>   <br>    override func didMove(to view: SKView) {<br>        var movieTitleNode = childNode(withName: &quot;movieTitle&quot;)<br>        print(&quot;movieTitleNode&quot;, movieTitleNode)<br>        movieTitleNode = childNode(withName: &quot;//movieTitle&quot;)<br>        print(&quot;movieTitleNode&quot;, movieTitleNode)<br>    }</pre><h3 name="5496" id="5496" class="graf graf--h3 graf-after--pre">進階搜尋</h3><p name="e354" id="e354" class="graf graf--p graf-after--h3">除了雙斜線，還有很多其它進階搜尋 node 的技巧，相關說明可參考 Apple Searching the Node Tree 裡的 Use an Advanced Search。</p><div name="1ba2" id="1ba2" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://developer.apple.com/documentation/spritekit/sknode/searching_the_node_tree" data-href="https://developer.apple.com/documentation/spritekit/sknode/searching_the_node_tree" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/spritekit/sknode/searching_the_node_tree"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/spritekit/sknode/searching_the_node_tree" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="6897dccdeda0f9aaeeae60b5bdb4e352"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/34670ba71ce2"><time class="dt-published" datetime="2022-02-01T10:07:27.262Z">February 1, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/childnode-withname-%E6%90%AD%E9%85%8D%E9%9B%99%E6%96%9C%E7%B7%9A-recursive-%E5%B0%8B%E6%89%BE-node-tree-%E7%9A%84-node-34670ba71ce2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

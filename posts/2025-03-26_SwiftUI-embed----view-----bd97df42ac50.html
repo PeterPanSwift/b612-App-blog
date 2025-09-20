@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI embed 多個 view 的方法</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI embed 多個 view 的方法</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 SwiftUI App 時，我們時常會用 VStack、HStack、List 等容器元件包住多個元件，比方以下例子。
+</section>
+<section data-field="body" class="e-content">
+<section name="0699" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="08bc" id="08bc" class="graf graf--h3 graf--leading graf--title">SwiftUI embed 多個 view 的方法</h3><p name="ff15" id="ff15" class="graf graf--p graf-after--h3">開發 SwiftUI App 時，我們時常會用 VStack、HStack、List 等容器元件包住多個元件，比方以下例子。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="7615" id="7615" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span> {<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;小王子&quot;</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;玫瑰&quot;</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;狐狸&quot;</span>)<br />}</span></pre><p name="5fb2" id="5fb2" class="graf graf--p graf-after--pre">Xcode 的右鍵選單提供方便的 Embed 功能讓我們快速加入容器元件，然而它卻不夠聰明，它目前只能包住一個元件。</p><p name="e39e" id="e39e" class="graf graf--p graf-after--p">下圖我們選取 3 個 Text，點選 Embed 後卻只包含第一個 Text。</p><figure name="33b1" id="33b1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LSGaeGVCte23-pCH1VzUcQ.png" data-width="926" data-height="440" src="https://cdn-images-1.medium.com/max/800/1*LSGaeGVCte23-pCH1VzUcQ.png"></figure><figure name="de70" id="de70" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*N9_Z1_lutBXkqslYIqRJfg.png" data-width="490" data-height="342" src="https://cdn-images-1.medium.com/max/800/1*N9_Z1_lutBXkqslYIqRJfg.png"></figure><p name="84d5" id="84d5" class="graf graf--p graf-after--figure">若想 embed 多個 view，目前有以下幾種方法。</p><ul class="postList"><li name="51f7" id="51f7" class="graf graf--li graf-after--p">將多行程式快速 embed 的手動輸入法。</li><li name="4c62" id="4c62" class="graf graf--li graf-after--li">點選 embed 再手動調整。</li><li name="c1e4" id="c1e4" class="graf graf--li graf-after--li">請 AI 幫忙。</li></ul><h3 name="e670" id="e670" class="graf graf--h3 graf-after--li">將多行程式快速 embed 的手動輸入法</h3><div name="2577" id="2577" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-14-%E5%B0%87%E5%A4%9A%E8%A1%8C%E7%A8%8B%E5%BC%8F%E5%BF%AB%E9%80%9F-embed-%E7%9A%84%E6%96%B9%E6%B3%95-255f3f9c83" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-14-%E5%B0%87%E5%A4%9A%E8%A1%8C%E7%A8%8B%E5%BC%8F%E5%BF%AB%E9%80%9F-embed-%E7%9A%84%E6%96%B9%E6%B3%95-255f3f9c83" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-14-%E5%B0%87%E5%A4%9A%E8%A1%8C%E7%A8%8B%E5%BC%8F%E5%BF%AB%E9%80%9F-embed-%E7%9A%84%E6%96%B9%E6%B3%95-255f3f9c83"><strong class="markup--strong markup--mixtapeEmbed-strong">將多行程式快速 embed 的方法 — Xcode 14 新功能</strong><br><em class="markup--em markup--mixtapeEmbed-em">從 Xcode 14 開始，我們可以快速地將多行程式 embed，比方將兩個 Text embed 在 VStack。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-14-%E5%B0%87%E5%A4%9A%E8%A1%8C%E7%A8%8B%E5%BC%8F%E5%BF%AB%E9%80%9F-embed-%E7%9A%84%E6%96%B9%E6%B3%95-255f3f9c83" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="1228ca7dbec6f79eb9ae93305a470109" data-thumbnail-img-id="1*onvKlXU0fBOJK19Cuy0Q9g.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*onvKlXU0fBOJK19Cuy0Q9g.png);"></a></div><h3 name="e703" id="e703" class="graf graf--h3 graf-after--mixtapeEmbed">點選 Embed 再手動調整</h3><p name="18bb" id="18bb" class="graf graf--p graf-after--h3">點選 Embed 先包住第一個元件，在框框裡輸入 VStack。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f737" id="f737" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span> {<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;小王子&quot;</span>)<br />}<br /><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;玫瑰&quot;</span>)<br /><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;狐狸&quot;</span>)</span></pre><p name="8ab7" id="8ab7" class="graf graf--p graf-after--pre">選取其它元件。</p><figure name="3fd0" id="3fd0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*J0px3pjb88tiMzSgTe2RYA.png" data-width="718" data-height="502" src="https://cdn-images-1.medium.com/max/800/1*J0px3pjb88tiMzSgTe2RYA.png"></figure><p name="ebb7" id="ebb7" class="graf graf--p graf-after--figure">按下 Move Line Up 將選取的程式上移。(快速鍵 <code class="markup--code markup--p-code">cmd + option + [ </code>)。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="5e66" id="5e66" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span> {<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;小王子&quot;</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;玫瑰&quot;</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;狐狸&quot;</span>)<br />}</span></pre><h3 name="d35c" id="d35c" class="graf graf--h3 graf-after--pre">請 AI 幫忙</h3><p name="b281" id="b281" class="graf graf--p graf-after--h3">選取程式後請 AI embed in VStack。</p><ul class="postList"><li name="e687" id="e687" class="graf graf--li graf-after--p">使用 Xcode 。</li></ul><p name="d7bd" id="d7bd" class="graf graf--p graf-after--li">選取程式後叫出 Coding tools。</p><figure name="27c3" id="27c3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*d9Yp6V4JeWAijfFuF6-MSw.png" data-width="2064" data-height="432" src="https://cdn-images-1.medium.com/max/800/1*d9Yp6V4JeWAijfFuF6-MSw.png"></figure><p name="a8e4" id="a8e4" class="graf graf--p graf-after--figure">輸入 embed in VStack。</p><figure name="49f6" id="49f6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*g36jTVzkdUWOngL04rWEsA.png" data-width="2102" data-height="242" src="https://cdn-images-1.medium.com/max/800/1*g36jTVzkdUWOngL04rWEsA.png"></figure><p name="5c38" id="5c38" class="graf graf--p graf-after--figure">生成包住三個 Text 的 VStack { }。</p><figure name="edab" id="edab" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kD4tq6mY26-sMEgvLeZZsg.png" data-width="810" data-height="838" src="https://cdn-images-1.medium.com/max/800/1*kD4tq6mY26-sMEgvLeZZsg.png"></figure><ul class="postList"><li name="1fdd" id="1fdd" class="graf graf--li graf-after--figure">使用 VS Code。</li></ul><p name="8be8" id="8be8" class="graf graf--p graf-after--li">選取程式後，點選燈泡後點選 Modify using Copilot。</p><figure name="5218" id="5218" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gmZiw3FlkKr7jtlEoeq0fQ.png" data-width="942" data-height="722" src="https://cdn-images-1.medium.com/max/800/1*gmZiw3FlkKr7jtlEoeq0fQ.png"></figure><p name="7112" id="7112" class="graf graf--p graf-after--figure">手打或語音輸入 embed in VStack。</p><figure name="6825" id="6825" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*s9Px_uL7lhRMnwxFv2zCjA.png" data-width="1958" data-height="524" src="https://cdn-images-1.medium.com/max/800/1*s9Px_uL7lhRMnwxFv2zCjA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/bd97df42ac50"><time class="dt-published" datetime="2025-03-26T07:10:41.667Z">March 26, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-embed-%E5%A4%9A%E5%80%8B-view-%E7%9A%84%E6%96%B9%E6%B3%95-bd97df42ac50" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

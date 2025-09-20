@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SPM 加入的套件找不到 ? No such module xxx</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SPM 加入的套件找不到 ? No such module xxx</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近有同學使用 Xcode 的 SPM 加入套件時遇到問題，明明套件已經出現在 Package Dependencies 下，import 時卻顯示 No such module。
+</section>
+<section data-field="body" class="e-content">
+<section name="d40e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="48b6" id="48b6" class="graf graf--h3 graf--leading graf--title">SPM 加入的套件找不到 ? No such module xxx</h3><p name="6f9b" id="6f9b" class="graf graf--p graf-after--h3">最近有同學使用 Xcode 的 SPM 加入套件時遇到問題，明明套件已經出現在 Package Dependencies 下，import 時卻顯示 No such module。</p><p name="bf83" id="bf83" class="graf graf--p graf-after--p">以下我們以套件 DotLottie 為例說明問題發生的原因。</p><figure name="fab7" id="fab7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6hoxUzZcijekIE2wv98PRQ.png" data-width="794" data-height="780" src="https://cdn-images-1.medium.com/max/800/1*6hoxUzZcijekIE2wv98PRQ.png"></figure><figure name="dab3" id="dab3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*h_WQjguWfuQSrIYdY0lCOw.png" data-width="588" data-height="117" src="https://cdn-images-1.medium.com/max/800/1*h_WQjguWfuQSrIYdY0lCOw.png"></figure><p name="9b68" id="9b68" class="graf graf--p graf-after--figure">問題出在當我們加入套件時，Add to Target 必須選到代表 App 的 target，如此才代表套件有加到 App 裡。</p><p name="f00d" id="f00d" class="graf graf--p graf-after--p">當專案只有一個 target，且 target 就是我們生成的 App 時，Add to Target 預設會選到它，因此 App 能順利找到套件。</p><figure name="ec1f" id="ec1f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0_-0lDb0AsBZ1dUx-JOoTQ.png" data-width="1316" data-height="600" src="https://cdn-images-1.medium.com/max/800/1*0_-0lDb0AsBZ1dUx-JOoTQ.png"></figure><p name="6bdb" id="6bdb" class="graf graf--p graf-after--figure">然而當專案有多個 target 時，Add to Target 預設為 None。</p><figure name="b244" id="b244" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*i_Te_BNNASbPfI1UiS4DmQ.png" data-width="668" data-height="311" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*i_Te_BNNASbPfI1UiS4DmQ.png"></figure><p name="1b2e" id="1b2e" class="graf graf--p graf-after--figure">我們必須自己從 Add to Target 的選單裡選擇代表 App 的 target，才不會出現 App 找不到套件的錯誤(No such module)。</p><figure name="64dd" id="64dd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5cKZa6mHCMMjZlSH_WHtaw.png" data-width="1335" data-height="650" src="https://cdn-images-1.medium.com/max/800/1*5cKZa6mHCMMjZlSH_WHtaw.png"></figure><p name="b771" id="b771" class="graf graf--p graf-after--figure">為什麼會有多個 target 呢 ? 通常跟一開始建立專案的設定有關。有些同學在建專案時設定到 Testing System，因此多了一些跟測試有關的 target。</p><figure name="b745" id="b745" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*RuDzBSpz4ewRDGQZVhbtvw.png" data-width="1466" data-height="1032" src="https://cdn-images-1.medium.com/max/800/1*RuDzBSpz4ewRDGQZVhbtvw.png"></figure><p name="645e" id="645e" class="graf graf--p graf-after--figure graf--trailing">若是剛開始學習的初學者，建議 Testing System 選擇 None，因為 Test 是較進階的技術，可以等未來學會測試相關技術後再加入。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b9ee55f30f7b"><time class="dt-published" datetime="2024-12-16T03:39:30.244Z">December 16, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/spm-%E5%8A%A0%E5%85%A5%E7%9A%84%E5%A5%97%E4%BB%B6%E6%89%BE%E4%B8%8D%E5%88%B0-no-such-module-xxx-b9ee55f30f7b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>macOS App 的網路連線問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">macOS App 的網路連線問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近開發 macOS App 時發現無法串接網路上的 API 抓取資料，比方以下透過 URLSession 抓取 MOPCON22 彼得潘簡介的 JSON，然而卻一無所獲，完全抓不到 !
+</section>
+<section data-field="body" class="e-content">
+<section name="dead" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c584" id="c584" class="graf graf--h3 graf--leading graf--title">macOS App 的網路連線問題</h3><p name="9451" id="9451" class="graf graf--p graf-after--h3">最近開發 macOS App 時發現無法串接網路上的 API 抓取資料，比方以下透過 URLSession 抓取 MOPCON22 彼得潘簡介的 JSON，結果卻一無所獲，完全抓不到 !</p><pre name="aef0" id="aef0" class="graf graf--pre graf-after--p">let url = URL(string: &quot;<a href="https://mopcon.org/api/2022/speaker/214" data-href="https://mopcon.org/api/2022/speaker/214" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://mopcon.org/api/2022/speaker/214</a>&quot;)!<br>do {<br>    let (data, _) = try await URLSession.shared.data(from: url)<br>    print(data)<br>} catch {<br>    print(error)<br>}</pre><p name="7d08" id="7d08" class="graf graf--p graf-after--pre">Xcode 印出許多錯誤訊息，比較重要的有以下兩個錯誤。</p><ul class="postList"><li name="a6ea" id="a6ea" class="graf graf--li graf-after--p">錯誤 1</li></ul><pre name="140c" id="140c" class="graf graf--pre graf-after--li">networkd_settings_read_from_file Sandbox is preventing this process from reading networkd settings file at &quot;/Library/Preferences/com.apple.networkd.plist&quot;, please add an exception</pre><ul class="postList"><li name="5e1d" id="5e1d" class="graf graf--li graf-after--pre">錯誤 2</li></ul><pre name="3dfa" id="3dfa" class="graf graf--pre graf-after--li">Error Domain=NSURLErrorDomain Code=-1003 &quot;A server with the specified hostname could not be found.&quot; UserInfo={_kCFStreamErrorCodeKey=-72000, NSUnderlyingError=0x600003f9e700 {Error Domain=kCFErrorDomainCFNetwork Code=-1003 &quot;(null)&quot; UserInfo={_NSURLErrorNWPathKey=satisfied (Path is satisfied), interface: en7, ipv4, ipv6, dns, expensive, constrained, _kCFStreamErrorCodeKey=-72000, _kCFStreamErrorDomainKey=10}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask &lt;5BD15161-C2E5-44DF-ABC7-23891C31ECBE&gt;.&lt;1&gt;, _NSURLErrorRelatedURLSessionTaskErrorKey=(<br>    &quot;LocalDataTask &lt;5BD15161-C2E5-44DF-ABC7-23891C31ECBE&gt;.&lt;1&gt;&quot;<br>), NSLocalizedDescription=A server with the specified hostname could not be found., NSErrorFailingURLStringKey=<a href="https://mopcon.org/api/2022/speaker/214" data-href="https://mopcon.org/api/2022/speaker/214" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://mopcon.org/api/2022/speaker/214</a>, NSErrorFailingURLKey=<a href="https://mopcon.org/api/2022/speaker/214" data-href="https://mopcon.org/api/2022/speaker/214" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://mopcon.org/api/2022/speaker/214</a>, _kCFStreamErrorDomainKey=10}</pre><p name="0e38" id="0e38" class="graf graf--p graf-after--pre">為什麼不能連線呢？這是因為 macOS App 很重視安全，所以預設不讓我們接觸網路，畢竟網路上藏著許多可怕的東西。</p><p name="a94f" id="a94f" class="graf graf--p graf-after--p">不過想要的話，我們還是可以解除封印，抓取網路上的資料。</p><p name="b968" id="b968" class="graf graf--p graf-after--p">切換到 App 的 Signing &amp; Capabilities 頁面，找到 App Sandbox 區塊，勾選 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">Outgoing Connections (Client)</strong></code> 即可讓 macOS App 串接網路上的 API。</p><figure name="6ed4" id="6ed4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lhkcAiB-zgppnOmlothlBA.png" data-width="2006" data-height="996" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*lhkcAiB-zgppnOmlothlBA.png"></figure><p name="42f4" id="42f4" class="graf graf--p graf-after--figure">以下為 macOS App 成功抓取 MOPCON22 彼得潘簡介 JSON 後顯示的畫面。</p><figure name="c58e" id="c58e" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*ek39RRdNM54GLeqlu1u-2Q.png" data-width="1972" data-height="1172" src="https://cdn-images-1.medium.com/max/800/1*ek39RRdNM54GLeqlu1u-2Q.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8f7cac9292ab"><time class="dt-published" datetime="2022-10-09T15:45:56.854Z">October 9, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/macos-app-%E7%9A%84%E7%B6%B2%E8%B7%AF%E9%80%A3%E7%B7%9A%E5%95%8F%E9%A1%8C-8f7cac9292ab" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

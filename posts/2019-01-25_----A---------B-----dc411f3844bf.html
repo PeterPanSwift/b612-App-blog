@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從型別 A 的東西得到型別 B 的東西</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從型別 A 的東西得到型別 B 的東西</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+就像人跟鬼不能在一起，當我們在程式裡將東西儲存到變數時，東西的型別必須符合變數的型別，但時常我們手上的東西卻是另外一個型別，因此必須想盡辦法生出變數需要的東西。
+</section>
+<section data-field="body" class="e-content">
+<section name="5792" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="464f" id="464f" class="graf graf--h3 graf--leading graf--title">從型別 A 的東西得到型別 B 的東西</h3><p name="8dc3" id="8dc3" class="graf graf--p graf-after--h3">就像人跟鬼不能在一起，當我們在程式裡將東西儲存到變數時，東西的型別必須符合變數的型別，但時常我們手上的東西卻是另外一個型別，因此必須想盡辦法生出變數需要的東西。</p><p name="82eb" id="82eb" class="graf graf--p graf-after--p">假設原本的東西是型別 A，而我們需要的東西是型別 B，開發 iOS App 時常見的解法有以下兩種:</p><blockquote name="b364" id="b364" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">解法1: 利用 </strong><code class="markup--code markup--blockquote-code"><strong class="markup--strong markup--blockquote-strong">型別B(參數: 型別A)</strong></code><strong class="markup--strong markup--blockquote-strong"> 生出型別 B 的東西。</strong></blockquote><p name="466e" id="466e" class="graf graf--p graf-after--blockquote">從浮點數生出整數，因此 number2 會得到 10。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="c720" id="c720" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> number1 <span class="hljs-operator">=</span> <span class="hljs-number">10.3</span><br /><span class="hljs-keyword">let</span> number2 <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>(number1)</span></pre><blockquote name="17f2" id="17f2" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">解法2: 讀取型別 A 東西的 property，剛好此 property 的型別為型別 B。</strong></blockquote><p name="021f" id="021f" class="graf graf--p graf-after--blockquote">以設定 label 的邊框顏色為例。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a493" id="a493" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> label <span class="hljs-operator">=</span> <span class="hljs-type">UILabel</span>()<br />label.layer.borderWidth <span class="hljs-operator">=</span> <span class="hljs-number">10</span><br />label.layer.borderColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>(red: <span class="hljs-number">1</span>, green: <span class="hljs-number">0</span>, blue: <span class="hljs-number">0</span>, alpha: <span class="hljs-number">1</span>).cgColor</span></pre><p name="04e1" id="04e1" class="graf graf--p graf-after--pre">borderColor 的型別是 CGColor，但我們在程式裡習慣產生的顏色的型別卻是 UIColor，因此我們得想辦法從 UIColor 生出 CGColor。</p><figure name="8d73" id="8d73" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ORmtAY51MPxPilxKchfhKg.jpeg" data-width="1104" data-height="320" src="https://cdn-images-1.medium.com/max/800/1*ORmtAY51MPxPilxKchfhKg.jpeg"></figure><figure name="6f41" id="6f41" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*CXgQe3KYrWd30t8On0-pAw.jpeg" data-width="1788" data-height="368" src="https://cdn-images-1.medium.com/max/800/1*CXgQe3KYrWd30t8On0-pAw.jpeg"><figcaption class="imageCaption">borderColor 的型別是 CGColor，因此不接受型別 UIColor 的東西</figcaption></figure><p name="3ebc" id="3ebc" class="graf graf--p graf-after--figure">也許你會想依樣畫葫蘆，猜想是否能用 CGColor( ) ，然後在 ( ) 裡傳入 型別 UIColor 的資料生出型別 CGColor 的東西?</p><p name="c7e3" id="c7e3" class="graf graf--p graf-after--p">很可惜從自動完成的提示，我們發現不行，它的參數型別不是 UIColor。</p><figure name="ffb0" id="ffb0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*smJ-2h1660S_Y3rWlpoaPQ.jpeg" data-width="2420" data-height="284" src="https://cdn-images-1.medium.com/max/800/1*smJ-2h1660S_Y3rWlpoaPQ.jpeg"></figure><p name="d70c" id="d70c" class="graf graf--p graf-after--figure">其實在這裡有更簡單的方法。我們可以直接讀取 UIColor 的 property cgColor。它就是我們要的，因為它的型別恰恰為 CGColor。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="783b" id="783b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">label.layer.borderColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>(red: <span class="hljs-number">1</span>, green: <span class="hljs-number">0</span>, blue: <span class="hljs-number">0</span>, alpha: <span class="hljs-number">1</span>).cgColor</span></pre><figure name="99df" id="99df" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*fi1QinDG2zDP_uIsxHG3mw.jpeg" data-width="1764" data-height="368" src="https://cdn-images-1.medium.com/max/800/1*fi1QinDG2zDP_uIsxHG3mw.jpeg"></figure><p name="f725" id="f725" class="graf graf--p graf-after--figure">iOS SDK 裡還有許多類似這樣運氣好可以直接讀取 property 的例子，比方以下 CAShapeLayer 的 path 型別為 CGPath，因此我們無法儲存 UIBezierPath 型別的 bezierPath ，而須讀取它的 property cgPath(型別為 CGPath)。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4087" id="4087" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> bezierPath <span class="hljs-operator">=</span> <span class="hljs-type">UIBezierPath</span>()<br /><span class="hljs-keyword">let</span> triangleLayer <span class="hljs-operator">=</span> <span class="hljs-type">CAShapeLayer</span>()<br />triangleLayer.path <span class="hljs-operator">=</span> bezierPath.cgPath</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/dc411f3844bf"><time class="dt-published" datetime="2019-01-25T15:52:49.913Z">January 25, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E%E5%9E%8B%E5%88%A5-a-%E7%9A%84%E6%9D%B1%E8%A5%BF%E5%BE%97%E5%88%B0%E5%9E%8B%E5%88%A5-b-%E7%9A%84%E6%9D%B1%E8%A5%BF-dc411f3844bf" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

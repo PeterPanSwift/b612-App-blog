@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI 如何搭配 AppDelegate — 利用 UIApplicationDelegateAdaptor</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI 如何搭配 AppDelegate — 利用 UIApplicationDelegateAdaptor</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 Xcode 12 開始，我們開發 SwiftUI App 時 Life Cycle 可以選擇 SwiftUI App。
+</section>
+<section data-field="body" class="e-content">
+<section name="c2dd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8faa" id="8faa" class="graf graf--h3 graf--leading graf--title">SwiftUI 如何搭配 AppDelegate — 利用 UIApplicationDelegateAdaptor</h3><figure name="6146" id="6146" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*1B6Mofvhc2dgPT2r1BVCFQ.png" data-width="1778" data-height="1014" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*1B6Mofvhc2dgPT2r1BVCFQ.png"></figure><p name="5280" id="5280" class="graf graf--p graf-after--figure">開發 SwiftUI App 時，App 的設定寫在遵從 protocol App 的型別，而不是以前的 AppDelegate。</p><figure name="701f" id="701f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ux7sT5cVciFfbDCJZNN_WA.png" data-width="1902" data-height="1046" src="https://cdn-images-1.medium.com/max/800/1*Ux7sT5cVciFfbDCJZNN_WA.png"></figure><p name="ae62" id="ae62" class="graf graf--p graf-after--figure">不過目前很多第三方功能一開始的設定都寫在 AppDelegate 的application(_:didFinishLaunchingWithOptions:)，它將在 App 啟動後呼叫，比方 Facebook 登入跟 Firebase，難道我們要放棄它們嗎?</p><p name="119a" id="119a" class="graf graf--p graf-after--p">現在說放棄還太早，其實 Apple 留了一條後路給我們繼續使用 AppDelegate，方法如下:</p><h3 name="2155" id="2155" class="graf graf--h3 graf-after--p">新增 AppDelegate，定義它的 application(_:didFinishLaunchingWithOptions:)</h3><figure name="fe15" id="fe15" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*7nsJmEIKOvWqY-bBHSmpCQ.png" data-width="1456" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*7nsJmEIKOvWqY-bBHSmpCQ.png"></figure><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="657d" id="657d" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> UIKit<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">AppDelegate</span>: <span class="hljs-title class_">NSObject</span>, <span class="hljs-title class_">UIApplicationDelegate</span> {<br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">application</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">application</span>: <span class="hljs-type">UIApplication</span>, <span class="hljs-params">didFinishLaunchingWithOptions</span> <span class="hljs-params">launchOptions</span>: [<span class="hljs-type">UIApplication</span>.<span class="hljs-params">LaunchOptionsKey</span> : <span class="hljs-keyword">Any</span>]<span class="hljs-operator">?</span> <span class="hljs-operator">=</span> <span class="hljs-literal">nil</span>) -&gt; <span class="hljs-type">Bool</span> {<br />        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span> <br />    }<br />}</span></pre><p name="597e" id="597e" class="graf graf--p graf-after--pre">以登入 FB 為例，我們可以在其中加入 ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions) 完成 FB 的相關設定。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="27ed" id="27ed" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> UIKit<br /><span class="hljs-keyword">import</span> FacebookCore<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">AppDelegate</span>: <span class="hljs-title class_">NSObject</span>, <span class="hljs-title class_">UIApplicationDelegate</span> {<br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">application</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">application</span>: <span class="hljs-type">UIApplication</span>, <span class="hljs-params">didFinishLaunchingWithOptions</span> <span class="hljs-params">launchOptions</span>: [<span class="hljs-type">UIApplication</span>.<span class="hljs-params">LaunchOptionsKey</span> : <span class="hljs-keyword">Any</span>]<span class="hljs-operator">?</span> <span class="hljs-operator">=</span> <span class="hljs-literal">nil</span>) -&gt; <span class="hljs-type">Bool</span> {<br />        <span class="hljs-type">ApplicationDelegate</span>.shared.application(application, didFinishLaunchingWithOptions: launchOptions)<br />        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span><br />    }<br />}</span></pre><h3 name="5b8b" id="5b8b" class="graf graf--h3 graf-after--pre">利用 UIApplicationDelegateAdaptor 加入 AppDelegate</h3><p name="bf06" id="bf06" class="graf graf--p graf-after--h3">在遵從 protocol App 的型別裡加入以下程式，它將讓 SwiftUI 生成 AppDelegate，讓 AppDelegate 的 function 在某些事件發生時被觸發。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="c9dd" id="c9dd" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">FacebookDemoApp</span>: <span class="hljs-title class_">App</span> {<br />    <br />    <span class="hljs-meta">@UIApplicationDelegateAdaptor</span>(<span class="hljs-type">AppDelegate</span>.<span class="hljs-keyword">self</span>) <span class="hljs-keyword">var</span> delegate</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/96446be3e17"><time class="dt-published" datetime="2020-12-29T03:31:38.597Z">December 29, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-%E5%A6%82%E4%BD%95%E6%90%AD%E9%85%8D-appdelegate-%E5%88%A9%E7%94%A8-uiapplicationdelegateadaptor-96446be3e17" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

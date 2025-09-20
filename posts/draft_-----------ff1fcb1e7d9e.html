@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>程式可讀性，寫成一行</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">程式可讀性，寫成一行</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+例子
+</section>
+<section data-field="body" class="e-content">
+<section name="e7d9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4d34" id="4d34" class="graf graf--h3 graf--leading graf--title">程式可讀性，寫成一行</h3><p name="8c6b" id="8c6b" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="3c59" id="3c59" class="graf graf--p graf-after--p">例子</p><pre name="8a63" id="8a63" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">func</strong> pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {</pre><pre name="fa1b" id="fa1b" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">let</strong> degreesCelsius = Float(temperatureValues[row])</pre><pre name="a4e8" id="a4e8" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">let</strong> degreesFahrenheit = 1.8 * degreesCelsius + 32.0;</pre><pre name="5165" id="5165" class="graf graf--pre graf-after--pre">temperatureLabel.text = &quot;\(Int(degreesFahrenheit))°F&quot;</pre><pre name="227a" id="227a" class="graf graf--pre graf-after--pre">}</pre><p name="38fc" id="38fc" class="graf graf--p graf-after--pre">一行</p><pre name="c904" id="c904" class="graf graf--pre graf-after--p">temperatureLabel.text = &quot;\(Int(1.8 * Float(temperatureValues[row]) + 32.0))°F&quot;</pre><figure name="0aa5" id="0aa5" class="graf graf--figure graf--iframe graf-after--pre"></figure><p name="51df" id="51df" class="graf graf--p graf--empty graf-after--figure graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/ff1fcb1e7d9e">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

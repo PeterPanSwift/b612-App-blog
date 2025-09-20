@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用像個人般操作電腦的 ChatGPT agent 開發 App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用像個人般操作電腦的 ChatGPT agent 開發 App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近 ChatGPT 推出 agent 功能，他會建立自己的虛擬電腦，像個人般地操作電腦，瀏覽網頁跟執行各種電腦任務都難不倒他。
+</section>
+<section data-field="body" class="e-content">
+<section name="5a42" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e194" id="e194" class="graf graf--h3 graf--leading graf--title">使用像個人般操作電腦的 ChatGPT agent 開發 App</h3><p name="8e05" id="8e05" class="graf graf--p graf-after--h3">最近 ChatGPT 推出 agent 功能，他會建立自己的虛擬電腦，像個人般地操作電腦，瀏覽網頁跟執行各種電腦任務都難不倒他。</p><p name="1a12" id="1a12" class="graf graf--p graf-after--p">以下彼得潘透過 ChatGPT agent 開發 App，AI 終於能自己查資料做出 App，連圖片都可以找，不用我們辛苦找圖了</p><ul class="postList"><li name="1202" id="1202" class="graf graf--li graf-after--p">搜尋網路圖片，搭配圖片網址製作 App。</li></ul><p name="76f1" id="76f1" class="graf graf--p graf-after--li">範例: 找出二十張斯瓦爾巴(Svalbard)漂亮的照片。</p><ul class="postList"><li name="c5b3" id="c5b3" class="graf graf--li graf-after--p">搜尋網路資料和找出適合的背景圖製作 App。</li></ul><p name="072d" id="072d" class="graf graf--p graf-after--li">範例: 找出小王子選擇題 App 需要的題庫和背景圖。</p><ul class="postList"><li name="a31d" id="a31d" class="graf graf--li graf-after--p">研究 API 文件製作 App。</li></ul><p name="89f2" id="89f2" class="graf graf--p graf-after--li">範例: 研究 iPlayground API 文件製作 App。</p><h3 name="5156" id="5156" class="graf graf--h3 graf-after--p">將 ChatGPT 切換到 Agent 模式</h3><p name="1fb1" id="1fb1" class="graf graf--p graf-after--h3">連到 ChatGPT。</p><figure name="d0a2" id="d0a2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*u6c5LfU6ecK_s0Q2CROkkQ.png" data-width="818" data-height="984" src="https://cdn-images-1.medium.com/max/800/1*u6c5LfU6ecK_s0Q2CROkkQ.png"></figure><p name="4f98" id="4f98" class="graf graf--p graf-after--figure">從 Tools 點選 Agent mode。</p><figure name="cf21" id="cf21" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uOoClNAItXuo4rsm73HIeQ.png" data-width="842" data-height="576" src="https://cdn-images-1.medium.com/max/800/1*uOoClNAItXuo4rsm73HIeQ.png"></figure><figure name="1d95" id="1d95" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*W_qlOoCwe1sMWDEgDmrUMg.png" data-width="1390" data-height="238" src="https://cdn-images-1.medium.com/max/800/1*W_qlOoCwe1sMWDEgDmrUMg.png"></figure><h3 name="ca1d" id="ca1d" class="graf graf--h3 graf-after--figure">搜尋網路圖片，搭配圖片網址製作 App</h3><pre data-code-block-mode="0" spellcheck="false" name="a24f" id="a24f" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content">找出二十張斯瓦爾巴(Svalbard)漂亮的照片，將圖片網址整理成 array </span></pre><figure name="1da8" id="1da8" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*uz-ijsRjYi6ECCA7kCVBcA.png" data-width="1728" data-height="298" src="https://cdn-images-1.medium.com/max/800/1*uz-ijsRjYi6ECCA7kCVBcA.png"></figure><p name="7a10" id="7a10" class="graf graf--p graf-after--figure">從預覽畫面可看到 agent 進行的各種操作，他正認真地找圖呢。</p><figure name="0479" id="0479" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_U46GfNU6XKSere58SIY5w.png" data-width="1566" data-height="1202" src="https://cdn-images-1.medium.com/max/800/1*_U46GfNU6XKSere58SIY5w.png"></figure><figure name="f70c" id="f70c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*QVbgDquD5bM406jYHUtQIA.png" data-width="1248" data-height="982" src="https://cdn-images-1.medium.com/max/800/1*QVbgDquD5bM406jYHUtQIA.png"></figure><figure name="7317" id="7317" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*ts_xC66XFIwFCKlhcDK25w.png" data-width="1242" data-height="972" src="https://cdn-images-1.medium.com/max/800/1*ts_xC66XFIwFCKlhcDK25w.png"></figure><p name="6d12" id="6d12" class="graf graf--p graf-after--figure">AI 花了幾分鐘辛苦找出 20 張美麗的斯瓦爾巴圖片，將網址整理成 array。</p><figure name="5aae" id="5aae" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/PeterPanSwift/ee94021be9273a9b39223216a398f935.js"></script></figure><p name="7335" id="7335" class="graf graf--p graf-after--figure">請 AI 用 SwiftUI LazyVGrid 展示圖片，成果如下。</p><figure name="e0f5" id="e0f5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BeFRUQtdLoR-LRiQR6YsTQ.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*BeFRUQtdLoR-LRiQR6YsTQ.png"></figure><p name="e3cb" id="e3cb" class="graf graf--p graf-after--figure">其它例子。</p><pre data-code-block-mode="0" spellcheck="false" name="d686" id="d686" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">請從 https://images.google.com 找出 20 張 penguin 的圖片，將圖片網址整理成 array。點選圖片顯示在右邊後，直接從右鍵選單複製圖片網址</span></pre><p name="a18f" id="a18f" class="graf graf--p graf-after--pre">AI 聰明地從 Google 找圖，然後從右鍵選單複製圖片網址。</p><figure name="41b2" id="41b2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*a9jjEM1J5vvKhyHpIowLLg.png" data-width="1284" data-height="1014" src="https://cdn-images-1.medium.com/max/800/1*a9jjEM1J5vvKhyHpIowLLg.png"></figure><p name="6afb" id="6afb" class="graf graf--p graf-after--figure">AI 花了半小時，終於找出 20 張 penguin 圖片。</p><figure name="cc1d" id="cc1d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ysitlcihlsVXMeSLd-DeZQ.png" data-width="1262" data-height="982" src="https://cdn-images-1.medium.com/max/800/1*ysitlcihlsVXMeSLd-DeZQ.png"></figure><h3 name="52f1" id="52f1" class="graf graf--h3 graf-after--figure">搜尋網路資料和找出適合的背景圖製作 App</h3><p name="0746" id="0746" class="graf graf--p graf-after--h3">請 AI 搜尋網路資料製作正確的題庫，另外美美的背景圖終於不用人類動手，AI 可以自己找了。</p><pre data-code-block-mode="0" spellcheck="false" name="b307" id="b307" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">用 SwiftUI 寫可愛的小王子選擇題 App，有三個題目，搭配網路上找到的小王子圖片當背景</span></pre><figure name="3f93" id="3f93" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*Fr4__lwOs-eivSaHEi2gvg.png" data-width="1494" data-height="1132" src="https://cdn-images-1.medium.com/max/800/1*Fr4__lwOs-eivSaHEi2gvg.png"></figure><figure name="597e" id="597e" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Q3Hx48c_2es98scPc54yeQ.png" data-width="1554" data-height="1092" src="https://cdn-images-1.medium.com/max/800/1*Q3Hx48c_2es98scPc54yeQ.png"></figure><p name="83bd" id="83bd" class="graf graf--p graf-after--figure">AI 完成的資料夾裡包含 Swift 程式和圖檔。(ps: 可惜有些圖檔出問題。)</p><figure name="4719" id="4719" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nna_Uxi1ROuFGu7VvOGKRQ.png" data-width="1428" data-height="474" src="https://cdn-images-1.medium.com/max/800/1*nna_Uxi1ROuFGu7VvOGKRQ.png"></figure><p name="7f64" id="7f64" class="graf graf--p graf-after--figure">AI 成功做出包含美麗背景的小王子選擇題 App。</p><figure name="6efc" id="6efc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*klUAbl8jkU6rYo67V3MSZA.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*klUAbl8jkU6rYo67V3MSZA.png"></figure><figure name="59c3" id="59c3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*dw7bhdy4XWPdOYvDm1YjuA.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*dw7bhdy4XWPdOYvDm1YjuA.png"></figure><h3 name="53ef" id="53ef" class="graf graf--h3 graf-after--figure">研究 API 文件製作 App</h3><p name="f2ff" id="f2ff" class="graf graf--p graf-after--h3">最近彼得潘看到 13 大大使用 Claude Code &amp; iPlayground API 文件 SessionData 開發 iPlayground App，以下我們試試用最偷懶的方式開發 App，將 API 文件貼給 AI，請 AI 自己研究 API 開發 App。</p><div name="6fd1" id="6fd1" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/iplayground/SessionData" data-href="https://github.com/iplayground/SessionData" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/iplayground/SessionData"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub — iplayground/SessionData: For session related json files</strong><br><em class="markup--em markup--mixtapeEmbed-em">For session related json files. Contribute to iplayground/SessionData development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/iplayground/SessionData" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="fb9e3c151cf757287adc630c81b7ed7e" data-thumbnail-img-id="0*X_tL6g31buAm0ver" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*X_tL6g31buAm0ver);"></a></div><figure name="1801" id="1801" class="graf graf--figure graf--iframe graf-after--mixtapeEmbed"><iframe src="https://www.youtube.com/embed/miLxYVmbxAc?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><pre data-code-block-mode="0" spellcheck="false" name="4c52" id="4c52" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content">從以下網址研究 API，用 SwiftUI 製作 iPlayground 2025 App，有行程表 &amp; 講者列表兩個 tab 分頁<br>https://github.com/iplayground/SessionData</span></pre><p name="415f" id="415f" class="graf graf--p graf-after--pre">不錯，AI 認真地研讀 API 文件。</p><figure name="138a" id="138a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xHyIAdNHgNAx5ILWC5huQg.png" data-width="1398" data-height="1156" src="https://cdn-images-1.medium.com/max/800/1*xHyIAdNHgNAx5ILWC5huQg.png"></figure><figure name="4e3f" id="4e3f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*TMIk-n-0mwsU6DcZERD8cA.png" data-width="1400" data-height="1156" src="https://cdn-images-1.medium.com/max/800/1*TMIk-n-0mwsU6DcZERD8cA.png"></figure><p name="c5c8" id="c5c8" class="graf graf--p graf-after--figure">AI 完成了 iPlayground 2025 App，完美呈現行程和講者列表。</p><figure name="9a54" id="9a54" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ByoVIfCZIjk0X9zPbpzpsA.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*ByoVIfCZIjk0X9zPbpzpsA.png"></figure><figure name="098f" id="098f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*c8Akca1_Dwaa28G4LrMAJg.png" data-width="1206" data-height="2622" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*c8Akca1_Dwaa28G4LrMAJg.png"></figure><p name="552d" id="552d" class="graf graf--p graf-after--figure">以下為 AI 的詳細回答。</p><figure name="ec40" id="ec40" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/PeterPanSwift/04581ad7597a419ed11590c988675b56.js"></script></figure><p name="02e3" id="02e3" class="graf graf--p graf-after--figure">ps: 以上程式有個小小 bug，因為 struct Speaker 的 url 型別為 URL，講者的 url 為空字串時將造成 JSON 解碼失敗，請再自行調整或請 AI 修正。</p><pre data-code-block-mode="0" spellcheck="false" name="e15f" id="e15f" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content">dataCorrupted(Swift.DecodingError.Context(codingPath: [_CodingKey(stringValue: &quot;Index 1&quot;, intValue: 1), CodingKeys(stringValue: &quot;url&quot;, intValue: nil)], debugDescription: &quot;Invalid URL string.&quot;, underlyingError: nil))</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/0a0ce7d9c231"><time class="dt-published" datetime="2025-07-25T03:43:51.032Z">July 25, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8%E5%83%8F%E5%80%8B%E4%BA%BA%E8%88%AC%E6%93%8D%E4%BD%9C%E9%9B%BB%E8%85%A6%E7%9A%84-chatgpt-agent-%E9%96%8B%E7%99%BC-app-0a0ce7d9c231" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

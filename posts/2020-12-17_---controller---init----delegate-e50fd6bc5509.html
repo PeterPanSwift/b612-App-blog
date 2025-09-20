@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>定義 controller 的 init 設定 delegate</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">定義 controller 的 init 設定 delegate</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們有多個頁面時，利用 delegate 在 controller 間溝通 &amp; 傳資料是常見的方法。比方以下例子的 SecondViewController 透過 delegate 將輸入的文字傳給 FirstViewController。
+</section>
+<section data-field="body" class="e-content">
+<section name="855f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c2ff" id="c2ff" class="graf graf--h3 graf--leading graf--title">定義 controller 的 init 設定 delegate</h3><p name="388c" id="388c" class="graf graf--p graf-after--h3">當我們有多個頁面時，利用 delegate 在 controller 間溝通 &amp; 傳資料是常見的方法。比方以下例子的 SecondViewController 透過 delegate 將輸入的文字傳給 FirstViewController。</p><figure name="ffae" id="ffae" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*y0CJTtgvxusBLLksI4FBQw.png" data-width="1184" data-height="1034" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*y0CJTtgvxusBLLksI4FBQw.png"></figure><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="e235" id="e235" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content"><span class="hljs-keyword">protocol</span> <span class="hljs-title class_">SecondViewControllerDelegate</span>: <span class="hljs-title class_">AnyObject</span> {<br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">update</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">controller</span>: <span class="hljs-type">SecondViewController</span>, <span class="hljs-params">name</span>: <span class="hljs-type">String</span>)<br />}<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">SecondViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> textField: <span class="hljs-type">UITextField</span>!<br />    <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> delegate: <span class="hljs-type">SecondViewControllerDelegate</span>?<br /><br />    <span class="hljs-keyword">@IBAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">done</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">sender</span>: <span class="hljs-keyword">Any</span>) {<br />        delegate<span class="hljs-operator">?</span>.update(<span class="hljs-keyword">self</span>, name: textField.text<span class="hljs-operator">!</span>)<br />    }</span></pre><p name="0b04" id="0b04" class="graf graf--p graf-after--pre">通常設定 delegate 的方法如下，在準備切換到下一頁時設定 delegate = self。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="7912" id="7912" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBSegueAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">showSecondView</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">coder</span>: <span class="hljs-type">NSCoder</span>) -&gt; <span class="hljs-type">SecondViewController</span>? {<br />    <span class="hljs-keyword">let</span> secondViewController <span class="hljs-operator">=</span> <span class="hljs-type">SecondViewController</span>(coder: coder)<br />    secondViewController<span class="hljs-operator">?</span>.delegate <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br />    <span class="hljs-keyword">return</span> secondViewController<br />}</span></pre><p name="d81f" id="d81f" class="graf graf--p graf-after--pre">以上寫法的詳細說明可參考以下連結。</p><div name="8f64" id="8f64" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/%E5%88%A9%E7%94%A8-delegate-%E5%9C%A8-controller-%E9%96%93%E6%BA%9D%E9%80%9A-%E5%82%B3%E8%B3%87%E6%96%99%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-b9bc608b5e45" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/%E5%88%A9%E7%94%A8-delegate-%E5%9C%A8-controller-%E9%96%93%E6%BA%9D%E9%80%9A-%E5%82%B3%E8%B3%87%E6%96%99%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-b9bc608b5e45" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/%E5%88%A9%E7%94%A8-delegate-%E5%9C%A8-controller-%E9%96%93%E6%BA%9D%E9%80%9A-%E5%82%B3%E8%B3%87%E6%96%99%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-b9bc608b5e45"><strong class="markup--strong markup--mixtapeEmbed-strong">#78 利用 delegate 在 controller 間溝通 &amp; 傳資料的步驟說明</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們時常在 controller 間溝通 &amp; 傳資料，而 delegate 是其中一種方法，常用於 controller BViewController 和前一個 controller…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/%E5%88%A9%E7%94%A8-delegate-%E5%9C%A8-controller-%E9%96%93%E6%BA%9D%E9%80%9A-%E5%82%B3%E8%B3%87%E6%96%99%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-b9bc608b5e45" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="157368be8fca6de75064eb2cb4134a42" data-thumbnail-img-id="1*89hAHQV0UUXjusrxOAeKIw.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*89hAHQV0UUXjusrxOAeKIw.jpeg);"></a></div><p name="98b1" id="98b1" class="graf graf--p graf-after--mixtapeEmbed">不過如果想讓程式更簡潔，我們也可以另外定義 controller 的 init，在它的 init 傳入 delegate，如此也比較不會忘了設定 delegate。</p><h3 name="d9e5" id="d9e5" class="graf graf--h3 graf-after--p">定義 controller 的 init 設定 delegate</h3><p name="8a93" id="8a93" class="graf graf--p graf-after--h3">在 SecondViewController 定義搭配參數 delegate 的 init。（ps: 當我們在 controller 定義 init 時，也要同時定義 init?(coder: NSCoder)，因為它是 required)</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0fdb" id="0fdb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SecondViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <br />    <span class="hljs-keyword">init?</span>(<span class="hljs-params">coder</span>: <span class="hljs-type">NSCoder</span>, <span class="hljs-params">delegate</span>: <span class="hljs-type">SecondViewControllerDelegate</span>) {<br />        <span class="hljs-keyword">self</span>.delegate <span class="hljs-operator">=</span> delegate<br />        <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(coder: coder)<br />    }<br />    <br />    <span class="hljs-keyword">required</span> <span class="hljs-keyword">init?</span>(<span class="hljs-params">coder</span>: <span class="hljs-type">NSCoder</span>) {<br />        <span class="hljs-built_in">fatalError</span>(<span class="hljs-string">&quot;init(coder:) has not been implemented&quot;</span>)<br />    }</span></pre><p name="52d8" id="52d8" class="graf graf--p graf-after--pre">有了剛剛定義的 init，之後當我們要切換到 SecondViewController 時，將可直接傳入 delegate，比方以下 2 個例子。</p><h3 name="fd0f" id="fd0f" class="graf graf--h3 graf-after--p">IBSegueAction</h3><p name="d27f" id="d27f" class="graf graf--p graf-after--h3">透過 segue 切換時，在 IBSegueAction 生成 SecondViewController。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="be62" id="be62" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBSegueAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">showSecondView</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">coder</span>: <span class="hljs-type">NSCoder</span>) -&gt; <span class="hljs-type">SecondViewController</span>? {<br />     <span class="hljs-type">SecondViewController</span>(coder: coder, delegate: <span class="hljs-keyword">self</span>)<br />}</span></pre><h3 name="cc30" id="cc30" class="graf graf--h3 graf-after--pre">instantiateViewController(identifier:creator:)</h3><ul class="postList"><li name="1de7" id="1de7" class="graf graf--li graf-after--h3">不透過 segue，直接從程式呼叫 instantiateViewController(identifier:creator:) 產生 SecondViewController。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="e02e" id="e02e" class="graf graf--pre graf-after--li graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> controller <span class="hljs-operator">=</span> storyboard<span class="hljs-operator">?</span>.instantiateInitialViewController(creator: { coder <span class="hljs-keyword">in</span><br />    <span class="hljs-type">SecondViewController</span>(coder: coder, delegate: <span class="hljs-keyword">self</span>)<br />}) <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }<br />show(controller, sender: <span class="hljs-literal">nil</span>)</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e50fd6bc5509"><time class="dt-published" datetime="2020-12-17T06:41:44.123Z">December 17, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%AE%9A%E7%BE%A9-controller-%E7%9A%84-init-%E8%A8%AD%E5%AE%9A-delegate-e50fd6bc5509" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

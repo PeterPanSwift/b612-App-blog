@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>@Published property 的 didSet 問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">@Published property 的 didSet 問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 SwiftUI App 時，有時我們會在加了 property wrapper 的 property 加上 property observer，想在 property 內容改變時執行程式。不過此功能在 Xcode 11.4 發生問題，比方以下加了 @Published…
+</section>
+<section data-field="body" class="e-content">
+<section name="a568" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8f64" id="8f64" class="graf graf--h3 graf--leading graf--title">@Published property 的 <strong class="markup--strong markup--h3-strong">didSet 問題</strong></h3><figure name="ca0b" id="ca0b" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*bLnv6Tuwqj54M5NRxQ4eXA.jpeg" data-width="1816" data-height="1144" src="https://cdn-images-1.medium.com/max/800/1*bLnv6Tuwqj54M5NRxQ4eXA.jpeg"></figure><p name="9553" id="9553" class="graf graf--p graf-after--figure">開發 SwiftUI App 時，有時我們會在加了 property wrapper 的 property 加上 property observer，想在 property 內容改變時執行程式。不過此功能在 Xcode 11.4 發生問題，比方以下加了 @Published 的 lovers 改變時並不會觸發 didSet 跟 willSet。</p><pre name="ee99" id="ee99" class="graf graf--pre graf-after--p">class  LoversData: ObservableObject  {<br>    <br>    <a href="http://twitter.com/Published" data-href="http://twitter.com/Published" class="markup--anchor markup--pre-anchor" title="Twitter profile for @Published" rel="noopener" target="_blank">@Published</a> var lovers = [Lover]() {<br>        didSet {<br>            print(&quot;didSet&quot;)<br>        }<br>    }</pre><pre name="8b1a" id="8b1a" class="graf graf--pre graf-after--pre">}</pre><p name="065b" id="065b" class="graf graf--p graf-after--pre">此問題是 Swift 的 bug，相關說明可參考以下連結。</p><div name="2003" id="2003" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://bugs.swift.org/browse/SR-12178" data-href="https://bugs.swift.org/browse/SR-12178" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://bugs.swift.org/browse/SR-12178"><strong class="markup--strong markup--mixtapeEmbed-strong">willSet not firing when used with a property wrapper</strong><br><em class="markup--em markup--mixtapeEmbed-em">@propertyWrapper struct RoundedMeasurement { private var measurement: Measurement init(wrappedValue: Measurement ) {…</em>bugs.swift.org</a><a href="https://bugs.swift.org/browse/SR-12178" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="df0735bf076bfbbfc17fd8960d0ffc8e"></a></div><p name="1605" id="1605" class="graf graf--p graf-after--mixtapeEmbed">令人開心的，Apple 已經修正此 bug，可惜 Xcode 11.4 還未加入修正後的版本。</p><div name="e435" id="e435" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/apple/swift/pull/29931" data-href="https://github.com/apple/swift/pull/29931" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/apple/swift/pull/29931"><strong class="markup--strong markup--mixtapeEmbed-strong">[Typechecker] Fix _modify for wrapped properties with observers by theblixguy · Pull Request #29931…</strong><br><em class="markup--em markup--mixtapeEmbed-em">Since we implemented _modify synthesis for property wrappers, it seems like we go through the _modify even when the…</em>github.com</a><a href="https://github.com/apple/swift/pull/29931" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f37223755cd7a7f2f30a7f3a1111585f" data-thumbnail-img-id="0*RXuNgEOHsKfo7GgG" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*RXuNgEOHsKfo7GgG);"></a></div><p name="144f" id="144f" class="graf graf--p graf-after--mixtapeEmbed">在 Apple 推出新版 Xcode 之前，目前我們有以下幾種解法:</p><h3 name="cfad" id="cfad" class="graf graf--h3 graf-after--p">解法1: 使用新版的 Swift</h3><p name="a046" id="a046" class="graf graf--p graf-after--h3">我們可從 Swift 官網下載已修正 bug 的最新版 Swift。</p><div name="73ce" id="73ce" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://swift.org/download/#snapshots" data-href="https://swift.org/download/#snapshots" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://swift.org/download/#snapshots"><strong class="markup--strong markup--mixtapeEmbed-strong">Swift.org</strong><br><em class="markup--em markup--mixtapeEmbed-em">Date: April 15, 2020 Tag: swift-5.2.2-RELEASE *Swift 5.2.2 is available as part of Xcode 11.4.1. Swift 5.x Date: March…</em>swift.org</a><a href="https://swift.org/download/#snapshots" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="5d9b8c1a481bd8a72632fb5268588abb"></a></div><p name="255c" id="255c" class="graf graf--p graf-after--mixtapeEmbed">以下彼得潘點選 Snapshots 下 2020/4/21 的 Xcode。</p><figure name="d0ac" id="d0ac" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9aBbd8hWIjvxQHZyRvtgvg.jpeg" data-width="2060" data-height="1100" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*9aBbd8hWIjvxQHZyRvtgvg.jpeg"></figure><p name="4b7e" id="4b7e" class="graf graf--p graf-after--figure">安裝 Swift 的 pkg。</p><figure name="5a59" id="5a59" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sb3iG2ji73lyXzvRMVeZLA.jpeg" data-width="740" data-height="112" src="https://cdn-images-1.medium.com/max/800/1*sb3iG2ji73lyXzvRMVeZLA.jpeg"></figure><figure name="0ac0" id="0ac0" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*sN0sQ8M4ZmYQRxYb5FwSkg.jpeg" data-width="1464" data-height="1100" src="https://cdn-images-1.medium.com/max/800/1*sN0sQ8M4ZmYQRxYb5FwSkg.jpeg"></figure><p name="4c57" id="4c57" class="graf graf--p graf-after--figure">從 Xcode 的 Toolchains 選擇 2020/4/21 的 Swift。</p><figure name="43d1" id="43d1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Yvjg7rH4QtsOCL-kY0mDhg.jpeg" data-width="1198" data-height="410" src="https://cdn-images-1.medium.com/max/800/1*Yvjg7rH4QtsOCL-kY0mDhg.jpeg"></figure><p name="f1d2" id="f1d2" class="graf graf--p graf-after--figure">Cool，現在重新執行 App 後，發現 didSet 可以順利觸發了。</p><figure name="86ba" id="86ba" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kq_K_gDAHrLvn36Wu5THvA.jpeg" data-width="410" data-height="190" src="https://cdn-images-1.medium.com/max/800/1*kq_K_gDAHrLvn36Wu5THvA.jpeg"></figure><p name="827e" id="827e" class="graf graf--p graf-after--figure">不想冒險升級新版 Swift 的朋友也可以採用以下兩種解法。</p><h3 name="1eb6" id="1eb6" class="graf graf--h3 graf-after--p">解法2: 使用 Combine</h3><p name="5497" id="5497" class="graf graf--p graf-after--h3">有研究 Combine 的朋友也可以在宣告 @Published 的 property 加上 $，得到型別 Published 的 publisher。此 publisher 將在內容改變時將資料傳給接收的人，我們可搭配 sink 接收資料。以下例子裡 lovers 改變時將觸發 sink closure 的程式。</p><pre name="7be4" id="7be4" class="graf graf--pre graf-after--p">import Foundation<br>import Combine</pre><pre name="be9f" id="be9f" class="graf graf--pre graf-after--pre">class  LoversData: ObservableObject  {<br>    <br>    <a href="http://twitter.com/Published" data-href="http://twitter.com/Published" class="markup--anchor markup--pre-anchor" title="Twitter profile for @Published" rel="noopener" target="_blank">@Published</a> var lovers = [Lover]()<br>    var cancellable: AnyCancellable?<br>    <br>    init() {<br>        cancellable = $lovers.sink(receiveValue: {(value) in<br>            print(value)<br>        })<br>    }</pre><pre name="8cc5" id="8cc5" class="graf graf--pre graf-after--pre">}</pre><p name="7b66" id="7b66" class="graf graf--p graf-after--pre">值得注意的，在 sink 裡若是有存取 self，記得要加上 capture list 的 [weak self]，不然會有記憶體的問題。</p><pre name="164b" id="164b" class="graf graf--pre graf-after--p">class  LoversData: ObservableObject  {<br>    <br>    <a href="http://twitter.com/Published" data-href="http://twitter.com/Published" class="markup--anchor markup--pre-anchor" title="Twitter profile for @Published" rel="noopener" target="_blank">@Published</a> var lovers = [Lover]()<br>    var cancellable: AnyCancellable?<br>    <br>    init() {<br>        cancellable = $lovers<br>            .sink(receiveValue: {[weak self] (value) in<br>                guard let self = self else  {<br>                    return<br>                }<br>                print(&quot;value&quot;, value)<br>                print(&quot;self.lovers&quot;, self.lovers)                <br>            })<br>    }<br>    <br>}</pre><p name="3a1a" id="3a1a" class="graf graf--p graf-after--pre">另外從以上例子印出的內容，我們將發現 value 代表新的內容，self.lovers 則是修改前的內容。</p><pre name="34c7" id="34c7" class="graf graf--pre graf-after--p">value []<br>self.lovers []</pre><pre name="65fe" id="65fe" class="graf graf--pre graf-after--pre">value [Demo.Lover(id: 08307DFE-BD72-44E9-8065-E9DEADF998DA, name: &quot;penny&quot;, weight: 30, trueHeart: true)]<br>self.lovers []</pre><pre name="3281" id="3281" class="graf graf--pre graf-after--pre">value [Demo.Lover(id: 08307DFE-BD72-44E9-8065-E9DEADF998DA, name: &quot;penny&quot;, weight: 30, trueHeart: true), Demo.Lover(id: 3AF0D185-18EA-401D-831E-1189C8097B08, name: &quot;vivian&quot;, weight: 35, trueHeart: true)]<br>self.lovers [Demo.Lover(id: 08307DFE-BD72-44E9-8065-E9DEADF998DA, name: &quot;penny&quot;, weight: 30, trueHeart: true)]</pre><p name="e116" id="e116" class="graf graf--p graf-after--pre">若想在 sink 時看到的 lovers 已是新的內容，可在 sink 前先呼叫 <code class="markup--code markup--p-code">receive(on: DispatchQueue.main)</code>。</p><pre name="972a" id="972a" class="graf graf--pre graf-after--p">class  LoversData: ObservableObject  {<br>    <br>    <a href="http://twitter.com/Published" data-href="http://twitter.com/Published" class="markup--anchor markup--pre-anchor" title="Twitter profile for @Published" rel="noopener" target="_blank">@Published</a> var lovers = [Lover]()<br>    var cancellable: AnyCancellable?<br>    <br>    init() {<br>        cancellable = $lovers<br><strong class="markup--strong markup--pre-strong">            .receive(on: DispatchQueue.main)<br></strong>            .sink(receiveValue: {[weak self] (value) in<br>                guard let self = self else  {<br>                    return<br>                }<br>                print(&quot;value&quot;, value)<br>                print(&quot;self.lovers&quot;, self.lovers)                <br>            })<br>    }<br>    <br>}</pre><h3 name="3d11" id="3d11" class="graf graf--h3 graf-after--pre">解法3: 在改變內容時接著撰寫執行的程式</h3><p name="aea8" id="aea8" class="graf graf--p graf-after--h3">比方我們在 button 點選時將 penny 加到 lovers array，然後將 lovers 存到某個檔案。</p><pre name="0fd1" id="0fd1" class="graf graf--pre graf-after--p">struct LoverList: View {<br>    <a href="http://twitter.com/ObservedObject" data-href="http://twitter.com/ObservedObject" class="markup--anchor markup--pre-anchor" title="Twitter profile for @ObservedObject" rel="noopener" target="_blank">@ObservedObject</a> var loversData = LoversData()<br>   <br>    var body: some View {<br>       <br>        Button(action: {<br>            <strong class="markup--strong markup--pre-strong">self.loversData.lovers.append(Lover(name: &quot;Penny&quot;, weight: 30, trueHeart: true))<br>            // save lovers in file</strong><br>        }) {<br>            Text(&quot;Button&quot;)<br>        }<br>    }<br>}</pre><h3 name="b5bb" id="b5bb" class="graf graf--h3 graf-after--pre">Xcode 11.5</h3><p name="f5cb" id="f5cb" class="graf graf--p graf-after--h3">此問題已在 Xcode 11.5 修正。</p><figure name="8303" id="8303" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*E_PTpQtvaZ9cLzddjYLU0Q.jpeg" data-width="1804" data-height="446" src="https://cdn-images-1.medium.com/max/800/1*E_PTpQtvaZ9cLzddjYLU0Q.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/673079b53166"><time class="dt-published" datetime="2020-04-23T04:26:45.359Z">April 23, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/published-property-%E7%9A%84-didset-%E5%95%8F%E9%A1%8C-673079b53166" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>自動生成 model class 的 Core Data</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">自動生成 model class 的 Core Data</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，Core Data 是其中一種我們經常使用的資料儲存技術。我們可以在 .xcdatamodeld 檔定義資料(entity)的名稱和欄位(attribute)，比方下圖定義的 Movie entity 。
+</section>
+<section data-field="body" class="e-content">
+<section name="0b24" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="42f7" id="42f7" class="graf graf--h3 graf--leading graf--title">自動生成 model class 的 Core Data</h3><p name="073c" id="073c" class="graf graf--p graf-after--h3">開發 iOS App 時，Core Data 是其中一種我們經常使用的資料儲存技術。我們可以在 .xcdatamodeld 檔定義資料(entity)的名稱和欄位(attribute)，比方下圖定義的 Movie entity 。</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="31ec" id="31ec" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*e5dV4dkHKDpiNraJ3KgmtQ.jpeg" data-width="1294" data-height="300" src="https://cdn-images-1.medium.com/max/1200/1*e5dV4dkHKDpiNraJ3KgmtQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="a61c" id="a61c" class="graf graf--p graf-after--figure">之後在 Swift 程式裡我們即可利用類別 Movie 產生電影物件。但是類別 Movie 需要自己定義嗎 ? 如果 Movie 有很多欄位，親手輸入每個欄位對應的 property 可是十分辛苦的事。</p><p name="cdb8" id="cdb8" class="graf graf--p graf-after--p">其實不用這麼辛苦，現在 Xcode 將幫我們自動產生 .xcdatamodeld 檔裡定義的 entity 類別。如下圖所示，我們可以直接輸入 Movie( ) 生東西。</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="6110" id="6110" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*MkoHv1rx6SUkph5RnJXEWg.jpeg" data-width="1288" data-height="222" src="https://cdn-images-1.medium.com/max/1200/1*MkoHv1rx6SUkph5RnJXEWg.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="9785" id="9785" class="graf graf--p graf-after--figure">也許有人好奇 Movie 的類別寫在哪裡 ? 明明 Xcode 左邊的 project navigator 沒看到它呀。</p><figure name="5c63" id="5c63" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*PzX8yaLr6YXg7lO1o6nyeg.jpeg" data-width="534" data-height="508" src="https://cdn-images-1.medium.com/max/800/1*PzX8yaLr6YXg7lO1o6nyeg.jpeg"></figure><p name="2645" id="2645" class="graf graf--p graf-after--figure">其實它真的存在，只是要多繞一點路才能看到。如下圖所示，請將滑鼠游標移到 Movie 上，按住 cmd 鍵再按下滑鼠左鍵後，點選 Jump to Definition 即可看到 class Movie 的定義。</p><figure name="e65b" id="e65b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nAKagiW4em2be3RvuYSGKA.jpeg" data-width="698" data-height="372" src="https://cdn-images-1.medium.com/max/800/1*nAKagiW4em2be3RvuYSGKA.jpeg"></figure><figure name="3938" id="3938" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*iPe6HCaPBiFobiZ8hmn2PQ.jpeg" data-width="1422" data-height="908" src="https://cdn-images-1.medium.com/max/800/1*iPe6HCaPBiFobiZ8hmn2PQ.jpeg"></figure><p name="fa44" id="fa44" class="graf graf--p graf-after--figure">至於為什麼 Xcode 能夠自動產生 model 的 class 呢 ? 答案就藏在 .xcdatamodeld 檔裡。</p><p name="f70e" id="f70e" class="graf graf--p graf-after--p">請點選 .xcdatamodeld 檔，然後選擇某個 entity，點選上方的第三個 icon (Data Model inspector)，將可看到 model 裡有個叫 Codegen 的欄位，正因為它的 value 是 Class Definition，所以能夠自動產生類別。</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="f0a1" id="f0a1" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*klUwELtlFqTOtopHums6Sw.jpeg" data-width="1864" data-height="458" src="https://cdn-images-1.medium.com/max/1200/1*klUwELtlFqTOtopHums6Sw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><figure name="102b" id="102b" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*W-0yAWpp0rlQq1-u3Unwpw.jpeg" data-width="666" data-height="468" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*W-0yAWpp0rlQq1-u3Unwpw.jpeg"></figure><p name="0eba" id="0eba" class="graf graf--p graf-after--figure">相反的，當我們改成 Manual/None 時，它就不會自動生成了。</p><figure name="f0fa" id="f0fa" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tbXp8fF7uFBoYUt-zzSf5Q.jpeg" data-width="608" data-height="190" src="https://cdn-images-1.medium.com/max/800/1*tbXp8fF7uFBoYUt-zzSf5Q.jpeg"></figure><p name="2472" id="2472" class="graf graf--p graf-after--figure">此時我們只能自己辛苦地手動輸入，或是從 Xcode menu 的 Editor &gt; Create NSManagedObject Subclass 產生類別。</p><figure name="ca5c" id="ca5c" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*FyKBBttGV6m1jLB-JQJK1A.jpeg" data-width="616" data-height="510" src="https://cdn-images-1.medium.com/max/800/1*FyKBBttGV6m1jLB-JQJK1A.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/46275d9f66e2"><time class="dt-published" datetime="2019-04-13T06:13:23.448Z">April 13, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90-model-class-%E7%9A%84-core-data-46275d9f66e2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

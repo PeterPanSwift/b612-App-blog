@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Swift 存取 type property &amp; method 的型別省略問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Swift 存取 type property &amp; method 的型別省略問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+貼心的 Swift 想盡方法幫我們少寫一點 code，因此當我們存取 type property &amp; method 時，以下兩種情況可省略型別。
+</section>
+<section data-field="body" class="e-content">
+<section name="6c41" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0a96" id="0a96" class="graf graf--h3 graf--leading graf--title">Swift 存取 type property &amp; method 的型別省略問題</h3><h3 name="536f" id="536f" class="graf graf--h3 graf-after--h3">此問題已在 Swift 5.4 修正。(搭配 Xcode 12.5) 使用新版 Xcode 的朋友可以轉身離開，以下文章不用看了。</h3><div name="98da" id="98da" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-5-4-%E7%9A%84-extend-implicit-member-syntax-to-cover-chains-of-member-references-afa3ea4e0d99" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-5-4-%E7%9A%84-extend-implicit-member-syntax-to-cover-chains-of-member-references-afa3ea4e0d99" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-5-4-%E7%9A%84-extend-implicit-member-syntax-to-cover-chains-of-member-references-afa3ea4e0d99"><strong class="markup--strong markup--mixtapeEmbed-strong">Swift 5.4 的 Extend implicit member syntax to cover chains of member references</strong><br><em class="markup--em markup--mixtapeEmbed-em">當我們存取 type property &amp; method 時，型別省略的寫法可讓程式更精簡。然而原本它是有限制的，如果在 type property &amp; method 後繼續存取下一層的 property &amp;…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-5-4-%E7%9A%84-extend-implicit-member-syntax-to-cover-chains-of-member-references-afa3ea4e0d99" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="2f553d32e90507e09abdac88ed180311" data-thumbnail-img-id="1*0McJ6AZhe91cLjOijT_-Mg.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*0McJ6AZhe91cLjOijT_-Mg.png);"></a></div><figure name="5ec6" id="5ec6" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*D4EJufKoJx-EoStv0ystPA.jpeg" data-width="1732" data-height="1132" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*D4EJufKoJx-EoStv0ystPA.jpeg"></figure><p name="5276" id="5276" class="graf graf--p graf-after--figure">貼心的 Swift 想盡方法幫我們少寫一點 code，因此當我們存取 type property &amp; method 時，以下兩種情況可省略型別。</p><ul class="postList"><li name="1042" id="1042" class="graf graf--li graf-after--p">已經知道是型別 A，且型別 A 的 property 也是型別 A。</li><li name="1f58" id="1f58" class="graf graf--li graf-after--li">已經知道是型別 A，且型別 A 呼叫的方法回傳的東西也是型別 A。</li></ul><p name="2e0e" id="2e0e" class="graf graf--p graf-after--li">比方以下我們設定 shadow 的顏色，參數 color 是型別 Color，因此傳入 Color.blue 時，我們可省略 Color，寫 .blue 就好。</p><figure name="71ad" id="71ad" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*n9Nlo-G6LiK4zOkpQNV3uQ.jpeg" data-width="1134" data-height="176" src="https://cdn-images-1.medium.com/max/800/1*n9Nlo-G6LiK4zOkpQNV3uQ.jpeg"></figure><pre name="2f9b" id="2f9b" class="graf graf--pre graf-after--figure">Image(&quot;peter&quot;)<br>   .shadow(color: <strong class="markup--strong markup--pre-strong">Color.blue</strong>, radius: 10)</pre><p name="2ce5" id="2ce5" class="graf graf--p graf-after--pre">省略 Color。</p><pre name="6ff9" id="6ff9" class="graf graf--pre graf-after--p">Image(&quot;peter&quot;)<br>   .shadow(color: <strong class="markup--strong markup--pre-strong">.blue</strong>, radius: 10)</pre><figure name="97dd" id="97dd" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*jk6I0REye9VivlJcBq2Ozw.jpeg" data-width="382" data-height="372" src="https://cdn-images-1.medium.com/max/800/1*jk6I0REye9VivlJcBq2Ozw.jpeg"></figure><p name="1b37" id="1b37" class="graf graf--p graf-after--figure">然而當我們想接著呼叫 opacity 設定顏色的透明度時，卻會產生紅色錯誤。</p><pre name="192e" id="192e" class="graf graf--pre graf-after--p">.shadow(color: <strong class="markup--strong markup--pre-strong">.blue.opacity(0.5)</strong>, radius: 10)</pre><figure name="c63a" id="c63a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*gGEXz3MHxhp3FEdEGTzAiA.jpeg" data-width="1442" data-height="332" src="https://cdn-images-1.medium.com/max/800/1*gGEXz3MHxhp3FEdEGTzAiA.jpeg"></figure><p name="3dce" id="3dce" class="graf graf--p graf-after--figure">沒錯，opacity 也會回傳 Color，但此時我們卻萬萬不可省略 Color。</p><figure name="f047" id="f047" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*X2t_vBU0N0msM12Y5Cv2Sg.jpeg" data-width="1150" data-height="224" src="https://cdn-images-1.medium.com/max/800/1*X2t_vBU0N0msM12Y5Cv2Sg.jpeg"></figure><p name="b4dc" id="b4dc" class="graf graf--p graf-after--figure">因為 Swift 很單純，剛剛的程式太複雜了，我們在 .blue 後再呼叫 opactiy，這樣會讓它錯亂，無法推理出型別是 Color。</p><p name="865a" id="865a" class="graf graf--p graf-after--p">我們必須改寫成 Color.blue.opacity(0.5) 才行。</p><pre name="a71a" id="a71a" class="graf graf--pre graf-after--p">Image(&quot;peter&quot;)<br>   .shadow(color: Color.blue.opacity(0.5), radius: 10)</pre><figure name="6fd8" id="6fd8" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*-1poqaO7AL3N5zMIh9gKAg.jpeg" data-width="302" data-height="344" src="https://cdn-images-1.medium.com/max/800/1*-1poqaO7AL3N5zMIh9gKAg.jpeg"></figure><p name="9ec9" id="9ec9" class="graf graf--p graf-after--figure graf--trailing">因此請記得，type property &amp; method 的型別省略是有侷限的，如果在 type property &amp; method 後繼續存取下一層的 property &amp; method，那就不能再省略了。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/bbd57b4d3457"><time class="dt-published" datetime="2020-03-24T08:00:16.132Z">March 24, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swift-%E5%AD%98%E5%8F%96-type-property-method-%E7%9A%84%E5%9E%8B%E5%88%A5%E7%9C%81%E7%95%A5%E5%95%8F%E9%A1%8C-bbd57b4d3457" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS 15 方便設定 SF Symbol 樣式的 variant</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS 15 方便設定 SF Symbol 樣式的 variant</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SF Symbol 包含五花八門的圖案， iOS App 時常使用的圖案它都幫我們設計好了。不過使用 SF Symbol 時有個小小的麻煩，我們必須輸入它的名字，所以要先花時間查一下名字。
+</section>
+<section data-field="body" class="e-content">
+<section name="fd81" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8eb6" id="8eb6" class="graf graf--h3 graf--leading graf--title">iOS 15 方便設定 SF Symbol 樣式的 variant</h3><figure name="8751" id="8751" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*QK5rYgY2xb9lop39YE7eNw.png" data-width="1206" data-height="1036" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*QK5rYgY2xb9lop39YE7eNw.png"></figure><p name="ccb7" id="ccb7" class="graf graf--p graf-after--figure">SF Symbol 包含五花八門的圖案， iOS App 時常使用的圖案它都幫我們設計好了。不過使用 SF Symbol 時有個小小的麻煩，我們必須輸入它的名字，所以要先花時間查一下名字。</p><p name="2461" id="2461" class="graf graf--p graf-after--p">比方下圖的愛心圖案有多種樣式，雖然命名有一定的規則，我們手動輸入時還是有可能打錯。</p><figure name="e19a" id="e19a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*GXYNi8TCzpfkM7y5ZtUuOg.png" data-width="1634" data-height="958" src="https://cdn-images-1.medium.com/max/800/1*GXYNi8TCzpfkM7y5ZtUuOg.png"></figure><p name="db3f" id="db3f" class="graf graf--p graf-after--figure">從 iOS 15 開始，我們可以利用 variant 設定 SF Symbol 的樣式，比方圓形，方形，填滿，斜線等，再也不用手動輸入超長的圖片名字了</p><p name="ce76" id="ce76" class="graf graf--p graf-after--p">以剛剛的愛心為例，我們只要記得它的名字是 heart 就好。接下來讓我們瞧瞧 variant 在 SwiftUI &amp; UIKit 的設定方法。</p><h3 name="bc8e" id="bc8e" class="graf graf--h3 graf-after--p">SwiftUI</h3><p name="e7aa" id="e7aa" class="graf graf--p graf-after--h3">呼叫 symbolVariant，傳入型別 SymbolVariants 的參數控制樣式，在此我們傳入 .slash 產生斜線樣式。</p><pre name="6085" id="6085" class="graf graf--pre graf-after--p">Image(systemName: &quot;heart&quot;)<br>    .resizable()<br><strong class="markup--strong markup--pre-strong">    .symbolVariant(.slash)<br></strong>    .frame(width: 200, height: 200)</pre><figure name="2f23" id="2f23" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*yHRyopkv54cypXl34e4iTw.png" data-width="408" data-height="414" src="https://cdn-images-1.medium.com/max/800/1*yHRyopkv54cypXl34e4iTw.png"></figure><p name="0973" id="0973" class="graf graf--p graf-after--figure">從 .circle 得到圓形樣式後，接著讀取 fill，實現圓形填滿的樣式。</p><pre name="9413" id="9413" class="graf graf--pre graf-after--p">Image(systemName: &quot;heart&quot;)<br>    .resizable()<br><strong class="markup--strong markup--pre-strong">    .symbolVariant(.circle.fill)<br></strong>    .frame(width: 200, height: 200)</pre><figure name="cc85" id="cc85" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*xdflHj1GH-pHdtGwSo6Lwg.png" data-width="360" data-height="386" src="https://cdn-images-1.medium.com/max/800/1*xdflHj1GH-pHdtGwSo6Lwg.png"></figure><p name="83a8" id="83a8" class="graf graf--p graf-after--figure">圓形填滿並搭配斜線的樣式。</p><pre name="dcff" id="dcff" class="graf graf--pre graf-after--p">Image(systemName: &quot;heart&quot;)<br>    .resizable()<br><strong class="markup--strong markup--pre-strong">    .symbolVariant(.circle.fill.slash)<br></strong>    .frame(width: 200, height: 200)</pre><figure name="438d" id="438d" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*_Zs5_npecvx1JzzQqpVZ1g.png" data-width="264" data-height="240" src="https://cdn-images-1.medium.com/max/800/1*_Zs5_npecvx1JzzQqpVZ1g.png"></figure><p name="c495" id="c495" class="graf graf--p graf-after--figure">若是使用不存在的樣式，則會有以下幾種情況:</p><p name="f162" id="f162" class="graf graf--p graf-after--p">heart 沒有同時包含長方形和斜線的樣式，因此將顯示斜線的樣式。</p><pre name="4fc2" id="4fc2" class="graf graf--pre graf-after--p">Image(systemName: &quot;heart&quot;)<br>    .resizable()<br><strong class="markup--strong markup--pre-strong">    .symbolVariant(.rectangle.slash)<br></strong>    .frame(width: 200, height: 200)</pre><figure name="5f56" id="5f56" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*zFk7edejS8DcK5EfQOwvNw.png" data-width="280" data-height="278" src="https://cdn-images-1.medium.com/max/800/1*zFk7edejS8DcK5EfQOwvNw.png"></figure><p name="6585" id="6585" class="graf graf--p graf-after--figure">book 沒有長方形的樣式，因此將採用預設的 book 樣式。</p><pre name="e903" id="e903" class="graf graf--pre graf-after--p">Image(systemName: &quot;book&quot;)<br>    .resizable()<br><strong class="markup--strong markup--pre-strong">    .symbolVariant(.rectangle)<br></strong>    .frame(width: 200, height: 200)</pre><figure name="358f" id="358f" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*6aNBTGzoMfuXCPTDDIP7DA.png" data-width="280" data-height="262" src="https://cdn-images-1.medium.com/max/800/1*6aNBTGzoMfuXCPTDDIP7DA.png"></figure><h3 name="25ac" id="25ac" class="graf graf--h3 graf-after--figure">UIKit</h3><p name="4049" id="4049" class="graf graf--p graf-after--h3">產生 UIImage 時傳入型別 Variant 的參數控制樣式，在此我們傳入 .slash 產生斜線樣式。</p><pre name="41c3" id="41c3" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">let image = UIImage(systemName: &quot;heart&quot;, variant: .slash)<br></strong>let imageView = UIImageView(image: image)<br>imageView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)<br>view.addSubview(imageView)</pre><figure name="c63d" id="c63d" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*BOFGfDj8CLJQ6FOgfFKQrA.png" data-width="242" data-height="210" src="https://cdn-images-1.medium.com/max/800/1*BOFGfDj8CLJQ6FOgfFKQrA.png"></figure><p name="f0c3" id="f0c3" class="graf graf--p graf-after--figure">從 .circle 得到圓形樣式後，接著讀取 fill，實現圓形填滿的樣式。</p><pre name="e2ef" id="e2ef" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">let image = UIImage(systemName: &quot;heart&quot;, variant: .circle.fill)<br></strong>let imageView = UIImageView(image: image)<br>imageView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)<br>view.addSubview(imageView)</pre><figure name="d261" id="d261" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*WcQnD31xTOcdh5HycKTDSQ.png" data-width="200" data-height="186" src="https://cdn-images-1.medium.com/max/800/1*WcQnD31xTOcdh5HycKTDSQ.png"></figure><p name="3ff3" id="3ff3" class="graf graf--p graf-after--figure">圓形填滿並搭配斜線的樣式。</p><pre name="04d5" id="04d5" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">let image = UIImage(systemName: &quot;heart&quot;, variant: .circle.fill.slash)<br></strong>let imageView = UIImageView(image: image)<br>imageView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)<br>view.addSubview(imageView)</pre><figure name="8a37" id="8a37" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*yVhAH4tpTjbI8wiCQ8d1Cw.png" data-width="184" data-height="172" src="https://cdn-images-1.medium.com/max/800/1*yVhAH4tpTjbI8wiCQ8d1Cw.png"></figure><p name="947b" id="947b" class="graf graf--p graf-after--figure">若是使用不存在的樣式，圖片將無法顯示，比方以下的 heart 並沒有同時包含長方形和斜線的樣式。</p><pre name="6182" id="6182" class="graf graf--pre graf-after--p graf--trailing"><strong class="markup--strong markup--pre-strong">let image = UIImage(systemName: &quot;heart&quot;, variant: .rectangle.slash)<br></strong>let imageView = UIImageView(image: image)<br>imageView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)<br>view.addSubview(imageView)</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/92eac715c749"><time class="dt-published" datetime="2021-08-05T09:02:20.784Z">August 5, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/ios-15-%E6%96%B9%E4%BE%BF%E8%A8%AD%E5%AE%9A-sf-symbol-%E6%A8%A3%E5%BC%8F%E7%9A%84-variant-92eac715c749" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

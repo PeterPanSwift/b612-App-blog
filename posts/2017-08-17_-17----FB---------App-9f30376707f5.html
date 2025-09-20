@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#17 模仿 FB 超準的面相算命 App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#17 模仿 FB 超準的面相算命 App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+作業目的: 學習拍照和從相簿選照片，FB 登入，FB 分享，使用 UIAlertController, UIImagePickerControlelr, UIActivityViewController。
+</section>
+<section data-field="body" class="e-content">
+<section name="0ebd" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7451" id="7451" class="graf graf--h3 graf--leading graf--title">#17 模仿 FB 超準的面相算命 App</h3><p name="6c01" id="6c01" class="graf graf--p graf-after--h3">作業目的: 學習拍照和從相簿選照片，FB 登入，FB 分享，使用 UIAlertController, UIImagePickerControlelr, UIActivityViewController。</p><figure name="1caa" id="1caa" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*fs4-a9oWu433-P7WSxO9Jg.jpeg" data-width="960" data-height="1707" src="https://cdn-images-1.medium.com/max/800/1*fs4-a9oWu433-P7WSxO9Jg.jpeg"></figure><p name="5663" id="5663" class="graf graf--p graf-after--figure">簡單版: <br>利用 UIImagePickerController 自拍或選照片後算命，可搭配 action sheet 選擇要拍照還是從相簿選照片。</p><div name="9842" id="9842" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uiimagepickercontroller" data-href="https://developer.apple.com/documentation/uikit/uiimagepickercontroller" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiimagepickercontroller"><strong class="markup--strong markup--mixtapeEmbed-strong">UIImagePickerController - UIKit | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">When the user taps a button to pick a newly-captured or saved image or movie, or cancels the operation, dismiss the…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiimagepickercontroller" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="55b823c11c3e112a82004c72ffe364ec"></a></div><div name="a696" id="a696" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://developer.apple.com/documentation/uikit/uialertcontroller" data-href="https://developer.apple.com/documentation/uikit/uialertcontroller" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uialertcontroller"><strong class="markup--strong markup--mixtapeEmbed-strong">UIAlertController - UIKit | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">UIAlertController* alert = [UIAlertController alertControllerWithTitle:@&quot;My Alert&quot; message:@&quot;This is an alert.…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uialertcontroller" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="8d38dd19eeb4cef178a2691690f3672b"></a></div><p name="defb" id="defb" class="graf graf--p graf-after--mixtapeEmbed">進階版: <br>1. 將結果分享到 FB，利用 UIActivityViewController。</p><figure name="e6d8" id="e6d8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-JoO7JjpDKdC2lUaseaQLA.png" data-width="1010" data-height="1118" src="https://cdn-images-1.medium.com/max/800/1*-JoO7JjpDKdC2lUaseaQLA.png"></figure><div name="0ee7" id="0ee7" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/uikit/uiactivityviewcontroller" data-href="https://developer.apple.com/documentation/uikit/uiactivityviewcontroller" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiactivityviewcontroller"><strong class="markup--strong markup--mixtapeEmbed-strong">UIActivityViewController - UIKit | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Your app is responsible for configuring, presenting, and dismissing this view controller. Configuration for the view…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiactivityviewcontroller" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="73cf120b64a42e8266fbf163d1933cfd"></a></div><p name="74cb" id="74cb" class="graf graf--p graf-after--mixtapeEmbed">2. 利用 FB 登入，取得 FB 的照片和個人資料算命。</p><p name="44d9" id="44d9" class="graf graf--p graf-after--p">相關資源參考</p><p name="0531" id="0531" class="graf graf--p graf-after--p">App Development with Swift 的 Lesson 4.8 System View Controllers，介紹 UIAlertController, UIImagePickerControlelr, UIActivityViewController。</p><div name="2a46" id="2a46" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" data-href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11"><strong class="markup--strong markup--mixtapeEmbed-strong">App Development with Swift by Apple Education on iBooks</strong><br><em class="markup--em markup--mixtapeEmbed-em">Read a free sample or buy App Development with Swift by Apple Education. You can read this book with iBooks on your…</em>itunes.apple.com</a><a href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7657203ffb30b7a4c37ce544f41bec87" data-thumbnail-img-id="0*FrGIBAuuCwQ1Q4Ow." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*FrGIBAuuCwQ1Q4Ow.);"></a></div><p name="1008" id="1008" class="graf graf--p graf-after--mixtapeEmbed">算命題目:</p><div name="7308" id="7308" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://qoolquiz.com" data-href="https://qoolquiz.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://qoolquiz.com"><strong class="markup--strong markup--mixtapeEmbed-strong">Qool Quiz</strong><br><em class="markup--em markup--mixtapeEmbed-em">From //qoolquiz.com</em>qoolquiz.com</a><a href="https://qoolquiz.com" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="78cf1a4ad8296cd05ff7f35c12606c2d" data-thumbnail-img-id="0*ovMbbnXV6QQRTTXc." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*ovMbbnXV6QQRTTXc.);"></a></div></div></div></section><section name="bf18" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="fb74" id="fb74" class="graf graf--p graf--leading">作品集</p><div name="9be6" id="9be6" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E4%BD%9C%E6%A5%AD-6-11-%E6%8B%9B%E6%90%96%E6%92%9E%E9%A8%99app%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%BD%88-%E8%87%89%E9%83%A8%E4%BA%BA%E6%A0%BC%E5%88%86%E6%9E%90%E5%99%A8-f3b8c7547ec0" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E4%BD%9C%E6%A5%AD-6-11-%E6%8B%9B%E6%90%96%E6%92%9E%E9%A8%99app%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%BD%88-%E8%87%89%E9%83%A8%E4%BA%BA%E6%A0%BC%E5%88%86%E6%9E%90%E5%99%A8-f3b8c7547ec0" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E4%BD%9C%E6%A5%AD-6-11-%E6%8B%9B%E6%90%96%E6%92%9E%E9%A8%99app%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%BD%88-%E8%87%89%E9%83%A8%E4%BA%BA%E6%A0%BC%E5%88%86%E6%9E%90%E5%99%A8-f3b8c7547ec0"><strong class="markup--strong markup--mixtapeEmbed-strong">作業#6.11 — 招搖撞騙APP之第三彈：臉部人格分析器</strong><br><em class="markup--em markup--mixtapeEmbed-em">是的!越騙越大後就出現了第三彈!?仿照Facebook上的臉部人格分析器格式做練習。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E4%BD%9C%E6%A5%AD-6-11-%E6%8B%9B%E6%90%96%E6%92%9E%E9%A8%99app%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%BD%88-%E8%87%89%E9%83%A8%E4%BA%BA%E6%A0%BC%E5%88%86%E6%9E%90%E5%99%A8-f3b8c7547ec0" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="dbe2f9eab48a395bcdb2c82c41790676" data-thumbnail-img-id="1*O_mrsomO65o683hTpVwbBQ.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*O_mrsomO65o683hTpVwbBQ.jpeg);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9f30376707f5"><time class="dt-published" datetime="2017-08-17T04:12:58.201Z">August 17, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/17-%E6%A8%A1%E4%BB%BF-fb-%E8%B6%85%E6%BA%96%E7%9A%84%E9%9D%A2%E7%9B%B8%E7%AE%97%E5%91%BD-app-9f30376707f5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

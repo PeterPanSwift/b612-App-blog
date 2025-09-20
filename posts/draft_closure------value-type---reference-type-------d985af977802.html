@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>closure 裡使用到 value type &amp; reference type 資料的差異</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">closure 裡使用到 value type &amp; reference type 資料的差異</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+reference type
+</section>
+<section data-field="body" class="e-content">
+<section name="26a5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="82fa" id="82fa" class="graf graf--h3 graf--leading graf--title">closure 裡使用到 value type &amp; reference type 資料的差異</h3><p name="d63d" id="d63d" class="graf graf--p graf-after--h3">reference type</p><p name="6f54" id="6f54" class="graf graf--p graf--empty graf-after--p"><br></p><h3 name="e349" id="e349" class="graf graf--h3 graf-after--p">value type</h3><p name="42f3" id="42f3" class="graf graf--p graf-after--h3">預設會 reference 變數，所以會讀取到變數目前的內容。</p><p name="8727" id="8727" class="graf graf--p graf-after--p">使用 capture list，依據變數的內容複製一份。</p><p name="de18" id="de18" class="graf graf--p graf--empty graf-after--p"><br></p><div name="b3d5" id="b3d5" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://blog.bobthedeveloper.io/swift-capture-list-in-closures-e28282c71b95" data-href="https://blog.bobthedeveloper.io/swift-capture-list-in-closures-e28282c71b95" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://blog.bobthedeveloper.io/swift-capture-list-in-closures-e28282c71b95"><strong class="markup--strong markup--mixtapeEmbed-strong">Swift Capture List in Closures</strong><br><em class="markup--em markup--mixtapeEmbed-em">Closure is a reference type, so use [weak self] to prevent memory leak. Wait, what?</em>blog.bobthedeveloper.io</a><a href="https://blog.bobthedeveloper.io/swift-capture-list-in-closures-e28282c71b95" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="ff45cc38397e53916b5519f70550458d" data-thumbnail-img-id="1*Sb86RJ-DkJmeCdxIgt5g3g.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*Sb86RJ-DkJmeCdxIgt5g3g.png);"></a></div><p name="18bd" id="18bd" class="graf graf--p graf--empty graf-after--mixtapeEmbed"><br></p><div name="01e4" id="01e4" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://swiftsenpai.com/swift/can-you-answer-this-simple-swift-question-correctly/" data-href="https://swiftsenpai.com/swift/can-you-answer-this-simple-swift-question-correctly/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://swiftsenpai.com/swift/can-you-answer-this-simple-swift-question-correctly/"><strong class="markup--strong markup--mixtapeEmbed-strong">Can You Answer This Simple Swift Question Correctly? - Swift Senpai</strong><br><em class="markup--em markup--mixtapeEmbed-em">Few days ago, while I was scrolling through my Twitter feed, I stumble upon a simple Swift question. Surprisingly, out…</em>swiftsenpai.com</a><a href="https://swiftsenpai.com/swift/can-you-answer-this-simple-swift-question-correctly/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="81a904cafcdb4b03b84ee3935e9118f3" data-thumbnail-img-id="0*UCHMaT98FFllOkUW" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*UCHMaT98FFllOkUW);"></a></div><p name="a64f" id="a64f" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/d985af977802">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

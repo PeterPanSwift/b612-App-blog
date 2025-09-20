@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#9 使用 Pixabay API ＆ Dummy API 實現 IG，YouTube，TikTok 的短影音頁面 &amp; 留言頁面</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#9 使用 Pixabay API ＆ Dummy API 實現 IG，YouTube，TikTok 的短影音頁面 &amp; 留言頁面</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+短影片來源
+</section>
+<section data-field="body" class="e-content">
+<section name="5e15" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e996" id="e996" class="graf graf--h3 graf--leading graf--title">#9 使用 Pixabay API ＆ Dummy API 實現 IG，YouTube，TikTok 的短影音頁面 &amp; 留言頁面</h3><figure name="e798" id="e798" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*pcybZ2K3zAr-I-j_3q5OdQ.png" data-width="1832" data-height="1384" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*pcybZ2K3zAr-I-j_3q5OdQ.png"></figure><h3 name="b486" id="b486" class="graf graf--h3 graf-after--figure">短影片來源</h3><p name="37b4" id="37b4" class="graf graf--p graf-after--h3">pixabay API。</p><div name="dac7" id="dac7" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8A%93%E5%8F%96%E5%BD%B1%E7%89%87%E5%92%8C%E5%9C%96%E7%89%87%E7%9A%84-pixabay-api-5470d993bc" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8A%93%E5%8F%96%E5%BD%B1%E7%89%87%E5%92%8C%E5%9C%96%E7%89%87%E7%9A%84-pixabay-api-5470d993bc" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8A%93%E5%8F%96%E5%BD%B1%E7%89%87%E5%92%8C%E5%9C%96%E7%89%87%E7%9A%84-pixabay-api-5470d993bc"><strong class="markup--strong markup--mixtapeEmbed-strong">抓取影片和圖片的 pixabay API</strong><br><em class="markup--em markup--mixtapeEmbed-em">連到 pixabay 網站，註冊一個帳號</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8A%93%E5%8F%96%E5%BD%B1%E7%89%87%E5%92%8C%E5%9C%96%E7%89%87%E7%9A%84-pixabay-api-5470d993bc" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="76611a79ffc4d0c16fe4426383b3369f" data-thumbnail-img-id="1*tw7UWcBcJ37BGQ1mey1V1g.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*tw7UWcBcJ37BGQ1mey1V1g.png);"></a></div><h3 name="99de" id="99de" class="graf graf--h3 graf-after--mixtapeEmbed"><strong class="markup--strong markup--h3-strong">功能和畫面需求</strong></h3><ul class="postList"><li name="56f1" id="56f1" class="graf graf--li graf-after--h3">上下滑動切換影片，一頁顯示一個影片。</li><li name="6950" id="6950" class="graf graf--li graf-after--li">影片會自動播放。</li><li name="65d5" id="65d5" class="graf graf--li graf-after--li">影片播完會重覆播放。</li><li name="cd54" id="cd54" class="graf graf--li graf-after--li">點選可暫停 / 播放影片。</li><li name="9a64" id="9a64" class="graf graf--li graf-after--li">下方有 tab bar，切換到別的 tab 時暫停播放，回到影片的 tab 頁面時繼續播放。</li><li name="d322" id="d322" class="graf graf--li graf-after--li">分頁功能，比方先抓 20 筆資料，滑到底再抓下 20 筆資料。</li><li name="be29" id="be29" class="graf graf--li graf-after--li">右邊顯示一排按鈕，其中有一顆是顯示留言的按鈕。</li></ul><figure name="338a" id="338a" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*w0D2v4goIlmJ5pAJh2UIVA.jpeg" data-width="870" data-height="1884" src="https://cdn-images-1.medium.com/max/800/1*w0D2v4goIlmJ5pAJh2UIVA.jpeg"></figure><ul class="postList"><li name="bb98" id="bb98" class="graf graf--li graf-after--figure">點選留言按鈕後會顯示留言列表。</li></ul><p name="202f" id="202f" class="graf graf--p graf-after--li">可從 Dummy API 取得假的留言資料。</p><div name="30e9" id="30e9" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://dummyapi.io/docs/comment" data-href="https://dummyapi.io/docs/comment" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://dummyapi.io/docs/comment"><strong class="markup--strong markup--mixtapeEmbed-strong">Dummy API - Comment Data Controllers</strong><br><em class="markup--em markup--mixtapeEmbed-em">DummyAPI Rest documentation, Comment data controllers</em>dummyapi.io</a><a href="https://dummyapi.io/docs/comment" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="1b1b1f202a56a121e0a6c117213a1e0f"></a></div><figure name="ad21" id="ad21" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*YPcRObVFNqnu9WZVSWkIiA.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*YPcRObVFNqnu9WZVSWkIiA.png"></figure><ul class="postList"><li name="2c2f" id="2c2f" class="graf graf--li graf-after--figure">調整播放進度。</li></ul><figure name="8b54" id="8b54" class="graf graf--figure graf-after--li graf--trailing"><img class="graf-image" data-image-id="1*a51TvVT4XanZks4_9mrAbw.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*a51TvVT4XanZks4_9mrAbw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/1abb1a74bb27"><time class="dt-published" datetime="2022-05-09T14:36:39.832Z">May 9, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/9-%E4%BD%BF%E7%94%A8-tmdb-api-%E5%AF%A6%E7%8F%BE-ig-youtube-tiktok-%E7%9A%84%E7%9F%AD%E5%BD%B1%E9%9F%B3%E9%A0%81%E9%9D%A2-1abb1a74bb27" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

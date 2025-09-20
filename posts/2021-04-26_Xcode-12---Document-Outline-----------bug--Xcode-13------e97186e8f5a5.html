@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Xcode 12 在 Document Outline 調整元件階層的相反 bug (Xcode 13 已修正）</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Xcode 12 在 Document Outline 調整元件階層的相反 bug (Xcode 13 已修正）</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 storyboard 設計 App 畫面時，我們時常從 Document Outline 調整元件的階層，比方下圖的範例裡，greenPeter 可憐地被壓在底層，而 yellowPeter 在最上層。( 愈上層的元件會排在 Document Outline…
+</section>
+<section data-field="body" class="e-content">
+<section name="43f3" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b533" id="b533" class="graf graf--h3 graf--leading graf--title">Xcode 12 在 Document Outline 調整元件階層的相反 bug (Xcode 13 已修正）</h3><p name="ae9d" id="ae9d" class="graf graf--p graf-after--h3">從 storyboard 設計 App 畫面時，我們時常從 Document Outline 調整元件的階層，比方下圖的範例裡，greenPeter 可憐地被壓在底層，而 yellowPeter 在最上層。( 愈上層的元件會排在 Document Outline 樹狀圖的愈下面）</p><figure name="b3e1" id="b3e1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NhBwy2RjQv-JxVurSRPGdg.png" data-width="1378" data-height="948" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*NhBwy2RjQv-JxVurSRPGdg.png"></figure><p name="1105" id="1105" class="graf graf--p graf-after--figure">不過目前 Xcode 12 有個小小的 bug，所以拖曳時要記得以下特別的相反規則。</p><h3 name="04f3" id="04f3" class="graf graf--h3 graf-after--p">將 B 拖曳到 A 的下面，會變成在 A 的上面</h3><p name="20d3" id="20d3" class="graf graf--p graf-after--h3">以下我們分別以向上拖曳 &amp; 向下拖曳舉例說明。</p><h4 name="4dea" id="4dea" class="graf graf--h4 graf-after--p">向上拖曳時</h4><p name="84f8" id="84f8" class="graf graf--p graf-after--h4">我們想要 yellowPeter 在 bluePeter 的上面，想要由上而下是</p><ul class="postList"><li name="1f8d" id="1f8d" class="graf graf--li graf-after--p">greenPeter</li><li name="6509" id="6509" class="graf graf--li graf-after--li">redPeter</li><li name="11d6" id="11d6" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">yellowPeter</strong></li><li name="bdf5" id="bdf5" class="graf graf--li graf-after--li">bluePeter</li></ul><p name="a0ce" id="a0ce" class="graf graf--p graf-after--li">因此我們將 yellowPeter 向上拖曳時，要將它拖曳到 bluePeter 的下面，它才會出現在 bluePeter 的上面。</p><figure name="d45c" id="d45c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ttTdK0eE9gpWmIO0cQCsHQ.png" data-width="1480" data-height="1038" src="https://cdn-images-1.medium.com/max/800/1*ttTdK0eE9gpWmIO0cQCsHQ.png"></figure><figure name="50e3" id="50e3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*9yfkZXzT1-G9VoTq73ScaA.png" data-width="528" data-height="382" src="https://cdn-images-1.medium.com/max/800/1*9yfkZXzT1-G9VoTq73ScaA.png"></figure><figure name="472d" id="472d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*v0YzjJMvZlKJf0D04QgxWQ.png" data-width="1478" data-height="1060" src="https://cdn-images-1.medium.com/max/800/1*v0YzjJMvZlKJf0D04QgxWQ.png"></figure><h4 name="6eb9" id="6eb9" class="graf graf--h4 graf-after--figure">向下拖曳</h4><p name="1a45" id="1a45" class="graf graf--p graf-after--h4">我們想要 greenPeter 在 yellowPeter 的上面，想要由上而下是</p><ul class="postList"><li name="bbd4" id="bbd4" class="graf graf--li graf-after--p">redPeter</li><li name="058a" id="058a" class="graf graf--li graf-after--li">bluePeter</li><li name="6814" id="6814" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">greenPeter</strong></li><li name="2517" id="2517" class="graf graf--li graf-after--li">yellowPeter</li></ul><p name="aad7" id="aad7" class="graf graf--p graf-after--li">因此我們將 greenPeter 向下拖曳時，要將它拖曳到 yellowPeter 的下面，它才會出現在 yellowPeter 的上面。</p><figure name="ea12" id="ea12" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*u2B86AVPEOoXU4xRcvYa8A.png" data-width="1344" data-height="936" src="https://cdn-images-1.medium.com/max/800/1*u2B86AVPEOoXU4xRcvYa8A.png"></figure><figure name="0d3e" id="0d3e" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*9iMlCUeJaZQv54Dw2LRKIg.png" data-width="1088" data-height="766" src="https://cdn-images-1.medium.com/max/800/1*9iMlCUeJaZQv54Dw2LRKIg.png"></figure><figure name="8e7a" id="8e7a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*vmBjMbAmy963cCVbvW7yLw.png" data-width="1378" data-height="920" src="https://cdn-images-1.medium.com/max/800/1*vmBjMbAmy963cCVbvW7yLw.png"></figure><h4 name="097c" id="097c" class="graf graf--h4 graf-after--figure">將元件移到 Document Outline 樹狀圖的最下面</h4><p name="a6ef" id="a6ef" class="graf graf--p graf-after--h4">由於拖曳到 A 的下面，會變成在 A 的上面，所以若想將下圖的 greenPeter 移到 bluePeter 下面，我們需要兩個步驟。</p><figure name="7816" id="7816" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1WcNbwQLwdpK-AsYV-xnZQ.png" data-width="1372" data-height="944" src="https://cdn-images-1.medium.com/max/800/1*1WcNbwQLwdpK-AsYV-xnZQ.png"></figure><ul class="postList"><li name="8e62" id="8e62" class="graf graf--li graf-after--figure">將 greenPeter 移到 bluePeter 下面，讓 greenPeter 變成在 bluePeter 上面。</li></ul><figure name="fb34" id="fb34" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*IwjfdAI8XzQNOBOCtOiFhA.png" data-width="1352" data-height="892" src="https://cdn-images-1.medium.com/max/800/1*IwjfdAI8XzQNOBOCtOiFhA.png"></figure><ul class="postList"><li name="bca1" id="bca1" class="graf graf--li graf-after--figure">將 bluePeter 移到 greenPeter 下面，讓 bluePeter 變成在 greenPeter 上面。</li></ul><figure name="0202" id="0202" class="graf graf--figure graf-after--li graf--trailing"><img class="graf-image" data-image-id="1*Py4SQgz-aeiPZSnRkSKb1Q.png" data-width="1340" data-height="962" src="https://cdn-images-1.medium.com/max/800/1*Py4SQgz-aeiPZSnRkSKb1Q.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e97186e8f5a5"><time class="dt-published" datetime="2021-04-26T08:29:17.746Z">April 26, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%9C%A8-document-outline-%E8%AA%BF%E6%95%B4%E5%85%83%E4%BB%B6%E9%9A%8E%E5%B1%A4%E7%9A%84%E7%9B%B8%E5%8F%8D-bug-e97186e8f5a5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

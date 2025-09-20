@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 Xcode 寫程式時的長條輸入框</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 Xcode 寫程式時的長條輸入框</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們開發 iOS App，寫著 Swift 程式時，Xcode 時常會貼心地幫助我們，提供自動完成幫忙輸入長長的程式碼。
+</section>
+<section data-field="body" class="e-content">
+<section name="b472" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="19dd" id="19dd" class="graf graf--h3 graf--leading graf--title">在 Xcode 寫程式時的長條輸入框</h3><p name="e5a6" id="e5a6" class="graf graf--p graf-after--h3">當我們開發 iOS App，寫著 Swift 程式時，Xcode 時常會貼心地幫助我們，提供自動完成幫忙輸入長長的程式碼。</p><div name="4bc0" id="4bc0" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode%E7%9A%84swift%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%E8%AE%8A%E5%BE%97%E6%9B%B4%E5%BC%B7%E5%A4%A7%E4%BA%86-87e0ed1adf67" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode%E7%9A%84swift%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%E8%AE%8A%E5%BE%97%E6%9B%B4%E5%BC%B7%E5%A4%A7%E4%BA%86-87e0ed1adf67" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode%E7%9A%84swift%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%E8%AE%8A%E5%BE%97%E6%9B%B4%E5%BC%B7%E5%A4%A7%E4%BA%86-87e0ed1adf67"><strong class="markup--strong markup--mixtapeEmbed-strong">有讀心術的 Xcode 自動完成(Autocomplete)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Xcode 的自動完成十分方便，彷彿會讀心術般，輕易猜出我們想打的字。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode%E7%9A%84swift%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%E8%AE%8A%E5%BE%97%E6%9B%B4%E5%BC%B7%E5%A4%A7%E4%BA%86-87e0ed1adf67" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="10c4e9c161bf37d3be2280a26169f97e" data-thumbnail-img-id="1*WBTO88GKwQfF-C6Ghswziw.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*WBTO88GKwQfF-C6Ghswziw.jpeg);"></a></div><p name="a390" id="a390" class="graf graf--p graf-after--mixtapeEmbed">因為自動完成，我們時常會看到藍色和灰色的長方形輸入框。</p><p name="23bd" id="23bd" class="graf graf--p graf-after--p">比方以下例子，當我們呼叫 function print，按下 Enter 鍵後，將看到提示我們輸入資料的長條輸入框。</p><figure name="3c5a" id="3c5a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*HYmfGWla6pb_Vd3ud102MA.png" data-width="2058" data-height="962" src="https://cdn-images-1.medium.com/max/800/1*HYmfGWla6pb_Vd3ud102MA.png"></figure><figure name="6373" id="6373" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*YsJelj3FY4k1lRR9EXI5kQ.png" data-width="682" data-height="130" src="https://cdn-images-1.medium.com/max/800/1*YsJelj3FY4k1lRR9EXI5kQ.png"></figure><p name="4220" id="4220" class="graf graf--p graf-after--figure">請記得，長條輸入框裡的文字是提示文字，提醒我們要輸入的資料是哪種型別，就好像我們在 App 畫面上 ，常看到 text field 顯示提示我們要輸入什麼內容的灰色文字。比方以上例子，冒號右邊的 Any 表示我們可傳入任何型別的資料。</p><figure name="2e73" id="2e73" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yl885VWiUF7wvpWtpSZKkw.jpeg" data-width="542" data-height="170" src="https://cdn-images-1.medium.com/max/800/1*yl885VWiUF7wvpWtpSZKkw.jpeg"></figure><p name="be49" id="be49" class="graf graf--p graf-after--figure">有些人會因為長條輸入框裡的文字誤以為它已經有東西，而忘了輸入。千萬別，它可是會出現以下警告。(英文 placeholder 指的正是等著我們輸入資料的長條輸入框。)</p><figure name="5e9b" id="5e9b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Tstc7rxmHbLCxKOc1iLslw.png" data-width="1358" data-height="254" src="https://cdn-images-1.medium.com/max/800/1*Tstc7rxmHbLCxKOc1iLslw.png"></figure><pre name="7569" id="7569" class="graf graf--pre graf-after--figure">Editor placeholder in source file</pre><p name="134e" id="134e" class="graf graf--p graf-after--pre">當我們在長條輸入框輸入文字時，將如下圖所示，長條輸入框消失不見，被我們輸入的文字取代。</p><figure name="0c98" id="0c98" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*JMa-zOzV28fDLL0bV8MtFQ.png" data-width="880" data-height="664" src="https://cdn-images-1.medium.com/max/800/1*JMa-zOzV28fDLL0bV8MtFQ.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/1c63182debf6"><time class="dt-published" datetime="2018-04-20T06:04:54.087Z">April 20, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%9C%A8-xcode-%E5%AF%AB%E7%A8%8B%E5%BC%8F%E6%99%82%E7%9A%84%E8%97%8D%E8%89%B2%E5%92%8C%E7%81%B0%E8%89%B2%E8%BC%B8%E5%85%A5%E6%A1%86-1c63182debf6" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

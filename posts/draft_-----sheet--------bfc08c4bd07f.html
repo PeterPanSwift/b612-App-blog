@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用一個 sheet 顯示不同頁面</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用一個 sheet 顯示不同頁面</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="d8e9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8961" id="8961" class="graf graf--h3 graf--leading graf--title">利用一個 sheet 顯示不同頁面</h3><p name="c26e" id="c26e" class="graf graf--p graf--empty graf-after--h3"><br></p><pre name="fe4e" id="fe4e" class="graf graf--pre graf-after--p">enum Animal: Identifiable {<br>    case cat<br>    case dog<br>    var id: Self { self }<br>}</pre><pre name="44cc" id="44cc" class="graf graf--pre graf-after--pre">struct ContentView: View {<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var animal: Animal?<br>    <br>    var body: some View {<br>        VStack {<br>            Button(action: {<br>                animal = .cat<br>            }, label: {<br>                Text(&quot;Cat&quot;)<br>            })<br>            <br>            Button(action: {<br>                animal = .dog<br>            }, label: {<br>                Text(&quot;Dog&quot;)<br>            })<br>        }<br>        .sheet(item: $animal) { item in<br>            switch item {<br>            case .cat:<br>                CatView()<br>            case .dog:<br>                DogView()<br>            }<br>        }<br>        <br>    }<br>}</pre><div name="76eb" id="76eb" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/swiftui/text/sheet%28item:ondismiss:content:%29" data-href="https://developer.apple.com/documentation/swiftui/text/sheet(item:ondismiss:content:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/text/sheet(item:ondismiss:content:)"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/text/sheet%28item:ondismiss:content:%29" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="22fba0207fa152035889a458707426c6"></a></div><p name="01df" id="01df" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/bfc08c4bd07f">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

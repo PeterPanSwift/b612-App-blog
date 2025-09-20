@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Deinitialization 程式範例 — Apple’s The Swift Programming Language</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Deinitialization 程式範例 — Apple’s The Swift Programming Language</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Deinitializers in Action
+</section>
+<section data-field="body" class="e-content">
+<section name="7157" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3b89" id="3b89" class="graf graf--h3 graf--leading graf--title">Deinitialization 程式範例 — Apple’s The Swift Programming Language</h3><div name="cb4e" id="cb4e" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://docs.swift.org/swift-book/LanguageGuide/Deinitialization.html" data-href="https://docs.swift.org/swift-book/LanguageGuide/Deinitialization.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/LanguageGuide/Deinitialization.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Deinitialization - The Swift Programming Language (Swift 4.2)</strong><br><em class="markup--em markup--mixtapeEmbed-em">A deinitializer is called immediately before a class instance is deallocated. You write deinitializers with the…</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/LanguageGuide/Deinitialization.html" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="8b1d8f68e68830321fe7e3dde62069fd"></a></div><p name="2697" id="2697" class="graf graf--p graf-after--mixtapeEmbed"><strong class="markup--strong markup--p-strong">Deinitializers in Action</strong></p><p name="67fe" id="67fe" class="graf graf--p graf-after--p">在物件要死掉時，deinit 將被呼叫。</p><pre name="4c2f" id="4c2f" class="graf graf--pre graf-after--p">class Bank {</pre><pre name="b905" id="b905" class="graf graf--pre graf-after--pre">   static var coinsInBank = 10_000</pre><pre name="a660" id="a660" class="graf graf--pre graf-after--pre">   static func distribute(coins numberOfCoinsRequested: Int) -&gt; Int {</pre><pre name="9065" id="9065" class="graf graf--pre graf-after--pre">      let numberOfCoinsToVend = min(numberOfCoinsRequested, coinsInBank)</pre><pre name="3933" id="3933" class="graf graf--pre graf-after--pre">      coinsInBank -= numberOfCoinsToVend</pre><pre name="2e49" id="2e49" class="graf graf--pre graf-after--pre">      return numberOfCoinsToVend</pre><pre name="fba4" id="fba4" class="graf graf--pre graf-after--pre">   }</pre><pre name="a1c4" id="a1c4" class="graf graf--pre graf-after--pre">   static func receive(coins: Int) {</pre><pre name="d1ee" id="d1ee" class="graf graf--pre graf-after--pre">      coinsInBank += coins</pre><pre name="b266" id="b266" class="graf graf--pre graf-after--pre">   }</pre><pre name="8fc9" id="8fc9" class="graf graf--pre graf-after--pre">}</pre><pre name="4953" id="4953" class="graf graf--pre graf-after--pre">class Player {</pre><pre name="5566" id="5566" class="graf graf--pre graf-after--pre">   var coinsInPurse: Int</pre><pre name="4e70" id="4e70" class="graf graf--pre graf-after--pre">   init(coins: Int) {</pre><pre name="6cea" id="6cea" class="graf graf--pre graf-after--pre">      coinsInPurse = Bank.distribute(coins: coins) </pre><pre name="f6e3" id="f6e3" class="graf graf--pre graf-after--pre">   }</pre><pre name="895c" id="895c" class="graf graf--pre graf-after--pre">   func win(coins: Int) {</pre><pre name="a13a" id="a13a" class="graf graf--pre graf-after--pre">      coinsInPurse += Bank.distribute(coins: coins)</pre><pre name="cef9" id="cef9" class="graf graf--pre graf-after--pre">   }</pre><pre name="f450" id="f450" class="graf graf--pre graf-after--pre">   deinit {</pre><pre name="62fb" id="62fb" class="graf graf--pre graf-after--pre">       Bank.receive(coins: coinsInPurse)</pre><pre name="c859" id="c859" class="graf graf--pre graf-after--pre">   }</pre><pre name="35aa" id="35aa" class="graf graf--pre graf-after--pre">}</pre><pre name="a8b6" id="a8b6" class="graf graf--pre graf-after--pre">var playerOne: Player? = Player(coins: 100)</pre><pre name="a63d" id="a63d" class="graf graf--pre graf-after--pre">print(&quot;A new player has joined the game with \(playerOne!.coinsInPurse) coins&quot;)</pre><pre name="7919" id="7919" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Prints &quot;A new player has joined the game with 100 coins&quot;</em></pre><pre name="f93b" id="f93b" class="graf graf--pre graf-after--pre">print(&quot;There are now \(Bank.coinsInBank) coins left in the bank&quot;)</pre><pre name="370d" id="370d" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Prints &quot;There are now 9900 coins left in the bank&quot;</em></pre><pre name="087e" id="087e" class="graf graf--pre graf-after--pre">playerOne!.win(coins: 2_000)</pre><pre name="e798" id="e798" class="graf graf--pre graf-after--pre">print(&quot;PlayerOne won 2000 coins &amp; now has \(playerOne!.coinsInPurse) coins&quot;)</pre><pre name="df39" id="df39" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Prints &quot;PlayerOne won 2000 coins &amp; now has 2100 coins&quot;</em></pre><pre name="f081" id="f081" class="graf graf--pre graf-after--pre">print(&quot;The bank now only has \(Bank.coinsInBank) coins left&quot;)</pre><pre name="59c5" id="59c5" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Prints &quot;The bank now only has 7900 coins left&quot;</em></pre><pre name="678d" id="678d" class="graf graf--pre graf-after--pre">playerOne = nil</pre><pre name="f8be" id="f8be" class="graf graf--pre graf-after--pre">print(&quot;PlayerOne has left the game&quot;)</pre><pre name="da5b" id="da5b" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Prints &quot;PlayerOne has left the game&quot;</em></pre><pre name="9908" id="9908" class="graf graf--pre graf-after--pre">print(&quot;The bank now has \(Bank.coinsInBank) coins&quot;)</pre><pre name="1425" id="1425" class="graf graf--pre graf-after--pre graf--trailing"><em class="markup--em markup--pre-em">// Prints &quot;The bank now has 10000 coins&quot;</em></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/98f3d9b28e0a"><time class="dt-published" datetime="2018-09-17T12:47:43.882Z">September 17, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/deinitialization-%E7%A8%8B%E5%BC%8F%E7%AF%84%E4%BE%8B-apples-the-swift-programming-language-98f3d9b28e0a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

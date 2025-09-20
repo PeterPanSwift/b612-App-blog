@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 @escaping closures 加上 implicit self 的 Swift 5.3</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 @escaping closures 加上 implicit self 的 Swift 5.3</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，當我們遇到 @escaping closures 時，往往需要輸入煩人的 self，例如以下骰子亂數的例子:
+</section>
+<section data-field="body" class="e-content">
+<section name="809b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d42f" id="d42f" class="graf graf--h3 graf--leading graf--title">在 @escaping closures 加上 implicit self 的 Swift 5.3</h3><figure name="3eca" id="3eca" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*UC6ijPjaH0pyAEOV6bg7sA.jpeg" data-width="1684" data-height="1168" src="https://cdn-images-1.medium.com/max/800/1*UC6ijPjaH0pyAEOV6bg7sA.jpeg"></figure><p name="fc83" id="fc83" class="graf graf--p graf-after--figure">開發 iOS App 時，當我們遇到 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">@escaping closures</strong></code> ，在 closure 裡存取自己的 property 或 method 時必須輸入煩人的 self，例如以下骰子亂數的例子:</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="30e8" id="30e8" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> number <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br /><br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Button</span>(action: {<br />            number <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>.random(in: <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">6</span>)<br />        }) {<br />            <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;<span class="hljs-subst">\(number)</span>.circle&quot;</span>)<br />                .resizable()<br />                .scaledToFit()<br />        }<br />        .onAppear {<br />            number <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>.random(in: <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">6</span>)<br />        }<br />    }<br />}</span></pre><figure name="197a" id="197a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*jEFX4kyhRW-26SQ0exypKA.jpeg" data-width="478" data-height="812" src="https://cdn-images-1.medium.com/max/800/1*jEFX4kyhRW-26SQ0exypKA.jpeg"></figure><p name="f0dd" id="f0dd" class="graf graf--p graf-after--figure">Button init 的參數 action 有 @escaping， onAppear 的參數 action 是 optional，因此它們都是 @escaping closure，我們傳入的 closure 在存取自己的 property 或 mdthod 時都要加上 self，否則會產生錯誤。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="37b0" id="37b0" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">init</span>(<span class="hljs-params">action</span>: <span class="hljs-keyword">@escaping</span> () -&gt; <span class="hljs-type">Void</span>, <span class="hljs-meta">@ViewBuilder</span> <span class="hljs-params">label</span>: () -&gt; <span class="hljs-type">Label</span>)<br /><span class="hljs-keyword">func</span> <span class="hljs-title function_">onAppear</span>(<span class="hljs-params">perform</span> <span class="hljs-params">action</span>: (() -&gt; <span class="hljs-type">Void</span>)<span class="hljs-operator">?</span> <span class="hljs-operator">=</span> <span class="hljs-literal">nil</span>) -&gt; <span class="hljs-keyword">some</span> <span class="hljs-type">View</span></span></pre><figure name="4662" id="4662" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*RDNTbUKxVsDt9-TKBP4_bA.jpeg" data-width="1722" data-height="814" src="https://cdn-images-1.medium.com/max/800/1*RDNTbUKxVsDt9-TKBP4_bA.jpeg"></figure><div name="0ed5" id="0ed5" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AE%93-closure-%E5%9C%A8-function-%E5%A4%96%E7%B9%BC%E7%BA%8C%E4%BD%BF%E7%94%A8%E7%9A%84-escaping-40d50b17f75b" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AE%93-closure-%E5%9C%A8-function-%E5%A4%96%E7%B9%BC%E7%BA%8C%E4%BD%BF%E7%94%A8%E7%9A%84-escaping-40d50b17f75b" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AE%93-closure-%E5%9C%A8-function-%E5%A4%96%E7%B9%BC%E7%BA%8C%E4%BD%BF%E7%94%A8%E7%9A%84-escaping-40d50b17f75b"><strong class="markup--strong markup--mixtapeEmbed-strong">讓 closure 在 function 外繼續使用的 @escaping</strong><br><em class="markup--em markup--mixtapeEmbed-em">@escaping 是個讓 closure 在 function 外繼續使用的特別語法。它有點難懂，但你卻不能忽略，因為 iOS SDK 裡不少 function 的參數都加了…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AE%93-closure-%E5%9C%A8-function-%E5%A4%96%E7%B9%BC%E7%BA%8C%E4%BD%BF%E7%94%A8%E7%9A%84-escaping-40d50b17f75b" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d50ef5942aff583b42da27281a507bee" data-thumbnail-img-id="1*QnkVr6acfggHlR9EaoinQA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*QnkVr6acfggHlR9EaoinQA.jpeg);"></a></div><p name="1e81" id="1e81" class="graf graf--p graf-after--mixtapeEmbed">初學者常常因為忘了在 @escaping closures 加 self 而心煩。在 Swift 5.3，SE-0269 推出了貼心的 implicit self，我們終於可以鬆一口氣，大部分的時候我們都不用再為<strong class="markup--strong markup--p-strong"> </strong><code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">@escaping closures </strong></code>打一堆 self 了。</p><h3 name="3bee" id="3bee" class="graf graf--h3 graf-after--p">SE-0269 Increase availability of implicit self in @escaping closures</h3><div name="a97b" id="a97b" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://github.com/apple/swift-evolution/blob/master/proposals/0269-implicit-self-explicit-capture.md" data-href="https://github.com/apple/swift-evolution/blob/master/proposals/0269-implicit-self-explicit-capture.md" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/apple/swift-evolution/blob/master/proposals/0269-implicit-self-explicit-capture.md"><strong class="markup--strong markup--mixtapeEmbed-strong">apple/swift-evolution</strong><br><em class="markup--em markup--mixtapeEmbed-em">Modify the rule that all uses of self in escaping closures must be explicit by allowing for implicit uses of self in…</em>github.com</a><a href="https://github.com/apple/swift-evolution/blob/master/proposals/0269-implicit-self-explicit-capture.md" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="c49e140e4911ec88e8c1c68ac8702648" data-thumbnail-img-id="0*M1h8FCzFeArtKCZb" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*M1h8FCzFeArtKCZb);"></a></div><p name="1324" id="1324" class="graf graf--p graf-after--mixtapeEmbed">在 Swift 5.3，以下兩種情況我們不用在 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">@escaping closures</strong></code> 輸入 self。</p><h3 name="345b" id="345b" class="graf graf--h3 graf-after--p">當 self 是 value type</h3><p name="b1c3" id="b1c3" class="graf graf--p graf-after--h3">以剛剛的骰子亂數為例，由於 self 的型別 struct ContentView 是 value type，因此我們不用再輸入 self。對開發 SwiftUI App 來說，此設計十分貼心，因為 SwiftUI 的 view 通常以 struct 定義，因此我們可以少打很多 self。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="db3b" id="db3b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> number <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br /><br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Button</span>(action: {<br />            number <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>.random(in: <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">6</span>)<br />        }) {<br />            <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;<span class="hljs-subst">\(number)</span>.circle&quot;</span>)<br />                .resizable()<br />                .scaledToFit()<br />        }<br />        .onAppear {<br />            number <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>.random(in: <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">6</span>)<br />        }<br />    }<br />}</span></pre><h3 name="1357" id="1357" class="graf graf--h3 graf-after--pre">capture list 加入 self (沒有搭配 weak 時)</h3><p name="4c81" id="4c81" class="graf graf--p graf-after--h3">當 self 的 型別不是 value type 時，我們得自己加上 self，比方以下 self 的型別 class ViewController 是 reference type，沒加 self 會產生錯誤。</p><figure name="7a37" id="7a37" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*peRwjpCDCxufiay1RQ-uBQ.jpeg" data-width="1882" data-height="1098" src="https://cdn-images-1.medium.com/max/800/1*peRwjpCDCxufiay1RQ-uBQ.jpeg"></figure><p name="a95b" id="a95b" class="graf graf--p graf-after--figure">雖然還是要打 self，不過透過 capture list 的幫忙，我們可以只打一次 self。如上圖所示，此時有兩個 Fix，我們點選第二個 Fix，在 capture list 加入 self 。</p><pre name="5558" id="5558" class="graf graf--pre graf-after--p">Capture &#39;self&#39; explicitly to enable implicit &#39;self&#39; in this closure</pre><p name="5d27" id="5d27" class="graf graf--p graf-after--pre">加了 [self] 後，現在我們可在 closure 裡放心存取自己的 property &amp; method，不用再加 self 。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="abb9" id="abb9" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">DispatchQueue</span>.main.async { [<span class="hljs-keyword">self</span>] <span class="hljs-keyword">in</span><br />    imageView.image <span class="hljs-operator">=</span> image<br />}</span></pre><p name="f7ce" id="f7ce" class="graf graf--p graf-after--pre">不過有一點要特別注意，若是 capture list 的 self 搭配 weak，那麼在 closure 裡還是要乖乖加上 self。</p><figure name="8a72" id="8a72" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*HK07j_e1IF77lG95BXclCg.jpeg" data-width="1692" data-height="530" src="https://cdn-images-1.medium.com/max/800/1*HK07j_e1IF77lG95BXclCg.jpeg"></figure><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="10b1" id="10b1" class="graf graf--pre graf-after--figure graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-type">DispatchQueue</span>.main.async { [<span class="hljs-keyword">weak</span> <span class="hljs-keyword">self</span>] <span class="hljs-keyword">in</span><br />    <span class="hljs-keyword">self</span><span class="hljs-operator">?</span>.imageView.image <span class="hljs-operator">=</span> image<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/68ed73a50ade"><time class="dt-published" datetime="2020-03-29T11:23:39.458Z">March 29, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%9C%A8-escaping-closures-%E5%8A%A0%E4%B8%8A-implicit-self-%E7%9A%84-swift-5-3-68ed73a50ade" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

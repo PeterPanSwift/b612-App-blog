@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI 存取 UserDefaults 的 @AppStorage</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI 存取 UserDefaults 的 @AppStorage</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="4c35" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c88f" id="c88f" class="graf graf--h3 graf--leading graf--title">SwiftUI 存取 UserDefaults 的 @AppStorage</h3><p name="4a13" id="4a13" class="graf graf--p graf--empty graf-after--h3"><br></p><div name="3379" id="3379" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://www.hackingwithswift.com/quick-start/swiftui/what-is-the-appstorage-property-wrapper" data-href="https://www.hackingwithswift.com/quick-start/swiftui/what-is-the-appstorage-property-wrapper" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.hackingwithswift.com/quick-start/swiftui/what-is-the-appstorage-property-wrapper"><strong class="markup--strong markup--mixtapeEmbed-strong">What is the @AppStorage property wrapper?</strong><br><em class="markup--em markup--mixtapeEmbed-em">Paul Hudson @twostraws Updated for Xcode 12.0 New in iOS 14 SwiftUI has a dedicated property wrapper for reading values…</em>www.hackingwithswift.com</a><a href="https://www.hackingwithswift.com/quick-start/swiftui/what-is-the-appstorage-property-wrapper" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="835256c96f3f11e80b44918ec1c9ea72" data-thumbnail-img-id="0*qn2nnTNfD5eTaOeO" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*qn2nnTNfD5eTaOeO);"></a></div><div name="14ee" id="14ee" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://medium.com/better-programming/introducing-swiftuis-new-appstorage-stateobject-and-scenestorage-property-wrappers-db0df895bd3b" data-href="https://medium.com/better-programming/introducing-swiftuis-new-appstorage-stateobject-and-scenestorage-property-wrappers-db0df895bd3b" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/better-programming/introducing-swiftuis-new-appstorage-stateobject-and-scenestorage-property-wrappers-db0df895bd3b"><strong class="markup--strong markup--mixtapeEmbed-strong">Introducing SwiftUI’s New @AppStorage, @StateObject, and @SceneStorage Property Wrappers</strong><br><em class="markup--em markup--mixtapeEmbed-em">iOS 14 brings brand new property wrappers for persisting data in SwiftUI</em>medium.com</a><a href="https://medium.com/better-programming/introducing-swiftuis-new-appstorage-stateobject-and-scenestorage-property-wrappers-db0df895bd3b" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="bb592567bbb23231fac836770e1f124e" data-thumbnail-img-id="0*QAa_9487V4L7lwsC" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*QAa_9487V4L7lwsC);"></a></div><div name="b770" id="b770" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://swiftwithmajid.com/2020/06/29/new-property-wrappers-in-swiftui/" data-href="https://swiftwithmajid.com/2020/06/29/new-property-wrappers-in-swiftui/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://swiftwithmajid.com/2020/06/29/new-property-wrappers-in-swiftui/"><strong class="markup--strong markup--mixtapeEmbed-strong">New property wrappers in SwiftUI</strong><br><em class="markup--em markup--mixtapeEmbed-em">WWDC20 brought a lot of new features into SwiftUI that I will discuss on my blog during the next weeks. Today I would…</em>swiftwithmajid.com</a><a href="https://swiftwithmajid.com/2020/06/29/new-property-wrappers-in-swiftui/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f11579952e65a3221eed0c213884b413" data-thumbnail-img-id="0*YiqLU4LRNuJUPgSI" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*YiqLU4LRNuJUPgSI);"></a></div><p name="aae4" id="aae4" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/f0c2a5a44ae8">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

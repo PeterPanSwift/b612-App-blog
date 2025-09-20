@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>設定 auto layout 條件調整圖片的比例</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">設定 auto layout 條件調整圖片的比例</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當 auto layout 條件產生後，我們可以之後再修改它的 constant，比方應用在以下調整間距的例子。
+</section>
+<section data-field="body" class="e-content">
+<section name="17eb" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3681" id="3681" class="graf graf--h3 graf--leading graf--title">設定 auto layout 條件調整圖片的比例</h3><p name="455d" id="455d" class="graf graf--p graf-after--h3">當 auto layout 條件產生後，我們可以之後再修改它的 constant，比方應用在以下調整間距的例子。</p><figure name="0257" id="0257" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*e1wLR2_guiH5teUYogtWSQ.png" data-width="1354" data-height="1108" src="https://cdn-images-1.medium.com/max/800/1*e1wLR2_guiH5teUYogtWSQ.png"></figure><p name="daa7" id="daa7" class="graf graf--p graf-after--figure">Unilions 球衣捲線器原本垂直置中於 view，NSLayoutConstraint 的 constant 為 0。</p><figure name="f3c1" id="f3c1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9R_ubQRxz7HiJD7ALsUTxw.png" data-width="1374" data-height="1016" src="https://cdn-images-1.medium.com/max/800/1*9R_ubQRxz7HiJD7ALsUTxw.png"></figure><p name="7221" id="7221" class="graf graf--p graf-after--figure">我們可以連結垂直置中條件的 outlet，然後修改 NSLayoutConstraint 的 constant，讓圖片向下移動。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="40fa" id="40fa" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> imageCenterYConstraint: <span class="hljs-type">NSLayoutConstraint</span>!<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        imageCenterYConstraint.constant <span class="hljs-operator">=</span> <span class="hljs-number">100</span><br />    }<br />}</span></pre><figure name="6a4c" id="6a4c" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*5Sqp7iz7h183RDGd-OZpHA.png" data-width="1400" data-height="2700" src="https://cdn-images-1.medium.com/max/800/1*5Sqp7iz7h183RDGd-OZpHA.png"></figure><p name="d897" id="d897" class="graf graf--p graf-after--figure">不過 NSLayoutConstraint 的 multiplier 卻不能修改，因此我們無法將圖片比例 1:1 的條件連結 outlet 後修改。</p><figure name="d48f" id="d48f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*GaO5gvIF7yM7Rv4mQcuHZw.png" data-width="2250" data-height="1104" src="https://cdn-images-1.medium.com/max/800/1*GaO5gvIF7yM7Rv4mQcuHZw.png"></figure><p name="9c6d" id="9c6d" class="graf graf--p graf-after--figure">如下圖所示，修改 multiplier 將出現錯誤 <code class="markup--code markup--p-code">Cannot assign to property: ‘multiplier’ is a get-only property</code>。</p><figure name="ba14" id="ba14" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bLem9UuejDZifSExp7J5Kg.png" data-width="2594" data-height="1086" src="https://cdn-images-1.medium.com/max/800/1*bLem9UuejDZifSExp7J5Kg.png"></figure><p name="64ee" id="64ee" class="graf graf--p graf-after--figure">因此若想修改比例，我們必須取消原本的比例條件，然後再加入新的比例條件。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3bff" id="3bff" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">changeRatio</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">sender</span>: <span class="hljs-type">UISegmentedControl</span>) {<br />   imageRatioConstraint.isActive <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />   <span class="hljs-keyword">if</span> sender.selectedSegmentIndex <span class="hljs-operator">==</span> <span class="hljs-number">0</span> {<br />      imageRatioConstraint <span class="hljs-operator">=</span> imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: <span class="hljs-number">1</span>)<br />   } <span class="hljs-keyword">else</span> {<br />      imageRatioConstraint <span class="hljs-operator">=</span> imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: <span class="hljs-number">16</span> <span class="hljs-operator">/</span> <span class="hljs-number">9</span>)<br />   }<br />   imageRatioConstraint.isActive <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />}</span></pre><p name="c812" id="c812" class="graf graf--p graf-after--pre">說明</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="7798" id="7798" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">imageRatioConstraint.isActive <span class="hljs-operator">=</span> <span class="hljs-literal">false</span></span></pre><p name="9262" id="9262" class="graf graf--p graf-after--pre">取消移除原本的條件。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="21a1" id="21a1" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">if</span> sender.selectedSegmentIndex <span class="hljs-operator">==</span> <span class="hljs-number">0</span> {<br />   imageRatioConstraint <span class="hljs-operator">=</span> imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: <span class="hljs-number">1</span>)<br />} <span class="hljs-keyword">else</span> {<br />   imageRatioConstraint <span class="hljs-operator">=</span> imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: <span class="hljs-number">16</span> <span class="hljs-operator">/</span> <span class="hljs-number">9</span>)<br />}<br />imageRatioConstraint.isActive <span class="hljs-operator">=</span> <span class="hljs-literal">true</span></span></pre><p name="8283" id="8283" class="graf graf--p graf-after--pre">產生新的 NSLayoutConstraint，然後將 isActive 設為 true，讓條件生效。</p><p name="808f" id="808f" class="graf graf--p graf-after--p">結果</p><p name="3ea4" id="3ea4" class="graf graf--p graf-after--p">點選 segmented control 可切換圖片的比例。</p><figure name="581b" id="581b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LLXSVog2beRIFLMNTUz4Qw.png" data-width="1246" data-height="1198" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*LLXSVog2beRIFLMNTUz4Qw.png"></figure><h3 name="7d8f" id="7d8f" class="graf graf--h3 graf-after--figure">範例連結</h3><div name="8d3b" id="8d3b" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://github.com/AppPeterPan/ChangeImageRatio" data-href="https://github.com/AppPeterPan/ChangeImageRatio" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/AppPeterPan/ChangeImageRatio"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - AppPeterPan/ChangeImageRatio</strong><br><em class="markup--em markup--mixtapeEmbed-em">You can&#39;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or…</em>github.com</a><a href="https://github.com/AppPeterPan/ChangeImageRatio" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="822471d946e8c07222a5cecefc3913f2" data-thumbnail-img-id="0*tTp3JH0p1yP82J_V" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*tTp3JH0p1yP82J_V);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/fc48b78bca3d"><time class="dt-published" datetime="2022-04-23T12:52:08.497Z">April 23, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A8%AD%E5%AE%9A-auto-layout-%E6%A2%9D%E4%BB%B6%E8%AA%BF%E6%95%B4%E5%9C%96%E7%89%87%E7%9A%84%E6%AF%94%E4%BE%8B-fc48b78bca3d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

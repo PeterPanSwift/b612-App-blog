@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS 的 Device Size class 整理</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS 的 Device Size class 整理</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 iOS 的 size class，我們可以實現更彈性的 auto layout，讓 auto layout 的條件隨著不同的機型和方向改變。
+</section>
+<section data-field="body" class="e-content">
+<section name="75fe" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d45e" id="d45e" class="graf graf--h3 graf--leading graf--title">iOS 的 Device Size class 整理</h3><p name="db88" id="db88" class="graf graf--p graf-after--h3">利用 iOS size class 的 regular &amp; compact 分類，我們可以實現更彈性的 auto layout，讓 auto layout 的條件隨著不同的機型和方向改變。</p><p name="d7fa" id="d7fa" class="graf graf--p graf-after--p">Apple 的 iOS Human Interface Guidelines 提供了完整的 Device Size class 清單。</p><figure name="73c7" id="73c7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JL5dZ_-6dvxDWkgKcpeupg.png" data-width="804" data-height="404" src="https://cdn-images-1.medium.com/max/800/1*JL5dZ_-6dvxDWkgKcpeupg.png"></figure><figure name="b052" id="b052" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*8lJ3paZfrAkj3sD5Y5k0UA.png" data-width="782" data-height="1390" src="https://cdn-images-1.medium.com/max/800/1*8lJ3paZfrAkj3sD5Y5k0UA.png"></figure><div name="4b9e" id="4b9e" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/design/human-interface-guidelines/layout" data-href="https://developer.apple.com/design/human-interface-guidelines/layout" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/design/human-interface-guidelines/layout"><strong class="markup--strong markup--mixtapeEmbed-strong">Layout | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">A consistent layout that adapts to various contexts makes your experience more approachable and helps people enjoy…</em>developer.apple.com</a><a href="https://developer.apple.com/design/human-interface-guidelines/layout" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9348fb75d4b4eefb110b029957aadd37" data-thumbnail-img-id="0*ERptr9xKz-Lyf5da" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*ERptr9xKz-Lyf5da);"></a></div><p name="d524" id="d524" class="graf graf--p graf-after--mixtapeEmbed">因此我們可以依據 CR, RC, CC, RR 4 種 case 整理成以下表格。</p><p name="5327" id="5327" class="graf graf--p graf-after--p">ps: 不考慮 iPad 分割畫面(split view)</p><figure name="e31d" id="e31d" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*b1GbdBxUU8JKsKmAeqGfig.png" data-width="1916" data-height="926" src="https://cdn-images-1.medium.com/max/800/1*b1GbdBxUU8JKsKmAeqGfig.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/673b688eac8f"><time class="dt-published" datetime="2020-12-07T03:11:19.446Z">December 7, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/ios-%E7%9A%84-device-size-class-%E6%95%B4%E7%90%86-673b688eac8f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

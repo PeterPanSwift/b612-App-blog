@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Xcode 的模擬器不見了 !</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Xcode 的模擬器不見了 !</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+GitHub 上有許多大大們寫好的 iOS App 專案可以參考，不過有時可別高興地太早，有朋友反應他下載專案後無法執行，因為模擬器不見了 ！連一個都不留 ! 只看到 Any iOS Device。
+</section>
+<section data-field="body" class="e-content">
+<section name="aab8" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3e79" id="3e79" class="graf graf--h3 graf--leading graf--title">Xcode 的模擬器不見了 !</h3><p name="d3f6" id="d3f6" class="graf graf--p graf-after--h3">GitHub 上有許多大大們寫好的 iOS App 專案可以參考，不過有時可別高興地太早，有朋友反應他下載專案後無法執行，因為模擬器不見了 ！連一個都不留 ! 只看到 Any iOS Device。</p><figure name="5775" id="5775" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*itTaBOJ1G7H1L6O2ZtNLPQ.png" data-width="558" data-height="240" src="https://cdn-images-1.medium.com/max/800/1*itTaBOJ1G7H1L6O2ZtNLPQ.png"></figure><p name="5e1e" id="5e1e" class="graf graf--p graf-after--figure">其實問題出在你的 Xcode 版本比當初開發專案的 Xcode 舊，也就是你的 Xcode 過時了，只要更新 Xcode 即可解決。</p><p name="596d" id="596d" class="graf graf--p graf-after--p">不過如果你因為某些苦衷不能更新，還有另一個方法。你可以調整 App 支援的最低 iOS 版本，從 Development Info 區塊設定。如下圖所示，專案原本設定的版本是 11.2，但從下拉選單我們發現 Xcode 只支援到 11.0。</p><figure name="d534" id="d534" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*f_VVNuEYTPae9h4MxZncQw.png" data-width="499" data-height="201" src="https://cdn-images-1.medium.com/max/800/1*f_VVNuEYTPae9h4MxZncQw.png"></figure><p name="a381" id="a381" class="graf graf--p graf-after--figure">此時 Xcode 的模擬器將是 iOS 11.0，難怪我們看不到模擬器，因為 App 只能跑在 iOS 11.2 的模擬器。如下圖所示，從 Devices and Simulators 視窗，我們將發現模擬器很多，從 iPhone 5s 到最新的 iPhone X，只可惜它們的版本都是 iOS 11.0。</p><figure name="3f83" id="3f83" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kyLAusepYFNwYXR0d4U2QA.jpeg" data-width="714" data-height="520" src="https://cdn-images-1.medium.com/max/800/1*kyLAusepYFNwYXR0d4U2QA.jpeg"></figure><figure name="c8a3" id="c8a3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*MPV2Y_qP3QRkk3nx2M_bTw.png" data-width="1034" data-height="751" src="https://cdn-images-1.medium.com/max/800/1*MPV2Y_qP3QRkk3nx2M_bTw.png"></figure><p name="96f8" id="96f8" class="graf graf--p graf-after--figure">因此，只要切換到 App 的 General 頁面，將 Development info 下的 iOS 改為 11.0，我們即可看到模擬器清單，選擇喜歡的模擬器執行。</p><figure name="ce49" id="ce49" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*oa8pXY6eLjP2e-MC5YkpQg.png" data-width="1864" data-height="972" src="https://cdn-images-1.medium.com/max/800/1*oa8pXY6eLjP2e-MC5YkpQg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/25ed5eff5d92"><time class="dt-published" datetime="2017-12-29T14:18:26.924Z">December 29, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/xcode-%E7%9A%84%E6%A8%A1%E6%93%AC%E5%99%A8%E4%B8%8D%E8%A6%8B%E4%BA%86-25ed5eff5d92" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

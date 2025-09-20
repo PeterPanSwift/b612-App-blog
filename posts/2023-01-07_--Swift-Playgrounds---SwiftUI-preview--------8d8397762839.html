@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 Swift Playgrounds 的 SwiftUI preview 查看列印訊息</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 Swift Playgrounds 的 SwiftUI preview 查看列印訊息</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 Xcode 開發 SwiftUI App 時，我們可以方便地從 Canvas 操作 App 的 preview 畫面。不過很可惜，在 preview 無法看到列印的訊息，想看列印的訊息只能執行 App。
+</section>
+<section data-field="body" class="e-content">
+<section name="fdaf" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4b72" id="4b72" class="graf graf--h3 graf--leading graf--title">從 Swift Playgrounds 的 SwiftUI preview 查看列印訊息</h3><p name="e332" id="e332" class="graf graf--p graf-after--h3">從 Xcode 開發 SwiftUI App 時，我們可以方便地從 Canvas 操作 App 的 preview 畫面。不過很可惜，在 preview 無法看到列印的訊息，想看列印的訊息只能執行 App。</p><p name="f08e" id="f08e" class="graf graf--p graf-after--p">最近發現 Swift Playgrounds 雖然不像 Xcode 那麼強大，但它卻能在 preview 時顯示列印的訊息。</p><p name="e744" id="e744" class="graf graf--p graf-after--p">比方我們在 Swift Playgrounds 輸入以下程式，點擊骰子會更新骰子的圖片和印出骰子的點數。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4131" id="4131" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> number <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br /><br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;die.face.<span class="hljs-subst">\(number)</span>.fill&quot;</span>)<br />            .resizable()<br />            .scaledToFit()<br />            .padding()<br />            .onTapGesture {<br />                number <span class="hljs-operator">=</span> .random(in: <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">6</span>)<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;骰子點數是<span class="hljs-subst">\(number)</span>&quot;</span>)<br />            }<br />    }<br />}</span></pre><p name="2d36" id="2d36" class="graf graf--p graf-after--pre">此時最新列印的訊息會出現在下方。</p><figure name="42a8" id="42a8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*EpFKSxyiDB5JRzv-0wemlg.png" data-width="2334" data-height="1514" src="https://cdn-images-1.medium.com/max/800/1*EpFKSxyiDB5JRzv-0wemlg.png"></figure><p name="fb2d" id="fb2d" class="graf graf--p graf-after--figure">不過也別高興得太早，它只會出現一下子，幾秒後就會消失。</p><p name="5449" id="5449" class="graf graf--p graf-after--p">如果想看之前印出的訊息，可點選剛剛訊息左邊的按鈕，它是顯示 / 隱藏 Console 的開關。</p><figure name="0cb1" id="0cb1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ngJjpVWbH-_iOBmbmMfBXg.png" data-width="86" data-height="66" src="https://cdn-images-1.medium.com/max/800/1*ngJjpVWbH-_iOBmbmMfBXg.png"></figure><p name="7751" id="7751" class="graf graf--p graf-after--figure">從 Console 視窗可看到曾經印出的訊息。</p><figure name="e9e5" id="e9e5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1lfI7azk--Z2vlUudV01PA.png" data-width="1100" data-height="412" src="https://cdn-images-1.medium.com/max/800/1*1lfI7azk--Z2vlUudV01PA.png"></figure><p name="5f35" id="5f35" class="graf graf--p graf-after--figure">如果覺得訊息太多，我們也可以清除之前列印的訊息，從 Console 視窗按出右鍵選單，然後點選 Clear Console。</p><figure name="05da" id="05da" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*Dip0rEmyJ-UfAZho_phaCA.png" data-width="1080" data-height="410" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Dip0rEmyJ-UfAZho_phaCA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8d8397762839"><time class="dt-published" datetime="2023-01-07T08:43:33.919Z">January 7, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-swift-playgrounds-%E7%9A%84-swiftui-preview-%E6%9F%A5%E7%9C%8B%E5%88%97%E5%8D%B0%E8%A8%8A%E6%81%AF-8d8397762839" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

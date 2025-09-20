@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 sheet 顯示下一頁</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 sheet 顯示下一頁</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+sheet(isPresented:onDismiss:content:)
+</section>
+<section data-field="body" class="e-content">
+<section name="05aa" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="19c1" id="19c1" class="graf graf--h3 graf--leading graf--title">利用 sheet 顯示下一頁</h3><p name="f6ec" id="f6ec" class="graf graf--p graf-after--h3">sheet(isPresented:onDismiss:content:)</p><pre name="640a" id="640a" class="graf graf--pre graf-after--p">HStack {</pre><pre name="8db0" id="8db0" class="graf graf--pre graf-after--pre">Text(&quot;\(flight.airline) \(flight.number)&quot;)</pre><pre name="e70b" id="e70b" class="graf graf--pre graf-after--pre">.frame(width: 120, alignment: .leading)</pre><pre name="fde4" id="fde4" class="graf graf--pre graf-after--pre">Text(flight.otherAirport).frame(alignment: .leading)</pre><pre name="aba7" id="aba7" class="graf graf--pre graf-after--pre">Spacer()</pre><pre name="35ae" id="35ae" class="graf graf--pre graf-after--pre">Text(flight.flightStatus).frame(alignment: .trailing)</pre><pre name="b6f8" id="b6f8" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// 2</em></pre><pre name="1fd3" id="1fd3" class="graf graf--pre graf-after--pre">}.sheet(isPresented: $isPresented, onDismiss: {</pre><pre name="72d3" id="72d3" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// 3</em></pre><pre name="b17b" id="b17b" class="graf graf--pre graf-after--pre">print(&quot;Modal dismissed. State now: \(<strong class="markup--strong markup--pre-strong">self</strong>.isPresented)&quot;)</pre><pre name="1813" id="1813" class="graf graf--pre graf-after--pre">}) {</pre><pre name="cabe" id="cabe" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// 4</em></pre><pre name="e572" id="e572" class="graf graf--pre graf-after--pre">FlightBoardInformation(flight: <strong class="markup--strong markup--pre-strong">self</strong>.flight, showModal: <strong class="markup--strong markup--pre-strong">self</strong>.$isPresented)</pre><pre name="279d" id="279d" class="graf graf--pre graf-after--pre">}</pre><h3 name="f889" id="f889" class="graf graf--h3 graf-after--pre">返回前一頁</h3><pre name="b800" id="b800" class="graf graf--pre graf-after--h3"><strong class="markup--strong markup--pre-strong">struct</strong> FlightBoardInformation: View {</pre><pre name="92ad" id="92ad" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">var</strong> flight: FlightInformation</pre><pre name="5334" id="5334" class="graf graf--pre graf-after--pre">@Binding <strong class="markup--strong markup--pre-strong">var</strong> showModal: Bool</pre><pre name="e9b9" id="e9b9" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">var</strong> body: <strong class="markup--strong markup--pre-strong">some</strong> View {</pre><pre name="37ce" id="37ce" class="graf graf--pre graf-after--pre">VStack(alignment: .leading) {</pre><pre name="9cf4" id="9cf4" class="graf graf--pre graf-after--pre">HStack{</pre><pre name="199e" id="199e" class="graf graf--pre graf-after--pre">Text(&quot;\(flight.airline) Flight \(flight.number)&quot;)</pre><pre name="93a2" id="93a2" class="graf graf--pre graf-after--pre">.font(.largeTitle)</pre><pre name="cc93" id="cc93" class="graf graf--pre graf-after--pre">Spacer()</pre><pre name="ffd2" id="ffd2" class="graf graf--pre graf-after--pre">Button(&quot;Done&quot;) {</pre><pre name="2ee4" id="2ee4" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">self</strong>.showModal = <strong class="markup--strong markup--pre-strong">false</strong></pre><pre name="01bd" id="01bd" class="graf graf--pre graf-after--pre">}</pre><pre name="d637" id="d637" class="graf graf--pre graf-after--pre">}</pre><p name="3874" id="3874" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/e48685d73cbf">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

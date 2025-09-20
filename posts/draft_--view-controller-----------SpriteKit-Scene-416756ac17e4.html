@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 view controller 裡加入顯示遊戲畫的 SpriteKit Scene</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 view controller 裡加入顯示遊戲畫的 SpriteKit Scene</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 遊戲時，我們時常使用附檔名 sks 的 SpriteKit Scene 設計遊戲畫面。
+</section>
+<section data-field="body" class="e-content">
+<section name="a0c2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="02d4" id="02d4" class="graf graf--h3 graf--leading graf--title">在 view controller 裡加入顯示遊戲畫的 SpriteKit Scene</h3><p name="53bb" id="53bb" class="graf graf--p graf-after--h3">開發 iOS App 遊戲時，我們時常使用附檔名 sks 的 SpriteKit Scene 設計遊戲畫面。</p><h3 name="3b91" id="3b91" class="graf graf--h3 graf-after--p">建立新專案</h3><figure name="b95b" id="b95b" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*X1yJQDCtDZR8_nnpntct_g.png" data-width="2014" data-height="1508" src="https://cdn-images-1.medium.com/max/800/1*X1yJQDCtDZR8_nnpntct_g.png"></figure><h3 name="d365" id="d365" class="graf graf--h3 graf-after--figure">將 controller 的 view 類別改成 SKView</h3><figure name="c86f" id="c86f" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*U9D7ycPYsVS6RQYDDyiNsQ.png" data-width="550" data-height="374" src="https://cdn-images-1.medium.com/max/800/1*U9D7ycPYsVS6RQYDDyiNsQ.png"></figure><figure name="74d3" id="74d3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*wpKKOEPO8Aim1wDQ7NNoHA.png" data-width="520" data-height="274" src="https://cdn-images-1.medium.com/max/800/1*wpKKOEPO8Aim1wDQ7NNoHA.png"></figure><h3 name="8e16" id="8e16" class="graf graf--h3 graf-after--figure">新增設計遊戲畫面的 SpriteKit Scene (sks)</h3><figure name="42c5" id="42c5" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*nH1UxfTkL3SXqkxJ1jd7aw.png" data-width="1434" data-height="1026" src="https://cdn-images-1.medium.com/max/800/1*nH1UxfTkL3SXqkxJ1jd7aw.png"></figure><figure name="a102" id="a102" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*NcO1zXsbVcRAKz9SDX73gA.png" data-width="1606" data-height="938" src="https://cdn-images-1.medium.com/max/800/1*NcO1zXsbVcRAKz9SDX73gA.png"></figure><p name="d8c0" id="d8c0" class="graf graf--p graf-after--figure">SceneKit Scene File 的附檔名是 sks。</p><figure name="5e76" id="5e76" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*b2KVPIsjqLs7Xh90jBni6A.png" data-width="2784" data-height="1530" src="https://cdn-images-1.medium.com/max/800/1*b2KVPIsjqLs7Xh90jBni6A.png"></figure><h3 name="fac1" id="fac1" class="graf graf--h3 graf-after--figure">自訂繼承 SKScene 的類別</h3><p name="e349" id="e349" class="graf graf--p graf-after--h3">SKScene 負責呈現遊戲的畫面，因此我們自訂繼承 SKScene 的類別 GameScene，之後可以在 GameScene 裡撰寫遊戲的功能。</p><figure name="68bd" id="68bd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NhfJJbYQI1QjwzSIgzGuTQ.png" data-width="1430" data-height="1022" src="https://cdn-images-1.medium.com/max/800/1*NhfJJbYQI1QjwzSIgzGuTQ.png"></figure><pre name="655e" id="655e" class="graf graf--pre graf-after--figure">import SpriteKit</pre><pre name="7851" id="7851" class="graf graf--pre graf-after--pre">class GameScene: SKScene {</pre><pre name="024f" id="024f" class="graf graf--pre graf-after--pre">}</pre><h3 name="b27d" id="b27d" class="graf graf--h3 graf-after--pre">將 sks 檔的 scene 物件類別從 SKScene 改成 GameScene</h3><figure name="a621" id="a621" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*YPdT0AdlWAG9WjRL7a9gGw.png" data-width="1118" data-height="392" src="https://cdn-images-1.medium.com/max/800/1*YPdT0AdlWAG9WjRL7a9gGw.png"></figure><figure name="0913" id="0913" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*m55-9pI5HjSqDtCTQ0Xe5Q.png" data-width="524" data-height="260" src="https://cdn-images-1.medium.com/max/800/1*m55-9pI5HjSqDtCTQ0Xe5Q.png"></figure><h3 name="1a12" id="1a12" class="graf graf--h3 graf-after--figure">顯示 scene</h3><pre name="7a69" id="7a69" class="graf graf--pre graf-after--h3">import UIKit<br>import GameplayKit</pre><pre name="38b6" id="38b6" class="graf graf--pre graf-after--pre">class ViewController: UIViewController {<br>    <br>    override func viewDidLoad() {<br>        super.viewDidLoad()<br>        // Do any additional setup after loading the view.<br>        <br>        if let scene = GKScene(fileNamed: &quot;GameScene&quot;),<br>           let sceneNode = scene.rootNode as? GameScene {<br>            <br>            sceneNode.scaleMode = .aspectFill<br>            <br>            if let view = self.view as! SKView? {<br>                view.presentScene(sceneNode)<br>            }<br>        }<br>        <br>    }<br>    <br>}</pre><p name="a5a6" id="a5a6" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/416756ac17e4">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

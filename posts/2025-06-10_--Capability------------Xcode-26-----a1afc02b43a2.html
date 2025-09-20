@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 Capability 設定權限請求訊息 — Xcode 26 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 Capability 設定權限請求訊息 — Xcode 26 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當 iOS App 用到某些私密功能時，必須先跳出訊息徵求使用者同意。在 Xcode 26 我們可以更方便地從 Capability 設定權限請求訊息。
+</section>
+<section data-field="body" class="e-content">
+<section name="e3e1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e582" id="e582" class="graf graf--h3 graf--leading graf--title">從 Capability 設定權限請求訊息 — Xcode 26 新功能</h3><p name="977c" id="977c" class="graf graf--p graf-after--h3">當 iOS App 用到某些私密功能時，必須先跳出訊息徵求使用者同意。在 Xcode 26 我們可以更方便地從 Capability 設定權限請求訊息。</p><p name="26a6" id="26a6" class="graf graf--p graf-after--p">以下彼得潘以拍照為例，說明如何從 Capability 設定存取相機的請求訊息。</p><p name="9c5d" id="9c5d" class="graf graf--p graf-after--p">首先我們在專案加入叫出相機的程式</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="67eb" id="67eb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> imagePickerController <span class="hljs-operator">=</span> <span class="hljs-type">UIImagePickerController</span>()<br />imagePickerController.sourceType <span class="hljs-operator">=</span> .camera<br />present(imagePickerController, animated: <span class="hljs-literal">true</span>)</span></pre><p name="28a2" id="28a2" class="graf graf--p graf-after--pre">接著打開 Add Capability 視窗。</p><ul class="postList"><li name="ecd9" id="ecd9" class="graf graf--li graf-after--p">方法 1: 從 Quick Actions 點選。</li></ul><figure name="d239" id="d239" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*q7nej7TbbFAfhBILAL5kaA.png" data-width="1164" data-height="240" src="https://cdn-images-1.medium.com/max/800/1*q7nej7TbbFAfhBILAL5kaA.png"></figure><ul class="postList"><li name="ee98" id="ee98" class="graf graf--li graf-after--figure">方法 2: 點選下圖框框的 + Capability。</li></ul><figure name="ca99" id="ca99" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*0OakSxYC71iMvmX1RRvUyw.png" data-width="1666" data-height="474" src="https://cdn-images-1.medium.com/max/800/1*0OakSxYC71iMvmX1RRvUyw.png"></figure><p name="8110" id="8110" class="graf graf--p graf-after--figure">搜尋 cam 後點選 Camera。</p><figure name="08f5" id="08f5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eALWhXl1elcaNXi3IcmPXA.png" data-width="1726" data-height="1158" src="https://cdn-images-1.medium.com/max/800/1*eALWhXl1elcaNXi3IcmPXA.png"></figure><p name="b899" id="b899" class="graf graf--p graf-after--figure">Signing &amp; Capabilities 頁面長出 Camera 區塊。</p><figure name="8075" id="8075" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*MU6J4I_BLqhkaZIjto57Ig.png" data-width="2498" data-height="1048" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*MU6J4I_BLqhkaZIjto57Ig.png"></figure><p name="5de0" id="5de0" class="graf graf--p graf-after--figure">在 Camera 框框輸入請求權限的文字訊息。</p><figure name="da55" id="da55" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-OURpa-7p6rb7aOfP3JMkg.png" data-width="2156" data-height="358" src="https://cdn-images-1.medium.com/max/800/1*-OURpa-7p6rb7aOfP3JMkg.png"></figure><p name="8697" id="8697" class="graf graf--p graf-after--figure">設定好後從 Info 頁面也可看到 Xcode 幫我們加入的相機存取權限 Privacy — Camera Usage Description。</p><figure name="1ca1" id="1ca1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gtHcqvPM7WMKtLLIRJjY0A.png" data-width="2226" data-height="722" src="https://cdn-images-1.medium.com/max/800/1*gtHcqvPM7WMKtLLIRJjY0A.png"></figure><p name="7d4e" id="7d4e" class="graf graf--p graf-after--figure">測試 App，成功在初次叫出相機時顯示權限請求訊息。</p><figure name="ae47" id="ae47" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6SKrpIH77XCcn0swnUb3og.png" data-width="1320" data-height="2868" src="https://cdn-images-1.medium.com/max/800/1*6SKrpIH77XCcn0swnUb3og.png"></figure><p name="9ab8" id="9ab8" class="graf graf--p graf-after--figure">若是不小心忘了設定請求訊息，當 App 顯示相機造成閃退時，Xcode 也能幫我們修復呢。</p><p name="1d2e" id="1d2e" class="graf graf--p graf-after--p">如下圖所示，閃退時點選紅色錯誤，點擊 Add NSCameraUsageDescription 旁的 Add。</p><figure name="d9d0" id="d9d0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hlMWnFCTTVOSXNZ_hTaP5w.png" data-width="1586" data-height="368" src="https://cdn-images-1.medium.com/max/800/1*hlMWnFCTTVOSXNZ_hTaP5w.png"></figure><p name="9963" id="9963" class="graf graf--p graf-after--figure">Xcode 自動在 Signing &amp; Capabilities 頁面加入 Camera 區塊，此時我們再輸入請求訊息即可修正問題。</p><figure name="c9ae" id="c9ae" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JBmpbMudV_jtYa9wOsKBbg.png" data-width="2504" data-height="1028" src="https://cdn-images-1.medium.com/max/800/1*JBmpbMudV_jtYa9wOsKBbg.png"></figure><figure name="92bd" id="92bd" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*-OURpa-7p6rb7aOfP3JMkg.png" data-width="2156" data-height="358" src="https://cdn-images-1.medium.com/max/800/1*-OURpa-7p6rb7aOfP3JMkg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/a1afc02b43a2"><time class="dt-published" datetime="2025-06-10T06:06:09.531Z">June 10, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-capability-%E8%A8%AD%E5%AE%9A%E6%AC%8A%E9%99%90%E8%AB%8B%E6%B1%82%E8%A8%8A%E6%81%AF-xcode-26-%E6%96%B0%E5%8A%9F%E8%83%BD-a1afc02b43a2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

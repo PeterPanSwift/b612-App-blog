@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS 15 的 Pull Down Button &amp; Pull Up Button</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS 15 的 Pull Down Button &amp; Pull Up Button</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Toggle Button
+</section>
+<section data-field="body" class="e-content">
+<section name="3234" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2b2f" id="2b2f" class="graf graf--h3 graf--leading graf--title">iOS 15 的 Pull Down Button &amp; Pull Up Button</h3><p name="3dd3" id="3dd3" class="graf graf--p graf--empty graf-after--h3"><br></p><h3 name="8ea9" id="8ea9" class="graf graf--h3 graf-after--p">Toggle Button</h3><pre name="5f37" id="5f37" class="graf graf--pre graf-after--h3">class ViewController: UIViewController {<br>    var button: UIButton!</pre><pre name="b210" id="b210" class="graf graf--pre graf-after--pre">override func viewDidAppear(_ animated: Bool) {<br>        super.viewDidAppear(animated)<br>        print(self.view.safeAreaInsets.top)<br>        print(self.view.safeAreaLayoutGuide.layoutFrame.width)<br>           }<br>    override func viewDidLoad() {<br>        super.viewDidLoad()<br>        // Do any additional setup after loading the view.</pre><pre name="eb02" id="eb02" class="graf graf--pre graf-after--pre">// UIAction setup<br>        let stockToggleAction = UIAction(title: &quot;In Stock Only&quot;) { action in<br>            print(self.button.isSelected)<br>        }</pre><pre name="0e62" id="0e62" class="graf graf--pre graf-after--pre">// The button<br>        button = UIButton(primaryAction: stockToggleAction)</pre><pre name="e6f5" id="e6f5" class="graf graf--pre graf-after--pre">button.changesSelectionAsPrimaryAction = true</pre><pre name="d8e7" id="d8e7" class="graf graf--pre graf-after--pre">// Initial state<br>        //button.isSelected = true<br>        <br>        button.frame = CGRect(x: 100, y: 100, width: 100, height: 100)<br>        button.setTitle(&quot;test&quot;, for: UIControl.State.normal)<br>        button.setTitleColor(.red, for: UIControl.State.normal)<br>        view.addSubview(button)</pre><p name="a8df" id="a8df" class="graf graf--p graf--empty graf-after--pre"><br></p><p name="7dbd" id="7dbd" class="graf graf--p graf--empty graf-after--p"><br></p><pre name="93f7" id="93f7" class="graf graf--pre graf-after--p">// Create the Sign In button</pre><pre name="9f1a" id="9f1a" class="graf graf--pre graf-after--pre">let signInButton = UIButton(type: .system)<br>signInButton.configuration = .filled()<br>signInButton.setTitle(&quot;Sign In&quot;, for: [])</pre><p name="5dbc" id="5dbc" class="graf graf--p graf-after--pre">dd</p><pre name="3fa6" id="3fa6" class="graf graf--pre graf-after--p">// Create the Add to Cart button</pre><pre name="48c3" id="48c3" class="graf graf--pre graf-after--pre">var config = UIButton.Configuration.tinted()<br>config.title = &quot;Add to Cart&quot;<br>config.image = UIImage(systemName: &quot;cart.badge.plus&quot;)<br>config.imagePlacement = .trailing<br>addToCartButton = UIButton(configuration: config,<br>                           primaryAction: …)</pre><p name="7cde" id="7cde" class="graf graf--p graf-after--pre">dd</p><pre name="57f0" id="57f0" class="graf graf--pre graf-after--p">// Create the Add to Cart button</pre><pre name="538b" id="538b" class="graf graf--pre graf-after--pre">var config = UIButton.Configuration.tinted()<br>config.title = &quot;Add to Cart&quot;<br>config.image = UIImage(systemName: &quot;cart.badge.plus&quot;)<br>config.imagePlacement = .trailing<br>addToCartButton = UIButton(configuration: config,<br>                           primaryAction: …)</pre><p name="4458" id="4458" class="graf graf--p graf-after--pre">dd</p><pre name="8949" id="8949" class="graf graf--pre graf-after--p">// Customize image and subtitle with a configurationUpdateHandler</pre><pre name="3c5d" id="3c5d" class="graf graf--pre graf-after--pre">addToCartButton.configurationUpdateHandler = {<br>    [unowned self] button in</pre><pre name="3c52" id="3c52" class="graf graf--pre graf-after--pre">var config = button.configuration<br>    config?.image = button.isHighlighted<br>        ? UIImage(systemName: &quot;cart.fill.badge.plus&quot;)<br>        : UIImage(systemName: &quot;cart.badge.plus&quot;)<br>    config?.subtitle = self.itemQuantityDescription<br>    button.configuration = config<br>}</pre><pre name="ca55" id="ca55" class="graf graf--pre graf--empty graf-after--pre"><br></pre><p name="21f2" id="21f2" class="graf graf--p graf-after--pre">ss</p><pre name="f284" id="f284" class="graf graf--pre graf-after--p">// Update addToCartButton when itemQuantityDescription changes</pre><pre name="b3e2" id="b3e2" class="graf graf--pre graf-after--pre">private var itemQuantityDescription: String? {<br>    didSet {<br>        addToCartButton.setNeedsUpdateConfiguration()<br>    }<br>}</pre><figure name="1f14" id="1f14" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*DBTGQfhVTCnzjgY7BbEkbQ.png" data-width="1372" data-height="676" src="https://cdn-images-1.medium.com/max/800/1*DBTGQfhVTCnzjgY7BbEkbQ.png"></figure><figure name="388e" id="388e" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*n1cRt3Kd1tb3HZjDMKWFwg.png" data-width="1760" data-height="1412" src="https://cdn-images-1.medium.com/max/800/1*n1cRt3Kd1tb3HZjDMKWFwg.png"></figure><figure name="0d60" id="0d60" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*qRDlLWg4WMyyCmYxUg-vTw.png" data-width="1420" data-height="1398" src="https://cdn-images-1.medium.com/max/800/1*qRDlLWg4WMyyCmYxUg-vTw.png"></figure><figure name="9929" id="9929" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*paSNp4gcJnh2ssKymAOlNQ.png" data-width="1422" data-height="752" src="https://cdn-images-1.medium.com/max/800/1*paSNp4gcJnh2ssKymAOlNQ.png"></figure><pre name="dc6f" id="dc6f" class="graf graf--pre graf-after--figure">// Configure the button background</pre><pre name="b0b2" id="b0b2" class="graf graf--pre graf-after--pre">var config = UIButton.Configuration.filled()<br>config.buttonSize = .large<br>config.image = UIImage(systemName: &quot;cart.fill&quot;)<br>config.title = &quot;Checkout&quot;<br>config.background.backgroundColor = .buttonEmporium</pre><pre name="c73b" id="c73b" class="graf graf--pre graf-after--pre">let checkoutButton = UIButton(configuration: config<br>                              primaryAction: …) <br>addToCartButton.configurationUpdateHandler = {<br>    [unowned self] button in</pre><pre name="ca56" id="ca56" class="graf graf--pre graf-after--pre">var config = button.configuration<br>    config?.showsActivityIndicator = self.isCartBusy<br>    button.configuration = config<br>}</pre><p name="ae19" id="ae19" class="graf graf--p graf-after--pre">UIBarButtonItem</p><figure name="d37e" id="d37e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hgCzaceTC_xTbW0kVEcErg.png" data-width="1592" data-height="264" src="https://cdn-images-1.medium.com/max/800/1*hgCzaceTC_xTbW0kVEcErg.png"></figure><pre name="7c3d" id="7c3d" class="graf graf--pre graf-after--figure">// Toggle button</pre><pre name="5d48" id="5d48" class="graf graf--pre graf-after--pre">// UIAction setup<br>let stockToggleAction = UIAction(title: &quot;In Stock Only&quot;) { _ in<br>    toggleStock()<br>}</pre><pre name="1399" id="1399" class="graf graf--pre graf-after--pre">// The button<br>let button = UIButton(primaryAction: stockToggleAction)</pre><pre name="20b3" id="20b3" class="graf graf--pre graf-after--pre">button.changesSelectionAsPrimaryAction = true</pre><pre name="4f22" id="4f22" class="graf graf--pre graf-after--pre">// Initial state<br>button.isSelected = showingOnlyInStock()</pre><p name="9244" id="9244" class="graf graf--p graf-after--pre">dd</p><pre name="93a4" id="93a4" class="graf graf--pre graf-after--p">// Pop-up button</pre><pre name="9e35" id="9e35" class="graf graf--pre graf-after--pre">let colorClosure = { (action: UIAction) in<br>    updateColor(action.title)<br>}</pre><pre name="6b75" id="6b75" class="graf graf--pre graf-after--pre">let button = UIButton(primaryAction: nil)</pre><pre name="5327" id="5327" class="graf graf--pre graf-after--pre">button.menu = UIMenu(children: [<br>    UIAction(title: &quot;Bondi Blue&quot;, handler: colorClosure),<br>    UIAction(title: &quot;Flower Power&quot;, state: .on, handler: colorClosure)<br>])</pre><pre name="4add" id="4add" class="graf graf--pre graf-after--pre">button.showsMenuAsPrimaryAction = true</pre><pre name="e9d7" id="e9d7" class="graf graf--pre graf-after--pre">button.changesSelectionAsPrimaryAction = true</pre><pre name="9753" id="9753" class="graf graf--pre graf-after--pre">// Update to the currently set one<br>updateColor(button.menu?.selectedElements.first?.title)</pre><pre name="dd7c" id="dd7c" class="graf graf--pre graf-after--pre">// Update the selection<br>(button.menu?.children[selectedColorIndex()] as? UIAction)?.state = .on</pre><figure name="c631" id="c631" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*WLH6Vi0vlDXqqQ-xHWYF3w.png" data-width="1812" data-height="1176" src="https://cdn-images-1.medium.com/max/800/1*WLH6Vi0vlDXqqQ-xHWYF3w.png"></figure><p name="43ed" id="43ed" class="graf graf--p graf--empty graf-after--figure"><br></p><p name="2600" id="2600" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/7f8ec5c1fcac">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

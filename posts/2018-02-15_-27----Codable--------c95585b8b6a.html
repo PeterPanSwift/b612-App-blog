@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#27 利用 Codable 儲存過年紅包</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#27 利用 Codable 儲存過年紅包</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+目的: 學習將自訂型別的資料存檔，存在 Documents 下，運用 Codable, PropertyListEncoder，PropertyListDecoder。
+</section>
+<section data-field="body" class="e-content">
+<section name="48f0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--fullWidth"><figure name="0feb" id="0feb" class="graf graf--figure graf--layoutFillWidth graf--leading"><img class="graf-image" data-image-id="1*dDcc5EVir99XmctYjjswHg.jpeg" data-width="1192" data-height="860" src="https://cdn-images-1.medium.com/max/2560/1*dDcc5EVir99XmctYjjswHg.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="5bcd" id="5bcd" class="graf graf--h3 graf-after--figure graf--title">#27 利用 Codable 儲存過年紅包</h3><p name="5173" id="5173" class="graf graf--p graf-after--h3">目的: 學習將自訂型別的資料存檔，存在 Documents 下，運用 Codable, PropertyListEncoder，PropertyListDecoder。</p><p name="60d9" id="60d9" class="graf graf--p graf-after--p">製作過年紅包 App，記錄別人給的紅包，和發給別人的紅包，方便未來研究分析，決定明年要包給對方多大的紅包。</p><p name="2833" id="2833" class="graf graf--p graf-after--p">參考資料</p><p name="4960" id="4960" class="graf graf--p graf-after--p">App Development with Swift 的 4.1 Protocols，4.7 Saving Data</p><div name="e27e" id="e27e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" data-href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11"><strong class="markup--strong markup--mixtapeEmbed-strong">App Development with Swift by Apple Education on iBooks</strong><br><em class="markup--em markup--mixtapeEmbed-em">Read a free sample or buy App Development with Swift by Apple Education. You can read this book with iBooks on your…</em>itunes.apple.com</a><a href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7657203ffb30b7a4c37ce544f41bec87" data-thumbnail-img-id="0*vh8vT19_ojrvlIJK." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*vh8vT19_ojrvlIJK.);"></a></div><p name="a9c2" id="a9c2" class="graf graf--p graf-after--mixtapeEmbed">4.7 的 Lab 範例，Emoji App</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="adfd" id="adfd" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*42nziur5_2CMl3Zjqr4NXg.jpeg" data-width="1090" data-height="1928" src="https://cdn-images-1.medium.com/max/600/1*42nziur5_2CMl3Zjqr4NXg.jpeg"></figure><figure name="1966" id="1966" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*JSMBlv4-HOZ9TktwIT8UHw.jpeg" data-width="1090" data-height="1928" src="https://cdn-images-1.medium.com/max/600/1*JSMBlv4-HOZ9TktwIT8UHw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><pre name="3f32" id="3f32" class="graf graf--pre graf-after--figure">import Foundation</pre><pre name="bee3" id="bee3" class="graf graf--pre graf-after--pre">struct Emoji: Codable {</pre><pre name="4c52" id="4c52" class="graf graf--pre graf-after--pre">   var symbol: String</pre><pre name="0af4" id="0af4" class="graf graf--pre graf-after--pre">   var name: String</pre><pre name="0e8b" id="0e8b" class="graf graf--pre graf-after--pre">   var detailDescription: String</pre><pre name="f94a" id="f94a" class="graf graf--pre graf-after--pre">   var usage: String</pre><pre name="4c01" id="4c01" class="graf graf--pre graf-after--pre">   static let DocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!</pre><pre name="e359" id="e359" class="graf graf--pre graf-after--pre">   static let ArchiveURL = DocumentsDirectory.appendingPathComponent(&quot;emojis&quot;).appendingPathExtension(&quot;plist&quot;)</pre><pre name="3742" id="3742" class="graf graf--pre graf-after--pre">   static func loadFromFile() -&gt; [Emoji]?  {</pre><pre name="4a21" id="4a21" class="graf graf--pre graf-after--pre">      guard let codedEmojis = try? Data(contentsOf: ArchiveURL) else {return nil}</pre><pre name="89d7" id="89d7" class="graf graf--pre graf-after--pre">      let decoder = PropertyListDecoder()</pre><pre name="f83b" id="f83b" class="graf graf--pre graf-after--pre">      return try? decoder.decode(Array&lt;Emoji&gt;.self, from: codedEmojis)</pre><pre name="9ec7" id="9ec7" class="graf graf--pre graf-after--pre">   }<br><br></pre><pre name="639b" id="639b" class="graf graf--pre graf-after--pre">   static func saveToFile(emojis: [Emoji]) {</pre><pre name="25ea" id="25ea" class="graf graf--pre graf-after--pre">      let encoder = PropertyListEncoder()</pre><pre name="f79a" id="f79a" class="graf graf--pre graf-after--pre">      let codedEmojis = try? encoder.encode(emojis)</pre><pre name="ae43" id="ae43" class="graf graf--pre graf-after--pre">      try? codedEmojis?.write(to: ArchiveURL, options: .noFileProtection)</pre><pre name="ca49" id="ca49" class="graf graf--pre graf-after--pre">   }</pre><pre name="417e" id="417e" class="graf graf--pre graf-after--pre graf--trailing">}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c95585b8b6a"><time class="dt-published" datetime="2018-02-15T09:56:25.988Z">February 15, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/27-%E5%88%A9%E7%94%A8-codable-%E8%A3%BD%E4%BD%9C%E9%81%8E%E5%B9%B4%E7%B4%85%E5%8C%85-app-c95585b8b6a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

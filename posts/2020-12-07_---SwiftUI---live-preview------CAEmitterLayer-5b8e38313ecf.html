@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 SwiftUI 的 live preview 即時預覽 CAEmitterLayer</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 SwiftUI 的 live preview 即時預覽 CAEmitterLayer</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 CAEmitterLayer 我們可以發射粒子(particle)，產生常見的下雪，下雨，火焰，煙火等動畫。不過為了製作生動的動畫效果，我們時常要不斷調整程式，然後啟動模擬器測試。
+</section>
+<section data-field="body" class="e-content">
+<section name="7b70" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0dcc" id="0dcc" class="graf graf--h3 graf--leading graf--title">使用 SwiftUI 的 live preview 即時預覽 CAEmitterLayer</h3><p name="025d" id="025d" class="graf graf--p graf-after--h3">利用 CAEmitterLayer 我們可以發射粒子(particle)，產生常見的下雪，下雨，火焰，煙火等動畫。不過為了製作生動的動畫效果，我們時常要不斷調整程式，然後啟動模擬器測試。</p><div name="9543" id="9543" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-caemitterlayer-%E8%A3%BD%E4%BD%9C-xmas-%E7%9A%84%E4%B8%8B%E9%9B%AA%E5%8B%95%E7%95%AB-ee5f7cae621e" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-caemitterlayer-%E8%A3%BD%E4%BD%9C-xmas-%E7%9A%84%E4%B8%8B%E9%9B%AA%E5%8B%95%E7%95%AB-ee5f7cae621e" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-caemitterlayer-%E8%A3%BD%E4%BD%9C-xmas-%E7%9A%84%E4%B8%8B%E9%9B%AA%E5%8B%95%E7%95%AB-ee5f7cae621e"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 CAEmitterLayer 製作 Xmas 的下雪動畫</strong><br><em class="markup--em markup--mixtapeEmbed-em">利用 CAEmitterLayer 我們可以發射粒子(particle)，產生常見的下雪，下雨，火焰，煙火等動畫。最近 Christmas 快到了，彼得潘每天都在聽著 Let it…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-caemitterlayer-%E8%A3%BD%E4%BD%9C-xmas-%E7%9A%84%E4%B8%8B%E9%9B%AA%E5%8B%95%E7%95%AB-ee5f7cae621e" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a1edf132a6d2acfb4a7e844f18ed9ca2" data-thumbnail-img-id="1*TVZdRxZoQHV-FRTM2WuZ6Q.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*TVZdRxZoQHV-FRTM2WuZ6Q.jpeg);"></a></div><p name="c8e6" id="c8e6" class="graf graf--p graf-after--mixtapeEmbed">有沒有更快的方法呢? 當然有，我們可以透過 SwiftUI 強大的 live preview 即時預覽 CAEmitterLayer 產生的動畫效果。接下來就讓我們一步步實現吧。</p><h3 name="ebcc" id="ebcc" class="graf graf--h3 graf-after--p">建立 storyboard App 專案，在 ViewController.swift 貼上以下程式</h3><p name="f94a" id="f94a" class="graf graf--p graf-after--h3">將 ViewController.swift 原本的程式刪除，貼上以下程式。以下程式將利用 SwiftUI 幫我們預覽 CAEmitterLayer 製作的畫面。此次作業的重點在CAEmitterLayer，所以不懂 SwiftUI 沒關係。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="7fe1" id="7fe1" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-comment">// Do any additional setup after loading the view</span><br />    }<br />    <br />    <br />}<br /><br />#<span class="hljs-type">Preview</span> {<br />    <span class="hljs-type">ViewController</span>()<br />}</span></pre><h3 name="e453" id="e453" class="graf graf--h3 graf-after--pre">預覽 App 畫面</h3><p name="62fb" id="62fb" class="graf graf--p graf-after--h3">加入 SwiftUI 相關程式後，我們可在右邊看到 App 的預覽畫面。</p><figure name="c9e6" id="c9e6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Wux0tSLcK1Aqr6rNwIIDeA.png" data-width="2660" data-height="1668" src="https://cdn-images-1.medium.com/max/800/1*Wux0tSLcK1Aqr6rNwIIDeA.png"></figure><p name="89c5" id="89c5" class="graf graf--p graf-after--figure">若是沒看到預覽畫面，請參考以下連結打開 Canvas。</p><div name="9e56" id="9e56" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swiftui-%E7%9A%84-preview-%E4%B8%8D%E8%A6%8B%E4%BA%86-%E8%AB%8B%E6%89%93%E9%96%8B-canvas-cfc321068aa0" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swiftui-%E7%9A%84-preview-%E4%B8%8D%E8%A6%8B%E4%BA%86-%E8%AB%8B%E6%89%93%E9%96%8B-canvas-cfc321068aa0" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swiftui-%E7%9A%84-preview-%E4%B8%8D%E8%A6%8B%E4%BA%86-%E8%AB%8B%E6%89%93%E9%96%8B-canvas-cfc321068aa0"><strong class="markup--strong markup--mixtapeEmbed-strong">SwiftUI 的 preview 不見了? 請打開 Canvas</strong><br><em class="markup--em markup--mixtapeEmbed-em">使用 SwiftUI 開發 iOS App 有許多開心的事，其中彼得潘覺得最開心的，莫過於可以在 preview 看到並操作程式的預覽畫面。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swiftui-%E7%9A%84-preview-%E4%B8%8D%E8%A6%8B%E4%BA%86-%E8%AB%8B%E6%89%93%E9%96%8B-canvas-cfc321068aa0" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="5cbcf139a3c519661fa7c971f377e00c" data-thumbnail-img-id="1*VOhso95SXEobkjGZcbwSUw.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*VOhso95SXEobkjGZcbwSUw.png);"></a></div><h3 name="1953" id="1953" class="graf graf--h3 graf-after--mixtapeEmbed">利用 CAEmitterLayer 製作 Xmas 的下雪動畫</h3><p name="d1eb" id="d1eb" class="graf graf--p graf-after--h3">參考以下連結的說明，在 function viewDidLoad 利用 CAEmitterLayer 製作 Xmas 的下雪動畫。</p><div name="be88" id="be88" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-caemitterlayer-%E8%A3%BD%E4%BD%9C-xmas-%E7%9A%84%E4%B8%8B%E9%9B%AA%E5%8B%95%E7%95%AB-ee5f7cae621e" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-caemitterlayer-%E8%A3%BD%E4%BD%9C-xmas-%E7%9A%84%E4%B8%8B%E9%9B%AA%E5%8B%95%E7%95%AB-ee5f7cae621e" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-caemitterlayer-%E8%A3%BD%E4%BD%9C-xmas-%E7%9A%84%E4%B8%8B%E9%9B%AA%E5%8B%95%E7%95%AB-ee5f7cae621e"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 CAEmitterLayer 製作 Xmas 的下雪動畫</strong><br><em class="markup--em markup--mixtapeEmbed-em">利用 CAEmitterLayer 我們可以發射粒子(particle)，產生常見的下雪，下雨，火焰，煙火等動畫。最近 Christmas 快到了，彼得潘每天都在聽著 Let it…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-caemitterlayer-%E8%A3%BD%E4%BD%9C-xmas-%E7%9A%84%E4%B8%8B%E9%9B%AA%E5%8B%95%E7%95%AB-ee5f7cae621e" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a1edf132a6d2acfb4a7e844f18ed9ca2" data-thumbnail-img-id="1*TVZdRxZoQHV-FRTM2WuZ6Q.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*TVZdRxZoQHV-FRTM2WuZ6Q.jpeg);"></a></div><p name="424f" id="424f" class="graf graf--p graf-after--mixtapeEmbed">Cool，由於 SwiftUI 強大的 live preview 功能，當我們一邊修改程式時，動畫效果也會立即更新呢 !</p><figure name="f612" id="f612" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*eKQT9k4VU6Wv42Vb5XYx_A.png" data-width="2672" data-height="1652" src="https://cdn-images-1.medium.com/max/800/1*eKQT9k4VU6Wv42Vb5XYx_A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5b8e38313ecf"><time class="dt-published" datetime="2020-12-07T10:43:38.308Z">December 7, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-caemitterlayer-5b8e38313ecf" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

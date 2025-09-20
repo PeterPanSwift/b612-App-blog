@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#5 iTunes Store App 的搜尋結果 &amp; 電影排行榜</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#5 iTunes Store App 的搜尋結果 &amp; 電影排行榜</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+接 iTunes Store API &amp; RSS Feed 產生器的熱門電影 JSON，實作 iTunes Store App 的搜尋結果頁面 &amp; 電影排行榜。
+</section>
+<section data-field="body" class="e-content">
+<section name="322e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1be7" id="1be7" class="graf graf--h3 graf--leading graf--title">#5 iTunes Store App 的搜尋結果 &amp; 電影排行榜</h3><p name="f8c2" id="f8c2" class="graf graf--p graf-after--h3">串接 iTunes Store API &amp; RSS Feed 產生器的熱門電影 JSON，實作 iTunes Store App 的搜尋結果頁面 &amp; 電影排行榜。</p><div name="86c9" id="86c9" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://apps.apple.com/us/app/itunes-store/id915061235" data-href="https://apps.apple.com/us/app/itunes-store/id915061235" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://apps.apple.com/us/app/itunes-store/id915061235"><strong class="markup--strong markup--mixtapeEmbed-strong">‎iTunes Store</strong><br><em class="markup--em markup--mixtapeEmbed-em">‎All the entertainment you can handle. Music, movies, TV, and more. From new releases to hot indies and all-time…</em>apps.apple.com</a><a href="https://apps.apple.com/us/app/itunes-store/id915061235" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="19c3ba49aaed243e99b510f99253dbc4" data-thumbnail-img-id="0*26j5jdEu9EX8rvJ4" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*26j5jdEu9EX8rvJ4);"></a></div><h3 name="cf20" id="cf20" class="graf graf--h3 graf-after--mixtapeEmbed">功能和畫面需求</h3><h4 name="69a8" id="69a8" class="graf graf--h4 graf-after--h3">搜尋結果頁面</h4><ul class="postList"><li name="bcb0" id="bcb0" class="graf graf--li graf-after--h4">輸入搜尋的文字，顯示相關的內容。</li><li name="7836" id="7836" class="graf graf--li graf-after--li">從 segmented control 切換分類。</li></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"></ul><figure name="c25b" id="c25b" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--li" style="width: 50%;"><img class="graf-image" data-image-id="1*SHO3VMniIARisikH3TdYYA.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/600/1*SHO3VMniIARisikH3TdYYA.png"></figure><figure name="3299" id="3299" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*L3gJqO7y0RzFewAxzMVn9w.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/600/1*L3gJqO7y0RzFewAxzMVn9w.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="5e2d" id="5e2d" class="graf graf--p graf-after--figure">透過 iTunes Store API 抓資料。</p><pre name="0e2f" id="0e2f" class="graf graf--pre graf-after--p"><a href="https://itunes.apple.com/search?term=" data-href="https://itunes.apple.com/search?term=" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://itunes.apple.com/search?term=</a>蜘蛛人&amp;country=TW</pre><div name="18b4" id="18b4" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/" data-href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/"><strong class="markup--strong markup--mixtapeEmbed-strong">iTunes Store API</strong><br><em class="markup--em markup--mixtapeEmbed-em">Overview The Search API allows you to place search fields in your website to search for content within the iTunes Store…</em>affiliate.itunes.apple.com</a><a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="bbff1443dc8d9046720bc6d0e2e15a83" data-thumbnail-img-id="0*sM4Vzh-gfv5IF3xl" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*sM4Vzh-gfv5IF3xl);"></a></div><h4 name="db52" id="db52" class="graf graf--h4 graf-after--mixtapeEmbed">明細頁面</h4><p name="3c68" id="3c68" class="graf graf--p graf-after--h4">點選 cell 後顯示詳細資料。比方預告片跟關於此電影。有些資訊 API 裡沒有，像是演員資訊跟評論。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="e1ba" id="e1ba" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*UC1HhX2uCNZ2njbNFZn1vA.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/600/1*UC1HhX2uCNZ2njbNFZn1vA.png"></figure><figure name="b1e9" id="b1e9" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*C50bQL5cQf1d2y2Kips8pQ.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/600/1*C50bQL5cQf1d2y2Kips8pQ.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><h4 name="ee22" id="ee22" class="graf graf--h4 graf-after--figure">播放電影預告或試聽歌曲</h4><figure name="2a89" id="2a89" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*sGT6djYH0YxJY3XRw6eHeg.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*sGT6djYH0YxJY3XRw6eHeg.png"></figure><h4 name="a94c" id="a94c" class="graf graf--h4 graf-after--figure">電影排行榜</h4><figure name="9615" id="9615" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*t82CMN31zcuzxTAKNz6bqw.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*t82CMN31zcuzxTAKNz6bqw.png"></figure><p name="1cd5" id="1cd5" class="graf graf--p graf-after--figure">透過 Apple 的 RSS Feed 產生器取得熱門電影的 JSON。</p><figure name="1652" id="1652" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lmbxXn2yCKTeDqit2Yaz8g.png" data-width="1572" data-height="882" src="https://cdn-images-1.medium.com/max/800/1*lmbxXn2yCKTeDqit2Yaz8g.png"></figure><div name="33c9" id="33c9" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://rss.itunes.apple.com/zh-tw" data-href="https://rss.itunes.apple.com/zh-tw" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://rss.itunes.apple.com/zh-tw"><strong class="markup--strong markup--mixtapeEmbed-strong">RSS Generator</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>rss.itunes.apple.com</a><a href="https://rss.itunes.apple.com/zh-tw" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="69bd9d7c2d17808538bd908029dd154c" data-thumbnail-img-id="0*sGJIomMNjH4epgwT" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*sGJIomMNjH4epgwT);"></a></div><p name="b303" id="b303" class="graf graf--p graf-after--mixtapeEmbed">從熱門電影的 JSON 可取得電影 id，透過 iTunes API 可取得電影的詳細資訊。</p><pre name="bdaf" id="bdaf" class="graf graf--pre graf-after--p"><a href="https://itunes.apple.com/lookup?id=1538251548&amp;country=TW" data-href="https://itunes.apple.com/lookup?id=1538251548&amp;country=TW" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://itunes.apple.com/lookup?id=1538251548&amp;country=TW</a></pre><h3 name="f975" id="f975" class="graf graf--h3 graf-after--pre">參考範例</h3><h4 name="eb29" id="eb29" class="graf graf--h4 graf-after--h3">基本版</h4><p name="f3d5" id="f3d5" class="graf graf--p graf-after--h4">參考 Apple Develop in Swift Data Collections，Lesson 2.6 Working with the Web: Concurrency 的 Lab iTunes Search。</p><div name="da15" id="da15" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/2-6-lab-itunes-search-develop-in-swift-data-collections-%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86-6fd423003d8a" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/2-6-lab-itunes-search-develop-in-swift-data-collections-%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86-6fd423003d8a" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/2-6-lab-itunes-search-develop-in-swift-data-collections-%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86-6fd423003d8a"><strong class="markup--strong markup--mixtapeEmbed-strong">2.6 Lab iTunes Search — Develop in Swift Data Collections 重點整理</strong><br><em class="markup--em markup--mixtapeEmbed-em">Search Bar 加在 table view header，segmented control 加在 navigation item 的 titleView</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/2-6-lab-itunes-search-develop-in-swift-data-collections-%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86-6fd423003d8a" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="fddc0651c8d124bd93f2f1e6b2c4b403" data-thumbnail-img-id="1*YwPlW9z4gJYjHfjmBQW1TA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*YwPlW9z4gJYjHfjmBQW1TA.png);"></a></div><h4 name="8cd7" id="8cd7" class="graf graf--h4 graf-after--mixtapeEmbed">進階版</h4><p name="c0f7" id="c0f7" class="graf graf--p graf-after--h4">參考 Apple Develop in Swift Data Collections，Lesson 3.5 Advanced Compositional Layouts 的 Lab iTunes Search，使用 UICollectionViewCompositionalLayout &amp; UICollectionViewDiffableDataSource 等新技術。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="7256" id="7256" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*85ErXcWzErLcxlNApnTjbg.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*85ErXcWzErLcxlNApnTjbg.png"></figure><figure name="d5d5" id="d5d5" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*Y38TWZxs-kArJoMisw12Uw.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*Y38TWZxs-kArJoMisw12Uw.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><figure name="6663" id="6663" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*lge-MTog63s71J-OS0i4_g.png" data-width="1192" data-height="828" src="https://cdn-images-1.medium.com/max/800/1*lge-MTog63s71J-OS0i4_g.png"></figure><h3 name="5988" id="5988" class="graf graf--h3 graf-after--figure">範例下載</h3><div name="b5eb" id="b5eb" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://books.apple.com/tw/book/develop-in-swift-data-collections-teacher-guide/id6468968795?l=en-GB" data-href="https://books.apple.com/tw/book/develop-in-swift-data-collections-teacher-guide/id6468968795?l=en-GB" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://books.apple.com/tw/book/develop-in-swift-data-collections-teacher-guide/id6468968795?l=en-GB"><strong class="markup--strong markup--mixtapeEmbed-strong">‎Develop in Swift Data Collections Teacher Guide</strong><br><em class="markup--em markup--mixtapeEmbed-em">This Teacher Guide provides tools to deepen engagement with aspiring app developers, whether you have experience…</em>books.apple.com</a><a href="https://books.apple.com/tw/book/develop-in-swift-data-collections-teacher-guide/id6468968795?l=en-GB" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="12e380bd440cce3c1a5b06e6886da039" data-thumbnail-img-id="0*6jQ2rVHsJmXzXkiD" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*6jQ2rVHsJmXzXkiD);"></a></div><figure name="f763" id="f763" class="graf graf--figure graf-after--mixtapeEmbed graf--trailing"><img class="graf-image" data-image-id="1*sWgwlu0zF_-Gfc8b3iC_4A.png" data-width="626" data-height="530" src="https://cdn-images-1.medium.com/max/800/1*sWgwlu0zF_-Gfc8b3iC_4A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9c6f7052fc3"><time class="dt-published" datetime="2021-07-19T07:07:18.175Z">July 19, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/5-itunes-store-app-%E7%9A%84%E6%90%9C%E5%B0%8B%E7%B5%90%E6%9E%9C-9c6f7052fc3" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>你怎能不愛Swift 3 ~ 更簡單俐落的API</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">你怎能不愛Swift 3 ~ 更簡單俐落的API</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+捨不得我們多打一個字，貼心的Apple全新設計API Design Guidelines，遵從Guidelines文件重新設計API，幫助我們寫出更簡潔，更易懂的程式碼。
+</section>
+<section data-field="body" class="e-content">
+<section name="a30c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="58d6" id="58d6" class="graf graf--h3 graf--leading graf--title">你怎能不愛Swift 3 ~ 更簡單俐落的API</h3><p name="b207" id="b207" class="graf graf--p graf-after--h3">捨不得我們多打一個字，貼心的Apple全新設計<a href="https://swift.org/documentation/api-design-guidelines/" data-href="https://swift.org/documentation/api-design-guidelines/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">API Design Guidelines</a>，遵從Guidelines文件重新設計API，幫助我們寫出更簡潔，更易懂的程式碼。</p><p name="065f" id="065f" class="graf graf--p graf-after--p">新的API真的比較好嗎? 那是當然的，不信? 就讓我們隨手拈來三個例子瞧瞧。</p><ol class="postList"><li name="9102" id="9102" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">blueColor瘦身變成blue。不需多餘的Color，用手指想也知道blue代表顏色。</strong></li></ol><pre name="d922" id="d922" class="graf graf--pre graf-after--li"><strong class="markup--strong markup--pre-strong">Swift 3: let color = UIColor.blue()</strong></pre><pre name="4e46" id="4e46" class="graf graf--pre graf-after--pre">Swift 2: let color = UIColor.blueColor()</pre><p name="a3d1" id="a3d1" class="graf graf--p graf-after--pre">2. <strong class="markup--strong markup--p-strong">containsString瘦身變成contains。不需多餘的String，用腳指想也知道contains包含的對象是字串。</strong></p><pre name="b8d4" id="b8d4" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">Swift 3: let result = &quot;愛瘋一切為蘋果的彼得潘&quot;.contains(&quot;彼得潘&quot;)</strong></pre><pre name="abc8" id="abc8" class="graf graf--pre graf-after--pre">Swift 2: let result = &quot;愛瘋一切為蘋果的彼得潘&quot;.containsString(&quot;彼得潘&quot;)</pre><p name="c27c" id="c27c" class="graf graf--p graf-after--pre">3. <strong class="markup--strong markup--p-strong">atIndex瘦身變成at。不需多餘的Index，想也不用想就知道at代表在array裡新增東西的位置。</strong></p><pre name="6b34" id="6b34" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">Swift 3: var sunnyDayArray = [&quot;颳風這天&quot;, &quot;但偏偏&quot;]<br>         sunnyDayArray.insert(&quot;我試過握著你手&quot;, at: 1)</strong></pre><pre name="0420" id="0420" class="graf graf--pre graf-after--pre">Swift 2: var sunnyDayArray = [&quot;颳風這天&quot;, &quot;但偏偏&quot;]   <br>         sunnyDayArray.insert(&quot;我試過握著你手&quot;, atIndex: 1)</pre><p name="3a2e" id="3a2e" class="graf graf--p graf-after--pre">Swift 3大幅改變了原本API的樣貌，也許有人會擔心不習慣，害怕要重新記憶API的名字。其實擔心是多餘的，大部分的API只有小幅調整，主要簡化的是參數或function結尾的字串。所以完全可以照著以前的習慣輸入前幾個字，剩下的就放心交給Xcode幫我們自動完成。</p><p name="ce76" id="ce76" class="graf graf--p graf-after--p graf--trailing">參考資料:<br>Swift 3 Implemented proposals<br><a href="https://github.com/apple/swift-evolution/blob/master/proposals/0005-objective-c-name-translation.md" data-href="https://github.com/apple/swift-evolution/blob/master/proposals/0005-objective-c-name-translation.md" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">SE-0005: Better Translation of Objective-C APIs Into Swift</a><br><a href="https://github.com/apple/swift-evolution/blob/master/proposals/0006-apply-api-guidelines-to-the-standard-library.md" data-href="https://github.com/apple/swift-evolution/blob/master/proposals/0006-apply-api-guidelines-to-the-standard-library.md" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">SE-0006: Apply API Guidelines to the Standard Library</a></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9f5776440248"><time class="dt-published" datetime="2016-06-03T14:42:39.807Z">June 3, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%A0%E6%80%8E%E8%83%BD%E4%B8%8D%E6%84%9Bswift-3-%E6%9B%B4%E7%B0%A1%E5%96%AE%E4%BF%90%E8%90%BD%E7%9A%84api-9f5776440248" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

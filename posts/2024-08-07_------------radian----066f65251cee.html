@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>認識程式旋轉元件的弧度(radian)單位</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">認識程式旋轉元件的弧度(radian)單位</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+設計漂亮的 App 畫面時我們常常將元件旋轉某個角度，不過使用的單位並不是我們熟悉的角度，而是早已還給數學老師的弧度。
+</section>
+<section data-field="body" class="e-content">
+<section name="e6e3" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d17e" id="d17e" class="graf graf--h3 graf--leading graf--title">認識程式旋轉元件的弧度(radian)單位</h3><p name="63d0" id="63d0" class="graf graf--p graf-after--h3">設計漂亮的 App 畫面時我們常常將元件旋轉某個角度，不過使用的單位並不是我們熟悉的角度，而是早已還給數學老師的弧度。</p><p name="4de5" id="4de5" class="graf graf--p graf-after--p">以下讓我們回到過去，稍微複習一下小時候學過的弧度(radian)吧。</p><figure name="a341" id="a341" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://www.youtube.com/embed/MKNrnSsIwf8?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure><p name="53ef" id="53ef" class="graf graf--p graf-after--figure">如下圖所示，當圓弧長等於半徑時為 1 弧度。</p><figure name="9295" id="9295" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*k0PRNPdP2Em9YRaH.png" data-width="220" data-height="220" src="https://cdn-images-1.medium.com/max/800/0*k0PRNPdP2Em9YRaH.png"><figcaption class="imageCaption">wiki 圖片</figcaption></figure><p name="ffd8" id="ffd8" class="graf graf--p graf-after--figure">而圓周長公式如下。</p><pre data-code-block-mode="0" spellcheck="false" name="5261" id="5261" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">半徑 * 2 * π</span></pre><p name="16ac" id="16ac" class="graf graf--p graf-after--pre">因此我們可以進行以下推導。</p><ul class="postList"><li name="5dbe" id="5dbe" class="graf graf--li graf-after--p">圓周長是 1 弧度圓弧長的 2 π 倍。</li><li name="363b" id="363b" class="graf graf--li graf-after--li">角度 360 度對應弧度 2π。</li><li name="05b7" id="05b7" class="graf graf--li graf-after--li">角度 1 度對應弧度 2π / 360 = π / 180。</li></ul><p name="0073" id="0073" class="graf graf--p graf-after--li">了解角度和弧度的關係後，之後我們想寫程式旋轉元件就簡單多了，角度轉換為弧度的公式如下。</p><pre data-code-block-mode="0" spellcheck="false" name="4c07" id="4c07" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">弧度 = 角度 * π / 180</span></pre><figure name="86e6" id="86e6" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*E6P4N82nDLnz_6ihCrPLWg.png" data-width="1436" data-height="290" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*E6P4N82nDLnz_6ihCrPLWg.png"></figure><p name="6013" id="6013" class="graf graf--p graf-after--figure">最後讓我們看看實際的程式範例，分別以 SwiftUI、UIKit 和 Flutter 將帥氣桌球程式少年的圖片旋轉角度 30 度。</p><figure name="3cbc" id="3cbc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*QcfKBJ-R3YXTkXm06xKKsQ.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*QcfKBJ-R3YXTkXm06xKKsQ.png"></figure><ul class="postList"><li name="7dc8" id="7dc8" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">SwiftUI</strong></li></ul><p name="2ecd" id="2ecd" class="graf graf--p graf-after--li">rotationEffect 可以用 .degrees 傳入角度。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="fe3a" id="fe3a" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">Image</span>(.tableTennis)<br />    .resizable()<br />    .scaledToFit()<br />    .rotationEffect(.degrees(<span class="hljs-number">30</span>))</span></pre><p name="395b" id="395b" class="graf graf--p graf-after--pre">也可以用 .radians 傳入弧度。</p><p name="7488" id="7488" class="graf graf--p graf-after--p">數學還沒還給老師的同學可以自己計算角度對應的弧度。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f698" id="f698" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">Image</span>(.tableTennis)<br />    .resizable()<br />    .scaledToFit()<br />    .rotationEffect(.radians(.pi <span class="hljs-operator">/</span> <span class="hljs-number">180</span> <span class="hljs-operator">*</span> <span class="hljs-number">30</span>))</span></pre><p name="547c" id="547c" class="graf graf--p graf-after--pre">忘了公式的同學可以用 Measurement 的 converted 將角度轉成弧度。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="d861" id="d861" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> degress <span class="hljs-operator">=</span> <span class="hljs-type">Measurement</span>(value: <span class="hljs-number">30</span>, unit: <span class="hljs-type">UnitAngle</span>.degrees)<br /><span class="hljs-keyword">let</span> radians <span class="hljs-operator">=</span> degress.converted(to: .radians)<br /><span class="hljs-type">Image</span>(.tableTennis)<br />    .resizable()<br />    .scaledToFit()<br />    .rotationEffect(.radians(radians.value))</span></pre><ul class="postList"><li name="90f4" id="90f4" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">UIKit</strong></li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="27eb" id="27eb" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content">imageView.transform <span class="hljs-operator">=</span> <span class="hljs-type">CGAffineTransform</span>(rotationAngle: .pi <span class="hljs-operator">/</span> <span class="hljs-number">180</span> <span class="hljs-operator">*</span> <span class="hljs-number">30</span>)</span></pre><ul class="postList"><li name="aa62" id="aa62" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">Flutter</strong></li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="cffd" id="cffd" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;dart:math&#x27;</span>;<br /><br />Transform.rotate(<br />    angle: pi / <span class="hljs-number">180</span> * <span class="hljs-number">30</span>,<br />    child: Image.asset(<span class="hljs-string">&#x27;assets/table tennis.png&#x27;</span>),<br />)</span></pre><h3 name="b286" id="b286" class="graf graf--h3 graf-after--pre">參考連結</h3><div name="2f9e" id="2f9e" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://zh.wikipedia.org/zh-tw/%E5%BC%A7%E5%BA%A6" data-href="https://zh.wikipedia.org/zh-tw/%E5%BC%A7%E5%BA%A6" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://zh.wikipedia.org/zh-tw/%E5%BC%A7%E5%BA%A6"><strong class="markup--strong markup--mixtapeEmbed-strong">弧度 - 維基百科，自由的百科全書</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>zh.wikipedia.org</a><a href="https://zh.wikipedia.org/zh-tw/%E5%BC%A7%E5%BA%A6" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="333f66b38040a95a18fe7c6e750321d6" data-thumbnail-img-id="0*D8KRvxpnyaLbOoXs" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*D8KRvxpnyaLbOoXs);"></a></div><div name="ea18" id="ea18" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://www.wikihow.com/Convert-Degrees-to-Radians" data-href="https://www.wikihow.com/Convert-Degrees-to-Radians" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.wikihow.com/Convert-Degrees-to-Radians"><strong class="markup--strong markup--mixtapeEmbed-strong">How to Convert Degrees to Radians: 5 Steps (with Pictures)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Degrees and radians are two units for measuring angles. A circle contains 360 degrees, which is the equivalent of 2π…</em>www.wikihow.com</a><a href="https://www.wikihow.com/Convert-Degrees-to-Radians" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9390e5d0d52bfa10cbe7806ee127f646" data-thumbnail-img-id="0*XWRextWI-nJKUIYf" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*XWRextWI-nJKUIYf);"></a></div><figure name="27cb" id="27cb" class="graf graf--figure graf--iframe graf-after--mixtapeEmbed"><iframe src="https://www.youtube.com/embed/1CiXAP8XaBg?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><figure name="a693" id="a693" class="graf graf--figure graf--iframe graf-after--figure graf--trailing"><iframe src="https://www.youtube.com/embed/SiOVzEqWI8E?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/066f65251cee"><time class="dt-published" datetime="2024-08-07T08:15:51.038Z">August 7, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AA%8D%E8%AD%98%E7%A8%8B%E5%BC%8F%E6%97%8B%E8%BD%89%E5%85%83%E4%BB%B6%E7%9A%84%E5%BC%A7%E5%BA%A6-radian-066f65251cee" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

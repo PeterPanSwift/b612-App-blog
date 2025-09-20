@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>AVSpeechUtterance 預設聲音採用的語言</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">AVSpeechUtterance 預設聲音採用的語言</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們使用 AVSpeechUtterance 講話時，若沒有設定 voice，預設將依據系統設定的語言發聲。
+</section>
+<section data-field="body" class="e-content">
+<section name="4637" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2bf4" id="2bf4" class="graf graf--h3 graf--leading graf--title">AVSpeechUtterance 預設聲音採用的語言</h3><p name="5351" id="5351" class="graf graf--p graf-after--h3">當我們使用 AVSpeechUtterance 講話時，若沒有設定 voice，預設將依據系統設定的語言發聲。</p><p name="75fe" id="75fe" class="graf graf--p graf-after--p">比方當 macOS 或 iPhone 的語言設為英文時，從模擬器、preview 和 iPhone 執行以下程式將無法唸出中文。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="0a03" id="0a03" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> AVFAudio<br /><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> synthesizer <span class="hljs-operator">=</span> <span class="hljs-type">AVSpeechSynthesizer</span>()<br /><br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;🫦&quot;</span>) {<br />            <span class="hljs-keyword">let</span> utterance <span class="hljs-operator">=</span> <span class="hljs-type">AVSpeechUtterance</span>(string: <span class="hljs-string">&quot;彼得潘&quot;</span>)<br />            synthesizer.speak(utterance)<br />        }<br />        .font(.system(size: <span class="hljs-number">100</span>))<br />    }<br />}</span></pre><figure name="56fd" id="56fd" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*4iKxHnKBj7WO-Ig2doy0Iw.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*4iKxHnKBj7WO-Ig2doy0Iw.png"></figure><p name="aac6" id="aac6" class="graf graf--p graf-after--figure">若想測試程式在不同語言的發聲情況，可先調整 App 執行的語言環境，方法如下。</p><ul class="postList"><li name="7f22" id="7f22" class="graf graf--li graf-after--p">從 Quick Actions 點選 Edit Scheme。</li></ul><figure name="1c8f" id="1c8f" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*d-EYbjqVIfjbZt7nTuC65w.png" data-width="1156" data-height="238" src="https://cdn-images-1.medium.com/max/800/1*d-EYbjqVIfjbZt7nTuC65w.png"></figure><ul class="postList"><li name="db90" id="db90" class="graf graf--li graf-after--figure">切換到 Run 的 Options 分頁，找到 App Language。</li></ul><figure name="8faa" id="8faa" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*nEoRs-YRrSFywmeibBq1gg.png" data-width="1892" data-height="1042" src="https://cdn-images-1.medium.com/max/800/1*nEoRs-YRrSFywmeibBq1gg.png"></figure><ul class="postList"><li name="6984" id="6984" class="graf graf--li graf-after--figure">從 App Language 選擇 App 執行的語言環境。</li></ul><figure name="9940" id="9940" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*PzIdlq8nM2iHO5_eqFvvAg.png" data-width="918" data-height="1000" src="https://cdn-images-1.medium.com/max/800/1*PzIdlq8nM2iHO5_eqFvvAg.png"></figure><p name="a2d1" id="a2d1" class="graf graf--p graf-after--figure">比方選擇 Chinese, Traditional，即使 iPhone 的語言設為英文，從 Xcode 啟動 App 時仍可唸出中文。</p><figure name="ec4a" id="ec4a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BE7CzzQRl9ty88wPJmGZxQ.png" data-width="860" data-height="118" src="https://cdn-images-1.medium.com/max/800/1*BE7CzzQRl9ty88wPJmGZxQ.png"></figure><p name="ea2d" id="ea2d" class="graf graf--p graf-after--figure">若是設為 Japanese，則會在唸英文和中文時出現日本人的腔調。</p><figure name="95cb" id="95cb" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*wmRIbAZBTjRsbTSFxKRh0w.png" data-width="860" data-height="74" src="https://cdn-images-1.medium.com/max/800/1*wmRIbAZBTjRsbTSFxKRh0w.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b97be19dc55e"><time class="dt-published" datetime="2025-03-21T15:37:00.358Z">March 21, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/avspeechutterance-%E9%A0%90%E8%A8%AD%E8%81%B2%E9%9F%B3%E6%8E%A1%E7%94%A8%E7%9A%84%E8%AA%9E%E8%A8%80-b97be19dc55e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

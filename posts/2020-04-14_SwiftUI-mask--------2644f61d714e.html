@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI mask 的粉紅彼得潘</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI mask 的粉紅彼得潘</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近粉紅口罩很紅，彼得潘也來試試利用 SwiftUI 的 mask 將粉紅色跟彼得潘圖片 mask 成粉紅彼得潘 ~
+</section>
+<section data-field="body" class="e-content">
+<section name="d0d6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7c38" id="7c38" class="graf graf--h3 graf--leading graf--title">SwiftUI mask 的粉紅彼得潘</h3><p name="66c7" id="66c7" class="graf graf--p graf-after--h3">最近粉紅口罩很紅，彼得潘也來試試利用 SwiftUI 將粉紅色跟彼得潘圖片 mask 成粉紅彼得潘 ~</p><figure name="7174" id="7174" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zH-2VZq1t5kmuAUnXEmLSg.jpeg" data-width="664" data-height="1124" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*zH-2VZq1t5kmuAUnXEmLSg.jpeg"></figure><pre name="0179" id="0179" class="graf graf--pre graf-after--figure">struct ContentView: View {<br>        <br>    var body: some View {<br>        Color(red: 244/255, green: 177/255, blue: 187/255)<br>            .frame(width: 400, height: 700)<br>           <strong class="markup--strong markup--pre-strong"> .mask(</strong><br>                VStack {<br>                    Image(&quot;peter&quot;)<br>                        .resizable()<br>                        .scaledToFit()<br>                    Text(&quot;是你讓我的世界從那刻變成粉紅色&quot;)<br>                        .font(.system(size: 40))<br>                        .bold()<br>                        .offset(y: -50)<br>                        .rotation3DEffect(.degrees(30), axis: (x: 1, y: 0, z: 0))<br>                }<br>        )<br>        .shadow(radius: 5)<br>        <br>    }<br>}</pre><figure name="3fb9" id="3fb9" class="graf graf--figure graf--iframe graf-after--pre"><iframe src="https://www.youtube.com/embed/xfpzxixurx4?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><figure name="d343" id="d343" class="graf graf--figure graf--iframe graf-after--figure graf--trailing"><iframe src="https://www.youtube.com/embed/OtEJ6LGCW-U?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/2644f61d714e"><time class="dt-published" datetime="2020-04-14T14:06:38.624Z">April 14, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-mask-%E7%9A%84%E7%B2%89%E7%B4%85%E5%BD%BC%E5%BE%97%E6%BD%98-2644f61d714e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

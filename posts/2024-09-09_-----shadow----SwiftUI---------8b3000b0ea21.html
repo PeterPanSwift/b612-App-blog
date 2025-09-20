@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用雙層 shadow 實現 SwiftUI 的光暈文字效果</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用雙層 shadow 實現 SwiftUI 的光暈文字效果</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 SwifttUI App 時我們可用雙層 shadow 實現光暈文字效果，透過半徑較大的 shadow 製造外層柔和的光暈，半徑較小的 shadow 製造內層較强烈集中的光暈。
+</section>
+<section data-field="body" class="e-content">
+<section name="ca26" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="775d" id="775d" class="graf graf--h3 graf--leading graf--title">使用雙層 shadow 實現 SwiftUI 的光暈文字效果</h3><p name="e739" id="e739" class="graf graf--p graf-after--h3">開發 SwifttUI App 時我們可用雙層 shadow 實現光暈文字效果，透過半徑較大的 shadow 製造外層柔和的光暈，半徑較小的 shadow 製造內層較强烈集中的光暈。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="7e06" id="7e06" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">GlowingText</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> text: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> color: <span class="hljs-type">Color</span><br />    <span class="hljs-keyword">let</span> glowColor: <span class="hljs-type">Color</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(text)<br />            .font(.system(size: <span class="hljs-number">36</span>, weight: .bold))<br />            .foregroundStyle(color)<br />            .shadow(color: glowColor.opacity(<span class="hljs-number">0.7</span>), radius: <span class="hljs-number">15</span>)<br />            .shadow(color: glowColor.opacity(<span class="hljs-number">0.7</span>), radius: <span class="hljs-number">5</span>)<br />    }<br />}</span></pre><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="b435" id="b435" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Image</span>(.moomin)<br />                .resizable()<br />                .scaledToFit()<br />            <span class="hljs-type">GlowingText</span>(text: <span class="hljs-string">&quot;Hello, Moomin&quot;</span>, color: .white, glowColor: .yellow)<br />        }<br />    }<br />}</span></pre><figure name="a4d4" id="a4d4" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*0qpbMeFtNy-FlT4PSheK4w.png" data-width="1276" data-height="1320" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*0qpbMeFtNy-FlT4PSheK4w.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8b3000b0ea21"><time class="dt-published" datetime="2024-09-09T05:02:57.554Z">September 9, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8%E9%9B%99%E5%B1%A4-shadow-%E5%AF%A6%E7%8F%BE-swiftui-%E7%9A%84%E5%85%89%E6%9A%88%E6%96%87%E5%AD%97%E6%95%88%E6%9E%9C-8b3000b0ea21" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

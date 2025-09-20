@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>抓取 IG 動態的 JSON 資料</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">抓取 IG 動態的 JSON 資料</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+IG 動態牆有許多有趣的動態資料，不過很可惜，官方並沒有提供公開的 API 讓我們抓取。
+</section>
+<section data-field="body" class="e-content">
+<section name="f1dd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4d35" id="4d35" class="graf graf--h3 graf--leading graf--title">抓取 IG 動態的 JSON 資料</h3><p name="9beb" id="9beb" class="graf graf--p graf-after--h3">IG 動態牆有許多有趣的動態資料，不過很可惜，官方並沒有提供公開的 API 讓我們抓取。</p><p name="8a15" id="8a15" class="graf graf--p graf-after--p">雖然如此，如果想練習解析 IG 動態的 JSON，我們可透過以下方法抓取 JSON 測試。</p><h3 name="4a1a" id="4a1a" class="graf graf--h3 graf-after--p">注意: 之前抓取 IG 資料的方法已經失效，若想直接練習，可從以下網址抓取最近退休的費神 Roger Federer 的 IG 動態 JSON</h3><pre data-code-block-mode="0" spellcheck="false" name="a426" id="a426" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content">https://raw.githubusercontent.com/AppPeterPan/CutePic/main/rogerfederer.json</span></pre><h3 name="c3b3" id="c3b3" class="graf graf--h3 graf-after--pre">從瀏覽器連到 IG 網站，登入 IG 帳號</h3><p name="9e0e" id="9e0e" class="graf graf--p graf-after--h3"><a href="https://www.instagram.com/" data-href="https://www.instagram.com/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.instagram.com/</a></p><figure name="ceae" id="ceae" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8YDTAqxeE-tzDkVWEhEYgA.png" data-width="1902" data-height="1278" src="https://cdn-images-1.medium.com/max/800/1*8YDTAqxeE-tzDkVWEhEYgA.png"></figure><h3 name="23f5" id="23f5" class="graf graf--h3 graf-after--figure">在瀏覽器輸入 API 網址抓取 JSON</h3><h4 name="4084" id="4084" class="graf graf--h4 graf-after--h3"><strong class="markup--strong markup--h4-strong">公開帳號的 API 網址</strong></h4><pre name="5ca2" id="5ca2" class="graf graf--pre graf-after--h4"><a href="https://www.instagram.com/" data-href="https://www.instagram.com/" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://www.instagram.com/</a>公開帳號的id/?__a=1&amp;__d=dis</pre><p name="43a8" id="43a8" class="graf graf--p graf-after--pre">範例:</p><p name="d55d" id="d55d" class="graf graf--p graf-after--p">抓取小王子官方帳號的 po 文。</p><pre name="cc4e" id="cc4e" class="graf graf--pre graf-after--p"><a href="https://www.instagram.com/lepetitprinceofficiel/?__a=1&amp;__d=dis" data-href="https://www.instagram.com/lepetitprinceofficiel/?__a=1&amp;__d=dis" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://www.instagram.com/lepetitprinceofficiel/?__a=1&amp;__d=dis</a></pre><p name="27c1" id="27c1" class="graf graf--p graf-after--pre">包含使用者的名字，大頭照，簡介，followers，following &amp; po 文的數量， po 文(edge_owner_to_timeline_media)。</p><figure name="d3be" id="d3be" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ykmy76xFqSjqP9wS2y1EZA.jpeg" data-width="1100" data-height="937" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Ykmy76xFqSjqP9wS2y1EZA.jpeg"></figure><p name="5ef9" id="5ef9" class="graf graf--p graf-after--figure">po 文內容包含圖片網址，like &amp; 留言的數量等。</p><figure name="3566" id="3566" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sHF9BQpbWSIRiP3dyeX2-Q.jpeg" data-width="1100" data-height="1086" src="https://cdn-images-1.medium.com/max/800/1*sHF9BQpbWSIRiP3dyeX2-Q.jpeg"></figure><h4 name="4f35" id="4f35" class="graf graf--h4 graf-after--figure">tag 的 API 網址</h4><pre name="c59d" id="c59d" class="graf graf--pre graf-after--h4"><a href="https://www.instagram.com/explore/tags/tag" data-href="https://www.instagram.com/explore/tags/tag" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://www.instagram.com/explore/tags/tag</a>名稱/?__a=1&amp;__d=dis</pre><p name="d70d" id="d70d" class="graf graf--p graf-after--pre">範例</p><p name="1091" id="1091" class="graf graf--p graf-after--p">抓取 tag 小王子語錄的 po 文。</p><pre name="0799" id="0799" class="graf graf--pre graf-after--p"><a href="https://www.instagram.com/explore/tags/" data-href="https://www.instagram.com/explore/tags/" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://www.instagram.com/explore/tags/</a>小王子語錄/?__a=1&amp;__d=dis</pre><p name="2cec" id="2cec" class="graf graf--p graf-after--pre">從 edge_hashtag_to_media &amp; edge_hashtag_to_top_posts 可抓取 tag 的相關動態。</p><figure name="eb97" id="eb97" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NRtWyEGpoVv6xemlbIoQ1g.png" data-width="2224" data-height="1208" src="https://cdn-images-1.medium.com/max/800/1*NRtWyEGpoVv6xemlbIoQ1g.png"></figure><h4 name="4cfe" id="4cfe" class="graf graf--h4 graf-after--figure">抓取下一頁的 API 網址</h4><p name="e6c6" id="e6c6" class="graf graf--p graf-after--h4">從 JSON 裡的 page_info 可查詢是否有下一頁的資料。比方我們利用以下網址抓取 SwiftUI tag 的相關 po 文。</p><pre name="3f19" id="3f19" class="graf graf--pre graf-after--p"><a href="https://www.instagram.com/explore/tags/swiftui/?__a=1&amp;__d=dis" data-href="https://www.instagram.com/explore/tags/swiftui/?__a=1&amp;__d=dis" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://www.instagram.com/explore/tags/swiftui/?__a=1&amp;__d=dis</a></pre><p name="bd19" id="bd19" class="graf graf--p graf-after--pre">下圖的 has_next_page 為 true，表示有下一頁，end_cursor 可用來抓取下一頁的資料。</p><figure name="935f" id="935f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*poE3ASKjQL9e6whuTYUZCQ.png" data-width="2388" data-height="868" src="https://cdn-images-1.medium.com/max/800/1*poE3ASKjQL9e6whuTYUZCQ.png"></figure><p name="36a7" id="36a7" class="graf graf--p graf-after--figure">因此抓取下一頁資料的網址如下，包含 __a，__d &amp; end_cursor 3 個參數。</p><pre name="4a9a" id="4a9a" class="graf graf--pre graf-after--p"><a href="https://www.instagram.com/explore/tags/swiftui/?__a=1&amp;__d=dis&amp;end_cursor=QVFBWV9BaWxkVmZXRWxycllldzVWMDRnV2M4aHlXc01vd04yek12YUthdkRfcUdpSERxdzV0OWhXb1pzWERRMFo0czJnZ3EzelA2aUNlTVBQUHE5c1Y1Vg==" data-href="https://www.instagram.com/explore/tags/swiftui/?__a=1&amp;__d=dis&amp;end_cursor=QVFBWV9BaWxkVmZXRWxycllldzVWMDRnV2M4aHlXc01vd04yek12YUthdkRfcUdpSERxdzV0OWhXb1pzWERRMFo0czJnZ3EzelA2aUNlTVBQUHE5c1Y1Vg==" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://www.instagram.com/explore/tags/swiftui/?__a=1&amp;__d=dis&amp;end_cursor=QVFBWV9BaWxkVmZXRWxycllldzVWMDRnV2M4aHlXc01vd04yek12YUthdkRfcUdpSERxdzV0OWhXb1pzWERRMFo0czJnZ3EzelA2aUNlTVBQUHE5c1Y1Vg==</a></pre><h3 name="b144" id="b144" class="graf graf--h3 graf-after--pre">下載瀏覽器顯示的 JSON</h3><p name="572f" id="572f" class="graf graf--p graf-after--h3">在瀏覽器的網址列按住 option，然後按 enter 下載 JSON。以下圖為例，我們將下載最近退休的費神 Roger Federer 的 IG 動態 JSON。</p><figure name="7541" id="7541" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nhEzyYM03kvMbKlpU5l0Yw.png" data-width="984" data-height="118" src="https://cdn-images-1.medium.com/max/800/1*nhEzyYM03kvMbKlpU5l0Yw.png"></figure><figure name="9c8f" id="9c8f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*EbViXYRCraOHWsoClCDhNQ.png" data-width="688" data-height="346" src="https://cdn-images-1.medium.com/max/800/1*EbViXYRCraOHWsoClCDhNQ.png"></figure><h3 name="b1a9" id="b1a9" class="graf graf--h3 graf-after--figure">讀取專案或 playground 的檔案測試 JSON 解碼</h3><ul class="postList"><li name="39ff" id="39ff" class="graf graf--li graf-after--h3"><strong class="markup--strong markup--li-strong">將 JSON 檔加到專案</strong></li></ul><div name="e173" id="e173" class="graf graf--mixtapeEmbed graf-after--li"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AE%80%E5%8F%96%E5%B0%88%E6%A1%88%E8%A3%A1%E7%9A%84%E6%AA%94%E6%A1%88%E6%B8%AC%E8%A9%A6-json-%E8%A7%A3%E7%A2%BC-d30154dcc154" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AE%80%E5%8F%96%E5%B0%88%E6%A1%88%E8%A3%A1%E7%9A%84%E6%AA%94%E6%A1%88%E6%B8%AC%E8%A9%A6-json-%E8%A7%A3%E7%A2%BC-d30154dcc154" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AE%80%E5%8F%96%E5%B0%88%E6%A1%88%E8%A3%A1%E7%9A%84%E6%AA%94%E6%A1%88%E6%B8%AC%E8%A9%A6-json-%E8%A7%A3%E7%A2%BC-d30154dcc154"><strong class="markup--strong markup--mixtapeEmbed-strong">讀取專案裡的檔案測試 JSON 解碼</strong><br><em class="markup--em markup--mixtapeEmbed-em">為了測試 JSON 資料對應的 Decodable(或 Codable) 型別是否有問題，除了實際串接 API 抓資料，我們也可以先將 JSON 檔加入專案裡，方便沒有網路時進行測試。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AE%80%E5%8F%96%E5%B0%88%E6%A1%88%E8%A3%A1%E7%9A%84%E6%AA%94%E6%A1%88%E6%B8%AC%E8%A9%A6-json-%E8%A7%A3%E7%A2%BC-d30154dcc154" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7a2432dceeb77068895b1f63f921a72a" data-thumbnail-img-id="1*AD-lkh7POpB2rMWbkG5G4g.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*AD-lkh7POpB2rMWbkG5G4g.png);"></a></div><ul class="postList"><li name="95a3" id="95a3" class="graf graf--li graf-after--mixtapeEmbed"><strong class="markup--strong markup--li-strong">將 JSON 檔加到 playground</strong></li></ul><p name="f88c" id="f88c" class="graf graf--p graf-after--li">加到 Resources 資料夾下。</p><figure name="97a4" id="97a4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*DXadTEDj3aUHum7SPuPwUQ.png" data-width="544" data-height="308" src="https://cdn-images-1.medium.com/max/800/1*DXadTEDj3aUHum7SPuPwUQ.png"></figure><p name="51ca" id="51ca" class="graf graf--p graf-after--figure">在 playground 讀取 JSON 的範例程式如下:</p><pre name="a41a" id="a41a" class="graf graf--pre graf-after--p">let url = Bundle.main.url(forResource: &quot;rogerfederer&quot;, withExtension: &quot;json&quot;)!<br>do {<br>    let data = try Data(contentsOf: url)<br>} catch {<br>    print(error)   <br>}</pre><h3 name="8af4" id="8af4" class="graf graf--h3 graf-after--pre">One more thing，現成的 IG 動態 JSON</h3><p name="ff48" id="ff48" class="graf graf--p graf-after--h3">懶得另外抓取 IG JSON 嗎? 沒關係，彼得潘已經抓了費神 Roger Federer 的 IG 動態 JSON，可從以下網址抓取。</p><pre name="15a2" id="15a2" class="graf graf--pre graf-after--p graf--trailing"><a href="https://raw.githubusercontent.com/AppPeterPan/CutePic/main/rogerfederer.json" data-href="https://raw.githubusercontent.com/AppPeterPan/CutePic/main/rogerfederer.json" class="markup--anchor markup--pre-anchor" rel="noopener ugc nofollow noopener" target="_blank">https://raw.githubusercontent.com/AppPeterPan/CutePic/main/rogerfederer.json</a></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9269d3e7d522"><time class="dt-published" datetime="2022-09-24T09:30:57.610Z">September 24, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%8A%93%E5%8F%96-ig-%E5%8B%95%E6%85%8B%E7%9A%84-json-%E8%B3%87%E6%96%99-9269d3e7d522" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

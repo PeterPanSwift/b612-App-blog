@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>新增 Sandbox 的 tester 測試 in app purchase</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">新增 Sandbox 的 tester 測試 in app purchase</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 的 in app purchase (IAP)功能時，我們希望能白吃白喝，測試 App 時不用真的付錢買東西。
+</section>
+<section data-field="body" class="e-content">
+<section name="b3b6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d713" id="d713" class="graf graf--h3 graf--leading graf--title">新增 Sandbox 的 tester 測試 in app purchase</h3><p name="b93b" id="b93b" class="graf graf--p graf-after--h3">開發 iOS App 的 in app purchase (IAP)功能時，我們希望能白吃白喝，測試 App 時不用真的付錢買東西。</p><p name="caa1" id="caa1" class="graf graf--p graf-after--p">感謝 Apple 捨不得我們花錢，以下兩種 case 都可以免費測試 in app purchase !</p><ul class="postList"><li name="a901" id="a901" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">TestFlight 的測試者可搭配正式的 Apple ID 免費購買。</strong></li></ul><figure name="8670" id="8670" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*yTNyG79Q1pmIdXkFfIrlxg.jpeg" data-width="1242" data-height="514" src="https://cdn-images-1.medium.com/max/800/1*yTNyG79Q1pmIdXkFfIrlxg.jpeg"></figure><div name="c236" id="c236" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/in-app-purchase/" data-href="https://developer.apple.com/in-app-purchase/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/in-app-purchase/"><strong class="markup--strong markup--mixtapeEmbed-strong">In-App Purchase - Apple Developer</strong><br><em class="markup--em markup--mixtapeEmbed-em">In-app purchases can be used to sell a variety of content, including subscriptions, new features, and services. There…</em>developer.apple.com</a><a href="https://developer.apple.com/in-app-purchase/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8c9320b7c05d1825de7d3f9f8aab2025" data-thumbnail-img-id="0*b20MAuS8GdlpGtPF" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*b20MAuS8GdlpGtPF);"></a></div><ul class="postList"><li name="7350" id="7350" class="graf graf--li graf-after--mixtapeEmbed"><strong class="markup--strong markup--li-strong">從 Xcode 安裝到手機的 App 須搭配 Sandbox 的 tester 測試。</strong></li></ul><p name="98ee" id="98ee" class="graf graf--p graf-after--li">開發 in app purchase 功能時，通常第一步是自己使用 tester 測試，之後再透過 TestFlight 邀請朋友測試，因此接下來我們將示範如何新增 Sandbox 的 tester。</p><h3 name="90ef" id="90ef" class="graf graf--h3 graf-after--p">連到 App Store Connect 網頁，點選 Users and Access</h3><p name="d613" id="d613" class="graf graf--p graf-after--h3"><a href="http://appstoreconnect.apple.com/" data-href="http://appstoreconnect.apple.com/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">http://appstoreconnect.apple.com/</a></p><figure name="13e6" id="13e6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0lJx4cmNBeDgLcKdDAlUcQ.png" data-width="1738" data-height="816" src="https://cdn-images-1.medium.com/max/800/1*0lJx4cmNBeDgLcKdDAlUcQ.png"></figure><h3 name="ab03" id="ab03" class="graf graf--h3 graf-after--figure">選擇上方的 Sandbox Testers</h3><figure name="fb9e" id="fb9e" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*p6ztU9eVDZbfc4M5QUNezA.png" data-width="1462" data-height="330" src="https://cdn-images-1.medium.com/max/800/1*p6ztU9eVDZbfc4M5QUNezA.png"></figure><h3 name="d5bd" id="d5bd" class="graf graf--h3 graf-after--figure">點選 + 新增 tester</h3><figure name="6382" id="6382" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*TFMCdCRoCfxj6cN2wn-Deg.png" data-width="2160" data-height="478" src="https://cdn-images-1.medium.com/max/800/1*TFMCdCRoCfxj6cN2wn-Deg.png"></figure><h3 name="69cc" id="69cc" class="graf graf--h3 graf-after--figure">設定 tester 資訊</h3><p name="4541" id="4541" class="graf graf--p graf-after--h3">email 可以隨意輸入，甚至輸入不存在的 email 也可以。唯一的限制是不能輸入已經設為 Apple ID 的 email。</p><p name="c03a" id="c03a" class="graf graf--p graf-after--p">以下我們輸入不存在的 email demopeter@test.com。</p><figure name="9dd3" id="9dd3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cSIyx5hZgpXdBbPtxJDKkA.png" data-width="1460" data-height="1096" src="https://cdn-images-1.medium.com/max/800/1*cSIyx5hZgpXdBbPtxJDKkA.png"></figure><p name="554d" id="554d" class="graf graf--p graf-after--figure">建立帳號後，Testers 的列表將顯示剛剛建立的帳號。</p><figure name="0b75" id="0b75" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3Tp1eVQGnxhw5rwI2eX2Xg.png" data-width="2190" data-height="1046" src="https://cdn-images-1.medium.com/max/800/1*3Tp1eVQGnxhw5rwI2eX2Xg.png"></figure><h3 name="49e0" id="49e0" class="graf graf--h3 graf-after--figure">測試 in app purchase</h3><p name="4caa" id="4caa" class="graf graf--p graf-after--h3">之後我們將可從 Xcode 安裝的 App 登入測試帳號，購買 in app purhcase 的商品 。從下圖可看到購買的 alert 訊息顯示 <code class="markup--code markup--p-code">Environment: Sandbox</code>，表示它是測試的環境，不會讓你的荷包少一塊錢的。</p><figure name="70b4" id="70b4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*oRKmYbR08dti-yMtWCzFew.png" data-width="1286" data-height="1308" src="https://cdn-images-1.medium.com/max/800/1*oRKmYbR08dti-yMtWCzFew.png"></figure><figure name="8bc2" id="8bc2" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*4yRAHlzhiGCUstdOqH8WBw.png" data-width="1260" data-height="1308" src="https://cdn-images-1.medium.com/max/800/1*4yRAHlzhiGCUstdOqH8WBw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/689c097e451e"><time class="dt-published" datetime="2020-04-28T13:51:54.032Z">April 28, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%96%B0%E5%A2%9E-sandbox-%E7%9A%84-test-user-%E6%B8%AC%E8%A9%A6-in-app-purchase-689c097e451e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

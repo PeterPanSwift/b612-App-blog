@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>designated initializer 和 convenience initializer</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">designated initializer 和 convenience initializer</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在 Swift 裡，initializer 分為以下兩種:
+</section>
+<section data-field="body" class="e-content">
+<section name="f050" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ddcd" id="ddcd" class="graf graf--h3 graf--leading graf--title"><strong class="markup--strong markup--h3-strong">designated initializer </strong>和 <strong class="markup--strong markup--h3-strong">convenience initializer</strong></h3><p name="225a" id="225a" class="graf graf--p graf-after--h3">在 Swift 裡，initializer 分為以下兩種:</p><ul class="postList"><li name="8c20" id="8c20" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">designated initializer</strong></li></ul><p name="5f34" id="5f34" class="graf graf--p graf-after--li">負責完成類別裡所有屬性的初始。每個類別至少要有一個 designated initializer，一般我們看到的  init 皆屬於 designated initializer，比方以下 Baby 的 init(age:name:)。</p><pre name="7528" id="7528" class="graf graf--pre graf-after--p">class Baby {</pre><pre name="8f11" id="8f11" class="graf graf--pre graf-after--pre">   var age: Int</pre><pre name="b6d0" id="b6d0" class="graf graf--pre graf-after--pre">   var name: String</pre><pre name="aa86" id="aa86" class="graf graf--pre graf-after--pre">   init(age: Int, name: String) {</pre><pre name="2e73" id="2e73" class="graf graf--pre graf-after--pre">      self.age = age</pre><pre name="0a38" id="0a38" class="graf graf--pre graf-after--pre">      self.name = name</pre><pre name="1ec5" id="1ec5" class="graf graf--pre graf-after--pre">   }</pre><pre name="f5ee" id="f5ee" class="graf graf--pre graf-after--pre">}</pre><ul class="postList"><li name="4b49" id="4b49" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">convenience initializer</strong></li></ul><p name="edc7" id="edc7" class="graf graf--p graf-after--li">特徵為 init 前加上 convenience。類別不見得要宣告 convenience initializer，它的目的在提供更方便建立物件的方法，比方接受較少的參數，建立物件時只須傳入部分屬性的內容。多說無益，就讓我們以 convenience initializer 的實例了解它有多方便吧!</p><pre name="eb14" id="eb14" class="graf graf--pre graf-after--p">class Baby {</pre><pre name="780a" id="780a" class="graf graf--pre graf-after--pre">   var age: Int</pre><pre name="9477" id="9477" class="graf graf--pre graf-after--pre">   var name: String</pre><pre name="5d6e" id="5d6e" class="graf graf--pre graf-after--pre">   init(age: Int, name: String) {</pre><pre name="ef81" id="ef81" class="graf graf--pre graf-after--pre">      self.age = age</pre><pre name="c859" id="c859" class="graf graf--pre graf-after--pre">      self.name = name</pre><pre name="5951" id="5951" class="graf graf--pre graf-after--pre">   }</pre><pre name="9f19" id="9f19" class="graf graf--pre graf-after--pre">  <strong class="markup--strong markup--pre-strong"> convenience init(name: String) {</strong></pre><pre name="c421" id="c421" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">      self.init(age: 1, name: name)</strong></pre><pre name="ef55" id="ef55" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   }</strong></pre><pre name="0002" id="0002" class="graf graf--pre graf-after--pre">}</pre><pre name="5a7a" id="5a7a" class="graf graf--pre graf-after--pre">var cuteBaby = Baby(name: &quot;彼得潘&quot;)</pre><pre name="a3b3" id="a3b3" class="graf graf--pre graf-after--pre">print(&quot;\(cuteBaby.age)歲的\(cuteBaby.name)&quot;)</pre><pre name="6d57" id="6d57" class="graf graf--pre graf-after--pre">cuteBaby = Baby(age: 18, name: &quot;彼得潘&quot;)</pre><pre name="b9e3" id="b9e3" class="graf graf--pre graf-after--pre">print(&quot;\(cuteBaby.age)歲的\(cuteBaby.name)&quot;)</pre><p name="07b0" id="07b0" class="graf graf--p graf-after--pre">結果</p><figure name="c251" id="c251" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*A-meDGw527P7-2Ea5GVIMw.jpeg" data-width="354" data-height="230" src="https://cdn-images-1.medium.com/max/800/1*A-meDGw527P7-2Ea5GVIMw.jpeg"></figure><p name="cd74" id="cd74" class="graf graf--p graf-after--figure">剛剛的程式裡，我們有兩種方法建立物件，利用 <code class="markup--code markup--p-code">Baby(name: &quot;彼得潘&quot;) </code>建立物件時，呼叫的是 convenience initializer。它的好處在於我們只須傳入名字<code class="markup--code markup--p-code">&quot;彼得潘&quot;</code>，最後生成的寶寶卻連 age 也被初始為 1 歲。因此，當我們想生出正常的 1 歲寶寶時，只要利用 convenience initializer 傳入名字，不用再額外傳入年齡。</p><p name="6973" id="6973" class="graf graf--p graf-after--p">從剛剛的例子，我們看到最常見的 convenience initializer 實作方式。它呼叫 designated initializer 完成物件所有屬性的初始，而傳入 designated initializer 的參數有兩種，一種來自 convenience initializer 的參數，比方剛剛的<code class="markup--code markup--p-code">&quot;彼得潘&quot;</code>，一種來自固定的內容，比方剛剛的 1 歲。</p><p name="26bf" id="26bf" class="graf graf--p graf-after--p">由於 designated initializer 負責初始類別的所有屬性，所以 Swift 嚴格規定還沒有呼叫 designated initializer 前，不能存取屬性。否則如以下例子，當我們在convenience initializer 裡先設定 age 再呼叫 designated initializer，將造成原先 age 設定的 10 徒勞無功，因為它會被 self.init(age:1, name:name) 傳入的 1 覆寫。</p><pre name="c749" id="c749" class="graf graf--pre graf-after--p">convenience init(name: String) {</pre><pre name="154e" id="154e" class="graf graf--pre graf-after--pre">   self.age = 10</pre><pre name="edc8" id="edc8" class="graf graf--pre graf-after--pre">   self.init(age: 1, name: name)</pre><pre name="1838" id="1838" class="graf graf--pre graf-after--pre">}</pre><figure name="3b5f" id="3b5f" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*RydWdSHua8S8vmvD3bsLxw.jpeg" data-width="1636" data-height="282" src="https://cdn-images-1.medium.com/max/800/1*RydWdSHua8S8vmvD3bsLxw.jpeg"><figcaption class="imageCaption">要等 designated initializer 初始屬性後才能存取屬性</figcaption></figure><p name="36bd" id="36bd" class="graf graf--p graf--empty graf-after--figure"><br></p><p name="5166" id="5166" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/58f10022a66f">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

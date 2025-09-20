@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#15 串接 Librivox API 開發有聲書(audiobook) App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#15 串接 Librivox API 開發有聲書(audiobook) App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+範例 App
+</section>
+<section data-field="body" class="e-content">
+<section name="3f05" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b619" id="b619" class="graf graf--h3 graf--leading graf--title">#15 串接 Librivox API 開發有聲書(audiobook) App </h3><p name="a3f3" id="a3f3" class="graf graf--p graf--empty graf-after--h3"><br></p><div name="e5be" id="e5be" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://librivox.org/" data-href="https://librivox.org/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://librivox.org/"><strong class="markup--strong markup--mixtapeEmbed-strong">LibriVox | free public domain audiobooks</strong><br><em class="markup--em markup--mixtapeEmbed-em">LibriVox audiobooks are free for anyone to listen to, on their computers, iPods or other mobile device, or to burn onto…</em>librivox.org</a><a href="https://librivox.org/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a04c8160c047595efdb80abf36defbc2" data-thumbnail-img-id="0*Kb6LBBFr64GqcLYr" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Kb6LBBFr64GqcLYr);"></a></div><p name="d994" id="d994" class="graf graf--p graf--empty graf-after--mixtapeEmbed"><br></p><h3 name="1aa8" id="1aa8" class="graf graf--h3 graf-after--p">範例 App</h3><p name="f010" id="f010" class="graf graf--p graf-after--h3">LibriVox Audio Books。</p><div name="f0fd" id="f0fd" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://apps.apple.com/us/app/librivox-audio-books/id596159212" data-href="https://apps.apple.com/us/app/librivox-audio-books/id596159212" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://apps.apple.com/us/app/librivox-audio-books/id596159212"><strong class="markup--strong markup--mixtapeEmbed-strong">‎LibriVox Audio Books</strong><br><em class="markup--em markup--mixtapeEmbed-em">‎LibriVox Audio Books provides unlimited access to over 40,000 audio books. Each audiobook can be streamed over the…</em>apps.apple.com</a><a href="https://apps.apple.com/us/app/librivox-audio-books/id596159212" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d35e58be38d7642cb324a07b40a6d424" data-thumbnail-img-id="0*MaWkDXuMd1yaYk9n" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*MaWkDXuMd1yaYk9n);"></a></div><p name="6a1b" id="6a1b" class="graf graf--p graf-after--mixtapeEmbed">串接 API 播放有聲書，包含背景播放功能。</p><figure name="35d6" id="35d6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0rSGID8OLF_NsTVBBILmBw.png" data-width="1852" data-height="1328" src="https://cdn-images-1.medium.com/max/800/1*0rSGID8OLF_NsTVBBILmBw.png"></figure><p name="5225" id="5225" class="graf graf--p graf-after--figure">提供收藏和下載功能。</p><figure name="c148" id="c148" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YjS4i4cf3KUC5yfwHyjYuQ.png" data-width="1840" data-height="1324" src="https://cdn-images-1.medium.com/max/800/1*YjS4i4cf3KUC5yfwHyjYuQ.png"></figure><p name="e085" id="e085" class="graf graf--p graf--empty graf-after--figure"><br></p><p name="46c8" id="46c8" class="graf graf--p graf--empty graf-after--p"><br></p><h3 name="43fa" id="43fa" class="graf graf--h3 graf-after--p">API 文件</h3><p name="8cac" id="8cac" class="graf graf--p graf-after--h3"><a href="https://librivox.org/api/info" data-href="https://librivox.org/api/info" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://librivox.org/api/info</a></p><p name="bb47" id="bb47" class="graf graf--p graf-after--p">API 例子。</p><ul class="postList"><li name="bab0" id="bab0" class="graf graf--li graf-after--p">搜尋 peter pan 相關的有聲書。</li></ul><p name="6f81" id="6f81" class="graf graf--p graf-after--li">完全比對，只會找到書名 peter pan 的書。</p><pre data-code-block-mode="0" spellcheck="false" name="4a54" id="4a54" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><a href="https://librivox.org/api/feed/audiobooks/?title=peter%20pan&amp;format=json" data-href="https://librivox.org/api/feed/audiobooks/?title=peter pan&amp;format=json" class="markup--anchor markup--pre-anchor" rel="noopener" target="_blank">https://librivox.org/api/feed/audiobooks/?title=peter pan&amp;format=json</a></span></pre><p name="ab9e" id="ab9e" class="graf graf--p graf-after--pre">部分比對，找到書名包含 peter pan 的書。</p><pre data-code-block-mode="0" spellcheck="false" name="dd83" id="dd83" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><a href="https://librivox.app/api/search?query=Peter%20Pan" data-href="https://librivox.app/api/search?query=Peter Pan" class="markup--anchor markup--pre-anchor" rel="noopener" target="_blank">https://librivox.app/api/search?query=Peter Pan</a></span></pre><ul class="postList"><li name="fabe" id="fabe" class="graf graf--li graf-after--pre">取得書本 id 816 的相關資訊。(ps: id 816 是書本 peter pan)</li></ul><pre data-code-block-mode="0" spellcheck="false" name="afb7" id="afb7" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><a href="https://librivox.org/api/feed/audiobooks/?id=816&amp;format=json" data-href="https://librivox.org/api/feed/audiobooks/?id=816&amp;format=json" class="markup--anchor markup--pre-anchor" rel="noopener" target="_blank">https://librivox.org/api/feed/audiobooks/?id=816&amp;format=json</a></span></pre><p name="8ba9" id="8ba9" class="graf graf--p graf-after--pre">可下載整本書音檔的 zip，解壓縮後的內容如下。</p><figure name="9637" id="9637" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9ZxmHasDLHOpCjAid1frUA.png" data-width="700" data-height="556" src="https://cdn-images-1.medium.com/max/800/1*9ZxmHasDLHOpCjAid1frUA.png"></figure><ul class="postList"><li name="f8e7" id="f8e7" class="graf graf--li graf-after--figure">取得書本 id 816 的播放檔清單。(ps: id 816 是書本 peter pan)</li></ul><pre data-code-block-mode="0" spellcheck="false" name="59fb" id="59fb" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><a href="https://librivox.org/api/feed/audiotracks/?project_id=816&amp;format=json" data-href="https://librivox.org/api/feed/audiotracks/?project_id=816&amp;format=json" class="markup--anchor markup--pre-anchor" rel="noopener" target="_blank">https://librivox.org/api/feed/audiotracks/?project_id=816&amp;format=json</a></span></pre><p name="195f" id="195f" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/15a050d210a2">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

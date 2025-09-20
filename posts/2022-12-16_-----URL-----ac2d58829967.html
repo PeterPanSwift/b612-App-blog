@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>組合產生 URL 的方法</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">組合產生 URL 的方法</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+以 Platzi Fake Store API 為例，以下介紹三種組合產生 URL 的方法。
+</section>
+<section data-field="body" class="e-content">
+<section name="c7c1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e9b2" id="e9b2" class="graf graf--h3 graf--leading graf--title">組合產生 URL 的方法</h3><figure name="cef1" id="cef1" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*Kef2H9PWdKwV93S_NGvXRA.png" data-width="1440" data-height="1214" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Kef2H9PWdKwV93S_NGvXRA.png"></figure><div name="f7d8" id="f7d8" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://fakeapi.platzi.com/doc/categories" data-href="https://fakeapi.platzi.com/doc/categories" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://fakeapi.platzi.com/doc/categories"><strong class="markup--strong markup--mixtapeEmbed-strong">Categories - Platzi Fake Store API</strong><br><em class="markup--em markup--mixtapeEmbed-em">You can access the list of 5 categories by using the /categories endpoint. You can get a single category by adding the…</em>fakeapi.platzi.com</a><a href="https://fakeapi.platzi.com/doc/categories" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="66bfec8b27636583fe5ac72a140bb6d7" data-thumbnail-img-id="0*XBi0H8j-bnJ97kgu" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*XBi0H8j-bnJ97kgu);"></a></div><p name="2ca2" id="2ca2" class="graf graf--p graf-after--mixtapeEmbed">以 Platzi Fake Store API 為例，以下介紹三種組合產生 URL 的方法。</p><ul class="postList"><li name="caaa" id="caaa" class="graf graf--li graf-after--p">呼叫 appending</li><li name="ffcf" id="ffcf" class="graf graf--li graf-after--li">利用 init?(string: String, relativeTo url: URL?)</li><li name="6404" id="6404" class="graf graf--li graf-after--li">使用 URLComponents</li></ul><h3 name="0c98" id="0c98" class="graf graf--h3 graf-after--li">呼叫 appending</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0ef0" id="0ef0" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> baseURL <span class="hljs-operator">=</span> <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://api.escuelajs.co&quot;</span>)<span class="hljs-operator">!</span><br /><span class="hljs-keyword">let</span> url <span class="hljs-operator">=</span> baseURL.appending(path: <span class="hljs-string">&quot;api/v1/categories&quot;</span>)</span></pre><h3 name="a0df" id="a0df" class="graf graf--h3 graf-after--pre">利用 init?(string: String, relativeTo url: URL?)</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="1ff3" id="1ff3" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> baseURL <span class="hljs-operator">=</span> <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://api.escuelajs.co&quot;</span>)<span class="hljs-operator">!</span><br /><span class="hljs-keyword">let</span> url <span class="hljs-operator">=</span> <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;api/v1/categories&quot;</span>, relativeTo: baseURL)</span></pre><h3 name="4042" id="4042" class="graf graf--h3 graf-after--pre">使用 URLComponents</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="5888" id="5888" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> components <span class="hljs-operator">=</span> <span class="hljs-type">URLComponents</span>()<br />components.scheme <span class="hljs-operator">=</span> <span class="hljs-string">&quot;https&quot;</span><br />components.host <span class="hljs-operator">=</span> <span class="hljs-string">&quot;api.escuelajs.co&quot;</span><br />components.path <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/api/v1/categories&quot;</span><br /><span class="hljs-keyword">let</span> url <span class="hljs-operator">=</span> components.url</span></pre><div name="63e8" id="63e8" class="graf graf--mixtapeEmbed graf-after--pre graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-baseurl-urlcomponents-urlqueryitem-%E7%94%A2%E7%94%9F-url-1e4539a33a89" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-baseurl-urlcomponents-urlqueryitem-%E7%94%A2%E7%94%9F-url-1e4539a33a89" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-baseurl-urlcomponents-urlqueryitem-%E7%94%A2%E7%94%9F-url-1e4539a33a89"><strong class="markup--strong markup--mixtapeEmbed-strong">使用 baseURL，URLComponents &amp; URLQueryItem 產生 URL</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們時常串接後台的 API。通常 API 前面的網址是固定的，只有後面的 path 跟 query 參數會變動，比方以下 iTunes API 的例子:</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-baseurl-urlcomponents-urlqueryitem-%E7%94%A2%E7%94%9F-url-1e4539a33a89" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="04704c889d06333ce25e878df77f2bb3" data-thumbnail-img-id="1*MKgXFUnTKLcu5TUVfiAPhg.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*MKgXFUnTKLcu5TUVfiAPhg.jpeg);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ac2d58829967"><time class="dt-published" datetime="2022-12-16T04:13:21.499Z">December 16, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%B5%84%E5%90%88%E7%94%A2%E7%94%9F-url-%E7%9A%84%E6%96%B9%E6%B3%95-ac2d58829967" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

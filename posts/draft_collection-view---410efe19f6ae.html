@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>collection view實作</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">collection view實作</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在storyboard建立UICollectionViewController物件
+</section>
+<section data-field="body" class="e-content">
+<section name="60f2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="18be" id="18be" class="graf graf--h3 graf--leading graf--title">collection view實作</h3><ol class="postList"><li name="6b3b" id="6b3b" class="graf graf--li graf-after--h3">在storyboard建立UICollectionViewController物件</li><li name="1cb5" id="1cb5" class="graf graf--li graf-after--li">定義自訂的DemoCollectionViewController(繼承UICollectionViewController)，將storyboard的UICollectionViewController物件類別設為DemoCollectionViewController</li><li name="222e" id="222e" class="graf graf--li graf-after--li">定義排版和cell大小間距 </li></ol><pre name="c609" id="c609" class="graf graf--pre graf-after--li">override func viewDidLoad() {</pre><pre name="2a5d" id="2a5d" class="graf graf--pre graf-after--pre">super.viewDidLoad()</pre><pre name="ffe2" id="ffe2" class="graf graf--pre graf-after--pre">let layout: UICollectionViewFlowLayout = self.collectionViewLayout as UICollectionViewFlowLayout</pre><pre name="c1db" id="c1db" class="graf graf--pre graf-after--pre">layout.minimumInteritemSpacing = 2</pre><pre name="aafd" id="aafd" class="graf graf--pre graf-after--pre">layout.minimumLineSpacing = 2</pre><pre name="2a32" id="2a32" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="23f6" id="23f6" class="graf graf--pre graf-after--pre">switch UIScreen.mainScreen().bounds.size.width {</pre><pre name="7d24" id="7d24" class="graf graf--pre graf-after--pre">case 320:</pre><pre name="df4b" id="df4b" class="graf graf--pre graf-after--pre">layout.itemSize = CGSizeMake(105, 105)</pre><pre name="e806" id="e806" class="graf graf--pre graf-after--pre">case 375:</pre><pre name="2be5" id="2be5" class="graf graf--pre graf-after--pre">layout.itemSize = CGSizeMake(123, 123)</pre><pre name="b609" id="b609" class="graf graf--pre graf-after--pre">case 414:</pre><pre name="63b6" id="63b6" class="graf graf--pre graf-after--pre">layout.itemSize = CGSizeMake(136, 136)</pre><pre name="fcfa" id="fcfa" class="graf graf--pre graf-after--pre">default:</pre><pre name="889b" id="889b" class="graf graf--pre graf-after--pre">break</pre><pre name="1a16" id="1a16" class="graf graf--pre graf-after--pre">}</pre><pre name="3847" id="3847" class="graf graf--pre graf-after--pre">}</pre><p name="63da" id="63da" class="graf graf--p graf--empty graf-after--pre"><br></p><p name="86cb" id="86cb" class="graf graf--p graf-after--p">4. 定義section和cell個數</p><pre name="60e2" id="60e2" class="graf graf--pre graf-after--p">override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -&gt; Int {</pre><pre name="d454" id="d454" class="graf graf--pre graf-after--pre">return 1</pre><pre name="cbed" id="cbed" class="graf graf--pre graf-after--pre">}</pre><pre name="00e3" id="00e3" class="graf graf--pre graf-after--pre">override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int {</pre><pre name="a0c3" id="a0c3" class="graf graf--pre graf-after--pre">return 20</pre><pre name="7552" id="7552" class="graf graf--pre graf-after--pre">}</pre><p name="3431" id="3431" class="graf graf--p graf-after--pre">5. 定義cell內容</p><pre name="baa2" id="baa2" class="graf graf--pre graf-after--p">override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -&gt; UICollectionViewCell {</pre><pre name="ced4" id="ced4" class="graf graf--pre graf-after--pre">let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as DemoCollectionViewCell</pre><pre name="d7b2" id="d7b2" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="5620" id="5620" class="graf graf--pre graf-after--pre">// Configure the cell</pre><pre name="11a8" id="11a8" class="graf graf--pre graf-after--pre">cell.imageView.image = UIImage(named: “people”)</pre><pre name="1c8d" id="1c8d" class="graf graf--pre graf-after--pre">return cell</pre><pre name="2cea" id="2cea" class="graf graf--pre graf-after--pre">}</pre><p name="b74d" id="b74d" class="graf graf--p graf-after--pre">6. 加入section的header<br>在storyboard的Collection View上加入Collection Reusable View</p><p name="0326" id="0326" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/410efe19f6ae">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

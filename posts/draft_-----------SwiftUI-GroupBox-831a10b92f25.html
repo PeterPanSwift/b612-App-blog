@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>像卡片一樣呈現內容的 SwiftUI GroupBox</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">像卡片一樣呈現內容的 SwiftUI GroupBox</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+GroupBoxStyle
+</section>
+<section data-field="body" class="e-content">
+<section name="651f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e024" id="e024" class="graf graf--h3 graf--leading graf--title">像卡片一樣呈現內容的 SwiftUI GroupBox</h3><figure name="5ea6" id="5ea6" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*L71K4uEVAp9tkeIqcSlU8w.png" data-width="1318" data-height="672" src="https://cdn-images-1.medium.com/max/800/1*L71K4uEVAp9tkeIqcSlU8w.png"></figure><div name="94e5" id="94e5" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/swiftui/groupbox" data-href="https://developer.apple.com/documentation/swiftui/groupbox" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/groupbox"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/groupbox" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="196ce27117d2d867342f9df315222f39"></a></div><pre name="f1f8" id="f1f8" class="graf graf--pre graf-after--mixtapeEmbed">struct ContentView: View {<br>    var body: some View {<br>        <br>        GroupBox(label: Text(&quot;奧杜邦的祈禱&quot;), content: {<br>            Text(&quot;掙脫暴力刑警的超商搶匪，誤闖不食人間煙火的荻島仙境，一個會說話的稻草人優午在暗夜中慘遭殺害，能預測未來的他為何無法預知自己的死期？ 百年來島上流傳著謎樣的詩句: 這座島到底缺少了什麼？而終究有人會遠道攜來。一連串的問號致使島民陷入永無止境的恐慌……&quot;)<br>        })<br>       <br>    }<br>}</pre><figure name="5994" id="5994" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*r0CWly4gsU1Aybvp83FDTw.png" data-width="594" data-height="1210" src="https://cdn-images-1.medium.com/max/800/1*r0CWly4gsU1Aybvp83FDTw.png"></figure><pre name="0580" id="0580" class="graf graf--pre graf-after--figure">struct ContentView: View {<br>    var body: some View {<br>        GroupBox {<br>            Text(&quot;奧杜邦的祈禱&quot;)<br>            Text(&quot;掙脫暴力刑警的超商搶匪，誤闖不食人間煙火的荻島仙境，一個會說話的稻草人優午在暗夜中慘遭殺害，能預測未來的他為何無法預知自己的死期？ 百年來島上流傳著謎樣的詩句: 這座島到底缺少了什麼？而終究有人會遠道攜來。一連串的問號致使島民陷入永無止境的恐慌……&quot;)<br>        }<br>    }<br>}</pre><figure name="795a" id="795a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*sh-gRWzBzweOor0NvVokqA.png" data-width="578" data-height="1202" src="https://cdn-images-1.medium.com/max/800/1*sh-gRWzBzweOor0NvVokqA.png"></figure><p name="89ae" id="89ae" class="graf graf--p graf-after--figure">GroupBoxStyle</p><div name="d832" id="d832" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://swiftwithmajid.com/2020/10/15/mastering-groupbox-in-swiftui/" data-href="https://swiftwithmajid.com/2020/10/15/mastering-groupbox-in-swiftui/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://swiftwithmajid.com/2020/10/15/mastering-groupbox-in-swiftui/"><strong class="markup--strong markup--mixtapeEmbed-strong">Mastering GroupBox in SwiftUI</strong><br><em class="markup--em markup--mixtapeEmbed-em">Styleable views is the thing I love in SwiftUI. You can separate your view logic and its style. You can easily apply…</em>swiftwithmajid.com</a><a href="https://swiftwithmajid.com/2020/10/15/mastering-groupbox-in-swiftui/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="c44a17365bce30854651ac937632a580" data-thumbnail-img-id="0*R1Vf-IGA5qgdjhXC" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*R1Vf-IGA5qgdjhXC);"></a></div><p name="9a87" id="9a87" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/831a10b92f25">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

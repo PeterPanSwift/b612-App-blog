@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 SwiftUI frame 的 infinity 調整元件大小</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 SwiftUI frame 的 infinity 調整元件大小</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="18e1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="150b" id="150b" class="graf graf--h3 graf--leading graf--title">利用 SwiftUI frame 的 infinity 調整元件大小</h3><pre name="042f" id="042f" class="graf graf--pre graf-after--h3">HStack {</pre><pre name="c358" id="c358" class="graf graf--pre graf-after--pre">Text(&quot;這故事&quot;)</pre><pre name="092b" id="092b" class="graf graf--pre graf-after--pre">.frame(minWidth: 0, maxWidth: .infinity)</pre><pre name="2299" id="2299" class="graf graf--pre graf-after--pre">.border(Color.black)</pre><pre name="1c82" id="1c82" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="e95b" id="e95b" class="graf graf--pre graf-after--pre">Text(&quot;開始一個人&quot;)</pre><pre name="b566" id="b566" class="graf graf--pre graf-after--pre">.frame(minWidth: 0, maxWidth: .infinity)</pre><pre name="7268" id="7268" class="graf graf--pre graf-after--pre">.border(Color.black)</pre><pre name="e98c" id="e98c" class="graf graf--pre graf-after--pre">}.padding()</pre><pre name="3fcd" id="3fcd" class="graf graf--pre graf--empty graf-after--pre"><br></pre><figure name="eaa8" id="eaa8" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*U5r327nCesYJrzy_g5yGkg.jpeg" data-width="648" data-height="684" src="https://cdn-images-1.medium.com/max/800/1*U5r327nCesYJrzy_g5yGkg.jpeg"></figure><pre name="7602" id="7602" class="graf graf--pre graf-after--figure">HStack {</pre><pre name="5d30" id="5d30" class="graf graf--pre graf-after--pre">Text(&quot;這故事&quot;)</pre><pre name="15f3" id="15f3" class="graf graf--pre graf-after--pre">.frame(minWidth: 0, maxWidth: .infinity)</pre><pre name="b44c" id="b44c" class="graf graf--pre graf-after--pre">.border(Color.black)</pre><pre name="8083" id="8083" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="3309" id="3309" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="0678" id="0678" class="graf graf--pre graf-after--pre">Text(&quot;開始一個人&quot;)</pre><pre name="e716" id="e716" class="graf graf--pre graf-after--pre">.frame(minWidth: 0, maxWidth: .infinity)</pre><pre name="9fdf" id="9fdf" class="graf graf--pre graf-after--pre">.border(Color.black)</pre><pre name="2599" id="2599" class="graf graf--pre graf-after--pre">}.frame(width: 300, height: 500)</pre><pre name="4c0c" id="4c0c" class="graf graf--pre graf--empty graf-after--pre"><br></pre><figure name="7b2f" id="7b2f" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*ceOzOtUZzIFqHc-Lfz8bhQ.jpeg" data-width="662" data-height="1208" src="https://cdn-images-1.medium.com/max/800/1*ceOzOtUZzIFqHc-Lfz8bhQ.jpeg"></figure><p name="e079" id="e079" class="graf graf--p graf--empty graf-after--figure graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/a5e589a134c6">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

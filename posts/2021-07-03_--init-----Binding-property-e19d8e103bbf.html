@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 init 裡初始 Binding property</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 init 裡初始 Binding property</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 SwiftUI App，我們有時會用到 Binding property，例如以下例子，代表亮度數值的 brightness 利用 Binding 傳入 BrightnessSlider，因此 BrightnessSlider 能夠修改來自 ContentView 的…
+</section>
+<section data-field="body" class="e-content">
+<section name="8c94" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f85f" id="f85f" class="graf graf--h3 graf--leading graf--title">在 init 裡初始 Binding property</h3><p name="f3f4" id="f3f4" class="graf graf--p graf-after--h3">開發 SwiftUI App，我們有時會用到 Binding property，例如以下例子，代表亮度數值的 brightness 利用 Binding 傳入 BrightnessSlider，因此 BrightnessSlider 能夠修改來自 ContentView 的 brightness。</p><pre name="b179" id="b179" class="graf graf--pre graf-after--p">struct ContentView: View {<br><strong class="markup--strong markup--pre-strong">    </strong><a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank"><strong class="markup--strong markup--pre-strong">@State</strong></a><strong class="markup--strong markup--pre-strong"> private var brightness: Double = 0<br></strong>    <br>    var body: some View {<br>        VStack {<br>            Image(&quot;the morning show&quot;)<br>                .resizable()<br>                .scaledToFit()<br>                .brightness(brightness)<br>            <br><strong class="markup--strong markup--pre-strong">            BrightnessSlider(brightness: $brightness)<br></strong>                .padding()</pre><pre name="0c81" id="0c81" class="graf graf--pre graf-after--pre">        }<br>    }<br>}</pre><pre name="0242" id="0242" class="graf graf--pre graf-after--pre">struct BrightnessSlider: View {<br><strong class="markup--strong markup--pre-strong">    </strong><a href="http://twitter.com/Binding" data-href="http://twitter.com/Binding" class="markup--anchor markup--pre-anchor" title="Twitter profile for @Binding" rel="noopener" target="_blank"><strong class="markup--strong markup--pre-strong">@Binding</strong></a><strong class="markup--strong markup--pre-strong"> var brightness: Double<br></strong>    <br>    var body: some View {<br>        VStack {<br>            Text(&quot;亮度&quot;)<br>            Slider(value: $brightness) {<br>                Text(&quot;亮度&quot;)<br>            } minimumValueLabel: {<br>                Image(systemName: &quot;sun.min.fill&quot;)<br>            } maximumValueLabel: {<br>                Image(systemName: &quot;sun.max.fill&quot;)<br>            }<br>            <br>        }<br>    }<br>}</pre></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="484b" id="484b" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--pre" style="width: 50.505%;"><img class="graf-image" data-image-id="1*fL0QHmsNgDpp3e05di54Cg.png" data-width="584" data-height="1168" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*fL0QHmsNgDpp3e05di54Cg.png"></figure><figure name="90cd" id="90cd" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 49.495%;"><img class="graf-image" data-image-id="1*pZO-XzB21_0UoMU39JHTuQ.png" data-width="560" data-height="1144" src="https://cdn-images-1.medium.com/max/600/1*pZO-XzB21_0UoMU39JHTuQ.png"><figcaption class="imageCaption" style="width: 202.041%; left: -102.041%;">圖片來源: 好看的 Apple 影集 the morning show</figcaption></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="8ee5" id="8ee5" class="graf graf--p graf-after--figure">不過如果我們要在 BrightnessSlider 裡定義 init，在 BrightnessSlider 生成時額外做一些事呢 ? 我們要如何初始 @Binding property 呢 ?</p><p name="952f" id="952f" class="graf graf--p graf-after--p">以下寫法將出現錯誤，因為 self.brightness 的型別是 Bool，不是 Binding&lt;Bool&gt;。</p><figure name="c341" id="c341" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*u9UbqsY4DfzxAQvi_4_p3A.png" data-width="1710" data-height="502" src="https://cdn-images-1.medium.com/max/800/1*u9UbqsY4DfzxAQvi_4_p3A.png"></figure><p name="bed5" id="bed5" class="graf graf--p graf-after--figure">@Binding 是 property wrapper，Swift 會在背後產生加了底線的變數，它的型別才會是 Binding。剛剛的例子裡，_brightness 的型別為 Binding&lt;Double&gt;，它才是我們要初始的 property。</p><pre name="56f8" id="56f8" class="graf graf--pre graf-after--p">struct BrightnessSlider: View {<br><strong class="markup--strong markup--pre-strong">    </strong><a href="http://twitter.com/Binding" data-href="http://twitter.com/Binding" class="markup--anchor markup--pre-anchor" title="Twitter profile for @Binding" rel="noopener" target="_blank"><strong class="markup--strong markup--pre-strong">@Binding</strong></a><strong class="markup--strong markup--pre-strong"> var brightness: Double<br></strong>    <br>    init(brightness: Binding&lt;Double&gt;) {<br><strong class="markup--strong markup--pre-strong">        _brightness = brightness<br></strong>        // do something<br>    }<br>    </pre><figure name="5024" id="5024" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*ZRg8q_mq9sRCsa8wMZofNQ.png" data-width="1186" data-height="476" src="https://cdn-images-1.medium.com/max/800/1*ZRg8q_mq9sRCsa8wMZofNQ.png"></figure><p name="269b" id="269b" class="graf graf--p graf-after--figure">ps: property wrapper 的相關說明可參考以下連結。</p><div name="8309" id="8309" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html" data-href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/LanguageGuide/Properties.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Properties - The Swift Programming Language (Swift 5.5)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Properties associate values with a particular class, structure, or enumeration. Stored properties store constant and…</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="c148282cfbc20ce96dba419fce40b824" data-thumbnail-img-id="0*UuuJeBNnPfTJKIwF" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*UuuJeBNnPfTJKIwF);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e19d8e103bbf"><time class="dt-published" datetime="2021-07-03T10:15:37.563Z">July 3, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%9C%A8-init-%E8%A3%A1%E5%88%9D%E5%A7%8B-binding-property-e19d8e103bbf" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

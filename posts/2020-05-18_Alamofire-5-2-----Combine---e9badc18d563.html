@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Alamofire 5.2  支援 Combine 了</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Alamofire 5.2  支援 Combine 了</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Alamofire 5.2 支援 Combine 了 ! 現在我們可以利用 Alamofire 產生 publisher，然後搭配 iOS 13 的 Combine 串接 API 。
+</section>
+<section data-field="body" class="e-content">
+<section name="9b8c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d1b5" id="d1b5" class="graf graf--h3 graf--leading graf--title">Alamofire 5.2 支援 Combine 了</h3><p name="2b12" id="2b12" class="graf graf--p graf-after--h3">Alamofire 5.2 支援 Combine 了 ! 現在我們可以利用 Alamofire 產生 publisher，然後搭配 iOS 13 的 Combine 串接 API 。</p><figure name="ba0f" id="ba0f" class="graf graf--figure graf--iframe graf-after--p"></figure><p name="9701" id="9701" class="graf graf--p graf-after--figure">雖然目前大部分的 API 串接都可以用 URLSession 實現，不過 Alamofire 在某些地方還是不錯用，比方上傳圖片用 Alamofire 就簡單許多。接下來我們將以 imgur API 為例，利用 Alamofire 結合 Combine 上傳圖片。</p><div name="61b3" id="61b3" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-ios-app-%E7%9A%84%E5%9C%96%E7%89%87%E4%B8%8A%E5%82%B3-%E4%BB%A5-remove-bg-imgur-api-%E7%82%BA%E4%BE%8B-5b1214b86438" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-ios-app-%E7%9A%84%E5%9C%96%E7%89%87%E4%B8%8A%E5%82%B3-%E4%BB%A5-remove-bg-imgur-api-%E7%82%BA%E4%BE%8B-5b1214b86438" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-ios-app-%E7%9A%84%E5%9C%96%E7%89%87%E4%B8%8A%E5%82%B3-%E4%BB%A5-remove-bg-imgur-api-%E7%82%BA%E4%BE%8B-5b1214b86438"><strong class="markup--strong markup--mixtapeEmbed-strong">Swift iOS App 的圖片上傳，以 remove.bg &amp; Imgur API 為例</strong><br><em class="markup--em markup--mixtapeEmbed-em">網路上有很多幫助我們練習串接後台的第三方 API，不過如果想做到圖片上傳，相關的 API 就比較少了。彼得潘研究了一下，發現以下兩個 API 特別適合初學者練習圖片上傳的相關技術。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-ios-app-%E7%9A%84%E5%9C%96%E7%89%87%E4%B8%8A%E5%82%B3-%E4%BB%A5-remove-bg-imgur-api-%E7%82%BA%E4%BE%8B-5b1214b86438" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f01fab6d043bb110f4b9c403e92d6512" data-thumbnail-img-id="1*3sWT7Krsjpo0P_5YlHjtTg.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*3sWT7Krsjpo0P_5YlHjtTg.jpeg);"></a></div><h3 name="0653" id="0653" class="graf graf--h3 graf-after--mixtapeEmbed">利用 SPM 加入 Alamofire</h3><div name="04d6" id="04d6" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-spm-%E5%AE%89%E8%A3%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-2c4ffcf85b4b" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-spm-%E5%AE%89%E8%A3%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-2c4ffcf85b4b" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-spm-%E5%AE%89%E8%A3%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-2c4ffcf85b4b"><strong class="markup--strong markup--mixtapeEmbed-strong">使用 SPM 安裝第三方套件 — Xcode 11 新功能</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們有許多管理安裝第三方套件的方法，其中最為人熟知的三大套件管理天王為 CocoaPods，SPM(Swift Package Manager) &amp; Carthage。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-spm-%E5%AE%89%E8%A3%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-2c4ffcf85b4b" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="68d7ca0f1f357213624de0f00073e1ac" data-thumbnail-img-id="1*MsiitLtlD6QsFEh13mIVWA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*MsiitLtlD6QsFEh13mIVWA.jpeg);"></a></div><h3 name="d22e" id="d22e" class="graf graf--h3 graf-after--mixtapeEmbed">import framework</h3><pre name="f57d" id="f57d" class="graf graf--pre graf-after--h3">import SwiftUI<br>import Alamofire<br>import Combine</pre><h3 name="0138" id="0138" class="graf graf--h3 graf-after--pre">定義 JSON 對應的 Decodable 型別</h3><p name="dc13" id="dc13" class="graf graf--p graf-after--h3">imgur API 上傳圖片後將回傳 JSON，以下為 JSON 對應的 Decodable 型別。</p><pre name="c19f" id="c19f" class="graf graf--pre graf-after--p">struct UploadImageResult: Decodable {<br>    struct Data: Decodable {<br>        let link: URL<br>    }<br>    let data: Data<br>}</pre><h3 name="312f" id="312f" class="graf graf--h3 graf-after--pre">定義 SwiftUI 畫面，使用 Alamofire &amp; Combine 上傳圖片</h3><pre name="c243" id="c243" class="graf graf--pre graf-after--h3">struct ContentView: View {<br>    var baby = Baby()<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var links = [URL]()<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var cancellable: AnyCancellable?<br>    <br><strong class="markup--strong markup--pre-strong">    func uploadImagePublisher(uiImage: UIImage) -&gt;  DataResponsePublisher&lt;UploadImageResult&gt; {<br></strong>        <br>        let headers: HTTPHeaders = [<br>            &quot;Authorization&quot;: &quot;Client-ID aa1111aaaa&quot;,<br>        ]<br>        return AF.upload(multipartFormData: { (data) in<br>            let imageData = uiImage.jpegData(compressionQuality: 0.9)<br>            data.append(imageData!, withName: &quot;image&quot;)<br>            <br>        }, to: &quot;<a href="https://api.imgur.com/3/upload" data-href="https://api.imgur.com/3/upload" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://api.imgur.com/3/upload</a>&quot;, headers: headers)<br>            .<strong class="markup--strong markup--pre-strong">publishDecodable(type: UploadImageResult.self, queue: .main)<br>        </strong><br>        <br>    }<br>    <br>   <strong class="markup--strong markup--pre-strong"> func upload() {</strong><br>        <br>        let publisher1 = self.uploadImagePublisher(uiImage: UIImage(named: &quot;peter1&quot;)!)<br>        let publisher2 = self.uploadImagePublisher(uiImage: UIImage(named: &quot;peter2&quot;)!)<br>        <br>        self.cancellable = <strong class="markup--strong markup--pre-strong">publisher1.zip(publisher2)</strong><br>            .sink(receiveValue: { (values) in<br>                if let link = values.0.value?.data.link {<br>                    self.links.append(link)<br>                }<br>                if let link = values.1.value?.data.link {<br>                    self.links.append(link)<br>                }<br>            })<br>    }<br>    <br>    var body: some View {<br>        <br>        <br>        VStack(spacing: 15) {<br>            ForEach(links, id: \.self) { (link) in<br>                Text(&quot;\(link)&quot;)<br>                    .onTapGesture {<br>                        UIApplication.shared.open(link)<br>                }<br>            }<br>            Button(action: {<br>                self.upload()<br>            }) {<br>                Text(&quot;upload&quot;)<br>            }<br>        }<br>        .onDisappear {<br>            self.cancellable = nil<br>        }<br>        <br>    }<br>}</pre><p name="10af" id="10af" class="graf graf--p graf-after--pre">說明</p><pre name="93af" id="93af" class="graf graf--pre graf-after--p">func uploadImagePublisher(uiImage: UIImage) -&gt;  DataResponsePublisher&lt;UploadImageResult&gt;</pre><p name="a1cd" id="a1cd" class="graf graf--p graf-after--pre">function uploadImagePublisher 利用 Alamofire 的 function publishDecodable 產生 publisher。(ps: 範例的 API key 是假的，測試時請換成自己的 API key)</p><pre name="470d" id="470d" class="graf graf--pre graf-after--p">func upload()</pre><p name="e2d6" id="e2d6" class="graf graf--p graf-after--pre">利用 Combine 的 zip operator 組合上傳 peter1 &amp; peter2 的 publisher，當兩張圖都上傳後，我們可在 sink 的 closure 裡從 values.0.value &amp; values.1.value 取得型別 UploadImageResult 的資料，因此從 values.0.value?.data.link &amp; values.1.value?.data.link 可得到網址。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="3"><figure name="22f3" id="22f3" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 33.333%;"><img class="graf-image" data-image-id="1*DUXVs_NK2Q1JJ0raEE57HQ.jpeg" data-width="886" data-height="1602" src="https://cdn-images-1.medium.com/max/400/1*DUXVs_NK2Q1JJ0raEE57HQ.jpeg"></figure><figure name="e667" id="e667" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*Pm9ik4P1_G0FblmP1wtntg.jpeg" data-width="886" data-height="1602" src="https://cdn-images-1.medium.com/max/400/1*Pm9ik4P1_G0FblmP1wtntg.jpeg"></figure><figure name="fbe6" id="fbe6" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure graf--trailing" style="width: 33.333%;"><img class="graf-image" data-image-id="1*yzCOvy6YQG-WUKfanWZz0A.jpeg" data-width="886" data-height="1602" data-is-featured="true" src="https://cdn-images-1.medium.com/max/400/1*yzCOvy6YQG-WUKfanWZz0A.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e9badc18d563"><time class="dt-published" datetime="2020-05-18T13:01:10.609Z">May 18, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/alamofire-5-2-%E6%94%AF%E6%8F%B4-combine-%E4%BA%86-e9badc18d563" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

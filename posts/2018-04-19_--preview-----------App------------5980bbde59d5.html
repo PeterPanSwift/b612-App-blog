@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 preview (預覽程式) 查詢 App 畫面裡元件的大小位置</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 preview (預覽程式) 查詢 App 畫面裡元件的大小位置</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+現在開發 iOS App 有很多方便的設計工具，比方 sketch, photoshop，zeplin 等，方便我們查詢畫面裡元件的大小位置。不過有些時候美術給我們的只是一張 App 畫面截圖，難道是要我們用火眼金睛看出裡面元件的大小位置嗎 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="c778" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5027" id="5027" class="graf graf--h3 graf--leading graf--title">從 preview (預覽程式) 查詢 App 畫面裡元件的大小位置</h3><p name="ded4" id="ded4" class="graf graf--p graf-after--h3">現在開發 iOS App 有很多方便的設計工具，比方 sketch, photoshop，zeplin 等，方便我們查詢畫面裡元件的大小位置。不過有些時候美術給我們的只是一張 App 畫面截圖，難道是要我們用火眼金睛看出裡面元件的大小位置嗎 ?</p><p name="9ec3" id="9ec3" class="graf graf--p graf-after--p">沒關係，使用 Mac 內建的 preview 開啟圖片後，我們只要拖曳長方形框框，即可大概取得它的大小和位置。如下圖所示，照片的大小為 1125 * 1400。</p><figure name="0d27" id="0d27" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LRReadMccn9Wzc9Iq4KXjQ.png" data-width="820" data-height="1146" src="https://cdn-images-1.medium.com/max/800/1*LRReadMccn9Wzc9Iq4KXjQ.png"></figure><p name="d61c" id="d61c" class="graf graf--p graf-after--figure">取得 x, y 座標有個特別的小技巧。請按住想取得座標的位置往左上拖曳，直到超出圖片，此時顯示的數字即為它的 x, y，比方下圖箭頭的座標是 185, 344。</p><figure name="bc46" id="bc46" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*qWTC9Ia6eDXgJWa8LNb2wg.jpeg" data-width="610" data-height="802" src="https://cdn-images-1.medium.com/max/800/1*qWTC9Ia6eDXgJWa8LNb2wg.jpeg"></figure><p name="3d9f" id="3d9f" class="graf graf--p graf-after--figure">得到數字後，還要記得考慮 App 畫面截圖對應的 iPhone 解析度，比方 iPhone 8 App 的畫面是 2x 解析度，大小是 750 * 1334 pixel，因此取得的數字要再除以 2，才是以 point 為單位的數字。</p><p name="3116" id="3116" class="graf graf--p graf-after--p">關於各個 iPhone 機型是 2x 或 3x 的解析度，可參考以下連結。</p><div name="0904" id="0904" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://www.screensizes.app/" data-href="https://www.screensizes.app/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.screensizes.app/"><strong class="markup--strong markup--mixtapeEmbed-strong">Screen Sizes</strong><br><em class="markup--em markup--mixtapeEmbed-em">A complete guide for Apple Displays, Icon Sizes, and more!</em>www.screensizes.app</a><a href="https://www.screensizes.app/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="2ebbd3f8f2c767103b53bc67e0cef9d3" data-thumbnail-img-id="0*oyigQyZG7YBGXEpU" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*oyigQyZG7YBGXEpU);"></a></div><p name="7b3c" id="7b3c" class="graf graf--p graf-after--mixtapeEmbed">如果因為 2x、3x 解析度的關係，需要自己除 2 或除 3，但又擔心數學不好的話，沒關係，我們也可以用 preview (預覽程式) 將圖片的大小改成 1x 的大小。</p><p name="060c" id="060c" class="graf graf--p graf-after--p">1 點選 Tools &gt; Adjust Size 。</p><figure name="61af" id="61af" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KZqcNGy9d9_Sbw5dS4Li7g.jpeg" data-width="984" data-height="318" src="https://cdn-images-1.medium.com/max/800/1*KZqcNGy9d9_Sbw5dS4Li7g.jpeg"></figure><p name="cb09" id="cb09" class="graf graf--p graf-after--figure">將單位選到 pixels，設定 1x 的寬高。</p><figure name="3cba" id="3cba" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*TZXrorr_6LZKIoNmjcVwCw.jpeg" data-width="816" data-height="756" src="https://cdn-images-1.medium.com/max/800/1*TZXrorr_6LZKIoNmjcVwCw.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5980bbde59d5"><time class="dt-published" datetime="2018-04-19T08:47:59.329Z">April 19, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-preview-%E9%A0%90%E8%A6%BD%E7%A8%8B%E5%BC%8F-%E6%9F%A5%E8%A9%A2-app-%E7%95%AB%E9%9D%A2%E8%A3%A1%E5%85%83%E4%BB%B6%E7%9A%84%E5%A4%A7%E5%B0%8F%E4%BD%8D%E7%BD%AE-5980bbde59d5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

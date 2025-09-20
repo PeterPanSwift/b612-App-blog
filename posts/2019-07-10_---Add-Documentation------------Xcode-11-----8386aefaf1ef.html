@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Add Documentation 快速產生文件說明 — Xcode 11 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Add Documentation 快速產生文件說明 — Xcode 11 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們會寫很多很多的 function。這些 function 如果可以加上文件說明，將讓未來的自己或別人閱讀我們程式時更容易理解。
+</section>
+<section data-field="body" class="e-content">
+<section name="f044" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="93e1" id="93e1" class="graf graf--h3 graf--leading graf--title">利用 Add Documentation 快速產生文件說明 — Xcode 11 新功能</h3><p name="91e8" id="91e8" class="graf graf--p graf-after--h3">開發 iOS App 時，我們會寫很多很多的 function。這些 function 如果可以加上文件說明，將讓未來的自己或別人閱讀我們程式時更容易理解。</p><p name="d368" id="d368" class="graf graf--p graf-after--p">然而幫 function 加上文件說明是件麻煩的事情，要用特別的注解格式為每個參數輸入說明，因此我們常常懶得加。在 Xcode 11 現在有方法可以自動輸入這些注解，再也沒有藉口偷懶了。</p><ol class="postList"><li name="da70" id="da70" class="graf graf--li graf-after--p">將滑鼠游標移到 function 名字上，然後按住 cmd 鍵後按滑鼠左鍵。</li><li name="1095" id="1095" class="graf graf--li graf-after--li">從選單裡選擇 Add Documentation。</li></ol><figure name="0985" id="0985" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*CUA9v4KBnH2KU0qtbtFSpg.jpeg" data-width="1582" data-height="600" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*CUA9v4KBnH2KU0qtbtFSpg.jpeg"></figure><p name="45ee" id="45ee" class="graf graf--p graf-after--figure">此時 Xcode 將貼心地幫我們輸入相關說明的注解，我們只要在框框裡填入說明就大功告成了 !</p><figure name="ae25" id="ae25" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yhqZ0yZmQXFzid8qsyk6kg.jpeg" data-width="1172" data-height="402" src="https://cdn-images-1.medium.com/max/800/1*yhqZ0yZmQXFzid8qsyk6kg.jpeg"></figure><pre name="2ad9" id="2ad9" class="graf graf--pre graf-after--figure">/// eat</pre><pre name="0017" id="0017" class="graf graf--pre graf-after--pre">/// - Parameter name: food name</pre><pre name="1a7c" id="1a7c" class="graf graf--pre graf-after--pre">/// - Parameter price: food price</pre><pre name="e8f1" id="e8f1" class="graf graf--pre graf-after--pre">func eat(name: String, price: Int) {</pre><pre name="b87a" id="b87a" class="graf graf--pre graf-after--pre">}</pre><p name="679a" id="679a" class="graf graf--p graf-after--pre">現在 function eat 有了文件說明，之後只要在 eat 上按住 option 再點選滑鼠左鍵，即可看到它的相關說明。</p><figure name="3f68" id="3f68" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1Qo2iG6JML2zfPdUBkqF-A.jpeg" data-width="1460" data-height="642" src="https://cdn-images-1.medium.com/max/800/1*1Qo2iG6JML2zfPdUBkqF-A.jpeg"></figure><p name="1af2" id="1af2" class="graf graf--p graf-after--figure graf--trailing">ps: 如果嫌剛剛的步驟不夠快，還有更快的方法。以滑鼠點選 function 後，按快速鍵 cmd + option + / 也可以加入 Documentation。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8386aefaf1ef"><time class="dt-published" datetime="2019-07-10T16:21:47.726Z">July 10, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-add-documentation-%E5%BF%AB%E9%80%9F%E7%94%A2%E7%94%9F%E6%96%87%E4%BB%B6%E8%AA%AA%E6%98%8E-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-8386aefaf1ef" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

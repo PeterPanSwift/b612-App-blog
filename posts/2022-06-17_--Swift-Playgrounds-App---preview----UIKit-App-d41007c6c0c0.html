@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 Swift Playgrounds App 的 preview 測試 UIKit App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 Swift Playgrounds App 的 preview 測試 UIKit App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Swift Playgrounds App 有個十分方便的功能，不管我們正在編輯哪個 swift 檔，都可以從右邊的 preview 測試執行 App。
+</section>
+<section data-field="body" class="e-content">
+<section name="1879" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5e6e" id="5e6e" class="graf graf--h3 graf--leading graf--title">從 Swift Playgrounds App 的 preview 測試 UIKit App</h3><p name="4d53" id="4d53" class="graf graf--p graf-after--h3">Swift Playgrounds App 有個十分方便的功能，不管我們正在編輯哪個 swift 檔，都可以從右邊的 preview 測試執行 App。</p><p name="5cad" id="5cad" class="graf graf--p graf-after--p">最近彼得潘想到，如果你是正在學習 UIKit App 開發的新手，而且 Mac 也是 M1 以上的神速電腦，不妨考慮建立專案時選擇 Swift Playgrounds App，之後修改程式後即可從 preview 快速測試 App，不用再傻傻地等模擬器了。</p><p name="f66c" id="f66c" class="graf graf--p graf-after--p">以下我們以 Apple 教科書 Develop in Swift Fundamentals Xcode 13 的 Apple Pie 範例當例子。</p><h3 name="6c1b" id="6c1b" class="graf graf--h3 graf-after--p">建立 Swift Playgrounds App 專案</h3><figure name="766a" id="766a" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*v6dByLqh3S5C1TbcLRiyjg.png" data-width="1452" data-height="1036" src="https://cdn-images-1.medium.com/max/800/1*v6dByLqh3S5C1TbcLRiyjg.png"></figure><figure name="67eb" id="67eb" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*lA1s32sQBp-yMqAla--g7g.png" data-width="1716" data-height="814" src="https://cdn-images-1.medium.com/max/800/1*lA1s32sQBp-yMqAla--g7g.png"></figure><h3 name="229b" id="229b" class="graf graf--h3 graf-after--figure">建立資料夾 Resources，Storyboard &amp; UIKit Code</h3><p name="5967" id="5967" class="graf graf--p graf-after--h3">點選 New Folder 建立資料夾，之後開發時我們會在資料夾裡加入 swift 程式，storyboard &amp; assets。</p><figure name="3b10" id="3b10" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hQDTejo9XxIfn4NQnxJuRA.png" data-width="718" data-height="818" src="https://cdn-images-1.medium.com/max/800/1*hQDTejo9XxIfn4NQnxJuRA.png"></figure><figure name="7ddb" id="7ddb" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*qH78QSXynxlj3QMN1vtJmQ.png" data-width="540" data-height="384" src="https://cdn-images-1.medium.com/max/800/1*qH78QSXynxlj3QMN1vtJmQ.png"></figure><p name="e9d0" id="e9d0" class="graf graf--p graf-after--figure">為什麼要新增資料夾呢 ? 除了方便管理檔案，主要的原因是 Swift Playgrounds App 專案裡，預設新增檔案只會新增 swift 檔，必須從資料夾新增檔案才會出現下圖的檔案選擇視窗，我們才能加入 storyboard 或 asset 等其它類型的檔案。</p><figure name="6543" id="6543" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8Z-DglmLZLfHXAMgrn19-Q.png" data-width="1436" data-height="1028" src="https://cdn-images-1.medium.com/max/800/1*8Z-DglmLZLfHXAMgrn19-Q.png"></figure><h3 name="8f06" id="8f06" class="graf graf--h3 graf-after--figure">加入 swift 檔 &amp; asset 的圖片，在 storyboard 設計畫面</h3><p name="4750" id="4750" class="graf graf--p graf-after--h3">在 UIKit Code 下加入 swift 檔。</p><figure name="4087" id="4087" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8KQ-ZU-Abx-5El12IFssfw.png" data-width="2176" data-height="1414" src="https://cdn-images-1.medium.com/max/800/1*8KQ-ZU-Abx-5El12IFssfw.png"></figure><p name="44a3" id="44a3" class="graf graf--p graf-after--figure">在 Resources 下加入 Assets。</p><figure name="cdce" id="cdce" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ii5Cxt1-m_oObEOhXMRgdw.png" data-width="1810" data-height="708" src="https://cdn-images-1.medium.com/max/800/1*Ii5Cxt1-m_oObEOhXMRgdw.png"></figure><p name="8110" id="8110" class="graf graf--p graf-after--figure">在 Storyboard 下加入 Main.storyboard。</p><figure name="50f6" id="50f6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kYYVyrzOMP_7weQE_wEcBg.png" data-width="2150" data-height="1328" src="https://cdn-images-1.medium.com/max/800/1*kYYVyrzOMP_7weQE_wEcBg.png"></figure><h3 name="95b9" id="95b9" class="graf graf--h3 graf-after--figure">修改 ContentView，讓它顯示控制 App 第一個畫面的 controller</h3><p name="acb8" id="acb8" class="graf graf--p graf-after--h3">貼上以下程式，在 <code class="markup--code markup--p-code">function makeUIViewController</code> 回傳顯示 App 第一個畫面的 controller。在剛剛的例子裡，顯示第一個畫面的 controller 是在 main storyboard，因此我們用 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">UIStoryboard(name: &quot;Main&quot;, bundle: nil).instantiateInitialViewController()!</strong></code> 產生。</p><pre name="3b34" id="3b34" class="graf graf--pre graf-after--p">import SwiftUI</pre><pre name="2787" id="2787" class="graf graf--pre graf-after--pre">struct ContentView: UIViewControllerRepresentable {<br>    func makeUIViewController(context: Context) -&gt; UIViewController {<br><strong class="markup--strong markup--pre-strong">        UIStoryboard(name: &quot;Main&quot;, bundle: nil).instantiateInitialViewController()!<br></strong>    }<br>    <br>    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {<br>    }<br>}</pre><h3 name="d5dd" id="d5dd" class="graf graf--h3 graf-after--pre">在 preview 測試 App</h3><p name="1f86" id="1f86" class="graf graf--p graf-after--h3">Cool，現在不管我們編輯哪一個 swift 檔，都可以馬上從右邊的 preview 操作測試 App。</p><ul class="postList"><li name="afd3" id="afd3" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">實驗 1: button 點選時將 button 的背景變成黃色</strong></li></ul><figure name="f00f" id="f00f" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*xvo1oD1eQZTKiK1jp4HlTQ.png" data-width="2684" data-height="1430" src="https://cdn-images-1.medium.com/max/800/1*xvo1oD1eQZTKiK1jp4HlTQ.png"></figure><ul class="postList"><li name="def2" id="def2" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">實驗 2: 將 _ 改成 ~</strong></li></ul><figure name="3850" id="3850" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*vxe3tMIRW1ckmb4TNtNzLA.png" data-width="2734" data-height="1506" src="https://cdn-images-1.medium.com/max/800/1*vxe3tMIRW1ckmb4TNtNzLA.png"></figure><h3 name="4071" id="4071" class="graf graf--h3 graf-after--figure">preview 測試 App 的注意事項</h3><ul class="postList"><li name="fb61" id="fb61" class="graf graf--li graf-after--h3">若遇到 preview 畫面沒有更新，可點選 cmd + option + p。</li></ul><figure name="8f07" id="8f07" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*5zScb49apejl-PZ0dJjavw.png" data-width="1400" data-height="1216" src="https://cdn-images-1.medium.com/max/800/1*5zScb49apejl-PZ0dJjavw.png"></figure><ul class="postList"><li name="6cd3" id="6cd3" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">切到 swift 以外的檔案編輯，再切回 swift 檔時，Xcode 14 beta 可能會無法顯示 preview。</strong></li></ul><p name="f79d" id="f79d" class="graf graf--p graf-after--li">解法: 關掉專案視窗，然後再重開專案。</p><h3 name="7720" id="7720" class="graf graf--h3 graf-after--p">將複雜的 UIKit App 變成 Swift Playgrounds App</h3><p name="fc50" id="fc50" class="graf graf--p graf-after--h3">剛剛我們看到的例子只是簡單的專案，不過即便是複雜的專案，串接了網路 API，使用 SPM 安裝許多第三方套件，我們也能將它包裝成 Swift Playgrounds App，方便地從 preview 測試 App。</p><p name="32b4" id="32b4" class="graf graf--p graf-after--p">以下例子我們將 amrhossam96 大大的 Netflix App 變成 Swift Playgrounds App。(ps: 彼得潘測試時先移除 Core Data 的相關程式，因為在 Swift Playgrounds App 使用 Core Data 要額外做一些處理）</p><div name="b6ea" id="b6ea" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/amrhossam96/Netflix-clone" data-href="https://github.com/amrhossam96/Netflix-clone" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/amrhossam96/Netflix-clone"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - amrhossam96/Netflix-clone: This is a cloned version of Netflix app. repo is being updated…</strong><br><em class="markup--em markup--mixtapeEmbed-em">This is a cloned version of Netflix app. repo is being updated regularly with the progress of each tutorial - GitHub …</em>github.com</a><a href="https://github.com/amrhossam96/Netflix-clone" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9e295f92d5a64c9574a4dd5109609202" data-thumbnail-img-id="0*FE1xk1ohlxXHLxbc" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*FE1xk1ohlxXHLxbc);"></a></div><p name="188a" id="188a" class="graf graf--p graf-after--mixtapeEmbed">Netflix App 的畫面都是從程式製作，沒有使用 storyboard，因此我們直接以 <code class="markup--code markup--p-code">MainTabBarViewController()</code> 產生顯示第一個畫面的 controller。</p><pre name="ae2d" id="ae2d" class="graf graf--pre graf-after--p">struct ContentView: UIViewControllerRepresentable {<br>    func makeUIViewController(context: Context) -&gt; UIViewController {<br><strong class="markup--strong markup--pre-strong">        MainTabBarViewController()<br></strong>    }<br>    <br>    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {<br>        <br>    }<br>    <br>}</pre><figure name="799a" id="799a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*GtO-r6IZy8I912EnhJ9eYQ.png" data-width="800" data-height="453" src="https://cdn-images-1.medium.com/max/800/1*GtO-r6IZy8I912EnhJ9eYQ.png"></figure><p name="7e33" id="7e33" class="graf graf--p graf-after--figure">當我們修改程式後，可以從 preview 測試 App，不用再傻傻地等待模擬器執行。以下例子我們將 Play 的顏色從白色改成橘色，右邊 preview 的 Play 馬上變成橘色。(ps: 嚴格來說，馬上的速度跟你的電腦速度有關。如果覺得馬上太慢的話，可以考慮換 m1 Max)</p><figure name="2d08" id="2d08" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*w0_El4bxZlrw5Y46HwlTFw.png" data-width="1998" data-height="1500" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*w0_El4bxZlrw5Y46HwlTFw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d41007c6c0c0"><time class="dt-published" datetime="2022-06-17T09:09:13.266Z">June 17, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-swift-playgrounds-app-%E5%BF%AB%E9%80%9F%E6%B8%AC%E8%A9%A6-uikit-app-d41007c6c0c0" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

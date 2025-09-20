@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>endless scroll background</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">endless scroll background</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+block 2 就可以
+</section>
+<section data-field="body" class="e-content">
+<section name="8323" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ed12" id="ed12" class="graf graf--h3 graf--leading graf--title">endless scroll background </h3><p name="4959" id="4959" class="graf graf--p graf-after--h3">block 2 就可以</p><pre name="b597" id="b597" class="graf graf--pre graf-after--p">func setupGloopFlow() {<br>        <br>        // Set up flowing gloop<br>        let gloopFlow = SKNode()<br>        gloopFlow.name = &quot;gloopFlow&quot;<br>        gloopFlow.zPosition = Layer.foreground.rawValue<br>        gloopFlow.position = CGPoint(x: 0.0, y: -60)<br>        <br>        // Use extension for endless scrolling<br>        gloopFlow.setupScrollingView(imageNamed: &quot;flow_1&quot;,<br>                                     layer: Layer.foreground,<br>                                     emitterNamed: &quot;GloopFlow.sks&quot;,<br>                                     blocks: 3, speed: 30.0)<br>        <br>        // Add flow to scene<br>        addChild(gloopFlow)<br>}</pre><pre name="5221" id="5221" class="graf graf--pre graf-after--pre">extension SKSpriteNode {<br>    <br>    func endlessScroll(speed: TimeInterval) {<br>        <br>        // Set up actions to move and reset nodes<br>        let moveAction = SKAction.moveBy(x: -self.size.width,<br>                                         y: 0, duration: speed)<br>        let resetAction = SKAction.moveBy(x: self.size.width,<br>                                          y: 0, duration: 0.0)<br>        <br>        // Set up a sequence of repeating actions<br>        let sequenceAction = SKAction.sequence([moveAction, resetAction])<br>        let repeatAction = SKAction.repeatForever(sequenceAction)<br>        <br>        // Run the repeating action<br>        self.run(repeatAction)<br>    }<br>}</pre><pre name="d4ad" id="d4ad" class="graf graf--pre graf-after--pre">extension SKNode {<br>    <br>    // Used to set up an endless scroller<br>    func setupScrollingView(imageNamed name: String, layer: Layer,<br>                            emitterNamed: String?, blocks: Int, speed: TimeInterval) {<br>        <br>        // Create sprite nodes; set positions based on the node&#39;s # and width<br>        for i in 0..&lt;blocks {<br>            let spriteNode = SKSpriteNode(imageNamed: name)<br>            spriteNode.anchorPoint = CGPoint.zero<br>            spriteNode.position = CGPoint(x: CGFloat(i) * spriteNode.size.width,<br>                                          y: 0)<br>            spriteNode.zPosition = layer.rawValue<br>            spriteNode.name = name<br>            <br><br>            <br>            // Use the custom extension to scroll<br>            spriteNode.endlessScroll(speed: speed)<br>            <br>            // Add the sprite node to the container<br>            addChild(spriteNode)<br>        }<br>    }<br>}</pre><p name="e320" id="e320" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/324284085e39">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

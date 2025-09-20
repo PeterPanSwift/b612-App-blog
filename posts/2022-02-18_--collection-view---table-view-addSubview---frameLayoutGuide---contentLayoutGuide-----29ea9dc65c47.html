@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 collection view 或 table view addSubview 和 frameLayoutGuide / contentLayoutGuide 的關係</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 collection view 或 table view addSubview 和 frameLayoutGuide / contentLayoutGuide 的關係</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們用 collection view 或 table view 製作 iOS App 畫面時，大部分都是從 cell 跟 header 設計內容，因此很少會直接從 collection view 或 table view 呼叫 addSubview 貼上另一個 view。
+</section>
+<section data-field="body" class="e-content">
+<section name="f208" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="411c" id="411c" class="graf graf--h3 graf--leading graf--title">從 collection view 或 table view addSubview 和 frameLayoutGuide / contentLayoutGuide 的關係</h3><p name="a809" id="a809" class="graf graf--p graf-after--h3">當我們用 collection view 或 table view 製作 iOS App 畫面時，大部分都是從 cell 跟 header 設計內容，因此很少會直接從 collection view 或 table view 呼叫 addSubview 貼上另一個 view。</p><p name="5d6c" id="5d6c" class="graf graf--p graf-after--p">不過既然是很少，表示還是有機會，以下我們以 table view 為例子，說明從 table view 呼叫 addSubview 貼上另一個 view 時，使用 tableView.frameLayoutGuide &amp; tableView.contentLayoutGuide 設定 auto layout 的差異。</p><p name="1b80" id="1b80" class="graf graf--p graf-after--p">假設 table 的畫面如下，navigation bar 是透明的。</p><figure name="9e4e" id="9e4e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OKkQSbkO2k2yMVJzLt9AOQ.png" data-width="1074" data-height="1088" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*OKkQSbkO2k2yMVJzLt9AOQ.png"><figcaption class="imageCaption">表格裡的圖片為 Agatha Christie 好看的推理小說</figcaption></figure><p name="ac55" id="ac55" class="graf graf--p graf-after--figure">在 TableViewController 的 viewDidLoad 裡加入黃色的 contentLayoutGuideLabel &amp; 綠色的 frameLayoutGuideLabel。主要差異在於 contentLayoutGuideLabel 的上邊界跟 tableView.contentLayoutGuide 的上邊界對齊，frameLayoutGuideLabel 的上邊界跟 tableView.frameLayoutGuide 的上邊界對齊。</p><pre name="46d3" id="46d3" class="graf graf--pre graf-after--p">class TableViewController: UITableViewController {</pre><pre name="50c6" id="50c6" class="graf graf--pre graf-after--pre">   override func viewDidLoad() {<br>        super.viewDidLoad()</pre><pre name="23ec" id="23ec" class="graf graf--pre graf-after--pre">        let contentLayoutGuideLabel = UILabel()      contentLayoutGuideLabel.translatesAutoresizingMaskIntoConstraints = false<br>        contentLayoutGuideLabel.backgroundColor = .yellow<br>        contentLayoutGuideLabel.text = &quot;contentLayoutGuide&quot;<br>        tableView.addSubview(contentLayoutGuideLabel)<br><strong class="markup--strong markup--pre-strong">       contentLayoutGuideLabel.topAnchor.constraint(equalTo: tableView.contentLayoutGuide.topAnchor).isActive = true</strong>      contentLayoutGuideLabel.leadingAnchor.constraint(equalTo: tableView.frameLayoutGuide.leadingAnchor).isActive = true       contentLayoutGuideLabel.trailingAnchor.constraint(equalTo: tableView.frameLayoutGuide.trailingAnchor).isActive = true       contentLayoutGuideLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true<br>        <br>        let frameLayoutGuideLabel = UILabel()       frameLayoutGuideLabel.translatesAutoresizingMaskIntoConstraints = false<br>        frameLayoutGuideLabel.backgroundColor = .green<br>        frameLayoutGuideLabel.text = &quot;frameLayoutGuideLabel&quot;<br>        tableView.addSubview(frameLayoutGuideLabel)<br><strong class="markup--strong markup--pre-strong">        frameLayoutGuideLabel.topAnchor.constraint(equalTo: tableView.frameLayoutGuide.topAnchor).isActive = true</strong>         <br>     frameLayoutGuideLabel.leadingAnchor.constraint(equalTo: tableView.frameLayoutGuide.leadingAnchor).isActive = true       frameLayoutGuideLabel.trailingAnchor.constraint(equalTo: tableView.frameLayoutGuide.trailingAnchor).isActive = true       frameLayoutGuideLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true<br>        <br>        <br>    }<br>}</pre><p name="3d8b" id="3d8b" class="graf graf--p graf-after--pre">結果</p><figure name="a88e" id="a88e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*B3aZlrt7IpGUMvd_DHccBw.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/800/1*B3aZlrt7IpGUMvd_DHccBw.png"></figure><p name="536b" id="536b" class="graf graf--p graf-after--figure">說明</p><ul class="postList"><li name="3f9b" id="3f9b" class="graf graf--li graf-after--p">frameLayoutGuideLabel 將對齊螢幕頂端，因為 tableView.frameLayoutGuide 指的是 tableView 本身 frame 的框框。在我們的例子裡，table view 佔滿整個畫面，因此 tableView.frameLayoutGuide.topAnchor 代表 table 本身的上邊界，也就是螢幕頂端。</li><li name="e06c" id="e06c" class="graf graf--li graf-after--li">contentLayoutGuideLabel 將對齊 navigation bar 的底端，因為 tableView.contentLayoutGuide 指的是 tableView 捲動內容的框框。而 table view 捲動內容的框框預設將在 Safe Area 裡，防止 table view 裡的東西被蓋到，因此 tableView.contentLayoutGuide.topAnchor 代表捲動內容框框的上邊界，它一開始將對齊 Safe Area 的上邊界(也就是 navigation bar 的底端)。</li></ul><p name="2208" id="2208" class="graf graf--p graf-after--li">值得注意的，當我們捲動 table 時，只有 contentLayoutGuideLabel 會跟著捲動，frameLayoutGuideLabel 是固定不動的。因為 tableView.frameLayoutGuide.topAnchor 是固定的，它代表 table 本身的上邊界，因此 frameLayoutGuideLabel 不會跟著捲動。</p><figure name="95fd" id="95fd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*IfmrrYSk2ess0XjPNuIN9w.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/800/1*IfmrrYSk2ess0XjPNuIN9w.png"></figure><p name="8be7" id="8be7" class="graf graf--p graf-after--figure">ps: 若是條件改成對齊 tableView.topAnchor，效果將跟剛剛使用 tableView.contentLayoutGuide.topAnchor 一樣。</p><pre name="80fd" id="80fd" class="graf graf--pre graf-after--p graf--trailing">contentLayoutGuideLabel.topAnchor.constraint(equalTo: tableView.topAnchor).isActive = true</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/29ea9dc65c47"><time class="dt-published" datetime="2022-02-18T17:10:32.154Z">February 18, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-collection-view-%E6%88%96-table-view-addsubview-%E5%92%8C-framelayoutguide-contentlayoutguide-%E7%9A%84%E9%97%9C%E4%BF%82-29ea9dc65c47" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>為 iOS App 畫面加上美美的 iPhone 外框 (frame) 和文字說明</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">為 iOS App 畫面加上美美的 iPhone 外框 (frame) 和文字說明</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+許多 App Store 的 screenshot 都是結合 iPhone 外框圖片和文字說明，比方以下 FB Messenger 的例子:
+</section>
+<section data-field="body" class="e-content">
+<section name="1435" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1656" id="1656" class="graf graf--h3 graf--leading graf--title">為 iOS App 畫面加上美美的 iPhone 外框 (frame) 和文字說明</h3><p name="51d7" id="51d7" class="graf graf--p graf-after--h3">許多 App Store 的 screenshot 都是結合 iPhone 外框圖片和文字說明，比方以下 FB Messenger 的例子:</p><figure name="2e83" id="2e83" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*oPFMnvQkrdlknC2IVaQwGQ.jpeg" data-width="2684" data-height="1332" src="https://cdn-images-1.medium.com/max/800/1*oPFMnvQkrdlknC2IVaQwGQ.jpeg"></figure><p name="8a4e" id="8a4e" class="graf graf--p graf-after--figure">加上外框其實很簡單，從 Xcode 9 開始，iPhone 模擬器就貼心地包含黑色外框。</p><figure name="c1df" id="c1df" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yLW8B2jjoSSPdCU4ckF-Yw.jpeg" data-width="1012" data-height="1804" src="https://cdn-images-1.medium.com/max/800/1*yLW8B2jjoSSPdCU4ckF-Yw.jpeg"></figure><p name="a9b2" id="a9b2" class="graf graf--p graf-after--figure">只要將滑鼠游標移到模擬器上，按住 Shift + Command + 4 後，再按空白鍵，變成視窗截圖模式後，再按左鍵即可截取整個模擬器視窗。</p><p name="045a" id="045a" class="graf graf--p graf-after--p">如果想要更好，希望做出結合外框和文字說明的效果，則可照以下步驟製作 :</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="d2da" id="d2da" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 63.98%;"><img class="graf-image" data-image-id="1*nkxVkb1pKGSQTVY2JiXJmg.png" data-width="1280" data-height="1280" src="https://cdn-images-1.medium.com/max/800/1*nkxVkb1pKGSQTVY2JiXJmg.png"></figure><figure name="2a53" id="2a53" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 36.02%;"><img class="graf-image" data-image-id="1*RH5VZ48gbM_h5PlSaCIYqw.png" data-width="450" data-height="800" src="https://cdn-images-1.medium.com/max/600/1*RH5VZ48gbM_h5PlSaCIYqw.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="7f85" id="7f85" class="graf graf--p graf-after--figure">1 將 App 畫面截圖。</p><div name="708b" id="708b" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/ios-app-%E7%95%AB%E9%9D%A2%E7%9A%84%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-6f8dce78ddb9" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/ios-app-%E7%95%AB%E9%9D%A2%E7%9A%84%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-6f8dce78ddb9" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/ios-app-%E7%95%AB%E9%9D%A2%E7%9A%84%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-6f8dce78ddb9"><strong class="markup--strong markup--mixtapeEmbed-strong">iOS App 畫面的螢幕截圖</strong><br><em class="markup--em markup--mixtapeEmbed-em">從 iPhone 實機螢幕截圖</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/ios-app-%E7%95%AB%E9%9D%A2%E7%9A%84%E8%9E%A2%E5%B9%95%E6%88%AA%E5%9C%96-6f8dce78ddb9" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="ae8ca150a68bf3916f59e63b197b30ef" data-thumbnail-img-id="1*cIYiegE2dETtIosmPh4nkg.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*cIYiegE2dETtIosmPh4nkg.jpeg);"></a></div><p name="05c1" id="05c1" class="graf graf--p graf-after--mixtapeEmbed">2 製作類似上架 App 的專業外框和文字說明。</p><div name="60a9" id="60a9" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://appscreens.com/" data-href="https://appscreens.com/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://appscreens.com/"><strong class="markup--strong markup--mixtapeEmbed-strong">Screenshot creator for the Apple App and Google Play Store</strong><br><em class="markup--em markup--mixtapeEmbed-em">We bring together everything that is required to design and generate screenshots for your iOS and Android apps in a…</em>appscreens.com</a><a href="https://appscreens.com/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="3506a0eaa5cac1181a56862f9eb037b5" data-thumbnail-img-id="0*8Kzb0tyPavitPAfC" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*8Kzb0tyPavitPAfC);"></a></div><div name="4073" id="4073" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://www.davinciapps.com" data-href="https://www.davinciapps.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.davinciapps.com"><strong class="markup--strong markup--mixtapeEmbed-strong">Create customized App Store screenshots</strong><br><em class="markup--em markup--mixtapeEmbed-em">Pick one of predesigned screenshot templates, add your message, tweak the colors and get app screenshots of ALL…</em>www.davinciapps.com</a><a href="https://www.davinciapps.com" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="6ee28363589d2d1620558cdcf0ea9124" data-thumbnail-img-id="0*cOPHy-5Gvh22-ERy." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*cOPHy-5Gvh22-ERy.);"></a></div><div name="c677" id="c677" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://itunes.apple.com/us/app/promotee/id578071639?mt=12" data-href="https://itunes.apple.com/us/app/promotee/id578071639?mt=12" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://itunes.apple.com/us/app/promotee/id578071639?mt=12"><strong class="markup--strong markup--mixtapeEmbed-strong">Promotee on the Mac App Store</strong><br><em class="markup--em markup--mixtapeEmbed-em">Read reviews, compare customer ratings, see screenshots, and learn more about Promotee. Download Promotee for Mac OS X…</em>itunes.apple.com</a><a href="https://itunes.apple.com/us/app/promotee/id578071639?mt=12" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="ee321f523ba2ecf0ce888334359a7774" data-thumbnail-img-id="0*o9lsDc5FFEFbcM3J." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*o9lsDc5FFEFbcM3J.);"></a></div><div name="c4aa" id="c4aa" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://apps.apple.com/app/id1451459822" data-href="https://apps.apple.com/app/id1451459822" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://apps.apple.com/app/id1451459822"><strong class="markup--strong markup--mixtapeEmbed-strong">‎SceneShot</strong><br><em class="markup--em markup--mixtapeEmbed-em">‎Create stunning renders with SceneShot! * Drag the device to any angle * Change the screen with your screenshots and…</em>apps.apple.com</a><a href="https://apps.apple.com/app/id1451459822" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="699189d94bcae00dbbb29de3f91e763a" data-thumbnail-img-id="0*KwuNR73s0BuC4FY9" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*KwuNR73s0BuC4FY9);"></a></div><div name="a451" id="a451" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="http://mockuphone.com/#ios" data-href="http://mockuphone.com/#ios" class="markup--anchor markup--mixtapeEmbed-anchor" title="http://mockuphone.com/#ios"><strong class="markup--strong markup--mixtapeEmbed-strong">MockUPhone</strong><br><em class="markup--em markup--mixtapeEmbed-em">MockUPhone is a free tool that helps you wrap app screenshots in different mobile devices. Support iPhone mockup, iPad…</em>mockuphone.com</a><a href="http://mockuphone.com/#ios" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9b31068c2a04c1dc9e441e88864f93e4" data-thumbnail-img-id="0*UurGwR1KXHxmBjj2." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*UurGwR1KXHxmBjj2.);"></a></div><div name="f1bb" id="f1bb" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="http://magicmockups.com" data-href="http://magicmockups.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="http://magicmockups.com"><strong class="markup--strong markup--mixtapeEmbed-strong">Magic Mockups * Free real-life mockup generator</strong><br><em class="markup--em markup--mixtapeEmbed-em">Place your product screenshot in real-life environment</em>magicmockups.com</a><a href="http://magicmockups.com" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7863134d105a54dfe56423a3e33a4fd3" data-thumbnail-img-id="0*AGDvT93R6VDBknzN." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*AGDvT93R6VDBknzN.);"></a></div><div name="60a3" id="60a3" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://www.raywenderlich.com/71175/make-great-app-store-screenshots" data-href="https://www.raywenderlich.com/71175/make-great-app-store-screenshots" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.raywenderlich.com/71175/make-great-app-store-screenshots"><strong class="markup--strong markup--mixtapeEmbed-strong">How to Make Great App Store Screenshots</strong><br><em class="markup--em markup--mixtapeEmbed-em">What do apps like Cut the Rope 2, 7 Minute Workout Challenge, and Scribblenauts Remix all have in common? Click the…</em>www.raywenderlich.com</a><a href="https://www.raywenderlich.com/71175/make-great-app-store-screenshots" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="2645d370df4a77a670fb451f35463d23" data-thumbnail-img-id="0*XzqN21mYx8uP6fuu." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*XzqN21mYx8uP6fuu.);"></a></div><div name="9bf6" id="9bf6" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a href="http://www.thewindowsclub.com/add-a-device-frame-to-screenshot" data-href="http://www.thewindowsclub.com/add-a-device-frame-to-screenshot" class="markup--anchor markup--mixtapeEmbed-anchor" title="http://www.thewindowsclub.com/add-a-device-frame-to-screenshot"><strong class="markup--strong markup--mixtapeEmbed-strong">Top websites to add a Device frame to screenshot</strong><br><em class="markup--em markup--mixtapeEmbed-em">Mobile phone or computer mockup is a great way to decorate your screenshot. No matter whether you have captured a…</em>www.thewindowsclub.com</a><a href="http://www.thewindowsclub.com/add-a-device-frame-to-screenshot" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e4f7c41ca94d68a25f40ec17bd21931a" data-thumbnail-img-id="0*HKA5xWWQtMQuGZYh." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*HKA5xWWQtMQuGZYh.);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/2073909e640"><time class="dt-published" datetime="2017-02-19T08:37:11.838Z">February 19, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%82%BA-ios-app-%E7%95%AB%E9%9D%A2%E5%8A%A0%E4%B8%8A%E7%BE%8E%E7%BE%8E%E7%9A%84-iphone-%E5%A4%96%E6%A1%86-frame-2073909e640" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

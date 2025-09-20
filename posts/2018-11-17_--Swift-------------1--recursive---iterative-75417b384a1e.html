@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>用 Swift 學習資工系的經典程式問題1: recursive &amp; iterative</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">用 Swift 學習資工系的經典程式問題1: recursive &amp; iterative</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+用 Swift 學習資工系的經典程式問題 1，遞迴(recursive) &amp; 迭代 (iterative)。感謝大家的熱情參與，我們一起用遞迴做出費波那西數列，河內塔和謝爾賓斯基三角形 。
+</section>
+<section data-field="body" class="e-content">
+<section name="3ece" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="610a" id="610a" class="graf graf--h3 graf--leading graf--title">用 Swift 學習資工系的經典程式問題1: recursive &amp; iterative</h3><p name="39c3" id="39c3" class="graf graf--p graf-after--h3">用 Swift 學習資工系的經典程式問題 1，遞迴(recursive) &amp; 迭代 (iterative)。感謝大家的熱情參與，我們一起用遞迴做出費波那西數列，河內塔和謝爾賓斯基三角形 。</p><figure name="afe5" id="afe5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cqM1Hfirpva0kSwMk4yKJA.jpeg" data-width="2476" data-height="1024" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*cqM1Hfirpva0kSwMk4yKJA.jpeg"></figure><figure name="b16c" id="b16c" class="graf graf--figure graf--iframe graf-after--figure"><iframe src="https://speakerdeck.com/player/da9b4a30c7c240ae92ff6dccbd90d463" width="700" height="494" frameborder="0" scrolling="no"></iframe></figure><p name="2ecf" id="2ecf" class="graf graf--p graf-after--figure">程式範例連結</p><div name="4452" id="4452" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/AppPeterPan/Recursive2" data-href="https://github.com/AppPeterPan/Recursive2" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/AppPeterPan/Recursive2"><strong class="markup--strong markup--mixtapeEmbed-strong">AppPeterPan/Recursive2</strong><br><em class="markup--em markup--mixtapeEmbed-em">Contribute to AppPeterPan/Recursive2 development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/AppPeterPan/Recursive2" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a61c6b954cbfba5bca40bfcb73609bbc" data-thumbnail-img-id="0*AzPbxWij4l2kx7NE" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*AzPbxWij4l2kx7NE);"></a></div><div name="7203" id="7203" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a href="http://csproblemsinswift.strikingly.com" data-href="http://csproblemsinswift.strikingly.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="http://csproblemsinswift.strikingly.com"><strong class="markup--strong markup--mixtapeEmbed-strong">用 Swift 學習資工系的經典程式問題</strong><br><em class="markup--em markup--mixtapeEmbed-em">假如時光倒流，我想讀資工，學一些 iOS App 課程沒教的，想要進 Apple，Google，FB 卻會考的程式問題。 如果你略懂 Swift，但是大學不是資工系，想來一起動動腦，歡迎來參加適合 Swift iOS App…</em>csproblemsinswift.strikingly.com</a><a href="http://csproblemsinswift.strikingly.com" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="895c811777d55b5f7f6657ade1f66c8a" data-thumbnail-img-id="0*RiZY7Agy_7dTw5mw" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*RiZY7Agy_7dTw5mw);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/75417b384a1e"><time class="dt-published" datetime="2018-11-17T06:15:17.761Z">November 17, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%94%A8-swift-%E5%AD%B8%E7%BF%92%E8%B3%87%E5%B7%A5%E7%B3%BB%E7%9A%84%E7%B6%93%E5%85%B8%E7%A8%8B%E5%BC%8F%E5%95%8F%E9%A1%8C1-recursive-iterative-75417b384a1e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

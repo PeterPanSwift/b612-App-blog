@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>顯示 UserDefaults 的全部內容和路徑</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">顯示 UserDefaults 的全部內容和路徑</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，儲存資料的方法很多。這當中 UserDefaults 不見得是最好的，也不太適合儲存大量的資料，但它絕對是最簡單，最容易上手的。一般我們只知道如何透過 UserDefaults 讀取和儲存資料，接下來就讓我們瞧瞧兩個比較少人知道的…
+</section>
+<section data-field="body" class="e-content">
+<section name="ed90" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6a3e" id="6a3e" class="graf graf--h3 graf--leading graf--title">顯示 UserDefaults 的全部內容和路徑</h3><p name="6023" id="6023" class="graf graf--p graf-after--h3">開發 iOS App 時，儲存資料的方法很多。這當中 UserDefaults 不見得是最好的，也不太適合儲存大量的資料，但它絕對是最簡單，最容易上手的。一般我們只知道如何透過 UserDefaults 讀取和儲存資料，接下來就讓我們瞧瞧兩個比較少人知道的 UserDefaults 秘密。</p><blockquote name="8c1d" id="8c1d" class="graf graf--blockquote graf-after--p">秘密一: 顯示 UserDefaults 的全部內容</blockquote><pre name="6916" id="6916" class="graf graf--pre graf-after--blockquote">print(UserDefaults.standard.dictionaryRepresentation())</pre><p name="6101" id="6101" class="graf graf--p graf-after--pre">dictionaryRepresentation() 回傳 [String : Any]， 透過它我們可將 UserDefaults 的內容看光光。</p><pre name="306b" id="306b" class="graf graf--pre graf-after--p">[&quot;AKLastCheckInAttemptDate&quot;: 2018-01-13 08:24:23 +0000, &quot;AddingEmojiKeybordHandled&quot;: 1, &quot;NSInterfaceStyle&quot;: macintosh, &quot;PKKeychainVersionKey&quot;: 4, &quot;AKLastIDMSEnvironment&quot;: 0, &quot;AppleLanguagesDidMigrate&quot;: 15C107, &quot;NSLanguages&quot;: &lt;__NSSingleObjectArrayI 0x608000006620&gt;(</pre><pre name="de5e" id="de5e" class="graf graf--pre graf-after--pre">en</pre><pre name="5e8b" id="5e8b" class="graf graf--pre graf-after--pre">)</pre><pre name="fc01" id="fc01" class="graf graf--pre graf-after--pre">, &quot;AppleKeyboards&quot;: &lt;__NSCFArray 0x608000089880&gt;(</pre><pre name="21ea" id="21ea" class="graf graf--pre graf-after--pre">en_US@sw=QWERTY;hw=Automatic,</pre><pre name="969e" id="969e" class="graf graf--pre graf-after--pre">emoji@sw=Emoji,</pre><pre name="c84e" id="c84e" class="graf graf--pre graf-after--pre">en_US@sw=QWERTY;hw=Automatic</pre><pre name="546e" id="546e" class="graf graf--pre graf-after--pre">)</pre><pre name="60db" id="60db" class="graf graf--pre graf-after--pre">, &quot;新好男人&quot;: 彼得潘, &quot;AppleITunesStoreItemKinds&quot;: &lt;__NSCFArray 0x608000172000&gt;(</pre><pre name="32dc" id="32dc" class="graf graf--pre graf-after--pre">itunes-u,</pre><pre name="35ec" id="35ec" class="graf graf--pre graf-after--pre">movie,</pre><pre name="5169" id="5169" class="graf graf--pre graf-after--pre">ringtone,</pre><pre name="9934" id="9934" class="graf graf--pre graf-after--pre">album,</pre><pre name="b571" id="b571" class="graf graf--pre graf-after--pre">software-update,</pre><pre name="704c" id="704c" class="graf graf--pre graf-after--pre">booklet,</pre><pre name="0992" id="0992" class="graf graf--pre graf-after--pre">tone,</pre><pre name="46a3" id="46a3" class="graf graf--pre graf-after--pre">music-video,</pre><pre name="61e8" id="61e8" class="graf graf--pre graf-after--pre">song,</pre><pre name="03ff" id="03ff" class="graf graf--pre graf-after--pre">podcast,</pre><pre name="ae91" id="ae91" class="graf graf--pre graf-after--pre">software,</pre><pre name="dfc5" id="dfc5" class="graf graf--pre graf-after--pre">podcast-episode,</pre><pre name="4a69" id="4a69" class="graf graf--pre graf-after--pre">wemix,</pre><pre name="470b" id="470b" class="graf graf--pre graf-after--pre">eBook,</pre><pre name="dea2" id="dea2" class="graf graf--pre graf-after--pre">artist,</pre><pre name="6d2c" id="6d2c" class="graf graf--pre graf-after--pre">mix,</pre><pre name="fdd9" id="fdd9" class="graf graf--pre graf-after--pre">document</pre><pre name="846f" id="846f" class="graf graf--pre graf-after--pre">)</pre><pre name="8cf2" id="8cf2" class="graf graf--pre graf-after--pre">, &quot;AppleLocale&quot;: en_US, &quot;ApplePasscodeKeyboards&quot;: &lt;__NSCFArray 0x6080000897e0&gt;(</pre><pre name="d6b5" id="d6b5" class="graf graf--pre graf-after--pre">en_US@sw=QWERTY;hw=Automatic,</pre><pre name="1d89" id="1d89" class="graf graf--pre graf-after--pre">emoji@sw=Emoji,</pre><pre name="5509" id="5509" class="graf graf--pre graf-after--pre">en_US@sw=QWERTY;hw=Automatic</pre><pre name="de46" id="de46" class="graf graf--pre graf-after--pre">)</pre><pre name="4468" id="4468" class="graf graf--pre graf-after--pre">, &quot;AppleKeyboardsExpanded&quot;: 1, &quot;AppleLanguages&quot;: &lt;__NSCFArray 0x6080002726c0&gt;(</pre><pre name="fe53" id="fe53" class="graf graf--pre graf-after--pre">en</pre><pre name="c0d8" id="c0d8" class="graf graf--pre graf-after--pre">)</pre><pre name="eeb3" id="eeb3" class="graf graf--pre graf-after--pre">]</pre><blockquote name="28b9" id="28b9" class="graf graf--blockquote graf-after--pre">秘密二: UserDefaults 的路徑</blockquote><p name="6e21" id="6e21" class="graf graf--p graf-after--blockquote">UserDefaults 其實是個檔案，但是它藏在哪呢 ? 別著急，透過以下步驟即可找到:</p><p name="b536" id="b536" class="graf graf--p graf-after--p">1 利用 NSHomeDirectory() 取得 App 資料夾的位置。</p><pre name="55e9" id="55e9" class="graf graf--pre graf-after--p">print(NSHomeDirectory())</pre><blockquote name="e5db" id="e5db" class="graf graf--blockquote graf-after--pre">結果</blockquote><pre name="167a" id="167a" class="graf graf--pre graf-after--blockquote">/Users/shih-yingpan/Library/Developer/CoreSimulator/Devices/5B40DEAA-27DD-498B-8180-74E34805143C/data/Containers/Data/Application/E1D83948-A1BA-4AA6-A301-B38A7AAA508C</pre><p name="00f8" id="00f8" class="graf graf--p graf-after--pre">2 在 Terminal App 打開此路徑</p><pre name="aa55" id="aa55" class="graf graf--pre graf-after--p">open /Users/shih-yingpan/Library/Developer/CoreSimulator/Devices/5B40DEAA-27DD-498B-8180-74E34805143C/data/Containers/Data/Application/841DB820-09DC-45CC-94DE-44DD61BC14DD</pre><p name="72c1" id="72c1" class="graf graf--p graf-after--pre">3 它就藏在 NSHomeDirectory 下的 Library/Preferences/com.peter.Demo.plist，附檔名為 plist，檔名為 App 的 bundle ID。</p><figure name="a55f" id="a55f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UayI6CHcNL-JjwNUzIT1cQ.jpeg" data-width="2048" data-height="828" src="https://cdn-images-1.medium.com/max/800/1*UayI6CHcNL-JjwNUzIT1cQ.jpeg"></figure><p name="9651" id="9651" class="graf graf--p graf-after--figure">雙擊 plist 檔打開它後，即可看到它儲存的內容。</p><figure name="f6a5" id="f6a5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*I5XKgR7GjLN9IsoZJljsCw.jpeg" data-width="1584" data-height="338" src="https://cdn-images-1.medium.com/max/800/1*I5XKgR7GjLN9IsoZJljsCw.jpeg"></figure><figure name="a58f" id="a58f" class="graf graf--figure graf--iframe graf-after--figure graf--trailing"><iframe src="https://www.youtube.com/embed/V6ttoA-G42c?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e5f25b36beb2"><time class="dt-published" datetime="2018-01-29T15:06:08.889Z">January 29, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E9%A1%AF%E7%A4%BA-userdefaults-%E7%9A%84%E5%85%A8%E9%83%A8%E5%85%A7%E5%AE%B9%E5%92%8C%E8%B7%AF%E5%BE%91-e5f25b36beb2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Allow interchangeable use of CGFloat and Double types — Swift 5.5 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Allow interchangeable use of CGFloat and Double types — Swift 5.5 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 Swift 5.5(搭配 Xcode 13)開始，CGFloat &amp; Double 可以自動轉換，因此以下程式的 numberDouble &amp; numberCGFloat 不會再因型別不同造成問題。
+</section>
+<section data-field="body" class="e-content">
+<section name="7f9a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9ef4" id="9ef4" class="graf graf--h3 graf--leading graf--title">Allow interchangeable use of <code class="markup--code markup--h3-code">CGFloat</code> and <code class="markup--code markup--h3-code">Double</code> types — Swift 5.5 新功能</h3><figure name="5c9f" id="5c9f" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*H85-lZ9ofZKMttKb2dwhoQ.png" data-width="1634" data-height="798" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*H85-lZ9ofZKMttKb2dwhoQ.png"></figure><figure name="2daf" id="2daf" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*VUAxpt5tBW3wqA2308BK9w.jpeg" data-width="1024" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*VUAxpt5tBW3wqA2308BK9w.jpeg"></figure><p name="40d7" id="40d7" class="graf graf--p graf-after--figure">從 Swift 5.5(搭配 Xcode 13)開始，CGFloat &amp; Double 可以自動轉換，因此以下程式的 numberDouble &amp; numberCGFloat 不會再因型別不同造成問題。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="1b24" id="1b24" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">test</span>() {<br />    <span class="hljs-keyword">var</span> numberDouble: <span class="hljs-type">Double</span> <span class="hljs-operator">=</span> <span class="hljs-number">2.7</span><br />    <span class="hljs-keyword">var</span> numberCGFloat: <span class="hljs-type">CGFloat</span> <span class="hljs-operator">=</span> <span class="hljs-number">2.7</span><br />    numberCGFloat <span class="hljs-operator">=</span> numberDouble<br />    numberDouble <span class="hljs-operator">=</span> numberCGFloat<br />}</span></pre><p name="ea92" id="ea92" class="graf graf--p graf-after--pre">在 Swift 5.5 之前，以上程式將出現以下錯誤訊息。</p><figure name="b6e1" id="b6e1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TVIjLL8EME5w4qvDAy18Gg.png" data-width="1496" data-height="608" src="https://cdn-images-1.medium.com/max/800/1*TVIjLL8EME5w4qvDAy18Gg.png"></figure><p name="5f7e" id="5f7e" class="graf graf--p graf-after--figure">接著讓我們透過一個實際的例子，認識 CGFloat &amp; Double 自動轉換的好處。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="838f" id="838f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">PeterImage</span>(degrees: <span class="hljs-number">30</span>, width: <span class="hljs-number">200</span>)<br />    }<br />}<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">PeterImage</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> width: <span class="hljs-type">CGFloat</span><br />    <span class="hljs-keyword">let</span> degrees: <span class="hljs-type">Double</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;peter&quot;</span>)<br />            .resizable()<br />            .scaledToFit()<br />            .frame(width: width)<br />            .rotationEffect(.degrees(degrees))<br />    }<br />}</span></pre><p name="66ea" id="66ea" class="graf graf--p graf-after--pre">在 Swift 5.5 之前，以上程式 PeterImage 的 width &amp; degrees 型別分別宣告為 CGFloat &amp; Double，因為 frame &amp; degrees 的參數型別分別為 CGFloat &amp; Double。</p><figure name="8cb3" id="8cb3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3xZFO2n6yl2LbtlmBRafvQ.png" data-width="1480" data-height="462" src="https://cdn-images-1.medium.com/max/800/1*3xZFO2n6yl2LbtlmBRafvQ.png"></figure><figure name="9dd4" id="9dd4" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*-w_XkcJAApSKVboeuG3iuA.png" data-width="584" data-height="1198" src="https://cdn-images-1.medium.com/max/800/1*-w_XkcJAApSKVboeuG3iuA.png"></figure><p name="fc6b" id="fc6b" class="graf graf--p graf-after--figure">在 Swift 5.5 CGFloat &amp; Double 可以自動轉換，因此我們可以將 width &amp; degrees 都宣告成熟悉的 Double，不用再煩惱該用 Double 還是 CGFloat。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="6bc0" id="6bc0" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">PeterImage</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> width: <span class="hljs-type">Double</span><br />    <span class="hljs-keyword">let</span> degrees: <span class="hljs-type">Double</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;peter&quot;</span>)<br />            .resizable()<br />            .scaledToFit()<br />            .frame(width: width)<br />            .rotationEffect(.degrees(degrees))<br />    }<br />}</span></pre><p name="1225" id="1225" class="graf graf--p graf-after--pre">ps: 值得注意的，只有 CGFloat &amp; Double 可以自動轉換，Float &amp; CGFloat 之間並沒有自動轉換。</p><figure name="d331" id="d331" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*__l47Siz5Xfj6T_SAuozeQ.png" data-width="2154" data-height="444" src="https://cdn-images-1.medium.com/max/800/1*__l47Siz5Xfj6T_SAuozeQ.png"></figure><h3 name="3b43" id="3b43" class="graf graf--h3 graf-after--figure">參考連結</h3><div name="f4ed" id="f4ed" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0307-allow-interchangeable-use-of-double-cgfloat-types.md" data-href="https://github.com/apple/swift-evolution/blob/main/proposals/0307-allow-interchangeable-use-of-double-cgfloat-types.md" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/apple/swift-evolution/blob/main/proposals/0307-allow-interchangeable-use-of-double-cgfloat-types.md"><strong class="markup--strong markup--mixtapeEmbed-strong">apple/swift-evolution</strong><br><em class="markup--em markup--mixtapeEmbed-em">I propose to extend the language and allow Double and CGFloat types to be used interchangeably by means of…</em>github.com</a><a href="https://github.com/apple/swift-evolution/blob/main/proposals/0307-allow-interchangeable-use-of-double-cgfloat-types.md" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="cfb28195e891f8b3aa2f8775a6ece000" data-thumbnail-img-id="0*iNB6ZHQOi2YHyvdW" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*iNB6ZHQOi2YHyvdW);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b6fb26cf1c37"><time class="dt-published" datetime="2021-10-14T12:31:22.030Z">October 14, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/allow-interchangeable-use-of-cgfloat-and-double-types-swift-5-5-%E6%96%B0%E5%8A%9F%E8%83%BD-b6fb26cf1c37" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

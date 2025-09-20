@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Flutter widget 的參數型別常常和參數名字一樣</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Flutter widget 的參數型別常常和參數名字一樣</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 Flutter App 時，我們常在產生 widget 時透過參數設定 widget 的內容。當遇到不熟的參數時，我們如何知道參數可傳入的值有哪些呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="2b8d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="59ea" id="59ea" class="graf graf--h3 graf--leading graf--title">Flutter widget 的參數型別常常和參數名字一樣</h3><figure name="33dd" id="33dd" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*e5BhMTIM_UfCi4ueYhtP2g.png" data-width="1428" data-height="585" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*e5BhMTIM_UfCi4ueYhtP2g.png"></figure><p name="23be" id="23be" class="graf graf--p graf-after--figure">開發 Flutter App 時，我們常在產生 widget 時透過參數設定 widget 的內容。當遇到不熟的參數時，我們如何知道參數可傳入的值有哪些呢 ?</p><p name="b2eb" id="b2eb" class="graf graf--p graf-after--p">有一個小小的技巧，widget 的參數型別常常和參數名字一樣，因此我們可以先輸入參數名，再透過 . 或 ( ) 生成資料傳入。</p><p name="5f0c" id="5f0c" class="graf graf--p graf-after--p">以下我們看看幾個例子。</p><ul class="postList"><li name="01be" id="01be" class="graf graf--li graf-after--p">Text 的 textAlign，型別為 TextAlign。(ps: Text 的文字內容為電影秋水依人的主題曲)</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="080c" id="080c" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content">Text(<br />  <span class="hljs-string">&quot;Mon amour, je t&#x27;attendrai toute ma vie\nReste près de moi, reviens, je t&#x27;en supplie&quot;</span>,<br />  textAlign: TextAlign.center,<br />)</span></pre><ul class="postList"><li name="e405" id="e405" class="graf graf--li graf-after--pre">TextStyle 的 fontWeight、color ，型別分別為 FontWeight、Color。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="163a" id="163a" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content">Text(<br />  <span class="hljs-string">&quot;Mon amour, je t&#x27;attendrai toute ma vie\nReste près de moi, reviens, je t&#x27;en supplie&quot;</span>,<br />  style: TextStyle(<br />    fontWeight: FontWeight.bold,<br />    color: Color.from(alpha: <span class="hljs-number">1</span>, red: <span class="hljs-number">1</span>, green: <span class="hljs-number">0</span>, blue: <span class="hljs-number">0</span>),<br />  ),<br />)</span></pre><ul class="postList"><li name="5713" id="5713" class="graf graf--li graf-after--pre">Column 的 mainAxisAlignment、mainAxisSize、crossAxisAlignment，型別分別為 MainAxisAlignment、MainAxisSize、CrossAxisAlignment。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="ce9a" id="ce9a" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content">Column(<br />  mainAxisAlignment: MainAxisAlignment.center,<br />  mainAxisSize: MainAxisSize.min,<br />  crossAxisAlignment: CrossAxisAlignment.start,<br />  children: [<br />    Text(<span class="hljs-string">&#x27;秋水依人&#x27;</span>),<br />    Text(<span class="hljs-string">&#x27;真善美&#x27;</span>),<br />    Text(<span class="hljs-string">&#x27;媽媽咪呀&#x27;</span>),<br />    Text(<span class="hljs-string">&#x27;樂來越愛你&#x27;</span>),<br />    Text(<span class="hljs-string">&#x27;萬花嬉春&#x27;</span>),<br />  ],<br />)</span></pre><p name="13de" id="13de" class="graf graf--p graf-after--pre">有時參數型別和參數名字並不完全一樣，但也滿類似的，比方 Image 參數 fit 的型別是 BoxFit。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="bedb" id="bedb" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content">Image.network(<br />  <span class="hljs-string">&#x27;https://upload.wikimedia.org/wikipedia/commons/a/a3/Aptenodytes_forsteri_-Snow_Hill_Island%2C_Antarctica_-adults_and_juvenile-8.jpg&#x27;</span>,<br />  width: <span class="hljs-number">300</span>,<br />  height: <span class="hljs-number">300</span>,<br />  fit: BoxFit.cover,<br />)</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/f94a97b7d736"><time class="dt-published" datetime="2025-03-06T06:29:14.815Z">March 6, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/flutter-widget-%E7%9A%84%E5%8F%83%E6%95%B8%E5%9E%8B%E5%88%A5%E5%B8%B8%E5%B8%B8%E5%92%8C%E5%8F%83%E6%95%B8%E5%90%8D%E5%AD%97%E4%B8%80%E6%A8%A3-f94a97b7d736" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

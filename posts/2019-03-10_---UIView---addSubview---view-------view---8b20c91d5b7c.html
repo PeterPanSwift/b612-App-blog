@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 UIView 的 addSubview 將 view 加到另一個 view 上</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 UIView 的 addSubview 將 view 加到另一個 view 上</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從程式製作 App 畫面時，我們時常使用 addSubview。不過接下來先讓我們以比較直覺易懂的 storyboard 說明，然後再來研究程式的做法。
+</section>
+<section data-field="body" class="e-content">
+<section name="192c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5313" id="5313" class="graf graf--h3 graf--leading graf--title">利用 UIView 的 addSubview 將 view 加到另一個 view 上</h3><p name="30e6" id="30e6" class="graf graf--p graf-after--h3">從程式製作 App 畫面時，我們時常使用 addSubview。不過接下來先讓我們以比較直覺易懂的 storyboard 說明，然後再來研究程式的做法。</p><p name="1f39" id="1f39" class="graf graf--p graf-after--p">如下圖所示，紅色 view 身上裝著綠色 view 和藍色 view，因此綠色 view 和藍色 view 是紅色 view 的 subview，紅色 view 是綠色 view 和藍色 view 的 superview。</p><figure name="275d" id="275d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YVBhCFrN5f6qwEfQJkIbgg.jpeg" data-width="1646" data-height="1032" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*YVBhCFrN5f6qwEfQJkIbgg.jpeg"></figure><p name="e072" id="e072" class="graf graf--p graf-after--figure">從左邊的樹狀圖，我們還發現藍色 view 長在綠色 view 下面，表示藍色 view 較晚才加入。就像疊疊樂一樣，後面加入的將壓在前面的東西上，因此藍色 view 蓋到一部分的綠色 view。</p><figure name="98c1" id="98c1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pMU4d9CquvZQA_05-Qa72g.jpeg" data-width="1606" data-height="1010" src="https://cdn-images-1.medium.com/max/800/1*pMU4d9CquvZQA_05-Qa72g.jpeg"></figure><p name="5fc3" id="5fc3" class="graf graf--p graf-after--figure">剛剛 storyboard 的畫面，如果用程式實作，需要使用 UIView 的 function addSubview ，程式如下:</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="2a3c" id="2a3c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> UIKit<br /><br /><span class="hljs-keyword">var</span> rect <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>, width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)<br /><span class="hljs-keyword">let</span> redView <span class="hljs-operator">=</span> <span class="hljs-type">UIView</span>(frame: rect)<br />redView.backgroundColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>(red: <span class="hljs-number">1</span>, green: <span class="hljs-number">0</span>, blue: <span class="hljs-number">0</span>, alpha: <span class="hljs-number">1</span>)<br />rect <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">10</span>, y: <span class="hljs-number">10</span>, width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br /><span class="hljs-keyword">let</span> greenView <span class="hljs-operator">=</span> <span class="hljs-type">UIView</span>(frame: rect)<br />greenView.backgroundColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>(red: <span class="hljs-number">0</span>, green: <span class="hljs-number">1</span>, blue: <span class="hljs-number">0</span>, alpha: <span class="hljs-number">1</span>)<br />redView.addSubview(greenView)<br />rect <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">80</span>, y: <span class="hljs-number">80</span>, width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br /><span class="hljs-keyword">let</span> blueView <span class="hljs-operator">=</span> <span class="hljs-type">UIView</span>(frame: rect)<br />blueView.backgroundColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>(red: <span class="hljs-number">0</span>, green: <span class="hljs-number">0</span>, blue: <span class="hljs-number">1</span>, alpha: <span class="hljs-number">1</span>)<br />redView.addSubview(blueView)</span></pre><p name="3e44" id="3e44" class="graf graf--p graf-after--pre">說明</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a3eb" id="a3eb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">redView.addSubview(greenView)</span></pre><p name="cbe0" id="cbe0" class="graf graf--p graf-after--pre">將 greenView 加到 redView 上，greenView 成為 redView 的 subview。<code class="markup--code markup--p-code">redView.addSubview(greenView)</code> 的意思其實很好懂，可以直接把它英翻中，翻成紅色 view 加了一個 subview ，subview 的名字叫綠色 view。</p><div name="cd6c" id="cd6c" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uiview/1622616-addsubview" data-href="https://developer.apple.com/documentation/uikit/uiview/1622616-addsubview" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiview/1622616-addsubview"><strong class="markup--strong markup--mixtapeEmbed-strong">addSubview(_:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Adds a view to the end of the receiver&#39;s list of subviews.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiview/1622616-addsubview" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="bf85ba5e76141d8917b31042fb66b3f7" data-thumbnail-img-id="0*GrOv43Bo59dQAo7N" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*GrOv43Bo59dQAo7N);"></a></div><figure name="4af4" id="4af4" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*-zDx02nEs7M93GddjQwTYA.jpeg" data-width="588" data-height="506" src="https://cdn-images-1.medium.com/max/800/1*-zDx02nEs7M93GddjQwTYA.jpeg"></figure><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="fd89" id="fd89" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content">redView.addSubview(blueView)</span></pre><p name="3897" id="3897" class="graf graf--p graf-after--pre">我們先執行 <code class="markup--code markup--p-code">redView.addSubview(greenView)</code>，然後才執行 <code class="markup--code markup--p-code">redView.addSubview(blueView)</code>， 因此 blueView 較晚加入，它將蓋住可憐的 greenView。</p><figure name="f298" id="f298" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jBXO4ZsznjDhYZ0lr3BpAw.jpeg" data-width="400" data-height="346" src="https://cdn-images-1.medium.com/max/800/1*jBXO4ZsznjDhYZ0lr3BpAw.jpeg"></figure><p name="8d42" id="8d42" class="graf graf--p graf-after--figure">若從 playground 測試，記得在最後一行輸入 redView，然後點選右邊圓形的 Quick Look 或方形的 Show Result，即可看到裝著綠色 &amp; 藍色 view 的紅色 view。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f076" id="f076" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">redView</span></pre><figure name="cc7c" id="cc7c" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*4KF_XezkCeEqkbDaFt2QWQ.jpeg" data-width="160" data-height="90" src="https://cdn-images-1.medium.com/max/800/1*4KF_XezkCeEqkbDaFt2QWQ.jpeg"></figure><figure name="e5f8" id="e5f8" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*MFjuTrOpLMQgMgeagEKmiQ.jpeg" data-width="430" data-height="422" src="https://cdn-images-1.medium.com/max/800/1*MFjuTrOpLMQgMgeagEKmiQ.jpeg"></figure><h3 name="95ee" id="95ee" class="graf graf--h3 graf-after--figure">練習: 國旗圖案</h3><div name="2001" id="2001" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/43-%E5%BE%9E%E7%A8%8B%E5%BC%8F%E8%A3%BD%E4%BD%9C%E5%9C%8B%E6%97%97%E5%9C%96%E6%A1%88-b3a1a913fe2e" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/43-%E5%BE%9E%E7%A8%8B%E5%BC%8F%E8%A3%BD%E4%BD%9C%E5%9C%8B%E6%97%97%E5%9C%96%E6%A1%88-b3a1a913fe2e" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/43-%E5%BE%9E%E7%A8%8B%E5%BC%8F%E8%A3%BD%E4%BD%9C%E5%9C%8B%E6%97%97%E5%9C%96%E6%A1%88-b3a1a913fe2e"><strong class="markup--strong markup--mixtapeEmbed-strong">#43 從程式製作國旗圖案</strong><br><em class="markup--em markup--mixtapeEmbed-em">目的: 從程式製作畫面，學習 addSubview 和 UIBezierPath。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/43-%E5%BE%9E%E7%A8%8B%E5%BC%8F%E8%A3%BD%E4%BD%9C%E5%9C%8B%E6%97%97%E5%9C%96%E6%A1%88-b3a1a913fe2e" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="4ce178e5efbb911ae71d890d1dc7c013" data-thumbnail-img-id="1*UDDkhYLuj7q41I-l-iHj6g.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*UDDkhYLuj7q41I-l-iHj6g.jpeg);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8b20c91d5b7c"><time class="dt-published" datetime="2019-03-10T17:10:21.034Z">March 10, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-uiview-%E7%9A%84-addsubview-%E5%B0%87-view-%E5%8A%A0%E5%88%B0%E5%8F%A6%E4%B8%80%E5%80%8B-view-%E4%B8%8A-8b20c91d5b7c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>設定 status bar 時間電量的顏色 — 白色或黑色</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">設定 status bar 時間電量的顏色 — 白色或黑色</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iPhone / iPad App 的上方有個十分重要的  status bar，時時刻刻提醒我們現在的時間電量。
+</section>
+<section data-field="body" class="e-content">
+<section name="813e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0b0d" id="0b0d" class="graf graf--h3 graf--leading graf--title">設定 status bar 時間電量的顏色 — 白色或黑色</h3><p name="c438" id="c438" class="graf graf--p graf-after--h3">iPhone / iPad App 的上方有個十分重要的 status bar，時時刻刻提醒我們現在的時間電量。</p><figure name="dfb0" id="dfb0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8NSQFOl_BxlfI3CwoomE5A.png" data-width="1514" data-height="1100" src="https://cdn-images-1.medium.com/max/800/1*8NSQFOl_BxlfI3CwoomE5A.png"><figcaption class="imageCaption">Apple Human Interface Guidelines 裡 status bar 的說明</figcaption></figure><p name="5e8e" id="5e8e" class="graf graf--p graf-after--figure">時間電量顯示的顏色有黑白兩種，預設它會依據 App 的畫面是否為 dark mode 調整顏色，方便使用者看清楚它們。當 App 不是 dark mode 時，時間電量會顯示黑色。當 App 是 dark mode 時，時間電量會顯示白色。</p><p name="b92b" id="b92b" class="graf graf--p graf-after--p">我們可以指定時間電量固定顯示白色或黑色，比方我們的 App 背景是深藍色，因此搭配白色的時間電量會是較好的選擇。</p><p name="a5dc" id="a5dc" class="graf graf--p graf-after--p">以下我們示範設定 status bar 時間電量顏色的方法。</p><h3 name="d318" id="d318" class="graf graf--h3 graf-after--p">將 View controller-based status bar appearance 設為 NO</h3><p name="e92e" id="e92e" class="graf graf--p graf-after--h3">點選專案後，點選 TARGETS 下的 App，切換到 Info 頁面，點選表格裡任一個項目，然後點選 + 新增一個 key。</p><figure name="9854" id="9854" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*oDtYoRqqBcNbBvg7P0AbJw.png" data-width="2456" data-height="496" src="https://cdn-images-1.medium.com/max/800/1*oDtYoRqqBcNbBvg7P0AbJw.png"></figure><figure name="1619" id="1619" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*XfwdEa7E0nxWc1_oBpKhUg.png" data-width="150" data-height="84" src="https://cdn-images-1.medium.com/max/800/1*XfwdEa7E0nxWc1_oBpKhUg.png"></figure><p name="9ea6" id="9ea6" class="graf graf--p graf-after--figure">點選 + 將出現選單，先輸入大寫的 V，然後選擇 View controller-based status bar appearance。</p><figure name="35cd" id="35cd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kIWlZY8i43cXL6tUoTDuiw.png" data-width="864" data-height="464" src="https://cdn-images-1.medium.com/max/800/1*kIWlZY8i43cXL6tUoTDuiw.png"></figure><p name="b020" id="b020" class="graf graf--p graf-after--figure">將 View controller-based status bar appearance 的 Value 設為 NO，讓 App status bar 的時間電量固定某個顏色。原本 App 可從程式控制每個畫面顯示不同的時間電量顏色，不過我們希望整個 App 固定顏色，因此將此欄位設為 NO。</p><figure name="f889" id="f889" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0p8l3KUAYE9I1xlILv6qVA.png" data-width="1066" data-height="114" src="https://cdn-images-1.medium.com/max/800/1*0p8l3KUAYE9I1xlILv6qVA.png"></figure><h3 name="6a87" id="6a87" class="graf graf--h3 graf-after--figure">從 Status Bar Style 設定時間電量的顏色</h3><p name="0b07" id="0b07" class="graf graf--p graf-after--h3">點選專案後，點選 TARGETS 下的 App，切換到 General 頁面，找到 Status Bar Style。</p><figure name="c2a0" id="c2a0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*A0qltN79-1J1QgbHCx-EmQ.png" data-width="2008" data-height="1058" src="https://cdn-images-1.medium.com/max/800/1*A0qltN79-1J1QgbHCx-EmQ.png"></figure><p name="d3ae" id="d3ae" class="graf graf--p graf-after--figure">Status Bar Style 控制時間電量的顏色，有 Default，Dark Content &amp; Light Content 三種。</p><figure name="e2be" id="e2be" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*AIli-42iw1MQ2bXUKOPTmQ.png" data-width="804" data-height="194" src="https://cdn-images-1.medium.com/max/800/1*AIli-42iw1MQ2bXUKOPTmQ.png"></figure><ul class="postList"><li name="aacc" id="aacc" class="graf graf--li graf-after--figure">Default</li></ul><p name="c450" id="c450" class="graf graf--p graf-after--li">依據 App 的畫面是否為 dark mode 調整顏色。當 App 不是 dark mode 時，時間電量會顯示黑色。當 App 是 dark mode 時，時間電量會顯示白色。</p><ul class="postList"><li name="f545" id="f545" class="graf graf--li graf-after--p">Dark Content</li></ul><p name="74c9" id="74c9" class="graf graf--p graf-after--li">時間電量顯示黑色。</p><ul class="postList"><li name="c2cb" id="c2cb" class="graf graf--li graf-after--p">Light Content</li></ul><p name="63f4" id="63f4" class="graf graf--p graf-after--li">時間電量顯示白色。</p><p name="f0e9" id="f0e9" class="graf graf--p graf-after--p">以下我們分別試試設定 Dark Content &amp; Light Content 的效果。</p><p name="3ff7" id="3ff7" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">設為 Dark Content:</strong></p><figure name="c760" id="c760" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tLJk7klVhxamE4_4ojWHkA.png" data-width="760" data-height="132" src="https://cdn-images-1.medium.com/max/800/1*tLJk7klVhxamE4_4ojWHkA.png"></figure><figure name="26aa" id="26aa" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*wMgbRFVa2KNnRaSwkUEj8w.png" data-width="1400" data-height="2700" src="https://cdn-images-1.medium.com/max/800/1*wMgbRFVa2KNnRaSwkUEj8w.png"></figure><p name="14a8" id="14a8" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">設為 Light Content:</strong></p><figure name="b719" id="b719" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*XwDTEMAKpAEk7seMiGhZlw.png" data-width="800" data-height="154" src="https://cdn-images-1.medium.com/max/800/1*XwDTEMAKpAEk7seMiGhZlw.png"></figure><figure name="c96f" id="c96f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*O5UKSMpllIB7hQ55fMiSIw.png" data-width="1400" data-height="2700" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*O5UKSMpllIB7hQ55fMiSIw.png"></figure><figure name="a08d" id="a08d" class="graf graf--figure graf--iframe graf-after--figure graf--trailing"><iframe src="https://www.youtube.com/embed/eZh1mC1vPgw?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/79a2910302c9"><time class="dt-published" datetime="2022-07-24T04:22:39.669Z">July 24, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A8%AD%E5%AE%9A-status-bar-%E6%99%82%E9%96%93%E9%9B%BB%E9%87%8F%E7%9A%84%E9%A1%8F%E8%89%B2-%E7%99%BD%E8%89%B2%E6%88%96%E9%BB%91%E8%89%B2-79a2910302c9" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

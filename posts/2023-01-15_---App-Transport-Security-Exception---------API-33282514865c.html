@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>設定 App Transport Security Exception，連線沒有加密的 API</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">設定 App Transport Security Exception，連線沒有加密的 API</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+為了讓使用者享用更安全的 App，apple 強制上架的 App 連結後台或網頁時，都要採用 https 連線，採用 http 將出現以下錯誤。
+</section>
+<section data-field="body" class="e-content">
+<section name="aa3d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7467" id="7467" class="graf graf--h3 graf--leading graf--title">設定 App Transport Security Exception，連線沒有加密的 API</h3><p name="735a" id="735a" class="graf graf--p graf-after--h3">為了讓使用者享用更安全的 App，apple 強制上架的 App 連結後台或網頁時，都要採用 https 連線，採用 http 將出現以下錯誤。</p><pre data-code-block-mode="0" spellcheck="false" name="830b" id="830b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">Cannot start load of Task &lt;33CA1643-CAFA-45D2-BBC5-50300AE0BFDF&gt;.&lt;1&gt; since it does not conform to ATS policy<br><br>Task &lt;33CA1643-CAFA-45D2-BBC5-50300AE0BFDF&gt;.&lt;1&gt; finished with error [-1022] Error Domain=NSURLErrorDomain Code=-1022 &quot;The resource could not be loaded because the App Transport Security policy requires the use of a secure connection.&quot; UserInfo={NSLocalizedDescription=The resource could not be loaded because the App Transport Security policy requires the use of a secure connection., NSErrorFailingURLStringKey=http://colormind.io/list, NSErrorFailingURLKey=http://colormind.io/list, _NSURLErrorRelatedURLSessionTaskErrorKey=(<br>    &quot;LocalDataTask &lt;33CA1643-CAFA-45D2-BBC5-50300AE0BFDF&gt;.&lt;1&gt;&quot;<br>), _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask &lt;33CA1643-CAFA-45D2-BBC5-50300AE0BFDF&gt;.&lt;1&gt;, NSUnderlyingError=0x600002222850 {Error Domain=kCFErrorDomainCFNetwork Code=-1022 &quot;(null)&quot;}}<br>Error Domain=NSURLErrorDomain Code=-1022 &quot;The resource could not be loaded because the App Transport Security policy requires the use of a secure connection.&quot; UserInfo={NSLocalizedDescription=The resource could not be loaded because the App Transport Security policy requires the use of a secure connection., NSErrorFailingURLStringKey=http://colormind.io/list, NSErrorFailingURLKey=http://colormind.io/list, _NSURLErrorRelatedURLSessionTaskErrorKey=(<br>    &quot;LocalDataTask &lt;33CA1643-CAFA-45D2-BBC5-50300AE0BFDF&gt;.&lt;1&gt;&quot;<br>), _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask &lt;33CA1643-CAFA-45D2-BBC5-50300AE0BFDF&gt;.&lt;1&gt;, NSUnderlyingError=0x600002222850 {Error Domain=kCFErrorDomainCFNetwork Code=-1022 &quot;(null)&quot;}}</span></pre><p name="4de5" id="4de5" class="graf graf--p graf-after--pre">錯誤訊息的重點是以下這句，提到 App Transport Security 要求 App 採用安全的連結。</p><pre data-code-block-mode="0" spellcheck="false" name="7078" id="7078" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">The resource could not be loaded because the App Transport Security policy requires the use of a secure connection</span></pre><p name="f677" id="f677" class="graf graf--p graf-after--pre">不過如果我們想連接不安全的 http，還是有方法，只要將網址的 domain 加入 App Transport Security Exception，讓它成為例外。方法如下。</p><h3 name="98b5" id="98b5" class="graf graf--h3 graf-after--p">切換到 TARGETS App 的 Signing &amp; Capabilities 頁面，點選 + Capability</h3><figure name="fffc" id="fffc" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*X6774eWPBmIqlIy9UYrdcQ.png" data-width="1734" data-height="502" src="https://cdn-images-1.medium.com/max/800/1*X6774eWPBmIqlIy9UYrdcQ.png"></figure><h3 name="61ce" id="61ce" class="graf graf--h3 graf-after--figure">點選 App Transport Security Exception</h3><figure name="9529" id="9529" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*bINU6fC7xoV0_1oQF6ylCg.png" data-width="1646" data-height="950" src="https://cdn-images-1.medium.com/max/800/1*bINU6fC7xoV0_1oQF6ylCg.png"></figure><p name="bd26" id="bd26" class="graf graf--p graf-after--figure">生出 App Transport Security Exception 區塊。</p><figure name="ec0f" id="ec0f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Yzh9QnYwU1ZdRm4bzV-Kvw.png" data-width="2400" data-height="1042" src="https://cdn-images-1.medium.com/max/800/1*Yzh9QnYwU1ZdRm4bzV-Kvw.png"></figure><h3 name="d0c2" id="d0c2" class="graf graf--h3 graf-after--figure">點選 Exception Domains 下方的 +</h3><figure name="f640" id="f640" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*hhZRpnR2S0p2trwZet9D6g.png" data-width="1516" data-height="306" src="https://cdn-images-1.medium.com/max/800/1*hhZRpnR2S0p2trwZet9D6g.png"></figure><h3 name="2ad0" id="2ad0" class="graf graf--h3 graf-after--figure">輸入例外的網址 domain</h3><figure name="054e" id="054e" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*DCSOuFyEeS_3qJJb0FlO_A.png" data-width="808" data-height="206" src="https://cdn-images-1.medium.com/max/800/1*DCSOuFyEeS_3qJJb0FlO_A.png"></figure><p name="1d0e" id="1d0e" class="graf graf--p graf-after--figure">比方我們加入 colormind.io，之後即可順利抓取以下網址的資料。</p><pre data-code-block-mode="0" spellcheck="false" name="23eb" id="23eb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">http://colormind.io/list</span></pre><h3 name="7bb2" id="7bb2" class="graf graf--h3 graf-after--pre">參考連結</h3><div name="d33a" id="d33a" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://developer.apple.com/news/?id=jxky8h89" data-href="https://developer.apple.com/news/?id=jxky8h89" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/news/?id=jxky8h89"><strong class="markup--strong markup--mixtapeEmbed-strong">Fine-tune your App Transport Security settings - Discover - Apple Developer</strong><br><em class="markup--em markup--mixtapeEmbed-em">Transport Layer Security (TLS) uses encryption to protect connections from prying eyes, and URLSession provides strong…</em>developer.apple.com</a><a href="https://developer.apple.com/news/?id=jxky8h89" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a244f50120e2e42d809d89f5fef1209e" data-thumbnail-img-id="0*H_9zJK3W1Gorct3G" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*H_9zJK3W1Gorct3G);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/33282514865c"><time class="dt-published" datetime="2023-01-15T09:01:48.722Z">January 15, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A8%AD%E5%AE%9A-app-transport-security-exception-%E9%80%A3%E7%B7%9A%E6%B2%92%E6%9C%89%E5%8A%A0%E5%AF%86%E7%9A%84-api-33282514865c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

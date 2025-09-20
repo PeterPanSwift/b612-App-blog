@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>安裝 SourceCodeSyntaxHighlight 讓 Quick Look 的程式變彩色</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">安裝 SourceCodeSyntaxHighlight 讓 Quick Look 的程式變彩色</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+macOS 的 Quick Look 十分方便，它讓我們在 Finder 上按空白鍵一鍵顯示檔案內容，不過遇到程式檔時它卻有一些小小的缺點。
+</section>
+<section data-field="body" class="e-content">
+<section name="f98e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f3cf" id="f3cf" class="graf graf--h3 graf--leading graf--title">安裝 SourceCodeSyntaxHighlight 讓 Quick Look 的程式變彩色</h3><p name="8165" id="8165" class="graf graf--p graf-after--h3">macOS 的 Quick Look 十分方便，它讓我們在 Finder 上按空白鍵一鍵顯示檔案內容，不過遇到程式檔時它卻有一些小小的缺點。</p><ul class="postList"><li name="f42d" id="f42d" class="graf graf--li graf-after--p">顯示的程式是黑白的。</li></ul><figure name="5e87" id="5e87" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*bkzFbtMaR9pIDxxPyt82dw.png" data-width="1620" data-height="1686" src="https://cdn-images-1.medium.com/max/800/1*bkzFbtMaR9pIDxxPyt82dw.png"></figure><ul class="postList"><li name="42ec" id="42ec" class="graf graf--li graf-after--figure">有些程式檔無法顯示。</li></ul><p name="e9d8" id="e9d8" class="graf graf--p graf-after--li">Swift、Python 等程式可以，不過 Dart 程式卻不行。</p><p name="ecab" id="ecab" class="graf graf--p graf-after--p">研究一下後，彼得潘發現 Quick Look extension SourceCodeSyntaxHighlight 完美地解決剛剛的問題，它讓程式在 Quick Look 變彩色，而且 Dart 等原本不支援的程式也能順利顯示。</p><h3 name="b3d8" id="b3d8" class="graf graf--h3 graf-after--p">連到 SourceCodeSyntaxHighlight 的 GitHub</h3><div name="22d6" id="22d6" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://github.com/sbarex/SourceCodeSyntaxHighlight" data-href="https://github.com/sbarex/SourceCodeSyntaxHighlight" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/sbarex/SourceCodeSyntaxHighlight"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - sbarex/SourceCodeSyntaxHighlight: Quick Look extension for highlight source code files on…</strong><br><em class="markup--em markup--mixtapeEmbed-em">Quick Look extension for highlight source code files on macOS 10.15 and later. - sbarex/SourceCodeSyntaxHighlight</em>github.com</a><a href="https://github.com/sbarex/SourceCodeSyntaxHighlight" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="5e33b71d496e6e67045b5ce9316ade3c" data-thumbnail-img-id="0*zUOrY05dcjFM2GA8" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*zUOrY05dcjFM2GA8);"></a></div><h3 name="9bb6" id="9bb6" class="graf graf--h3 graf-after--mixtapeEmbed">安裝 SourceCodeSyntaxHighlight</h3><p name="c0e4" id="c0e4" class="graf graf--p graf-after--h3">參考 GitHub 上的說明用 brew 安裝，或從以下連結下載 SourceCodeSyntaxHighlight。</p><div name="5888" id="5888" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/sbarex/SourceCodeSyntaxHighlight/releases" data-href="https://github.com/sbarex/SourceCodeSyntaxHighlight/releases" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/sbarex/SourceCodeSyntaxHighlight/releases"><strong class="markup--strong markup--mixtapeEmbed-strong">Releases · sbarex/SourceCodeSyntaxHighlight</strong><br><em class="markup--em markup--mixtapeEmbed-em">Quick Look extension for highlight source code files on macOS 10.15 and later. - Releases ·…</em>github.com</a><a href="https://github.com/sbarex/SourceCodeSyntaxHighlight/releases" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="245ec438357130fac5984f35e8fe04cf" data-thumbnail-img-id="0*3YZ7zSUsd7tFMISr" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*3YZ7zSUsd7tFMISr);"></a></div><p name="1f70" id="1f70" class="graf graf--p graf-after--mixtapeEmbed">以下彼得潘點選 Syntax.Highlight.zip。</p><figure name="42f0" id="42f0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gBbEP-7eqfmc6ud1NZnbpA.png" data-width="1718" data-height="1282" src="https://cdn-images-1.medium.com/max/800/1*gBbEP-7eqfmc6ud1NZnbpA.png"></figure><p name="a421" id="a421" class="graf graf--p graf-after--figure">將下載的 Syntax Highlight 移到 Applications 下。</p><figure name="4c15" id="4c15" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*RW5DAddD0WxTMEa2djnqAQ.png" data-width="1832" data-height="868" src="https://cdn-images-1.medium.com/max/800/1*RW5DAddD0WxTMEa2djnqAQ.png"></figure><h3 name="bb30" id="bb30" class="graf graf--h3 graf-after--figure">啟動 SourceCodeSyntaxHighlight</h3><p name="1244" id="1244" class="graf graf--p graf-after--h3">從右鍵選單點選 Open 啟動。</p><figure name="9fca" id="9fca" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*i1C7qHtDr64-qU56NJ_SSw.png" data-width="846" data-height="444" src="https://cdn-images-1.medium.com/max/800/1*i1C7qHtDr64-qU56NJ_SSw.png"></figure><p name="ff31" id="ff31" class="graf graf--p graf-after--figure">啟動後將看到 Syntax Highlight 的設定視窗，裡面有許多不錯的樣式可選擇。</p><figure name="8846" id="8846" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KJA_OmVG4twCfcWANsI34g.png" data-width="2046" data-height="1170" src="https://cdn-images-1.medium.com/max/800/1*KJA_OmVG4twCfcWANsI34g.png"></figure><figure name="87fe" id="87fe" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*59X8ISFMNGn0-n4RUv0Z5A.png" data-width="1072" data-height="858" src="https://cdn-images-1.medium.com/max/800/1*59X8ISFMNGn0-n4RUv0Z5A.png"></figure><p name="9c5d" id="9c5d" class="graf graf--p graf-after--figure">成功啟動後， Syntax Highlight 將出現在 System Settings &gt; Extensions &gt; Quick Look 下的 extension 清單。</p><figure name="559b" id="559b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*FWxCBey0B31dB6zQeOVn6Q.png" data-width="1424" data-height="1254" src="https://cdn-images-1.medium.com/max/800/1*FWxCBey0B31dB6zQeOVn6Q.png"></figure><p name="aa0c" id="aa0c" class="graf graf--p graf-after--figure">如下圖所示，當 Syntax Highlight Quick Look Extension 勾選時，即表示 Quick Look 可以顯示彩色程式。</p><figure name="1a9e" id="1a9e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7o_YQXbofwSsi_1BpSeHMg.png" data-width="928" data-height="606" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*7o_YQXbofwSsi_1BpSeHMg.png"></figure><h3 name="80b9" id="80b9" class="graf graf--h3 graf-after--figure">從 Quick Look 顯示彩色程式</h3><p name="7107" id="7107" class="graf graf--p graf-after--h3">有了外掛 Syntax Highlight，Quick Look 的程式不再是黑白了，終於能一覽美美的彩色 Swift 程式。</p><figure name="4a10" id="4a10" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*R_tR-XVeGusPdFN5SskOvA.png" data-width="1214" data-height="1684" src="https://cdn-images-1.medium.com/max/800/1*R_tR-XVeGusPdFN5SskOvA.png"></figure><p name="1b27" id="1b27" class="graf graf--p graf-after--figure">顯示 Dart 程式也不是問題。</p><figure name="8f4c" id="8f4c" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*dfxoKY-59g6efNHubGg0Jg.png" data-width="1208" data-height="1680" src="https://cdn-images-1.medium.com/max/800/1*dfxoKY-59g6efNHubGg0Jg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e0a78ed5c2d6"><time class="dt-published" datetime="2024-04-01T07:11:39.329Z">April 1, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%AE%89%E8%A3%9D-sourcecodesyntaxhighlight-%E8%AE%93-quick-look-%E7%9A%84%E7%A8%8B%E5%BC%8F%E8%AE%8A%E5%BD%A9%E8%89%B2-e0a78ed5c2d6" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將 http 換成 https</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將 http 換成 https</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+5.6
+</section>
+<section data-field="body" class="e-content">
+<section name="b43c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5f5e" id="5f5e" class="graf graf--h3 graf--leading graf--title">將 http 換成 https</h3><p name="9064" id="9064" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="d7ee" id="d7ee" class="graf graf--p graf-after--p">5.6</p><pre name="7b79" id="7b79" class="graf graf--pre graf-after--p">extension URL {<br>    func withHTTPS() -&gt; URL? {<br>        var components = URLComponents(url: self, resolvingAgainstBaseURL: true)<br>        components?.scheme = &quot;https&quot;<br>        return components?.url<br>    }<br>}</pre><p name="4a9c" id="4a9c" class="graf graf--p graf-after--pre">dd</p><figure name="3b7a" id="3b7a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2iWlpXo9mcJOSOiobbkF-A.jpeg" data-width="832" data-height="124" src="https://cdn-images-1.medium.com/max/800/1*2iWlpXo9mcJOSOiobbkF-A.jpeg"></figure><p name="1cf1" id="1cf1" class="graf graf--p graf--empty graf-after--figure"><br></p><figure name="9143" id="9143" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*dhz1VCyBp2WyTUbHxMUA2Q.jpeg" data-width="854" data-height="370" src="https://cdn-images-1.medium.com/max/800/1*dhz1VCyBp2WyTUbHxMUA2Q.jpeg"></figure><p name="8f17" id="8f17" class="graf graf--p graf--empty graf-after--figure graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/535bef509a2a">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

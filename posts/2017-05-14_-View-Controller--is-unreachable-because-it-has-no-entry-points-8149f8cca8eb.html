@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>“View Controller“ is unreachable because it has no entry points</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">“View Controller“ is unreachable because it has no entry points</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+“View Controller“ is unreachable because it has no entry points, and no identifier for runtime access via -[UIStoryboard…
+</section>
+<section data-field="body" class="e-content">
+<section name="4f9c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="dee8" id="dee8" class="graf graf--h3 graf--startsWithDoubleQuote graf--leading graf--title">“View Controller“ is unreachable because it has no entry points</h3><figure name="796f" id="796f" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*SXWIFd2LlRI5jQd_8VkMMg.jpeg" data-width="2412" data-height="1228" src="https://cdn-images-1.medium.com/max/800/1*SXWIFd2LlRI5jQd_8VkMMg.jpeg"></figure><p name="4f36" id="4f36" class="graf graf--p graf--startsWithDoubleQuote graf-after--figure">“View Controller“ is unreachable because it has no entry points, and no identifier for runtime access via -[UIStoryboard instantiateViewControllerWithIdentifier:].</p><p name="e930" id="e930" class="graf graf--p graf-after--p">以上錯誤訊息，是初學者時常看到的黃色警告。到底它是什麼意思呢 ? 關鍵就在 <strong class="markup--strong markup--p-strong">unreachable </strong>這個字<strong class="markup--strong markup--p-strong">，</strong>也就是到不了的意思。</p><figure name="404f" id="404f" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://www.youtube.com/embed/d8Vawln8Vt8" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure><p name="66ef" id="66ef" class="graf graf--p graf-after--figure">就像范瑋琪唱的，”我找不到，我到不了，你所謂的將來的美好。” 如下圖所示，我們的 App 永遠到不了可愛的哈士奇頁面，它就像孤兒一樣，沒有任何 segue 連到它，因此產生 “View Controller“ is unreachable 的錯誤訊息。</p><figure name="db1f" id="db1f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*f7oarl2oQrCiykvapcSypw.jpeg" data-width="2412" data-height="1228" src="https://cdn-images-1.medium.com/max/800/1*f7oarl2oQrCiykvapcSypw.jpeg"></figure><p name="8e0a" id="8e0a" class="graf graf--p graf-after--figure">其實就算沒有 segue 連到它，如果哈士奇頁面的 controller 有設定 Storyboard ID，那麼我們還可從程式透過此 ID 到達哈士奇頁面。可惜的是，我們也沒有設定 Storyboard ID，所以錯誤訊息提到，no identifier for runtime access via -[UIStoryboard instantiateViewControllerWithIdentifier:]。</p><figure name="9eea" id="9eea" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-JO5Hm43gCAoDu-hPoU8BQ.jpeg" data-width="1354" data-height="1290" src="https://cdn-images-1.medium.com/max/800/1*-JO5Hm43gCAoDu-hPoU8BQ.jpeg"><figcaption class="imageCaption">如果有設定 Storyboard ID，那麼我們還可從程式透過此 ID 到達哈士奇頁面</figcaption></figure><p name="88aa" id="88aa" class="graf graf--p graf-after--figure graf--trailing">當你發現某個頁面既沒有 segue 連到，又沒有設定 Storyboard ID 時，其實答案很明顯了。這個頁面你不該再留戀，因為它完全無用，你的 App 根本不會進入這個畫面，此時你唯一能做的，就是為它流下幾滴眼淚，按下 Delete 鍵，將此 controller 從 storyboard 刪除吧。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8149f8cca8eb"><time class="dt-published" datetime="2017-05-14T17:45:29.769Z">May 14, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/view-controller-is-unreachable-because-it-has-no-entry-points-8149f8cca8eb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

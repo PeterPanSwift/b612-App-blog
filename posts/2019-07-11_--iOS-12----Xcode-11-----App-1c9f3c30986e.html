@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 iOS 12 安裝 Xcode 11 開發的 App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 iOS 12 安裝 Xcode 11 開發的 App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們用 Xcode 11 建立新專案，開發 iOS App 時，預設它只能安裝到 iOS 13 以上的 iPhone。不過我們只要點選專案檔，在 project 的 Info 頁面調整 iOS Deployment Target，即可讓它支援舊版的 iOS。
+</section>
+<section data-field="body" class="e-content">
+<section name="ff0b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1291" id="1291" class="graf graf--h3 graf--leading graf--title">在 iOS 12 安裝 Xcode 11 開發的 App</h3><p name="48f8" id="48f8" class="graf graf--p graf-after--h3">當我們用 Xcode 11 建立新專案，開發 iOS App 時，預設它只能安裝到 iOS 13 以上的 iPhone。不過我們只要點選專案檔，在 project 的 Info 頁面調整 iOS Deployment Target，即可讓它支援舊版的 iOS。</p><figure name="a906" id="a906" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*P_aOmyIGSP5qR34I4jNuog.jpeg" data-width="1318" data-height="328" src="https://cdn-images-1.medium.com/max/800/1*P_aOmyIGSP5qR34I4jNuog.jpeg"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="be03" id="be03" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 33.978%;"><img class="graf-image" data-image-id="1*SRUfu-JJX_8O2YD7ElwngQ.jpeg" data-width="518" data-height="364" src="https://cdn-images-1.medium.com/max/600/1*SRUfu-JJX_8O2YD7ElwngQ.jpeg"></figure><figure name="9cd5" id="9cd5" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 66.022%;"><img class="graf-image" data-image-id="1*JR-Oq3qMKGZkxd1cgqbiCw.jpeg" data-width="940" data-height="340" src="https://cdn-images-1.medium.com/max/800/1*JR-Oq3qMKGZkxd1cgqbiCw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="63e9" id="63e9" class="graf graf--p graf-after--figure">可惜問題沒那麼簡單，改成 12.4 後，原本好好的程式馬上多出一堆錯誤。</p><figure name="4c14" id="4c14" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0DBgY_gyKsBw3ikkpmTnKw.jpeg" data-width="2248" data-height="1042" src="https://cdn-images-1.medium.com/max/800/1*0DBgY_gyKsBw3ikkpmTnKw.jpeg"></figure><figure name="b50a" id="b50a" class="graf graf--figure graf--iframe graf-after--figure"><iframe src="https://www.youtube.com/embed/rmPHuvQoh0g?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure><p name="f175" id="f175" class="graf graf--p graf-after--figure">會產生那麼多的紅色錯誤是因為 Xcode 11 建立的專案裡有很多舊版 iOS 不支援的程式，所以我們要在 iOS 13 才支援的 function 或 class 前加入以下程式，如此舊版的 iOS 才不會因為這些它看不懂的 iOS 13 程式產生錯誤。</p><pre name="7fa4" id="7fa4" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">@available(iOS 13.0, *)</strong></pre><p name="1dbb" id="1dbb" class="graf graf--p graf-after--pre">接下來讓我們一步步修正錯誤吧。</p><ul class="postList"><li name="f5ed" id="f5ed" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">修正 SceneDelegate.swift 的錯誤。</em></strong></li></ul><p name="762c" id="762c" class="graf graf--p graf-after--li">點選錯誤旁的紅色圈圈。</p><figure name="b626" id="b626" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VDYF-370O9RxK4SAYQZqpA.jpeg" data-width="1486" data-height="374" src="https://cdn-images-1.medium.com/max/800/1*VDYF-370O9RxK4SAYQZqpA.jpeg"></figure><p name="a551" id="a551" class="graf graf--p graf-after--figure">點選 Add @available attribute to enclosing class 的 Fix。</p><figure name="539f" id="539f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1kBebYVIxSg1wyi7a6NPCA.jpeg" data-width="1452" data-height="646" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*1kBebYVIxSg1wyi7a6NPCA.jpeg"></figure><p name="28c0" id="28c0" class="graf graf--p graf-after--figure">此時 class 前會自動補上 @available(iOS 13.0, *)，表示此 class 只會在 iOS 13 以上的版本用到。</p><pre name="6d6f" id="6d6f" class="graf graf--pre graf-after--p">@available(iOS 13.0, *)</pre><pre name="497c" id="497c" class="graf graf--pre graf-after--pre">class SceneDelegate: UIResponder, UIWindowSceneDelegate {</pre><p name="1b59" id="1b59" class="graf graf--p graf-after--pre">這時候錯誤還不會馬上消失，請按 cmd + b 讓程式重新編譯，如此錯誤才會消失。</p><figure name="62a1" id="62a1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*EMk4TowWc2baHu0oDMuWwg.jpeg" data-width="478" data-height="422" src="https://cdn-images-1.medium.com/max/800/1*EMk4TowWc2baHu0oDMuWwg.jpeg"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="38c4" id="38c4" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 50.197%;"><img class="graf-image" data-image-id="1*Y2uhgMGmxe8lD0HYmzIV_A.jpeg" data-width="1540" data-height="804" src="https://cdn-images-1.medium.com/max/600/1*Y2uhgMGmxe8lD0HYmzIV_A.jpeg"></figure><figure name="a3d0" id="a3d0" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 49.803%;"><img class="graf-image" data-image-id="1*3uoAxL5iCeO7vE4KqMoTrw.jpeg" data-width="1520" data-height="800" src="https://cdn-images-1.medium.com/max/600/1*3uoAxL5iCeO7vE4KqMoTrw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><ul class="postList"><li name="64a8" id="64a8" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">修正 AppDelegate.swift 的錯誤。</em></strong></li></ul><p name="a39b" id="a39b" class="graf graf--p graf-after--li">跟剛剛類似，只是 class AppDelegate 我們還會用到，因此修正錯誤時請點選 Add @available attribute to enclosing instance method 的 Fix。</p><figure name="5175" id="5175" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*g98BpDw9APlKcVFhOFrwwQ.jpeg" data-width="1430" data-height="728" src="https://cdn-images-1.medium.com/max/800/1*g98BpDw9APlKcVFhOFrwwQ.jpeg"></figure><p name="046b" id="046b" class="graf graf--p graf-after--figure">此時 function 前會自動補上 @available(iOS 13.0, *)，表示此 function 只會在 iOS 13 以上的版本用到。</p><pre name="aebe" id="aebe" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">@available</strong>(<strong class="markup--strong markup--pre-strong">iOS</strong> 13.0, *)</pre><pre name="1680" id="1680" class="graf graf--pre graf-after--pre">func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -&gt; UISceneConfiguration</pre><p name="01e1" id="01e1" class="graf graf--p graf-after--pre">AppDelegate.swift 裡有 2 個 function 要修正錯誤，以下 function 也要加上 @available(iOS 13.0, *)。</p><pre name="d5d0" id="d5d0" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">@available</strong>(<strong class="markup--strong markup--pre-strong">iOS</strong> 13.0, *)</pre><pre name="1097" id="1097" class="graf graf--pre graf-after--pre">func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set&lt;UISceneSession&gt;)</pre><ul class="postList"><li name="a026" id="a026" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">在 SwiftUI 的程式加上 @available(iOS 13.0.0, *)。</strong></li></ul><p name="2d2c" id="2d2c" class="graf graf--p graf-after--li">如果有用到 SwiftUI，由於它也是 iOS 13 支援的新功能，因此請參考以下例子，在它的 struct 定義前加上 @available(iOS 13.0.0, *)。</p><pre name="04e6" id="04e6" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">@available</strong>(<strong class="markup--strong markup--pre-strong">iOS</strong> 13.0.0, *)</pre><pre name="9515" id="9515" class="graf graf--pre graf-after--pre">struct ContentView : View {</pre><pre name="16b8" id="16b8" class="graf graf--pre graf-after--pre">   var body: some View {</pre><pre name="25ab" id="25ab" class="graf graf--pre graf-after--pre">      Text(&quot;Hello World&quot;)</pre><pre name="a360" id="a360" class="graf graf--pre graf-after--pre">   }</pre><pre name="a2be" id="a2be" class="graf graf--pre graf-after--pre">}</pre><pre name="db62" id="db62" class="graf graf--pre graf-after--pre">#if DEBUG</pre><pre name="c64a" id="c64a" class="graf graf--pre graf-after--pre">@available(iOS 13.0.0, *)</pre><pre name="9d11" id="9d11" class="graf graf--pre graf-after--pre">struct ContentView_Previews : PreviewProvider {</pre><pre name="aaaf" id="aaaf" class="graf graf--pre graf-after--pre">   static var previews: some View {</pre><pre name="2c54" id="2c54" class="graf graf--pre graf-after--pre">      ContentView()</pre><pre name="7f13" id="7f13" class="graf graf--pre graf-after--pre">   }</pre><pre name="cd34" id="cd34" class="graf graf--pre graf-after--pre">}</pre><pre name="f1ec" id="f1ec" class="graf graf--pre graf-after--pre">#endif</pre><h3 name="0ec6" id="0ec6" class="graf graf--h3 graf-after--pre">黑色畫面問題</h3><p name="d065" id="d065" class="graf graf--p graf-after--h3">修正完紅色錯誤後，現在我們已經可以順利將 App 啟動到 iPhone 上。不過令人遺憾的，還是有問題，我們辛苦了那麼久，最後在 iPhone 上卻看到一片黑的 App 畫面。</p><p name="6d60" id="6d60" class="graf graf--p graf-after--p">此時 Xcode 右下角的 Console 顯示著錯誤訊息。</p><figure name="1ed5" id="1ed5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ueu2RiJn7Za5mm7zd2ktiw.jpeg" data-width="505" data-height="167" src="https://cdn-images-1.medium.com/max/800/1*Ueu2RiJn7Za5mm7zd2ktiw.jpeg"></figure><pre name="4bf7" id="4bf7" class="graf graf--pre graf-after--figure">The app delegate must implement the window property if it wants to use a main storyboard file</pre><p name="e94f" id="e94f" class="graf graf--p graf-after--pre">為什麼會有問題呢 ? 原因在 Xcode 11 class AppDelegate 裡沒有宣告 property window，它改成在 class SceneDelegate 裡宣告。而 iOS 13 之前的系統是無法使用 SceneDelegate 的，所以為了相容舊版，請在 AppDelegate.swift 裡宣告 property window。</p><pre name="baf6" id="baf6" class="graf graf--pre graf-after--p">var window: UIWindow?</pre><figure name="c171" id="c171" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*MWmzZASqDMXih31S_K_sEA.jpeg" data-width="912" data-height="402" src="https://cdn-images-1.medium.com/max/800/1*MWmzZASqDMXih31S_K_sEA.jpeg"></figure><p name="5fc0" id="5fc0" class="graf graf--p graf-after--figure graf--trailing">只要加入這行程式碼，即可順利修正黑畫面的問題。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/1c9f3c30986e"><time class="dt-published" datetime="2019-07-11T03:44:47.116Z">July 11, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%9C%A8-ios-12-%E5%AE%89%E8%A3%9D-xcode-11-%E9%96%8B%E7%99%BC%E7%9A%84-app-1c9f3c30986e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

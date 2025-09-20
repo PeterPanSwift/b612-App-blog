@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用舊版 Xcode 開啟新版 Xcode 建立的專案</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用舊版 Xcode 開啟新版 Xcode 建立的專案</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+使用舊版的 Xcode 可以開啟新版 Xcode 建立的專案嗎 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="dc1f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0db4" id="0db4" class="graf graf--h3 graf--leading graf--title">使用舊版 Xcode 開啟新版 Xcode 建立的專案</h3><p name="5762" id="5762" class="graf graf--p graf-after--h3">使用舊版的 Xcode 可以開啟新版 Xcode 建立的專案嗎 ?</p><p name="5d01" id="5d01" class="graf graf--p graf-after--p">這跟專案檔的設定有關，有可能不行。如下圖所示，當我們使用 Xcode 13 開啟 Xcode 14 建立的專案時，將遇到以下錯誤。</p><figure name="e7b3" id="e7b3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VCKAD3DuC6GpJpyxd6iAdA.png" data-width="514" data-height="588" src="https://cdn-images-1.medium.com/max/800/1*VCKAD3DuC6GpJpyxd6iAdA.png"></figure><pre name="0c32" id="0c32" class="graf graf--pre graf-after--figure">The project at &#39;/Users/peterpan/Desktop/Demo/Demo.xcodeproj&#39; cannot be opened because it is in a future Xcode project file format. Adjust the project format using a compatible version of Xcode to allow it to be opened by this version of Xcode.</pre><h3 name="986b" id="986b" class="graf graf--h3 graf-after--pre">解法: 調降 Project Format 的版本</h3><p name="7ade" id="7ade" class="graf graf--p graf-after--h3">用 Xcode 14 打開專案，點選專案檔。</p><figure name="00e1" id="00e1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JzFJztAPr7kO3RqDDaEUPw.png" data-width="524" data-height="268" src="https://cdn-images-1.medium.com/max/800/1*JzFJztAPr7kO3RqDDaEUPw.png"></figure><p name="cbfb" id="cbfb" class="graf graf--p graf-after--figure">切換到 File inspector 分頁。它的 Project Format 預設是 Xcode 14.0-compatible，難怪 Xcode 13 無法開啟。</p><figure name="3b7e" id="3b7e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*W4UQHCsTt6DWVZ4i6Yp8SQ.png" data-width="530" data-height="508" src="https://cdn-images-1.medium.com/max/800/1*W4UQHCsTt6DWVZ4i6Yp8SQ.png"></figure><p name="3ad9" id="3ad9" class="graf graf--p graf-after--figure">將它降版為 Xcode 13.0-compatible 即可。</p><figure name="9c10" id="9c10" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jyDDb8Aer8GBZ1L9qYH1MA.png" data-width="528" data-height="570" src="https://cdn-images-1.medium.com/max/800/1*jyDDb8Aer8GBZ1L9qYH1MA.png"></figure><figure name="3511" id="3511" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*WbLKsbIMH4R2509VBcf6Vg.png" data-width="532" data-height="522" src="https://cdn-images-1.medium.com/max/800/1*WbLKsbIMH4R2509VBcf6Vg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/6611fa761b9c"><time class="dt-published" datetime="2021-07-12T02:53:57.099Z">July 12, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8%E8%88%8A%E7%89%88-xcode-%E9%96%8B%E5%95%9F%E6%96%B0%E7%89%88-xcode-%E5%BB%BA%E7%AB%8B%E7%9A%84%E5%B0%88%E6%A1%88-6611fa761b9c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

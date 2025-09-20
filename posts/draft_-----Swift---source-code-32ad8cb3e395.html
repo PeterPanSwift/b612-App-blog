@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何研究 Swift 的 source code</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何研究 Swift 的 source code</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Apple 為 Swift 寫了很多好用的型別和 function，讓我們不用花時間重頭打造 String，Array，Dictionary 等基礎型別，可以
+</section>
+<section data-field="body" class="e-content">
+<section name="79bf" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4cef" id="4cef" class="graf graf--h3 graf--leading graf--title">如何研究 Swift 的 source code</h3><p name="ab26" id="ab26" class="graf graf--p graf-after--h3">Apple 為 Swift 寫了很多好用的型別和 function，讓我們不用花時間重頭打造 String，Array，Dictionary 等基礎型別，可以</p><p name="a253" id="a253" class="graf graf--p graf-after--p">可以使用 Swift 快速地打造出有趣的 iOS App。</p><p name="2902" id="2902" class="graf graf--p graf-after--p">這些型別和 function 就像黑盒子一樣，我們</p><blockquote name="e133" id="e133" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1 從 GitHub 下載 Swift 的 source code。</strong></blockquote><div name="f3e2" id="f3e2" class="graf graf--mixtapeEmbed graf-after--blockquote"><a href="https://github.com/apple/swift" data-href="https://github.com/apple/swift" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/apple/swift"><strong class="markup--strong markup--mixtapeEmbed-strong">apple/swift</strong><br><em class="markup--em markup--mixtapeEmbed-em">The Swift Programming Language. Contribute to apple/swift development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/apple/swift" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a49c1f092d15d411e74ad5afa834c55a" data-thumbnail-img-id="0*XT4ja0N--Cu69Mr3" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*XT4ja0N--Cu69Mr3);"></a></div><p name="25c0" id="25c0" class="graf graf--p graf-after--mixtapeEmbed">可點選網頁上的 Download ZIP 或是在 terminal 輸入 git 指令下載。</p><figure name="0a96" id="0a96" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5MK1gMTGRaRmxVqh2wPrRA.jpeg" data-width="1552" data-height="758" src="https://cdn-images-1.medium.com/max/800/1*5MK1gMTGRaRmxVqh2wPrRA.jpeg"></figure><pre name="df44" id="df44" class="graf graf--pre graf-after--figure">git clone <a href="https://github.com/apple/swift.git" data-href="https://github.com/apple/swift.git" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://github.com/apple/swift.git</a></pre><p name="7502" id="7502" class="graf graf--p graf-after--pre">下載後將得到珍貴的 Swift 原始碼資料夾。</p><figure name="24d0" id="24d0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hHbOEw-WPoFgGjFWJ0umqg.jpeg" data-width="280" data-height="90" src="https://cdn-images-1.medium.com/max/800/1*hHbOEw-WPoFgGjFWJ0umqg.jpeg"></figure><blockquote name="3c6d" id="3c6d" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">2 將  Swift 資料夾加到 Xcode 的專案裡。</strong></blockquote><p name="f7e9" id="f7e9" class="graf graf--p graf-after--blockquote">為了之後方便用 Xcode 研究程式碼，我們必須先將包含 Swift 原始碼的資料夾加到專案裡。</p><figure name="4808" id="4808" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Lghhol7Gxi5pe__diiMZww.jpeg" data-width="1432" data-height="838" src="https://cdn-images-1.medium.com/max/800/1*Lghhol7Gxi5pe__diiMZww.jpeg"></figure><figure name="5c3f" id="5c3f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*HBezLiaXznjEg_APONBLPQ.jpeg" data-width="530" data-height="1224" src="https://cdn-images-1.medium.com/max/800/1*HBezLiaXznjEg_APONBLPQ.jpeg"></figure><blockquote name="ab88" id="ab88" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">3 研究 Swift 程式。</strong></blockquote><p name="cee5" id="cee5" class="graf graf--p graf-after--blockquote"><strong class="markup--strong markup--p-strong">例子 1: Bool 的 function toggle()。</strong></p><p name="00ea" id="00ea" class="graf graf--p graf-after--p">Bool 的 function toggle 可以把 true 變 false，false 變 true，我們想了解此 function 是如何實現的。</p><p name="4e51" id="4e51" class="graf graf--p graf-after--p">(1) 在 Find navigator 裡 search func toggle。</p><figure name="913d" id="913d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*XOtUz637kIFPxc4qRhwSPA.jpeg" data-width="528" data-height="532" src="https://cdn-images-1.medium.com/max/800/1*XOtUz637kIFPxc4qRhwSPA.jpeg"></figure><p name="fe85" id="fe85" class="graf graf--p graf-after--figure">(2) 點選 Bool.swift 下的 func toggle()。</p><figure name="646c" id="646c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4IMyS_l4L0PhLCeUwSExaA.jpeg" data-width="1974" data-height="726" src="https://cdn-images-1.medium.com/max/800/1*4IMyS_l4L0PhLCeUwSExaA.jpeg"></figure><p name="2fa6" id="2fa6" class="graf graf--p graf-after--figure">(3) func toggle() 的程式碼。</p><pre name="56bf" id="56bf" class="graf graf--pre graf-after--p">extension Bool {</pre><pre name="9f72" id="9f72" class="graf graf--pre graf-after--pre">/// Toggles the Boolean variable&#39;s value.</pre><pre name="cc5e" id="cc5e" class="graf graf--pre graf-after--pre">///</pre><pre name="3853" id="3853" class="graf graf--pre graf-after--pre">/// Use this method to toggle a Boolean value from `true` to `false` or from</pre><pre name="5a17" id="5a17" class="graf graf--pre graf-after--pre">/// `false` to `true`.</pre><pre name="3cc1" id="3cc1" class="graf graf--pre graf-after--pre">///</pre><pre name="ed24" id="ed24" class="graf graf--pre graf-after--pre">///    var bools = [true, false]</pre><pre name="f260" id="f260" class="graf graf--pre graf-after--pre">///</pre><pre name="4e3f" id="4e3f" class="graf graf--pre graf-after--pre">///    bools[0].toggle()</pre><pre name="d0b9" id="d0b9" class="graf graf--pre graf-after--pre">///    // bools == [false, false]</pre><pre name="7fb2" id="7fb2" class="graf graf--pre graf-after--pre">   @inlinable</pre><pre name="e4ac" id="e4ac" class="graf graf--pre graf-after--pre">   public mutating func toggle() {</pre><pre name="78c0" id="78c0" class="graf graf--pre graf-after--pre">      self = !self</pre><pre name="3d3d" id="3d3d" class="graf graf--pre graf-after--pre">   }</pre><pre name="890e" id="890e" class="graf graf--pre graf-after--pre">}</pre><p name="5cb4" id="5cb4" class="graf graf--p graf-after--pre">原來 func toggle() 的程式是如此簡單，一行 <code class="markup--code markup--p-code">self = !self</code> 就可實現 ! </p><p name="ed1a" id="ed1a" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">例子 2: function sort()。</strong></p><figure name="60eb" id="60eb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*l2hAnHYCEUk0NWGRHWu_jg.jpeg" data-width="526" data-height="348" src="https://cdn-images-1.medium.com/max/800/1*l2hAnHYCEUk0NWGRHWu_jg.jpeg"></figure><pre name="7fd4" id="7fd4" class="graf graf--pre graf-after--figure">@inlinable</pre><pre name="d30c" id="d30c" class="graf graf--pre graf-after--pre">public mutating func sort() {</pre><pre name="9652" id="9652" class="graf graf--pre graf-after--pre">   sort(by: &lt;)</pre><pre name="425b" id="425b" class="graf graf--pre graf-after--pre">}</pre><p name="9411" id="9411" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/32ad8cb3e395">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

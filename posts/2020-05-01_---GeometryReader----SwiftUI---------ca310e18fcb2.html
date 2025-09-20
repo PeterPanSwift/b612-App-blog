@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 GeometryReader 取得 SwiftUI 元件的座標尺寸</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 GeometryReader 取得 SwiftUI 元件的座標尺寸</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+設計 SwiftUI App 畫面時，我們通常不太需要思考元件的座標尺寸，不過有時我們會想知道元件在整個螢幕的座標尺寸，或是它相對於某個 view 的座標。
+</section>
+<section data-field="body" class="e-content">
+<section name="988c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f085" id="f085" class="graf graf--h3 graf--leading graf--title">利用 GeometryReader 取得 SwiftUI 元件的座標尺寸</h3><p name="012f" id="012f" class="graf graf--p graf-after--h3">設計 SwiftUI App 畫面時，我們通常不太需要思考元件的座標尺寸，不過有時我們會想知道元件在整個螢幕的座標尺寸，或是它相對於某個 view 的座標。</p><p name="f268" id="f268" class="graf graf--p graf-after--p">這些願望要實現並不難，只要透過 GeometryReader 的幫忙。</p><h3 name="b44e" id="b44e" class="graf graf--h3 graf-after--p">取得元件在整個螢幕的座標尺寸</h3><pre name="6c56" id="6c56" class="graf graf--pre graf-after--h3">struct ContentView: View {<br>    <br>    var body: some View {<br>            Image(&quot;tony&quot;)<br>                .resizable()<br>                .scaledToFit()<br>                .frame(width: 300)<br>                <strong class="markup--strong markup--pre-strong">.overlay(<br>                    GeometryReader(content: { geometry in<br>                        Text(geometry.frame(in: .global).debugDescription)<br>                            .background(Color.yellow)<br>                    })<br>                )</strong><br>        <br>    }<br>}</pre><p name="b752" id="b752" class="graf graf--p graf-after--pre">我們以男神梁朝偉在 FB 分享的帥氣圖片為例，想知道它在整個螢幕的座標尺寸。</p><figure name="a2d7" id="a2d7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*EeTnp_zAfv9e91Nv0vIZNw.jpeg" data-width="792" data-height="1446" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*EeTnp_zAfv9e91Nv0vIZNw.jpeg"></figure><p name="1375" id="1375" class="graf graf--p graf-after--figure">取得座標尺寸的關鍵在以下程式</p><pre name="8d41" id="8d41" class="graf graf--pre graf-after--p">.overlay(<br>     GeometryReader(content: { geometry in<strong class="markup--strong markup--pre-strong"><br></strong>        Text(geometry.frame(in: .global).debugDescription)<br>            .background(Color.yellow)<br>     })<br>)</pre><p name="a62e" id="a62e" class="graf graf--p graf-after--pre">在 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">Image</strong></code> 上呼叫 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">overlay</strong></code> modifier，然後傳入包含 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">Text</strong></code> 的 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">GeometryReader</strong></code>。<code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">GeometryReader</strong></code> 是個看不到的容器，它的參數 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">geometry</strong></code> 可告訴我們它的位置大小。由於我們以 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">overlay</strong></code> 將 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">GeometryReader</strong></code> 疊在 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">Image</strong></code> 上，所以它的位置大小即是 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">Image</strong></code> 的位置大小。</p><p name="2a44" id="2a44" class="graf graf--p graf-after--p">參數<code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">geometry</strong></code> 的型別是 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">GeometryProxy</strong></code>，我們呼叫它的 function <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">frame(in:)</strong></code>，傳入參數 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">.global</strong></code> 取得相對於整個螢幕的座標尺寸。若想單獨取得座標和尺寸，可透過 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">geometry.frame(in: .global).origin</strong></code> &amp; <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">geometry.frame(in: .global).size</strong></code>。</p><div name="3ebc" id="3ebc" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/geometryproxy/3268462-frame" data-href="https://developer.apple.com/documentation/swiftui/geometryproxy/3268462-frame" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/geometryproxy/3268462-frame"><strong class="markup--strong markup--mixtapeEmbed-strong">frame(in:)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/geometryproxy/3268462-frame" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="699f36ca7771f482d5c1cc2647f6dbe5"></a></div><h3 name="d61f" id="d61f" class="graf graf--h3 graf-after--mixtapeEmbed">將元件的座標尺寸存在變數裡</h3><p name="f963" id="f963" class="graf graf--p graf-after--h3">有些時候我們希望能將元件的座標尺寸存在變數裡，方便之後讀取。這要怎麼做到呢 ?</p><p name="df92" id="df92" class="graf graf--p graf-after--p">由於 GeometryReader 的參數 content 裡一定要生成 view，所以我們可以生成看不到的 Color.clear，然後在它身上加上 onAppear modifier，如此即可在 Color.clear 出現時取得 GeometryReader 的座標尺寸，然後存在變數裡。</p><pre name="45a7" id="45a7" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    <br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var orangeFrame = CGRect.zero<br>    <br>    var body: some View {<br>        <br>        VStack(spacing: 0) {<br>            Color.blue<br>                .frame(width: 50, height: 80, alignment: .center)</pre><pre name="9ba9" id="9ba9" class="graf graf--pre graf-after--pre">HStack(spacing: 0) {<br>                Color.blue<br>                    .frame(width: 50, height: 50, alignment: .center)<br>                Color.orange<br>                    .frame(width: 200.0, height: 200.0)<br>                    <strong class="markup--strong markup--pre-strong">.overlay(<br>                        GeometryReader(content: { geometry in<br>                            Color.clear<br>                                .onAppear(perform: {<br>                                    orangeFrame = geometry.frame(in: .global)<br>                                })<br>                        })<br>                    )</strong><br>                    .onTapGesture {<br>                        print(orangeFrame)<br>                    }<br>                Spacer()<br>            }<br>            Spacer()<br>        }<br>        .edgesIgnoringSafeArea(.all)<br>    }<br>}</pre><figure name="45f3" id="45f3" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*eDcGQcSWVrxXNW5uBs0xOQ.png" data-width="500" data-height="1022" src="https://cdn-images-1.medium.com/max/800/1*eDcGQcSWVrxXNW5uBs0xOQ.png"></figure><p name="f4ff" id="f4ff" class="graf graf--p graf-after--figure">點選橘色長方形將印出以下座標尺寸。</p><pre name="57ea" id="57ea" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">(50.0, 80.0, 200.0, 200.0)</strong></pre><h3 name="d4d0" id="d4d0" class="graf graf--h3 graf-after--pre">取得元件相對於 parent 的座標</h3><p name="570f" id="570f" class="graf graf--p graf-after--h3">有時我們想取得元件相對於 parent 的座標，比方以下偉仔相對於藍色 stack view 的座標。</p><figure name="bebb" id="bebb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*AJZQrxgXfMxBbMOeFjbvqg.jpeg" data-width="792" data-height="1446" src="https://cdn-images-1.medium.com/max/800/1*AJZQrxgXfMxBbMOeFjbvqg.jpeg"></figure><pre name="3adf" id="3adf" class="graf graf--pre graf-after--figure">struct ContentView: View {</pre><pre name="afef" id="afef" class="graf graf--pre graf-after--pre">var body: some View {<br>        VStack {<br>            Image(&quot;tony&quot;)<br>                    .resizable()<br>                    .scaledToFit()<br>                    .frame(width: 300)<br>                    .overlay(<br>                        GeometryReader(content: { geometry in<br><strong class="markup--strong markup--pre-strong">                            Text(geometry.frame(in: .named(&quot;blue view&quot;)).debugDescription)<br></strong>                                .background(Color.yellow)<br>                        })<br>            )<br>        }<br>        .frame(width: 400, height: 600)<br>        .background(Color.blue)<br><strong class="markup--strong markup--pre-strong">        .coordinateSpace(name: &quot;blue view&quot;)<br></strong>    }<br>}</pre><p name="0635" id="0635" class="graf graf--p graf-after--pre">此問題的難度高了一點，找出答案的關鍵在以下幾行程式</p><pre name="1f21" id="1f21" class="graf graf--pre graf-after--p">.coordinateSpace(name: &quot;blue view&quot;)</pre><p name="af4a" id="af4a" class="graf graf--p graf-after--pre">從 VStack 呼叫 coordinateSpace(name:)，給它名字 blue view，之後即可找出相對於 blue view 的座標。</p><pre name="5fd4" id="5fd4" class="graf graf--pre graf-after--p">.overlay(<br>    GeometryReader(content: { geometry in<br>       Text(<strong class="markup--strong markup--pre-strong">geometry.frame(in: .named(&quot;blue view&quot;)).debugDescription</strong>)<br>          .background(Color.yellow)<br>    })<br>)</pre><p name="660a" id="660a" class="graf graf--p graf-after--pre graf--trailing">同樣呼叫 function <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">frame(in:)</strong></code>，不過這次我們傳入 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">.named(&quot;blue view&quot;)</strong></code><strong class="markup--strong markup--p-strong">，</strong>.name( ) 裡傳入 blue view 表示我們想找出元件相對於 blue view 的座標。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ca310e18fcb2"><time class="dt-published" datetime="2020-05-01T17:28:22.698Z">May 1, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-geometryreader-%E5%8F%96%E5%BE%97-swiftui-%E5%85%83%E4%BB%B6%E7%9A%84%E5%BA%A7%E6%A8%99%E5%B0%BA%E5%AF%B8-ca310e18fcb2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

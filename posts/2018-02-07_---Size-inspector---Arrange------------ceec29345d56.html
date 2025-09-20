@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Size inspector 的 Arrange 置中，佔滿畫面和對齊</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Size inspector 的 Arrange 置中，佔滿畫面和對齊</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們在 Interface builder 設計畫面時，時常需要將元件置中，佔滿畫面，或是對齊。
+</section>
+<section data-field="body" class="e-content">
+<section name="8150" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="df4a" id="df4a" class="graf graf--h3 graf--leading graf--title">利用 Size inspector 的 Arrange 置中，佔滿畫面和對齊</h3><p name="5fdd" id="5fdd" class="graf graf--p graf-after--h3">當我們在 Interface builder 設計畫面時，時常需要將元件置中，佔滿畫面，或是對齊。</p><p name="e073" id="e073" class="graf graf--p graf-after--p">如果想要快速達到置中，佔滿畫面和對齊，其實有個好方法。我們可透過 Size inspector 的 Arrange，而不用自己辛苦地移動滑鼠， 小心翼翼地將元件排到想要的位置。</p><p name="7920" id="7920" class="graf graf--p graf-after--p">接下來，我們就以可愛的彼得潘圖片做示範吧。</p><p name="231c" id="231c" class="graf graf--p graf-after--p">1 點選彼得潘圖片的 image view。</p><figure name="566c" id="566c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4fbxEGCS6_F3fehRrlZ_wA.jpeg" data-width="626" data-height="1290" src="https://cdn-images-1.medium.com/max/800/1*4fbxEGCS6_F3fehRrlZ_wA.jpeg"></figure><p name="28f4" id="28f4" class="graf graf--p graf-after--figure">2 切換到 Size Inspector，找到 Arrange。</p><figure name="b500" id="b500" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jrozQMwlPZ8fPN9ECDtq-w.jpeg" data-width="526" data-height="930" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*jrozQMwlPZ8fPN9ECDtq-w.jpeg"></figure><p name="8c9b" id="8c9b" class="graf graf--p graf-after--figure">3 選擇 Center Horizontally In Container &amp; Center Vertically In Container，即可實現置中的效果。</p><figure name="d550" id="d550" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZSzDTs_7Z6YUEKixnv4Scg.jpeg" data-width="646" data-height="1336" src="https://cdn-images-1.medium.com/max/800/1*ZSzDTs_7Z6YUEKixnv4Scg.jpeg"></figure><p name="a00c" id="a00c" class="graf graf--p graf-after--figure">4 點選 Fill Container Horizontally &amp; Fill Container Vertically，即可讓圖片佔滿 Container。</p><figure name="ec79" id="ec79" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*74YxMfQ_owcwE0dRf8pYrQ.jpeg" data-width="662" data-height="1382" src="https://cdn-images-1.medium.com/max/800/1*74YxMfQ_owcwE0dRf8pYrQ.jpeg"></figure><p name="1224" id="1224" class="graf graf--p graf-after--figure">5 如果想要對齊，必須先選擇多個元件。就跟談戀愛一個人無法談一樣，當元件只有孤單單一個，它也不知道要和誰對齊呀。</p><p name="5f33" id="5f33" class="graf graf--p graf-after--p">如以下例子，當我們選了兩個元件後，即可選擇 Left Edges，讓它們左邊界乖乖對齊 !</p><figure name="2237" id="2237" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*KWPbP-zftKIzZiGVo4sQGw.jpeg" data-width="1098" data-height="968" src="https://cdn-images-1.medium.com/max/800/1*KWPbP-zftKIzZiGVo4sQGw.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ceec29345d56"><time class="dt-published" datetime="2018-02-07T14:34:25.526Z">February 7, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-size-inspector-%E7%9A%84-arrange-%E7%BD%AE%E4%B8%AD-%E4%BD%94%E6%BB%BF%E7%95%AB%E9%9D%A2%E5%92%8C%E5%B0%8D%E9%BD%8A-ceec29345d56" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

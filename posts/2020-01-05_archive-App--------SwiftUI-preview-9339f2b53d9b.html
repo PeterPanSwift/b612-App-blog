@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>archive App 時自動移除的 SwiftUI preview</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">archive App 時自動移除的 SwiftUI preview</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SwiftUI 提供方便的 preview 功能讓我們一邊撰寫程式，一邊預覽 App 畫面。如下圖所示，遵從 protocol PreviewProvider 的 ContentView_Previews 讓我們在右邊的 canvas 看到預覽畫面。
+</section>
+<section data-field="body" class="e-content">
+<section name="bb72" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a30c" id="a30c" class="graf graf--h3 graf--leading graf--title">archive App 時自動移除的 SwiftUI preview</h3><p name="a536" id="a536" class="graf graf--p graf-after--h3">SwiftUI 提供方便的 preview 功能讓我們一邊撰寫程式，一邊預覽 App 畫面。如下圖所示，遵從 protocol PreviewProvider 的 ContentView_Previews 讓我們在右邊的 canvas 看到預覽畫面。</p><figure name="5c8c" id="5c8c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4BLve_7M7o4Ouvbz74FNmw.jpeg" data-width="2248" data-height="1178" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*4BLve_7M7o4Ouvbz74FNmw.jpeg"></figure><p name="caed" id="caed" class="graf graf--p graf-after--figure">也許有人有疑問，如果我們寫了很多預覽的程式，會不會增加最後上架 App 的容量呢 ?</p><p name="9661" id="9661" class="graf graf--p graf-after--p">別擔心，Xcode 11 的 Release Note 提到當我們利用 archive 產生 App 時，PreviewProvider 的相關程式碼將被移除，因此它們完成不影響上架 App Store 或是以 TestFlight 包給別人測試的 App。</p><pre name="9ac6" id="9ac6" class="graf graf--pre graf-after--p">The <code class="markup--code markup--pre-code">#if</code>/<code class="markup--code markup--pre-code">#endif</code> compiler conditionals surrounding PreviewProvider types have been removed from SwiftUI templates. PreviewProviders aren’t properly removed from built products when archived.</pre><figure name="2f6b" id="2f6b" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*7fSXA3LAUijJBQp_hqrRbw.jpeg" data-width="1990" data-height="1032" src="https://cdn-images-1.medium.com/max/800/1*7fSXA3LAUijJBQp_hqrRbw.jpeg"></figure><div name="ef5e" id="ef5e" class="graf graf--mixtapeEmbed graf-after--figure graf--trailing"><a href="https://developer.apple.com/documentation/xcode_release_notes/xcode_11_release_notes" data-href="https://developer.apple.com/documentation/xcode_release_notes/xcode_11_release_notes" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/xcode_release_notes/xcode_11_release_notes"><strong class="markup--strong markup--mixtapeEmbed-strong">Xcode 11 Release Notes</strong><br><em class="markup--em markup--mixtapeEmbed-em">Xcode 11 is available in the Mac App Store and includes SDKs for iOS 13, macOS Catalina 10.15, watchOS 6, and tvOS 13…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/xcode_release_notes/xcode_11_release_notes" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="289b184b4becb099c677cb8eaf72bebc"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9339f2b53d9b"><time class="dt-published" datetime="2020-01-05T14:15:12.340Z">January 5, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/archive-app-%E6%99%82%E8%87%AA%E5%8B%95%E7%A7%BB%E9%99%A4%E7%9A%84-swiftui-preview-9339f2b53d9b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

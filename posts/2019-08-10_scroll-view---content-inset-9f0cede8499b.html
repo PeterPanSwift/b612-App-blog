@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>scroll view 的 content inset</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">scroll view 的 content inset</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們利用 scroll view 製作上下捲動的畫面時，聰明的它會自動判斷是否有 status bar &amp; navigation bar 等檔到內容的區塊，然後為 scroll view 加上 content inset，讓 scroll view 的內容不會被檔到。
+</section>
+<section data-field="body" class="e-content">
+<section name="19e2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="edc6" id="edc6" class="graf graf--h3 graf--leading graf--title">scroll view 的 content inset</h3><p name="8597" id="8597" class="graf graf--p graf-after--h3">當我們利用 scroll view 製作上下捲動的畫面時，聰明的它會自動判斷是否有 status bar &amp; navigation bar 等檔到內容的區塊，然後為 scroll view 加上 content inset，讓 scroll view 的內容不會被檔到。</p><p name="8c8f" id="8c8f" class="graf graf--p graf-after--p">比方下圖因為有 navigation bar， scroll view 自動在上方加上 inset，讓彼得潘帥氣的圖片不會被 navigation bar 檔到。</p><figure name="c95f" id="c95f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VWdu_KUO72B3i5BvIpTknQ.jpeg" data-width="758" data-height="1282" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*VWdu_KUO72B3i5BvIpTknQ.jpeg"></figure><p name="99fa" id="99fa" class="graf graf--p graf-after--figure">ps: 可從 scroll view 的 adjustedContentInset 查詢 inset 的數值。</p><div name="8b3e" id="8b3e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uiscrollview/2902259-adjustedcontentinset" data-href="https://developer.apple.com/documentation/uikit/uiscrollview/2902259-adjustedcontentinset" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiscrollview/2902259-adjustedcontentinset"><strong class="markup--strong markup--mixtapeEmbed-strong">adjustedContentInset</strong><br><em class="markup--em markup--mixtapeEmbed-em">Declaration Use this property to obtain the adjusted area in which to draw content. The contentInsetAdjustmentBehavior…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiscrollview/2902259-adjustedcontentinset" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="f97c353a9ee3405f1a36d87358f58192"></a></div><p name="d2f8" id="d2f8" class="graf graf--p graf-after--mixtapeEmbed">不過有時我們不希望 scroll view 自作聰明幫我們加上 content inset，如下圖所示，我們希望 scroll view 的圖片填滿 iPhone，不要多出上方 一塊礙眼的 status bar。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="3c10" id="3c10" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 56.287%;"><img class="graf-image" data-image-id="1*ag6L3sL9oJTWduZtyNzsdQ.jpeg" data-width="540" data-height="710" src="https://cdn-images-1.medium.com/max/800/1*ag6L3sL9oJTWduZtyNzsdQ.jpeg"></figure><figure name="0a0d" id="0a0d" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 43.713%;"><img class="graf-image" data-image-id="1*ZIIQsmKLQVZKFQzTcRhpUw.jpeg" data-width="758" data-height="1282" src="https://cdn-images-1.medium.com/max/600/1*ZIIQsmKLQVZKFQzTcRhpUw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="f7aa" id="f7aa" class="graf graf--p graf-after--figure">此時我們可點選 scroll view，切換到 Size inspector 頁面，將它的 Content Inset 從 Automatic 改成 Never，告訴它千萬不要添加 content inset。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="2096" id="2096" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 51.303%;"><img class="graf-image" data-image-id="1*JNaPvR7sVLLDGZDaO4Q5rQ.jpeg" data-width="522" data-height="402" src="https://cdn-images-1.medium.com/max/800/1*JNaPvR7sVLLDGZDaO4Q5rQ.jpeg"></figure><figure name="a6ca" id="a6ca" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 48.697%;"><img class="graf-image" data-image-id="1*xR3oGMpCPDf3hEmXPufvvw.jpeg" data-width="518" data-height="420" src="https://cdn-images-1.medium.com/max/600/1*xR3oGMpCPDf3hEmXPufvvw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="478a" id="478a" class="graf graf--p graf-after--figure">如下圖所示，現在 scroll view 裡的圖片終於可以佔滿 iPhone 螢幕了。</p><figure name="662c" id="662c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5m0hrbQV1by9elS3ONSo_w.jpeg" data-width="758" data-height="1282" src="https://cdn-images-1.medium.com/max/800/1*5m0hrbQV1by9elS3ONSo_w.jpeg"></figure><p name="1129" id="1129" class="graf graf--p graf-after--figure">想從程式設定也可以，透過 scroll view 的 property contentInsetAdjustmentBehavior。</p><pre name="b2d1" id="b2d1" class="graf graf--pre graf-after--p">scrollView.contentInsetAdjustmentBehavior = .never</pre><div name="6cff" id="6cff" class="graf graf--mixtapeEmbed graf-after--pre graf--trailing"><a href="https://developer.apple.com/documentation/uikit/uiscrollview/2902261-contentinsetadjustmentbehavior" data-href="https://developer.apple.com/documentation/uikit/uiscrollview/2902261-contentinsetadjustmentbehavior" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiscrollview/2902261-contentinsetadjustmentbehavior"><strong class="markup--strong markup--mixtapeEmbed-strong">contentInsetAdjustmentBehavior</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiscrollview/2902261-contentinsetadjustmentbehavior" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="6ae331b5bc3cbf553981880341588e85"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9f0cede8499b"><time class="dt-published" datetime="2019-08-10T15:08:39.808Z">August 10, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/scroll-view-%E7%9A%84-content-inset-9f0cede8499b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

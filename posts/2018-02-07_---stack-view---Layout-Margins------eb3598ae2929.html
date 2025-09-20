@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 stack view 的 Layout Margins 客製間距</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 stack view 的 Layout Margins 客製間距</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+以上的畫面十分單純，只不過是 image view 加上 label，但當我們把它們包在 vertical 的 stack view 裡，將遇到一些問題。
+</section>
+<section data-field="body" class="e-content">
+<section name="5a82" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="19f8" id="19f8" class="graf graf--h3 graf--leading graf--title">利用 stack view 的 Layout Margins 客製間距</h3><figure name="e11d" id="e11d" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*j162k1Pxp3kvbqEzpOwm9g.jpeg" data-width="906" data-height="668" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*j162k1Pxp3kvbqEzpOwm9g.jpeg"></figure><p name="af74" id="af74" class="graf graf--p graf-after--figure">以上的畫面十分單純，只不過是 image view 加上 label，但當我們把它們包在 vertical 的 stack view 裡，將遇到一些問題。</p><p name="d291" id="d291" class="graf graf--p graf-after--p">如下圖所示，不管我們如何調整 Alignment，都無法達成 label 彼得潘和圖片左邊界間距 10 的效果。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="d8bc" id="d8bc" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 35.058%;"><img class="graf-image" data-image-id="1*WqnU7zYFNenaWyz2dT0QdA.jpeg" data-width="492" data-height="546" src="https://cdn-images-1.medium.com/max/600/1*WqnU7zYFNenaWyz2dT0QdA.jpeg"></figure><figure name="dd07" id="dd07" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 64.942%;"><img class="graf-image" data-image-id="1*odHPtJFaZpzauT6I3fTaNw.jpeg" data-width="524" data-height="314" src="https://cdn-images-1.medium.com/max/800/1*odHPtJFaZpzauT6I3fTaNw.jpeg"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="3b42" id="3b42" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 32.74%;"><img class="graf-image" data-image-id="1*jWifh_9kd2-gZPtTvdlb1Q.jpeg" data-width="422" data-height="488" src="https://cdn-images-1.medium.com/max/400/1*jWifh_9kd2-gZPtTvdlb1Q.jpeg"></figure><figure name="a351" id="a351" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 67.26%;"><img class="graf-image" data-image-id="1*R9U6Hkgs3LgyfCtfdenBgQ.jpeg" data-width="526" data-height="296" src="https://cdn-images-1.medium.com/max/1000/1*R9U6Hkgs3LgyfCtfdenBgQ.jpeg"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="8a39" id="8a39" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 30.496%;"><img class="graf-image" data-image-id="1*Jw26UKODSZtsWyzsQzoerg.jpeg" data-width="384" data-height="496" src="https://cdn-images-1.medium.com/max/400/1*Jw26UKODSZtsWyzsQzoerg.jpeg"></figure><figure name="c68a" id="c68a" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 69.504%;"><img class="graf-image" data-image-id="1*-YyM1JWE5-dumG4SLVpaZw.jpeg" data-width="522" data-height="296" src="https://cdn-images-1.medium.com/max/1000/1*-YyM1JWE5-dumG4SLVpaZw.jpeg"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="640b" id="640b" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 34.158%;"><img class="graf-image" data-image-id="1*XEPR8vLAsUaohraKX6VcgA.jpeg" data-width="444" data-height="502" src="https://cdn-images-1.medium.com/max/600/1*XEPR8vLAsUaohraKX6VcgA.jpeg"></figure><figure name="d471" id="d471" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 65.842%;"><img class="graf-image" data-image-id="1*WeOI-kRE_ieSMhx-plXK8A.jpeg" data-width="518" data-height="304" src="https://cdn-images-1.medium.com/max/800/1*WeOI-kRE_ieSMhx-plXK8A.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="53e0" id="53e0" class="graf graf--p graf-after--figure">alignment 只能做到完全對齊， 因此當我們把它調為 Leading 時，它將讓 label 和 image view 的左邊界完全對齊。</p><p name="acf8" id="acf8" class="graf graf--p graf-after--p">不然我們試著另外在 label 身上，加上間距 10 的條件好了。不加還好，加了將產生可怕的紅色錯誤。因為它會和原來 alignment leading 的條件衝突， alignment leading 其實背後會幫我們另外加上 label 和 image view 的左邊界對齊的條件，所以不可能同時對齊，又同時間距 10。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="5297" id="5297" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 39.37%;"><img class="graf-image" data-image-id="1*82d-qB8Up_UYO-qLLaKbQA.jpeg" data-width="1102" data-height="562" src="https://cdn-images-1.medium.com/max/600/1*82d-qB8Up_UYO-qLLaKbQA.jpeg"></figure><figure name="5034" id="5034" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 60.63%;"><img class="graf-image" data-image-id="1*GBKajV5qaz-GhKwHj1CJEw.jpeg" data-width="604" data-height="200" src="https://cdn-images-1.medium.com/max/800/1*GBKajV5qaz-GhKwHj1CJEw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><blockquote name="a7e1" id="a7e1" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">解法</strong></blockquote><p name="01dc" id="01dc" class="graf graf--p graf-after--blockquote">剛剛的問題，可利用 stack view 的 Layout Margins 解決，步驟如下:</p><p name="6015" id="6015" class="graf graf--p graf-after--p">1 將 label 加在 stack view 裡</p><figure name="2327" id="2327" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*GHjXfp39l1IL1szgOdQndQ.jpeg" data-width="998" data-height="518" src="https://cdn-images-1.medium.com/max/800/1*GHjXfp39l1IL1szgOdQndQ.jpeg"></figure><p name="d2a9" id="d2a9" class="graf graf--p graf-after--figure">2 點選包著 label 的 stack view 後，切換到 Size inspector 分頁。</p><figure name="d260" id="d260" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3WQIe58rJJM23NifgknDiQ.jpeg" data-width="532" data-height="530" src="https://cdn-images-1.medium.com/max/800/1*3WQIe58rJJM23NifgknDiQ.jpeg"></figure><p name="af65" id="af65" class="graf graf--p graf-after--figure">3 設定 stack view 的 Layout Margins。</p><p name="a75f" id="a75f" class="graf graf--p graf-after--p">將 Layout Margins 設為 Fixed 後，即可控制 stack view 上下左右的 margin。</p><figure name="16e3" id="16e3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lENLNxUQ8Skf2Dx1fZ8syw.jpeg" data-width="532" data-height="282" src="https://cdn-images-1.medium.com/max/800/1*lENLNxUQ8Skf2Dx1fZ8syw.jpeg"></figure><p name="ac28" id="ac28" class="graf graf--p graf-after--figure">你可以把 margin 想成留白的區塊，stack view 裡的元件將從留白區塊之後開始擺放。當我們設定 Left margin 為 10 時，stack view 裡 label 的左邊將多出 10 points 的空間，實現我們想要的間距 10 效果。</p><figure name="da1f" id="da1f" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*ThLeklx-TEx7KSLd33QXIg.jpeg" data-width="498" data-height="500" src="https://cdn-images-1.medium.com/max/800/1*ThLeklx-TEx7KSLd33QXIg.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/eb3598ae2929"><time class="dt-published" datetime="2018-02-07T10:04:32.369Z">February 7, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-stack-view-%E7%9A%84-layout-margins-%E5%AE%A2%E8%A3%BD%E9%96%93%E8%B7%9D-eb3598ae2929" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

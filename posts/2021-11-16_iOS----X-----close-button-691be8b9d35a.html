@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS 顯示 X 圖示的 close button</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS 顯示 X 圖示的 close button</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 iOS 13 開始，iOS SDK 內建 close button，方便我們快速做出顯示 X 圖示的 button。而且在 iOS 15 搭配多種 Style，我們可以輕易地調整它的背景顏色跟圓角弧度。
+</section>
+<section data-field="body" class="e-content">
+<section name="ab5d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4fd8" id="4fd8" class="graf graf--h3 graf--leading graf--title">iOS 顯示 X 圖示的 close button</h3><p name="6807" id="6807" class="graf graf--p graf-after--h3">從 iOS 13 開始，iOS SDK 內建 close button，方便我們快速做出顯示 X 圖示的 button。而且在 iOS 15 搭配多種 Style，我們可以輕易地調整它的背景顏色跟圓角弧度。</p><figure name="e0ec" id="e0ec" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*G8g7vZzaoNd3sXec6_7I1g.png" data-width="1270" data-height="1166" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*G8g7vZzaoNd3sXec6_7I1g.png"></figure><p name="ef05" id="ef05" class="graf graf--p graf-after--figure">接下來我們分別說明 iOS 15 &amp; iOS 15 之前的 close button。</p><h3 name="8838" id="8838" class="graf graf--h3 graf-after--p">iOS 15 的 close button</h3><ul class="postList"><li name="a919" id="a919" class="graf graf--li graf-after--h3"><strong class="markup--strong markup--li-strong">Type 選擇 Close，Style 選擇 Plain</strong></li></ul><p name="5037" id="5037" class="graf graf--p graf-after--li">產生無背景的 close button。</p><figure name="28fa" id="28fa" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5rN99nhcuQxQYKSYTk9zmw.png" data-width="910" data-height="514" src="https://cdn-images-1.medium.com/max/800/1*5rN99nhcuQxQYKSYTk9zmw.png"></figure><p name="57e6" id="57e6" class="graf graf--p graf-after--figure">ps: 從程式產生 close button 的方法如下。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="b691" id="b691" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">UIButton</span>(type: .close)</span></pre><ul class="postList"><li name="c59b" id="c59b" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">從 Tint 設定顏色</strong></li></ul><figure name="58ad" id="58ad" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*aXFugxIpd61EfSLL6F6PfQ.png" data-width="892" data-height="1204" src="https://cdn-images-1.medium.com/max/800/1*aXFugxIpd61EfSLL6F6PfQ.png"></figure><ul class="postList"><li name="8fdc" id="8fdc" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">Style 選擇 Gray，Tinted &amp; Filled</strong></li></ul><p name="a63f" id="a63f" class="graf graf--p graf-after--li">產生有圓角背景的 button。</p><figure name="2a51" id="2a51" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*vAvNjz12nanNSO_EKw1Adw.png" data-width="472" data-height="294" src="https://cdn-images-1.medium.com/max/800/1*vAvNjz12nanNSO_EKw1Adw.png"></figure><figure name="e232" id="e232" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*4yZex7Bko9xLn-EiB8gn6w.png" data-width="944" data-height="354" src="https://cdn-images-1.medium.com/max/800/1*4yZex7Bko9xLn-EiB8gn6w.png"></figure><ul class="postList"><li name="f678" id="f678" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">調整圓角弧度</strong></li></ul><p name="9d4d" id="9d4d" class="graf graf--p graf-after--li">Corner Style 選擇 Capsule。當 button 的大小為正方形時，button 的背景將變成圓形。</p><figure name="7600" id="7600" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NsKMxeO70jSwX8kwIxOomQ.png" data-width="888" data-height="676" src="https://cdn-images-1.medium.com/max/800/1*NsKMxeO70jSwX8kwIxOomQ.png"></figure><p name="d41a" id="d41a" class="graf graf--p graf-after--figure">Background 選擇 Custom，從 Corner Radius 可自訂圓角弧度。</p><figure name="6266" id="6266" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*i6_qYGH_Rr3S6igh15oAqQ.png" data-width="894" data-height="878" src="https://cdn-images-1.medium.com/max/800/1*i6_qYGH_Rr3S6igh15oAqQ.png"></figure><ul class="postList"><li name="06bb" id="06bb" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">搭配文字的 close button</strong></li></ul><figure name="5867" id="5867" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*8bWRRnkpWz01tuHHmr48aw.png" data-width="928" data-height="526" src="https://cdn-images-1.medium.com/max/800/1*8bWRRnkpWz01tuHHmr48aw.png"></figure><h3 name="2559" id="2559" class="graf graf--h3 graf-after--figure">iOS 15 之前的 close button</h3><p name="9208" id="9208" class="graf graf--p graf-after--h3">Type 選擇 Close，Style 選擇 Default，產生有圓角的 close button。當 button 的大小為正方形時，button 的背景將變成圓形。</p><figure name="f4a1" id="f4a1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pbARv-iX1QsuGxxs5AUexg.png" data-width="856" data-height="540" src="https://cdn-images-1.medium.com/max/800/1*pbARv-iX1QsuGxxs5AUexg.png"></figure><h3 name="0d92" id="0d92" class="graf graf--h3 graf-after--figure">參考連結</h3><div name="b928" id="b928" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/" data-href="https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/"><strong class="markup--strong markup--mixtapeEmbed-strong">Buttons - Controls - iOS - Human Interface Guidelines - Apple Developer</strong><br><em class="markup--em markup--mixtapeEmbed-em">The system offers a range of button styles that support extensive customization while providing built-in interaction…</em>developer.apple.com</a><a href="https://developer.apple.com/design/human-interface-guidelines/ios/controls/buttons/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="42730a1262da5a20d2f1594df4c38a8b" data-thumbnail-img-id="0*eH8kRxeF1Lvf-ovS" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*eH8kRxeF1Lvf-ovS);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/691be8b9d35a"><time class="dt-published" datetime="2021-11-16T09:07:09.062Z">November 16, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/ios-%E7%9A%84-close-button-691be8b9d35a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

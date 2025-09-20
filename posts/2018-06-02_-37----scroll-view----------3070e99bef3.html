@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#37 利用 scroll view 實現人體分割魔術</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#37 利用 scroll view 實現人體分割魔術</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+目的: 學習 UIScrollView 的捲動和分頁，timer。
+</section>
+<section data-field="body" class="e-content">
+<section name="7424" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6eec" id="6eec" class="graf graf--h3 graf--leading graf--title">#37 利用 scroll view 實現人體分割魔術</h3><p name="2192" id="2192" class="graf graf--p graf-after--h3">目的: 學習 UIScrollView 的捲動和分頁，timer。</p><figure name="3c2c" id="3c2c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Sqp2oJdLv6PzeFdu9AnjCw.jpeg" data-width="402" data-height="750" src="https://cdn-images-1.medium.com/max/800/1*Sqp2oJdLv6PzeFdu9AnjCw.jpeg"></figure><p name="1dda" id="1dda" class="graf graf--p graf-after--figure">傳說中的人體分割魔術重現江湖，利用三個 scroll view，滑動分頁切換頭，身體和腳。</p><p name="45ce" id="45ce" class="graf graf--p graf-after--p">基本版: 手動滑動切換。</p><p name="5c85" id="5c85" class="graf graf--p graf-after--p">進階版:</p><ol class="postList"><li name="bac4" id="bac4" class="graf graf--li graf-after--p">除了手動切換，還可以搭配 timer 自動切換。</li><li name="ffd1" id="ffd1" class="graf graf--li graf-after--li">可以無限循環。</li></ol><p name="d80f" id="d80f" class="graf graf--p graf-after--li">3. 改以 UICollectionView 實現。</p><p name="0dae" id="0dae" class="graf graf--p graf-after--p graf--trailing">ps: 特別感謝文興同學的 scroll view 作業提供題目靈感。</p></div></div></section><section name="f33c" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="8133" id="8133" class="graf graf--p graf--leading">作品集</p><div name="9b41" id="9b41" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/ios%E4%BD%9C%E6%A5%AD-beauty-jigsaw-ad8d85227953" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/ios%E4%BD%9C%E6%A5%AD-beauty-jigsaw-ad8d85227953" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/ios%E4%BD%9C%E6%A5%AD-beauty-jigsaw-ad8d85227953"><strong class="markup--strong markup--mixtapeEmbed-strong">IOS作業-Beauty Jigsaw</strong><br><em class="markup--em markup--mixtapeEmbed-em">今天來練習一下scrollView，帶著好心情做事總是特別輕快！</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/ios%E4%BD%9C%E6%A5%AD-beauty-jigsaw-ad8d85227953" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="92bb451e5e176fa2dfa6d5ad47ffa559" data-thumbnail-img-id="1*B9JudjZHwDG1CBWU2pQHag.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*B9JudjZHwDG1CBWU2pQHag.png);"></a></div><div name="9d9d" id="9d9d" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/37-%E5%88%A9%E7%94%A8-scroll-view-%E5%AF%A6%E7%8F%BE%E4%BA%BA%E9%AB%94%E5%88%86%E5%89%B2%E9%AD%94%E8%A1%93-ft-toy-story-4-eec1b593efb1" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/37-%E5%88%A9%E7%94%A8-scroll-view-%E5%AF%A6%E7%8F%BE%E4%BA%BA%E9%AB%94%E5%88%86%E5%89%B2%E9%AD%94%E8%A1%93-ft-toy-story-4-eec1b593efb1" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/37-%E5%88%A9%E7%94%A8-scroll-view-%E5%AF%A6%E7%8F%BE%E4%BA%BA%E9%AB%94%E5%88%86%E5%89%B2%E9%AD%94%E8%A1%93-ft-toy-story-4-eec1b593efb1"><strong class="markup--strong markup--mixtapeEmbed-strong">#37 利用 scroll view 實現人體分割魔術 Ft. 《Toy Story 4》</strong><br><em class="markup--em markup--mixtapeEmbed-em">會想做這個是因為家裡有一本書真的是這樣切的。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/37-%E5%88%A9%E7%94%A8-scroll-view-%E5%AF%A6%E7%8F%BE%E4%BA%BA%E9%AB%94%E5%88%86%E5%89%B2%E9%AD%94%E8%A1%93-ft-toy-story-4-eec1b593efb1" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="08de8cb369eb1e773cba1d3a2d9b2223" data-thumbnail-img-id="1*cpmEOtWiebR2mBKCu0_sZA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*cpmEOtWiebR2mBKCu0_sZA.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/3070e99bef3"><time class="dt-published" datetime="2018-06-02T12:46:42.313Z">June 2, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/37-%E5%88%A9%E7%94%A8-scroll-view-%E5%AF%A6%E7%8F%BE%E4%BA%BA%E9%AB%94%E5%88%86%E5%89%B2%E9%AD%94%E8%A1%93-3070e99bef3" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

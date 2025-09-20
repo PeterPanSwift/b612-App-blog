@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Xcode 的 UI Test 錄製可重覆執行的 App 操作步驟和影片</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Xcode 的 UI Test 錄製可重覆執行的 App 操作步驟和影片</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+為了在 demo App、測試 App、製作教學影片時不用辛苦地從頭操作，我們可以利用 Xcode 的 UI Test 錄製可重覆執行的 App 操作步驟和影片。
+</section>
+<section data-field="body" class="e-content">
+<section name="31d8" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h2 name="e746" id="e746" class="graf graf--h2 graf--leading graf--title">利用 Xcode 的 UI Test 錄製可重覆執行的 App 操作步驟和影片</h2><p name="5409" id="5409" class="graf graf--p graf-after--h2">為了在 demo App、測試 App、製作教學影片時不用辛苦地從頭操作，我們可以利用 Xcode 的 UI Test 錄製可重覆執行的 App 操作步驟和影片。</p><p name="6d1c" id="6d1c" class="graf graf--p graf-after--p">以下我們一步步示範 Xcode UI Test 錄製的方法。</p><h3 name="182a" id="182a" class="graf graf--h3 graf-after--p">專案加入 Swift Testing with XCTest Tests</h3><p name="3e0f" id="3e0f" class="graf graf--p graf-after--h3">建立專案時 Testing System 選擇 Swift Testing with XCTest UI Tests。</p><figure name="f203" id="f203" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*rFiFMKNEDOzMBFfyon35Og.png" data-width="1522" data-height="1088" src="https://cdn-images-1.medium.com/max/800/1*rFiFMKNEDOzMBFfyon35Og.png"></figure><p name="af69" id="af69" class="graf graf--p graf-after--figure">若是建專案時沒加入 Swift Testing with XCTest Tests，我們也可以另外加入 UI Test 的相關檔案。</p><p name="6465" id="6465" class="graf graf--p graf-after--p">從 Quick Actions 點選 New &gt; Target。</p><figure name="6558" id="6558" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*emmHrjf2gsg3mBww33svxg.png" data-width="1184" data-height="240" src="https://cdn-images-1.medium.com/max/800/1*emmHrjf2gsg3mBww33svxg.png"></figure><p name="d61e" id="d61e" class="graf graf--p graf-after--figure">選擇 iOS 下的 UI Testing Bundle。</p><figure name="66c2" id="66c2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uJycDPcZ1But_KgAguDQcA.png" data-width="1488" data-height="1058" src="https://cdn-images-1.medium.com/max/800/1*uJycDPcZ1But_KgAguDQcA.png"></figure><figure name="4922" id="4922" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*h5c-TqqEb-OVzKWHARpH9w.png" data-width="1490" data-height="1060" src="https://cdn-images-1.medium.com/max/800/1*h5c-TqqEb-OVzKWHARpH9w.png"></figure><p name="0f08" id="0f08" class="graf graf--p graf-after--figure">Project navigator 出現 UI Test 的相關檔案。</p><figure name="1f0e" id="1f0e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*V6xu9c3i_ghc0KXXXmVm_g.png" data-width="596" data-height="500" src="https://cdn-images-1.medium.com/max/800/1*V6xu9c3i_ghc0KXXXmVm_g.png"></figure><h3 name="915f" id="915f" class="graf graf--h3 graf-after--figure">設定將測試的 App 操作過程存成影片檔</h3><p name="c6b3" id="c6b3" class="graf graf--p graf-after--h3">切換到 Test navigator，點選 P icon，點選 Save 產生可修改的 test plan 檔。</p><figure name="3b19" id="3b19" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*I6UxDjRGAI2cKEAvqYzkVw.png" data-width="2792" data-height="1106" src="https://cdn-images-1.medium.com/max/800/1*I6UxDjRGAI2cKEAvqYzkVw.png"></figure><p name="dde2" id="dde2" class="graf graf--p graf-after--figure">輸入 xctestplan 檔的名字。如果沒有出現存檔的視窗，請關掉專案視窗再重開專案，然後再切到 Test navigator 點選 P icon 後再點一次 Save。</p><figure name="b18f" id="b18f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UF6L0I_rrK0tNNWqa7OFCA.png" data-width="768" data-height="540" src="https://cdn-images-1.medium.com/max/800/1*UF6L0I_rrK0tNNWqa7OFCA.png"></figure><p name="6d1b" id="6d1b" class="graf graf--p graf-after--figure">Project navigator 下出現生成的 xctestplan 檔。</p><figure name="6e2d" id="6e2d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jMXI2m62n9fh_kpTnHpiIQ.png" data-width="580" data-height="510" src="https://cdn-images-1.medium.com/max/800/1*jMXI2m62n9fh_kpTnHpiIQ.png"></figure><p name="6338" id="6338" class="graf graf--p graf-after--figure">原本只有測試失敗的操作過程會存成影片檔，我們想要成功跟失敗都存成影片，因此請切換到 Configurations 分頁，將 Automatic Screen Capture 設為 On, and keep all。</p><figure name="301f" id="301f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kEVTsdvc7kncRtm19H6DXQ.png" data-width="2286" data-height="830" src="https://cdn-images-1.medium.com/max/800/1*kEVTsdvc7kncRtm19H6DXQ.png"></figure><figure name="ed34" id="ed34" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*afSglKeJ_Gn887P6Qa4tLg.png" data-width="1068" data-height="152" src="https://cdn-images-1.medium.com/max/800/1*afSglKeJ_Gn887P6Qa4tLg.png"></figure><h3 name="d268" id="d268" class="graf graf--h3 graf-after--figure">實作 App 功能</h3><p name="84db" id="84db" class="graf graf--p graf-after--h3">為了錄製 App 畫面捲動和變色的功能，在 ContentView 加入以下程式。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="849d" id="849d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> isYellow <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">ScrollView</span> {<br />            <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;button&quot;</span>) {<br />                isYellow.toggle()<br />            }<br />            <span class="hljs-type">VStack</span> {<br />                <span class="hljs-type">ForEach</span>(<span class="hljs-number">1</span><span class="hljs-operator">..&lt;</span><span class="hljs-number">100</span>) { index <span class="hljs-keyword">in</span><br />                    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;<span class="hljs-subst">\(index)</span>&quot;</span>)<br />                }<br />            }<br />            .frame(maxWidth: .infinity)<br />        }<br />        .font(.largeTitle)<br />        .background(isYellow <span class="hljs-operator">?</span> .yellow : .green)<br />    }<br />}</span></pre><h3 name="9bb6" id="9bb6" class="graf graf--h3 graf-after--pre">錄製 App 操作步驟</h3><p name="e98f" id="e98f" class="graf graf--p graf-after--h3">點選 UITests 結尾的檔案，清空 testExample() 的程式</p><figure name="f067" id="f067" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lv0KGFtmmFBFi_iQwLjotg.png" data-width="1890" data-height="786" src="https://cdn-images-1.medium.com/max/800/1*lv0KGFtmmFBFi_iQwLjotg.png"></figure><p name="f33c" id="f33c" class="graf graf--p graf-after--figure">點選 testExample { } 裡左側的紅色圓形按鈕開始錄製。</p><figure name="cb2d" id="cb2d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*maQkWwkvifvMmxpaZXI7YA.png" data-width="1050" data-height="316" src="https://cdn-images-1.medium.com/max/800/1*maQkWwkvifvMmxpaZXI7YA.png"></figure><p name="8264" id="8264" class="graf graf--p graf-after--figure">點選 Yes 開始錄製。</p><figure name="7d5b" id="7d5b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0JvmZliw33YPyFGJdk5EAA.png" data-width="564" data-height="410" src="https://cdn-images-1.medium.com/max/800/1*0JvmZliw33YPyFGJdk5EAA.png"></figure><p name="f74a" id="f74a" class="graf graf--p graf-after--figure">此時 App 將自動從模擬器啟動，當我們一邊操作 App 時，Xcode 也會一邊在 testExample 裡加入程式記錄操作步驟。操作結束後，點選左側的正方形按鈕停止錄製。</p><figure name="cde1" id="cde1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NPvWxudnIk0AkGA5iWovTQ.png" data-width="2610" data-height="1756" src="https://cdn-images-1.medium.com/max/800/1*NPvWxudnIk0AkGA5iWovTQ.png"></figure><h3 name="97f4" id="97f4" class="graf graf--h3 graf-after--figure">執行錄製的操作步驟</h3><p name="be6f" id="be6f" class="graf graf--p graf-after--h3">現在我們終於可以翹著二郎腿喝珍奶看 App 自己運作了，點選 testExample 左側的三角形按鈕即可自動執行剛剛錄製的操作步驟。</p><figure name="1826" id="1826" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jKkfJG3SQ71NyV2kAR8_Bw.png" data-width="1714" data-height="1122" src="https://cdn-images-1.medium.com/max/800/1*jKkfJG3SQ71NyV2kAR8_Bw.png"></figure><h3 name="816a" id="816a" class="graf graf--h3 graf-after--figure">查看操作影片</h3><p name="a439" id="a439" class="graf graf--p graf-after--h3">當我們執行錄製的操作步驟時，它也會被記錄成影片。切換到 Report navigator，點選到 Tests 頁面，testExample() 15s 正是剛剛 App 操作的 15 秒鐘。</p><figure name="ea64" id="ea64" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LPtWu522kwed4Ao3KXJV3Q.png" data-width="3288" data-height="552" src="https://cdn-images-1.medium.com/max/800/1*LPtWu522kwed4Ao3KXJV3Q.png"></figure><p name="9e15" id="9e15" class="graf graf--p graf-after--figure">雙擊 testExample() 可看到詳細的操作步驟，點擊下方的三角形可播放影片。</p><figure name="a926" id="a926" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pZdXE8MzjZbDv3Pq8uKhrQ.png" data-width="2722" data-height="1634" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*pZdXE8MzjZbDv3Pq8uKhrQ.png"></figure><p name="d96b" id="d96b" class="graf graf--p graf-after--figure">影片播放時左側的步驟條也會更新。</p><figure name="2c75" id="2c75" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*T25QVw5Z81OIW3EeCsRxeQ.png" data-width="2696" data-height="1558" src="https://cdn-images-1.medium.com/max/800/1*T25QVw5Z81OIW3EeCsRxeQ.png"></figure><p name="07cb" id="07cb" class="graf graf--p graf-after--figure">從影片的右鍵選擇可點選 Save Video 存檔。</p><figure name="6c5f" id="6c5f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_iFDoHjl7R9bW3t0ZjHudQ.png" data-width="1830" data-height="1284" src="https://cdn-images-1.medium.com/max/800/1*_iFDoHjl7R9bW3t0ZjHudQ.png"></figure><figure name="d4c9" id="d4c9" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*wllQIIyZcMN1GZNR0oeH3g.png" data-width="766" data-height="394" src="https://cdn-images-1.medium.com/max/800/1*wllQIIyZcMN1GZNR0oeH3g.png"></figure><h3 name="d004" id="d004" class="graf graf--h3 graf-after--figure">相關連結</h3><div name="1370" id="1370" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://developer.apple.com/videos/play/wwdc2025/344" data-href="https://developer.apple.com/videos/play/wwdc2025/344" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/videos/play/wwdc2025/344"><strong class="markup--strong markup--mixtapeEmbed-strong">Record, replay, and review: UI automation with Xcode - WWDC25 - Videos - Apple Developer</strong><br><em class="markup--em markup--mixtapeEmbed-em">Learn to record, run, and maintain XCUIAutomation tests in Xcode. Replay your XCTest UI tests in dozens of locales,…</em>developer.apple.com</a><a href="https://developer.apple.com/videos/play/wwdc2025/344" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a63ddd21567b82a07da726c33829003d" data-thumbnail-img-id="0*q-fBU5pP-h9BQg46.jpg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*q-fBU5pP-h9BQg46.jpg);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/4a12dc80fd13"><time class="dt-published" datetime="2025-06-17T03:27:52.891Z">June 17, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-xcode-%E7%9A%84-ui-test-%E9%8C%84%E8%A3%BD%E5%8F%AF%E9%87%8D%E8%A6%86%E5%9F%B7%E8%A1%8C%E7%9A%84-app-%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%A9%9F%E5%92%8C%E5%BD%B1%E7%89%87-4a12dc80fd13" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

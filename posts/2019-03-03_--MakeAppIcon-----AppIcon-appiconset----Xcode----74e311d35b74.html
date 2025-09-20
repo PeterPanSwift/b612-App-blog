@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將 MakeAppIcon 產生的 AppIcon.appiconset 加入 Xcode 專案</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將 MakeAppIcon 產生的 AppIcon.appiconset 加入 Xcode 專案</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+透過網站 MakeAppIcon 的幫忙，我們只要上傳圖片，即可製作產生 iOS App 需要的各種 App icon，包含 iPhone，iPad，Apple Watch 和上架的 icon。
+</section>
+<section data-field="body" class="e-content">
+<section name="089e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="dcd6" id="dcd6" class="graf graf--h3 graf--leading graf--title">將 MakeAppIcon 產生的 AppIcon.appiconset 加入 Xcode 專案</h3><p name="a834" id="a834" class="graf graf--p graf-after--h3">透過網站 MakeAppIcon 的幫忙，我們只要上傳圖片，即可製作產生 iOS App 需要的各種 App icon，包含 iPhone，iPad，Apple Watch 和上架的 icon。</p><div name="f877" id="f877" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://makeappicon.com" data-href="https://makeappicon.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://makeappicon.com"><strong class="markup--strong markup--mixtapeEmbed-strong">Developer Tool - App Icon Resizer</strong><br><em class="markup--em markup--mixtapeEmbed-em">MakeAppIcon is an icon creator that resizes all iOS icons and Android icons. With our icon resizer, you can import app…</em>makeappicon.com</a><a href="https://makeappicon.com" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="08f7b12c5dbd685d13c7584593a25bd0" data-thumbnail-img-id="0*QGx1VvNQ-hbjxciW" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*QGx1VvNQ-hbjxciW);"></a></div><p name="a088" id="a088" class="graf graf--p graf-after--mixtapeEmbed">當 MakeAppIcon 辛苦製作好 App icon 後，我們必須輸入 email，它才能將 icon 寄到我們的信箱。</p><figure name="c256" id="c256" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-3woM2hxN4Xqq12OvJapbA.jpeg" data-width="678" data-height="1092" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*-3woM2hxN4Xqq12OvJapbA.jpeg"></figure><p name="fce7" id="fce7" class="graf graf--p graf-after--figure">接下來就讓我們示範如何將 MakeAppIcon 寄來的 App icon 加入 Xcode 專案吧。</p><blockquote name="d30a" id="d30a" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1 打開 Xcode 專案，點選 Assets.xcassets 後，點選 AppIcon，然後按下 delete 鍵將它刪除。</strong></blockquote><p name="8be1" id="8be1" class="graf graf--p graf-after--blockquote">待會我們將重新加入 AppIcon，所以先將原本的 App Icon 刪除。</p><figure name="137d" id="137d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JJbySrxpK3fs-3eC9PDFzQ.jpeg" data-width="2040" data-height="500" src="https://cdn-images-1.medium.com/max/800/1*JJbySrxpK3fs-3eC9PDFzQ.jpeg"></figure><figure name="ba36" id="ba36" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*46NDJ27a40CjraVECvq_Qw.jpeg" data-width="2036" data-height="374" src="https://cdn-images-1.medium.com/max/800/1*46NDJ27a40CjraVECvq_Qw.jpeg"></figure><blockquote name="7b34" id="7b34" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">2 從信箱收信，點選 icon 的 zip 檔解壓縮。</strong></blockquote><figure name="a814" id="a814" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*fCw_RaA7crjxxkowju1JvQ.jpeg" data-width="1562" data-height="916" src="https://cdn-images-1.medium.com/max/800/1*fCw_RaA7crjxxkowju1JvQ.jpeg"></figure><blockquote name="9eef" id="9eef" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">3 從剛剛解壓縮的資料夾找到 ios下的 AppIcon.appiconset，然後加它拖曳到 Assets.xcassets 左邊的長方形區塊。</strong></blockquote><figure name="31e6" id="31e6" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*B_TiCm5xMQol6mVxjzci6w.jpeg" data-width="1616" data-height="404" src="https://cdn-images-1.medium.com/max/800/1*B_TiCm5xMQol6mVxjzci6w.jpeg"></figure><figure name="959d" id="959d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*fCutuB6z53RrsTk2Rd70dg.png" data-width="2560" data-height="1600" src="https://cdn-images-1.medium.com/max/800/1*fCutuB6z53RrsTk2Rd70dg.png"></figure><figure name="b6e3" id="b6e3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*dDZw-WRGdD0MAowTmmq0AA.jpeg" data-width="2542" data-height="1106" src="https://cdn-images-1.medium.com/max/800/1*dDZw-WRGdD0MAowTmmq0AA.jpeg"></figure><blockquote name="2dea" id="2dea" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">4 移除 AppIcon 裡多餘的 icon。</strong></blockquote><p name="f80f" id="f80f" class="graf graf--p graf-after--blockquote">找到顯示黃色三角形和 Unassigned 英文的 icon，按下 delete 鍵將它刪除。</p><figure name="687b" id="687b" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*k_qJ48CU6Csz2jS-abVRzg.jpeg" data-width="420" data-height="362" src="https://cdn-images-1.medium.com/max/800/1*k_qJ48CU6Csz2jS-abVRzg.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/74e311d35b74"><time class="dt-published" datetime="2019-03-03T08:38:17.098Z">March 3, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87-makeappicon-%E7%94%A2%E7%94%9F%E7%9A%84-appicon-appiconset-%E5%8A%A0%E5%85%A5-xcode-%E5%B0%88%E6%A1%88-74e311d35b74" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

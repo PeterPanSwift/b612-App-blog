@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Swift 的參數名字，順序和數量</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Swift 的參數名字，順序和數量</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+撰寫 Swift 程式時，不管是生成東西還是呼叫 function，( ) 裡傳入的參數名時都要完全和當初 init 或 function 裡宣告的一致。所謂的一致十分嚴格，參數的名稱，順序和數量都要一模一樣。接下來我們就以代表歌曲的 struct Song…
+</section>
+<section data-field="body" class="e-content">
+<section name="58cc" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9615" id="9615" class="graf graf--h3 graf--leading graf--title">Swift 的參數名字，順序和數量</h3><p name="3f50" id="3f50" class="graf graf--p graf-after--h3">撰寫 Swift 程式時，不管是生成東西還是呼叫 function，( ) 裡傳入的參數名時都要完全和當初 init 或 function 裡宣告的一致。所謂的一致十分嚴格，參數的名稱，順序和數量都要一模一樣。接下來我們就以代表歌曲的 struct Song 為例，看看幾個初學者容易不小心遇到的問題。</p><pre name="3bba" id="3bba" class="graf graf--pre graf-after--p">struct Song {</pre><pre name="f511" id="f511" class="graf graf--pre graf-after--pre">   var trackName: String</pre><pre name="c505" id="c505" class="graf graf--pre graf-after--pre">   var artistName: String</pre><pre name="6bea" id="6bea" class="graf graf--pre graf-after--pre">   var trackPrice: Int</pre><pre name="9cf6" id="9cf6" class="graf graf--pre graf-after--pre">}</pre><blockquote name="c016" id="c016" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">參數的數量不對</strong></blockquote><p name="1f16" id="1f16" class="graf graf--p graf-after--blockquote">Missing argument for parameter</p><p name="de75" id="de75" class="graf graf--p graf-after--p">我們忘了輸入參數 trackPrice。</p><figure name="3597" id="3597" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2BERz87VVmD4HUdumUNL9A.jpeg" data-width="1592" data-height="334" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*2BERz87VVmD4HUdumUNL9A.jpeg"></figure><blockquote name="74a0" id="74a0" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">參數的順序不對</strong></blockquote><p name="87f7" id="87f7" class="graf graf--p graf-after--blockquote">Argument ‘artistName’ must precede argument ‘trackPrice’</p><p name="8f37" id="8f37" class="graf graf--p graf-after--p">參數 artistName 應該要在 trackPrice 之前。</p><figure name="3277" id="3277" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*em6fCahF64iDQ6vxx6fLXA.jpeg" data-width="1734" data-height="348" src="https://cdn-images-1.medium.com/max/800/1*em6fCahF64iDQ6vxx6fLXA.jpeg"></figure><blockquote name="8c23" id="8c23" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">參數的名字不對</strong></blockquote><p name="b46c" id="b46c" class="graf graf--p graf-after--blockquote">Incorrect argument label</p><p name="6e23" id="6e23" class="graf graf--p graf-after--p">參數 name 應該改成 trackName。</p><figure name="d876" id="d876" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8E9tXmW46_cP81prd2WyOQ.jpeg" data-width="2176" data-height="328" src="https://cdn-images-1.medium.com/max/800/1*8E9tXmW46_cP81prd2WyOQ.jpeg"></figure><p name="d767" id="d767" class="graf graf--p graf-after--figure">另外還有兩種錯誤訊息，也可能在一些特別的情況下出現:</p><p name="045b" id="045b" class="graf graf--p graf-after--p">1 如果型別是 array 時，當參數的名字，順序或數量不一致時，出現的錯誤訊息會變成 tuple 無法轉換。</p><figure name="a29e" id="a29e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*v3PuIME6aUDDmtBHgCBsCg.jpeg" data-width="2306" data-height="310" src="https://cdn-images-1.medium.com/max/800/1*v3PuIME6aUDDmtBHgCBsCg.jpeg"></figure><p name="8f08" id="8f08" class="graf graf--p graf-after--figure">2 當型別遵從 protocol Codable，而我們給的參數不對時，將顯示錯誤 Cannot invoke initializer for type xxx with an argument list of type。</p><pre name="e598" id="e598" class="graf graf--pre graf-after--p">struct Song: Codable {</pre><pre name="6175" id="6175" class="graf graf--pre graf-after--pre">var trackName: String</pre><pre name="cc55" id="cc55" class="graf graf--pre graf-after--pre">var artistName: String</pre><pre name="81ad" id="81ad" class="graf graf--pre graf-after--pre">var trackPrice: Int</pre><pre name="d93b" id="d93b" class="graf graf--pre graf-after--pre">}</pre><pre name="9854" id="9854" class="graf graf--pre graf-after--pre">struct Song: Codable {</pre><pre name="dd0a" id="dd0a" class="graf graf--pre graf-after--pre">var trackName: String</pre><pre name="cefa" id="cefa" class="graf graf--pre graf-after--pre">var artistName: String</pre><pre name="4944" id="4944" class="graf graf--pre graf-after--pre">var trackPrice: Int</pre><pre name="b29d" id="b29d" class="graf graf--pre graf-after--pre">}</pre><figure name="9abb" id="9abb" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*PYgcQLsTAoD0Zy1aRDBLbA.jpeg" data-width="1766" data-height="274" src="https://cdn-images-1.medium.com/max/800/1*PYgcQLsTAoD0Zy1aRDBLbA.jpeg"></figure><p name="249f" id="249f" class="graf graf--p graf-after--figure">Swift 看似要求很多，但只要我們在輸入時盡量使用 Xcode 的自動完成，不要自己打，即可大大降低錯誤的機率，比方輸入 Song( 後，選擇參數 trackName，artistName &amp; trackPrice。</p><figure name="cc02" id="cc02" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*vW8Sd-Q_VjsQfcIZ3yrTcA.jpeg" data-width="2034" data-height="200" src="https://cdn-images-1.medium.com/max/800/1*vW8Sd-Q_VjsQfcIZ3yrTcA.jpeg"></figure><figure name="5b0a" id="5b0a" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*qrgNFulZebfWSJd1M-hLGQ.jpeg" data-width="1900" data-height="126" src="https://cdn-images-1.medium.com/max/800/1*qrgNFulZebfWSJd1M-hLGQ.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/7be48a5f0a21"><time class="dt-published" datetime="2018-12-07T16:56:17.427Z">December 7, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swift-%E7%9A%84%E5%8F%83%E6%95%B8%E5%90%8D%E5%AD%97-%E9%A0%86%E5%BA%8F%E5%92%8C%E6%95%B8%E9%87%8F-7be48a5f0a21" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

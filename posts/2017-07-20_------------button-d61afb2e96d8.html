@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>製作圖片在右，字在左的 button</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">製作圖片在右，字在左的 button</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS 的 UIButton 元件預設的設計是圖片在左，字在右。如下圖所示，當我們設定 image 欄位後，彼得潘的圖片出現在左邊，文字愛瘋一切為蘋果的彼得潘在右邊。
+</section>
+<section data-field="body" class="e-content">
+<section name="ec44" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2ec3" id="2ec3" class="graf graf--h3 graf--leading graf--title">製作圖片在右，字在左的 button</h3><p name="a626" id="a626" class="graf graf--p graf-after--h3">iOS 的 UIButton 元件預設的設計是圖片在左，字在右。如下圖所示，當我們設定 image 欄位後，彼得潘的圖片出現在左邊，文字愛瘋一切為蘋果的彼得潘在右邊。</p><figure name="13c1" id="13c1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eKQ-6qmFUlpckfUXISz0IA.jpeg" data-width="1504" data-height="594" src="https://cdn-images-1.medium.com/max/800/1*eKQ-6qmFUlpckfUXISz0IA.jpeg"></figure><p name="c778" id="c778" class="graf graf--p graf-after--figure">如果我們想和別人不一樣，圖片在右，字在左，可以嗎 ?</p><figure name="47fb" id="47fb" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://www.youtube.com/embed/DKL7UKSdzek?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><p name="2137" id="2137" class="graf graf--p graf-after--figure">當然可以 ! 請從 button 的 Attributes inspector 裡找到 Semantic 欄位。Semantic 是語義的意思，控制著元件內容是由左而右還是由右而左排列。</p><figure name="f495" id="f495" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9V59_RtLo5FLvXTBZlmIwQ.jpeg" data-width="864" data-height="600" src="https://cdn-images-1.medium.com/max/800/1*9V59_RtLo5FLvXTBZlmIwQ.jpeg"></figure><p name="c304" id="c304" class="graf graf--p graf-after--figure">預設值為 Unspecified，表示內容將依目前使用者手機的語言是由左到右 / 由右到左而調整。</p><div name="b872" id="b872" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uisemanticcontentattribute/1622582-unspecified" data-href="https://developer.apple.com/documentation/uikit/uisemanticcontentattribute/1622582-unspecified" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uisemanticcontentattribute/1622582-unspecified"><strong class="markup--strong markup--mixtapeEmbed-strong">unspecified - UISemanticContentAttribute | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uisemanticcontentattribute/1622582-unspecified" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="2d79fb41a720bd223b95808f758a0e7a"></a></div><p name="8447" id="8447" class="graf graf--p graf-after--mixtapeEmbed">在此我們選擇 Force Right-to-Left，強制它由右而左排列，如此即可實現圖在右，字在左的效果。</p><figure name="37bb" id="37bb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*oyJ7hkvxmdx6gH0NyBfUEw.jpeg" data-width="544" data-height="320" src="https://cdn-images-1.medium.com/max/800/1*oyJ7hkvxmdx6gH0NyBfUEw.jpeg"></figure><figure name="e5e9" id="e5e9" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*xu26PwOlMFyYeVkvcTryOg.jpeg" data-width="902" data-height="1540" src="https://cdn-images-1.medium.com/max/800/1*xu26PwOlMFyYeVkvcTryOg.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d61afb2e96d8"><time class="dt-published" datetime="2017-07-20T07:32:47.160Z">July 20, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A3%BD%E4%BD%9C%E5%9C%96%E7%89%87%E5%9C%A8%E5%8F%B3-%E5%AD%97%E5%9C%A8%E5%B7%A6%E7%9A%84-button-d61afb2e96d8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

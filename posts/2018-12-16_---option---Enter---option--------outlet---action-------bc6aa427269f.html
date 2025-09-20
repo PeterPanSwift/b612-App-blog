@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 option + Enter 或 option + 點擊顯示 outlet / action 連線的檔案</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 option + Enter 或 option + 點擊顯示 outlet / action 連線的檔案</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+拉 outlet / action 時，我們習慣先打開 Assistant Editor，然後再讓 Assistant Editor 的 Automatic 自動幫我們找到相關的檔案。但有時候它會失靈，或是像在拉 table view cell 的 outlet…
+</section>
+<section data-field="body" class="e-content">
+<section name="bd70" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e4ec" id="e4ec" class="graf graf--h3 graf--leading graf--title">利用 option + Enter 或 option + 點擊顯示 outlet / action 連線的檔案</h3><p name="ebff" id="ebff" class="graf graf--p graf-after--h3">拉 outlet / action 時，我們習慣先打開 Assistant Editor，然後再讓 Assistant Editor 的 Automatic 自動幫我們找到相關的檔案。</p><div name="59e9" id="59e9" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad"><strong class="markup--strong markup--mixtapeEmbed-strong">連結 IBAction 和 IBOutlet 的步驟說明</strong><br><em class="markup--em markup--mixtapeEmbed-em">以 Yaya 同學的小費 App 為例</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e60c3cb970446acd80b39982aab9cc85" data-thumbnail-img-id="1*vw0Is30y7DgkIhoUHfaF5g.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*vw0Is30y7DgkIhoUHfaF5g.jpeg);"></a></div><p name="e46e" id="e46e" class="graf graf--p graf-after--mixtapeEmbed">不過條條大路通羅馬，接下來我們將認識另一種拉 outlet / action 的方法，以拉 table view cell 裡元件的 outlet 為例。</p><ul class="postList"><li name="82ea" id="82ea" class="graf graf--li graf-after--p">打開 storyboard，找到要拉 outlet 的 table view cell 畫面。</li></ul><figure name="6f26" id="6f26" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*ODo-OCawnd0eVdY25Re-Qg.jpeg" data-width="1648" data-height="1078" src="https://cdn-images-1.medium.com/max/800/1*ODo-OCawnd0eVdY25Re-Qg.jpeg"></figure><ul class="postList"><li name="ba22" id="ba22" class="graf graf--li graf-after--figure">利用 option + Enter 或 option + 點擊，讓 Assistant Editor 顯示 outlet / action 連線的檔案。</li></ul><p name="ccb6" id="ccb6" class="graf graf--p graf-after--li">方法1: 打開 Open Quickly 視窗(快速鍵 cmd + shift + o)，輸入 cell 類別的關鍵字 songc 後，找到 cell 的類別檔 SongTableViewCell.swift，然後按下 option + Enter。</p><figure name="e706" id="e706" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OXCtdY2sh8ndM6v-uu_YnQ.jpeg" data-width="1024" data-height="400" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*OXCtdY2sh8ndM6v-uu_YnQ.jpeg"></figure><p name="985c" id="985c" class="graf graf--p graf-after--figure">方法2: 按住 option 點擊 Project navigator 下的 SongTableViewCell.swift。</p><p name="955c" id="955c" class="graf graf--p graf-after--p">Assistant Editor 成功顯示 SongTableViewCell.swift，現在我們可以順利地拉 cell 裡元件的 outlet。</p><figure name="e1df" id="e1df" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*OCsGTrDbEPH1pyuYNiZCmw.jpeg" data-width="1574" data-height="976" src="https://cdn-images-1.medium.com/max/800/1*OCsGTrDbEPH1pyuYNiZCmw.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/bc6aa427269f"><time class="dt-published" datetime="2018-12-16T15:07:00.503Z">December 16, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-open-quickly-%E6%89%93%E9%96%8B-assistant-editor-%E6%8B%89-outlet-action-bc6aa427269f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

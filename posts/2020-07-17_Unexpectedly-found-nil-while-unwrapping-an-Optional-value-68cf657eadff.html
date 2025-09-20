@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Unexpectedly found nil while unwrapping an Optional value</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Unexpectedly found nil while unwrapping an Optional value</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們以 ! 讀取無值的 optional 時會發生可怕的閃退，在 Xcode 12 我們可以更容易地找出凶手，找到造成閃退的無值 optional，例如以下例子:
+</section>
+<section data-field="body" class="e-content">
+<section name="a81f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="dcb1" id="dcb1" class="graf graf--h3 graf--leading graf--title">Unexpectedly found nil while unwrapping an Optional value</h3><p name="9410" id="9410" class="graf graf--p graf-after--h3">當我們以 ! 讀取無值的 optional 時會發生可怕的閃退，顯示錯誤訊息</p><pre name="723b" id="723b" class="graf graf--pre graf-after--p">Unexpectedly found nil while unwrapping an Optional value</pre><p name="e514" id="e514" class="graf graf--p graf-after--pre">在 Xcode 12 我們可以更容易地找出凶手，找到造成閃退的無值 optional，因為 Xcode 會在造成問題的 ! 或變數下標示紅線。</p><ul class="postList"><li name="3b2b" id="3b2b" class="graf graf--li graf-after--p">無值的 price 造成閃退，因此 price 的 ! 下有紅線。</li></ul><figure name="9741" id="9741" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*ujBbtDMrvBnUdz5cHy3Q9w.jpeg" data-width="1138" data-height="406" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*ujBbtDMrvBnUdz5cHy3Q9w.jpeg"></figure><figure name="6964" id="6964" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*1CwFjh9QJjC6KlJNH6WxvA.jpeg" data-width="206" data-height="198" src="https://cdn-images-1.medium.com/max/800/1*1CwFjh9QJjC6KlJNH6WxvA.jpeg"></figure><ul class="postList"><li name="6ce6" id="6ce6" class="graf graf--li graf-after--figure">無值的 percent 造成閃退，因此 percent 的 ! 下有紅線。</li></ul><figure name="2988" id="2988" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*ULZGxYPDtJk2a_4TkoesYw.jpeg" data-width="1126" data-height="386" src="https://cdn-images-1.medium.com/max/800/1*ULZGxYPDtJk2a_4TkoesYw.jpeg"></figure><figure name="fde1" id="fde1" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*hxXwIWwHVS6XltEjv0au3Q.jpeg" data-width="272" data-height="186" src="https://cdn-images-1.medium.com/max/800/1*hxXwIWwHVS6XltEjv0au3Q.jpeg"></figure><ul class="postList"><li name="d575" id="d575" class="graf graf--li graf-after--figure">無值的 label 造成閃退，因此 label 下有紅線。</li></ul><figure name="0a69" id="0a69" class="graf graf--figure graf-after--li graf--trailing"><img class="graf-image" data-image-id="1*tqrrQuDvlSzP8rJuiinqQQ.jpeg" data-width="1716" data-height="354" src="https://cdn-images-1.medium.com/max/800/1*tqrrQuDvlSzP8rJuiinqQQ.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/68cf657eadff"><time class="dt-published" datetime="2020-07-17T15:19:03.701Z">July 17, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/unexpectedly-found-nil-while-unwrapping-an-optional-value-68cf657eadff" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

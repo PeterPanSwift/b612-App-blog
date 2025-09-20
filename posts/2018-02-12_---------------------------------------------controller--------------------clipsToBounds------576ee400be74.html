@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>我研究了一下，有解法，不過會有閃一下，圖片先被切掉，然後再顯示完整的效果。你可以在回去的 controller 裡加入以下程式，會被切掉的原因是因為 clipsToBounds 被設成…</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">我研究了一下，有解法，不過會有閃一下，圖片先被切掉，然後再顯示完整的效果。你可以在回去的 controller 裡加入以下程式，會被切掉的原因是因為 clipsToBounds 被設成…</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+override func viewDidAppear(_ animated: Bool) {
+</section>
+<section data-field="body" class="e-content">
+<section name="bce7" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="662f" id="662f" class="graf graf--p graf--leading">我研究了一下，有解法，不過會有閃一下，圖片先被切掉，然後再顯示完整的效果。你可以在回去的 controller 裡加入以下程式，會被切掉的原因是因為 clipsToBounds 被設成 ture。假設你要顯示的東西是 imageView，目前實驗後，必須把imageView.superview?.superview?.superview?.clipsToBounds 設成 false，圖片才不會被切到。</p><p name="e8b7" id="e8b7" class="graf graf--p graf-after--p">override func viewDidAppear(_ animated: Bool) {</p><p name="c49e" id="c49e" class="graf graf--p graf-after--p">super.viewDidAppear(animated)</p><p name="8553" id="8553" class="graf graf--p graf-after--p">imageView.superview?.superview?.superview?.clipsToBounds = false</p><p name="defc" id="defc" class="graf graf--p graf-after--p graf--trailing">}</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/576ee400be74"><time class="dt-published" datetime="2018-02-12T13:28:38.478Z">February 12, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%88%91%E7%A0%94%E7%A9%B6%E4%BA%86%E4%B8%80%E4%B8%8B-%E6%9C%89%E8%A7%A3%E6%B3%95-%E4%B8%8D%E9%81%8E%E6%9C%83%E6%9C%89%E9%96%83%E4%B8%80%E4%B8%8B-%E5%9C%96%E7%89%87%E5%85%88%E8%A2%AB%E5%88%87%E6%8E%89-%E7%84%B6%E5%BE%8C%E5%86%8D%E9%A1%AF%E7%A4%BA%E5%AE%8C%E6%95%B4%E7%9A%84%E6%95%88%E6%9E%9C-%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%9C%A8%E5%9B%9E%E5%8E%BB%E7%9A%84-controller-%E8%A3%A1%E5%8A%A0%E5%85%A5%E4%BB%A5%E4%B8%8B%E7%A8%8B%E5%BC%8F-%E6%9C%83%E8%A2%AB%E5%88%87%E6%8E%89%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%98%AF%E5%9B%A0%E7%82%BA-clipstobounds-%E8%A2%AB%E8%A8%AD%E6%88%90-576ee400be74" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

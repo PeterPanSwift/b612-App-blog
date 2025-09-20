@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>更新 Interface Builder 顯示的畫面</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">更新 Interface Builder 顯示的畫面</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們使用 Interface Builder 設計 storyboard 或 xib 的 App 畫面時，有時會遇到以下問題 :
+</section>
+<section data-field="body" class="e-content">
+<section name="ce6b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="eec4" id="eec4" class="graf graf--h3 graf--leading graf--title">更新 Interface Builder 顯示的畫面</h3><p name="11ed" id="11ed" class="graf graf--p graf-after--h3">當我們使用 Interface Builder 設計 storyboard 或 xib 的 App 畫面時，有時會遇到以下問題 :</p><ul class="postList"><li name="1ca8" id="1ca8" class="graf graf--li graf-after--p">畫面顯示舊的狀態，沒有更新成新的設計。</li><li name="1038" id="1038" class="graf graf--li graf-after--li">畫面顯示不正常。</li></ul><p name="9652" id="9652" class="graf graf--p graf-after--li">比方我們在 storyboard 設定了 tab 的圖片跟文字，但下圖紅色框框的 tab bar 卻沒有更新。</p><figure name="40cb" id="40cb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sqsquX0wnMbfkUp71h6GjA.png" data-width="1390" data-height="1212" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*sqsquX0wnMbfkUp71h6GjA.png"></figure><figure name="7c1a" id="7c1a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*SP4Q3-94-cvccshWRyuizw.png" data-width="642" data-height="200" src="https://cdn-images-1.medium.com/max/800/1*SP4Q3-94-cvccshWRyuizw.png"></figure><p name="d913" id="d913" class="graf graf--p graf-after--figure">此問題算是 Xcode 的小小 bug，我們只要切換到別的檔案，再切回 storyboard，即可看到畫面正常顯示。</p><p name="6418" id="6418" class="graf graf--p graf-after--p">比方先點選 ViewController。</p><figure name="d6b2" id="d6b2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KrD5AoSbKLcbDAYAJjpuqQ.png" data-width="536" data-height="512" src="https://cdn-images-1.medium.com/max/800/1*KrD5AoSbKLcbDAYAJjpuqQ.png"></figure><p name="f4aa" id="f4aa" class="graf graf--p graf-after--figure">然後再點選 Main.storyboard。</p><figure name="2875" id="2875" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tZ_k18q7LEHf2vgJaRnEPQ.png" data-width="532" data-height="516" src="https://cdn-images-1.medium.com/max/800/1*tZ_k18q7LEHf2vgJaRnEPQ.png"></figure><p name="f337" id="f337" class="graf graf--p graf-after--figure">此時 tab 將正常地顯示可愛的愛心跟星星。</p><figure name="af26" id="af26" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*UNhhsaKHqpCl-EV3TCmiGA.png" data-width="522" data-height="1082" src="https://cdn-images-1.medium.com/max/800/1*UNhhsaKHqpCl-EV3TCmiGA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b06fe0344b61"><time class="dt-published" datetime="2022-11-18T06:23:34.387Z">November 18, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%9B%B4%E6%96%B0-interface-builder-%E9%A1%AF%E7%A4%BA%E7%9A%84%E7%95%AB%E9%9D%A2-b06fe0344b61" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>context menu</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">context menu</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Apple’s swift data collection &gt; 3.1 lab &gt; EmojiDictionary
+</section>
+<section data-field="body" class="e-content">
+<section name="5fb8" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="94d4" id="94d4" class="graf graf--h3 graf--leading graf--title">context menu </h3><p name="773f" id="773f" class="graf graf--p graf-after--h3">Apple’s swift data collection &gt; 3.1 lab &gt; EmojiDictionary</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="d1d7" id="d1d7" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"> <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">collectionView</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">collectionView</span>: <span class="hljs-type">UICollectionView</span>, <span class="hljs-params">contextMenuConfigurationForItemAt</span> <span class="hljs-params">indexPath</span>: <span class="hljs-type">IndexPath</span>, <span class="hljs-params">point</span>: <span class="hljs-type">CGPoint</span>) -&gt; <span class="hljs-type">UIContextMenuConfiguration</span>? {<br />        <span class="hljs-keyword">let</span> config <span class="hljs-operator">=</span> <span class="hljs-type">UIContextMenuConfiguration</span>(identifier: <span class="hljs-literal">nil</span>, previewProvider: <span class="hljs-literal">nil</span>) { (elements) -&gt; <span class="hljs-type">UIMenu</span>? <span class="hljs-keyword">in</span><br />            <span class="hljs-keyword">let</span> delete <span class="hljs-operator">=</span> <span class="hljs-type">UIAction</span>(title: <span class="hljs-string">&quot;Delete&quot;</span>) { (action) <span class="hljs-keyword">in</span><br />                <span class="hljs-keyword">self</span>.deleteEmoji(at: indexPath)<br />            }<br />            <br />            <span class="hljs-keyword">return</span> <span class="hljs-type">UIMenu</span>(title: <span class="hljs-string">&quot;&quot;</span>, image: <span class="hljs-literal">nil</span>, identifier: <span class="hljs-literal">nil</span>, options: [], children: [delete])<br />        }<br />        <span class="hljs-keyword">return</span> config<br />    }</span></pre><p name="f742" id="f742" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/c1aa7c2b8e57">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

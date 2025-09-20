@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>outlet 要等到 viewDidLoad 才能存取</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">outlet 要等到 viewDidLoad 才能存取</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+使用 storyboard / xib 設計 App 畫面時，我們必須透過 outlet 連結畫面上的元件，之後才能從程式存取。
+</section>
+<section data-field="body" class="e-content">
+<section name="968e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="240a" id="240a" class="graf graf--h3 graf--leading graf--title">outlet 要等到 viewDidLoad 才能存取</h3><p name="7436" id="7436" class="graf graf--p graf-after--h3">使用 storyboard / xib 設計 App 畫面時，我們必須透過 outlet 連結畫面上的元件，之後才能從程式存取。</p><p name="4479" id="4479" class="graf graf--p graf-after--p">不過從程式存取 outlet 的時間點要稍微注意，要記得等到 viewDidLoad 才能存取，因為畫面完成載入時 outlet 變數才確定有值。</p><p name="f8bd" id="f8bd" class="graf graf--p graf-after--p">有些同學在頁面切換，新頁面尚未完成載入時存取 outlet 造成 App 閃退。</p><p name="32fb" id="32fb" class="graf graf--p graf-after--p">以下我們以 BMI App 為例說明。假設 App 有兩個頁面，第一頁 BMIInputViewController 輸入身高體重，第二頁 BMIResultViewController 顯示 BMI。</p><figure name="460f" id="460f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sxOqnRRON8xN4ByWxCxJhg.png" data-width="2154" data-height="1400" src="https://cdn-images-1.medium.com/max/800/1*sxOqnRRON8xN4ByWxCxJhg.png"></figure><p name="2b91" id="2b91" class="graf graf--p graf-after--figure">BMIResultViewController 的 outlet bmiLabel 將顯示 BMI 的計算結果。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="1217" id="1217" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">BMIResultViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br /><br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> bmiLabel: <span class="hljs-type">UILabel</span>!</span></pre><p name="8cd5" id="8cd5" class="graf graf--p graf-after--pre">正確的寫法應該在 BMIInputViewController 的 IBSegueAction 或 prepare function 將身高體重傳給 BMIResultViewController，然後在 BMIResultViewController 的 viewDidLoad 計算 BMI 後顯示在 bmiLabel。</p><p name="2bbf" id="2bbf" class="graf graf--p graf-after--p">有些同學想到偷懶的方法，嘗試在 BMIInputViewController 的 IBSegueAction 或 prepare function 計算 BMI，然後將 BMI 顯示在 BMIResultViewController 的 bmiLabel。感覺這樣的寫法更簡單，這樣就不用在 BMIResultViewController 寫程式了。</p><p name="91ca" id="91ca" class="graf graf--p graf-after--p">很可惜的，直接在 IBSegueAction 或 prepare function 修改下一頁的畫面將造成 App 閃退。</p><ul class="postList"><li name="0bc7" id="0bc7" class="graf graf--li graf-after--p">在 IBSegueAction function 存取 outlet bmiLabel。</li></ul><figure name="e722" id="e722" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*dYHIrPE5nkA2Wgc90qVZ8Q.png" data-width="2254" data-height="574" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*dYHIrPE5nkA2Wgc90qVZ8Q.png"></figure><figure name="35c4" id="35c4" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*ksELWTCe63WMYxNPzoh6rA.png" data-width="2554" data-height="542" src="https://cdn-images-1.medium.com/max/800/1*ksELWTCe63WMYxNPzoh6rA.png"></figure><ul class="postList"><li name="8d7e" id="8d7e" class="graf graf--li graf-after--figure">在 prepare function 存取 outlet bmiLabel。</li></ul><figure name="8e84" id="8e84" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*pLdCJpFHCKKDMCP8ac977w.png" data-width="2270" data-height="528" src="https://cdn-images-1.medium.com/max/800/1*pLdCJpFHCKKDMCP8ac977w.png"></figure><figure name="007f" id="007f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*lZTbMiMKWrp7OPoXNF31jQ.png" data-width="2550" data-height="542" src="https://cdn-images-1.medium.com/max/800/1*lZTbMiMKWrp7OPoXNF31jQ.png"></figure><p name="acb3" id="acb3" class="graf graf--p graf-after--figure">從錯誤訊息 <code class="markup--code markup--p-code">Unexpectedly found nil while implicitly unwrapping an Optional value </code>和標示的紅線可明顯看出問題出在 bmiLabel 的內容是 nil。別忘了 outlet 變數預設都是以 ! 宣告的 optional，讀取時遇到 nil 將產生可怕的閃退。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="53e0" id="53e0" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> bmiLabel: <span class="hljs-type">UILabel</span>!</span></pre><p name="8739" id="8739" class="graf graf--p graf-after--pre">要記得當 App 切換頁面觸發 IBSegueAction / prepare function 時，新頁面尚未完成載入，它的 outlet 變數尚未有值，千萬不能在此刻存取。</p><p name="fcfc" id="fcfc" class="graf graf--p graf-after--p graf--trailing">因此通常 App 切換頁面時，我們會將資料傳給下一頁，在下一頁的 viewDidLoad 才將資料顯示在畫面上。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/34c7ba92b31a"><time class="dt-published" datetime="2024-08-27T08:35:19.017Z">August 27, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/outlet-%E8%A6%81%E7%AD%89%E5%88%B0-viewdidload-%E6%89%8D%E8%83%BD%E5%AD%98%E5%8F%96-34c7ba92b31a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

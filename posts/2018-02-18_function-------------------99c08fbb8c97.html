@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>function 名稱打錯 — 初學者易犯的程式錯誤</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">function 名稱打錯 — 初學者易犯的程式錯誤</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，如果希望某件事發生時執行某段程式碼，時常需要定義事件發生時呼叫的 function。這些 function 一般名字都很長，不是正常人可以背起來的，就算背起來，打字時 99% 的機率會打錯，所以一定要搭配 Xcode 的自動完成。
+</section>
+<section data-field="body" class="e-content">
+<section name="d8c0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9494" id="9494" class="graf graf--h3 graf--leading graf--title">function 名稱打錯 — 初學者易犯的程式錯誤</h3><p name="d2fd" id="d2fd" class="graf graf--p graf-after--h3">開發 iOS App 時，如果希望某件事發生時執行某段程式碼，時常需要定義事件發生時呼叫的 function。這些 function 一般名字都很長，不是正常人可以背起來的，就算背起來，打字時 99% 的機率會打錯，所以一定要搭配 Xcode 的自動完成。</p><p name="d50f" id="d50f" class="graf graf--p graf-after--p">比方我們想在表格點選時執行某段程式碼，因此輸入 function tableView(_:didSelectRowAt:) ，從選單裡找到目標後按 enter 完成輸入。</p><figure name="1123" id="1123" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jUUyg7f88q1XC2ToxvzyKA.jpeg" data-width="1898" data-height="338" src="https://cdn-images-1.medium.com/max/800/1*jUUyg7f88q1XC2ToxvzyKA.jpeg"></figure><pre name="a518" id="a518" class="graf graf--pre graf-after--figure">func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {</pre><pre name="4531" id="4531" class="graf graf--pre graf-after--pre">}</pre><p name="298a" id="298a" class="graf graf--p graf-after--pre">如果不小心打錯 function，比方將剛剛 function 的參數 indexPath 打成 path，並不會產生任何錯誤，但這樣反而更不好 !</p><pre name="b641" id="b641" class="graf graf--pre graf-after--p">func tableView(_ tableView: UITableView, didSelectRowAt path: IndexPath) {</pre><pre name="f217" id="f217" class="graf graf--pre graf-after--pre">}</pre><figure name="2393" id="2393" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*5MnRE4v9R21gsIGoJ_Mw4w.jpeg" data-width="1400" data-height="200" src="https://cdn-images-1.medium.com/max/800/1*5MnRE4v9R21gsIGoJ_Mw4w.jpeg"></figure><p name="f09d" id="f09d" class="graf graf--p graf-after--figure graf--trailing">因為此時 Xcode 將以為我們剛剛輸入的 function 是另一個 function，並不是表格點選時會呼叫的 function。雖然只是 indexPath 變成 path，但只要差一個字，就是不一樣，就好像劉德華跟劉的華帥度差很多一樣。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/99c08fbb8c97"><time class="dt-published" datetime="2018-02-18T15:34:24.460Z">February 18, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/function-%E5%90%8D%E7%A8%B1%E6%89%93%E9%8C%AF-%E5%88%9D%E5%AD%B8%E8%80%85%E6%98%93%E7%8A%AF%E7%9A%84%E7%A8%8B%E5%BC%8F%E9%8C%AF%E8%AA%A4-99c08fbb8c97" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

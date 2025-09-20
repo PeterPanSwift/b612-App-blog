@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>解決找不到 iPhone 模擬器的問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">解決找不到 iPhone 模擬器的問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們在 Mac 上同時安裝多個版本的 Xcode，一下子用版本 A 開發，一下子用版本 B 開發時，可能會遇到一個特別的問題。
+</section>
+<section data-field="body" class="e-content">
+<section name="48c8" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d9c2" id="d9c2" class="graf graf--h3 graf--leading graf--title">解決找不到 iPhone 模擬器的問題</h3><p name="3191" id="3191" class="graf graf--p graf-after--h3">當我們在 Mac 上同時安裝多個版本的 Xcode，一下子用版本 A 開發，一下子用版本 B 開發時，可能會遇到一個特別的問題。</p><p name="a3bc" id="a3bc" class="graf graf--p graf-after--p">如下圖所示，當我們將程式寫好，開心地準備將 App 安裝到模擬器時，卻發現模擬器消失了，而且是通通消失，一個都不留 !</p><figure name="fbd6" id="fbd6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nUE3LzNemroXQ1OwX5bUVA.jpeg" data-width="772" data-height="346" src="https://cdn-images-1.medium.com/max/800/1*nUE3LzNemroXQ1OwX5bUVA.jpeg"></figure><p name="a1d7" id="a1d7" class="graf graf--p graf-after--figure">會出現這個問題，是因為 Xcode 的 Command Line Tools 版本錯誤。你可以透過以下方法讓模擬器重出江湖 !</p><blockquote name="f27f" id="f27f" class="graf graf--blockquote graf-after--p">方法一:</blockquote><ol class="postList"><li name="a64c" id="a64c" class="graf graf--li graf-after--blockquote">點選 Xcode menu，Xcode &gt; Preferences。</li><li name="3b49" id="3b49" class="graf graf--li graf-after--li">切換到 Locations 頁面。</li></ol><figure name="6987" id="6987" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*QKZDoJd_1rcKKCGERT5VbA.jpeg" data-width="1594" data-height="934" src="https://cdn-images-1.medium.com/max/800/1*QKZDoJd_1rcKKCGERT5VbA.jpeg"></figure><p name="9c9e" id="9c9e" class="graf graf--p graf-after--figure">3. 選擇正確的 Xcode 版本。比方你正在使用 Xcode 9.2 的話，請選擇 Xcode 9.2。</p><figure name="d842" id="d842" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lAAJq0IIfHhXAQXwpe0xkA.jpeg" data-width="908" data-height="254" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*lAAJq0IIfHhXAQXwpe0xkA.jpeg"></figure><blockquote name="8f17" id="8f17" class="graf graf--blockquote graf-after--figure">方法二:</blockquote><p name="aa0a" id="aa0a" class="graf graf--p graf-after--blockquote">從 terminal 輸入指令，切換 Xcode 的版本，在 --switch 後請輸入目前使用中的 Xcode 路徑，路徑要描述到 Xcode.app 下的 Contents/Developer 這一層。</p><pre name="3ef5" id="3ef5" class="graf graf--pre graf-after--p graf--trailing">sudo xcode-select --switch  /Applications/Xcode.app/Contents/Developer</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c5a07add319a"><time class="dt-published" datetime="2018-02-03T16:43:36.401Z">February 3, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A7%A3%E6%B1%BA%E6%89%BE%E4%B8%8D%E5%88%B0-iphone-%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E5%95%8F%E9%A1%8C-c5a07add319a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

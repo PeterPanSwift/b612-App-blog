@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Firebase 重點整理</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Firebase 重點整理</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+1 一開始的設定
+</section>
+<section data-field="body" class="e-content">
+<section name="9c81" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d4b1" id="d4b1" class="graf graf--h3 graf--leading graf--title">Firebase 重點整理</h3><p name="36d7" id="36d7" class="graf graf--p graf-after--h3">1 一開始的設定 </p><p name="862c" id="862c" class="graf graf--p graf-after--p">(1) 建立專案，輸入 bundle ID。</p><figure name="fad6" id="fad6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*p_GZ6fFwSjzqgcO8BIpalA.jpeg" data-width="1282" data-height="1050" src="https://cdn-images-1.medium.com/max/800/1*p_GZ6fFwSjzqgcO8BIpalA.jpeg"></figure><p name="736a" id="736a" class="graf graf--p graf-after--figure">(2) 下載 GoogleService-Info.plist，加到 Xcode 專案裡。</p><figure name="52ca" id="52ca" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xmVeo8dlz3_W9zIbJ5v_Cw.jpeg" data-width="1382" data-height="984" src="https://cdn-images-1.medium.com/max/800/1*xmVeo8dlz3_W9zIbJ5v_Cw.jpeg"></figure><figure name="1a7b" id="1a7b" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*nuT7bgHYuZYdluJLkM7NLQ.jpeg" data-width="2220" data-height="872" src="https://cdn-images-1.medium.com/max/800/1*nuT7bgHYuZYdluJLkM7NLQ.jpeg"></figure><p name="a4e9" id="a4e9" class="graf graf--p graf-after--figure">(3) 安裝 pod</p><pre name="f398" id="f398" class="graf graf--pre graf-after--p">pod &#39;Firebase/Core&#39;</pre><p name="2692" id="2692" class="graf graf--p graf-after--pre">(4) 在 AppDelegate 設定 Firebase。</p><pre name="7bdd" id="7bdd" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">import Firebase</strong></pre><pre name="2317" id="2317" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="efb4" id="efb4" class="graf graf--pre graf-after--pre">@UIApplicationMain</pre><pre name="bffe" id="bffe" class="graf graf--pre graf-after--pre">class AppDelegate: UIResponder, UIApplicationDelegate {</pre><pre name="17e0" id="17e0" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="261f" id="261f" class="graf graf--pre graf-after--pre">var window: UIWindow?</pre><pre name="e98b" id="e98b" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="027e" id="027e" class="graf graf--pre graf-after--pre">func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {</pre><pre name="35d1" id="35d1" class="graf graf--pre graf-after--pre">// Override point for customization after application launch.</pre><pre name="53c1" id="53c1" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   FirebaseApp.configure()</strong></pre><pre name="0e04" id="0e04" class="graf graf--pre graf-after--pre">   return true</pre><pre name="50a5" id="50a5" class="graf graf--pre graf-after--pre">}</pre><p name="ee8b" id="ee8b" class="graf graf--p graf-after--pre">2 登入功能</p><figure name="bc5c" id="bc5c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cQOOsOKJ0Qc5HwpVwD_nUQ.jpeg" data-width="2876" data-height="1330" src="https://cdn-images-1.medium.com/max/800/1*cQOOsOKJ0Qc5HwpVwD_nUQ.jpeg"></figure><figure name="1e0c" id="1e0c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*eBsOtRdZCo5xXQNsteVHqQ.jpeg" data-width="2024" data-height="1036" src="https://cdn-images-1.medium.com/max/800/1*eBsOtRdZCo5xXQNsteVHqQ.jpeg"></figure><figure name="2856" id="2856" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*iW6Ody2JsobbQcr_Sr68Xg.jpeg" data-width="1998" data-height="706" src="https://cdn-images-1.medium.com/max/800/1*iW6Ody2JsobbQcr_Sr68Xg.jpeg"></figure><figure name="6ef2" id="6ef2" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*9_rmShKYn3IeNJwyriJEYw.jpeg" data-width="1984" data-height="518" src="https://cdn-images-1.medium.com/max/800/1*9_rmShKYn3IeNJwyriJEYw.jpeg"></figure><p name="e166" id="e166" class="graf graf--p graf-after--figure">3 使用 Database </p><p name="0785" id="0785" class="graf graf--p graf-after--p">(1) Database 的套件</p><pre name="2016" id="2016" class="graf graf--pre graf-after--p">pod &#39;Firebase/Database&#39;</pre><p name="f6f1" id="f6f1" class="graf graf--p graf-after--pre">(2) 要登入後才能上傳資料</p><p name="24b7" id="24b7" class="graf graf--p graf-after--p">否則會有 permission_denied 的錯誤。</p><p name="2ebc" id="2ebc" class="graf graf--p graf-after--p">(3) 登入要用到 Auth 的套件</p><pre name="aebe" id="aebe" class="graf graf--pre graf-after--p">pod &#39;Firebase/Auth&#39;</pre><p name="fd9e" id="fd9e" class="graf graf--p graf-after--pre">(4) email register。</p><pre name="a7b3" id="a7b3" class="graf graf--pre graf-after--p">Auth.auth().createUser(withEmail: &quot;test@gmail.com&quot;, password: &quot;123456&quot;) { (user, error) in</pre><pre name="eec7" id="eec7" class="graf graf--pre graf-after--pre">   print(user?.uid)</pre><pre name="ce23" id="ce23" class="graf graf--pre graf-after--pre">}</pre><p name="315e" id="315e" class="graf graf--p graf-after--pre">createUser 後即為登入狀態。</p><p name="b2c6" id="b2c6" class="graf graf--p graf-after--p">(2) setValue : 取代</p><pre name="ea8c" id="ea8c" class="graf graf--pre graf-after--p">let songDic = [&quot;name&quot;: &quot;你好不好&quot;]</pre><pre name="563e" id="563e" class="graf graf--pre graf-after--pre">Database.database().reference().child(&quot;songs&quot;).setValue(songDic)</pre><p name="8621" id="8621" class="graf graf--p graf-after--pre">(3) updateChildValues: 更新</p><p name="b672" id="b672" class="graf graf--p graf-after--p">如果 key 原本就存在，它的 value 會被更新。</p><p name="621c" id="621c" class="graf graf--p graf-after--p">如果 key 原本不存在，會新增 key 和 value。</p><pre name="a590" id="a590" class="graf graf--pre graf-after--p">let songDic = [&quot;name&quot;: &quot;你好不好&quot;]</pre><pre name="4963" id="4963" class="graf graf--pre graf-after--pre">Database.database().reference().child(&quot;songs&quot;).updateChildValues(songDic) { (error, reference) in</pre><pre name="e273" id="e273" class="graf graf--pre graf-after--pre">}</pre><p name="8387" id="8387" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/45727131e11a">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

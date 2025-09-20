@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Xcode 的 Extract to method</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Xcode 的 Extract to method</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+撰寫程式時，我們時常將重覆使用的程式定義成 function ，而且時常我們是在後來整理程式時才發現重覆的程式碼，此時我們並不需要人工搬移程式，利用 Xcode 貼心的 Extract to method 即可將程式自動變成 method。
+</section>
+<section data-field="body" class="e-content">
+<section name="37a0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1bbd" id="1bbd" class="graf graf--h3 graf--leading graf--title">Xcode 的 Extract to Method</h3><p name="a1f5" id="a1f5" class="graf graf--p graf-after--h3">撰寫程式時，我們時常將重覆使用的程式定義成 function ，而且時常我們是在後來整理程式時才發現重覆的程式碼，此時我們並不需要人工搬移程式，利用 Xcode 貼心的 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">Extract to Method</strong></code> 即可將程式自動變成 method。</p><p name="bfd0" id="bfd0" class="graf graf--p graf-after--p">接下來我們將以 Apple 參考書 Develop in Swift Fundamentals 的 Guided Project — Light 為例說明。</p><div name="ecc6" id="ecc6" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://books.apple.com/tw/book/develop-in-swift-fundamentals/id6468967906?l=en-GB" data-href="https://books.apple.com/tw/book/develop-in-swift-fundamentals/id6468967906?l=en-GB" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://books.apple.com/tw/book/develop-in-swift-fundamentals/id6468967906?l=en-GB"><strong class="markup--strong markup--mixtapeEmbed-strong">‎Develop in Swift Fundamentals</strong><br><em class="markup--em markup--mixtapeEmbed-em">Download and read the ebook version of Develop in Swift Fundamentals by Apple Education on Apple Books. Students build…</em>books.apple.com</a><a href="https://books.apple.com/tw/book/develop-in-swift-fundamentals/id6468967906?l=en-GB" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="1a18635c816fa93eff2e69e8045c69b1" data-thumbnail-img-id="0*IyuQejXCDYKNixr8" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*IyuQejXCDYKNixr8);"></a></div><figure name="4510" id="4510" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*nQlETpW4EXR3P0ywwhtexQ.jpeg" data-width="2122" data-height="1100" src="https://cdn-images-1.medium.com/max/800/1*nQlETpW4EXR3P0ywwhtexQ.jpeg"></figure><h3 name="c4cf" id="c4cf" class="graf graf--h3 graf-after--figure">選取想要變成 method 的程式碼</h3><p name="0927" id="0927" class="graf graf--p graf-after--h3">比方下圖選取的程式碼。</p><figure name="d56f" id="d56f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*241sgsqWeYv7JhOVROfOrg.png" data-width="1664" data-height="332" src="https://cdn-images-1.medium.com/max/800/1*241sgsqWeYv7JhOVROfOrg.png"></figure><h3 name="bb36" id="bb36" class="graf graf--h3 graf-after--figure">點選 Extract to Method</h3><p name="8f12" id="8f12" class="graf graf--p graf-after--h3">方法1: 從 Quick Actions 點選 Extract to Method。</p><figure name="851e" id="851e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*WIgf7Jzn0a5EwBFiTxNpkw.png" data-width="960" data-height="348" src="https://cdn-images-1.medium.com/max/800/1*WIgf7Jzn0a5EwBFiTxNpkw.png"></figure><p name="66ea" id="66ea" class="graf graf--p graf-after--figure">方法 2: 按右鍵顯示右鍵選單，點選 Refactor &gt; Extract to Method。</p><figure name="7bc2" id="7bc2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*k2S9bo2lJueM8pN7ySbhjA.png" data-width="1160" data-height="776" src="https://cdn-images-1.medium.com/max/800/1*k2S9bo2lJueM8pN7ySbhjA.png"></figure><p name="a427" id="a427" class="graf graf--p graf-after--figure">此時程式將自動搬移到外面，變成名為 extractedFunc 的 method，而且它還貼心的加上 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">fileprivate</strong></code>，因為通常我們只想在檔案裡呼叫剛剛生成的 method，不會在其它地方呼叫。</p><figure name="6112" id="6112" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eboruq42OFFP0pEpySYJQw.png" data-width="1628" data-height="540" src="https://cdn-images-1.medium.com/max/800/1*eboruq42OFFP0pEpySYJQw.png"></figure><h3 name="69c3" id="69c3" class="graf graf--h3 graf-after--figure">輸入 method 名稱</h3><p name="83a5" id="83a5" class="graf graf--p graf-after--h3">我們可在框框裡輸入 method 的名字，比方下圖的 updateUI。</p><figure name="a17c" id="a17c" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*3rpRgfLR5yt_csYYqVaU0A.png" data-width="1650" data-height="580" src="https://cdn-images-1.medium.com/max/800/1*3rpRgfLR5yt_csYYqVaU0A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/f6d8f21977e7"><time class="dt-published" datetime="2020-10-03T14:48:18.579Z">October 3, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/xcode-%E7%9A%84-extract-to-method-f6d8f21977e7" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

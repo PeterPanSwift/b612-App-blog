@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>顯示程式版本差異的 Show Change — Xcode 11 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">顯示程式版本差異的 Show Change — Xcode 11 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 支援 git 版本管理功能，當我們修改 Swift 程式時，它將貼心地在旁邊標示出目前修改的段落。如下圖所示，箭頭所指的 change bar 表示目前程式跟上次 commit 差異的地方。
+</section>
+<section data-field="body" class="e-content">
+<section name="a9bc" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="63ae" id="63ae" class="graf graf--h3 graf--leading graf--title">顯示程式版本差異的 Show Change — Xcode 11 新功能</h3><p name="04a4" id="04a4" class="graf graf--p graf-after--h3">Xcode 支援 git 版本管理功能，當我們修改 Swift 程式時，它將貼心地在旁邊標示出目前修改的段落。如下圖所示，箭頭所指的 change bar 表示目前程式跟上次 commit 差異的地方。</p><figure name="2d72" id="2d72" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*raele3Kei5acvNqE3i2OGw.jpeg" data-width="1354" data-height="484" src="https://cdn-images-1.medium.com/max/800/1*raele3Kei5acvNqE3i2OGw.jpeg"></figure><p name="f433" id="f433" class="graf graf--p graf-after--figure">在 Xcode 11，change bar 的功能更進化了。當我們點選 change bar 時，從選單點選 Show Change 即可查看目前程式跟上次 commit 的差異，幫助我們更方便地查看之前寫的程式和比較差異。</p><figure name="00d0" id="00d0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gBWyFeSQc6R-LJEM_u7B1g.jpeg" data-width="712" data-height="276" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*gBWyFeSQc6R-LJEM_u7B1g.jpeg"></figure><p name="e637" id="e637" class="graf graf--p graf-after--figure">比方當我們點選上圖的 Show Change 時，它將如下圖所示，顯示上次 commit 時還存在的 outlet textField，我們在這次的修改將它刪除了。</p><figure name="b1ee" id="b1ee" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lOhiRZ3-otmi_TXg9XihKQ.jpeg" data-width="1326" data-height="218" src="https://cdn-images-1.medium.com/max/800/1*lOhiRZ3-otmi_TXg9XihKQ.jpeg"></figure><p name="60f7" id="60f7" class="graf graf--p graf-after--figure">讓我們再看看另一個 Show Change 的例子。如下圖所示，此段程式告訴我們之前的程式將 view 設為紅色，將 text field 設為黃色。而我們現在將這兩行程式刪除了，改成將 view 設為橘色。</p><figure name="1c6f" id="1c6f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zk95KGoi17p421r4GQb_Pg.jpeg" data-width="1562" data-height="232" src="https://cdn-images-1.medium.com/max/800/1*zk95KGoi17p421r4GQb_Pg.jpeg"></figure><p name="ef87" id="ef87" class="graf graf--p graf-after--figure">參考說明</p><p name="7f27" id="7f27" class="graf graf--p graf-after--p">Xcode 11 release note</p><pre name="fd23" id="fd23" class="graf graf--pre graf-after--p graf--trailing">Introduces the ability to view inline code diffs for changes in the Source Editor by clicking on the Source Control Change Bar and choosing Show or Hide Change.</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/f18b97744305"><time class="dt-published" datetime="2019-06-11T15:03:43.931Z">June 11, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E9%A1%AF%E7%A4%BA%E7%A8%8B%E5%BC%8F%E7%89%88%E6%9C%AC%E5%B7%AE%E7%95%B0%E7%9A%84-show-change-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-f18b97744305" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>控制點選範圍的 contentShape</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">控制點選範圍的 contentShape</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 contentShape 我們可以控制點選的範圍，接下來讓我們看看以下幾種應用的例子。
+</section>
+<section data-field="body" class="e-content">
+<section name="45c8" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3a1a" id="3a1a" class="graf graf--h3 graf--leading graf--title">控制點選範圍的 contentShape</h3><p name="af46" id="af46" class="graf graf--p graf-after--h3">利用 contentShape 我們可以控制點選的範圍，接下來讓我們看看以下幾種應用的例子。</p><ul class="postList"><li name="b494" id="b494" class="graf graf--li graf-after--p">設定只有圖案可點選，空白地方不能點選。</li><li name="d647" id="d647" class="graf graf--li graf-after--li">設定空白地方也可點選。</li><li name="2d64" id="2d64" class="graf graf--li graf-after--li">加大點選範圍。</li></ul><h3 name="6eaa" id="6eaa" class="graf graf--h3 graf-after--li">設定只有圖案可點選，空白地方不能點選</h3><p name="bf23" id="bf23" class="graf graf--p graf-after--h3">原本圓形以外的空白區塊也可點選。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3383" id="3383" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(.fish)<br />            .resizable()<br />            .scaledToFill()<br />            .frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">300</span>)<br />            .clipShape(.circle)<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;tap&quot;</span>)<br />            }<br />    }<br />}</span></pre><figure name="2cb6" id="2cb6" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*bxrcxUdevoYCqstwYhVi3A.png" data-width="524" data-height="722" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*bxrcxUdevoYCqstwYhVi3A.png"></figure><p name="f209" id="f209" class="graf graf--p graf-after--figure">我們想要只有圓形區塊可以點選，加入 modifier <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">contentShape(.circle)</strong></code>，設定圓形範圍是點選區塊。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="72f2" id="72f2" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(.fish)<br />            .resizable()<br />            .scaledToFill()<br />            .frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">300</span>)<br />            .clipShape(.circle)<br />            .contentShape(.circle)<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;tap&quot;</span>)<br />            }<br />    }<br />}</span></pre><h3 name="0200" id="0200" class="graf graf--h3 graf-after--pre">設定空白地方也可點選</h3><p name="229e" id="229e" class="graf graf--p graf-after--h3">原本只有圖片可點選，框框裡的空白區塊不能點選。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="5eef" id="5eef" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(.peter)<br />            .foregroundStyle( .red)<br />            .frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">300</span>)<br />            .border(<span class="hljs-type">Color</span>.black, width: <span class="hljs-number">5</span>)<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;tap&quot;</span>)<br />            }<br />    }<br />}</span></pre><figure name="4b44" id="4b44" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*zasS6--smQiRu8W8aw3njg.png" data-width="516" data-height="702" src="https://cdn-images-1.medium.com/max/800/1*zasS6--smQiRu8W8aw3njg.png"></figure><p name="246f" id="246f" class="graf graf--p graf-after--figure">我們希望整個框框都可點選，利用 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">contentShape(.rect)</strong></code> 設定長方形範圍是點選區塊。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a6ee" id="a6ee" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(.peter)<br />            .foregroundStyle( .red)<br />            .frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">300</span>)<br />            .border(<span class="hljs-type">Color</span>.black, width: <span class="hljs-number">5</span>)<br />            .contentShape(.rect)<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;tap&quot;</span>)<br />            }<br />    }<br />}</span></pre><h3 name="048b" id="048b" class="graf graf--h3 graf-after--pre">加大點選範圍</h3><p name="d849" id="d849" class="graf graf--p graf-after--h3">原本只有<code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">點我</strong></code>可以點選。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="e8bc" id="e8bc" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;點我&quot;</span>)<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;點我&quot;</span>)<br />            }<br />    }<br />}</span></pre><figure name="a1b3" id="a1b3" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*L1_QKq1F5UnBYpTjHdl68Q.png" data-width="194" data-height="104" src="https://cdn-images-1.medium.com/max/800/1*L1_QKq1F5UnBYpTjHdl68Q.png"></figure><p name="fca2" id="fca2" class="graf graf--p graf-after--figure">加大點選範圍，讓文字附近 100 * 100 的區塊都可點選。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="525e" id="525e" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;點我&quot;</span>)<br />            .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />            .contentShape(.rect)<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;點我&quot;</span>)<br />            }<br />    }<br />}</span></pre><h3 name="5d81" id="5d81" class="graf graf--h3 graf-after--pre">參考連結</h3><div name="52a1" id="52a1" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://developer.apple.com/documentation/swiftui/view/contentshape%28_:eofill:%29" data-href="https://developer.apple.com/documentation/swiftui/view/contentshape(_:eofill:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/contentshape(_:eofill:)"><strong class="markup--strong markup--mixtapeEmbed-strong">contentShape(_:eoFill:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Defines the content shape for hit testing.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/contentshape%28_:eofill:%29" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="66a91a97ec8f19bbb6be4f724a13f029" data-thumbnail-img-id="0*hsWEGE7Fy134qZnc" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*hsWEGE7Fy134qZnc);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/394fa57e8b34"><time class="dt-published" datetime="2021-06-05T11:25:15.819Z">June 5, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%8E%A7%E5%88%B6%E9%BB%9E%E9%81%B8%E7%AF%84%E5%9C%8D%E7%9A%84-contentshape-394fa57e8b34" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

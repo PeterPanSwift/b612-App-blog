@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Logger 印出包含時間的 debug 訊息</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Logger 印出包含時間的 debug 訊息</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Apple 在 iOS 14 推出更方便列印訊息的 Logger 物件，它有許多比 print 厲害的地方，有興趣的可參考以下 Apple 官方的連結。
+</section>
+<section data-field="body" class="e-content">
+<section name="c44e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a09e" id="a09e" class="graf graf--h3 graf--leading graf--title">利用 Logger 印出包含時間的 debug 訊息</h3><figure name="27b8" id="27b8" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*ogQWMleBe-2jgOL7RoHNgw.png" data-width="2078" data-height="770" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*ogQWMleBe-2jgOL7RoHNgw.png"></figure><p name="056c" id="056c" class="graf graf--p graf-after--figure">Apple 在 iOS 14 推出更方便列印訊息的 Logger 物件，它有許多比 print 厲害的地方，有興趣的可參考以下 Apple 官方的連結。</p><div name="0b2a" id="0b2a" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/os/logger" data-href="https://developer.apple.com/documentation/os/logger" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/os/logger"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/os/logger" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="36a7ae20725ffd1554afaa8677ddd34f"></a></div><p name="0d66" id="0d66" class="graf graf--p graf-after--mixtapeEmbed">在此彼得潘想分享它跟 print 一個最明顯的差異，它印出訊息時將包含時間資訊，因此若想知道訊息何時印出，Logger 將是不錯的選擇。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="ec8c" id="ec8c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> UIKit<br /><span class="hljs-keyword">import</span> os<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />  <span class="hljs-keyword">let</span> logger <span class="hljs-operator">=</span> <span class="hljs-type">Logger</span>()<br />   <br />  <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        logger.log(<span class="hljs-string">&quot;viewDidLoad&quot;</span>)<br />        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;viewDidLoad&quot;</span>)<br />  }<br />}</span></pre><p name="0125" id="0125" class="graf graf--p graf-after--pre">import os 後才能使用 Logger。產生 Logger 物件後，呼叫它的 log 即可列印。</p><p name="fa31" id="fa31" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">結果</strong></p><p name="cddc" id="cddc" class="graf graf--p graf-after--p">logger 印出的訊息包含時間，print 印出的訊息不包含時間。</p><pre name="b8ee" id="b8ee" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">2021-01-07 22:55:24.205359+0800 Demo2[10657:519286] viewDidLoad</strong></pre><pre name="c96e" id="c96e" class="graf graf--pre graf-after--pre graf--trailing"><strong class="markup--strong markup--pre-strong">viewDidLoad</strong></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/f5018134d61f"><time class="dt-published" datetime="2021-01-07T15:01:24.073Z">January 7, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-logger-%E5%8D%B0%E5%87%BA%E5%8C%85%E5%90%AB%E6%99%82%E9%96%93%E7%9A%84-debug-%E8%A8%8A%E6%81%AF-f5018134d61f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

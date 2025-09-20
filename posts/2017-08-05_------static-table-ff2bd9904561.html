@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>一片空白的 static table</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">一片空白的 static table</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+表格是 iOS App 裡十分重要的元件，我們看到的 App 頁面，幾乎一半以上都是用表格實現。而搭配 UITableViewController 的 static table 更是 Apple 的偉大發明，透過它一行程式都不用寫，在 storyboard…
+</section>
+<section data-field="body" class="e-content">
+<section name="eb33" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9778" id="9778" class="graf graf--h3 graf--leading graf--title">一片空白的 static table</h3><p name="75e8" id="75e8" class="graf graf--p graf-after--h3">表格是 iOS App 裡十分重要的元件，我們看到的 App 頁面，幾乎一半以上都是用表格實現。而搭配 UITableViewController 的 static table 更是 Apple 的偉大發明，透過它一行程式都不用寫，在 storyboard 編輯即可打造固定內容的表格頁面。</p><figure name="1570" id="1570" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ApnwEF3yeziCW8L7s6RhRw.png" data-width="898" data-height="1496" src="https://cdn-images-1.medium.com/max/800/1*ApnwEF3yeziCW8L7s6RhRw.png"></figure><p name="237c" id="237c" class="graf graf--p graf-after--figure">然而當我們將 controller 的類別從 UITableViewController 改成自訂的 table view controller 類別時，程式裡有個地方要稍做調整，否則 App 執行後將看到一片空白的表格，我們在 storyboard 精心設計的畫面恰似一江春水向東流，完全不見了 !</p><figure name="7dd1" id="7dd1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*PgiBTEk5AlRF_rmfhbo91Q.png" data-width="1066" data-height="1860" src="https://cdn-images-1.medium.com/max/800/1*PgiBTEk5AlRF_rmfhbo91Q.png"></figure><p name="0305" id="0305" class="graf graf--p graf-after--figure">問題出在自訂的 table view controller 類別下的這兩個 function，它們控制著表格有幾個 section，每個 section 有幾個 cell。兩個 function 裡的程式預設都回傳 0，當然就讓我們的表格一片空白了。</p><pre name="cbad" id="cbad" class="graf graf--pre graf-after--p">override func numberOfSections(in tableView: UITableView) -&gt; Int {</pre><pre name="4ddc" id="4ddc" class="graf graf--pre graf-after--pre">// #warning Incomplete implementation, return the number of sections</pre><pre name="82aa" id="82aa" class="graf graf--pre graf-after--pre">return 0</pre><pre name="f17d" id="f17d" class="graf graf--pre graf-after--pre">}</pre><pre name="b116" id="b116" class="graf graf--pre graf-after--pre">override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {</pre><pre name="3c68" id="3c68" class="graf graf--pre graf-after--pre">// #warning Incomplete implementation, return the number of rows</pre><pre name="54a2" id="54a2" class="graf graf--pre graf-after--pre">return 0</pre><pre name="fc23" id="fc23" class="graf graf--pre graf-after--pre">}</pre><p name="3cf7" id="3cf7" class="graf graf--p graf-after--pre">解決的方法很簡單，只要將這兩個 fucntion 刪除即可，static table 從 storyboard 的畫面即可知道它有幾個 section，幾個 cell，不需要這兩個 function 的幫忙。</p><figure name="1682" id="1682" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*VGBsIKCRca1MK7F2FfFgiw.png" data-width="1066" data-height="1860" src="https://cdn-images-1.medium.com/max/800/1*VGBsIKCRca1MK7F2FfFgiw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ff2bd9904561"><time class="dt-published" datetime="2017-08-05T07:59:40.980Z">August 5, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%B8%80%E7%89%87%E7%A9%BA%E7%99%BD%E7%9A%84-static-table-ff2bd9904561" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

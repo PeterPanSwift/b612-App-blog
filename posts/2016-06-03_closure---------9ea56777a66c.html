@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>closure 參數的自動完成</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">closure 參數的自動完成</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+很多 Swift 初學者不喜歡 closure，因為覺得輸入很麻煩，很容易打錯字。其實我們都誤會她了，輸入 closure 一點也不麻煩，比方以下例子:
+</section>
+<section data-field="body" class="e-content">
+<section name="322e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="24c7" id="24c7" class="graf graf--h3 graf--leading graf--title">closure 參數的自動完成</h3><p name="601f" id="601f" class="graf graf--p graf-after--h3">很多 Swift 初學者不喜歡 closure，因為覺得輸入很麻煩，很容易打錯字。其實我們都誤會她了，輸入 closure 一點也不麻煩，比方以下例子:</p><p name="07bd" id="07bd" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">範例 :</strong></p><pre name="0915" id="0915" class="graf graf--pre graf-after--p">func playMusic(album: (String, String) -&gt; String) {</pre><pre name="c8aa" id="c8aa" class="graf graf--pre graf-after--pre">   print(album(&quot;周杰倫&quot;, &quot;晴天&quot;))</pre><pre name="3e9e" id="3e9e" class="graf graf--pre graf-after--pre">}</pre><ol class="postList"><li name="360d" id="360d" class="graf graf--li graf-after--pre">輸入 play，從提示清單裡選擇 playMusic，按下enter。</li></ol><figure name="cf41" id="cf41" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*J_bmqibT8vFQhN5M7yTm4g.jpeg" data-width="1396" data-height="216" src="https://cdn-images-1.medium.com/max/800/1*J_bmqibT8vFQhN5M7yTm4g.jpeg"></figure><figure name="951c" id="951c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*-ADk6ucrfp2nZy8BdjLMvA.jpeg" data-width="986" data-height="156" src="https://cdn-images-1.medium.com/max/800/1*-ADk6ucrfp2nZy8BdjLMvA.jpeg"></figure><p name="3b0d" id="3b0d" class="graf graf--p graf-after--figure">2. 當 album 參數為藍色提示區塊時，按下 enter，Xcode 將聰明地幫我們自動輸入 closure 的相關資訊。( Xcode 的自動完成會幫我們挑選適合的格式，比方在這個例子，它選擇以 trailing closure 的格式輸入，因為傳入的 closure 是最後一個參數。)</p><figure name="437f" id="437f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*GwWtRkomJFzLxNlM-ZRJcQ.jpeg" data-width="924" data-height="210" src="https://cdn-images-1.medium.com/max/800/1*GwWtRkomJFzLxNlM-ZRJcQ.jpeg"></figure><p name="8c90" id="8c90" class="graf graf--p graf-after--figure">3. 輸入 closure 第一個參數的名字 singer 後，按下 tab，游標和藍色提示區塊移動到第2個參數。(參數的名字我們要自己取，可自由取一 個你喜歡的名字。)</p><figure name="6755" id="6755" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zgs1Ue8UeuV8r0fqiXldaQ.jpeg" data-width="912" data-height="190" src="https://cdn-images-1.medium.com/max/800/1*zgs1Ue8UeuV8r0fqiXldaQ.jpeg"></figure><p name="bc6b" id="bc6b" class="graf graf--p graf-after--figure">(2) 輸入第二個參數的名字 song 後，按下 tab，游標移動到 code 的藍色提示區塊。</p><figure name="c76a" id="c76a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*37n2CTjA3zXIVPMmiiV2Zg.jpeg" data-width="874" data-height="200" src="https://cdn-images-1.medium.com/max/800/1*37n2CTjA3zXIVPMmiiV2Zg.jpeg"></figure><p name="d324" id="d324" class="graf graf--p graf-after--figure">4. 輸入 closure 裡執行的程式碼。</p><figure name="d609" id="d609" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uQTgdFgfbVhTmw2z0Lg_AQ.jpeg" data-width="878" data-height="192" src="https://cdn-images-1.medium.com/max/800/1*uQTgdFgfbVhTmw2z0Lg_AQ.jpeg"></figure><p name="4f9e" id="4f9e" class="graf graf--p graf-after--figure graf--trailing">因此，輸入 closure 參數時請先按下 enter，讓 Xcode 幫我們自動完成，然後再利用 tab 鍵移動，依序輸入參數名和程式碼，即可讓我們不動滑鼠地完成 closure 的輸入。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9ea56777a66c"><time class="dt-published" datetime="2016-06-03T09:19:02.084Z">June 3, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/closure%E5%8F%83%E6%95%B8%E7%9A%84%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90-9ea56777a66c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

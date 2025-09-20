@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 JSONSerialization 印出美美縮排的 JSON</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 JSONSerialization 印出美美縮排的 JSON</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+串接後台的 JSON API 時，我們時常需要檢查 JSON 資料是否正確。透過將抓到的 Data 變成 String，我們可以用厲害的肉眼檢查。
+</section>
+<section data-field="body" class="e-content">
+<section name="c321" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3f99" id="3f99" class="graf graf--h3 graf--leading graf--title">利用 JSONSerialization 印出美美縮排的 JSON</h3><p name="fa5b" id="fa5b" class="graf graf--p graf-after--h3">串接後台的 JSON API 時，我們時常需要檢查 JSON 資料是否正確。透過將抓到的 Data 變成 String，我們可以用厲害的肉眼檢查。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="329b" id="329b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> url <span class="hljs-operator">=</span> <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://some-random-api.ml/meme&quot;</span>) {<br />    <span class="hljs-type">URLSession</span>.shared.dataTask(with: url) { data, response, error <span class="hljs-keyword">in</span><br />        <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> data,<br />           <span class="hljs-keyword">let</span> content <span class="hljs-operator">=</span> <span class="hljs-type">String</span>(data: data, encoding: .utf8) {<br />            <span class="hljs-built_in">print</span>(content)<br />        }<br />    }.resume()<br />}</span></pre><p name="fc9c" id="fc9c" class="graf graf--p graf-after--pre">如下圖所示，JSON 的確順利印出了，只是沒有任何縮排，造成我們要花一點時間才能看懂 JSON 的葫蘆裡賣什麼藥。</p><figure name="e2d5" id="e2d5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JPFUF2bCHkpOX7QUssqcVw.jpeg" data-width="1364" data-height="292" src="https://cdn-images-1.medium.com/max/800/1*JPFUF2bCHkpOX7QUssqcVw.jpeg"></figure><p name="c4f0" id="c4f0" class="graf graf--p graf-after--figure">有了 JSONSerialization 的幫忙，利用 options 參數傳入的 prettyPrinted，我們將可產生美美縮排的 JSON 字串。以下程式參考 Apple 的範例，在 extension Data 裡定義印出美麗 JSON 的 function prettyPrintedJSONString。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="640a" id="640a" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">extension</span> <span class="hljs-title class_">Data</span> {<br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">prettyPrintedJSONString</span>() {<br />        <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> jsonObject <span class="hljs-operator">=</span> <span class="hljs-keyword">try?</span> <span class="hljs-type">JSONSerialization</span>.jsonObject(with: <span class="hljs-keyword">self</span>, options: []),<br />              <span class="hljs-keyword">let</span> jsonData <span class="hljs-operator">=</span> <span class="hljs-keyword">try?</span> <span class="hljs-type">JSONSerialization</span>.data(withJSONObject: jsonObject, options: [.prettyPrinted]),<br />              <span class="hljs-keyword">let</span> prettyJSONString <span class="hljs-operator">=</span> <span class="hljs-type">String</span>(data: jsonData, encoding: .utf8) <span class="hljs-keyword">else</span> {<br />            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Failed to read JSON Object.&quot;</span>)<br />            <span class="hljs-keyword">return</span><br />        }<br />        <span class="hljs-built_in">print</span>(prettyJSONString)<br />    }<br />}</span></pre><p name="3f9b" id="3f9b" class="graf graf--p graf-after--pre">透過 prettyPrintedJSONString 印出的 JSON 果然美麗許多，有著美美的縮排。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="c32e" id="c32e" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> url <span class="hljs-operator">=</span> <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://some-random-api.ml/meme&quot;</span>) {<br />    <span class="hljs-type">URLSession</span>.shared.dataTask(with: url) { data, response, error <span class="hljs-keyword">in</span><br />        <br />        data<span class="hljs-operator">?</span>.prettyPrintedJSONString()<br />        <br />    }.resume()<br />}</span></pre><figure name="b2ab" id="b2ab" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*hysaeB-VTRfiJDlY2HK80Q.jpeg" data-width="1636" data-height="408" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*hysaeB-VTRfiJDlY2HK80Q.jpeg"></figure><h3 name="c20a" id="c20a" class="graf graf--h3 graf-after--figure">參考連結</h3><p name="214a" id="214a" class="graf graf--p graf-after--h3">Develop in Swift Data Collections 2.5 Lab iTunes Search(Part 2)</p><div name="7e00" id="7e00" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://books.apple.com/tw/book/develop-in-swift-data-collections/id6468968766?l=en-GB" data-href="https://books.apple.com/tw/book/develop-in-swift-data-collections/id6468968766?l=en-GB" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://books.apple.com/tw/book/develop-in-swift-data-collections/id6468968766?l=en-GB"><strong class="markup--strong markup--mixtapeEmbed-strong">‎Develop in Swift Data Collections</strong><br><em class="markup--em markup--mixtapeEmbed-em">Students expand on the knowledge and skills they developed in Develop in Swift Fundamentals by extending their work in…</em>books.apple.com</a><a href="https://books.apple.com/tw/book/develop-in-swift-data-collections/id6468968766?l=en-GB" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="78d885ca96cb34318cb082ba9b854d8f" data-thumbnail-img-id="0*1kBZw1cFYBTHArCA" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*1kBZw1cFYBTHArCA);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/308c93b51643"><time class="dt-published" datetime="2020-08-17T07:56:27.549Z">August 17, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-jsonserialization-%E5%8D%B0%E5%87%BA%E7%BE%8E%E7%BE%8E%E7%B8%AE%E6%8E%92%E7%9A%84-json-308c93b51643" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

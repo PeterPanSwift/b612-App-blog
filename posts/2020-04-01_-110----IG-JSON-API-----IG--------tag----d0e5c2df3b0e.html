@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#110 串接 IG JSON API 製作  IG 的使用者 &amp; tag 頁面</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#110 串接 IG JSON API 製作  IG 的使用者 &amp; tag 頁面</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近發現 Instagram 的 JSON API 滿複雜的，很適合新手練習較複雜的 JSON 資料解析。有興趣的朋友不妨試試串接 IG API，抓取公開帳號和 tag 的相關 po 文，模仿製作 IG 的使用者 &amp; tag 頁面。
+</section>
+<section data-field="body" class="e-content">
+<section name="3148" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d2e1" id="d2e1" class="graf graf--h3 graf--leading graf--title">#110 串接 IG JSON API 製作 IG 的使用者 &amp; tag 頁面</h3><p name="9b3a" id="9b3a" class="graf graf--p graf-after--h3">最近發現 Instagram 的 JSON API 滿複雜的，很適合新手練習較複雜的 JSON 資料解析。有興趣的朋友不妨試試串接 IG API，抓取公開帳號和 tag 的相關 po 文，模仿製作 IG 的使用者 &amp; tag 頁面。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="3"><figure name="37dc" id="37dc" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 33.333%;"><img class="graf-image" data-image-id="1*rbwQG0R7CeCqW46cqGoGBA.png" data-width="1125" data-height="2436" data-is-featured="true" src="https://cdn-images-1.medium.com/max/400/1*rbwQG0R7CeCqW46cqGoGBA.png"></figure><figure name="2876" id="2876" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*5I9Kfj1LR2Kv7RNmcTrQdQ.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/400/1*5I9Kfj1LR2Kv7RNmcTrQdQ.png"></figure><figure name="270e" id="270e" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*52djoc-C3qL18t3wWY3ckQ.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/400/1*52djoc-C3qL18t3wWY3ckQ.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="bb7e" id="bb7e" class="graf graf--h3 graf-after--figure">抓取 IG 動態的 JSON 資料</h3><div name="ed4c" id="ed4c" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8A%93%E5%8F%96-ig-%E5%8B%95%E6%85%8B%E7%9A%84-json-%E8%B3%87%E6%96%99-9269d3e7d522" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8A%93%E5%8F%96-ig-%E5%8B%95%E6%85%8B%E7%9A%84-json-%E8%B3%87%E6%96%99-9269d3e7d522" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8A%93%E5%8F%96-ig-%E5%8B%95%E6%85%8B%E7%9A%84-json-%E8%B3%87%E6%96%99-9269d3e7d522"><strong class="markup--strong markup--mixtapeEmbed-strong">抓取 IG 動態的 JSON 資料</strong><br><em class="markup--em markup--mixtapeEmbed-em">IG 動態牆有許多有趣的動態資料，不過很可惜，官方並沒有提供公開的 API 讓我們抓取。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8A%93%E5%8F%96-ig-%E5%8B%95%E6%85%8B%E7%9A%84-json-%E8%B3%87%E6%96%99-9269d3e7d522" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="4d2415057363ba8672dd30a3395d9f69" data-thumbnail-img-id="1*Ykmy76xFqSjqP9wS2y1EZA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*Ykmy76xFqSjqP9wS2y1EZA.jpeg);"></a></div><h3 name="083f" id="083f" class="graf graf--h3 graf-after--mixtapeEmbed">加分功能</h3><p name="ff8d" id="ff8d" class="graf graf--p graf-after--h3">點選 po 文的 tag 可切換到 tag 頁面。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="731d" id="731d" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*HQSGbYBxHuTuIretSlUnmQ.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/600/1*HQSGbYBxHuTuIretSlUnmQ.png"></figure><figure name="5819" id="5819" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*aqjjXx7Oe_druQmHk-OABA.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/600/1*aqjjXx7Oe_druQmHk-OABA.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="c4ed" id="c4ed" class="graf graf--h3 graf-after--figure">IG 滑動後 profile tab 卡在上方的效果</h3><div name="e1df" id="e1df" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/83-%E8%A3%BD%E4%BD%9C-ig-%E6%BB%91%E5%8B%95%E5%BE%8C-profile-tab-%E5%8D%A1%E5%9C%A8%E4%B8%8A%E6%96%B9%E7%9A%84%E6%95%88%E6%9E%9C-360e6e6a380e" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/83-%E8%A3%BD%E4%BD%9C-ig-%E6%BB%91%E5%8B%95%E5%BE%8C-profile-tab-%E5%8D%A1%E5%9C%A8%E4%B8%8A%E6%96%B9%E7%9A%84%E6%95%88%E6%9E%9C-360e6e6a380e" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/83-%E8%A3%BD%E4%BD%9C-ig-%E6%BB%91%E5%8B%95%E5%BE%8C-profile-tab-%E5%8D%A1%E5%9C%A8%E4%B8%8A%E6%96%B9%E7%9A%84%E6%95%88%E6%9E%9C-360e6e6a380e"><strong class="markup--strong markup--mixtapeEmbed-strong">#83 製作 IG 滑動後 profile tab 卡在上方的效果</strong><br><em class="markup--em markup--mixtapeEmbed-em">有很多方法可以實現，以下示範利用 collection view，section top inset &amp; auto layout 條件實現。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/83-%E8%A3%BD%E4%BD%9C-ig-%E6%BB%91%E5%8B%95%E5%BE%8C-profile-tab-%E5%8D%A1%E5%9C%A8%E4%B8%8A%E6%96%B9%E7%9A%84%E6%95%88%E6%9E%9C-360e6e6a380e" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="527f92f3ab4cdf8465d0a227a4accbfe" data-thumbnail-img-id="1*S7WgFRfopU1B87nHvjG0sg.gif" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*S7WgFRfopU1B87nHvjG0sg.gif);"></a></div><h3 name="89f8" id="89f8" class="graf graf--h3 graf-after--mixtapeEmbed">作品集</h3><div name="548a" id="548a" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/@casper41807/15-%E4%B8%B2%E6%8E%A5instagram-api-%E6%A8%A1%E4%BB%BF%E8%A3%BD%E4%BD%9C-ig-%E4%BD%BF%E7%94%A8%E8%80%85%E7%95%AB%E9%9D%A2-843a65070b8f" data-href="https://medium.com/@casper41807/15-%E4%B8%B2%E6%8E%A5instagram-api-%E6%A8%A1%E4%BB%BF%E8%A3%BD%E4%BD%9C-ig-%E4%BD%BF%E7%94%A8%E8%80%85%E7%95%AB%E9%9D%A2-843a65070b8f" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/@casper41807/15-%E4%B8%B2%E6%8E%A5instagram-api-%E6%A8%A1%E4%BB%BF%E8%A3%BD%E4%BD%9C-ig-%E4%BD%BF%E7%94%A8%E8%80%85%E7%95%AB%E9%9D%A2-843a65070b8f"><strong class="markup--strong markup--mixtapeEmbed-strong">#15 — 串接Instagram API ，模仿製作 IG 使用者畫面</strong><br><em class="markup--em markup--mixtapeEmbed-em">呈現畫面：</em>medium.com</a><a href="https://medium.com/@casper41807/15-%E4%B8%B2%E6%8E%A5instagram-api-%E6%A8%A1%E4%BB%BF%E8%A3%BD%E4%BD%9C-ig-%E4%BD%BF%E7%94%A8%E8%80%85%E7%95%AB%E9%9D%A2-843a65070b8f" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="3192e672268b403fbb824b3af38352a3" data-thumbnail-img-id="1*ubIbJbxc33JvQluwh7KO-w.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*ubIbJbxc33JvQluwh7KO-w.png);"></a></div><div name="8e13" id="8e13" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/16-%E6%A8%A1%E4%BB%BF-instagram-app-ig-collection-view-%E8%A3%BD%E4%BD%9C-post-%E9%A0%81%E9%9D%A2-3-9fdb45f0a45a" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/16-%E6%A8%A1%E4%BB%BF-instagram-app-ig-collection-view-%E8%A3%BD%E4%BD%9C-post-%E9%A0%81%E9%9D%A2-3-9fdb45f0a45a" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/16-%E6%A8%A1%E4%BB%BF-instagram-app-ig-collection-view-%E8%A3%BD%E4%BD%9C-post-%E9%A0%81%E9%9D%A2-3-9fdb45f0a45a"><strong class="markup--strong markup--mixtapeEmbed-strong">#16 模仿 Instagram App (IG), Collection View 製作 Post 頁面#3</strong><br><em class="markup--em markup--mixtapeEmbed-em">接續上一篇，<br>Post頁面看似簡單，構想和小細節調整卻比預期還要多花不少時間。<br>剛開始認為Collection View就只能拿來作網格Grid畫面，想要一格一篇貼文似乎只能使用Table View來實作做Post頁面？</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/16-%E6%A8%A1%E4%BB%BF-instagram-app-ig-collection-view-%E8%A3%BD%E4%BD%9C-post-%E9%A0%81%E9%9D%A2-3-9fdb45f0a45a" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="6fbea3e63b7e62899fa6523c97ad3096" data-thumbnail-img-id="1*3y8PXWuNUqFexxLfINbYgg.gif" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*3y8PXWuNUqFexxLfINbYgg.gif);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d0e5c2df3b0e"><time class="dt-published" datetime="2020-04-01T06:40:52.492Z">April 1, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/110-%E4%B8%B2%E6%8E%A5-ig-json-api-%E8%A3%BD%E4%BD%9C-ig-%E7%9A%84%E4%BD%BF%E7%94%A8%E8%80%85-tag-%E9%A0%81%E9%9D%A2-d0e5c2df3b0e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

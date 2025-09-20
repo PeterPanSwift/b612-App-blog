@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>控制 SwiftUI 元件的顯示隱藏</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">控制 SwiftUI 元件的顯示隱藏</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 SwiftUI 設計 App 畫面時，我們常用 if 控制元件是否顯示，比方以下程式的 if 將判斷 showLyrics 為 true 時顯示好聽的棉花糖再見王子歌詞。
+</section>
+<section data-field="body" class="e-content">
+<section name="9bc7" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4e45" id="4e45" class="graf graf--h3 graf--leading graf--title">控制 SwiftUI 元件的顯示隱藏</h3><p name="461e" id="461e" class="graf graf--p graf-after--h3">利用 SwiftUI 設計 App 畫面時，我們常用 if 控制元件是否顯示，比方以下程式的 if 將判斷 showLyrics 為 true 時顯示好聽的<code class="markup--code markup--p-code">棉花糖再見王子</code>歌詞。</p><pre name="6123" id="6123" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var showLyrics = false<br>    var body: some View {<br>        VStack {<br>            Image(&quot;再見王子&quot;)<br>            Toggle(&quot;顯示歌詞&quot;, isOn: $showLyrics)<br>          <strong class="markup--strong markup--pre-strong">  if showLyrics {<br>                Text(&quot;再見吧我的王子\n守護愛情的樣子\n讓回憶紀念最初感動的真實\n滿口永遠的孩子\n慢慢懂事\n用眼淚灌溉會幸福的種子&quot;)<br>            }</strong><br>        }<br>    }<br>}</pre><p name="2e13" id="2e13" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">App 執行</strong></p><p name="d016" id="d016" class="graf graf--p graf-after--p">當我們點選 Toggle 打開/關閉開關時，歌詞也將隨之起舞。哦，不是啦，是隨之顯示/隱藏。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="3f36" id="3f36" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*YZtvLPqPSUK5Oe_d_y9LTA.jpeg" data-width="776" data-height="1316" src="https://cdn-images-1.medium.com/max/600/1*YZtvLPqPSUK5Oe_d_y9LTA.jpeg"></figure><figure name="071c" id="071c" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*ombCQK_gLYlt13U1bi5lmg.jpeg" data-width="776" data-height="1316" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*ombCQK_gLYlt13U1bi5lmg.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="0249" id="0249" class="graf graf--p graf-after--figure">當我們想隱藏的元件是文字時還可以更簡單，我們可以省略 if，直接用 ? : 做判斷，想隱藏時將內容設為空字串。</p><pre name="7429" id="7429" class="graf graf--pre graf-after--p">VStack {<br>            Image(&quot;再見王子&quot;)<br>            Toggle(&quot;顯示歌詞&quot;, isOn: $showLyrics)<br>          <strong class="markup--strong markup--pre-strong">  Text(showLyrics ? &quot;再見吧我的王子\n守護愛情的樣子\n讓回憶紀念最初感動的真實\n滿口永遠的孩子\n慢慢懂事\n用眼淚灌溉會幸福的種子&quot; : &quot;&quot;)</strong><br>}</pre><p name="5208" id="5208" class="graf graf--p graf-after--pre">不過再仔細瞧瞧剛剛歌詞顯示和隱藏的畫面，我們發現內容顯示的位置不太一樣。為什麼會這樣呢 ? 這是因為我們用 VStack 裝著呈現的內容，當不顯示歌詞時，VStack 的高度將變短並置中顯示，而顯示歌詞時 VStack 將變長並置中，造成它們顯示的位置不太一樣。</p><p name="6114" id="6114" class="graf graf--p graf-after--p">若想要元件的位置維持不變，只切換歌詞的顯示隱藏，有以下兩種方法可以做到。</p><h3 name="b6c5" id="b6c5" class="graf graf--h3 graf-after--p">方法1: 利用 Spacer</h3><pre name="f9cd" id="f9cd" class="graf graf--pre graf-after--h3">VStack {<br>            Image(&quot;再見王子&quot;)<br>               <strong class="markup--strong markup--pre-strong"> .padding(.top, 100)</strong><br>            Toggle(&quot;顯示歌詞&quot;, isOn: $showLyrics)<br>            if showLyrics {<br>                Text(&quot;再見吧我的王子\n守護愛情的樣子\n讓回憶紀念最初感動的真實\n滿口永遠的孩子\n慢慢懂事\n用眼淚灌溉會幸福的種子&quot;)<br>            }<br>           <strong class="markup--strong markup--pre-strong"> Spacer()</strong><br>}</pre><figure name="6a83" id="6a83" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*o1Y0BZ40NPtDl0TqBKjBuw.jpeg" data-width="766" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*o1Y0BZ40NPtDl0TqBKjBuw.jpeg"></figure><p name="0219" id="0219" class="graf graf--p graf-after--figure">我們在 VStack 的下方加入 Spacer，讓它佔滿剩下的可用空間，因此不管歌詞是否顯示，VStack 的高度都會等同於 Safe Area，如此即可讓元件的位置維持不變。</p><p name="c7fa" id="c7fa" class="graf graf--p graf-after--p">另外由於 Spacer 會將圖文往上推，為了讓圖片跟上方保持一點距離，我們另外在 Image 上設定 padding。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="ba1f" id="ba1f" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*4HgmRvZVW0Dj8O4gBMziZA.jpeg" data-width="776" data-height="1316" src="https://cdn-images-1.medium.com/max/600/1*4HgmRvZVW0Dj8O4gBMziZA.jpeg"></figure><figure name="802c" id="802c" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*uoDU6PwV1JIy4TXMLJmBtg.jpeg" data-width="776" data-height="1316" src="https://cdn-images-1.medium.com/max/600/1*uoDU6PwV1JIy4TXMLJmBtg.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="9167" id="9167" class="graf graf--h3 graf-after--figure">方法2: 利用 hidden 保留空間</h3><p name="aff6" id="aff6" class="graf graf--p graf-after--h3">我們可以在元件上呼叫如同隱形咒語的 hidden function 讓它隱藏。雖然我們看不到它，但是它還是會可怕地佔據空間，因此 VStack 將永遠維持顯示歌詞時的高度。</p><pre name="ab24" id="ab24" class="graf graf--pre graf-after--p">VStack {<br>            Image(&quot;再見王子&quot;)<br>            Toggle(&quot;顯示歌詞&quot;, isOn: $showLyrics)<br>            if showLyrics {<br>                Text(&quot;再見吧我的王子\n守護愛情的樣子\n讓回憶紀念最初感動的真實\n滿口永遠的孩子\n慢慢懂事\n用眼淚灌溉會幸福的種子&quot;)<br>            } else {<br>                Text(&quot;再見吧我的王子\n守護愛情的樣子\n讓回憶紀念最初感動的真實\n滿口永遠的孩子\n慢慢懂事\n用眼淚灌溉會幸福的種子&quot;)<br>                   <strong class="markup--strong markup--pre-strong"> .hidden()</strong><br>            }<br>}</pre><figure name="81b5" id="81b5" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*pdc0NA9_tdwWxfplUa-Y7Q.jpeg" data-width="562" data-height="934" src="https://cdn-images-1.medium.com/max/800/1*pdc0NA9_tdwWxfplUa-Y7Q.jpeg"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="20fa" id="20fa" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*PSzR61psJpzUoWkLMgmCdg.jpeg" data-width="776" data-height="1316" src="https://cdn-images-1.medium.com/max/600/1*PSzR61psJpzUoWkLMgmCdg.jpeg"></figure><figure name="d182" id="d182" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*_kSbanUCQ1FceFukXIKykQ.jpeg" data-width="776" data-height="1316" src="https://cdn-images-1.medium.com/max/600/1*_kSbanUCQ1FceFukXIKykQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="f1c4" id="f1c4" class="graf graf--h3 graf-after--figure">方法3: 控制 opacity</h3><p name="423a" id="423a" class="graf graf--p graf-after--h3">當歌詞不顯示時，我們將 opacity 設為 0，它還是會佔據空間，只是看不到而已。</p><pre name="38da" id="38da" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var showLyrics = false</pre><pre name="9cdb" id="9cdb" class="graf graf--pre graf-after--pre">var body: some View {<br>        VStack {<br>            Image(&quot;再見王子&quot;)<br>            Toggle(&quot;顯示歌詞&quot;, isOn: $showLyrics)<br>            Text( &quot;再見吧我的王子\n守護愛情的樣子\n讓回憶紀念最初感動的真實\n滿口永遠的孩子\n慢慢懂事\n用眼淚灌溉會幸福的種子&quot;)<br>                .opacity(showLyrics ? 1 : 0)<br>        }<br>    }<br>}</pre><figure name="a10a" id="a10a" class="graf graf--figure graf--iframe graf-after--pre graf--trailing"><iframe src="https://www.youtube.com/embed/BKtwah67B9c?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/a327f81cacc5"><time class="dt-published" datetime="2019-11-03T16:28:56.212Z">November 3, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%8E%A7%E5%88%B6-swiftui-%E5%85%83%E4%BB%B6%E7%9A%84%E9%A1%AF%E7%A4%BA%E9%9A%B1%E8%97%8F-a327f81cacc5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

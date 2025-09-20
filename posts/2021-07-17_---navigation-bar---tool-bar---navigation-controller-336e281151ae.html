@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>顯示 navigation bar &amp; tool bar 的 navigation controller</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">顯示 navigation bar &amp; tool bar 的 navigation controller</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常看到上方 navigation bar，下方 tool bar 的設計，比方下圖 Calendar App 的畫面。
+</section>
+<section data-field="body" class="e-content">
+<section name="ef18" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d9d1" id="d9d1" class="graf graf--h3 graf--leading graf--title">顯示 navigation bar &amp; tool bar 的 navigation controller</h3><p name="dcdc" id="dcdc" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常看到上方 navigation bar，下方 tool bar 的設計，比方下圖 Calendar App 的畫面。</p><figure name="f2ca" id="f2ca" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Cl2mlvNoGy_s2zs6juob2A.png" data-width="1170" data-height="2532" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Cl2mlvNoGy_s2zs6juob2A.png"></figure><h3 name="b710" id="b710" class="graf graf--h3 graf-after--figure">設定 navigation controller 顯示 navigation bar &amp; tool bar</h3><p name="a736" id="a736" class="graf graf--p graf-after--h3">自己手動加入 navigation bar &amp; tool bar 太辛苦了。透過 navigation controller 的幫忙，我們可以快速在畫面上加入 navigation bar &amp; tool bar。</p><ul class="postList"><li name="9eb6" id="9eb6" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">從 Interface Builder</strong></li></ul><p name="f400" id="f400" class="graf graf--p graf-after--li">點選 navigation controller，勾選 Bar Visibility 的 Shows Navigation Bar &amp; Shows Toolbar。</p><figure name="8119" id="8119" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*qSfrEofrz993MfGPZtG-0g.png" data-width="520" data-height="606" src="https://cdn-images-1.medium.com/max/800/1*qSfrEofrz993MfGPZtG-0g.png"></figure><ul class="postList"><li name="6776" id="6776" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">從程式</strong></li></ul><p name="c251" id="c251" class="graf graf--p graf-after--li">設定 navigation controller 的 property，將 isNavigationBarHidden &amp; isToolbarHidden 設為 false。</p><h3 name="aa4d" id="aa4d" class="graf graf--h3 graf-after--p">tool bar 的內容</h3><p name="d72a" id="d72a" class="graf graf--p graf-after--h3">在 tool bar 裡我們可加入 bar button item，fixed space bar button item &amp; flexible space bar button item。</p><figure name="819f" id="819f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bTHMGIS_lWbzeq238WiNTw.png" data-width="1366" data-height="578" src="https://cdn-images-1.medium.com/max/800/1*bTHMGIS_lWbzeq238WiNTw.png"></figure><p name="68a5" id="68a5" class="graf graf--p graf-after--figure">bar button item 主要用於顯示文字或圖片，fixed space bar button item &amp; flexible space bar button item 則用於調整元件在 bar 上的位置。</p><p name="93ef" id="93ef" class="graf graf--p graf-after--p">以下我們親手實驗看看吧。</p><p name="575b" id="575b" class="graf graf--p graf-after--p">storyboard 的畫面設計如下。</p><figure name="150b" id="150b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5L8QUB1iQWSfrW5_d3-QjA.png" data-width="1502" data-height="936" src="https://cdn-images-1.medium.com/max/800/1*5L8QUB1iQWSfrW5_d3-QjA.png"></figure><h4 name="8e5a" id="8e5a" class="graf graf--h4 graf-after--figure">範例 1: 在 tool bar 的左邊顯示 button</h4><ul class="postList"><li name="5941" id="5941" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">從 Interface Builder</strong></li></ul><p name="a30a" id="a30a" class="graf graf--p graf-after--li">將 bar button item 加到 table view 的畫面，此時它將自動加到 tool bar，長在 Toolbar Items 底下。</p><figure name="e910" id="e910" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*S2VaPZkITjJnDAtayl3YZQ.png" data-width="1122" data-height="1180" src="https://cdn-images-1.medium.com/max/800/1*S2VaPZkITjJnDAtayl3YZQ.png"></figure><p name="ed21" id="ed21" class="graf graf--p graf-after--figure">bar button item 預設將由左而右排列，因此它將排在 tool bar 的左邊。</p><ul class="postList"><li name="b88e" id="b88e" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">從程式</strong></li></ul><p name="46d9" id="46d9" class="graf graf--p graf-after--li">設定 view controller 的 property toolbarItems，它的型別為 [UIBarButtonItem]。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="50af" id="50af" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TableViewController</span>: <span class="hljs-title class_">UITableViewController</span> {<br /><br />   <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <br />        toolbarItems <span class="hljs-operator">=</span> [<br />            <span class="hljs-type">UIBarButtonItem</span>(title: <span class="hljs-string">&quot;Edit&quot;</span>, primaryAction: <span class="hljs-type">UIAction</span>(handler: { action <span class="hljs-keyword">in</span><br />            }))<br />        ]<br />       <br />    }</span></pre><h4 name="41fa" id="41fa" class="graf graf--h4 graf-after--pre">範例 2: 在 tool bar 的右邊顯示 button</h4><p name="90d2" id="90d2" class="graf graf--p graf-after--h4">我們可加入 fixed space bar button item &amp; flexible space bar button item 調整元件的位置。</p><ul class="postList"><li name="8478" id="8478" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">從 Interface Builder</strong></li></ul><p name="a85f" id="a85f" class="graf graf--p graf-after--li">如下圖所示，我們在 bar button item 之前加入 flexible space bar button item，所以 bar button item 將被擠到右邊。</p><figure name="eea8" id="eea8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*SkHdKP44owh9JS8KdiuabQ.png" data-width="1262" data-height="1160" src="https://cdn-images-1.medium.com/max/800/1*SkHdKP44owh9JS8KdiuabQ.png"></figure><ul class="postList"><li name="f441" id="f441" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">從程式</strong></li></ul><p name="8f49" id="8f49" class="graf graf--p graf-after--li">產生 UIBarButtonItem 時，參數 barButtonSystemItem 傳入 .flexibleSpace 可產生 flexible space bar button item。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="19f2" id="19f2" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TableViewController</span>: <span class="hljs-title class_">UITableViewController</span> {<br /><br />   <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <br />        toolbarItems <span class="hljs-operator">=</span> [<br />            <span class="hljs-type">UIBarButtonItem</span>(barButtonSystemItem: .flexibleSpace, target: <span class="hljs-literal">nil</span>, action: <span class="hljs-literal">nil</span>),<br />            <span class="hljs-type">UIBarButtonItem</span>(title: <span class="hljs-string">&quot;Edit&quot;</span>, primaryAction: <span class="hljs-type">UIAction</span>(handler: { action <span class="hljs-keyword">in</span><br />            }))<br />        ]<br />       <br />    }</span></pre><h4 name="6e41" id="6e41" class="graf graf--h4 graf-after--pre">範例 3: 在 tool bar 顯示三個 button</h4><p name="c674" id="c674" class="graf graf--p graf-after--h4">模仿 Calendar App 的 tool bar，搭配兩個 flexible space bar button item。</p><ul class="postList"><li name="3cf3" id="3cf3" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">從 Interface Builder</strong></li></ul><figure name="5c98" id="5c98" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*w-YM_zBWEJobcW35Sg8WiA.png" data-width="1326" data-height="1256" src="https://cdn-images-1.medium.com/max/800/1*w-YM_zBWEJobcW35Sg8WiA.png"></figure><ul class="postList"><li name="4336" id="4336" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">從程式。</strong></li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="1647" id="1647" class="graf graf--pre graf-after--li graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">TableViewController</span>: <span class="hljs-title class_">UITableViewController</span> {<br /><br />   <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <br />        toolbarItems <span class="hljs-operator">=</span> [<br />            <span class="hljs-type">UIBarButtonItem</span>(title: <span class="hljs-string">&quot;Today&quot;</span>, primaryAction: <span class="hljs-type">UIAction</span>(handler: { action <span class="hljs-keyword">in</span><br />            })),<br />            <span class="hljs-type">UIBarButtonItem</span>(barButtonSystemItem: .flexibleSpace, target: <span class="hljs-literal">nil</span>, action: <span class="hljs-literal">nil</span>),<br />            <span class="hljs-type">UIBarButtonItem</span>(title: <span class="hljs-string">&quot;Calendars&quot;</span>, primaryAction: <span class="hljs-type">UIAction</span>(handler: { action <span class="hljs-keyword">in</span><br />            })),<br />            <span class="hljs-type">UIBarButtonItem</span>(barButtonSystemItem: .flexibleSpace, target: <span class="hljs-literal">nil</span>, action: <span class="hljs-literal">nil</span>),<br />            <span class="hljs-type">UIBarButtonItem</span>(title: <span class="hljs-string">&quot;Inbox&quot;</span>, primaryAction: <span class="hljs-type">UIAction</span>(handler: { action <span class="hljs-keyword">in</span><br />            }))<br />        ]<br />       <br />    }</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/336e281151ae"><time class="dt-published" datetime="2021-07-17T09:26:09.864Z">July 17, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E9%A1%AF%E7%A4%BA-navigation-bar-tool-bar-%E7%9A%84-navigation-controller-336e281151ae" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

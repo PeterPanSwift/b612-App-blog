@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>解決 SPM 的套件版本問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">解決 SPM 的套件版本問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們下載編譯搭配 SPM 套件的 Xcode 專案時，有時會出現以下的紅色錯誤。
+</section>
+<section data-field="body" class="e-content">
+<section name="3521" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e586" id="e586" class="graf graf--h3 graf--leading graf--title">解決 SPM 的套件版本問題</h3><p name="0153" id="0153" class="graf graf--p graf-after--h3">當我們下載編譯搭配 SPM 套件的 Xcode 專案時，有時會出現以下的紅色錯誤。</p><pre name="5cf6" id="5cf6" class="graf graf--pre graf-after--p">Package Loading Group<br>: The source control operation was canceled.</pre><pre name="c950" id="c950" class="graf graf--pre graf-after--pre">x-xcode-log://0C0568D9-598D-4E26-8315-2D959418DF4F Missing package product &#39;Alamofire&#39;, please fix package resolution errors before building</pre><figure name="5013" id="5013" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*9o7xtod_h__va6Xokz6TxQ.jpeg" data-width="578" data-height="692" src="https://cdn-images-1.medium.com/max/800/1*9o7xtod_h__va6Xokz6TxQ.jpeg"></figure><p name="9b2c" id="9b2c" class="graf graf--p graf-after--figure">別緊張，遇到 SPM 的套件版本問題，大部分都可透過 <strong class="markup--strong markup--p-strong">File &gt; Swift Packages &gt; Resolve Package Versions</strong> 解決。</p><figure name="9384" id="9384" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KW3umrslT6QBAEuzvXccTw.jpeg" data-width="1370" data-height="1222" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*KW3umrslT6QBAEuzvXccTw.jpeg"></figure><p name="4b93" id="4b93" class="graf graf--p graf-after--figure">Resolve Package Versions 後如果還有問題，可以再試試 Product &gt; Build(cmd + B) ，通常問題都能迎刃而解。</p><figure name="c4dc" id="c4dc" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*MXzvA1ufCBvrThtBr_AWrQ.jpeg" data-width="478" data-height="448" src="https://cdn-images-1.medium.com/max/800/1*MXzvA1ufCBvrThtBr_AWrQ.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/df1b33924b27"><time class="dt-published" datetime="2019-12-31T09:27:39.043Z">December 31, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A7%A3%E6%B1%BA-spm-%E7%9A%84%E5%A5%97%E4%BB%B6%E7%89%88%E6%9C%AC%E5%95%8F%E9%A1%8C-df1b33924b27" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

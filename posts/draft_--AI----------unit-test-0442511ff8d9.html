@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>給 AI 完整程式，請他寫 unit test</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">給 AI 完整程式，請他寫 unit test</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+dd
+</section>
+<section data-field="body" class="e-content">
+<section name="2344" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h2 name="ebb8" id="ebb8" class="graf graf--h2 graf--leading graf--title">給 AI 完整程式，請他寫 unit test</h2><p name="3b04" id="3b04" class="graf graf--p graf--empty graf-after--h2"><br></p><p name="60eb" id="60eb" class="graf graf--p graf-after--p">dd</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="a752" id="a752" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">當然,我來為你的 <span class="hljs-type">ViewController</span> 寫單元測試<span class="hljs-operator">。</span>以下是針對 <span class="hljs-type">ViewController</span> 的單元測試程式碼:<br /><br />```swift<br /><span class="hljs-keyword">import</span> XCTest<br /><span class="hljs-keyword">@testable</span> <span class="hljs-keyword">import</span> Demo<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewControllerTests</span>: <span class="hljs-title class_">XCTestCase</span> {<br />    <span class="hljs-keyword">var</span> viewController: <span class="hljs-type">ViewController</span>!<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">setUp</span>() {<br />        <span class="hljs-keyword">super</span>.setUp()<br />        <span class="hljs-keyword">let</span> storyboard <span class="hljs-operator">=</span> <span class="hljs-type">UIStoryboard</span>(name: <span class="hljs-string">&quot;Main&quot;</span>, bundle: <span class="hljs-literal">nil</span>)<br />        viewController <span class="hljs-operator">=</span> storyboard.instantiateViewController(withIdentifier: <span class="hljs-string">&quot;ViewController&quot;</span>) <span class="hljs-keyword">as?</span> <span class="hljs-type">ViewController</span><br />        viewController.loadViewIfNeeded()<br />    }<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">tearDown</span>() {<br />        viewController <span class="hljs-operator">=</span> <span class="hljs-literal">nil</span><br />        <span class="hljs-keyword">super</span>.tearDown()<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">testInitialState</span>() {<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCount, <span class="hljs-number">0</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCountLabel.text, <span class="hljs-string">&quot;猜錯0次&quot;</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.resultLabel.text, <span class="hljs-string">&quot;結果&quot;</span>)<br />        <span class="hljs-type">XCTAssertTrue</span>(viewController.guessButton.isEnabled)<br />        <span class="hljs-type">XCTAssertFalse</span>(viewController.replayButton.isEnabled)<br />        <span class="hljs-type">XCTAssertTrue</span>(viewController.gameOverLabel.isHidden)<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">testGuessCorrectNumber</span>() {<br />        viewController.answer <span class="hljs-operator">=</span> <span class="hljs-number">50</span><br />        viewController.numberTextField.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;50&quot;</span><br />        viewController.guess(<span class="hljs-keyword">self</span>)<br />        <br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.resultLabel.text, <span class="hljs-string">&quot;準!&quot;</span>)<br />        <span class="hljs-type">XCTAssertFalse</span>(viewController.guessButton.isEnabled)<br />        <span class="hljs-type">XCTAssertTrue</span>(viewController.replayButton.isEnabled)<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">testGuessWrongNumberTooSmall</span>() {<br />        viewController.answer <span class="hljs-operator">=</span> <span class="hljs-number">50</span><br />        viewController.numberTextField.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;30&quot;</span><br />        viewController.guess(<span class="hljs-keyword">self</span>)<br />        <br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCount, <span class="hljs-number">1</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCountLabel.text, <span class="hljs-string">&quot;猜錯1次&quot;</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.resultLabel.text, <span class="hljs-string">&quot;太小了&quot;</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.numberTextField.text, <span class="hljs-string">&quot;&quot;</span>)<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">testGuessWrongNumberTooBig</span>() {<br />        viewController.answer <span class="hljs-operator">=</span> <span class="hljs-number">50</span><br />        viewController.numberTextField.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;80&quot;</span><br />        viewController.guess(<span class="hljs-keyword">self</span>)<br />        <br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCount, <span class="hljs-number">1</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCountLabel.text, <span class="hljs-string">&quot;猜錯1次&quot;</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.resultLabel.text, <span class="hljs-string">&quot;太大了&quot;</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.numberTextField.text, <span class="hljs-string">&quot;&quot;</span>)<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">testGuessWrong3Times</span>() {<br />        viewController.answer <span class="hljs-operator">=</span> <span class="hljs-number">50</span><br />        viewController.numberTextField.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;30&quot;</span><br />        viewController.guess(<span class="hljs-keyword">self</span>)<br />        viewController.numberTextField.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;80&quot;</span><br />        viewController.guess(<span class="hljs-keyword">self</span>)<br />        viewController.numberTextField.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;20&quot;</span><br />        viewController.guess(<span class="hljs-keyword">self</span>)<br />        <br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCount, <span class="hljs-number">3</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCountLabel.text, <span class="hljs-string">&quot;猜錯3次&quot;</span>)<br />        <span class="hljs-type">XCTAssertFalse</span>(viewController.gameOverLabel.isHidden)<br />        <span class="hljs-type">XCTAssertTrue</span>(viewController.replayButton.isEnabled)<br />        <span class="hljs-type">XCTAssertFalse</span>(viewController.guessButton.isEnabled)<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">testReplayGame</span>() {<br />        viewController.guessWrongCount <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br />        viewController.guessWrongCountLabel.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;猜錯3次&quot;</span><br />        viewController.gameOverLabel.isHidden <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />        viewController.resultLabel.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;太大了&quot;</span><br />        viewController.guessButton.isEnabled <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />        viewController.numberTextField.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;80&quot;</span><br />        <br />        viewController.replay(<span class="hljs-keyword">self</span>)<br />        <br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCount, <span class="hljs-number">0</span>)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.guessWrongCountLabel.text, <span class="hljs-string">&quot;猜錯0次&quot;</span>)<br />        <span class="hljs-type">XCTAssertTrue</span>(viewController.gameOverLabel.isHidden)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.resultLabel.text, <span class="hljs-string">&quot;結果&quot;</span>)<br />        <span class="hljs-type">XCTAssertTrue</span>(viewController.guessButton.isEnabled)<br />        <span class="hljs-type">XCTAssertEqual</span>(viewController.numberTextField.text, <span class="hljs-string">&quot;&quot;</span>)<br />    }<br />}<br />```<br /><br />這個單元測試涵蓋了以下幾個場景:<br /><br /><span class="hljs-number">1</span>. 測試初始狀態: 確保在視圖控制器載入時,各個 <span class="hljs-type">UI</span> 元件的狀態正確<span class="hljs-operator">。</span><br /><span class="hljs-number">2</span>. 測試猜對數字: 當猜對數字時,結果標籤應顯示 <span class="hljs-string">&quot;準!&quot;</span>,猜測按鈕應被禁用,重玩按鈕應啟用<span class="hljs-operator">。</span><br /><span class="hljs-number">3</span>. 測試猜錯數字(太小): 當猜測的數字太小時,猜錯次數應增加,顯示相應的猜錯次數,結果標籤顯示 <span class="hljs-string">&quot;太小了&quot;</span>,並清空輸入欄位<span class="hljs-operator">。</span><br /><span class="hljs-number">4</span>. 測試猜錯數字(太大): 當猜測的數字太大時,猜錯次數應增加,顯示相應的猜錯次數,結果標籤顯示 <span class="hljs-string">&quot;太大了&quot;</span>,並清空輸入欄位<span class="hljs-operator">。</span><br /><span class="hljs-number">5</span>. 測試猜錯<span class="hljs-number">3</span>次: 當猜錯<span class="hljs-number">3</span>次時,顯示遊戲結束標籤,啟用重玩按鈕,禁用猜測按鈕<span class="hljs-operator">。</span><br /><span class="hljs-number">6</span>. 測試重新開始遊戲: 當點擊重玩按鈕時,重置各個 <span class="hljs-type">UI</span> 元件的狀態,隱藏遊戲結束標籤,清空輸入欄位,啟用猜測按鈕<span class="hljs-operator">。</span><br /><br />你可以在專案中新增一個名為 <span class="hljs-type">ViewControllerTests</span>.swift 的檔案,然後將上述程式碼貼入其中<span class="hljs-operator">。</span>確保在測試目標(test target)中包含這個檔案<span class="hljs-operator">。</span><br /><br />這樣就完成了對 <span class="hljs-type">ViewController</span> 的單元測試<span class="hljs-operator">。</span>記得在實際執行測試之前,先建置專案並確保主程式碼沒有錯誤<span class="hljs-operator">。</span>然後你可以使用 <span class="hljs-type">Xcode</span> 的測試導覽器(<span class="hljs-type">Test</span> <span class="hljs-type">Navigator</span>)來執行這些測試並查看結果<span class="hljs-operator">。</span><br /><br />希望這些單元測試對你有所幫助<span class="hljs-operator">!</span>如果你有任何其他問題,歡迎隨時問我<span class="hljs-operator">。</span></span></pre><p name="9e28" id="9e28" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/0442511ff8d9">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

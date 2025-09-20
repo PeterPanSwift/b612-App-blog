@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#10 LINE 聊天室的背景特效</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#10 LINE 聊天室的背景特效</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+模仿 LINE App，輸入特別的關鍵字時顯示背景特效。
+</section>
+<section data-field="body" class="e-content">
+<section name="1421" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b428" id="b428" class="graf graf--h3 graf--leading graf--title">#10 LINE 聊天室的背景特效</h3><p name="28e3" id="28e3" class="graf graf--p graf-after--h3">模仿 LINE App，輸入特別的關鍵字時顯示背景特效。</p><p name="f50b" id="f50b" class="graf graf--p graf-after--p">範例: 輸入情人節，七夕，煙火時顯示可愛的煙火特效。</p><figure name="a111" id="a111" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*rE70JuO4g2kdxEckHKwJdg.png" data-width="1418" data-height="1302" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*rE70JuO4g2kdxEckHKwJdg.png"></figure><h3 name="162f" id="162f" class="graf graf--h3 graf-after--figure">功能和畫面需求</h3><ul class="postList"><li name="9a98" id="9a98" class="graf graf--li graf-after--h3">輸入關鍵字時顯示特效。</li><li name="8ecf" id="8ecf" class="graf graf--li graf-after--li">聊天訊息裡的關鍵字會變色加底線，點擊時會顯示特效。</li><li name="8330" id="8330" class="graf graf--li graf-after--li">用 CAEmitterLayer 或 SpriteKit Particle File 實現背景特效。</li></ul><p name="9ce4" id="9ce4" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">方法1: 使用 SpriteKit Particle File &amp; SKView</strong></p><p name="ef2a" id="ef2a" class="graf graf--p graf-after--p">比方聊天室畫面以 table view 實現，我們可將顯示特效的 SKView 設為 table view 的 backgroundView。</p><pre name="74f4" id="74f4" class="graf graf--pre graf-after--p">let skView = SKView(frame: view.frame)<br>tableView.backgroundView = skView<br>let scene = SKScene(size: skView.frame.size)<br>scene.anchorPoint = CGPoint(x: 0.5, y: 1)<br>let emitterNode = SKEmitterNode(fileNamed: &quot;MyParticle&quot;)<br>scene.addChild(emitterNode!)<br>skView.presentScene(scene)</pre><p name="7495" id="7495" class="graf graf--p graf-after--pre">相關說明。</p><div name="9861" id="9861" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-spritekit-particle-file-%E8%A3%BD%E9%80%A0%E4%B8%8B%E9%9B%AA%E7%9A%84%E7%B2%92%E5%AD%90%E6%95%88%E6%9E%9C-cd07303a10af" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-spritekit-particle-file-%E8%A3%BD%E9%80%A0%E4%B8%8B%E9%9B%AA%E7%9A%84%E7%B2%92%E5%AD%90%E6%95%88%E6%9E%9C-cd07303a10af" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-spritekit-particle-file-%E8%A3%BD%E9%80%A0%E4%B8%8B%E9%9B%AA%E7%9A%84%E7%B2%92%E5%AD%90%E6%95%88%E6%9E%9C-cd07303a10af"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 SpriteKit Particle File 製造下雪的粒子效果</strong><br><em class="markup--em markup--mixtapeEmbed-em">建立製造粒子效果的 SpriteKit Particle File</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-spritekit-particle-file-%E8%A3%BD%E9%80%A0%E4%B8%8B%E9%9B%AA%E7%9A%84%E7%B2%92%E5%AD%90%E6%95%88%E6%9E%9C-cd07303a10af" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d8221f664764baf77cf9338f5dd5627f" data-thumbnail-img-id="1*jTU_fncoeDYDA9Zrt5pRBg.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*jTU_fncoeDYDA9Zrt5pRBg.jpeg);"></a></div><p name="e69c" id="e69c" class="graf graf--p graf-after--mixtapeEmbed"><strong class="markup--strong markup--p-strong">方法2: 使用 CAEmitterLayer</strong></p><pre name="cf9b" id="cf9b" class="graf graf--pre graf-after--p">let snowEmitterCell = CAEmitterCell()<br>snowEmitterCell.contents = UIImage(named: &quot;peter&quot;)?.cgImage<br>snowEmitterCell.birthRate = 1<br>snowEmitterCell.lifetime = 20<br>snowEmitterCell.scale = 0.5<br>snowEmitterCell.velocity = 100<br>snowEmitterCell.yAcceleration = 30<br>snowEmitterCell.scale = 0.5<br>snowEmitterCell.scaleRange = 0.3<br>snowEmitterCell.scaleSpeed = -0.02<br>snowEmitterCell.spin = 0.5<br>snowEmitterCell.spinRange = 1<br>snowEmitterCell.emissionRange = .pi<br>        <br>let snowEmitterLayer = CAEmitterLayer()<br>snowEmitterLayer.emitterPosition = CGPoint(x: view.bounds.width / 2, y: -50)<br>snowEmitterLayer.emitterSize = CGSize(width: view.bounds.width, height: 0)<br>snowEmitterLayer.emitterShape = .line<br>snowEmitterLayer.emitterCells = [snowEmitterCell]<br>tableView.backgroundView = UIView()<br>tableView.backgroundView?.layer.addSublayer(snowEmitterLayer)</pre><p name="8465" id="8465" class="graf graf--p graf-after--pre">相關說明。</p><div name="472b" id="472b" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-caemitterlayer-5b8e38313ecf" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-caemitterlayer-5b8e38313ecf" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-caemitterlayer-5b8e38313ecf"><strong class="markup--strong markup--mixtapeEmbed-strong">使用 SwiftUI 的 live preview 即時預覽 CAEmitterLayer — 搭配 UIViewControllerRepresentable</strong><br><em class="markup--em markup--mixtapeEmbed-em">利用 CAEmitterLayer 我們可以發射粒子(particle)，產生常見的下雪，下雨，火焰，煙火等動畫。不過為了製作生動的動畫效果，我們時常要不斷調整程式，然後啟動模擬器測試。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-caemitterlayer-5b8e38313ecf" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="310335ce3b83cad77f9e703fe7a2fcaa" data-thumbnail-img-id="1*EGnogPu0DU7uFrIF9WgZOw.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*EGnogPu0DU7uFrIF9WgZOw.png);"></a></div><figure name="99ea" id="99ea" class="graf graf--figure graf--iframe graf-after--mixtapeEmbed graf--trailing"><iframe src="https://www.youtube.com/embed/KDGMU6sdVBE?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d3e52d5bef1b"><time class="dt-published" datetime="2022-08-04T09:10:55.008Z">August 4, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/10-line-%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%9A%84%E8%83%8C%E6%99%AF%E7%89%B9%E6%95%88-d3e52d5bef1b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

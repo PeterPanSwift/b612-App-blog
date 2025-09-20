@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Refresh 實現 iOS App 的下拉更新(pull to refresh)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Refresh 實現 iOS App 的下拉更新(pull to refresh)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SwiftUI
+</section>
+<section data-field="body" class="e-content">
+<section name="eed9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2464" id="2464" class="graf graf--h3 graf--leading graf--title">利用 Refresh 實現 iOS App 的下拉更新(pull to refresh)</h3><p name="2cb5" id="2cb5" class="graf graf--p graf--empty graf-after--h3"><br></p><h3 name="c9be" id="c9be" class="graf graf--h3 graf-after--p">SwiftUI</h3><p name="d544" id="d544" class="graf graf--p graf--empty graf-after--h3"><br></p><h3 name="5fff" id="5fff" class="graf graf--h3 graf-after--p">UIKit</h3><h4 name="69d9" id="69d9" class="graf graf--h4 graf-after--h3">加入 UIRefreshControl 元件</h4><ul class="postList"><li name="5a89" id="5a89" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">從 storyboard 加入</strong></li></ul><p name="4c20" id="4c20" class="graf graf--p graf-after--li">從 storyboard 加入的 UITableViewController 可以直接加入 UIRefreshControl。</p><ul class="postList"><li name="b616" id="b616" class="graf graf--li graf-after--p">點選 Table View Controller。</li></ul><figure name="596a" id="596a" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*6dN8HZhjsU9MAZ5SrjiX_Q.png" data-width="1110" data-height="1012" src="https://cdn-images-1.medium.com/max/800/1*6dN8HZhjsU9MAZ5SrjiX_Q.png"></figure><p name="49d1" id="49d1" class="graf graf--p graf-after--figure">從 Attributes Inspector 將 Refreshing 設為 Enabled。</p><figure name="950c" id="950c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jzk3j9HFWE1KM3Kc3kntjg.png" data-width="528" data-height="496" src="https://cdn-images-1.medium.com/max/800/1*jzk3j9HFWE1KM3Kc3kntjg.png"></figure><figure name="dedc" id="dedc" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*z7THw_wSVE94KR3ezvKWKg.png" data-width="528" data-height="602" src="https://cdn-images-1.medium.com/max/800/1*z7THw_wSVE94KR3ezvKWKg.png"></figure><p name="ce6e" id="ce6e" class="graf graf--p graf-after--figure">此時 Table View Controller 底下將長出 Refresh Control。</p><figure name="b971" id="b971" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6gD2gErROIeYn3G-e1U8-w.png" data-width="510" data-height="284" src="https://cdn-images-1.medium.com/max/800/1*6gD2gErROIeYn3G-e1U8-w.png"></figure><p name="d7ef" id="d7ef" class="graf graf--p graf-after--figure">執行 App，下拉出現轉轉轉圖示了。</p><figure name="4d77" id="4d77" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2cAlhM4GozJj1EUiYbwPiQ.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/800/1*2cAlhM4GozJj1EUiYbwPiQ.png"></figure><p name="d767" id="d767" class="graf graf--p graf-after--figure">但是請注意，它不會停 ! 因為我們沒有告訴它何時要停。待會我們將設定下拉後要做的事，事情做完後再叫 UIRefreshControl 停止。</p><ul class="postList"><li name="3a1a" id="3a1a" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">從程式加入</strong></li></ul><p name="4451" id="4451" class="graf graf--p graf-after--li">可從  UIScrollView 或 UITableViewController 加入 UIRefreshControl。</p><ol class="postList"><li name="6277" id="6277" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">從 UIScrollView加入 UIRefreshControl。</strong></li></ol><p name="9f43" id="9f43" class="graf graf--p graf-after--li">從 UIScrollView 的 property refreshControl 設定。由於 UITableView &amp; UICollectionView 也繼承 UIScrollView，因此 UIScrollView，UITableView &amp; UICollectionView 都可從 property refreshControl 設定 UIRefreshControl。</p><p name="d628" id="d628" class="graf graf--p graf-after--p">範例</p><pre name="6813" id="6813" class="graf graf--pre graf-after--p">class ViewController: UIViewController {</pre><pre name="c7b9" id="c7b9" class="graf graf--pre graf-after--pre">    @IBOutlet weak var collectionView: UICollectionView!<br>    <br>    override func viewDidLoad() {<br>        super.viewDidLoad()<br>        // Do any additional setup after loading the view.<br>        <br><strong class="markup--strong markup--pre-strong">        collectionView.refreshControl = UIRefreshControl()<br></strong>        <br>    }</pre><pre name="0905" id="0905" class="graf graf--pre graf-after--pre">}</pre><p name="99f2" id="99f2" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">2. 從 UITableViewController 加入 UIRefreshControl。</strong></p><pre name="8a17" id="8a17" class="graf graf--pre graf-after--p">class TableViewController: UITableViewController {</pre><pre name="e537" id="e537" class="graf graf--pre graf-after--pre">    override func viewDidLoad() {<br>        super.viewDidLoad()</pre><pre name="83fe" id="83fe" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">        refreshControl = UIRefreshControl()<br></strong>    }</pre><h4 name="3e90" id="3e90" class="graf graf--h4 graf-after--pre">設定下拉更新要做的動作</h4><ul class="postList"><li name="6a65" id="6a65" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">從 storyboard 設定</strong></li></ul><p name="2c33" id="2c33" class="graf graf--p graf-after--li">從 storyboard 的 refresh control 拉 IBAction，在 function 執行下拉更新要做的事，比方抓資料，然後再呼叫 endRefreshing 結束下拉更新。</p><pre name="7eca" id="7eca" class="graf graf--pre graf-after--p"><a href="http://twitter.com/IBAction" data-href="http://twitter.com/IBAction" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBAction" rel="noopener" target="_blank">@IBAction</a> func pullToRefresh(_ sender: Any) {<br>        <br>        // do something <br><strong class="markup--strong markup--pre-strong">        refreshControl?.endRefreshing()<br></strong>}</pre><p name="f14a" id="f14a" class="graf graf--p graf-after--pre">以下範例將在下拉更新時抓取隨機的十筆名言(quote)。</p><p name="3988" id="3988" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Quote.swift</strong></p><pre name="b440" id="b440" class="graf graf--pre graf-after--p">struct QuoteResponse: Decodable {<br>    let quotes: [Quote]<br>}</pre><pre name="2ffe" id="2ffe" class="graf graf--pre graf-after--pre">struct Quote: Decodable {<br>    let text: String<br>    let author: String<br>    let tag: String<br>}</pre><pre name="ea15" id="ea15" class="graf graf--pre graf-after--pre">enum ApiError: Error {<br>    case invalidData<br>}</pre><p name="18e1" id="18e1" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">TableViewController.swift</strong></p><pre name="3dd8" id="3dd8" class="graf graf--pre graf-after--p">import UIKit</pre><pre name="5470" id="5470" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="0c17" id="0c17" class="graf graf--pre graf-after--pre">class TableViewController: UITableViewController {<br>   <br>    var quotes = [Quote]()<br>    <br>    <br>    override func viewDidLoad() {<br>        super.viewDidLoad()<br>        refresh()<br>    }<br>    <br>    func refresh() {<br>        fetchQuotes { result in<br>            switch result {<br>            case .success(let quotes):<br>                self.quotes = quotes<br>            case .failure(_):<br>                break<br>            }<br>            DispatchQueue.main.async {<br>               <strong class="markup--strong markup--pre-strong"> if self.refreshControl?.isRefreshing == true 　　　　　　　　　 {<br>                    self.refreshControl?.endRefreshing()<br>                }</strong><br>                self.tableView.reloadData()<br>            }<br>        }<br>    }<br>    <br>    func fetchQuotes(completion: <a href="http://twitter.com/escaping" data-href="http://twitter.com/escaping" class="markup--anchor markup--pre-anchor" title="Twitter profile for @escaping" rel="noopener" target="_blank">@escaping</a> (Result&lt;[Quote], Error&gt;) -&gt; Void) {<br>      <br>        URLSession.shared.dataTask(with: URL(string: &quot;<a href="https://goquotes-api.herokuapp.com/api/v1/random?count=10" data-href="https://goquotes-api.herokuapp.com/api/v1/random?count=10" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://goquotes-api.herokuapp.com/api/v1/random?count=10</a>&quot;)!) { data, response, error in<br>            if let data = data {<br>                do {<br>                    let quoteResponse = try JSONDecoder().decode(QuoteResponse.self, from: data)<br>                    completion(.success(quoteResponse.quotes))<br>                } catch  {<br>                    completion(.failure(error))<br>                }<br>            } else if let error = error {<br>                completion(.failure(error))<br>            } else {<br>                completion(.failure(ApiError.invalidData))<br>            }<br>        }.resume()<br>    }<br>   <br>    <a href="http://twitter.com/IBAction" data-href="http://twitter.com/IBAction" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBAction" rel="noopener" target="_blank"><strong class="markup--strong markup--pre-strong">@IBAction</strong></a><strong class="markup--strong markup--pre-strong"> func pullToRefresh(_ sender: Any) {<br>        <br>        refresh()<br>    }</strong></pre><pre name="505e" id="505e" class="graf graf--pre graf-after--pre">    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {<br>        return quotes.count<br>    }</pre><pre name="d709" id="d709" class="graf graf--pre graf-after--pre">    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {<br>        let cell = tableView.dequeueReusableCell(withIdentifier: &quot;QuoteCell&quot;, for: indexPath)<br>        let quote = quotes[indexPath.row]<br>        cell.textLabel?.text = quote.text<br>        cell.detailTextLabel?.text = quote.author<br>        return cell<br>    }</pre><pre name="e2e7" id="e2e7" class="graf graf--pre graf-after--pre">}</pre><figure name="2339" id="2339" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*JPZris9eh72xTC1m0dCB7A.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/800/1*JPZris9eh72xTC1m0dCB7A.png"></figure><ul class="postList"><li name="9ab5" id="9ab5" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">從程式設定</strong></li></ul><pre name="0168" id="0168" class="graf graf--pre graf--empty graf-after--li"><br></pre><h4 name="d1af" id="d1af" class="graf graf--h4 graf-after--pre">修改顏色</h4><h4 name="e1d3" id="e1d3" class="graf graf--h4 graf-after--h4">畫面出現自動下拉更新</h4><p name="e127" id="e127" class="graf graf--p graf--empty graf-after--h4 graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/7629688957c8">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

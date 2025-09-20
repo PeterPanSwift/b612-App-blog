@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#1 NASA API 串接</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#1 NASA API 串接</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+API 網站
+</section>
+<section data-field="body" class="e-content">
+<section name="2d7b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1c69" id="1c69" class="graf graf--h3 graf--leading graf--title">#1 NASA API 串接</h3><h3 name="f156" id="f156" class="graf graf--h3 graf-after--h3">API 網站</h3><pre name="a3fa" id="a3fa" class="graf graf--pre graf-after--h3"><a href="https://api.nasa.gov" data-href="https://api.nasa.gov" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://api.nasa.gov</a></pre></div><div class="section-inner sectionLayout--outsetColumn"><figure name="1466" id="1466" class="graf graf--figure graf--layoutOutsetCenter graf-after--pre"><img class="graf-image" data-image-id="1*unLCHQLy0eUVjxHHDMV3lw.png" data-width="2128" data-height="1062" data-is-featured="true" src="https://cdn-images-1.medium.com/max/1200/1*unLCHQLy0eUVjxHHDMV3lw.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><figure name="8ad2" id="8ad2" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*MFdN4H99rts75cRFK6pWjA.png" data-width="1214" data-height="970" src="https://cdn-images-1.medium.com/max/800/1*MFdN4H99rts75cRFK6pWjA.png"></figure><h3 name="460d" id="460d" class="graf graf--h3 graf-after--figure">產生 API Key</h3><p name="a733" id="a733" class="graf graf--p graf-after--h3">串接 NASA API 需要搭配 API key，Application URL 可忽略不填。</p><figure name="8c7f" id="8c7f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cjavSEkXG1RP_VujfDFVIw.png" data-width="2030" data-height="1068" src="https://cdn-images-1.medium.com/max/800/1*cjavSEkXG1RP_VujfDFVIw.png"></figure><p name="c78c" id="c78c" class="graf graf--p graf-after--figure">如下圖所示，串接 API 時，請將 API key 帶在網址的參數 api_key。</p><figure name="a135" id="a135" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*x8Dsh01zm067nRINfCL_4g.png" data-width="2136" data-height="712" src="https://cdn-images-1.medium.com/max/800/1*x8Dsh01zm067nRINfCL_4g.png"></figure><h3 name="58fe" id="58fe" class="graf graf--h3 graf-after--figure">API 範例</h3><ul class="postList"><li name="be59" id="be59" class="graf graf--li graf-after--h3"><strong class="markup--strong markup--li-strong">APOD: Astronomy Picture of the Day</strong></li></ul><p name="52c7" id="52c7" class="graf graf--p graf-after--li">取得外太空圖片，預設是今天的外太空圖片。</p><pre name="dcf6" id="dcf6" class="graf graf--pre graf-after--p"><a href="https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY" data-href="https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY</a></pre><figure name="131b" id="131b" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*jEruXEFt8LrFQ3sYxL3bzw.png" data-width="1384" data-height="1258" src="https://cdn-images-1.medium.com/max/800/1*jEruXEFt8LrFQ3sYxL3bzw.png"></figure><p name="4dad" id="4dad" class="graf graf--p graf-after--figure">API 回傳結果</p><pre name="984c" id="984c" class="graf graf--pre graf-after--p">{<br>&quot;date&quot;:&quot;2021-03-02&quot;,<br>&quot;explanation&quot;:&quot;What if you could fly around Mars? NASA may have achieved that capability last month with the landing of Perseverance, a rover which included a small flight-worthy companion called Ingenuity, nicknamed Ginny. Even though Ginny is small -- a toaster-sized helicopter with four long legs and two even-longer (1.2-meter) rotors, she is the first of her kind -- there has never been anything like her before. After being deployed, possibly in April, the car-sized Perseverance (&quot;Percy&quot;) will back away to give Ginny ample room to attempt her unprecedented first flight. In the featured artistic illustration, Ginny&#39;s long rotors are depicted giving her the lift she needs to fly into the thin Martian atmosphere and explore the area near Perseverance. Although Ingenuity herself will not fly very far, she is a prototype for all future airborne Solar-System robots that may fly far across not only Mars, but Titan.&quot;,<br>&quot;hdurl&quot;:&quot;<a href="https://apod.nasa.gov/apod/image/2103/Helicopter_Mars2020_3811.jpg" data-href="https://apod.nasa.gov/apod/image/2103/Helicopter_Mars2020_3811.jpg" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://apod.nasa.gov/apod/image/2103/Helicopter_Mars2020_3811.jpg</a>&quot;,<br>&quot;media_type&quot;:&quot;image&quot;,<br>&quot;service_version&quot;:&quot;v1&quot;,<br>&quot;title&quot;:&quot;Ingenuity: A Mini-Helicopter Now on Mars&quot;,<br>&quot;url&quot;:&quot;<a href="https://apod.nasa.gov/apod/image/2103/Helicopter_Mars2020_1080.jpg" data-href="https://apod.nasa.gov/apod/image/2103/Helicopter_Mars2020_1080.jpg" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://apod.nasa.gov/apod/image/2103/Helicopter_Mars2020_1080.jpg</a>&quot;,<br>}</pre><p name="f958" id="f958" class="graf graf--p graf-after--pre">從 JSON 的 url 欄位可取得圖片的網址，比方以上 JSON 的圖片如下:</p><figure name="96b8" id="96b8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2Y8qc1MzTNa3l_CrxqqUiw.jpeg" data-width="1080" data-height="607" src="https://cdn-images-1.medium.com/max/800/1*2Y8qc1MzTNa3l_CrxqqUiw.jpeg"></figure><h3 name="cfe3" id="cfe3" class="graf graf--h3 graf-after--figure">Swift 程式範例</h3><p name="7e03" id="7e03" class="graf graf--p graf-after--h3">資料型別。</p><pre name="8fd8" id="8fd8" class="graf graf--pre graf-after--p">struct PhotoInfo: Decodable {<br>    let title: String<br>    let url: URL<br>}</pre><p name="0115" id="0115" class="graf graf--p graf-after--pre">定義 API function。</p><pre name="f322" id="f322" class="graf graf--pre graf-after--p">class NetworkController {<br>    <br>    static let shared = NetworkController()<br>    <br>    func fetchPhotoInfo(completion: <a href="http://twitter.com/escaping" data-href="http://twitter.com/escaping" class="markup--anchor markup--pre-anchor" title="Twitter profile for @escaping" rel="noopener" target="_blank">@escaping</a> (Result&lt;PhotoInfo, Error&gt;) -&gt; Void) {<br>        var urlComponents = URLComponents(string: &quot;<a href="https://api.nasa.gov/planetary/apod" data-href="https://api.nasa.gov/planetary/apod" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://api.nasa.gov/planetary/apod</a>&quot;)!<br>        urlComponents.queryItems = [<br>            &quot;api_key&quot;: &quot;DEMO_KEY&quot;<br>        ].map { URLQueryItem(name: $0.key, value: $0.value) }<br>        URLSession.shared.dataTask(with: urlComponents.url!) { (data, response, error) in<br>            if let data = data {<br>                let decoder = JSONDecoder()<br>                do {<br>                    let photoInfo = try decoder.decode(PhotoInfo.self, from: data)<br>                    completion(.success(photoInfo))<br>                } catch  {<br>                    completion(.failure(error))<br>                }<br>            } else if let error = error {<br>                completion(.failure(error))<br>            }<br>        }.resume()<br>    }<br>}</pre><p name="eb9d" id="eb9d" class="graf graf--p graf-after--pre">呼叫 API function。</p><pre name="efeb" id="efeb" class="graf graf--pre graf-after--p">NetworkController.shared.fetchPhotoInfo { (result) in<br>    switch result {<br>    case .success(let photoInfo):<br>        print(photoInfo)<br>    case .failure(let error):<br>        print(error)<br>    }<br>}</pre><h3 name="f72f" id="f72f" class="graf graf--h3 graf-after--pre">參考連結</h3><p name="9e28" id="9e28" class="graf graf--p graf-after--h3">Develop in Swift Data Collection‪s‬ Lession 2.6 Working with the Web: Concurrency</p><div name="1988" id="1988" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://books.apple.com/us/book/develop-in-swift-data-collections/id1511183970" data-href="https://books.apple.com/us/book/develop-in-swift-data-collections/id1511183970" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://books.apple.com/us/book/develop-in-swift-data-collections/id1511183970"><strong class="markup--strong markup--mixtapeEmbed-strong">‎Develop in Swift Data Collections</strong><br><em class="markup--em markup--mixtapeEmbed-em">‎Students expand on the knowledge and skills they developed in Fundamentals by extending their work in iOS app…</em>books.apple.com</a><a href="https://books.apple.com/us/book/develop-in-swift-data-collections/id1511183970" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8cccb1ac2bd0514dc15181c16525c57a" data-thumbnail-img-id="0*VviTrJuAeyOC5kYE" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*VviTrJuAeyOC5kYE);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/3b88e819f6df"><time class="dt-published" datetime="2021-03-02T06:47:22.566Z">March 2, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/1-nasa-api-%E4%B8%B2%E6%8E%A5-3b88e819f6df" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

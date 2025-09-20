@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>為什麼 iOS delegate / data source function 的第一個參數常常是它對應的元件</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">為什麼 iOS delegate / data source function 的第一個參數常常是它對應的元件</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS delegate / data source function 的第一個參數常常是它對應的元件，比方以下例子。
+</section>
+<section data-field="body" class="e-content">
+<section name="10ef" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="14eb" id="14eb" class="graf graf--h3 graf--leading graf--title">為什麼 iOS delegate / data source function 的第一個參數常常是它對應的元件</h3><p name="3241" id="3241" class="graf graf--p graf-after--h3">iOS delegate / data source function 的第一個參數常常是它對應的元件，比方以下例子。</p><ul class="postList"><li name="146f" id="146f" class="graf graf--li graf-after--p">scrollViewDidScroll(_:) 的第一個參數是 scroll view。</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="679a" id="679a" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">optional</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">scrollViewDidScroll</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">scrollView</span>: <span class="hljs-type">UIScrollView</span>)</span></pre><ul class="postList"><li name="d586" id="d586" class="graf graf--li graf-after--pre">tableView(_:didSelectRowAt:) 的第一個參數是 table view。</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="022c" id="022c" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">optional</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">tableView</span>(<br />    <span class="hljs-keyword">_</span> <span class="hljs-params">tableView</span>: <span class="hljs-type">UITableView</span>,<br />    <span class="hljs-params">didSelectRowAt</span> <span class="hljs-params">indexPath</span>: <span class="hljs-type">IndexPath</span><br />)</span></pre><ul class="postList"><li name="3dea" id="3dea" class="graf graf--li graf-after--pre">tableView(_:cellForRowAt:) 的第一個參數是 table view。</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="30f8" id="30f8" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">tableView</span>(<br />    <span class="hljs-keyword">_</span> <span class="hljs-params">tableView</span>: <span class="hljs-type">UITableView</span>,<br />    <span class="hljs-params">cellForRowAt</span> <span class="hljs-params">indexPath</span>: <span class="hljs-type">IndexPath</span><br />) -&gt; <span class="hljs-type">UITableViewCell</span></span></pre><p name="87eb" id="87eb" class="graf graf--p graf-after--pre">為什麼 Apple 習慣將這些 function 的第一個參數設計成 delegate / data source 對應的元件呢 ? 它有許多好處，其中一個在於當有多個元件共用同一個 delegate / data source 時，我們可從參數區分判斷做不同的事。</p><p name="1206" id="1206" class="graf graf--p graf-after--p">以下我們以奧運 App 為例，如下圖所示，畫面上有 2 個 collection view，分別顯示奧運運動 icon 的小圖和吉祥物的大圖。</p><figure name="89e0" id="89e0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*HbjQ77GdAJPMWl93mZ8Neg.png" data-width="1342" data-height="920" src="https://cdn-images-1.medium.com/max/800/1*HbjQ77GdAJPMWl93mZ8Neg.png"></figure><figure name="fb03" id="fb03" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*yK_SS1Qe0Lu6ywelA8S6CQ.png" data-width="1179" data-height="2556" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*yK_SS1Qe0Lu6ywelA8S6CQ.png"></figure><p name="36b9" id="36b9" class="graf graf--p graf-after--figure">2 個 collection view 的 data source 都是 OlympicViewController，因此我們必須在 function collectionView(_:numberOfItemsInSection:) 和 collectionView(_:cellForItemAt:) 判斷對應的 collection view 才能顯示正確的內容。</p><p name="2dcc" id="2dcc" class="graf graf--p graf-after--p">為了區分不同的 collection view，我們先連接 outlet mascotCollectionView &amp; gameCollectionView。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0ff1" id="0ff1" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">OlympicViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> mascotCollectionView: <span class="hljs-type">UICollectionView</span>!<br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> gameCollectionView: <span class="hljs-type">UICollectionView</span>!</span></pre><p name="eaac" id="eaac" class="graf graf--p graf-after--pre">之後在 data source function 將參數 collectionView 和 outlet 比對，即可決定回傳的 cell 數量和內容。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="f1c8" id="f1c8" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">extension</span> <span class="hljs-title class_">OlympicViewController</span>: <span class="hljs-title class_">UICollectionViewDataSource</span> {<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">collectionView</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">collectionView</span>: <span class="hljs-type">UICollectionView</span>, <span class="hljs-params">numberOfItemsInSection</span> <span class="hljs-params">section</span>: <span class="hljs-type">Int</span>) -&gt; <span class="hljs-type">Int</span> {<br />        <span class="hljs-keyword">if</span> collectionView <span class="hljs-operator">==</span> mascotCollectionView {<br />            <span class="hljs-keyword">return</span> mascots.count<br />        } <span class="hljs-keyword">else</span> {<br />            <span class="hljs-keyword">return</span> games.count<br />        }<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">collectionView</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">collectionView</span>: <span class="hljs-type">UICollectionView</span>, <span class="hljs-params">cellForItemAt</span> <span class="hljs-params">indexPath</span>: <span class="hljs-type">IndexPath</span>) -&gt; <span class="hljs-type">UICollectionViewCell</span> {<br />        <span class="hljs-keyword">if</span> collectionView <span class="hljs-operator">==</span> mascotCollectionView {<br />            <span class="hljs-keyword">let</span> cell <span class="hljs-operator">=</span> collectionView.dequeueReusableCell(withReuseIdentifier: <span class="hljs-string">&quot;<span class="hljs-subst">\(MascotCollectionViewCell.<span class="hljs-keyword">self</span>)</span>&quot;</span>, for: indexPath) <span class="hljs-keyword">as!</span> <span class="hljs-type">MascotCollectionViewCell</span><br />            cell.imageView.image <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(named: <span class="hljs-string">&quot;<span class="hljs-subst">\(mascots[indexPath.item])</span>&quot;</span>)<br />            <span class="hljs-keyword">return</span> cell<br />        } <span class="hljs-keyword">else</span> {<br />            <span class="hljs-keyword">let</span> cell <span class="hljs-operator">=</span> collectionView.dequeueReusableCell(withReuseIdentifier: <span class="hljs-string">&quot;<span class="hljs-subst">\(GameCollectionViewCell.<span class="hljs-keyword">self</span>)</span>&quot;</span>, for: indexPath) <span class="hljs-keyword">as!</span> <span class="hljs-type">GameCollectionViewCell</span><br />            cell.imageView.image <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(named: games[indexPath.item])<br />            <span class="hljs-keyword">return</span> cell<br />        }<br />       <br />    }<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/f7c73949fb90"><time class="dt-published" datetime="2024-07-29T08:54:03.348Z">July 29, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%82%BA%E4%BB%80%E9%BA%BC-ios-delegate-data-source-function-%E7%9A%84%E7%AC%AC%E4%B8%80%E5%80%8B%E5%8F%83%E6%95%B8%E5%B8%B8%E5%B8%B8%E6%98%AF%E5%AE%83%E5%B0%8D%E6%87%89%E7%9A%84%E5%85%83%E4%BB%B6-f7c73949fb90" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 closure 設定 property</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 closure 設定 property</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當 property 的內容需要經過複雜的程式計算才能設定時，我們習慣在 init 裡設定，但其實也可以在宣告 property 時利用呼叫 closure 的 { } 程式指定內容，例如以下例子:
+</section>
+<section data-field="body" class="e-content">
+<section name="a9f6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="671c" id="671c" class="graf graf--h3 graf--leading graf--title">利用 closure 設定 property</h3><p name="7f43" id="7f43" class="graf graf--p graf-after--h3">當 property 的內容需要經過複雜的程式計算才能設定時，我們習慣在 init 裡設定，但其實也可以在宣告 property 時利用呼叫 closure 的 { } 程式指定內容，例如以下例子:</p><h3 name="0b20" id="0b20" class="graf graf--h3 graf-after--p"><strong class="markup--strong markup--h3-strong">例子1: 產生登入的 button</strong></h3><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="b4e8" id="b4e8" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br /><br />   <span class="hljs-keyword">let</span> loginButton <span class="hljs-operator">=</span> {<br />      <span class="hljs-keyword">let</span> button <span class="hljs-operator">=</span> <span class="hljs-type">UIButton</span>(type: .custom)<br />      button.translatesAutoresizingMaskIntoConstraints <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />      button.setTitle(<span class="hljs-string">&quot;login&quot;</span>, for: .normal)<br />      button.setTitleColor(.orange, for: .normal)<br />      button.addTarget(<span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(login), for: .touchUpInside)<br />      <span class="hljs-keyword">return</span> button<br />   }()<br /><br />   <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">login</span>() {<br />   }</span></pre><p name="ea4f" id="ea4f" class="graf graf--p graf-after--pre">利用 closure 指定 property 內容時，有幾個小地方要注意。</p><p name="eeac" id="eeac" class="graf graf--p graf-after--p">(1) closure 的 { } 後要加 () 才會執行 closure 的程式。</p><p name="05df" id="05df" class="graf graf--p graf-after--p">如果忘了加 ( )，意思將變成 property 儲存 closure 的程式碼，而不是 closure 執行後回傳的結果。</p><p name="b93f" id="b93f" class="graf graf--p graf-after--p">由於 loginButton 已經在宣告時透過 closure 生成，所以我們可在 viewDidLoad 裡將它加到畫面上，設定它的 auto layout 條件。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="2ccd" id="2ccd" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />   <span class="hljs-keyword">super</span>.viewDidLoad()<br />   view.addSubview(loginButton)<br />   loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />   loginButton.centerYAnchor.constraint(equalTo:    view.centerYAnchor).isActive <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />}</span></pre><p name="4f2f" id="4f2f" class="graf graf--p graf-after--pre">(2) 不能在 closure 裡存取其它的 property 或呼叫方法，除非加上 lazy。</p><p name="fee0" id="fee0" class="graf graf--p graf-after--p">因為此時東西還未生成，所以其它 property 的內容也還沒設定好，因此我們不能在 closure 裡存取其它的 property 或呼叫方法。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="310f" id="310f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />   <span class="hljs-keyword">var</span> buttonTitleColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.orange<br />   <span class="hljs-keyword">let</span> loginButton <span class="hljs-operator">=</span> {<br />      <span class="hljs-keyword">let</span> button <span class="hljs-operator">=</span> <span class="hljs-type">UIButton</span>(type: .custom)<br />      button.translatesAutoresizingMaskIntoConstraints <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />      button.setTitle(<span class="hljs-string">&quot;login&quot;</span>, for: .normal)<br />      button.setTitleColor(buttonTitleColor, for: .normal)<br />      button.addTarget(<span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(login), for: .touchUpInside)<br />      <span class="hljs-keyword">return</span> button<br />   }()</span></pre><p name="7bd7" id="7bd7" class="graf graf--p graf-after--pre">比方以上例子，當我們在 closure 裡存取另一個 property buttonTitleColor 時，將產生錯誤。</p><figure name="f6a1" id="f6a1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*K6jV-1v2t3R_1NT5Ma92Gg.png" data-width="2080" data-height="592" src="https://cdn-images-1.medium.com/max/800/1*K6jV-1v2t3R_1NT5Ma92Gg.png"></figure><p name="0854" id="0854" class="graf graf--p graf-after--figure">倘若真的需要在 closure 裡存取另一個 property，則可將 property 改成以 lazy var 宣告。加了 lazy 的 property 會在東西已經生成，property 初次存取時才設定。</p><p name="32ce" id="32ce" class="graf graf--p graf-after--p">因此剛剛的例子，當 view controller 生成，loginButton 在 viewDidLoad 裡初次存取時才會執行生成 button 的 closure 程式，此時 buttonTitleColor 已被初始為橘色，可以放心地存取。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="php" name="07b6" id="07b6" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> buttonTitleColor = UIColor.orange<br />lazy <span class="hljs-keyword">var</span> loginButton = {<br />   let button = <span class="hljs-title function_ invoke__">UIButton</span>(<span class="hljs-attr">type</span>: .custom)<br />   button.translatesAutoresizingMaskIntoConstraints = <span class="hljs-literal">false</span><br />   button.<span class="hljs-title function_ invoke__">setTitle</span>(<span class="hljs-string">&quot;login&quot;</span>, <span class="hljs-attr">for</span>: .normal)<br />   button.<span class="hljs-title function_ invoke__">setTitleColor</span>(buttonTitleColor, <span class="hljs-attr">for</span>: .normal)<br />   button.<span class="hljs-title function_ invoke__">addTarget</span>(<span class="hljs-built_in">self</span>, <span class="hljs-attr">action</span>: #<span class="hljs-title function_ invoke__">selector</span>(login), <span class="hljs-attr">for</span>: .touchUpInside)<br />   <span class="hljs-keyword">return</span> button<br />}()</span></pre><h3 name="4126" id="4126" class="graf graf--h3 graf-after--pre"><strong class="markup--strong markup--h3-strong">例子2: 設定西洋棋格子的 array</strong></h3><p name="167e" id="167e" class="graf graf--p graf-after--h3">此例子來自 Apple’s The Swift Programming Language。</p><div name="af67" id="af67" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization/" data-href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization/"><strong class="markup--strong markup--mixtapeEmbed-strong">Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Copyright © 2014-2023 Apple Inc. and the Swift project authors. All rights reserved.</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/initialization/" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="dd3e0846482b6195f6654d271ad9396e"></a></div><figure name="f270" id="f270" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*7ZQ8ysFpamNBteulfPxNxQ.png" data-width="460" data-height="460" src="https://cdn-images-1.medium.com/max/800/1*7ZQ8ysFpamNBteulfPxNxQ.png"></figure><p name="8436" id="8436" class="graf graf--p graf-after--figure">利用型別 [Bool] 的 boardColors 儲存西洋棋的格子。true 代表黑色，false 代表白色。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="92bf" id="92bf" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Chessboard</span> {<br />   <span class="hljs-keyword">let</span> boardColors <span class="hljs-operator">=</span> {<br />      <span class="hljs-keyword">var</span> temporaryBoard <span class="hljs-operator">=</span> [<span class="hljs-type">Bool</span>]()<br />      <span class="hljs-keyword">var</span> isBlack <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />      <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">8</span> {<br />       <br />         <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">8</span> {<br />            temporaryBoard.append(isBlack)<br />            isBlack <span class="hljs-operator">=</span> <span class="hljs-operator">!</span>isBlack<br />         }<br />         isBlack <span class="hljs-operator">=</span> <span class="hljs-operator">!</span>isBlack<br />      }<br />      <span class="hljs-keyword">return</span> temporaryBoard<br />   }()<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5dc791908d94"><time class="dt-published" datetime="2018-09-18T05:53:34.087Z">September 18, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-closure-%E8%A8%AD%E5%AE%9A-property-5dc791908d94" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>An unknown error occurred 或 Repository creation failed — 從 Xcode create Remote 的錯誤</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">An unknown error occurred 或 Repository creation failed — 從 Xcode create Remote 的錯誤</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+有些朋友從 Xcode 點選 Create xxx Remote，準備將專案傳到 Remote 時，出現錯誤訊息 Repository creation failed 或 An unknown error occurred。
+</section>
+<section data-field="body" class="e-content">
+<section name="279f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b85d" id="b85d" class="graf graf--h3 graf--leading graf--title"><strong class="markup--strong markup--h3-strong">An unknown error occurred 或 Repository creation failed — 從 Xcode create Remote 的錯誤</strong></h3><p name="64cd" id="64cd" class="graf graf--p graf-after--h3">有些朋友從 Xcode 點選 Create xxx Remote，準備將專案傳到 Remote 時，出現錯誤訊息 Repository creation failed 或 An unknown error occurred。</p><figure name="eabd" id="eabd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*q7I-qcZtlDx4S2xYfT1NmA.jpeg" data-width="954" data-height="838" src="https://cdn-images-1.medium.com/max/800/1*q7I-qcZtlDx4S2xYfT1NmA.jpeg"></figure><figure name="0ae7" id="0ae7" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*qtrjy0BjncueeJpzLCzouQ.jpeg" data-width="846" data-height="340" src="https://cdn-images-1.medium.com/max/800/1*qtrjy0BjncueeJpzLCzouQ.jpeg"></figure><figure name="3b47" id="3b47" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*xQasv01KBMukWzhO9eudsg.jpeg" data-width="978" data-height="856" src="https://cdn-images-1.medium.com/max/800/1*xQasv01KBMukWzhO9eudsg.jpeg"></figure><figure name="0c89" id="0c89" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*qBggCj3wKv689_8bd1sHBA.jpeg" data-width="848" data-height="268" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*qBggCj3wKv689_8bd1sHBA.jpeg"></figure><p name="f53e" id="f53e" class="graf graf--p graf-after--figure">發生此問題的解法有兩種</p><h3 name="f0b5" id="f0b5" class="graf graf--h3 graf-after--p">解法1: 換個 Repository Name</h3><p name="dd6e" id="dd6e" class="graf graf--p graf-after--h3">你的 Remote 帳號曾經建立過名字一樣的 Repository Name， 所以請換個 Repository Name，即可解決此問題。</p><figure name="268c" id="268c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gqCJXEwVTRHkpbeBhxLwcg.jpeg" data-width="954" data-height="838" src="https://cdn-images-1.medium.com/max/800/1*gqCJXEwVTRHkpbeBhxLwcg.jpeg"></figure><h3 name="939c" id="939c" class="graf graf--h3 graf-after--figure">解法2: 先 commit 再 create Remote</h3><p name="c073" id="c073" class="graf graf--p graf-after--h3">如果 An unknown error occurred 出現錯誤訊息 reference refs/heads/master not found，表示你忘了 commit。請先做 commit，然後再 create Remote。</p><figure name="6f59" id="6f59" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*uztw7ddbZaFhtHd40zVkkA.jpeg" data-width="1188" data-height="352" src="https://cdn-images-1.medium.com/max/800/1*uztw7ddbZaFhtHd40zVkkA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/794aae0d87f"><time class="dt-published" datetime="2018-04-08T16:14:01.285Z">April 8, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/repository-creation-failed-%E5%BE%9E-xcode-create-remote-on-github-%E7%9A%84%E9%8C%AF%E8%AA%A4-794aae0d87f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

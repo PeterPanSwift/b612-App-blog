@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>DateFormatter dateFormat 的逃脫字串</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">DateFormatter dateFormat 的逃脫字串</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近有同學研究可愛的貓咪 API，發現它 JSON 裡的時間格式特別奇怪。
+</section>
+<section data-field="body" class="e-content">
+<section name="1941" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8b03" id="8b03" class="graf graf--h3 graf--leading graf--title">DateFormatter dateFormat 的逃脫字串</h3><p name="18d0" id="18d0" class="graf graf--p graf-after--h3">最近有同學研究可愛的貓咪 API，發現它 JSON 裡的時間格式特別奇怪。</p><pre name="c56b" id="c56b" class="graf graf--pre graf-after--p"><a href="https://cataas.com/api/cats?tags=cute" data-href="https://cataas.com/api/cats?tags=cute" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://cataas.com/api/cats?tags=cute</a></pre><p name="cc7b" id="cc7b" class="graf graf--p graf-after--pre">JSON 的 createdAt 欄位如下，出現了一些特別的字串，像是 GMT。</p><pre name="bada" id="bada" class="graf graf--pre graf-after--p">&quot;createdAt&quot;:&quot;Wed Sep 28 2022 02:36:22 GMT+0000 (Coordinated Universal Time)&quot;</pre><p name="1311" id="1311" class="graf graf--p graf-after--pre">解析這樣特別的時間格式時，我們可以使用 DateFormatter，在它的 dateFormat 描述時間格式。</p><p name="3ebb" id="3ebb" class="graf graf--p graf-after--p">以 dateFormat 描述時間格式時，我們主要參考 nsdateformatter.com 的時間格式縮寫，比方 y 代表年，M 代表月份。</p><figure name="8917" id="8917" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YUHbWAevCU7joXOCMVax7g.png" data-width="1330" data-height="1134" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*YUHbWAevCU7joXOCMVax7g.png"></figure><div name="d7fc" id="d7fc" class="graf graf--mixtapeEmbed graf-after--figure"><a href="http://nsdateformatter.com/" data-href="http://nsdateformatter.com/" class="markup--anchor markup--mixtapeEmbed-anchor" title="http://nsdateformatter.com/"><strong class="markup--strong markup--mixtapeEmbed-strong">NSDateFormatter.com - Live Date Formatting Playground for Swift</strong><br><em class="markup--em markup--mixtapeEmbed-em">You should be aware that using a custom dateFormat comes with a risk of falling into some fallacies. Especially, you…</em>nsdateformatter.com</a><a href="http://nsdateformatter.com/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="ad9b929e9ed5329e1291308ad7965bac" data-thumbnail-img-id="0*wqnTTGhkzyxqpJiu" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*wqnTTGhkzyxqpJiu);"></a></div><p name="fe92" id="fe92" class="graf graf--p graf-after--mixtapeEmbed">不過剛剛 JSON 的時間裡還包含一些特別的字串，像是 GMT ，這些特別的字串可用單引號加入，例如以下例子，我們將 dateFormat 設為 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">&quot;E MMM dd yyyy HH:mm:ss &#39;GMT&#39;Z (zzzz)&quot;</strong></code><strong class="markup--strong markup--p-strong">，</strong>GMT 用單引號加入，(zzzz) 則對應 (Coordinated Universal Time) 。</p><pre name="d54c" id="d54c" class="graf graf--pre graf-after--p">let time = &quot;Wed Sep 28 2022 02:36:22 GMT+0000 (Coordinated Universal Time)&quot;<br>let formatter = DateFormatter()<br><strong class="markup--strong markup--pre-strong">formatter.dateFormat = &quot;E MMM dd yyyy HH:mm:ss &#39;GMT&#39;Z (zzzz)&quot;<br></strong>let date = formatter.date(from: time)</pre><p name="7895" id="7895" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">結果</strong></p><p name="c17a" id="c17a" class="graf graf--p graf-after--p">得到 <code class="markup--code markup--p-code">Sep 28, 2022 at 10:36 AM</code>，因為彼得潘的時區是 +8，所以 playground 顯示的時間會再加 8 個小時。</p><figure name="b918" id="b918" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*D3z4EgXrv_RCSdEz0ubWjw.png" data-width="1270" data-height="264" src="https://cdn-images-1.medium.com/max/800/1*D3z4EgXrv_RCSdEz0ubWjw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5832fc0551de"><time class="dt-published" datetime="2022-10-18T16:21:09.712Z">October 18, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/dateformatter-dateformat-%E7%9A%84%E9%80%83%E8%84%AB%E5%AD%97%E4%B8%B2-5832fc0551de" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

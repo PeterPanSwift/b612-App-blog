@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>UIActivityViewController 的 NSPhotoLibraryAddUsageDescription 閃退問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">UIActivityViewController 的 NSPhotoLibraryAddUsageDescription 閃退問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 UIActivityViewController 我們可以方便地將 App 裡的圖文存到相簿和分享到 FB，LINE。
+</section>
+<section data-field="body" class="e-content">
+<section name="67a0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="75bc" id="75bc" class="graf graf--h3 graf--leading graf--title">UIActivityViewController 的 <strong class="markup--strong markup--h3-strong">NSPhotoLibraryAddUsageDescription 閃退問題</strong></h3><p name="036e" id="036e" class="graf graf--p graf-after--h3">利用 UIActivityViewController 我們可以方便地將 App 裡的圖文分享到 FB &amp; LINE，但是如果想將圖片存到手機相簿，點選 Save Image，卻可能造成 App 閃退，出現以下錯誤訊息。</p><figure name="0da2" id="0da2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*fht-iTf1B7BxMXb-5pJgaQ.png" data-width="1125" data-height="2436" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*fht-iTf1B7BxMXb-5pJgaQ.png"></figure><pre name="9b25" id="9b25" class="graf graf--pre graf-after--figure">2020-03-14 23:03:39.932303+0800 Demo[18921:1029072] [access] This app has crashed because it attempted to access privacy-sensitive data without a usage description.  The app&#39;s Info.plist must contain an NSPhotoLibraryAddUsageDescription key with a string value explaining to the user how the app uses this data.</pre><p name="de38" id="de38" class="graf graf--p graf-after--pre">我們必須徵求使用者同意後，才能將照片存到他的手機相簿。因此請在 App 的 Info 頁面設定 NSPhotoLibraryAddUsageDescription，讓使用者同意 App 將照片存到相簿。</p><ul class="postList"><li name="5973" id="5973" class="graf graf--li graf-after--p">切換到 App 的 Info 頁面，點選 + 新增資料。</li></div><div class="section-inner sectionLayout--outsetColumn"></ul><figure name="3160" id="3160" class="graf graf--figure graf--layoutOutsetCenter graf-after--li"><img class="graf-image" data-image-id="1*Ltw5gif09aGxtmJhb-52rQ.jpeg" data-width="2396" data-height="614" src="https://cdn-images-1.medium.com/max/1200/1*Ltw5gif09aGxtmJhb-52rQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><ul class="postList"><li name="0a78" id="0a78" class="graf graf--li graf-after--figure">選擇 Privacy — Photo Library Additions Usage Description。</li></ul><figure name="a9a8" id="a9a8" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*H5T7-izj0JSDMBBVJnkULA.jpeg" data-width="524" data-height="490" src="https://cdn-images-1.medium.com/max/800/1*H5T7-izj0JSDMBBVJnkULA.jpeg"></figure><ul class="postList"><li name="6801" id="6801" class="graf graf--li graf-after--figure">輸入請求文字。</li></ul><figure name="d8f3" id="d8f3" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*DSPInQVe-B0S2t8_j9v7-Q.jpeg" data-width="1682" data-height="750" src="https://cdn-images-1.medium.com/max/800/1*DSPInQVe-B0S2t8_j9v7-Q.jpeg"></figure><p name="67c4" id="67c4" class="graf graf--p graf-after--figure">Yes ! 當我們第一次點選 UIActivityViewController 的 Save Image 時，App 將顯示請求權限的文字訊息。一旦使用者同意，我們即可順利地將照片存入手機相簿裡。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="8ae8" id="8ae8" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*_ZvJcgkUDvLkPgIuJpBsDg.jpeg" data-width="818" data-height="1492" src="https://cdn-images-1.medium.com/max/600/1*_ZvJcgkUDvLkPgIuJpBsDg.jpeg"></figure><figure name="d5bd" id="d5bd" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure graf--trailing" style="width: 50%;"><img class="graf-image" data-image-id="1*mOun710YdKYVYCryIFpTIw.jpeg" data-width="818" data-height="1492" src="https://cdn-images-1.medium.com/max/600/1*mOun710YdKYVYCryIFpTIw.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/16dfb0ba67f9"><time class="dt-published" datetime="2020-03-14T15:20:15.429Z">March 14, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/uiactivityviewcontroller-%E7%9A%84-nsphotolibraryaddusagedescription-%E9%96%83%E9%80%80%E5%95%8F%E9%A1%8C-16dfb0ba67f9" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

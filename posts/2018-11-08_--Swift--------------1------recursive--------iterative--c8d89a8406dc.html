@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>用 Swift 學習資工系的經典程式問題 1 : 遞迴(recursive) &amp; 迭代 (iterative)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">用 Swift 學習資工系的經典程式問題 1 : 遞迴(recursive) &amp; 迭代 (iterative)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+信樂團唱著，假如時光倒流，我能做什麼，找妳沒說的，卻想要的。彼得潘也常聽到一些剛學會 Swift iOS App 開發的朋友提到，假如時光倒流，我想讀資工，學一些 iOS App 課程沒教的，想要進 Apple 卻會考的程式問題。
+ 
+如果你略懂…
+</section>
+<section data-field="body" class="e-content">
+<section name="e1e8" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="370f" id="370f" class="graf graf--h3 graf--leading graf--title">用 Swift 學習資工系的經典程式問題 1 : 遞迴(recursive) &amp; 迭代 (iterative)</h3><p name="50b9" id="50b9" class="graf graf--p graf-after--h3">信樂團唱著，假如時光倒流，我能做什麼，找妳沒說的，卻想要的。彼得潘也常聽到一些剛學會 Swift iOS App 開發的朋友提到，假如時光倒流，我想讀資工，學一些 iOS App 課程沒教的，想要進 Apple 卻會考的程式問題。<br> <br>如果你略懂 Swift，但是大學不是資工系，想來一起動動腦，歡迎來參加適合 Swift iOS App 開發新手的經典程式問題練功坊。</p><div name="02ed" id="02ed" class="graf graf--mixtapeEmbed graf-after--p"><a href="http://csproblemsinswift.strikingly.com" data-href="http://csproblemsinswift.strikingly.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="http://csproblemsinswift.strikingly.com"><strong class="markup--strong markup--mixtapeEmbed-strong">用 Swift 學習資工系的經典程式問題</strong><br><em class="markup--em markup--mixtapeEmbed-em">假如時光倒流，我想讀資工，學一些 iOS App 課程沒教的，想要進 Apple，Google，FB 卻會考的程式問題。 如果你略懂 Swift，但是大學不是資工系，想來一起動動腦，歡迎來參加適合 Swift iOS App…</em>csproblemsinswift.strikingly.com</a><a href="http://csproblemsinswift.strikingly.com" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="895c811777d55b5f7f6657ade1f66c8a" data-thumbnail-img-id="0*ItWRj8cxXFI5bjVM" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*ItWRj8cxXFI5bjVM);"></a></div><figure name="3636" id="3636" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*Pu6v-fIaeke2nYDHOY0avQ.jpeg" data-width="1518" data-height="998" src="https://cdn-images-1.medium.com/max/800/1*Pu6v-fIaeke2nYDHOY0avQ.jpeg"></figure><figure name="fa15" id="fa15" class="graf graf--figure graf--iframe graf-after--figure graf--trailing"><iframe src="https://www.youtube.com/embed/9TzBO_3VRRk?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c8d89a8406dc"><time class="dt-published" datetime="2018-11-08T06:49:46.449Z">November 8, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%94%A8-swift-%E5%AD%B8%E7%BF%92%E8%B3%87%E5%B7%A5%E7%B3%BB%E7%9A%84%E7%B6%93%E5%85%B8%E7%A8%8B%E5%BC%8F%E5%95%8F%E9%A1%8C-1-%E9%81%9E%E8%BF%B4-recursive-%E8%BF%AD%E4%BB%A3-iterative-c8d89a8406dc" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

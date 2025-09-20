@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#204 扣除假日的實際工作天數</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#204 扣除假日的實際工作天數</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近彼得潘開發 iOS App 案子時遇到一個有趣的功能，覺得它滿適合出作業和當面試考題，歡迎有興趣的朋友試試。
+</section>
+<section data-field="body" class="e-content">
+<section name="b8fa" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h2 name="e195" id="e195" class="graf graf--h2 graf--leading graf--title">#204 扣除假日的實際工作天數</h2><figure name="992e" id="992e" class="graf graf--figure graf-after--h2"><img class="graf-image" data-image-id="1*DDdY2tKmJ4Ebtc0_pOuS2w.png" data-width="2020" data-height="1544" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*DDdY2tKmJ4Ebtc0_pOuS2w.png"></figure><p name="ff64" id="ff64" class="graf graf--p graf-after--figure">最近彼得潘開發 iOS App 案子時遇到一個有趣的功能，覺得它滿適合出作業和當面試考題，歡迎有興趣的朋友試試。</p><h3 name="995b" id="995b" class="graf graf--h3 graf-after--p">功能需求</h3><p name="a286" id="a286" class="graf graf--p graf-after--h3">選擇開始日期和結束日期，扣除假日，計算實際的工作天數。</p><p name="880b" id="880b" class="graf graf--p graf-after--p">假日須考慮星期六，星期天，國家假日和連假，若遇到補假也要加回來，因為補假也要工作呀。</p><p name="bcc6" id="bcc6" class="graf graf--p graf-after--p">從政府行政機關辦公日曆表 API 可查詢放假資訊。</p><p name="927b" id="927b" class="graf graf--p graf-after--p"><a href="https://data.ntpc.gov.tw/datasets/308dcd75-6434-45bc-a95f-584da4fed251" data-href="https://data.ntpc.gov.tw/datasets/308dcd75-6434-45bc-a95f-584da4fed251" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://data.ntpc.gov.tw/datasets/308dcd75-6434-45bc-a95f-584da4fed251</a></p><p name="72d1" id="72d1" class="graf graf--p graf-after--p">從以上網址得知資料 id 為 308dcd75–6434–45bc-a95f-584da4fed251，因此我們可從以下網址抓取 JSON</p><p name="2041" id="2041" class="graf graf--p graf-after--p"><a href="https://data.ntpc.gov.tw/api/datasets/308dcd75-6434-45bc-a95f-584da4fed251/json?size=100&amp;page=0" data-href="https://data.ntpc.gov.tw/api/datasets/308dcd75-6434-45bc-a95f-584da4fed251/json?size=100&amp;page=0" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://data.ntpc.gov.tw/api/datasets/308dcd75-6434-45bc-a95f-584da4fed251/json?size=100&amp;page=0</a></p><p name="ed56" id="ed56" class="graf graf--p graf-after--p">值得注意的，資料從 2013 開始由小排到大，目前測試 page=11 才能抓到 2023 的資料。若不想一頁一頁抓資料，也可以將 size 設為 2000，一次抓取全部資料。</p><p name="f0e1" id="f0e1" class="graf graf--p graf-after--p"><a href="https://data.ntpc.gov.tw/api/datasets/308dcd75-6434-45bc-a95f-584da4fed251/json?size=2000" data-href="https://data.ntpc.gov.tw/api/datasets/308dcd75-6434-45bc-a95f-584da4fed251/json?size=2000" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://data.ntpc.gov.tw/api/datasets/308dcd75-6434-45bc-a95f-584da4fed251/json?size=2000</a></p><p name="13b1" id="13b1" class="graf graf--p graf-after--p graf--trailing">ps: 聽說未來 API 會增加參數方便抓取某一年的資料，敬請期待。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/415bcf2c2176"><time class="dt-published" datetime="2023-06-30T12:28:35.111Z">June 30, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/204-%E6%89%A3%E9%99%A4%E5%81%87%E6%97%A5%E7%9A%84%E5%AF%A6%E9%9A%9B%E5%B7%A5%E4%BD%9C%E5%A4%A9%E6%95%B8-415bcf2c2176" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

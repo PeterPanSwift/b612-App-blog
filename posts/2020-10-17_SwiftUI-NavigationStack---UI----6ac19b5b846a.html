@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI NavigationStack 的 UI 調整</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI NavigationStack 的 UI 調整</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+透明的 navigation bar
+</section>
+<section data-field="body" class="e-content">
+<section name="4bef" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="72fa" id="72fa" class="graf graf--h3 graf--leading graf--title">SwiftUI NavigationStack 的 UI 調整</h3><h3 name="3328" id="3328" class="graf graf--h3 graf-after--h3">預設白跟黑的 navigation bar</h3><p name="c2b7" id="c2b7" class="graf graf--p graf-after--h3">原本的 navigation bar 預設是白色跟黑色背景(dark mode)。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a4cf" id="a4cf" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">NavigationStack</span> {<br />            <span class="hljs-type">Image</span>(._100Years)<br />                .resizable()<br />                .scaledToFill()<br />                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)<br />                .navigationTitle(<span class="hljs-string">&quot;Agatha Christie&quot;</span>)<br />        }<br />    }<br />}</span></pre></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="0f7e" id="0f7e" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--pre" style="width: 50.392%;"><img class="graf-image" data-image-id="1*pEwZxqb16UzNGkSQscHK8Q.jpeg" data-width="476" data-height="824" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*pEwZxqb16UzNGkSQscHK8Q.jpeg"></figure><figure name="fb37" id="fb37" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 49.608%;"><img class="graf-image" data-image-id="1*SIF-0rVHlrxYV493idXJDg.jpeg" data-width="476" data-height="836" src="https://cdn-images-1.medium.com/max/600/1*SIF-0rVHlrxYV493idXJDg.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="9b7b" id="9b7b" class="graf graf--h3 graf-after--figure">透明的 navigation bar</h3><p name="51bc" id="51bc" class="graf graf--p graf-after--h3">從 NavigationStack 裡的畫面呼叫 <code class="markup--code markup--p-code">ignoresSafeArea</code>， 畫面將延伸到 navigation bar 底下。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="feda" id="feda" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">NavigationStack</span> {<br />            <span class="hljs-type">Image</span>(._100Years)<br />                .resizable()<br />                .scaledToFill()<br />                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)<br />                .ignoresSafeArea()<br />                .navigationTitle(<span class="hljs-string">&quot;Agatha Christie&quot;</span>)<br />        }<br />    }<br />}</span></pre><figure name="60d3" id="60d3" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*6aBGZVcvhOPulHvtWP520Q.jpeg" data-width="540" data-height="1050" src="https://cdn-images-1.medium.com/max/800/1*6aBGZVcvhOPulHvtWP520Q.jpeg"></figure><h3 name="fd6e" id="fd6e" class="graf graf--h3 graf-after--figure">設定文字的顏色和大小</h3><p name="679e" id="679e" class="graf graf--p graf-after--h3">利用 toolbar modifier 可客製 navigation bar 的內容。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="dd13" id="dd13" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">NavigationStack</span> {<br />            <span class="hljs-type">Image</span>(._100Years)<br />                .resizable()<br />                .scaledToFill()<br />                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)<br />                .toolbar(content: {<br />                    <span class="hljs-type">ToolbarItem</span>(placement: .principal) {<br />                        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Agatha Christie&quot;</span>)<br />                            .font(.largeTitle)<br />                            .foregroundStyle(.red)<br />                    }<br />                })<br />        }<br />    }<br />}</span></pre><p name="fa48" id="fa48" class="graf graf--p graf-after--pre">在 toolbar 裡傳入 ToolbarItem，參數 placement 傳入 principal 讓元件出現在 bar 的中間，{ } 裡傳入 Text 設定顯示的文字。</p><figure name="3622" id="3622" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*XaCoOu2uonEke2ZJEOHy7w.jpeg" data-width="486" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*XaCoOu2uonEke2ZJEOHy7w.jpeg"></figure><p name="acb1" id="acb1" class="graf graf--p graf-after--figure">利用 navigationBarTitleDisplayMode 讓 navigation bar 的高度縮短。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="53ce" id="53ce" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">NavigationStack</span> {<br />            <span class="hljs-type">Image</span>(._100Years)<br />                .resizable()<br />                .scaledToFill()<br />                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)<br />                .toolbar(content: {<br />                    <span class="hljs-type">ToolbarItem</span>(placement: .principal) {<br />                        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Agatha Christie&quot;</span>)<br />                            .font(.largeTitle)<br />                            .foregroundStyle(.red)<br />                    }<br />                })<br />                .navigationBarTitleDisplayMode(.inline)<br />        }<br />    }<br />}</span></pre><figure name="ef6c" id="ef6c" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*I9y5cDkckyeARpB-HVIl6g.jpeg" data-width="478" data-height="1012" src="https://cdn-images-1.medium.com/max/800/1*I9y5cDkckyeARpB-HVIl6g.jpeg"></figure><h3 name="9307" id="9307" class="graf graf--h3 graf-after--figure">設定客製的 navigation bar 內容，比方圖片和文字</h3><p name="4e69" id="4e69" class="graf graf--p graf-after--h3">在 ToolbarItem 裡傳入包含圖文的 HStack。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="5d24" id="5d24" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">NavigationStack</span> {<br />            <span class="hljs-type">Image</span>(._100Years)<br />                .resizable()<br />                .scaledToFill()<br />                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)<br />                .toolbar(content: {<br />                    <span class="hljs-type">ToolbarItem</span>(placement: .principal) {<br />                        <span class="hljs-type">HStack</span> {<br />                            <span class="hljs-type">Image</span>(.peter)<br />                            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Peter&quot;</span>)<br />                                .font(.largeTitle)<br />                        }<br />                        .offset(y: <span class="hljs-number">30</span>)<br />                    }<br />                })<br />                .navigationBarTitleDisplayMode(.inline)<br />        }<br />    }<br />}</span></pre><figure name="70ae" id="70ae" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*jKr3Mh7YcPsOMOXN2Ln-Ow.jpeg" data-width="558" data-height="1162" src="https://cdn-images-1.medium.com/max/800/1*jKr3Mh7YcPsOMOXN2Ln-Ow.jpeg"></figure><h3 name="7cb2" id="7cb2" class="graf graf--h3 graf-after--figure">設定 bar 的顏色</h3><p name="c4eb" id="c4eb" class="graf graf--p graf-after--h3">利用 toolbarBackground modifier 設定 navigation bar 的顏色跟是否顯示。(iOS 16 以上)</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0a5b" id="0a5b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">NavigationStack</span> {<br />            <span class="hljs-type">Image</span>(._100Years)<br />                .resizable()<br />                .scaledToFill()<br />                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)<br />                .navigationTitle(<span class="hljs-string">&quot;Agatha Christie&quot;</span>)<br />                .toolbarBackground(.visible, for: .navigationBar)<br />                .toolbarBackground(.red, for: .navigationBar)<br />        }<br />    }<br />}</span></pre><figure name="bba6" id="bba6" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*vlaROJT7jsBxuCDR5Xwcvw.jpeg" data-width="554" data-height="1150" src="https://cdn-images-1.medium.com/max/800/1*vlaROJT7jsBxuCDR5Xwcvw.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/6ac19b5b846a"><time class="dt-published" datetime="2020-10-17T08:58:18.364Z">October 17, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-navigationview-%E7%9A%84-ui-%E8%AA%BF%E6%95%B4-6ac19b5b846a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

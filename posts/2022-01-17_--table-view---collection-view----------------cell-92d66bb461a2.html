@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>當 table view 或 collection view 進入編輯模式時顯示不同樣式的 cell</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">當 table view 或 collection view 進入編輯模式時顯示不同樣式的 cell</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+我們時常在 iOS App 看到點選 Edit 按鈕進入編輯模式的畫面設計，比方下圖的 Clock App，點選 Edit 後 cell 會出現刪除跟調整順序的按鈕。
+</section>
+<section data-field="body" class="e-content">
+<section name="05fe" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8df2" id="8df2" class="graf graf--h3 graf--leading graf--title">當 table view 或 collection view 進入編輯模式時顯示不同樣式的 cell</h3><p name="789d" id="789d" class="graf graf--p graf-after--h3">我們時常在 iOS App 看到點選 Edit 按鈕進入編輯模式的畫面設計，比方下圖的 Clock App，點選 Edit 後 cell 會出現刪除跟調整順序的按鈕。</p><figure name="d246" id="d246" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*f0EYi43HKsFDxgzKDMD36g.png" data-width="1048" data-height="1068" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*f0EYi43HKsFDxgzKDMD36g.png"></figure><p name="3e9a" id="3e9a" class="graf graf--p graf-after--figure">不過上圖還有個特別的設計，進入編輯模式時 cell 的內容也改變了，為了節省空間，它的時間不見了。這是怎麼做到的呢 ?</p><p name="2e1c" id="2e1c" class="graf graf--p graf-after--p">接下來我們將示範實作的方法，關鍵在讓 table view 或 collection view 在編輯模式時顯示不同樣式的 cell，在正常模式顯示有時間的 cell，在編輯模式拿掉時間。</p><h3 name="4f96" id="4f96" class="graf graf--h3 graf-after--p">App 畫面設計</h3><p name="cb11" id="cb11" class="graf graf--p graf-after--h3">table view controller 的類別為繼承 UITableViewController 的 TimeTableViewController，cell 的類別為繼承 UITableViewCell 的 TimeTableViewCell。</p><figure name="d3a1" id="d3a1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TYGjlnEePiZ56xgQtSO4mQ.png" data-width="2110" data-height="1046" src="https://cdn-images-1.medium.com/max/800/1*TYGjlnEePiZ56xgQtSO4mQ.png"></figure><h3 name="32d1" id="32d1" class="graf graf--h3 graf-after--figure">TimeTableViewCell</h3><pre name="65fc" id="65fc" class="graf graf--pre graf-after--h3">class TimeTableViewCell: UITableViewCell {<br>    static let reuseIdentifier = &quot;\(TimeTableViewCell.self)&quot;<br>    <br>    <a href="http://twitter.com/IBOutlet" data-href="http://twitter.com/IBOutlet" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBOutlet" rel="noopener" target="_blank">@IBOutlet</a> weak var locationLabel: UILabel!<br>    <a href="http://twitter.com/IBOutlet" data-href="http://twitter.com/IBOutlet" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBOutlet" rel="noopener" target="_blank">@IBOutlet</a> weak var timeLabel: UILabel!<br>    <br>    override func awakeFromNib() {<br>        super.awakeFromNib()<br>        // Initialization code<br>    }</pre><pre name="2588" id="2588" class="graf graf--pre graf-after--pre">    override func setSelected(_ selected: Bool, animated: Bool) {<br>        super.setSelected(selected, animated: animated)</pre><pre name="5eac" id="5eac" class="graf graf--pre graf-after--pre">    }</pre><pre name="b73c" id="b73c" class="graf graf--pre graf-after--pre">}</pre><h3 name="eb81" id="eb81" class="graf graf--h3 graf-after--pre"><strong class="markup--strong markup--h3-strong">TimeTableViewController</strong></h3><p name="c6ff" id="c6ff" class="graf graf--p graf-after--h3">利用 TimeZone.knownTimeZoneIdentifiers 找出世界各地的時區代號，在表格顯示城市名跟時間。(ps: 以下範例不會自動更新時間，因為它不是此篇文章的重點)</p><pre name="1fed" id="1fed" class="graf graf--pre graf-after--p">class TimeTableViewController: UITableViewController {<br>    <br>    let timeZoneIdentifiers = TimeZone.knownTimeZoneIdentifiers.filter {<br>        $0.contains(&quot;/&quot;) }<br>    let dateFormatter: DateFormatter = {<br>        let dateFormatter = DateFormatter()<br>        dateFormatter.timeStyle = .short<br>        return dateFormatter<br>    }()<br>    <br>    override func viewDidLoad() {<br>        super.viewDidLoad()<br>        navigationItem.leftBarButtonItem = editButtonItem<br>    }<br>    <br>    // MARK: - Table view data source<br>    <br>    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {<br>        return timeZoneIdentifiers.count<br>    }<br>    <br>    <br>    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {<br>        let cell = tableView.dequeueReusableCell(withIdentifier: TimeTableViewCell.reuseIdentifier, for: indexPath) as! TimeTableViewCell<br>        let id = timeZoneIdentifiers[indexPath.row]<br>        let city = id.components(separatedBy: &quot;/&quot;)[1]<br>        cell.locationLabel.text = city<br>        dateFormatter.timeZone = TimeZone(identifier: id)<br>        cell.timeLabel.text = dateFormatter.string(from: .now)<br>        return cell<br>    }<br>}</pre><h3 name="e745" id="e745" class="graf graf--h3 graf-after--pre">執行 App</h3><p name="a8c2" id="a8c2" class="graf graf--p graf-after--h3">點選 Edit 進入編輯模式，左邊出現刪除按鈕。</p><figure name="57f0" id="57f0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nowBbfxpb6PKt7jYJxnoKw.png" data-width="1080" data-height="1072" src="https://cdn-images-1.medium.com/max/800/1*nowBbfxpb6PKt7jYJxnoKw.png"></figure><p name="9d4d" id="9d4d" class="graf graf--p graf-after--figure">不過因為縮排的關係，右邊的時間有的會變成 …。接下來我們將模仿 iOS 的 Clock App，在編輯模式時將時間隱藏。</p><h3 name="6a24" id="6a24" class="graf graf--h3 graf-after--p">在編輯模式切換時更新表格</h3><p name="c2b9" id="c2b9" class="graf graf--p graf-after--h3">當畫面進入或結束編輯模式時，會觸發 UIViewController 的 setEditing(_:animated:)，因此我們可覆寫它，在裡面呼叫 reloadData 更新表格。</p><pre name="2ff5" id="2ff5" class="graf graf--pre graf-after--p">override func setEditing(_ editing: Bool, animated: Bool) {<br>        super.setEditing(editing, animated: animated)<br>        tableView.reloadData()<br>}</pre><h3 name="52f1" id="52f1" class="graf graf--h3 graf-after--pre">在編輯模式時將時間隱藏</h3><p name="40d7" id="40d7" class="graf graf--p graf-after--h3">檢查 isEditing 判斷是否處於編輯模式，isEditing true 時將時間隱藏。</p><pre name="4ab7" id="4ab7" class="graf graf--pre graf-after--p">override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {<br>        let cell = tableView.dequeueReusableCell(withIdentifier: TimeTableViewCell.reuseIdentifier, for: indexPath) as! TimeTableViewCell<br>        let id = timeZoneIdentifiers[indexPath.row]<br>        let city = id.components(separatedBy: &quot;/&quot;)[1]<br>        cell.locationLabel.text = city<br>        dateFormatter.timeZone = TimeZone(identifier: id)<br>       <strong class="markup--strong markup--pre-strong"> if isEditing {<br>            cell.timeLabel.isHidden = true<br>        } else {<br>            cell.timeLabel.text = dateFormatter.string(from: .now)<br>            cell.timeLabel.isHidden = false<br>        }</strong><br>        return cell<br>}</pre><p name="dd0b" id="dd0b" class="graf graf--p graf-after--pre">Cool，現在正常模式跟編輯模式的表格長不一樣了，只有正常模式會顯示時間。</p><figure name="5dc4" id="5dc4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ES3mUILzP-YHvGhNEGBpWg.png" data-width="1074" data-height="1084" src="https://cdn-images-1.medium.com/max/800/1*ES3mUILzP-YHvGhNEGBpWg.png"></figure><h3 name="6cc1" id="6cc1" class="graf graf--h3 graf-after--figure">其它範例參考</h3><p name="4c17" id="4c17" class="graf graf--p graf-after--h3">Apple 的 Today App，範例裡定義 ReminderDetailViewDataSource &amp; ReminderDetailEditDataSource，當 table 在正常模式時 data source 是 ReminderDetailViewDataSource，當 table 在編輯模式時 data source 是 ReminderDetailEditDataSource。</p><div name="a2d9" id="a2d9" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://developer.apple.com/tutorials/app-dev-training/getting-started-with-today" data-href="https://developer.apple.com/tutorials/app-dev-training/getting-started-with-today" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/tutorials/app-dev-training/getting-started-with-today"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/tutorials/app-dev-training/getting-started-with-today" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="563b9f2b4ff67b2f6b9a35c683b483c2"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/92d66bb461a2"><time class="dt-published" datetime="2022-01-17T06:12:06.569Z">January 17, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%95%B6-table-view-%E6%88%96-collection-view-%E9%80%B2%E5%85%A5%E7%B7%A8%E8%BC%AF%E6%A8%A1%E5%BC%8F%E6%99%82%E9%A1%AF%E7%A4%BA%E4%B8%8D%E5%90%8C%E6%A8%A3%E5%BC%8F%E7%9A%84-cell-92d66bb461a2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

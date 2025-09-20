@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>怎麼知道開發的 iOS App 閃退了 ?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">怎麼知道開發的 iOS App 閃退了 ?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+想知道人是否死掉，我們可以觀察他有沒有呼吸，身上是否流出紅色的血。那麼如果是我們從 Xcode 按下三角形按鈕啟動的 App 呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="baec" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="eb98" id="eb98" class="graf graf--h3 graf--leading graf--title">怎麼知道開發的 iOS App 閃退(crash)了 ?</h3><p name="02cb" id="02cb" class="graf graf--p graf-after--h3">想知道人是否死掉，我們可以觀察他有沒有呼吸，身上是否流出紅色的血。那麼如果是我們從 Xcode 按下三角形按鈕啟動的 App 呢 ?</p><p name="77a6" id="77a6" class="graf graf--p graf-after--p">跟人一樣，App 閃退死掉時也會出現可怕的紅色。如下圖所示，當 App 閃退時，除了 App 不能操作，Xcode 的畫面也將停在某個檔案，並在可能出問題的程式背後顯示可怕的紅色。</p><figure name="7685" id="7685" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8cqze34utMUdi1PZQORtZw.png" data-width="2668" data-height="1092" src="https://cdn-images-1.medium.com/max/800/1*8cqze34utMUdi1PZQORtZw.png"></figure><p name="4cdd" id="4cdd" class="graf graf--p graf-after--figure">當 App 閃退時，我們不能束手就擒，我們應該努力找出凶手，研究 App 為何閃退。</p><p name="1d60" id="1d60" class="graf graf--p graf-after--p">找出凶手的方法有以下兩種:</p><h3 name="0993" id="0993" class="graf graf--h3 graf-after--p">點選紅色區塊</h3><p name="179f" id="179f" class="graf graf--p graf-after--h3">如下圖所示，紅色的長方形區塊將顯示造成閃退的原因。</p><figure name="f0ad" id="f0ad" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*c9WK0CyG9DroCFAQ5WtQxg.png" data-width="1720" data-height="636" src="https://cdn-images-1.medium.com/max/800/1*c9WK0CyG9DroCFAQ5WtQxg.png"></figure><p name="d890" id="d890" class="graf graf--p graf-after--figure">左邊的 Debug navigator 則會顯示閃退前執行的程式(stack trace)。</p><figure name="7772" id="7772" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pzOFCqGSguu0AIdp7wP7UA.png" data-width="780" data-height="1092" src="https://cdn-images-1.medium.com/max/800/1*pzOFCqGSguu0AIdp7wP7UA.png"></figure><h3 name="81c1" id="81c1" class="graf graf--h3 graf-after--figure">從右下角的 Console 區塊 &amp; Report navigator</h3><figure name="8447" id="8447" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*h9XEF-oveNyQ6hylXK1yMg.png" data-width="1904" data-height="952" src="https://cdn-images-1.medium.com/max/800/1*h9XEF-oveNyQ6hylXK1yMg.png"></figure><p name="9698" id="9698" class="graf graf--p graf-after--figure">錯誤訊息將告訴我們 App 怎麼死的，它有著長長一串的文字訊息，不過不用太緊張，大部分的錯誤只需要研究 <strong class="markup--strong markup--p-strong">Terminating app due to uncaught exception</strong> 說明的那段文字即可，比方下圖的 <strong class="markup--strong markup--p-strong">this class is not key value coding-compliant for the key numberTextField.</strong> 將告訴我們問題出在 loveTextField。</p><figure name="37e7" id="37e7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*AS1Wt-Yy2idWu_PHFfELwg.png" data-width="1198" data-height="584" src="https://cdn-images-1.medium.com/max/800/1*AS1Wt-Yy2idWu_PHFfELwg.png"></figure><p name="529f" id="529f" class="graf graf--p graf-after--figure">Report navigator 也會顯示錯誤的訊息。</p><figure name="3df0" id="3df0" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*q2EPRb7e1zv6U3sRgIurEQ.png" data-width="2672" data-height="1132" src="https://cdn-images-1.medium.com/max/800/1*q2EPRb7e1zv6U3sRgIurEQ.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d3c3e5ef05e"><time class="dt-published" datetime="2019-04-07T15:19:01.136Z">April 7, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%80%8E%E9%BA%BC%E7%9F%A5%E9%81%93%E9%96%8B%E7%99%BC%E7%9A%84-ios-app-%E9%96%83%E9%80%80%E4%BA%86-d3c3e5ef05e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Xcode AI &amp; 傳統自動完成的輸入方式 — tab &amp; enter</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Xcode AI &amp; 傳統自動完成的輸入方式 — tab &amp; enter</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+隨著 Xcode 加入 AI 自動完成的 predictive code completion，現在我們在 Xcode 打程式時會出現兩種自動完成。
+</section>
+<section data-field="body" class="e-content">
+<section name="6d12" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e80e" id="e80e" class="graf graf--h3 graf--leading graf--title">Xcode AI &amp; 傳統自動完成的輸入方式 — tab &amp; return</h3><p name="ec27" id="ec27" class="graf graf--p graf-after--h3">隨著 Xcode 加入 AI 自動完成的 predictive code completion，現在我們在 Xcode 打程式時會出現兩種自動完成。</p><ul class="postList"><li name="ad03" id="ad03" class="graf graf--li graf-after--p">AI 預測的自動完成，顯示淺色的程式碼建議。</li><li name="c15f" id="c15f" class="graf graf--li graf-after--li">傳統的自動完成，以選單方式列出選項。</li></ul><p name="dc13" id="dc13" class="graf graf--p graf-after--li">此兩種自動完成輸入的方式也不太一樣，前者按 tab 輸入，後者按 return 輸入。以下我們以實際的例子說明。</p><h3 name="4f89" id="4f89" class="graf graf--h3 graf-after--p">按 tab 輸入 AI 預測的自動完成</h3><p name="3002" id="3002" class="graf graf--p graf-after--h3">按 tab 輸入 <code class="markup--code markup--p-code">.frame(width: 100, height: 100)</code>。</p><figure name="2753" id="2753" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*c__txy4tEB9oObwaK-T9SA.png" data-width="2510" data-height="1006" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*c__txy4tEB9oObwaK-T9SA.png"></figure><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="08cc" id="08cc" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;globe&quot;</span>)<br />    .imageScale(.large)<br />    .foregroundStyle(.tint)<br />    .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)</span></pre><h3 name="680e" id="680e" class="graf graf--h3 graf-after--pre">按 return 輸入選單列出的選項</h3><figure name="f77f" id="f77f" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*Yk0ODJFLoP349Ea6efPAOg.png" data-width="2510" data-height="1006" src="https://cdn-images-1.medium.com/max/800/1*Yk0ODJFLoP349Ea6efPAOg.png"></figure><p name="1670" id="1670" class="graf graf--p graf-after--figure">當選項包含參數時，還有一些輸入參數的小技巧，相關說明可參考以下連結。</p><div name="9a0a" id="9a0a" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E5%8F%83%E6%95%B8%E5%90%8D%E5%AD%97%E7%9A%84%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90-xcode-14-%E6%96%B0%E5%8A%9F%E8%83%BD-c56ee8fa7909" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E5%8F%83%E6%95%B8%E5%90%8D%E5%AD%97%E7%9A%84%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90-xcode-14-%E6%96%B0%E5%8A%9F%E8%83%BD-c56ee8fa7909" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E5%8F%83%E6%95%B8%E5%90%8D%E5%AD%97%E7%9A%84%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90-xcode-14-%E6%96%B0%E5%8A%9F%E8%83%BD-c56ee8fa7909"><strong class="markup--strong markup--mixtapeEmbed-strong">Xcode 輸入參數的各種方法</strong><br><em class="markup--em markup--mixtapeEmbed-em">撰寫 Swift 時，我們時常要在 ( ) 裡輸入參數。從 Xcode 15 開始，輸入參數變得更方便了，以下我們介紹各種輸入參數的方法和小技巧。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E5%8F%83%E6%95%B8%E5%90%8D%E5%AD%97%E7%9A%84%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90-xcode-14-%E6%96%B0%E5%8A%9F%E8%83%BD-c56ee8fa7909" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="c5aeee2423109a613a5726ec6bfa2eee" data-thumbnail-img-id="1*gOU9erIvUgarZQ0G0tEUAw.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*gOU9erIvUgarZQ0G0tEUAw.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/30c993689b6d"><time class="dt-published" datetime="2024-12-05T17:06:29.685Z">December 5, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/xcode-ai-%E5%82%B3%E7%B5%B1%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%E7%9A%84%E8%BC%B8%E5%85%A5%E6%96%B9%E5%BC%8F-tab-enter-30c993689b6d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

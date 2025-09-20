@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>客製 UIKit 的 UISlider 樣式</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">客製 UIKit 的 UISlider 樣式</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+以下分別介紹四種常見的 UISlider 樣式設定。
+</section>
+<section data-field="body" class="e-content">
+<section name="2c2e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d656" id="d656" class="graf graf--h3 graf--leading graf--title">客製 UIKit 的 UISlider 樣式</h3><p name="1cab" id="1cab" class="graf graf--p graf-after--h3">以下分別介紹四種常見的 UISlider 樣式設定。</p><ul class="postList"><li name="0a4d" id="0a4d" class="graf graf--li graf-after--p">slider 的顏色。</li><li name="2ec7" id="2ec7" class="graf graf--li graf-after--li">slider 的最小值跟最大值圖片。</li><li name="bab8" id="bab8" class="graf graf--li graf-after--li">調整 slider 的高度。</li><li name="ffe0" id="ffe0" class="graf graf--li graf-after--li">slider thumb 的圖片。</li></ul><h3 name="b373" id="b373" class="graf graf--h3 graf-after--li">設定 slider 的顏色</h3><p name="c0ae" id="c0ae" class="graf graf--p graf-after--h3">設定 Min Track，Max Track &amp; Thumb Tint。</p><figure name="b9f8" id="b9f8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*mtChy9kcNqhPD7qOqK6wgw.png" data-width="2056" data-height="882" src="https://cdn-images-1.medium.com/max/800/1*mtChy9kcNqhPD7qOqK6wgw.png"></figure><ul class="postList"><li name="fb42" id="fb42" class="graf graf--li graf-after--figure">Min Track</li></ul><p name="84da" id="84da" class="graf graf--p graf-after--li">填滿時的顏色。</p><ul class="postList"><li name="4068" id="4068" class="graf graf--li graf-after--p">Max Track</li></ul><p name="fe57" id="fe57" class="graf graf--p graf-after--li">未填滿時的顏色。</p><ul class="postList"><li name="8c5c" id="8c5c" class="graf graf--li graf-after--p">Thumb Tint</li></ul><p name="7ccb" id="7ccb" class="graf graf--p graf-after--li">圓形的顏色。</p><p name="5cc9" id="5cc9" class="graf graf--p graf-after--p">從程式設定的寫法如下(假設連到 controller 的 outlet 名字是 slider)，設定 minimumTrackTintColor，maximumTrackTintColor &amp; thumbTintColor。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="61df" id="61df" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> slider: <span class="hljs-type">UISlider</span>!<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-comment">// Do any additional setup after loading the view.</span><br />        <br />        slider.minimumTrackTintColor <span class="hljs-operator">=</span> .systemPurple<br />        slider.maximumTrackTintColor <span class="hljs-operator">=</span> .systemTeal<br />        slider.thumbTintColor <span class="hljs-operator">=</span> .systemRed<br />   }<br />}</span></pre><h3 name="26fe" id="26fe" class="graf graf--h3 graf-after--pre">設定 slider 的最小值跟最大值圖片</h3><p name="3656" id="3656" class="graf graf--p graf-after--h3">設定 Min Image &amp; Max Image。</p><figure name="9ab6" id="9ab6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*M7O_u-_7QGQ47TMzP8g7zA.png" data-width="2052" data-height="718" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*M7O_u-_7QGQ47TMzP8g7zA.png"></figure><p name="bf0e" id="bf0e" class="graf graf--p graf-after--figure">從程式設定的寫法如下(假設連到 controller 的 outlet 名字是 slider)，設定 minimumValueImage &amp; maximumValueImage。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a2c3" id="a2c3" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> slider: <span class="hljs-type">UISlider</span>!<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-comment">// Do any additional setup after loading the view.</span><br />        <br />        slider.minimumValueImage <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;moon&quot;</span>)<br />        slider.maximumValueImage <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;sun.max&quot;</span>)<br />   }<br />}</span></pre><h3 name="ccf0" id="ccf0" class="graf graf--h3 graf-after--pre">調整 slider 的高度</h3><p name="4364" id="4364" class="graf graf--p graf-after--h3">在 storyboard 加入 slider，連到 controller 的 outlet 名字是 slider。</p><figure name="c084" id="c084" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kXa3nprSqubBIbIvJxOW4A.png" data-width="1310" data-height="1182" src="https://cdn-images-1.medium.com/max/800/1*kXa3nprSqubBIbIvJxOW4A.png"></figure><p name="c6d5" id="c6d5" class="graf graf--p graf-after--figure">在 asset 加入圖片代表 slider 未填滿跟填滿時的顏色。</p><figure name="b649" id="b649" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*RWJeRj4kbmVk7U_7B8NUhQ.png" data-width="1098" data-height="776" src="https://cdn-images-1.medium.com/max/800/1*RWJeRj4kbmVk7U_7B8NUhQ.png"></figure><figure name="772c" id="772c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Y061nRmho-OBp7AOWUqsCA.png" data-width="1486" data-height="630" src="https://cdn-images-1.medium.com/max/800/1*Y061nRmho-OBp7AOWUqsCA.png"></figure><figure name="9209" id="9209" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*s5TlqTzebtx_qtvcSSOyBA.png" data-width="1342" data-height="624" src="https://cdn-images-1.medium.com/max/800/1*s5TlqTzebtx_qtvcSSOyBA.png"></figure><p name="7450" id="7450" class="graf graf--p graf-after--figure">圖片的寬度 1 pixel，高度將控制 slider 的高度。1x 的圖片高度是 14 pixel，因此 slider 的高度將是 14 points。</p><figure name="ee11" id="ee11" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*y5uh6m_Oa1yMhz5zO5d8IQ.png" data-width="1352" data-height="650" src="https://cdn-images-1.medium.com/max/800/1*y5uh6m_Oa1yMhz5zO5d8IQ.png"></figure><p name="beed" id="beed" class="graf graf--p graf-after--figure">呼叫 setMinimumTrackImage(_:for:) 設定 slider 填滿時的顏色圖片，呼叫 setMaximumTrackImage(_:for:) 設定 slider 未填滿時的顏色圖片。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="694c" id="694c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> slider: <span class="hljs-type">UISlider</span>!<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-comment">// Do any additional setup after loading the view.</span><br />        <br />        slider.setMinimumTrackImage(<span class="hljs-type">UIImage</span>(named: <span class="hljs-string">&quot;slider_blue_track&quot;</span>), for: .normal)<br />        slider.setMaximumTrackImage(<span class="hljs-type">UIImage</span>(named: <span class="hljs-string">&quot;slider_green_track&quot;</span>), for: .normal)<br />    }<br />}</span></pre><p name="e68d" id="e68d" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">結果</strong></p><p name="3928" id="3928" class="graf graf--p graf-after--p">slider 的高度變成 14 points。</p><figure name="4c11" id="4c11" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UrvQvhpuJt36bP_GArsuYg.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/800/1*UrvQvhpuJt36bP_GArsuYg.png"></figure><h3 name="54a2" id="54a2" class="graf graf--h3 graf-after--figure">設定 slider thumb 的圖片</h3><p name="07d9" id="07d9" class="graf graf--p graf-after--h3">在 storyboard 加入 slider，連到 controller 的 outlet 名字是 slider。</p><figure name="6f57" id="6f57" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Tx25tziA_jQAk0W4VllOHA.png" data-width="1996" data-height="832" src="https://cdn-images-1.medium.com/max/800/1*Tx25tziA_jQAk0W4VllOHA.png"></figure><p name="0d0e" id="0d0e" class="graf graf--p graf-after--figure">呼叫 setThumbImage(_:for:) 設定 slider 按著 thumb 跟沒按著 thumb 的圖片，按著時顯示星星，沒按著時顯示愛心，slider 的 tintColor 則決定圖片的顏色。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="820e" id="820e" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> slider: <span class="hljs-type">UISlider</span>!<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-comment">// Do any additional setup after loading the view.</span><br />        <br />        <span class="hljs-keyword">let</span> starImage <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;star.fill&quot;</span>, withConfiguration: <span class="hljs-type">UIImage</span>.<span class="hljs-type">SymbolConfiguration</span>(pointSize: <span class="hljs-number">30</span>))<br />        slider.setThumbImage(starImage, for: .normal)<br />        <br />        <span class="hljs-keyword">let</span> heartImage <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;heart.fill&quot;</span>, withConfiguration: <span class="hljs-type">UIImage</span>.<span class="hljs-type">SymbolConfiguration</span>(pointSize: <span class="hljs-number">30</span>))<br />        slider.setThumbImage(heartImage, for: .highlighted)        <br />        slider.tintColor <span class="hljs-operator">=</span> .red<br />   }<br />}</span></pre><p name="e998" id="e998" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">結果</strong></p><figure name="fa96" id="fa96" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*3QjGwIy7MLrN_HbFiJFZ8g.png" data-width="1164" data-height="668" src="https://cdn-images-1.medium.com/max/800/1*3QjGwIy7MLrN_HbFiJFZ8g.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/cee49b5038c0"><time class="dt-published" datetime="2021-11-08T07:43:14.328Z">November 8, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%AE%A2%E8%A3%BD-uikit-%E7%9A%84-uislider-%E6%A8%A3%E5%BC%8F-cee49b5038c0" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

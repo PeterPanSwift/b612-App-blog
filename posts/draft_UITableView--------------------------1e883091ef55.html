@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>UITableView 可以讓它不要捲動，讓它的大小剛好等於內容的大小嗎</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">UITableView 可以讓它不要捲動，讓它的大小剛好等於內容的大小嗎</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="3761" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="05d1" id="05d1" class="graf graf--h3 graf--leading graf--title">UITableView 可以讓它不要捲動，讓它的大小剛好等於內容的大小嗎</h3><p name="9c42" id="9c42" class="graf graf--p graf--empty graf-after--h3"><br></p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="66e2" id="66e2" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">是的，可以讓 `UITableView` 根據內容的大小自適應高度並且不允許捲動<span class="hljs-operator">。</span>你可以按照以下步驟來實現這個效果：<br /><br /><span class="hljs-number">1</span>. <span class="hljs-operator">**</span>禁用捲動<span class="hljs-operator">**</span>：將 `UITableView` 的 `isScrollEnabled` 屬性設置為 `false`<span class="hljs-operator">。</span><br /><br /><span class="hljs-number">2</span>. <span class="hljs-operator">**</span>調整高度<span class="hljs-operator">**</span>：根據內容來調整 `UITableView` 的高度<span class="hljs-operator">。</span>可以計算 `UITableView` 內容的總高度，並將其設置為 `UITableView` 的高度<span class="hljs-operator">。</span><br /><br />這裡有一個範例程式碼，展示了如何在 <span class="hljs-type">Swift</span> 中實現這個功能：<br /><br />```swift<br /><span class="hljs-keyword">import</span> UIKit<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span>, <span class="hljs-title class_">UITableViewDataSource</span>, <span class="hljs-title class_">UITableViewDelegate</span> {<br />    <br />    <span class="hljs-keyword">let</span> tableView <span class="hljs-operator">=</span> <span class="hljs-type">UITableView</span>()<br />    <span class="hljs-keyword">let</span> data <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;Item 1&quot;</span>, <span class="hljs-string">&quot;Item 2&quot;</span>, <span class="hljs-string">&quot;Item 3&quot;</span>, <span class="hljs-string">&quot;Item 4&quot;</span>, <span class="hljs-string">&quot;Item 5&quot;</span>]<br /><br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <br />        tableView.dataSource <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br />        tableView.delegate <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br />        tableView.isScrollEnabled <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />        tableView.translatesAutoresizingMaskIntoConstraints <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />        view.addSubview(tableView)<br />        <br />        <span class="hljs-type">NSLayoutConstraint</span>.activate([<br />            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: <span class="hljs-number">20</span>),<br />            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: <span class="hljs-number">20</span>),<br />            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: <span class="hljs-operator">-</span><span class="hljs-number">20</span>),<br />            tableView.heightAnchor.constraint(equalToConstant: tableView.contentSize.height)<br />        ])<br />        <br />        <span class="hljs-comment">// Register a simple UITableViewCell</span><br />        tableView.register(<span class="hljs-type">UITableViewCell</span>.<span class="hljs-keyword">self</span>, forCellReuseIdentifier: <span class="hljs-string">&quot;cell&quot;</span>)<br />    }<br /><br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLayoutSubviews</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLayoutSubviews()<br />        updateTableViewHeight()<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">updateTableViewHeight</span>() {<br />        tableView.layoutIfNeeded()<br />        tableView.heightAnchor.constraint(equalToConstant: tableView.contentSize.height).isActive <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />    }<br />    <br />    <span class="hljs-comment">// UITableViewDataSource methods</span><br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">tableView</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">tableView</span>: <span class="hljs-type">UITableView</span>, <span class="hljs-params">numberOfRowsInSection</span> <span class="hljs-params">section</span>: <span class="hljs-type">Int</span>) -&gt; <span class="hljs-type">Int</span> {<br />        <span class="hljs-keyword">return</span> data.count<br />    }<br /><br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">tableView</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">tableView</span>: <span class="hljs-type">UITableView</span>, <span class="hljs-params">cellForRowAt</span> <span class="hljs-params">indexPath</span>: <span class="hljs-type">IndexPath</span>) -&gt; <span class="hljs-type">UITableViewCell</span> {<br />        <span class="hljs-keyword">let</span> cell <span class="hljs-operator">=</span> tableView.dequeueReusableCell(withIdentifier: <span class="hljs-string">&quot;cell&quot;</span>, for: indexPath)<br />        cell.textLabel<span class="hljs-operator">?</span>.text <span class="hljs-operator">=</span> data[indexPath.row]<br />        <span class="hljs-keyword">return</span> cell<br />    }<br />}<br />```<br /><br />### 注意事項<br /><span class="hljs-number">1</span>. <span class="hljs-operator">**</span>初次加載時的高度計算<span class="hljs-operator">**</span>：在 `viewDidLayoutSubviews` 中調用 `updateTableViewHeight()` 以確保在視圖佈局後更新 `UITableView` 的高度<span class="hljs-operator">。</span><br /><span class="hljs-number">2</span>. <span class="hljs-operator">**</span>自適應高度<span class="hljs-operator">**</span>：可以在 `updateTableViewHeight()` 方法中調整 `UITableView` 的高度約束，以匹配其內容大小<span class="hljs-operator">。</span><br /><br />這樣就可以實現一個不捲動並且大小自適應內容的 `UITableView`<span class="hljs-operator">。</span></span></pre><p name="6717" id="6717" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/1e883091ef55">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

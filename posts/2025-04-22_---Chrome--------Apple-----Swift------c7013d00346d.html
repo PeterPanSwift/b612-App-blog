@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Chrome 快速全選複製 Apple 網頁的 Swift 範例程式</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Chrome 快速全選複製 Apple 網頁的 Swift 範例程式</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Apple 使用 DocC 生成許多優質的程式教學網頁，學習時的體驗超棒的，可以一步步呈現程式的變化和 App 畫面的預覽。
+</section>
+<section data-field="body" class="e-content">
+<section name="2379" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1a1c" id="1a1c" class="graf graf--h3 graf--leading graf--title">使用 Chrome 快速全選複製 Apple 網頁的 Swift 範例程式</h3><p name="aa0e" id="aa0e" class="graf graf--p graf-after--h3">Apple 使用 DocC 生成許多優質的程式教學網頁，學習時的體驗超棒的，可以一步步呈現程式的變化和 App 畫面的預覽。</p><p name="da00" id="da00" class="graf graf--p graf-after--p">不過它有個小小缺點，如果想複製某一步全部的程式， 按下 cmd + a 全選會變成選取整個網頁。</p><figure name="1f68" id="1f68" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jKnhYBmdVlqrEjlidZnOSw.png" data-width="1662" data-height="1460" src="https://cdn-images-1.medium.com/max/800/1*jKnhYBmdVlqrEjlidZnOSw.png"><figcaption class="imageCaption">App Dev Tutorials 的 SwiftUI Scrumdinger 範例</figcaption></figure><p name="7c13" id="7c13" class="graf graf--p graf-after--figure">若是只想選取整段程式，必須先點選第一行，然後再按住 shift 點選最後一行。有沒有更快的方法呢 ?</p><figure name="cd26" id="cd26" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*utAgkg8iAiesKeYYpba6cg.png" data-width="1528" data-height="1388" src="https://cdn-images-1.medium.com/max/800/1*utAgkg8iAiesKeYYpba6cg.png"></figure><div name="10c7" id="10c7" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/tutorials/app-dev-training/using-stacks-to-arrange-views" data-href="https://developer.apple.com/tutorials/app-dev-training/using-stacks-to-arrange-views" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/tutorials/app-dev-training/using-stacks-to-arrange-views"><strong class="markup--strong markup--mixtapeEmbed-strong">Using stacks to arrange views | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Create, modify, and combine views to compose your app&#39;s user interface using the SwiftUI declarative syntax. You&#39;ll…</em>developer.apple.com</a><a href="https://developer.apple.com/tutorials/app-dev-training/using-stacks-to-arrange-views" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="05935110dbc736b123d1d2eff941043b" data-thumbnail-img-id="0*YXzFqrJjejmIXFHF" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*YXzFqrJjejmIXFHF);"></a></div><p name="578f" id="578f" class="graf graf--p graf-after--mixtapeEmbed">彼得潘研究一下後，發現手機版的網頁可以點選左上的檔名顯示全螢幕的程式，因此我們可在 Mac 上用 Chrome 瀏覽網頁，將它調成手機模式後，即可按 cmd + a 全選整段程式。</p><p name="9715" id="9715" class="graf graf--p graf-after--p">以下為操作的步驟。</p><p name="7140" id="7140" class="graf graf--p graf-after--p">從 Chrome 連到剛剛的網頁，從右鍵選單點選 Inspect。</p><figure name="db52" id="db52" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Q6Xa7C8HxsEeVz50Rps--A.png" data-width="504" data-height="799" src="https://cdn-images-1.medium.com/max/800/1*Q6Xa7C8HxsEeVz50Rps--A.png"></figure><p name="1757" id="1757" class="graf graf--p graf-after--figure">點擊下圖紅色框框的 device 按鈕。</p><figure name="ce20" id="ce20" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*XR5-b7ZEXMbazo4ecw9M4A.png" data-width="1424" data-height="250" src="https://cdn-images-1.medium.com/max/800/1*XR5-b7ZEXMbazo4ecw9M4A.png"></figure><p name="b2e6" id="b2e6" class="graf graf--p graf-after--figure">從左上將裝置的大小改成 iPhone 14 Pro Max。</p><figure name="69d9" id="69d9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sRCcAnwPt6YzEXIutk4Y5w.png" data-width="1104" data-height="454" src="https://cdn-images-1.medium.com/max/800/1*sRCcAnwPt6YzEXIutk4Y5w.png"></figure><p name="742b" id="742b" class="graf graf--p graf-after--figure">點擊程式左上的檔名 MeetingView.swift。</p><figure name="f4e5" id="f4e5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jIkC94nMtRa8Renp2t15-g.png" data-width="964" data-height="872" src="https://cdn-images-1.medium.com/max/800/1*jIkC94nMtRa8Renp2t15-g.png"></figure><p name="68ad" id="68ad" class="graf graf--p graf-after--figure">程式變成全螢幕顯示。</p><figure name="92be" id="92be" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*H8h3Lk75fTAhIViAPsdAtQ.png" data-width="1092" data-height="1792" src="https://cdn-images-1.medium.com/max/800/1*H8h3Lk75fTAhIViAPsdAtQ.png"></figure><p name="dd12" id="dd12" class="graf graf--p graf-after--figure">按下 cmd + a 全選，然後再按 cmd + c 複製。</p><figure name="2018" id="2018" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tMLdPgyAIek4Jtg-8naqMw.png" data-width="1014" data-height="1704" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*tMLdPgyAIek4Jtg-8naqMw.png"></figure><p name="eba4" id="eba4" class="graf graf--p graf-after--figure">按下 cmd + v 貼上，成功取得整段程式，不過第一行會多出檔名，再將它刪除即可。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="b6e9" id="b6e9" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-type">MeetingView</span>.swift<br /><span class="hljs-keyword">import</span> SwiftUI<br /><br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">MeetingView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">ProgressView</span>(value: <span class="hljs-number">5</span>, total: <span class="hljs-number">15</span>)<br />            <span class="hljs-type">HStack</span> {<br />                <span class="hljs-type">VStack</span>(alignment: .leading) {<br />                    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Seconds Elapsed&quot;</span>)<br />                        .font(.caption)<br />                    <span class="hljs-type">Label</span>(<span class="hljs-string">&quot;300&quot;</span>, systemImage: <span class="hljs-string">&quot;hourglass.tophalf.fill&quot;</span>)<br />                }<br />                <span class="hljs-type">Spacer</span>()<br />                <span class="hljs-type">VStack</span>(alignment: .trailing) {<br />                    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Seconds Remaining&quot;</span>)<br />                        .font(.caption)<br />                    <span class="hljs-type">Label</span>(<span class="hljs-string">&quot;600&quot;</span>, systemImage: <span class="hljs-string">&quot;hourglass.bottomhalf.fill&quot;</span>)<br />                }<br />            }<br />            <span class="hljs-type">Circle</span>()<br />                .strokeBorder(lineWidth: <span class="hljs-number">24</span>)<br />            <span class="hljs-type">HStack</span> {<br />                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Speaker 1 of 3&quot;</span>)<br />                <span class="hljs-type">Spacer</span>()<br />                <span class="hljs-type">Button</span>(action: {}) {<br />                    <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;forward.fill&quot;</span>)<br />                }<br />            }<br />        }<br />        .padding()<br />    }<br />}<br /><br /><br />#<span class="hljs-type">Preview</span> {<br />    <span class="hljs-type">MeetingView</span>()<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c7013d00346d"><time class="dt-published" datetime="2025-04-22T07:19:02.578Z">April 22, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-chrome-%E5%BF%AB%E9%80%9F%E5%85%A8%E9%81%B8%E8%A4%87%E8%A3%BD-apple-%E7%B6%B2%E9%A0%81%E7%9A%84%E7%AF%84%E4%BE%8B%E7%A8%8B%E5%BC%8F-c7013d00346d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

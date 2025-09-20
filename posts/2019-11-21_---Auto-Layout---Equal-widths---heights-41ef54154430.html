@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>設定 Auto Layout 的 Equal widths / heights</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">設定 Auto Layout 的 Equal widths / heights</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+設計 iOS App 畫面時，我們時常會有多個元件一樣寬或一樣高的需求，接下來我們就來看看如何讓下圖 831 好聽的新歌想見你想見你想見你封面和演唱會圖片變成一樣大小的正方形吧。
+</section>
+<section data-field="body" class="e-content">
+<section name="0412" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4358" id="4358" class="graf graf--h3 graf--leading graf--title">設定 Auto Layout 的 Equal widths / heights</h3><p name="dda9" id="dda9" class="graf graf--p graf-after--h3">設計 iOS App 畫面時，我們時常會有多個元件一樣寬或一樣高的需求，接下來我們就來看看如何讓下圖 831 好聽的新歌<code class="markup--code markup--p-code">想見你想見你想見你</code>封面和演唱會圖片變成一樣大小的正方形吧。</p><figure name="8abd" id="8abd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8w7E4q-dTbvqO3zBp26Pqw.jpeg" data-width="1356" data-height="888" src="https://cdn-images-1.medium.com/max/800/1*8w7E4q-dTbvqO3zBp26Pqw.jpeg"></figure><p name="96c5" id="96c5" class="graf graf--p graf-after--figure">假設我們已經加入了以上條件，<code class="markup--code markup--p-code">想見你想見你想見你</code>封面成為大小 240 * 240，演唱會圖片也設定了 1:1 的條件，因此我們只差設定兩張圖一樣寬或一樣高的條件，即可讓兩張圖變成一樣大小的正方形。</p><p name="27bf" id="27bf" class="graf graf--p graf-after--p">接著就讓我們加入一樣寬的條件吧，有兩個方法可以設定:</p><h3 name="3740" id="3740" class="graf graf--h3 graf-after--p">方法1: 勾選 Add New Constraints 的 Equal Widths</h3><p name="6916" id="6916" class="graf graf--p graf-after--h3">按住 cmd 鍵將兩張圖選取。</p><figure name="c9a5" id="c9a5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5uqBxq8nLPfrNxP_gvwlbA.jpeg" data-width="1346" data-height="1010" src="https://cdn-images-1.medium.com/max/800/1*5uqBxq8nLPfrNxP_gvwlbA.jpeg"></figure><p name="a0db" id="a0db" class="graf graf--p graf-after--figure">點選下方的 Add New Constraints，勾選 Equal Widths。</p><figure name="3a6d" id="3a6d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*wV6krkxB_uHFe36ioi3J6g.jpeg" data-width="594" data-height="740" src="https://cdn-images-1.medium.com/max/800/1*wV6krkxB_uHFe36ioi3J6g.jpeg"></figure><figure name="eb9b" id="eb9b" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*PaSsL6vRPZeoZkjAapS_TQ.jpeg" data-width="468" data-height="780" src="https://cdn-images-1.medium.com/max/800/1*PaSsL6vRPZeoZkjAapS_TQ.jpeg"></figure><h3 name="665d" id="665d" class="graf graf--h3 graf-after--figure">方法2: 拉線選擇 Equal Widths (1:1)</h3><ul class="postList"><li name="0c12" id="0c12" class="graf graf--li graf-after--h3">按右鍵拉線連接兩張圖片後放開。</li></ul><figure name="262c" id="262c" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*fPqG5TeorIKLMoNHLOCTUw.jpeg" data-width="494" data-height="724" src="https://cdn-images-1.medium.com/max/800/1*fPqG5TeorIKLMoNHLOCTUw.jpeg"></figure><ul class="postList"><li name="7536" id="7536" class="graf graf--li graf-after--figure">按住 option 鍵，選擇 Equal Widths (1:1)。</li></ul><figure name="83a8" id="83a8" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*e7pUhg8UBfyGPJU8QpXlhw.jpeg" data-width="584" data-height="846" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*e7pUhg8UBfyGPJU8QpXlhw.jpeg"></figure><p name="b5d0" id="b5d0" class="graf graf--p graf-after--figure">記得一定要按住 option 鍵才能選擇代表一樣寬的 1:1。以下圖為例，若是拉線後沒有按住 option 鍵，直接選擇 Equal Widths，此時事情就大條了 !</p><figure name="c036" id="c036" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gp4v5rgRjfKGSOTSReBvqw.jpeg" data-width="744" data-height="904" src="https://cdn-images-1.medium.com/max/800/1*gp4v5rgRjfKGSOTSReBvqw.jpeg"></figure><p name="d2cd" id="d2cd" class="graf graf--p graf-after--figure">Xcode 會以為我們希望兩張圖寬度的關係以目前畫面顯示的樣子為準，因此變成演唱會圖片寬度等於想見你圖片寬度 * 0.72。</p><figure name="dd76" id="dd76" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UBsY0GRPBO2J93IxbsUy9w.jpeg" src="https://cdn-images-1.medium.com/max/800/1*UBsY0GRPBO2J93IxbsUy9w.jpeg"></figure><figure name="584f" id="584f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*EzZBtoSOGChZbMAoJb3BRA.jpeg" data-width="518" data-height="560" src="https://cdn-images-1.medium.com/max/800/1*EzZBtoSOGChZbMAoJb3BRA.jpeg"></figure><figure name="8a54" id="8a54" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*NsfTzwHyjBPVp67dSIFbkg.jpeg" data-width="454" data-height="688" src="https://cdn-images-1.medium.com/max/800/1*NsfTzwHyjBPVp67dSIFbkg.jpeg"></figure><figure name="e0f0" id="e0f0" class="graf graf--figure graf--iframe graf-after--figure graf--trailing"><iframe src="https://www.youtube.com/embed/4iRupuNet3Q?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/41ef54154430"><time class="dt-published" datetime="2019-11-21T13:16:11.369Z">November 21, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A8%AD%E5%AE%9A-auto-layout-%E7%9A%84-equal-width-height-41ef54154430" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

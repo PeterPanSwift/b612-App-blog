@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>解決問題 Gradle version is incompatible with the Java version that Flutter is using for Gradle</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">解決問題 Gradle version is incompatible with the Java version that Flutter is using for Gradle</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近有同學問彼得潘，它執行 Flutter App 時遇到問題，Console 出現以下錯誤訊息。
+</section>
+<section data-field="body" class="e-content">
+<section name="f5d4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ec08" id="ec08" class="graf graf--h3 graf--leading graf--title">解決問題 Gradle version is incompatible with the Java version that Flutter is using for Gradle</h3><p name="f396" id="f396" class="graf graf--p graf-after--h3">最近有同學問彼得潘，它執行 Flutter App 時遇到問題，Console 出現以下錯誤訊息。</p><pre data-code-block-mode="0" spellcheck="false" name="732c" id="732c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">Launching lib/main.dart on sdk gphone64 arm64 in debug mode...<br>Running Gradle task &#39;assembleDebug&#39;...<br><br>FAILURE: Build failed with an exception.<br><br>* What went wrong:<br>Could not open cp_settings generic class cache for settings file &#39;/Users/schunyeh/Documents/Code_Case/FlutterDart/tmp_tmp/android/settings.gradle&#39; (/Users/schunyeh/.gradle/caches/7.6.3/scripts/digrbcejqtzh2o323b6w8i67r).<br>&gt; BUG! exception in phase &#39;semantic analysis&#39; in source unit &#39;_BuildScript_&#39; Unsupported class file major version 65<br><br>* Try:<br>&gt; Run with --stacktrace option to get the stack trace.<br>&gt; Run with --info or --debug option to get more log output.<br>&gt; Run with --scan to get full insights.<br><br>* Get more help at https://help.gradle.org<br><br>BUILD FAILED in 380ms<br><br>┌─ Flutter Fix ────────────────────────────────────────────────────────────────────────────────────┐<br>│ [!] Your project&#39;s Gradle version is incompatible with the Java version that Flutter is using    │<br>│ for Gradle.                                                                                      │<br>│                                                                                                  │<br>│ If you recently upgraded Android Studio, consult the migration guide at                          │<br>│ https://flutter.dev/to/to/java-gradle-incompatibility.                                           │<br>│                                                                                                  │<br>│ Otherwise, to fix this issue, first, check the Java version used by Flutter by running `flutter  │<br>│ doctor --verbose`.                                                                               │<br>│                                                                                                  │<br>│ Then, update the Gradle version specified in                                                     │<br>│ /Users/schunyeh/Documents/Code_Case/FlutterDart/tmp_tmp/android/gradle/wrapper/gradle-wrapper.pr │<br>│ operties to be compatible with that Java version. See the link below for more information on     │<br>│ compatible Java/Gradle versions:                                                                 │<br>│ https://docs.gradle.org/current/userguide/compatibility.html#java                                │<br>│                                                                                                  │<br>│                                                                                                  │<br>└──────────────────────────────────────────────────────────────────────────────────────────────────┘<br>Error: Gradle task assembleDebug failed with exit code 1</span></pre><p name="0c7c" id="0c7c" class="graf graf--p graf-after--pre">此問題的原因和解法都清楚寫在 Console 的 Flutter Fix 區塊，問題出在 Gradle 的版本不相容 Java 版本。</p><p name="b407" id="b407" class="graf graf--p graf-after--p">以下我們介紹兩種解法。</p><ul class="postList"><li name="93fa" id="93fa" class="graf graf--li graf-after--p">解法 1 : 升級 Flutter SDK。</li><li name="28c9" id="28c9" class="graf graf--li graf-after--li">解法 2 : 修改 gradle-wrapper.properties。</li></ul><h3 name="95ff" id="95ff" class="graf graf--h3 graf-after--li">解法 1 : 升級 Flutter SDK</h3><p name="ebec" id="ebec" class="graf graf--p graf-after--h3">從 terminal 輸入以下指令後，專案搭配的 Gradle 版本也會更新，因此通常可解決 Gradle 版本不相容 Java 版本的問題。</p><pre data-code-block-mode="0" spellcheck="false" name="baca" id="baca" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">flutter upgrade</span></pre><h3 name="f977" id="f977" class="graf graf--h3 graf-after--pre">解法 2 : 修改 gradle-wrapper.properties</h3><p name="4830" id="4830" class="graf graf--p graf-after--h3">從剛剛 Console 提到的 Unsupported class file major version 65 和 Java version history 的 wiki 可知 Java 的版本。</p><div name="b44e" id="b44e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://en.wikipedia.org/wiki/Java_version_history" data-href="https://en.wikipedia.org/wiki/Java_version_history" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://en.wikipedia.org/wiki/Java_version_history"><strong class="markup--strong markup--mixtapeEmbed-strong">Java version history - Wikipedia</strong><br><em class="markup--em markup--mixtapeEmbed-em">The Java language has undergone several changes since JDK 1.0 as well as numerous additions of classes and packages to…</em>en.wikipedia.org</a><a href="https://en.wikipedia.org/wiki/Java_version_history" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="60f92c5620428cd57161678eed8a7aff" data-thumbnail-img-id="0*t2BZ7Ff9D2de6Q_c" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*t2BZ7Ff9D2de6Q_c);"></a></div><figure name="2f7d" id="2f7d" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*2Y1AHaywLUVh8wu1dU0TlQ.png" data-width="1992" data-height="1050" src="https://cdn-images-1.medium.com/max/800/1*2Y1AHaywLUVh8wu1dU0TlQ.png"></figure><p name="17f8" id="17f8" class="graf graf--p graf-after--figure">因此 major version 65 對應的 Java 版本是 21，從 Compatibility Matrix 的 Table Java Compatibility 可知它對應的 Gradle 版本至少要 8.5。</p><div name="354c" id="354c" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://docs.gradle.org/current/userguide/compatibility.html#java" data-href="https://docs.gradle.org/current/userguide/compatibility.html#java" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.gradle.org/current/userguide/compatibility.html#java"><strong class="markup--strong markup--mixtapeEmbed-strong">Compatibility Matrix</strong><br><em class="markup--em markup--mixtapeEmbed-em">Gradle runs on the Java Virtual Machine (JVM), which is often provided by either a JDK or JRE. A JVM version between 8…</em>docs.gradle.org</a><a href="https://docs.gradle.org/current/userguide/compatibility.html#java" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="a9afdc3346ed9991e72c7a581d102738"></a></div><figure name="3b1e" id="3b1e" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*EQEFspZGigKlSLtK4chSXQ.png" data-width="1042" data-height="1298" src="https://cdn-images-1.medium.com/max/800/1*EQEFspZGigKlSLtK4chSXQ.png"></figure><p name="8e2b" id="8e2b" class="graf graf--p graf-after--figure">接著打開 android &gt; gradle &gt; wrapper 下的 gradle-wrapper.properties，更新 distributionUrl 欄位。</p><figure name="c311" id="c311" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-NJBo9CXERQEdfjO7alzQQ.png" data-width="684" data-height="478" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*-NJBo9CXERQEdfjO7alzQQ.png"></figure><p name="5eed" id="5eed" class="graf graf--p graf-after--figure">Java 版本 21 對應的 Gradle 版本至少要 8.5，因此 distributionUrl 網址的結尾必須更新成 gradle-8.5-all.zip。</p><pre data-code-block-mode="0" spellcheck="false" name="a6f7" id="a6f7" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content">distributionUrl=https\://services.gradle.org/distributions/gradle-8.5-all.zip</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/121e0751e270"><time class="dt-published" datetime="2024-10-08T07:24:15.841Z">October 8, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A7%A3%E6%B1%BA%E5%95%8F%E9%A1%8C-gradle-version-is-incompatible-with-the-java-version-that-flutter-is-using-for-gradle-121e0751e270" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

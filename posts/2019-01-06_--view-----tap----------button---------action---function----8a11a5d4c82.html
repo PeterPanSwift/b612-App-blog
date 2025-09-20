@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 view 上加了 tap 手勢偵測，為什麼 button 點擊還可以觸發 action 的 function 呢?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 view 上加了 tap 手勢偵測，為什麼 button 點擊還可以觸發 action 的 function 呢?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS 提供許多 gesture recognizer 方便我們偵測手勢，比方 tap gesture recognizer 可以偵測點擊的手勢。
+</section>
+<section data-field="body" class="e-content">
+<section name="7d4f" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3fbb" id="3fbb" class="graf graf--h3 graf--leading graf--title">在 view 上加了 tap 手勢偵測，為什麼 button 點擊還可以觸發 action 的 function 呢?</h3><p name="200d" id="200d" class="graf graf--p graf-after--h3">iOS 提供許多 gesture recognizer 方便我們偵測手勢，比方 tap gesture recognizer 可以偵測點擊的手勢。</p><figure name="300a" id="300a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*v9ldIPIxZ4pDo_lJL1MxSQ.jpeg" data-width="1016" data-height="1162" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*v9ldIPIxZ4pDo_lJL1MxSQ.jpeg"></figure><p name="7616" id="7616" class="graf graf--p graf-after--figure">那如果我們在 controller 的 view 上加入 tap gesture recognizer，利用它實現點擊畫面收鍵盤的功能，但畫面上同時有個 button，點擊 button 時會發生什麼事呢 ?</p><figure name="dfce" id="dfce" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*g4pZS_7Xh-kEAIf1Y5jG9A.jpeg" data-width="1392" data-height="1242" src="https://cdn-images-1.medium.com/max/800/1*g4pZS_7Xh-kEAIf1Y5jG9A.jpeg"></figure><pre name="491b" id="491b" class="graf graf--pre graf-after--figure">class ViewController: UIViewController {</pre><pre name="ee88" id="ee88" class="graf graf--pre graf-after--pre">   @IBAction func buttonTapped(_ sender: Any) {</pre><pre name="54f4" id="54f4" class="graf graf--pre graf-after--pre">      print(&quot;buttonTapped&quot;)</pre><pre name="ccbe" id="ccbe" class="graf graf--pre graf-after--pre">   }</pre><pre name="6cd7" id="6cd7" class="graf graf--pre graf-after--pre">   @objc func hideKeyboard() {</pre><pre name="6f66" id="6f66" class="graf graf--pre graf-after--pre">      view.endEditing(true)</pre><pre name="1564" id="1564" class="graf graf--pre graf-after--pre">   }</pre><pre name="4a48" id="4a48" class="graf graf--pre graf-after--pre">   override func viewDidLoad() {</pre><pre name="ccae" id="ccae" class="graf graf--pre graf-after--pre">      super.viewDidLoad()</pre><pre name="1574" id="1574" class="graf graf--pre graf-after--pre">      let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))</pre><pre name="e8f5" id="e8f5" class="graf graf--pre graf-after--pre">      view.addGestureRecognizer(tap)</pre><pre name="0ce6" id="0ce6" class="graf graf--pre graf-after--pre">   }</pre><pre name="1a13" id="1a13" class="graf graf--pre graf-after--pre">}</pre><h3 name="e0bf" id="e0bf" class="graf graf--h3 graf-after--pre"><strong class="markup--strong markup--h3-strong">5 秒限時搶答開始 !</strong></h3><p name="e82b" id="e82b" class="graf graf--p graf-after--h3">A 觸發 button 的 action function buttonTapped。</p><p name="0414" id="0414" class="graf graf--p graf-after--p">B 觸發 tap gesture 連結的 function hideKeyboard。</p><p name="d64d" id="d64d" class="graf graf--p graf-after--p graf--trailing">C 觸發 function buttonTapped &amp; hideKeyboard。</p></div></div></section><section name="0c0f" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="a4f5" id="a4f5" class="graf graf--p graf--leading">答案是 A，此時只會觸發 button 的 function buttonTapped，不會觸發 gesture 的 function hideKeyboard。一般這也是我們想要的結果，我們希望點擊 button 時執行 button 被點擊時要做的事，而不是收鍵盤。</p><p name="0aeb" id="0aeb" class="graf graf--p graf-after--p">為什麼呢 ? 答案就藏在 Apple 官方的文章 Attaching Gesture Recognizers to UIKit Controls。</p><div name="9806" id="9806" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/coordinating_multiple_gesture_recognizers/attaching_gesture_recognizers_to_uikit_controls" data-href="https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/coordinating_multiple_gesture_recognizers/attaching_gesture_recognizers_to_uikit_controls" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/coordinating_multiple_gesture_recognizers/attaching_gesture_recognizers_to_uikit_controls"><strong class="markup--strong markup--mixtapeEmbed-strong">Attaching Gesture Recognizers to UIKit Controls | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Gesture recognizers attached to your views do not impact the ability of UIKit controls to handle events. Events…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/coordinating_multiple_gesture_recognizers/attaching_gesture_recognizers_to_uikit_controls" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="58e1bfb4d6a98699a2b8bb735ca75118"></a></div><pre name="234e" id="234e" class="graf graf--pre graf-after--mixtapeEmbed">Gesture recognizers attached to your views do not impact the ability of UIKit controls to handle events. Events occurring within the bounds of a control are handled by the control first, giving the control a chance to call its action method</pre><p name="cde5" id="cde5" class="graf graf--p graf-after--pre">文章裡的這段文字告訴我們 gesture recognizer 不會影響 UIKit 的 control 元件接收畫面操作的相關事件。</p><p name="6894" id="6894" class="graf graf--p graf-after--p">因此，當我們點擊剛剛畫面裡的 button 時，將可正常觸發 IBAction 連結的 function buttonTapped，不受 tap gesture recognizer 的影響。當 gesture recognizer 跟 control 元件 PK 時，請記得勝利是屬於 control 元件的。</p><p name="40db" id="40db" class="graf graf--p graf-after--p">ps: 凡事總有例外，倘若我們將 gesture recognizer 直接加到 control 元件上，比方加到 button 元件時，到時候點擊 button 將觸發 gesture 連結的 function hideKeyboard。</p><pre name="b374" id="b374" class="graf graf--pre graf-after--p">class ViewController: UIViewController {</pre><pre name="016c" id="016c" class="graf graf--pre graf-after--pre">   @IBOutlet weak var button: UIButton!</pre><pre name="8993" id="8993" class="graf graf--pre graf-after--pre"> <br>   @IBAction func buttonTapped(_ sender: Any) {</pre><pre name="d936" id="d936" class="graf graf--pre graf-after--pre">      print(&quot;buttonTapped&quot;)</pre><pre name="30d2" id="30d2" class="graf graf--pre graf-after--pre">   }</pre><pre name="0e1d" id="0e1d" class="graf graf--pre graf-after--pre">   @objc func hideKeyboard() {</pre><pre name="4116" id="4116" class="graf graf--pre graf-after--pre">      view.endEditing(true)</pre><pre name="b15a" id="b15a" class="graf graf--pre graf-after--pre">   }</pre><pre name="5327" id="5327" class="graf graf--pre graf-after--pre">   override func viewDidLoad() {</pre><pre name="bbf4" id="bbf4" class="graf graf--pre graf-after--pre">      super.viewDidLoad()</pre><pre name="ee0d" id="ee0d" class="graf graf--pre graf-after--pre">      let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))</pre><pre name="3f7b" id="3f7b" class="graf graf--pre graf-after--pre">     <strong class="markup--strong markup--pre-strong"> button.addGestureRecognizer(tap)</strong></pre><pre name="690b" id="690b" class="graf graf--pre graf-after--pre">   }</pre><pre name="07c8" id="07c8" class="graf graf--pre graf-after--pre">}</pre><p name="b8ab" id="b8ab" class="graf graf--p graf-after--pre">Apple 官方文章的相關說明。</p><pre name="e1c1" id="e1c1" class="graf graf--pre graf-after--p graf--trailing">To handle any of the preceding gestures before the control calls its action method, install your gesture recognizer on the control itself. Gesture recognizers handle touch events before the views to which they are attached. As a result, installing a gesture recognizer directly on a control prevents that control from calling its action method.</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8a11a5d4c82"><time class="dt-published" datetime="2019-01-06T09:23:47.456Z">January 6, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%9C%A8-view-%E4%B8%8A%E5%8A%A0%E4%BA%86-tap-%E6%89%8B%E5%8B%A2-%E7%82%BA%E4%BB%80%E9%BA%BC-button-%E9%BB%9E%E9%81%B8%E9%82%84%E5%8F%AF%E4%BB%A5%E8%A7%B8%E7%99%BC-action-%E7%9A%84-function-%E5%91%A2-8a11a5d4c82" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

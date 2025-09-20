@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>取得App此時此刻採用的語言</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">取得App此時此刻採用的語言</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+NSBundle.mainBundle().preferredLocalizations
+</section>
+<section data-field="body" class="e-content">
+<section name="d436" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="38ca" id="38ca" class="graf graf--h3 graf--leading graf--title">取得App此時此刻採用的語言</h3><figure name="715c" id="715c" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*eR6FbdCCGPNkFUcV9a83cQ.png" data-width="640" data-height="1136" src="https://cdn-images-1.medium.com/max/800/1*eR6FbdCCGPNkFUcV9a83cQ.png"></figure><p name="0589" id="0589" class="graf graf--p graf-after--figure">iOS是百年難得一見的語言天才，除了火星文之外，地球上根本沒有難得倒它的語言。因此想在iOS上做出支援各國語言，打入國際市場的App，實在是件再簡單不過的小事。</p><p name="bb1e" id="bb1e" class="graf graf--p graf-after--p">當App在iOS上執行時，其顯示的語言將依據系統偏好的語言順序列表。如上圖所示，列表的前三名依序是繁中，日文，英文。假設此時我們專案裡設定支援的語言為英文和日文，如下圖Localizations區塊所示。(雖然iOS支援各國語言，但App要真正支援還是必須花錢請人翻譯。App尚未賺錢，目前彼得潘只能目標App最賺錢的兩大市場，英文和日文。)</p><figure name="682e" id="682e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ELPB5LZliN9cf9gO0O6bmQ.jpeg" data-width="1302" data-height="916" src="https://cdn-images-1.medium.com/max/800/1*ELPB5LZliN9cf9gO0O6bmQ.jpeg"></figure><p name="48fc" id="48fc" class="graf graf--p graf-after--figure">若是使用者的偏好語言Top 1剛好是英文或日文，那麼很簡單，我們辛苦花錢翻譯的文字，都可以完美地呈現。但是，如果今天Top 1的是其它語言，比方繁中，那App到底會顯示何種語言呢?</p><p name="5110" id="5110" class="graf graf--p graf-after--p">很簡單。系統將從偏好列表查詢，以排名在前的為優先。此時由於日文在英文前面，所以App將呈現日文。(若是在偏好列表找不到App支援的語言，App將顯示我們設定的default語言。若是沒有特別調整，App預設的default語言將為英文)</p><p name="0085" id="0085" class="graf graf--p graf-after--p">大部份的時候，我們其實完全不需煩心語言的轉換，App會聰明地套用對應語言的文字和圖片。然而在某些特殊情況，我們還是需要費心地另外寫程式做判斷。比方當圖片是在Images.xcassets下時，由於它不能依語言設定不同圖片，因此我們需要從程式判斷此時App採用的語言來選擇合適的圖片。</p><p name="013a" id="013a" class="graf graf--p graf-after--p">此時我們第一個想到的方法是取得系統目前的語言。經由NSUserDefaults裡查詢AppleLanguages，我們可以輕易取得系統目前設定的語言。</p><pre name="51e9" id="51e9" class="graf graf--pre graf-after--p"> var defaults = NSUserDefaults.standardUserDefaults()<br> var lans = defaults.objectForKey(“AppleLanguages”) as NSArray!<br> var lan = lans.firstObject as String</pre><p name="5e32" id="5e32" class="graf graf--p graf-after--pre">然而令人意外的，採用此法其實是大錯特錯! 比方在剛剛的例子裡，目前系統的語言是繁中。但我們知道，App此時此刻採用的語言卻是日文，因此我們真正希望取得的資訊，其實是目前App採用的語言，而不是系統的語言。同樣簡單地，只要經由NSBundle物件的preferredLocalizations property，我們即可取得目前App採用的語言array， 而array裡的第一個成員，正是我們心之所向，App目前採用的語言!</p><pre name="7f18" id="7f18" class="graf graf--pre graf-after--p graf--trailing">var array = NSBundle.mainBundle().preferredLocalizations<br>var lan = array.first</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b2297457dfa3"><time class="dt-published" datetime="2014-09-25T15:57:58.194Z">September 25, 2014</time></a>.</p><p><a href="https://medium.com/@apppeterpan/app-b2297457dfa3" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

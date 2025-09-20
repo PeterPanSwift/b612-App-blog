@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#159 利用 UITextChecker 玩 WORDLE</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#159 利用 UITextChecker 玩 WORDLE</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近彼得潘身邊很多朋友都在玩 WORDLE，它看起來是個小學程度的猜單字遊戲，只需要猜五個字的單字。
+</section>
+<section data-field="body" class="e-content">
+<section name="ac34" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1dd5" id="1dd5" class="graf graf--h3 graf--leading graf--title">#159 利用 UITextChecker 玩 <strong class="markup--strong markup--h3-strong">WORDLE</strong></h3><p name="7eb9" id="7eb9" class="graf graf--p graf-after--h3">最近彼得潘身邊很多朋友都在玩 WORDLE，它看起來是個小學程度的猜單字遊戲，只需要猜五個字的單字。</p><p name="fc07" id="fc07" class="graf graf--p graf-after--p">但是玩了之後才發現大錯特錯。雖然只有五個字，卻常常想不出有什麼英文是五個字組成。</p><figure name="b606" id="b606" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bVY_xGWEdFg_eMEoHoQQLQ.png" data-width="1260" data-height="1404" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*bVY_xGWEdFg_eMEoHoQQLQ.png"></figure><div name="a423" id="a423" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://www.powerlanguage.co.uk/wordle/" data-href="https://www.powerlanguage.co.uk/wordle/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.powerlanguage.co.uk/wordle/"><strong class="markup--strong markup--mixtapeEmbed-strong">Wordle - A daily word game</strong><br><em class="markup--em markup--mixtapeEmbed-em">Guess the hidden word in 6 tries. A new puzzle is available each day.</em>www.powerlanguage.co.uk</a><a href="https://www.powerlanguage.co.uk/wordle/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="1ac2ee817c13ad95bc0da74df6724e4c" data-thumbnail-img-id="0*2r96HfGCIOwy3dSc" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*2r96HfGCIOwy3dSc);"></a></div><p name="067a" id="067a" class="graf graf--p graf-after--mixtapeEmbed">沒關係，我們會寫 iOS App，能不能寫 Swift 程式列出可能的單字呢 ?</p><p name="ecfd" id="ecfd" class="graf graf--p graf-after--p">彼得潘研究了一下，發現真的可以。我們可以用迴圈或遞迴找出五個字的排列組合，然後透過已知的條件過濾，比方第五個字是 e，s 不在第一個位置，然後利用 UITextChecker 檢查單字是否存在，整理出可能的單字清單。</p><p name="9d8a" id="9d8a" class="graf graf--p graf-after--p">對 UITextChecker 不熟的朋友可參考以下例子:</p><pre name="68af" id="68af" class="graf graf--pre graf-after--p">let word = &quot;apple&quot;<br>let checker = UITextChecker()<br>let range = NSRange(location: 0, length: word.utf16.count)<br>let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: &quot;en&quot;)<br>if misspelledRange.location == NSNotFound {<br>    print(&quot;\(word) is valid&quot;)<br>}</pre><p name="4ecc" id="4ecc" class="graf graf--p graf-after--pre">呼叫 rangeOfMisspelledWord(in:range:startingAt:wrap:language:) 判斷單字是否拼錯，如果沒有拼錯，即表示它是正確的單字。rangeOfMisspelledWord 將回傳 NSRange，告訴我們單字裡拼錯的區間。當它的 location 為 NSNotFound 時，即表示它是個百分百正確的完美單字。</p><div name="14e8" id="14e8" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://www.hackingwithswift.com/books/ios-swiftui/validating-words-with-uitextchecker" data-href="https://www.hackingwithswift.com/books/ios-swiftui/validating-words-with-uitextchecker" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.hackingwithswift.com/books/ios-swiftui/validating-words-with-uitextchecker"><strong class="markup--strong markup--mixtapeEmbed-strong">Validating words with UITextChecker</strong><br><em class="markup--em markup--mixtapeEmbed-em">Paul Hudson @twostraws Now that our game is all set up, the last part of this project is to make sure the user can&#39;t…</em>www.hackingwithswift.com</a><a href="https://www.hackingwithswift.com/books/ios-swiftui/validating-words-with-uitextchecker" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="5d5e61787c71cd6f711f87d97cf6c372" data-thumbnail-img-id="0*Bt3rvrIyHTg4hjVl" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Bt3rvrIyHTg4hjVl);"></a></div><p name="ff4c" id="ff4c" class="graf graf--p graf-after--mixtapeEmbed">ps: rangeOfMisspelledWord 只能做大概的判斷，有些字還是會判斷失敗，比方它會判斷 vvvvv 沒有拼錯。其它判斷的方法還有以下兩種:</p><ul class="postList"><li name="c66f" id="c66f" class="graf graf--li graf-after--p">UIReferenceLibraryViewController 的 dictionaryHasDefinition(forTerm:)</li></ul><div name="2d60" id="2d60" class="graf graf--mixtapeEmbed graf-after--li"><a href="https://developer.apple.com/documentation/uikit/uireferencelibraryviewcontroller/1624810-dictionaryhasdefinition" data-href="https://developer.apple.com/documentation/uikit/uireferencelibraryviewcontroller/1624810-dictionaryhasdefinition" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uireferencelibraryviewcontroller/1624810-dictionaryhasdefinition"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uireferencelibraryviewcontroller/1624810-dictionaryhasdefinition" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="ff272fe2d27ff84f4a0cc4b89f70e8a6"></a></div><ul class="postList"><li name="707b" id="707b" class="graf graf--li graf-after--mixtapeEmbed">allowedWords.txt 包含了一萬多個五個字組成的合法單字。</li></ul><div name="b446" id="b446" class="graf graf--mixtapeEmbed graf-after--li"><a href="https://github.com/OneUpWallStreet/Wordle-In-SwiftUI/blob/master/Wordle%20In%20SwiftUI/Models/allowedWords.txt" data-href="https://github.com/OneUpWallStreet/Wordle-In-SwiftUI/blob/master/Wordle%20In%20SwiftUI/Models/allowedWords.txt" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/OneUpWallStreet/Wordle-In-SwiftUI/blob/master/Wordle%20In%20SwiftUI/Models/allowedWords.txt"><strong class="markup--strong markup--mixtapeEmbed-strong">Wordle-In-SwiftUI/allowedWords.txt at master · OneUpWallStreet/Wordle-In-SwiftUI</strong><br><em class="markup--em markup--mixtapeEmbed-em">This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below…</em>github.com</a><a href="https://github.com/OneUpWallStreet/Wordle-In-SwiftUI/blob/master/Wordle%20In%20SwiftUI/Models/allowedWords.txt" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="bf883e98140323e2415bffdbb32d7587" data-thumbnail-img-id="0*sfnOBVkhMuvMsIlT" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*sfnOBVkhMuvMsIlT);"></a></div><h3 name="fe0b" id="fe0b" class="graf graf--h3 graf-after--mixtapeEmbed">功能需求</h3><p name="e688" id="e688" class="graf graf--p graf-after--h3">以下三種版本都能幫我們玩 WORDLE 時更快找到答案，數字愈大的版本需輸入愈多資料，但找到的單字清單也會愈接近正確答案。</p><ul class="postList"><li name="3f42" id="3f42" class="graf graf--li graf-after--p">版本 1: 輸入已知位置的字元和位置， 輸入存在但在錯誤位置的字元，列出可能的單字清單。</li><li name="9b29" id="9b29" class="graf graf--li graf-after--li">版本 2: 輸入已知位置的字元和位置， 輸入存在但在錯誤位置的字元和位置，列出可能的單字清單。</li><li name="d7be" id="d7be" class="graf graf--li graf-after--li">版本 3: 輸入已知位置的字元和位置， 輸入存在但在錯誤位置的字元和位置，輸入不存在的字元，列出可能的單字清單。</li></ul><h4 name="a51c" id="a51c" class="graf graf--h4 graf-after--li">版本 1 : 輸入已知位置的字元和位置， 輸入存在但在錯誤位置的字元，列出可能的單字清單</h4><p name="c817" id="c817" class="graf graf--p graf-after--h4">範例:</p><pre name="85ef" id="85ef" class="graf graf--pre graf-after--p">let wordle = Wordle(correctLocationChars: [<br>    4: &quot;e&quot;<br>], wrongLocationChars: [<br>    &quot;s&quot;, &quot;h&quot;<br>])<br>wordle.play()</pre><p name="6943" id="6943" class="graf graf--p graf-after--pre">彼得潘自訂了 Wordle 型別，產生它時傳入 correctLocationChars &amp; wrongLocationChars，分別代表已知位置的字元和位置 &amp; 錯誤位置的字元，因此 <code class="markup--code markup--p-code">[4: &quot;e&quot;]</code> 表示第五個字是 e，<code class="markup--code markup--p-code">[&quot;s&quot;, &quot;h&quot;]</code> 表示單字裡尚未知道位置的字元有 s &amp; h。</p><p name="556b" id="556b" class="graf graf--p graf-after--p">結果</p><pre name="0cae" id="0cae" class="graf graf--pre graf-after--p">chase<br>chose<br>hanse<br>haste<br>hawse<br>horse<br>house<br>phase<br>shade<br>shake<br>shale<br>shame<br>shape<br>share<br>shave<br>shine<br>shire<br>shite<br>shive<br>shone<br>shore<br>shote<br>shove<br>shree<br>these<br>those<br>whose<br>whsle</pre><h4 name="7cb8" id="7cb8" class="graf graf--h4 graf-after--pre">版本 2 : 輸入已知位置的字元和位置， 輸入存在但在錯誤位置的字元和位置，列出可能的單字清單</h4><p name="c7c3" id="c7c3" class="graf graf--p graf-after--h4">比方下圖的 s 不能出現在第一個位置，h 不能出現在第五個位置。</p><figure name="8f64" id="8f64" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bVY_xGWEdFg_eMEoHoQQLQ.png" data-width="1260" data-height="1404" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*bVY_xGWEdFg_eMEoHoQQLQ.png"></figure><p name="df26" id="df26" class="graf graf--p graf-after--figure">範例:</p><pre name="eb4c" id="eb4c" class="graf graf--pre graf-after--p">let wordle = Wordle(correctLocationChars: [<br>  4: &quot;e&quot;<br>], wrongLocationChars: [<br>  0: [&quot;s&quot;],<br>  4: [&quot;h&quot;]<br>])<br>wordle.play()</pre><p name="cfcb" id="cfcb" class="graf graf--p graf-after--pre"><code class="markup--code markup--p-code">[4: &quot;e&quot;]</code> 表示第五個字是 e，<code class="markup--code markup--p-code">[0: [&quot;s&quot;], 4: [&quot;h&quot;]]</code> 表示第一個字不是 s，第五個字不是 h 。值得注意的，wrongLocationChars 的 value 型別是 array，因為同一個位置可能有多個不能出現的字，比方 <code class="markup--code markup--p-code">0: [&quot;s&quot;, &quot;h&quot;]</code>表示第一字不是 s 也不是 h。</p><p name="1f22" id="1f22" class="graf graf--p graf-after--p">結果</p><pre name="f0ee" id="f0ee" class="graf graf--pre graf-after--p">chase<br>chose<br>hanse<br>haste<br>hawse<br>horse<br>house<br>phase<br>these<br>those<br>whose<br>whsle</pre><h4 name="88d3" id="88d3" class="graf graf--h4 graf-after--pre">版本 3 : 輸入已知位置的字元和位置， 輸入存在但在錯誤位置的字元和位置，輸入不存在的字元，列出可能的單字清單</h4><p name="2e9d" id="2e9d" class="graf graf--p graf-after--h4">範例:</p><pre name="de27" id="de27" class="graf graf--pre graf-after--p">let wordle = Wordle(correctLocationChars: [<br>    4: &quot;e&quot;<br>], wrongLocationChars: [<br>    0: [&quot;s&quot;],<br>    4: [&quot;h&quot;]<br>], notExistChars: [<br>    &quot;a&quot;, &quot;p&quot;, &quot;l&quot;<br>])<br>wordle.play()</pre><p name="4917" id="4917" class="graf graf--p graf-after--pre">結果</p><pre name="4062" id="4062" class="graf graf--pre graf-after--p graf--trailing">chose<br>whose<br>those<br>these<br>house<br>horse</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/3feefe820747"><time class="dt-published" datetime="2022-02-01T07:41:04.359Z">February 1, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/159-%E5%88%A9%E7%94%A8-uitextchecker-%E7%8E%A9-wordle-3feefe820747" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

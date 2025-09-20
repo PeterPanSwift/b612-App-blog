@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>UserDefaults 的 integer(forKey:) 回傳 0 的問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">UserDefaults 的 integer(forKey:) 回傳 0 的問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 UserDefaults 我們可以方便地存取一些簡單的資料，然而當我們存取的資料型別是 Int，Bool，Float，Double 時，卻會遇到一個特別的問題。因為它們回傳的型別不是 optional，所以當我們傳入的 key 找不到對應的 value…
+</section>
+<section data-field="body" class="e-content">
+<section name="3a42" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9dbb" id="9dbb" class="graf graf--h3 graf--leading graf--title">UserDefaults 的 integer(forKey:) 回傳 0 的問題</h3><p name="0cef" id="0cef" class="graf graf--p graf-after--h3">利用 UserDefaults 我們可以方便地存取一些簡單的資料，然而當我們存取的資料型別是 Int，Bool，Float，Double 時，卻會遇到一個特別的問題。因為它們回傳的型別不是 optional，所以當我們傳入的 key 找不到對應的 value 時，它還是會回傳某個預設值。</p><pre name="2a7a" id="2a7a" class="graf graf--pre graf-after--p">open func integer(forKey defaultName: String) -&gt; Int</pre><p name="0824" id="0824" class="graf graf--p graf-after--pre">比方找不到 key number 對應的數字時，<code class="markup--code markup--p-code">UserDefaults.standard.integer(forKey: &quot;number&quot;)</code> 將回傳 0。因此我們無法判斷它是內容為 0，還是尚未儲存資料。(ps: 如果儲存的內容是字串倒是沒這個問題，因為 <code class="markup--code markup--p-code">string(forKey:)</code> 回傳的型別是 String?，找不到時可以回傳 nil。)</p><p name="c95f" id="c95f" class="graf graf--p graf-after--p">此問題有很多解法，其中一個是利用 register(defaults:) 設定找不到 key 對應的 value 時回傳的預設值。</p><div name="af0e" id="af0e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/userdefaults-%E7%9A%84%E9%A0%90%E8%A8%AD%E5%80%BC-7117cc173fcc" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/userdefaults-%E7%9A%84%E9%A0%90%E8%A8%AD%E5%80%BC-7117cc173fcc" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/userdefaults-%E7%9A%84%E9%A0%90%E8%A8%AD%E5%80%BC-7117cc173fcc"><strong class="markup--strong markup--mixtapeEmbed-strong">UserDefaults 的預設值</strong><br><em class="markup--em markup--mixtapeEmbed-em">UserDefaults 很適合用來儲存簡單的資料，比方記錄使用者是否第一次使用 App，上次打開 App 的時間等。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/userdefaults-%E7%9A%84%E9%A0%90%E8%A8%AD%E5%80%BC-7117cc173fcc" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="066fcb510a65588e0826d271170376dc"></a></div><p name="10c3" id="10c3" class="graf graf--p graf-after--mixtapeEmbed">另一種解法則是透過回傳 Any? 的 <code class="markup--code markup--p-code">object(forKey:)</code> 搭配 as? 轉型判斷。</p><div name="3673" id="3673" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundation/userdefaults/1410095-object" data-href="https://developer.apple.com/documentation/foundation/userdefaults/1410095-object" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/userdefaults/1410095-object"><strong class="markup--strong markup--mixtapeEmbed-strong">object(forKey:) - UserDefaults | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">This method searches the domains included in the search list in the order in which they are listed and returns the…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/userdefaults/1410095-object" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="87fb3028f7bd61e249a39a9fb6310541"></a></div><p name="b261" id="b261" class="graf graf--p graf-after--mixtapeEmbed">比方以下例子:</p><pre name="30d8" id="30d8" class="graf graf--pre graf-after--p">if let number = UserDefaults.standard.object(forKey: &quot;number&quot;) as? Int {</pre><pre name="de42" id="de42" class="graf graf--pre graf-after--pre">   print(number)</pre><pre name="c73e" id="c73e" class="graf graf--pre graf-after--pre">} else {</pre><pre name="59df" id="59df" class="graf graf--pre graf-after--pre">   print(&quot;no value&quot;)</pre><pre name="13dc" id="13dc" class="graf graf--pre graf-after--pre">}</pre><p name="3795" id="3795" class="graf graf--p graf-after--pre">由於 object(forKey:) 回傳的型別是 Any?，所以找不到 key number 對應的 value 時，它將回傳 nil，因此我們可以用 optional binding 判斷是否找到東西。另外由於回傳的型別是 Any?，所以我們要額外用 as? 轉型成資料真正的型別，比方 Int。</p><p name="7d80" id="7d80" class="graf graf--p graf-after--p">參考範例</p><figure name="bb20" id="bb20" class="graf graf--figure graf--iframe graf-after--p graf--trailing"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b858a37e8d10"><time class="dt-published" datetime="2018-10-23T12:23:29.148Z">October 23, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/userdefaults-%E7%9A%84-integer-forkey-%E5%9B%9E%E5%82%B3-0-%E7%9A%84%E5%95%8F%E9%A1%8C-b858a37e8d10" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

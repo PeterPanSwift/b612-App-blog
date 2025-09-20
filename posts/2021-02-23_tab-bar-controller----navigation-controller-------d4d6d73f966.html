@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>tab bar controller &amp;  navigation controller 的先後順序</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">tab bar controller &amp;  navigation controller 的先後順序</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常使用 tab bar controller &amp; navigation controller 串接多個頁面，比方以下唐詩 App 的範例:
+</section>
+<section data-field="body" class="e-content">
+<section name="0fdb" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="eb40" id="eb40" class="graf graf--h3 graf--leading graf--title">tab bar controller &amp; navigation controller 的先後順序</h3><p name="4435" id="4435" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常使用 tab bar controller &amp; navigation controller 串接多個頁面，比方以下唐詩 App 的範例:</p><figure name="c8eb" id="c8eb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Wn3UCk48DKGNvOhK1UXvZg.png" data-width="716" data-height="1222" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Wn3UCk48DKGNvOhK1UXvZg.png"></figure><p name="1948" id="1948" class="graf graf--p graf-after--figure">點選李白顯示李白的作品。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="b2a8" id="b2a8" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*JgymZPnp9ddqhTC5ZB8ffA.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*JgymZPnp9ddqhTC5ZB8ffA.png"></figure><figure name="e512" id="e512" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*sDXCFG-M5MlflyGkJtgUhA.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*sDXCFG-M5MlflyGkJtgUhA.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="dbdf" id="dbdf" class="graf graf--p graf-after--figure">點選白居易顯示白居易的作品。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="b5a9" id="b5a9" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*pUAXqFBZrKn4p5D9lmsF8A.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*pUAXqFBZrKn4p5D9lmsF8A.png"></figure><figure name="18ac" id="18ac" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*CX8WwGsDxWW0qvzruN9lmg.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*CX8WwGsDxWW0qvzruN9lmg.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="6f02" id="6f02" class="graf graf--h3 graf-after--figure"><strong class="markup--strong markup--h3-strong">先 tab bar controller，之後才接 navigation controller</strong></h3><p name="a53a" id="a53a" class="graf graf--p graf-after--h3">如下圖所示，通常 navigation controller 會接在 tab bar controller 後面，因為這樣可讓每個 tab 有各自的 navigation controller，不同 tab 彼此獨立，不會互相干擾。</p><figure name="4884" id="4884" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aG3xc4O-DmrnGeo11R8tLA.png" data-width="718" data-height="1244" src="https://cdn-images-1.medium.com/max/800/1*aG3xc4O-DmrnGeo11R8tLA.png"></figure><p name="9e86" id="9e86" class="graf graf--p graf-after--figure">每個 tab 的 navigation controller 將控制此 tab 目前到第頁面，比方第一個 tab 進到第一頁，顯示詩人李白和杜甫，第二個 tab 進到第二頁，顯示白居易的作品。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="6275" id="6275" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*jBr82qZtaHGRohrkCx-vKw.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*jBr82qZtaHGRohrkCx-vKw.png"></figure><figure name="26a5" id="26a5" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*zQBDRwGVfbWreDtXXHTwHw.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*zQBDRwGVfbWreDtXXHTwHw.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="c9be" id="c9be" class="graf graf--h3 graf-after--figure">先 navigation controller，之後接 tab bar controller 可以嗎 ?</h3><p name="65cb" id="65cb" class="graf graf--p graf-after--h3">基本上是不建議，雖然你硬要接也是接得起來，就像闖紅燈不好，但是你要闖紅燈也沒人可以阻止你。</p><p name="ebe2" id="ebe2" class="graf graf--p graf-after--p">其實 Interface Builder 本身就不建議我們這樣連，如下圖所示，當我們想將 tab bar controller embed in navigation controller 時，選項是灰底不能選的。</p><figure name="495a" id="495a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*WFgjBPbmoiNxDTfK6kCrpw.png" data-width="1414" data-height="1376" src="https://cdn-images-1.medium.com/max/800/1*WFgjBPbmoiNxDTfK6kCrpw.png"></figure><p name="b9ba" id="b9ba" class="graf graf--p graf-after--figure">不過道高一尺，魔高一丈，我們還是可以另外拉出 navigation controller，然後再將它連到 tab bar controller。</p><figure name="d102" id="d102" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cl96vHKdYCTc7sNKthwtkQ.png" data-width="896" data-height="1220" src="https://cdn-images-1.medium.com/max/800/1*cl96vHKdYCTc7sNKthwtkQ.png"></figure><p name="36e4" id="36e4" class="graf graf--p graf-after--figure">storyboard 看起來沒什麼問題，但別開心得太早， App 執行後，將出現很大的問題 ！</p><p name="e9ee" id="e9ee" class="graf graf--p graf-after--p">當我們點選李白進入李白的作品頁面後，下方的 tab bar 不見了 ! 所以現在切換 tab 很不方便，只能在第一頁切換 tab。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="b2d4" id="b2d4" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*ricOTuXxDh8edgR3JInO-Q.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*ricOTuXxDh8edgR3JInO-Q.png"></figure><figure name="a6bf" id="a6bf" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*6pRBKSF_lys_szQrEBolVw.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*6pRBKSF_lys_szQrEBolVw.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="29da" id="29da" class="graf graf--p graf-after--figure">為什麼會這樣呢 ? 因為此時 navigation controller 把 tab bar controller &amp; 它連接的詩人名稱頁面當成第一頁，而詩人作品則當成第二頁。因此切換到詩人作品頁面時，它會完全覆蓋第一頁，連 tab bar 也一起檔住。</p><figure name="4668" id="4668" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BHLuq8IZNfknvyeTMemYDg.png" data-width="782" data-height="1080" src="https://cdn-images-1.medium.com/max/800/1*BHLuq8IZNfknvyeTMemYDg.png"></figure><p name="0499" id="0499" class="graf graf--p graf-after--figure graf--trailing">由於以上的問題，開發 iOS App 時，我們通常會將 navigation controller 接在 tab bar controller 後面。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d4d6d73f966"><time class="dt-published" datetime="2021-02-23T15:25:32.692Z">February 23, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/tab-bar-controller-navigation-controller-%E7%9A%84%E5%85%88%E5%BE%8C%E9%A0%86%E5%BA%8F-d4d6d73f966" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

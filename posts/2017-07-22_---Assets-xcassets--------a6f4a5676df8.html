@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>少了 Assets.xcassets 的我該怎麼辦</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">少了 Assets.xcassets 的我該怎麼辦</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+身為十年經驗的 Swift iOS App 開發魔法師，我們都知道 Asset 十分重要，App 顯示的圖片都在裡面(網路上下載和使用者拍照生成的圖片例外)。
+</section>
+<section data-field="body" class="e-content">
+<section name="2426" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f85e" id="f85e" class="graf graf--h3 graf--leading graf--title">少了 Assets.xcassets 的我該怎麼辦</h3><p name="cbd7" id="cbd7" class="graf graf--p graf-after--h3">身為十年經驗的 Swift iOS App 開發魔法師，我們都知道 Asset 十分重要，App 顯示的圖片都在裡面(網路上下載和使用者拍照生成的圖片例外)。</p><figure name="ecca" id="ecca" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LSo6HACFMcQPoBp4Lh94OA.jpeg" data-width="1970" data-height="574" src="https://cdn-images-1.medium.com/max/800/1*LSo6HACFMcQPoBp4Lh94OA.jpeg"></figure><p name="115e" id="115e" class="graf graf--p graf-after--figure">比方以下 storyboard 的某個 image view，顯示著 Assets.xcassets 裡的圖片 book2。</p><figure name="c796" id="c796" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bNvR7_GT0-oLXm2ciIUK8Q.jpeg" data-width="2106" data-height="886" src="https://cdn-images-1.medium.com/max/800/1*bNvR7_GT0-oLXm2ciIUK8Q.jpeg"></figure><p name="2044" id="2044" class="graf graf--p graf-after--figure">但是，如果你不小心手殘，按到 Remove Reference 將 Assets.xcassets 刪除的話 ?</p><figure name="cce3" id="cce3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2GI_HrQ4RzQdyDqOOFsfZw.jpeg" data-width="1244" data-height="426" src="https://cdn-images-1.medium.com/max/800/1*2GI_HrQ4RzQdyDqOOFsfZw.jpeg"></figure><p name="3c4e" id="3c4e" class="graf graf--p graf-after--figure">這時候就好像 App 裡寶貴的圖片都被虎克船長偷走，storyboard 的 image view 將顯示可怕的問號 !</p><figure name="c21c" id="c21c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7QpwsYFhLdFH_f1BgHDX7g.jpeg" data-width="2104" data-height="936" src="https://cdn-images-1.medium.com/max/800/1*7QpwsYFhLdFH_f1BgHDX7g.jpeg"></figure><p name="1712" id="1712" class="graf graf--p graf-after--figure">此時，按 cmd + z 上一步是沒用的，因為刪除檔案的動作無法上一步，就好像分手說出口就無法挽回一樣。</p><p name="3dfc" id="3dfc" class="graf graf--p graf-after--p">不過好在 Assets.xcassets 還存在這個世界上，你只要從 Finder 進到專案的資料夾，找到 Assets.xcassets，將它拖曳到 Xcode 的 Project navigator 即可。</p><figure name="6032" id="6032" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*wACxPMD56lG4niJjlOVuGQ.jpeg" data-width="1036" data-height="450" src="https://cdn-images-1.medium.com/max/800/1*wACxPMD56lG4niJjlOVuGQ.jpeg"></figure><p name="ee64" id="ee64" class="graf graf--p graf-after--figure">最後，還有一個動作要做，你要點選 Assets.xcassets，從右邊的 File inspector 頁面確認 Target Membership 下的 App 被勾選。如果沒勾選，到時候 Xcode 生成 App 時，可是會忘記將 Assets.xcassets 包進去的。</p><figure name="64fd" id="64fd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1flV8oPjsVHMQE645bBpbQ.jpeg" data-width="532" data-height="652" src="https://cdn-images-1.medium.com/max/800/1*1flV8oPjsVHMQE645bBpbQ.jpeg"></figure><h3 name="b8f5" id="b8f5" class="graf graf--h3 graf-after--figure">如果按到 Move to Trash ?</h3><p name="30aa" id="30aa" class="graf graf--p graf-after--h3">剛剛的解法是在 Assets.xcassets 還在的情況，那如果不小心按到 Move to Trash，Assets.xcassets 已經完全被刪除了呢 ?</p><p name="f658" id="f658" class="graf graf--p graf-after--p">沒關係，我們可以自己產生 Assets，從 New &gt; File 裡選擇 Asset Catalog。</p><figure name="d567" id="d567" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eZbA539zOzeaNQzRH5eSKQ.jpeg" data-width="1104" data-height="324" src="https://cdn-images-1.medium.com/max/800/1*eZbA539zOzeaNQzRH5eSKQ.jpeg"></figure><figure name="6597" id="6597" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*EaLE39AKtP7Vhk6nmkuLcQ.jpeg" data-width="1432" data-height="1030" src="https://cdn-images-1.medium.com/max/800/1*EaLE39AKtP7Vhk6nmkuLcQ.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/a6f4a5676df8"><time class="dt-published" datetime="2017-07-22T17:09:48.231Z">July 22, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%91%E4%BA%86-assets-xcassets-%E7%9A%84%E6%88%91%E8%A9%B2%E6%80%8E%E9%BA%BC%E8%BE%A6-a6f4a5676df8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

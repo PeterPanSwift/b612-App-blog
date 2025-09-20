@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 breakpoint 的 Log Message 和 Debugger Command 列印資訊</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 breakpoint 的 Log Message 和 Debugger Command 列印資訊</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 Swift iOS App 時，我們時常會用 print 列印資訊，查詢某個變數的內容，或是檢查某個 function 是否執行。但使用 print 有個缺點，我們在 App 上架前，還要花時間移除這些不必要的 print。
+</section>
+<section data-field="body" class="e-content">
+<section name="9ac3" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a87a" id="a87a" class="graf graf--h3 graf--leading graf--title">利用 breakpoint 的 Log Message 和 Debugger Command 列印資訊</h3><p name="0eaa" id="0eaa" class="graf graf--p graf-after--h3">開發 Swift iOS App 時，我們時常會用 print 列印資訊，查詢某個變數的內容，或是檢查某個 function 是否執行。但使用 print 有個缺點，我們在 App 上架前，還要花時間移除這些不必要的 print。</p><p name="f08c" id="f08c" class="graf graf--p graf-after--p">其實有個更方便的方法。利用 breakpoint 的 Log Message 和 Debugger Command，我們不只可以列印資訊，也不需要煩惱移除 print 的問題呢。</p><blockquote name="5ef5" id="5ef5" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1 加入中斷點。</strong></blockquote><p name="c409" id="c409" class="graf graf--p graf-after--blockquote">比方我們希望檢查 AppDelegate 的 applicationDidEnterBackground(_:) 何時執行。點擊 func applicationDidEnterBackground 左邊的區塊，加入表示中斷點的藍色箭頭。</p><figure name="c563" id="c563" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2Wb06GGn0q-f_mqFnCnO9w.jpeg" data-width="1570" data-height="376" src="https://cdn-images-1.medium.com/max/800/1*2Wb06GGn0q-f_mqFnCnO9w.jpeg"></figure><blockquote name="b478" id="b478" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">2 編輯中斷點。</strong></blockquote><p name="f248" id="f248" class="graf graf--p graf-after--blockquote">對藍色箭頭按右鍵 ，從右鍵選單點選 Edit Breakpoint。</p><figure name="bed4" id="bed4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*FahI3nE0deYcaSjdmi2k4Q.jpeg" data-width="554" data-height="270" src="https://cdn-images-1.medium.com/max/800/1*FahI3nE0deYcaSjdmi2k4Q.jpeg"></figure><blockquote name="a7eb" id="a7eb" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">3 設定 App 在中斷點停下時執行動作 Log Message。</strong></blockquote><p name="5118" id="5118" class="graf graf--p graf-after--blockquote">點擊 Add Action。</p><figure name="f8e7" id="f8e7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xMpKrAY06vy0xnFywG_92g.jpeg" data-width="974" data-height="354" src="https://cdn-images-1.medium.com/max/800/1*xMpKrAY06vy0xnFywG_92g.jpeg"></figure><p name="1eeb" id="1eeb" class="graf graf--p graf-after--figure">有許多 action 可以選擇。比方 Sound 會發出聲音。不過現在我們想要的是在 Console 列印資訊，所以請選擇 Log Message。</p><figure name="d99d" id="d99d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jEkui8V-nOttw7fntxlnvw.jpeg" data-width="342" data-height="260" src="https://cdn-images-1.medium.com/max/800/1*jEkui8V-nOttw7fntxlnvw.jpeg"></figure><p name="e7d7" id="e7d7" class="graf graf--p graf-after--figure">檢查被選取的是 Log message to console，而不是 Speak message。</p><figure name="6703" id="6703" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nqFUjxGY65rrd3LTSw8s9w.jpeg" data-width="984" data-height="514" src="https://cdn-images-1.medium.com/max/800/1*nqFUjxGY65rrd3LTSw8s9w.jpeg"></figure><blockquote name="0d89" id="0d89" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">5 印出資訊後讓 App 繼續執行，不要停在中斷點。</strong></blockquote><p name="c978" id="c978" class="graf graf--p graf-after--blockquote">我們只想印出資訊，並不想 App 中斷執行，所以請勾選 Automatically continue after evaluating actions。</p><figure name="b0fd" id="b0fd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NEeR5CH21AZBpeoKfSmC6w.jpeg" data-width="966" data-height="584" src="https://cdn-images-1.medium.com/max/800/1*NEeR5CH21AZBpeoKfSmC6w.jpeg"></figure><blockquote name="6b45" id="6b45" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">5 印出中斷點所在的 function 名稱。</strong></blockquote><p name="7b9f" id="7b9f" class="graf graf--p graf-after--blockquote">輸入 %B 將印出中斷點的名字，它將印出中斷點所在的 function 名字。</p><figure name="49c3" id="49c3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*79dUaQoWFnL3nMRb_I-IBg.jpeg" data-width="948" data-height="576" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*79dUaQoWFnL3nMRb_I-IBg.jpeg"></figure><p name="69ce" id="69ce" class="graf graf--p graf-after--figure">在剛剛的例子，當 App 進到背景時，Console 將印出 applicationDidEnterBackground(_:)。</p><figure name="a584" id="a584" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*WDcudiooDlZQHGjb-CAyqg.jpeg" data-width="1032" data-height="382" src="https://cdn-images-1.medium.com/max/800/1*WDcudiooDlZQHGjb-CAyqg.jpeg"></figure><p name="b83e" id="b83e" class="graf graf--p graf-after--figure">如下圖所示，若我們於第 35 &amp; 36 行設定中斷點，它印出的訊息也會是 applicationDidEnterBackground(_:)，因為它們都在 function applicationDidEnterBackground(_:) 裡。</p><figure name="8d8f" id="8d8f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*XSqs1T9u9BTFhusoq0NPyw.jpeg" data-width="1596" data-height="706" src="https://cdn-images-1.medium.com/max/800/1*XSqs1T9u9BTFhusoq0NPyw.jpeg"></figure><blockquote name="61e1" id="61e1" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">6 印出中斷點觸發的次數。</strong></blockquote><p name="7792" id="7792" class="graf graf--p graf-after--blockquote">%H 代表中斷點觸發的次數</p><figure name="50d8" id="50d8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ArECsxQVcuF08DFTVANotQ.jpeg" data-width="1400" data-height="596" src="https://cdn-images-1.medium.com/max/800/1*ArECsxQVcuF08DFTVANotQ.jpeg"></figure><p name="71fc" id="71fc" class="graf graf--p graf-after--figure">當 App 第二次進入背景時，印出 applicationDidEnterBackground(_:) 2。</p><figure name="4206" id="4206" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xb3Y9uu6CORBio8vUwUisA.jpeg" data-width="1028" data-height="222" src="https://cdn-images-1.medium.com/max/800/1*xb3Y9uu6CORBio8vUwUisA.jpeg"></figure><blockquote name="d958" id="d958" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">7 印出變數的內容</strong></blockquote><p name="eef0" id="eef0" class="graf graf--p graf-after--blockquote">在 @@ 裡可包含想執行的程式，因此 @cuteBaby.age@ 將印出 age 的數字。</p><figure name="9890" id="9890" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zyUxrJ8h__ncoyxF8jdBdw.jpeg" data-width="1552" data-height="724" src="https://cdn-images-1.medium.com/max/800/1*zyUxrJ8h__ncoyxF8jdBdw.jpeg"></figure><figure name="b8cc" id="b8cc" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*JynuBCeOTKVxj0ccpQvrFA.jpeg" data-width="1022" data-height="136" src="https://cdn-images-1.medium.com/max/800/1*JynuBCeOTKVxj0ccpQvrFA.jpeg"></figure><p name="0dd1" id="0dd1" class="graf graf--p graf-after--figure">不過如果要列印變數的內容，Log Message 倒不是那麼方便。比方以下例子，我們想印出 array grades 的內容，Console 卻只印出 3 values。</p><figure name="e2c3" id="e2c3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*PwkUM-TKSFUeJO8uk5pROQ.jpeg" data-width="1356" data-height="664" src="https://cdn-images-1.medium.com/max/800/1*PwkUM-TKSFUeJO8uk5pROQ.jpeg"></figure><figure name="916a" id="916a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*XoBAkn0T19ejS__UNEKcwQ.jpeg" data-width="512" data-height="156" src="https://cdn-images-1.medium.com/max/800/1*XoBAkn0T19ejS__UNEKcwQ.jpeg"></figure><p name="149d" id="149d" class="graf graf--p graf-after--figure">沒關係，我們可以請另一個更厲害的 Action，Debugger Command 幫忙。</p><p name="00dc" id="00dc" class="graf graf--p graf-after--p">利用 Debugger Command，我們可以輸入一些特別的指令，甚至使用我們熟悉的 Swift 語法，例如以下例子。</p><figure name="edcc" id="edcc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*WLrsmD1CqfeZTMiSpLACmw.jpeg" data-width="1982" data-height="548" src="https://cdn-images-1.medium.com/max/800/1*WLrsmD1CqfeZTMiSpLACmw.jpeg"></figure><p name="a31a" id="a31a" class="graf graf--p graf-after--figure">po 將印出我們在後面輸入的程式的執行結果，因此 po “grades is \(grades)” 將印出以下結果。</p><figure name="82ef" id="82ef" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ppDDdh-qpivHX_msedXvgw.jpeg" data-width="1026" data-height="218" src="https://cdn-images-1.medium.com/max/800/1*ppDDdh-qpivHX_msedXvgw.jpeg"></figure><blockquote name="1dba" id="1dba" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">8 印出中斷點的相關資訊。</strong></blockquote><p name="da45" id="da45" class="graf graf--p graf-after--blockquote">一樣利用 Debugger Command，這次我們利用指令 frame info 印出中斷點的相關資訊，像是中斷點所在的 function，檔案和行數等。</p><figure name="0036" id="0036" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7sC6texO18_8S4C5xMQtqQ.jpeg" data-width="1370" data-height="758" src="https://cdn-images-1.medium.com/max/800/1*7sC6texO18_8S4C5xMQtqQ.jpeg"></figure><figure name="bc44" id="bc44" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*BWaZib-yAJ45wKOrCG16Xg.jpeg" data-width="1016" data-height="276" src="https://cdn-images-1.medium.com/max/800/1*BWaZib-yAJ45wKOrCG16Xg.jpeg"></figure><p name="2c8d" id="2c8d" class="graf graf--p graf-after--figure graf--trailing">中斷點在 AppDelegate 的 function applicationDidEnterBackground 裡，在 AppDelegate.swift 的第 39 行。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/24fc7aac3087"><time class="dt-published" datetime="2018-10-11T10:40:54.790Z">October 11, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-breakpoint-%E7%9A%84-log-message-%E5%92%8C-debugger-command-%E5%88%97%E5%8D%B0%E8%B3%87%E8%A8%8A-24fc7aac3087" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

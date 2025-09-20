@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將 iPad 上 Swift Playground 開發的 App 上傳到 GitHub</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將 iPad 上 Swift Playground 開發的 App 上傳到 GitHub</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+透過 Swift Playground，我們在 iPad 上也能開發 iOS App，不過它目前尚未支援 git 版本管理和上傳到 GitHub 的功能。
+</section>
+<section data-field="body" class="e-content">
+<section name="b5d1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1972" id="1972" class="graf graf--h3 graf--leading graf--title">將 iPad 上 Swift Playground 開發的 App 上傳到 GitHub</h3><p name="f4ea" id="f4ea" class="graf graf--p graf-after--h3">透過 Swift Playground，我們在 iPad 上也能開發 iOS App，不過它目前尚未支援 git 版本管理和上傳到 GitHub 的功能。</p><p name="f4c7" id="f4c7" class="graf graf--p graf-after--p">因此以下彼得潘將示範如何快速將 Swift Playground 開發的 App 上傳到 GitHub。</p><figure name="72df" id="72df" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LiTvwIqyl86QffC4MBfZiw.png" data-width="2360" data-height="1640" src="https://cdn-images-1.medium.com/max/800/1*LiTvwIqyl86QffC4MBfZiw.png"></figure><p name="6e9d" id="6e9d" class="graf graf--p graf-after--figure">ps: 此方法不考慮版本管理，我們的目標只是將 App 的程式傳到 GitHub 。</p><h3 name="6751" id="6751" class="graf graf--h3 graf-after--p">取得 App 的 swiftpm 檔</h3><p name="75f3" id="75f3" class="graf graf--p graf-after--h3">在 iPad Swift Playgrounds 建立的 App 是附檔名為 swiftpm 的檔案。swiftpm 檔其實是個資料夾，裡面包含了程式碼，圖片，和各種組成 App 的檔案。</p><p name="796e" id="796e" class="graf graf--p graf-after--p">它預設會存在 iCloud drive 的 Swift Playground 資料夾，因此我們可從 iCloud Drive 取得 swiftpm 檔。以下分別說明 Mac &amp; Windows 的操作步驟。</p><p name="a43b" id="a43b" class="graf graf--p graf-after--p">ps: 若檔案沒有存在 iCloud，可將 App 的 swiftpm 檔直接以 Share &gt; Mail 的方法寄給自己。</p><figure name="f62e" id="f62e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UEzH5-gilj9p9b6Lb25SyA.png" data-width="2360" data-height="1640" src="https://cdn-images-1.medium.com/max/800/1*UEzH5-gilj9p9b6Lb25SyA.png"></figure><figure name="be8a" id="be8a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*AUR4zxLAc32R2pFRo2OWvg.png" data-width="2360" data-height="1640" src="https://cdn-images-1.medium.com/max/800/1*AUR4zxLAc32R2pFRo2OWvg.png"></figure><ul class="postList"><li name="f2f4" id="f2f4" class="graf graf--li graf-after--figure">使用 Mac。</li></ul><p name="0be6" id="0be6" class="graf graf--p graf-after--li">打開 Finder，點選 iCloud Drive 下的 Swift Playground。</p><figure name="17c5" id="17c5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NZ7AtuvTrTbvs7_xM5_6LQ.png" data-width="1840" data-height="872" src="https://cdn-images-1.medium.com/max/800/1*NZ7AtuvTrTbvs7_xM5_6LQ.png"></figure><p name="b180" id="b180" class="graf graf--p graf-after--figure">從 Swift Playground 找出要上傳的 App 檔案。</p><figure name="7f62" id="7f62" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*X_QnnvLc2qQcWOFs3lTrWg.png" data-width="1840" data-height="872" src="https://cdn-images-1.medium.com/max/800/1*X_QnnvLc2qQcWOFs3lTrWg.png"></figure><ul class="postList"><li name="b9e8" id="b9e8" class="graf graf--li graf-after--figure">使用 Windows。</li></ul><p name="7c90" id="7c90" class="graf graf--p graf-after--li">從以下連結登入 iCloud Drive</p><div name="fc32" id="fc32" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://www.icloud.com/iclouddrive" data-href="https://www.icloud.com/iclouddrive" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.icloud.com/iclouddrive"><strong class="markup--strong markup--mixtapeEmbed-strong">iCloud.com</strong><br><em class="markup--em markup--mixtapeEmbed-em">Sign in to iCloud to access your photos, videos, documents, notes, contacts, and more. Use your Apple ID or create a…</em>www.icloud.com</a><a href="https://www.icloud.com/iclouddrive" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="3e93df88882525ceaed727a109fb002d" data-thumbnail-img-id="0*Lqz9n7CKbb5hrzQf" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Lqz9n7CKbb5hrzQf);"></a></div><p name="fa49" id="fa49" class="graf graf--p graf-after--mixtapeEmbed">登入後從 Recents 分頁或 Browse 分頁的 Swift Playground 下載 App 的 swiftpm 檔。</p><figure name="adca" id="adca" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uKPGLCAkrJIAO1OjVqcV-w.png" data-width="2416" data-height="990" src="https://cdn-images-1.medium.com/max/800/1*uKPGLCAkrJIAO1OjVqcV-w.png"></figure><h3 name="a28e" id="a28e" class="graf graf--h3 graf-after--figure">將 swiftpm 檔上傳到 GitHub</h3><p name="9143" id="9143" class="graf graf--p graf-after--h3">登入 GitHub，在 GitHub 建立 repository，然後將 swiftpm 檔上傳到 GitHub。</p><figure name="4215" id="4215" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kYCz7K2PggYqa87eDieCJg.png" data-width="644" data-height="633" src="https://cdn-images-1.medium.com/max/800/1*kYCz7K2PggYqa87eDieCJg.png"></figure><p name="7dfe" id="7dfe" class="graf graf--p graf-after--figure">點選 uploading an existing file。</p><figure name="dd86" id="dd86" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Aez6cDoHijnh-9o8J2YvXg.png" data-width="1070" data-height="376" src="https://cdn-images-1.medium.com/max/800/1*Aez6cDoHijnh-9o8J2YvXg.png"></figure><p name="c714" id="c714" class="graf graf--p graf-after--figure">上傳 swiftpm 檔，上傳後它會自動被壓縮成 zip 檔。</p><figure name="cc4c" id="cc4c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Di_KfStzh4PgebsUDxJdIg.png" data-width="1078" data-height="596" src="https://cdn-images-1.medium.com/max/800/1*Di_KfStzh4PgebsUDxJdIg.png"></figure><p name="fc8d" id="fc8d" class="graf graf--p graf-after--figure">GitHub repository 成功出現我們剛剛上傳的檔案。</p><figure name="7580" id="7580" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*0mALK0mDNz8H_dbPjVCJBA.png" data-width="811" data-height="278" src="https://cdn-images-1.medium.com/max/800/1*0mALK0mDNz8H_dbPjVCJBA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/92470a1c2c3b"><time class="dt-published" datetime="2023-09-17T03:37:42.166Z">September 17, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87-ipad-%E4%B8%8A-swift-playgrounds-%E9%96%8B%E7%99%BC%E7%9A%84-app-%E4%B8%8A%E5%82%B3%E5%88%B0-github-92470a1c2c3b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

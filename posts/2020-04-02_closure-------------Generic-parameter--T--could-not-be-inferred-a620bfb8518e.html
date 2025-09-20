@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>closure 的回傳型別省略問題 — Generic parameter ‘T’ could not be inferred</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">closure 的回傳型別省略問題 — Generic parameter ‘T’ could not be inferred</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+撰寫 Swift 程式時，當我們將 closure 當參數傳入 function，通常會省略回傳型別，例如以下例子:
+</section>
+<section data-field="body" class="e-content">
+<section name="4e93" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7789" id="7789" class="graf graf--h3 graf--leading graf--title">closure 的回傳型別省略問題 — Generic parameter ‘T’ could not be inferred</h3><h3 name="e6cd" id="e6cd" class="graf graf--h3 graf-after--h3">注意: 此問題在 Swift 5.7(搭配 Xcode 14) 不會發生，當 closure 裡的程式有多行時，swift 也能推理出 closure 的型別。</h3><div name="624b" id="624b" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/multi-statement-closure-parameter-result-type-inference-swift-5-7-%E6%96%B0%E5%8A%9F%E8%83%BD-65668466c848" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/multi-statement-closure-parameter-result-type-inference-swift-5-7-%E6%96%B0%E5%8A%9F%E8%83%BD-65668466c848" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/multi-statement-closure-parameter-result-type-inference-swift-5-7-%E6%96%B0%E5%8A%9F%E8%83%BD-65668466c848"><strong class="markup--strong markup--mixtapeEmbed-strong">multi-statement closure parameter/result type inference — Swift 5.7 新功能</strong><br><em class="markup--em markup--mixtapeEmbed-em">從 Swift 5.7(搭配 Xcode 14)開始，swift 變聰明了! 當 closure 裡的程式有多行時，swift 也能推理出 closure 的型別。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/multi-statement-closure-parameter-result-type-inference-swift-5-7-%E6%96%B0%E5%8A%9F%E8%83%BD-65668466c848" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="0d5e3aaf441c85e065cea76bb11bfede" data-thumbnail-img-id="1*9kf727n9jfkasGK0koonXQ.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*9kf727n9jfkasGK0koonXQ.png);"></a></div><h3 name="88c3" id="88c3" class="graf graf--h3 graf-after--mixtapeEmbed">舊版的問題 &amp; 解法</h3><figure name="b002" id="b002" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*B_jWjBTZbJfOHhlDicP98A.jpeg" data-width="1614" data-height="1026" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*B_jWjBTZbJfOHhlDicP98A.jpeg"></figure><p name="e292" id="e292" class="graf graf--p graf-after--figure">撰寫 Swift 程式時，當我們將 closure 當參數傳入 function，通常會省略回傳型別，例如以下例子:</p><pre name="b2c5" id="b2c5" class="graf graf--pre graf-after--p">func loveEvent(count: Int, event: (Int, String) -&gt; String) {<br>    for i in 1...count {<br>        let message = event(i, &quot;沈佳宜&quot;)<br>        print(message)<br>    }<br>}</pre><pre name="ebaa" id="ebaa" class="graf graf--pre graf-after--pre">loveEvent(count: 3) { index, name  in<br>    let activity = [&quot;看星星&quot;, &quot;看月亮&quot;, &quot;看太陽&quot;].randomElement()!<br>    return &quot;第\(index)次和\(name)\(activity)&quot;<br>}</pre><p name="d221" id="d221" class="graf graf--p graf-after--pre">結果</p><figure name="7578" id="7578" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*GQtMhR7fmffG9L-UZo_r0A.jpeg" data-width="442" data-height="284" src="https://cdn-images-1.medium.com/max/800/1*GQtMhR7fmffG9L-UZo_r0A.jpeg"></figure><p name="5703" id="5703" class="graf graf--p graf-after--figure">不過當參數的型別是回傳 generic type 的 function 型別時，有時 closure 的回傳型別是不可省略的。讓我們看看以下 map function 的例子。</p><p name="a42c" id="a42c" class="graf graf--p graf-after--p">map function 的宣告如下，參數 transform 是 function 型別，回傳的型別 T 是 generic type</p><pre name="9caa" id="9caa" class="graf graf--pre graf-after--p">func map&lt;T&gt;(_ transform: <strong class="markup--strong markup--pre-strong">(Element) throws -&gt; T</strong>) rethrows -&gt; [T]</pre><p name="2e14" id="2e14" class="graf graf--p graf-after--pre">當 closure 裡只有一行程式時，省略回傳型別是 ok 的。</p><pre name="297b" id="297b" class="graf graf--pre graf-after--p">struct Song {<br>    let name: String<br>    let singer: String<br>}<br>let songs = [<br>    Song(name: &quot;龍捲風&quot;, singer: &quot;周杰倫&quot;),<br>    Song(name: &quot;愛笑的眼睛&quot;, singer: &quot;徐若瑄&quot;)<br>]</pre><pre name="8ff0" id="8ff0" class="graf graf--pre graf-after--pre">let messages = songs.map { song  in<br>    &quot;\(song.singer)唱著\(song.name)&quot;<br>}</pre><pre name="1d79" id="1d79" class="graf graf--pre graf-after--pre">print(messages)</pre><p name="795b" id="795b" class="graf graf--p graf-after--pre">結果</p><figure name="934b" id="934b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OS966SnNfe7T4UhGPuSnQg.jpeg" data-width="884" data-height="172" src="https://cdn-images-1.medium.com/max/800/1*OS966SnNfe7T4UhGPuSnQg.jpeg"></figure><p name="75ca" id="75ca" class="graf graf--p graf-after--figure">然而當 closure 的程式超過一行時，回傳型別省略將造成問題，出現錯誤 Generic parameter ‘T’ could not be inferred。因為它沒那麼聰明，無法猜出 generic type T 的型別。</p><figure name="e9f1" id="e9f1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*oFISBFJtBPlTfJNeQ3OnSQ.png" data-width="1822" data-height="336" src="https://cdn-images-1.medium.com/max/800/1*oFISBFJtBPlTfJNeQ3OnSQ.png"></figure><p name="00f5" id="00f5" class="graf graf--p graf-after--figure">此問題的解法有兩種:</p><ul class="postList"><li name="7396" id="7396" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">解法1: 描述 closure 的回傳型別</strong></li></ul><p name="d477" id="d477" class="graf graf--p graf-after--li">明白地寫出 -&gt; String，讓 Swift 知道 T 是 String。</p><pre name="418f" id="418f" class="graf graf--pre graf-after--p">let messages = songs.map { song<strong class="markup--strong markup--pre-strong"> -&gt; String </strong>in<br>    let message = &quot;\(song.singer)唱著\(song.name)&quot;<br>    print(message)<br>    return message<br>}</pre><ul class="postList"><li name="0173" id="0173" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">解法2: 宣告變數的型別</strong></li></ul><p name="b9e9" id="b9e9" class="graf graf--p graf-after--li">宣告 messages 的型別是 [String]，因此 Swift 將知道 map 的 generic type T 是 String。</p><pre name="63b8" id="63b8" class="graf graf--pre graf-after--p">let messages: <strong class="markup--strong markup--pre-strong">[String]</strong> = songs.map { song in<br>    let message = &quot;\(song.singer)唱著\(song.name)&quot;<br>    print(message)<br>    return message<br>}</pre><p name="0066" id="0066" class="graf graf--p graf-after--pre">值得注意的，如果想採用 $0 的參數省略語法，只能使用解法 2，因為此時我們無法在 closure 的 { } 裡描述回傳型別。</p><pre name="5a56" id="5a56" class="graf graf--pre graf-after--p graf--trailing">let messages: [String] = songs.map {<br>    let message = &quot;\($0.singer)唱著\($0.name)&quot;<br>    print(message)<br>    return message<br>}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/a620bfb8518e"><time class="dt-published" datetime="2020-04-02T07:18:14.844Z">April 2, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/closure-%E7%9A%84%E5%9B%9E%E5%82%B3%E5%9E%8B%E5%88%A5%E7%9C%81%E7%95%A5%E5%95%8F%E9%A1%8C-generic-parameter-t-could-not-be-inferred-a620bfb8518e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

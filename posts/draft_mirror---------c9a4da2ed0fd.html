@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>mirror (鏡射)的做法</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">mirror (鏡射)的做法</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+dd
+</section>
+<section data-field="body" class="e-content">
+<section name="747c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ea01" id="ea01" class="graf graf--h3 graf--leading graf--title">mirror (鏡射)的做法</h3><p name="3f86" id="3f86" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="f366" id="f366" class="graf graf--p graf--empty graf-after--p"><br></p><p name="5b90" id="5b90" class="graf graf--p graf-after--p">dd</p><pre name="8c82" id="8c82" class="graf graf--pre graf-after--p">struct DrawView: UIViewRepresentable {<br>    func makeUIView(context: Context) -&gt; UIView {<br>        let view = UIView()<br>        <br>        <br>        let path = UIBezierPath()<br>        path.move(to: CGPoint(x: 182, y: 27))<br>        path.addLine(to: CGPoint(x: 224, y: 120))<br>        path.addLine(to: CGPoint(x: 322, y: 139))<br>        path.addLine(to: CGPoint(x: 258, y: 217))<br>        path.addLine(to: CGPoint(x: 270, y: 326))<br>        path.addLine(to: CGPoint(x: 182, y: 282))<br>        //path.addLine(to: CGPoint(x: 90, y: 326))<br>        //path.addLine(to: CGPoint(x: 101, y: 221))<br>        //path.addLine(to: CGPoint(x: 28, y: 143))<br>        //path.addLine(to: CGPoint(x: 128, y: 121))<br>        //path.close()</pre><pre name="c80c" id="c80c" class="graf graf--pre graf-after--pre">let starLayer = CAShapeLayer()<br>        starLayer.path = path.cgPath<br>        starLayer.fillColor = UIColor.clear.cgColor<br>        starLayer.strokeColor = UIColor.black.cgColor<br>        view.layer.addSublayer(starLayer)<br>        <br>        <br>        let starLayer2 = CAShapeLayer()<br>        starLayer2.frame = CGRect(x: 0, y: 0, width: 400, height: 400)<br>        starLayer2.path = path.cgPath<br>        starLayer2.fillColor = UIColor.clear.cgColor<br>        starLayer2.strokeColor = UIColor.black.cgColor<br>        starLayer2.setAffineTransform(CGAffineTransform(scaleX: -1, y: 1))<br>        view.layer.addSublayer(starLayer2)<br>        <br>        return view<br>    }<br>    <br>    func updateUIView(_ uiView: UIView, context: Context) {<br>    }<br>    <br>}<br>struct ContentView: View {<br>    var body: some View {<br>        DrawView()<br>    }<br>}<br>struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        ContentView()<br>    }<br>}</pre><div name="3ab6" id="3ab6" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-uibezierpath-%E7%9A%84%E7%B9%AA%E5%9C%96%E7%B5%90%E6%9E%9C-5d5b8e679287" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-uibezierpath-%E7%9A%84%E7%B9%AA%E5%9C%96%E7%B5%90%E6%9E%9C-5d5b8e679287" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-uibezierpath-%E7%9A%84%E7%B9%AA%E5%9C%96%E7%B5%90%E6%9E%9C-5d5b8e679287"><strong class="markup--strong markup--mixtapeEmbed-strong">使用 SwiftUI 預覽 UIBezierPath 的繪圖結果</strong><br><em class="markup--em markup--mixtapeEmbed-em">利用 SwiftUI 的 Path 繪圖比 UIKit 的 UIBezierPath 容易許多，因為我們可以一邊畫，一邊透過 SwiftUI 的預覽畫面觀看繪製的結果。其實 UIBezierPath 也可享用 SwiftUI…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-swiftui-%E9%A0%90%E8%A6%BD-uibezierpath-%E7%9A%84%E7%B9%AA%E5%9C%96%E7%B5%90%E6%9E%9C-5d5b8e679287" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="54130bb81722acbc38b0c0856cd10762" data-thumbnail-img-id="1*heiDI-kSpUxO1VJocdgmSQ.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*heiDI-kSpUxO1VJocdgmSQ.jpeg);"></a></div><p name="1353" id="1353" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/c9a4da2ed0fd">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

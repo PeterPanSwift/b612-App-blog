@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓 collection view 捲動到某一個 cell</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓 collection view 捲動到某一個 cell</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在 iOS App 上我們時常看到類似下圖的照片牆設計，點選小圖的照片後切換到下一頁顯示大圖，然後在大圖頁面左右滑動瀏覽其它圖片。
+</section>
+<section data-field="body" class="e-content">
+<section name="842d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1c96" id="1c96" class="graf graf--h3 graf--leading graf--title">讓 collection view 捲動到某一個 cell</h3><p name="ae33" id="ae33" class="graf graf--p graf-after--h3">在 iOS App 上我們時常看到類似下圖的照片牆設計，點選小圖的照片後切換到下一頁顯示大圖，然後在大圖頁面左右滑動瀏覽其它圖片。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="3"><figure name="3699" id="3699" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 33.333%;"><img class="graf-image" data-image-id="1*K8V7CessaTbzhNVUT1Z5wA.jpeg" data-width="818" data-height="1528" src="https://cdn-images-1.medium.com/max/400/1*K8V7CessaTbzhNVUT1Z5wA.jpeg"></figure><figure name="ebac" id="ebac" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*ieOfh3wspdYRVTX9U0WqtA.jpeg" data-width="818" data-height="1528" data-is-featured="true" src="https://cdn-images-1.medium.com/max/400/1*ieOfh3wspdYRVTX9U0WqtA.jpeg"></figure><figure name="be0c" id="be0c" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*DhEf3lwCvGx3YnBDZtvk3Q.jpeg" data-width="818" data-height="1528" src="https://cdn-images-1.medium.com/max/400/1*DhEf3lwCvGx3YnBDZtvk3Q.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="6a2c" id="6a2c" class="graf graf--p graf-after--figure">collection view 很適合用來實現大圖的分頁照片瀏覽。在剛剛的例子，當我們點選第五個小圖進到大圖頁面時，collection view 應該要顯示第五個 cell 的大圖，而非顯示第一個 cell 的大圖。</p><p name="dea6" id="dea6" class="graf graf--p graf-after--p">透過呼叫 collection view 的 function <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">scrollToItem(at:at:animated:)</strong></code>，我們可控制它捲動到某一個 cell。</p><pre name="5ab6" id="5ab6" class="graf graf--pre graf-after--p">func scrollToItem(at indexPath: IndexPath, <br>               at scrollPosition: <br>               UICollectionView.ScrollPosition, <br>               animated: Bool)</pre><div name="b8e0" id="b8e0" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/uikit/uicollectionview/1618046-scrolltoitem" data-href="https://developer.apple.com/documentation/uikit/uicollectionview/1618046-scrolltoitem" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uicollectionview/1618046-scrolltoitem"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uicollectionview/1618046-scrolltoitem" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="38353236443cc8a0e2fe5775c1955ef9"></a></div><p name="3d20" id="3d20" class="graf graf--p graf-after--mixtapeEmbed">相關程式範例如下:</p><pre name="c345" id="c345" class="graf graf--pre graf-after--p">class FullPhotoCollectionViewController: UICollectionViewController {<br>    <br>    var index: Int!<br>    var isShow = false<br>    <br>    override func viewDidLayoutSubviews() {<br>        super.viewDidLayoutSubviews()</pre><pre name="1717" id="1717" class="graf graf--pre graf-after--pre">        if isShow == false {<br>            collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: false)</pre><pre name="32a4" id="32a4" class="graf graf--pre graf-after--pre">            isShow = true<br>        }<br>    }</pre><p name="7602" id="7602" class="graf graf--p graf-after--pre">說明:</p><p name="887f" id="887f" class="graf graf--p graf-after--p">index 代表要顯示的 cell 編號(編號從 0 開始)，前一頁顯示小圖的 controller 會將 index 的數字傳給 FullPhotoCollectionViewController，讓 FullPhotoCollectionViewController 知道要顯示哪一個 cell。值得注意的，我們要在 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">viewDidLayoutSubviews</strong></code> 呼叫 scrollToItem(at:at:animated:)，若是在 viewDidLoad 呼叫可能會出問題。另外由於 viewDidLayoutSubviews 可能被多次觸發，所以我們利用 isShow 判斷，只在第一次呼叫時捲動 collection view。</p><p name="b826" id="b826" class="graf graf--p graf-after--p">ps: 若發現大圖顯示時位置有點偏移，可在大圖的 controller 取消 Adjust Scroll View Insets 的勾選。</p><figure name="1662" id="1662" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*4UK3b2touZsFeASo1kLGvA.jpeg" data-width="882" data-height="782" src="https://cdn-images-1.medium.com/max/800/1*4UK3b2touZsFeASo1kLGvA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b71bed4b6016"><time class="dt-published" datetime="2020-08-13T02:45:40.652Z">August 13, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AE%93-collection-view-%E6%8D%B2%E5%8B%95%E5%88%B0%E6%9F%90%E4%B8%80%E5%80%8B-cell-b71bed4b6016" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

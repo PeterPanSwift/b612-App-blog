@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>一步步執行的 Xcode 10 Playground (step by step)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">一步步執行的 Xcode 10 Playground (step by step)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 10 的 playground 多了一步步執行的新功能。什麼意思呢 ? 從前的 Playground 只會傻傻地從第一行執行到最後一行，現在我們可指定 playground 執行到某一行就好。
+</section>
+<section data-field="body" class="e-content">
+<section name="8eef" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b1f3" id="b1f3" class="graf graf--h3 graf--leading graf--title">一步步執行的 Xcode 10 Playground (step by step)</h3><p name="7c4d" id="7c4d" class="graf graf--p graf-after--h3">Xcode 10 的 playground 多了一步步執行的新功能。什麼意思呢 ? 從前的 Playground 只會傻傻地從第一行執行到最後一行，現在我們可指定 playground 執行到某一行就好。</p><p name="74c0" id="74c0" class="graf graf--p graf-after--p">如下圖所示，現在 Playground 的左邊多了一條藍色 bar 和三角形。當我們點擊第 4 行的三角形時，程式將從第一行執行到第 4 行，因此只會印出第 3 和第 4 行的文字，第 5 和第 6 行尚未執行。</p><figure name="964f" id="964f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eV90xTP4soNyfcXXqa8DRA.png" data-width="882" data-height="406" src="https://cdn-images-1.medium.com/max/800/1*eV90xTP4soNyfcXXqa8DRA.png"></figure><figure name="59ad" id="59ad" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*v1IF92ePuZIsKcz8KMHqsg.png" data-width="1804" data-height="736" src="https://cdn-images-1.medium.com/max/800/1*v1IF92ePuZIsKcz8KMHqsg.png"></figure><p name="4d70" id="4d70" class="graf graf--p graf-after--figure">此時藍色 bar 變成從第 5 行開始，藍色 bar 的範圍是還未執行的行數，因此我們可點擊其中的三角形，讓它繼續往下執行。</p><p name="5475" id="5475" class="graf graf--p graf-after--p">至於已經執行過的程式，想要再重新執行當然也行，如下圖所示，滑鼠移到之前執行過的第 4 行，一樣會出現點擊執行的藍色三角形。</p><figure name="d2bc" id="d2bc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2C7rfv7dEuCziOdio9o0IA.jpeg" data-width="970" data-height="406" src="https://cdn-images-1.medium.com/max/800/1*2C7rfv7dEuCziOdio9o0IA.jpeg"></figure><p name="33e2" id="33e2" class="graf graf--p graf-after--figure">不過遇到像是 for，if，function 等程式區塊時，我們無法指定執行到 { } 裡的某一行程式，只能指定它跑完整個 { } ，因此 } 的旁邊可看到可點擊的藍色三角形。如下圖的 for 例子，我們可點擊第 7 行的三角形，讓它印出十句那為我對抗世界的決定那陪我淋的雨。</p><figure name="e64d" id="e64d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*k6b-flKIb3ZiGbBPu4rySQ.png" data-width="1112" data-height="481" src="https://cdn-images-1.medium.com/max/800/1*k6b-flKIb3ZiGbBPu4rySQ.png"></figure><p name="c2f6" id="c2f6" class="graf graf--p graf-after--figure">當我們新增了一行程式，想讓它執行到剛新增的程式時，除了點擊藍色三角形，還有個更快的方法，輸入完程式後按下 shift + enter 鍵。</p><p name="cf0d" id="cf0d" class="graf graf--p graf-after--p">如以下例子，我們在輸入完第 5 行的原來我們和 Kotlin 曾經靠得那麼遠後，按下 shift + enter 鍵，即可讓它從頭執行到第 5 行。</p><figure name="a5be" id="a5be" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0M2EqIbp-KSzEGccFpl7sw.png" data-width="1104" data-height="682" src="https://cdn-images-1.medium.com/max/800/1*0M2EqIbp-KSzEGccFpl7sw.png"></figure><p name="d82a" id="d82a" class="graf graf--p graf-after--figure">了解如何讓 Playground 一步步執行後，最後我們來聊聊它有什麼好。它主要有以下幾個優點:</p><p name="1204" id="1204" class="graf graf--p graf-after--p">1 執行的速度更快。<br>因為我們可以執行到某一行就好，不一定要執行全部的程式。不過請記得，我們只能要求它從第 1 行執行到某一行，無法讓它只執行某段程式，比方跳過前 9 行，直接執行第 10 行到第 20 行。</p><p name="e1c7" id="e1c7" class="graf graf--p graf-after--p">2 幫助學習研究 API 和理解別人的程式。<br>Apple 每年推出新的 SDK，讓我們有永遠學不完的 API 和新功能。有了一步步執行的功能，我們可觀察程式一步步執行的結果，更容易地學習研究 API 和理解別人的程式。</p><p name="6e96" id="6e96" class="graf graf--p graf-after--p graf--trailing">3 更方便地調整程式和觀察結果。<br>我們可以更方便地調整程式的流程或改變資料和參數，觀察它造成的影響，比方運用在 UI 和動畫的微調。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/43612ce5f487"><time class="dt-published" datetime="2018-06-18T14:02:26.865Z">June 18, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%B8%80%E6%AD%A5%E6%AD%A5%E5%9F%B7%E8%A1%8C%E7%9A%84-xcode-10-playground-step-by-step-43612ce5f487" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

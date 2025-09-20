@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>防患未然的版本檢查 ~ 一天一點愛戀，一夜一點Swift 2 ( 2 )</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">防患未然的版本檢查 ~ 一天一點愛戀，一夜一點Swift 2 ( 2 )</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+檢查版本乃swift 2新增的貼心功能。一旦我們在程式裡不小心使用了App支援的iOS版本無法使用的API，Xcode馬上生成紅色錯誤訊息警告我們。
+</section>
+<section data-field="body" class="e-content">
+<section name="7e43" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="44ce" id="44ce" class="graf graf--h3 graf--leading graf--title">防患未然的版本檢查 ~ 一天一點愛戀，一夜一點Swift 2 ( 2 )</h3><p name="eef2" id="eef2" class="graf graf--p graf-after--h3">swift注重安全是人盡皆知的，比起那總少根筋的Objective-C，swift的確安全許多，往往在compile時就發出錯誤訊息打斷我們，不讓我們生出有問題的App寶寶。</p><p name="79c6" id="79c6" class="graf graf--p graf-after--p">檢查版本乃swift 2新增的貼心功能。一旦我們在程式裡不小心使用了App支援的iOS版本無法使用的API，Xcode馬上生成紅色錯誤訊息警告我們。</p><p name="ea4d" id="ea4d" class="graf graf--p graf-after--p">比方以下UILabel的屬性只在iOS 9以上的版本支援</p><pre name="2e85" id="2e85" class="graf graf--pre graf-after--p">@available(iOS 9.0, *) public var allowsDefaultTighteningForTruncation: Bool</pre><p name="09a4" id="09a4" class="graf graf--p graf-after--pre">如果我們的App很好心地支援iOS 8，將Development Target設成8.0。</p><figure name="ead4" id="ead4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*vJghw7vUSUyC8v3mfYi3Tw.jpeg" data-width="954" data-height="276" src="https://cdn-images-1.medium.com/max/800/1*vJghw7vUSUyC8v3mfYi3Tw.jpeg"></figure><p name="311a" id="311a" class="graf graf--p graf-after--figure">此時程式在compile時將馬上發現我們使用了舊版iOS無法支援的API，發出耀眼的紅色錯誤訊息警告我們，不讓我們生成浪費使用者寶貴時間的閃退App。</p><figure name="ec8a" id="ec8a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1Cupk6Bd4bvf5RMYSrQT7g.jpeg" data-width="1818" data-height="238" src="https://cdn-images-1.medium.com/max/800/1*1Cupk6Bd4bvf5RMYSrQT7g.jpeg"></figure><p name="9424" id="9424" class="graf graf--p graf-after--figure">更叫人刮目相看的，如果我們想要依據使用者的iOS版本採用對應的API也不是問題。如以下程式所示，我們可利用#available語法判斷iOS版本，#available( iOS 9, *) 表示要iOS 9以上的版本，if條件才會成立。</p><pre name="d6b9" id="d6b9" class="graf graf--pre graf-after--p">let label = UILabel()<br>if #available(iOS 9, *) {<br> label.allowsDefaultTighteningForTruncation = false<br>}<br>else {<br>}</pre><p name="df1f" id="df1f" class="graf graf--p graf-after--pre">除此之外，我們也可為自己辛苦開發的程式設定支援的版本。比方以下程式利用@available(iOS 9, *)限定function test只支援iOS 9以上的版本。</p><pre name="af1f" id="af1f" class="graf graf--pre graf-after--p">@available(iOS 9, *)<br>func test() {</pre><pre name="efaa" id="efaa" class="graf graf--pre graf-after--pre">}</pre><p name="340c" id="340c" class="graf graf--p graf-after--pre">某些早期的API，在新版的iOS已不建議使用，因此我們也常在SDK裡看到以下表達方式，利用introduced注明API開始的版本，deprecated表明過期的版本(在此版本就該徹徹底底忘了它，別再使用了)。</p><pre name="70ef" id="70ef" class="graf graf--pre graf-after--p">@available(iOS, introduced=6.0, deprecated=9.0)<br>public func viewControllerForUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject?) -&gt; UIViewController?</pre><p name="d6d8" id="d6d8" class="graf graf--p graf-after--pre">以上種種貼心的功能，可是只有swift 2獨有唷。它的老前輩Objective-C可就沒那麼聰明了，如以下程式碼所示，就算我們的App設為支援到iOS 7，最後還是會順利生成看似無害，卻暗藏危機的App呀 !</p><pre name="ca02" id="ca02" class="graf graf--pre graf-after--p graf--trailing">UILabel *label = [[UILabel alloc] init];<br>label.allowsDefaultTighteningForTruncation = NO;</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b9c4275c0890"><time class="dt-published" datetime="2015-09-28T15:26:04.205Z">September 28, 2015</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E9%98%B2%E6%82%A3%E6%9C%AA%E7%84%B6%E7%9A%84%E7%89%88%E6%9C%AC%E6%AA%A2%E6%9F%A5-%E4%B8%80%E5%A4%A9%E4%B8%80%E9%BB%9E%E6%84%9B%E6%88%80-%E4%B8%80%E5%A4%9C%E4%B8%80%E9%BB%9Eswift-2-2-b9c4275c0890" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

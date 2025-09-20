@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>用右鍵拉 segue，outlet 和 action</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">用右鍵拉 segue，outlet 和 action</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+用右鍵按住要拉線的元件後，開始拖曳拉線。
+</section>
+<section data-field="body" class="e-content">
+<section name="190a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="213f" id="213f" class="graf graf--h3 graf--leading graf--title">用右鍵拉 segue，outlet 和 action</h3></div><div class="section-inner sectionLayout--outsetColumn"><figure name="d971" id="d971" class="graf graf--figure graf--layoutOutsetCenter graf-after--h3"><img class="graf-image" data-image-id="1*-cSvJ15jdQRdemiEJb6E5Q.jpeg" data-width="1596" data-height="886" src="https://cdn-images-1.medium.com/max/1200/1*-cSvJ15jdQRdemiEJb6E5Q.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="682a" id="682a" class="graf graf--p graf-after--figure">用右鍵按住要拉線的元件後，開始拖曳拉線。</p><figure name="d3cb" id="d3cb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ehw-sY7ZXdJxgTyPsLSZKg.jpeg" data-width="1555" data-height="1277" src="https://cdn-images-1.medium.com/max/800/1*ehw-sY7ZXdJxgTyPsLSZKg.jpeg"><figcaption class="imageCaption">拉 segue</figcaption></figure><figure name="bc7f" id="bc7f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*AXime6aQqsoOG6_RHfV4Gw.jpeg" data-width="1588" data-height="1132" src="https://cdn-images-1.medium.com/max/800/1*AXime6aQqsoOG6_RHfV4Gw.jpeg"><figcaption class="imageCaption">拉 outlet 或 action</figcaption></figure><p name="e49f" id="e49f" class="graf graf--p graf-after--figure">方法有以下幾種</p><blockquote name="ff40" id="ff40" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">方法 1: </strong>兩指同時往下壓後拖曳<strong class="markup--strong markup--blockquote-strong">。(一般是食指和中指)</strong></blockquote><p name="563a" id="563a" class="graf graf--p graf-after--blockquote">拉線時先以兩指同時往下壓，然後開始拖曳。拖曳的方式有以下兩種</p><ol class="postList"><li name="034a" id="034a" class="graf graf--li graf-after--p">兩指一起移動。</li><li name="36b9" id="36b9" class="graf graf--li graf-after--li">食指按住，以中指移動。</li></ol><p name="76b1" id="76b1" class="graf graf--p graf-after--li">按右鍵預設是兩指同時往下壓，不過它是可以調整的，你可以在 System Settings 的 Trackpad 修改。</p><figure name="5b99" id="5b99" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kvlfpgQaTwTNltnb6KXslA.png" data-width="1434" data-height="1410" src="https://cdn-images-1.medium.com/max/800/1*kvlfpgQaTwTNltnb6KXslA.png"></figure><p name="1509" id="1509" class="graf graf--p graf-after--figure">Secondary click 有三種選項，預設是 Click with two fingers，改成 Click in Bottom Right Corner 會變成按觸控板的右下角。</p><figure name="616d" id="616d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aiHPHh1Mtejl4Q8kB73Oeg.png" data-width="974" data-height="276" src="https://cdn-images-1.medium.com/max/800/1*aiHPHh1Mtejl4Q8kB73Oeg.png"></figure><blockquote name="5145" id="5145" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">方法 2: 按住 ctrl 鍵，然後再按觸控板</strong>拖曳<strong class="markup--strong markup--blockquote-strong">。</strong></blockquote><figure name="0304" id="0304" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*zWdYoyMcpNtFlYpkg-TcAQ.jpeg" data-width="324" data-height="338" src="https://cdn-images-1.medium.com/max/800/1*zWdYoyMcpNtFlYpkg-TcAQ.jpeg"></figure><p name="fae6" id="fae6" class="graf graf--p graf-after--figure">此時以一指按觸控板即可，而且可隨你高興，按觸控板的任何位置。</p><blockquote name="e912" id="e912" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">方法 3: 按住 ctrl 鍵，然後以三指拖曳。</strong></blockquote><div name="3c45" id="3c45" class="graf graf--mixtapeEmbed graf-after--blockquote graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E7%94%A8%E4%B8%89%E6%8C%87%E4%B8%8A%E4%B8%8B%E6%8D%B2%E5%8B%95-ios-%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E8%A1%A8%E6%A0%BC%E9%A0%81%E9%9D%A2-af671f7aac98" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E7%94%A8%E4%B8%89%E6%8C%87%E4%B8%8A%E4%B8%8B%E6%8D%B2%E5%8B%95-ios-%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E8%A1%A8%E6%A0%BC%E9%A0%81%E9%9D%A2-af671f7aac98" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E7%94%A8%E4%B8%89%E6%8C%87%E4%B8%8A%E4%B8%8B%E6%8D%B2%E5%8B%95-ios-%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E8%A1%A8%E6%A0%BC%E9%A0%81%E9%9D%A2-af671f7aac98"><strong class="markup--strong markup--mixtapeEmbed-strong">解除三指手勢封印，提升 iOS App 開發速度</strong><br><em class="markup--em markup--mixtapeEmbed-em">Mac 上有特別的三指手勢，它預設是封印的，不過如果你的身份是 iOS App 開發魔師法，彼得潘滿建議你勇敢將封印解除，因為它可以大大提升我們開發 iOS App 的速度。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E7%94%A8%E4%B8%89%E6%8C%87%E4%B8%8A%E4%B8%8B%E6%8D%B2%E5%8B%95-ios-%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E8%A1%A8%E6%A0%BC%E9%A0%81%E9%9D%A2-af671f7aac98" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="df0b33c10d2bdfcc2181dd0271435e7b" data-thumbnail-img-id="1*9wdXO3HCff-ir-RV0Sa8nQ.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*9wdXO3HCff-ir-RV0Sa8nQ.jpeg);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/85a0bba83b7d"><time class="dt-published" datetime="2018-07-15T16:56:03.037Z">July 15, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/segue-outlet-%E5%92%8C-action-%E7%9A%84%E6%8B%89%E7%B7%9A%E6%96%B9%E6%B3%95-85a0bba83b7d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

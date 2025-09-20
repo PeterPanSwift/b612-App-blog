@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用和自訂儲存好用程式的 Xcode code snippet</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用和自訂儲存好用程式的 Xcode code snippet</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 的 code snippet 貼心提供許多好用的程式片段，讓我們飛速打出一大串程式，享受隔壁同事看過來的崇拜眼神。接下來就讓我們好好認識如何使用和自訂 code snippet 吧。
+</section>
+<section data-field="body" class="e-content">
+<section name="51fc" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4212" id="4212" class="graf graf--h3 graf--leading graf--title">使用和自訂儲存好用程式的 Xcode code snippet</h3><p name="5367" id="5367" class="graf graf--p graf-after--h3">Xcode 的 code snippet 貼心提供許多好用的程式片段，讓我們飛速打出一大串程式，享受隔壁同事看過來的崇拜眼神。接下來就讓我們好好認識如何使用和自訂 code snippet 吧。</p><figure name="0734" id="0734" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*X4SUHyRDm-A_K-MQkbFRqQ.jpeg" data-width="1700" data-height="1010" src="https://cdn-images-1.medium.com/max/800/1*X4SUHyRDm-A_K-MQkbFRqQ.jpeg"><figcaption class="imageCaption">Snippets library</figcaption></figure><h3 name="7fcf" id="7fcf" class="graf graf--h3 graf-after--figure">使用 Code Snippet</h3><p name="f5d1" id="f5d1" class="graf graf--p graf-after--h3">以定義 unwind segue 連結的 function 為例，我們可以從 Snippets library 找到 Unwind Segue Method，將它加到程式裡。</p><figure name="c2c3" id="c2c3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*WYrbmcT1iBgf234XUdbEjQ.jpeg" data-width="1708" data-height="772" src="https://cdn-images-1.medium.com/max/800/1*WYrbmcT1iBgf234XUdbEjQ.jpeg"></figure><figure name="872c" id="872c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*pTeq_z1M4Bxk15zfWWEIxw.jpeg" data-width="1642" data-height="316" src="https://cdn-images-1.medium.com/max/800/1*pTeq_z1M4Bxk15zfWWEIxw.jpeg"></figure><p name="cef8" id="cef8" class="graf graf--p graf-after--figure">喜歡打字的朋友也可以輸入特殊的關鍵字 unwi，再從選單裡選擇 unwind segue method。如下圖所示，灰色 { } 的 icon 表示它是 code snippet。</p><figure name="09df" id="09df" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pnz9wbipuKRFit7IrhX3Ww.jpeg" data-width="950" data-height="352" src="https://cdn-images-1.medium.com/max/800/1*pnz9wbipuKRFit7IrhX3Ww.jpeg"></figure><p name="92e6" id="92e6" class="graf graf--p graf-after--figure">如下圖所示，Completion 告訴我們打出 unwind segue method 的神秘咒語是 unwind。(其實還滿好猜的，一點都不神秘)</p><figure name="3fb2" id="3fb2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6JKETvhmulNapQAiiKPldg.jpeg" data-width="1686" data-height="1014" src="https://cdn-images-1.medium.com/max/800/1*6JKETvhmulNapQAiiKPldg.jpeg"></figure><p name="f7c8" id="f7c8" class="graf graf--p graf-after--figure">讓我們再回到 Xcode 幫我們輸入的 code snippet。通常 code snippet 裡會有需要使用者輸入的藍色框框，比方下圖 unwindTo 後接的名字。</p><figure name="7731" id="7731" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ByFpX-JfzVs-nMPCTT_jfQ.jpeg" data-width="1334" data-height="230" src="https://cdn-images-1.medium.com/max/800/1*ByFpX-JfzVs-nMPCTT_jfQ.jpeg"></figure><p name="1b2b" id="1b2b" class="graf graf--p graf-after--figure">在此我們輸入 unwindToHome，因為此 unwind segue 將回到 HomeViewController。</p><figure name="0bf7" id="0bf7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_6OKCyChJB-BafKRzQoGqg.jpeg" data-width="1416" data-height="348" src="https://cdn-images-1.medium.com/max/800/1*_6OKCyChJB-BafKRzQoGqg.jpeg"></figure><h3 name="e5e6" id="e5e6" class="graf graf--h3 graf-after--figure">自訂 Code Snippet</h3><p name="4d9b" id="4d9b" class="graf graf--p graf-after--h3">除了使用 Xcode 內建的 code snippet，我們還可以自己發明新的 code snippert。</p><ul class="postList"><li name="e877" id="e877" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">Create Code Snippet</strong></li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="109f" id="109f" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-type">DispatchQueue</span>.main.asyncAfter(deadline: .now() <span class="hljs-operator">+</span> .seconds(<span class="hljs-number">1</span>)) {<br />                    <br />}</span></pre><p name="ea7c" id="ea7c" class="graf graf--p graf-after--pre">例如呼叫 DispatchQueue 的 asyncAfter 可設定程式在幾秒之後執行，我們懶得自己打一大串程式，因此將它變成 code snippt。</p><p name="2bd6" id="2bd6" class="graf graf--p graf-after--p">通常 code snippet 裡會有需要使用者輸入的藍色框框，在此我們希望使用者輸入秒數，也就是 .seconds( ) 裡的數字。</p><p name="7571" id="7571" class="graf graf--p graf-after--p">這些需要使用者輸入的框框稱為 placeholder，我們可以用 <code class="markup--code markup--p-code">&lt;# #&gt;</code> 設定 placeholder，<code class="markup--code markup--p-code">&lt;# #&gt; </code>裡的文字將成為框框顯示的提示文字。</p><figure name="71a7" id="71a7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*EWmvarJOXNUALOvjjADVxg.jpeg" data-width="874" data-height="276" src="https://cdn-images-1.medium.com/max/800/1*EWmvarJOXNUALOvjjADVxg.jpeg"></figure><p name="ccdc" id="ccdc" class="graf graf--p graf-after--figure">在此我們輸入<code class="markup--code markup--p-code u-paddingRight0 u-marginRight0"> <strong class="markup--strong markup--p-strong">&lt;# second #&gt;</strong></code><strong class="markup--strong markup--p-strong">。</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a267" id="a267" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">DispatchQueue</span>.main.asyncAfter(deadline: .now() <span class="hljs-operator">+</span> .seconds(<span class="hljs-operator">&lt;</span># second #<span class="hljs-operator">&gt;</span>)) {<br />                    <br />}</span></pre><figure name="a4ec" id="a4ec" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*kx0K9uf68mtCmIX8Pz2yXQ.jpeg" data-width="1508" data-height="208" src="https://cdn-images-1.medium.com/max/800/1*kx0K9uf68mtCmIX8Pz2yXQ.jpeg"></figure><p name="f627" id="f627" class="graf graf--p graf-after--figure">選取想變成 code snippet 的程式，然後從右鍵選單點選 Create Code Snippet。</p><figure name="6db6" id="6db6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7vzZWjzsXqCDZR830JJ1Aw.jpeg" data-width="1528" data-height="736" src="https://cdn-images-1.medium.com/max/800/1*7vzZWjzsXqCDZR830JJ1Aw.jpeg"></figure><ul class="postList"><li name="dc20" id="dc20" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">設定 Code Snippet</strong></li></ul><p name="6a50" id="6a50" class="graf graf--p graf-after--li">將 code snippet 取名為 After Second，設定 Completion 欄位，將輸入的快速鍵設為 aftersecond。</p><figure name="21db" id="21db" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*app0dThc_b8-2I3ZThl0vg.jpeg" data-width="1696" data-height="1012" src="https://cdn-images-1.medium.com/max/800/1*app0dThc_b8-2I3ZThl0vg.jpeg"></figure><figure name="6c8a" id="6c8a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*K0tfXjYCDxV10NMS5vPxCg.jpeg" data-width="1702" data-height="1024" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*K0tfXjYCDxV10NMS5vPxCg.jpeg"></figure><ul class="postList"><li name="84d7" id="84d7" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">使用 Code Snippet</strong></li></ul><p name="e73f" id="e73f" class="graf graf--p graf-after--li">有了剛剛發明的 after second snippet，我們只要輸入 aft，即可快速產生相關的程式碼。</p><figure name="3244" id="3244" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kXotteJFW-2nm19Hw7dmew.jpeg" data-width="1256" data-height="382" src="https://cdn-images-1.medium.com/max/800/1*kXotteJFW-2nm19Hw7dmew.jpeg"></figure><figure name="00cd" id="00cd" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*t3cnYn9N14UhOci_cEZyOA.jpeg" data-width="1436" data-height="546" src="https://cdn-images-1.medium.com/max/800/1*t3cnYn9N14UhOci_cEZyOA.jpeg"></figure><h3 name="11a0" id="11a0" class="graf graf--h3 graf-after--figure">第三方的 Code Snippet</h3><p name="5bac" id="5bac" class="graf graf--p graf-after--h3">我們也可以從 GitHub 取得大大們精心整理的 Code Snippet。</p><figure name="9f4e" id="9f4e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZqIis56_oZSUQKhK0vUgRw.jpeg" data-width="2002" data-height="1192" src="https://cdn-images-1.medium.com/max/800/1*ZqIis56_oZSUQKhK0vUgRw.jpeg"></figure><p name="0738" id="0738" class="graf graf--p graf-after--figure">範例</p><p name="38d1" id="38d1" class="graf graf--p graf-after--p graf--trailing"><a href="https://github.com/burczyk/XcodeSwiftSnippets" data-href="https://github.com/burczyk/XcodeSwiftSnippets" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://github.com/burczyk/XcodeSwiftSnippets</a></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/bb8bda66bf5f"><time class="dt-published" datetime="2020-01-31T09:00:59.711Z">January 31, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8%E5%92%8C%E8%87%AA%E8%A8%82%E5%84%B2%E5%AD%98%E5%A5%BD%E7%94%A8%E7%A8%8B%E5%BC%8F%E7%9A%84-xcode-code-snippet-bb8bda66bf5f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓 UITextView  的高度等於文字內容的高度</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓 UITextView  的高度等於文字內容的高度</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+text view 由於會上下捲動，因此正常情況下，它的高度無法像  label 一樣自動長成剛好容納內容的高度。
+</section>
+<section data-field="body" class="e-content">
+<section name="6a8a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6258" id="6258" class="graf graf--h3 graf--leading graf--title">讓 UITextView 的高度等於文字內容的高度</h3><p name="4401" id="4401" class="graf graf--p graf-after--h3">text view 由於會上下捲動，因此正常情況下，它的高度無法像 label 一樣自動長成剛好容納內容的高度。</p><p name="4482" id="4482" class="graf graf--p graf-after--p">比方如下圖所示，text view 設了上面，左邊，右邊的間距，此時由於 text view 可以捲動，因此它無法決定它要長多高。</p><figure name="dd7b" id="dd7b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*90hw1SO_AgIF4T1vC1YoJg.jpeg" data-width="714" data-height="378" src="https://cdn-images-1.medium.com/max/800/1*90hw1SO_AgIF4T1vC1YoJg.jpeg"></figure><p name="5898" id="5898" class="graf graf--p graf-after--figure">錯誤訊息顯示 Need constraint for: height。</p><figure name="36db" id="36db" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zTyr_TVDhjzsXO7hjf2UVA.jpeg" data-width="1330" data-height="454" src="https://cdn-images-1.medium.com/max/800/1*zTyr_TVDhjzsXO7hjf2UVA.jpeg"></figure><p name="792c" id="792c" class="graf graf--p graf-after--figure">有方法讓 text view 不正常，學 label 一樣自動長高嗎 ? 當然有 ! 只要將 text view 的 Scrolling Enabled 取消，讓它像 label 一樣不會捲動即可。</p><figure name="395e" id="395e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OAH9h8sLVOhdU1jhISrmQQ.jpeg" data-width="536" data-height="608" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*OAH9h8sLVOhdU1jhISrmQQ.jpeg"></figure><figure name="0199" id="0199" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*y225WIJ11ahjEKegMmVrTg.jpeg" data-width="698" data-height="440" src="https://cdn-images-1.medium.com/max/800/1*y225WIJ11ahjEKegMmVrTg.jpeg"></figure><p name="43ac" id="43ac" class="graf graf--p graf-after--figure">iOS App 常見的聊天訊息，也滿適合搭配 text view，不管是單行的&quot;我要去洗澡了&quot;，或是多行的告白情話，都可以呈現。如果想要更好的效果，還可以透過 text view 的 textContainerInset 調整文字上下左右的間距。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="eceb" id="eceb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">textView.textContainerInset <span class="hljs-operator">=</span> .<span class="hljs-keyword">init</span>(top: <span class="hljs-number">10</span>, left: <span class="hljs-number">10</span>, bottom: <span class="hljs-number">10</span>, right: <span class="hljs-number">10</span>)</span></pre><div name="78b3" id="78b3" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/uikit/uitextview/1618619-textcontainerinset" data-href="https://developer.apple.com/documentation/uikit/uitextview/1618619-textcontainerinset" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uitextview/1618619-textcontainerinset"><strong class="markup--strong markup--mixtapeEmbed-strong">textContainerInset | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">The inset of the text container&#39;s layout area within the text view&#39;s content area.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uitextview/1618619-textcontainerinset" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="68c3645d9f85518937cf3be09acfb4c7" data-thumbnail-img-id="0*T92VMEhF_Yjty2o8" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*T92VMEhF_Yjty2o8);"></a></div></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="f7db" id="f7db" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--mixtapeEmbed" style="width: 50%;"><img class="graf-image" data-image-id="1*pXFIiJbKj_Tlj2WiMItNqA.jpeg" data-width="848" data-height="1450" src="https://cdn-images-1.medium.com/max/600/1*pXFIiJbKj_Tlj2WiMItNqA.jpeg"></figure><figure name="34b8" id="34b8" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure graf--trailing" style="width: 50%;"><img class="graf-image" data-image-id="1*wHHudLVwrFz2OxwO3we6TA.jpeg" data-width="848" data-height="1450" src="https://cdn-images-1.medium.com/max/600/1*wHHudLVwrFz2OxwO3we6TA.jpeg"><figcaption class="imageCaption" style="width: 200%; left: -100%;">右邊的 text view 利用 textContainerInset 調整文字上下左右的間距</figcaption></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/608331d3e40c"><time class="dt-published" datetime="2018-11-30T09:27:37.194Z">November 30, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AE%93-uitextview-%E7%9A%84%E9%AB%98%E5%BA%A6%E7%AD%89%E6%96%BC%E6%96%87%E5%AD%97%E5%85%A7%E5%AE%B9%E7%9A%84%E9%AB%98%E5%BA%A6-608331d3e40c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

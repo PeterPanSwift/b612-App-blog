@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將畫面上多個元件變成 array 的 outlet collection</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將畫面上多個元件變成 array 的 outlet collection</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+透過拉 outlet 連線，我們可產生一個個的變數存取畫面上的元件。但是當畫面上元件很多時，產生的 outlet 變數也會成長到令人害怕的地步。
+</section>
+<section data-field="body" class="e-content">
+<section name="a64e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2fcc" id="2fcc" class="graf graf--h3 graf--leading graf--title">將畫面上多個元件變成 array 的 outlet collection</h3><p name="1991" id="1991" class="graf graf--p graf-after--h3">透過拉 outlet 連線，我們可產生一個個的變數存取畫面上的元件。但是當畫面上元件很多時，產生的 outlet 變數也會成長到令人害怕的地步。</p><figure name="4d5a" id="4d5a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aVyPtZuD9EJ04XQCFQiGQA.jpeg" data-width="600" data-height="1066" src="https://cdn-images-1.medium.com/max/800/1*aVyPtZuD9EJ04XQCFQiGQA.jpeg"></figure><p name="6c44" id="6c44" class="graf graf--p graf-after--figure">比方上圖有六顆骰子，為了從程式控制每顆骰子，我們需要拉六個 outlet，產生六個變數。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="9561" id="9561" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> dice1Button: <span class="hljs-type">UIButton</span>!<br /><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> dice2Button: <span class="hljs-type">UIButton</span>!<br /><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> dice3Button: <span class="hljs-type">UIButton</span>!<br /><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> dice4Button: <span class="hljs-type">UIButton</span>!<br /><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> dice5Button: <span class="hljs-type">UIButton</span>!<br /><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> dice6Button: <span class="hljs-type">UIButton</span>!</span></pre><p name="84d9" id="84d9" class="graf graf--p graf-after--pre">但是像這樣功能類似的元件，更適合的方式其實是存放在 array ，方便之後搭配 for in 迴圈。比方想同時擲六顆骰子時，只要以 for in 跑六次，即可設定每顆骰子的點數。</p><p name="78aa" id="78aa" class="graf graf--p graf-after--p">有個跟 outlet 很像的兄弟可以做到這件事，它的名字叫 outlet collection。接下來就讓我們透過它將六顆骰子存在 array 吧。</p><blockquote name="bef2" id="bef2" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1 點選左上的第一顆骰子，拉線到右邊 controller 的 { } 裡。</strong></blockquote><figure name="a9ec" id="a9ec" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*aRBcw_aeLJG1fS9d6AI1xw.jpeg" data-width="1434" data-height="898" src="https://cdn-images-1.medium.com/max/800/1*aRBcw_aeLJG1fS9d6AI1xw.jpeg"></figure><blockquote name="1e23" id="1e23" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">2 將 Connection 改成 Outlet Collection，Name 欄位輸入名稱 diceButtons。</strong></blockquote></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="c5ff" id="c5ff" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--blockquote" style="width: 42.898%;"><img class="graf-image" data-image-id="1*FsPhYxYLXDbRFZGhYxwvAA.jpeg" data-width="572" data-height="378" src="https://cdn-images-1.medium.com/max/600/1*FsPhYxYLXDbRFZGhYxwvAA.jpeg"></figure><figure name="7353" id="7353" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 57.102%;"><img class="graf-image" data-image-id="1*YmrjWsFgrVR-7J6nDuybUw.jpeg" data-width="588" data-height="292" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*YmrjWsFgrVR-7J6nDuybUw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><blockquote name="7931" id="7931" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">3 產生變數 diceButtons。</strong></blockquote><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="e7d0" id="e7d0" class="graf graf--pre graf-after--blockquote graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">var</span> diceButtons: [<span class="hljs-type">UIButton</span>]<span class="hljs-operator">!</span></span></pre><p name="c70a" id="c70a" class="graf graf--p graf-after--pre">型別為 [UIButton]!，因此它是個存放 UIButton 的 array。</p><blockquote name="8cf4" id="8cf4" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">4 將其它骰子的 button 連線到剛剛產生的變數 diceButtons。</strong></blockquote><figure name="b729" id="b729" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*CYmjbP82cWf0HaGOtOYERg.jpeg" data-width="1542" data-height="938" src="https://cdn-images-1.medium.com/max/800/1*CYmjbP82cWf0HaGOtOYERg.jpeg"></figure><p name="560a" id="560a" class="graf graf--p graf-after--figure">可從左邊的骰子連到右邊的變數(按右鍵)，也可從右邊 outlet 變數旁的圓圈連到左邊的骰子(按左鍵)。</p><figure name="44db" id="44db" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Io_H05uyXQGlFNJmdxNAhw.jpeg" data-width="1356" data-height="874" src="https://cdn-images-1.medium.com/max/800/1*Io_H05uyXQGlFNJmdxNAhw.jpeg"></figure><p name="b12f" id="b12f" class="graf graf--p graf-after--figure">由於 array 有順序，所以東西存放在 array 的順序，將依據當初我們拉線的順序。第一個拉的骰子在 diceButtons[0]，第二個拉的在 diceButtons[1]，其它以此類推。</p><blockquote name="1209" id="1209" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">5 查看 outlet collection 的連線。</strong></blockquote><p name="c682" id="c682" class="graf graf--p graf-after--blockquote">六顆骰子全部連完後，點選下圖 outlet 旁的圓圈，即可看到它連到左邊的六顆骰子。</p><figure name="fde8" id="fde8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*evKjschR484nkUok8zJL8w.jpeg" data-width="1362" data-height="892" src="https://cdn-images-1.medium.com/max/800/1*evKjschR484nkUok8zJL8w.jpeg"></figure><blockquote name="ee8a" id="ee8a" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">6 查看 outlet collection array 裡成員的順序。</strong></blockquote><p name="9782" id="9782" class="graf graf--p graf-after--blockquote">雖然寫 iOS App 的都很聰明，不過我們還是會有點健忘，有時會忘了當初拉線的順序，不知道畫面上的骰子是對應 array 的第幾個成員。此時其實有個簡單的方法可以查詢。</p><p name="fb7e" id="fb7e" class="graf graf--p graf-after--p">我們可切換到 controller 的 Connections inspector 頁面查詢。如下圖所示，當我們將游標移到第二個 Button，將看到它對應的骰子，因此 diceButtons[1] 是右上的骰子。</p><figure name="4fc6" id="4fc6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xR138zU-lqWa_HfE8LxSNA.jpeg" data-width="992" data-height="950" src="https://cdn-images-1.medium.com/max/800/1*xR138zU-lqWa_HfE8LxSNA.jpeg"></figure><blockquote name="ad5b" id="ad5b" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">7 同時擲六顆骰子的程式範例</strong></blockquote><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="9adf" id="9adf" class="graf graf--pre graf-after--blockquote graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">play</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">sender</span>: <span class="hljs-keyword">Any</span>) {<br />   <span class="hljs-keyword">for</span> dice <span class="hljs-keyword">in</span> diceButtons {<br />      <span class="hljs-keyword">let</span> number <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>.random(in: <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">6</span>)<br />      <span class="hljs-keyword">let</span> image <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(named: <span class="hljs-string">&quot;dice<span class="hljs-subst">\(number)</span>&quot;</span>)<br />      dice.setBackgroundImage(image<span class="hljs-operator">!</span>, for: .normal)<br />   }<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8b908900ce57"><time class="dt-published" datetime="2018-07-25T14:30:25.921Z">July 25, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87%E7%95%AB%E9%9D%A2%E4%B8%8A%E5%A4%9A%E5%80%8B%E5%85%83%E4%BB%B6%E8%AE%8A%E6%88%90-array-%E7%9A%84-outlet-collection-8b908900ce57" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

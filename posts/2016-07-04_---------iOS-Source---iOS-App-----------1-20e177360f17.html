@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>新增類別時記得選擇iOS Source ~ iOS App開發初學者常見問題集 1</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">新增類別時記得選擇iOS Source ~ iOS App開發初學者常見問題集 1</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發iOS App時，我們時常需要新增類別客製化App的功能，記得要選擇iOS Source，千萬別愛錯人，選到OS X Source !
+</section>
+<section data-field="body" class="e-content">
+<section name="fea5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5b01" id="5b01" class="graf graf--h3 graf--leading graf--title">新增類別時記得選擇iOS Source ~ iOS App開發初學者常見問題集 1</h3><p name="2f8c" id="2f8c" class="graf graf--p graf-after--h3">開發iOS App時，我們時常需要新增類別客製化App的功能，記得要選擇iOS Source，千萬別愛錯人，選到OS X Source !</p><p name="bc6e" id="bc6e" class="graf graf--p graf-after--p">以下為標準的類別新增步驟:</p><ol class="postList"><li name="5d5b" id="5d5b" class="graf graf--li graf-after--p">點選File -&gt; New -&gt; File。(或是按快速鍵Cmd + N)</li></ol><figure name="0cc8" id="0cc8" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*F-mirFNnC5Vd1c8g2EsHoQ.jpeg" data-width="1062" data-height="266" src="https://cdn-images-1.medium.com/max/800/1*F-mirFNnC5Vd1c8g2EsHoQ.jpeg"></figure><p name="12e0" id="12e0" class="graf graf--p graf-after--figure">2. 選擇iOS Source下的Cocoa Touch Class。</p><figure name="97cf" id="97cf" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*J5wcFGXzrQRsRSBPm0oJqQ.jpeg" data-width="1450" data-height="1026" src="https://cdn-images-1.medium.com/max/800/1*J5wcFGXzrQRsRSBPm0oJqQ.jpeg"></figure><p name="b093" id="b093" class="graf graf--p graf-after--figure">3. 在Class欄位輸入類別名稱，Subclass of欄位輸入繼承的父類別名稱。</p><figure name="9e47" id="9e47" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TR8u_pT-CW3yLNTr2KeEVg.jpeg" data-width="1440" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*TR8u_pT-CW3yLNTr2KeEVg.jpeg"></figure><p name="e56d" id="e56d" class="graf graf--p graf-after--figure">4. 產生新類別的swift檔。</p><figure name="38d6" id="38d6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zGzqw1WhoM0ihdYfzagakg.jpeg" data-width="2216" data-height="1132" src="https://cdn-images-1.medium.com/max/800/1*zGzqw1WhoM0ihdYfzagakg.jpeg"></figure><p name="8d46" id="8d46" class="graf graf--p graf-after--figure">步驟很簡單，不過愈簡單的事情愈容易有陷阱。初學者有時會在新增類別時不小心選到非iOS的選項，比方選到OS X Source的Cocoa Class，跟Cocoa Touch Class才差一個Touch，很容易讓人誤會。</p><figure name="ab9e" id="ab9e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*QhdGAjmUrUsjZTkcLXXZYA.jpeg" data-width="1450" data-height="1022" src="https://cdn-images-1.medium.com/max/800/1*QhdGAjmUrUsjZTkcLXXZYA.jpeg"></figure><p name="0226" id="0226" class="graf graf--p graf-after--figure">一旦選了Cocoa Class，產生的swift檔將變成import Cocoa，Cocoa是OS X App的函式庫，跟iOS完全是不同世界呀 ! 所以Xcode在編譯生成iOS App時將馬上產生錯誤，說它不認識Cocoa，” No such module ‘Cocoa’ ”。</p><figure name="b41c" id="b41c" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*IkuPlxMeFO5J6s6nJVFXOA.jpeg" data-width="1744" data-height="372" src="https://cdn-images-1.medium.com/max/800/1*IkuPlxMeFO5J6s6nJVFXOA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/20e177360f17"><time class="dt-published" datetime="2016-07-04T07:39:06.231Z">July 4, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%96%B0%E5%A2%9E%E9%A1%9E%E5%88%A5%E6%99%82%E8%A8%98%E5%BE%97%E9%81%B8%E6%93%87ios-source-ios-app%E9%96%8B%E7%99%BC%E5%88%9D%E5%AD%B8%E8%80%85%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E9%9B%86-1-20e177360f17" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

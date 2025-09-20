@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>打開 iOS App 的 Settings 畫面設定權限</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">打開 iOS App 的 Settings 畫面設定權限</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+為了使用者的安全著想，iOS App 很多功能都要經過使用者同意。不過如果使用者不同意給予 App 權限，後來想讓他同意將麻煩許多，就像追求一開始對我們印象不好的對象一樣。
+</section>
+<section data-field="body" class="e-content">
+<section name="a003" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="408a" id="408a" class="graf graf--h3 graf--leading graf--title">打開 iOS App 的 Settings 畫面設定權限</h3><p name="4e5c" id="4e5c" class="graf graf--p graf-after--h3">為了使用者的安全著想，iOS App 很多功能都要經過使用者同意。不過如果使用者不同意給予 App 權限，後來想讓他同意將麻煩許多，就像追求一開始對我們印象不好的對象一樣。</p><p name="9167" id="9167" class="graf graf--p graf-after--p">如下圖所示，如果我們不同意 LINE 的拍照權限，後來當我們想從 App 拍照時，它將無法直接打開權限。它只能跳到 iOS 的 Settings 頁面，麻煩使用者自己打開 LINE App 的拍照權限。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="3"><figure name="3658" id="3658" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 33.333%;"><img class="graf-image" data-image-id="1*M_fzquPjUDPqSYm2y_pcBw.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/400/1*M_fzquPjUDPqSYm2y_pcBw.png"></figure><figure name="b937" id="b937" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*yWDscA-r3B4N6n-OC5Sa6Q.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/400/1*yWDscA-r3B4N6n-OC5Sa6Q.png"></figure><figure name="f59a" id="f59a" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*TO9W0ItO8DJaa8yUy_MUgw.png" data-width="1125" data-height="2436" data-is-featured="true" src="https://cdn-images-1.medium.com/max/400/1*TO9W0ItO8DJaa8yUy_MUgw.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="850c" id="850c" class="graf graf--p graf-after--figure">好吧，無魚，蝦也好。既然不能從 App 打開使用者拒絕的權限，能夠跳到 Setting App 的設定畫面也不錯，方法如下:</p><pre name="ace3" id="ace3" class="graf graf--pre graf-after--p">import SwiftUI</pre><pre name="d481" id="d481" class="graf graf--pre graf-after--pre">struct ContentView: View {<br>    <br>    <br>    var body: some View {<br>        Button(action: {</pre><pre name="cd3a" id="cd3a" class="graf graf--pre graf-after--pre">           <strong class="markup--strong markup--pre-strong"> let url = URL(string: UIApplication.openSettingsURLString)!<br>            UIApplication.shared.open(url)</strong><br>            <br>        }) {<br>            <br>            Text(&quot;帶我去 Setting&quot;)<br>        }<br>        <br>    }<br>}</pre><p name="9509" id="9509" class="graf graf--p graf-after--pre">透過 UIApplication.openSettingsURLString 取得 App 的 Settings 畫面路徑，然後利用 UIApplication 的 open 跳到 Settings App。(ps: 並非所有 App 都會在 Settings 下有設定畫面，只有曾要求權限或設定 Settings.bundle 的 App 會在 Settings 下有設定畫面，App 沒有設定頁面的話以上程式一樣會打開 Settings App )</p><div name="0877" id="0877" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uiapplication/1623042-opensettingsurlstring" data-href="https://developer.apple.com/documentation/uikit/uiapplication/1623042-opensettingsurlstring" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiapplication/1623042-opensettingsurlstring"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiapplication/1623042-opensettingsurlstring" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="f0ef9b7ae53095456ff231b2212cd57b"></a></div><figure name="a563" id="a563" class="graf graf--figure graf-after--mixtapeEmbed graf--trailing"><img class="graf-image" data-image-id="1*qcai4NuFMFPl58wumcxo2Q.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*qcai4NuFMFPl58wumcxo2Q.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ebd3f15a2852"><time class="dt-published" datetime="2021-01-02T15:04:08.117Z">January 2, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%89%93%E9%96%8B-ios-app-%E7%9A%84-settings-%E7%95%AB%E9%9D%A2%E8%A8%AD%E5%AE%9A%E6%AC%8A%E9%99%90-ebd3f15a2852" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

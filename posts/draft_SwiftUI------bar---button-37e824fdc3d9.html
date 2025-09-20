@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI 鍵盤上方 bar 的 button</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI 鍵盤上方 bar 的 button</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="7dc4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3461" id="3461" class="graf graf--h3 graf--leading graf--title">SwiftUI 鍵盤上方 bar 的 button</h3><p name="c4d0" id="c4d0" class="graf graf--p graf--empty graf-after--h3"><br></p><pre name="6c34" id="6c34" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var activity: Activity = .sample<br>    <a href="http://twitter.com/FocusState" data-href="http://twitter.com/FocusState" class="markup--anchor markup--pre-anchor" title="Twitter profile for @FocusState" rel="noopener" target="_blank">@FocusState</a> private var focusedField: Field?</pre><pre name="720a" id="720a" class="graf graf--pre graf-after--pre">var body: some View {<br>        Form {<br>            TextField(&quot;Name&quot;, text: $activity.name, prompt: Text(&quot;New Activity&quot;))<br>            TextField(&quot;Location&quot;, text: $activity.location)<br>            DatePicker(&quot;Date&quot;, selection: $activity.date)<br>        }<br>        .toolbar {<br>            ToolbarItemGroup(placement: .keyboard) {<br>                Button(action: selectPreviousField) {<br>                    Label(&quot;Previous&quot;, systemImage: &quot;chevron.up&quot;)<br>                }<br>                .disabled(!hasPreviousField)</pre><pre name="f969" id="f969" class="graf graf--pre graf-after--pre">Button(action: selectNextField) {<br>                    Label(&quot;Next&quot;, systemImage: &quot;chevron.down&quot;)<br>                }<br>                .disabled(!hasNextField)<br>            }<br>        }<br>    }</pre><pre name="1db0" id="1db0" class="graf graf--pre graf-after--pre">private func selectPreviousField() {<br>       focusedField = focusedField.map {<br>          Field(rawValue: $0.rawValue - 1)!<br>       }<br>    }</pre><pre name="a772" id="a772" class="graf graf--pre graf-after--pre">private var hasPreviousField: Bool {<br>        if let currentFocusedField = focusedField {<br>            return currentFocusedField.rawValue &gt; 0<br>        } else {<br>            return false<br>        }<br>    }</pre><pre name="69f1" id="69f1" class="graf graf--pre graf-after--pre">private func selectNextField() {<br>       focusedField = focusedField.map {<br>          Field(rawValue: $0.rawValue + 1)!<br>       }<br>    }</pre><pre name="6c54" id="6c54" class="graf graf--pre graf-after--pre">private var hasNextField: Bool {<br>        if let currentFocusedField = focusedField {<br>            return currentFocusedField.rawValue &lt; Field.allCases.count<br>        } else {<br>            return false<br>        }<br>    }<br>}</pre><pre name="346d" id="346d" class="graf graf--pre graf-after--pre">private enum Field: Int, Hashable, CaseIterable {<br>   case name, location, date, addAttendee<br>}</pre><pre name="e39a" id="e39a" class="graf graf--pre graf-after--pre">struct Activity {<br>    var name: String<br>    var date: Date<br>    var location: String<br>    var people: [Person]<br>    var info: AttributedString<br>    var tint: Color = .purple</pre><pre name="956b" id="956b" class="graf graf--pre graf-after--pre">static let sample = Activity(name: &quot;What&#39;s New in SwiftUI&quot;, date: Date(), location: &quot;Apple Park&quot;, people: [.init(givenName: &quot;You&quot;)], info: &quot;This is some info.&quot;)</pre><pre name="b5ae" id="b5ae" class="graf graf--pre graf-after--pre">mutating func append(_ person: Person) {<br>        people.append(person)<br>    }<br>}</pre><pre name="2436" id="2436" class="graf graf--pre graf-after--pre">struct Person {<br>    var givenName: String<br>    var familyName: String</pre><pre name="cb6a" id="cb6a" class="graf graf--pre graf-after--pre">init(givenName: String, familyName: String = &quot;&quot;) {<br>        self.givenName = givenName<br>        self.familyName = familyName<br>    }</pre><pre name="9fd3" id="9fd3" class="graf graf--pre graf-after--pre">init(_ nameComponents: PersonNameComponents) {<br>        givenName = nameComponents.givenName ?? &quot;&quot;<br>        familyName = nameComponents.familyName ?? &quot;&quot;<br>    }</pre><pre name="f5f7" id="f5f7" class="graf graf--pre graf-after--pre">var nameComponents: PersonNameComponents {<br>        get {<br>            var components = PersonNameComponents()<br>            components.givenName = givenName<br>            if !familyName.isEmpty {<br>                components.familyName = familyName<br>            }<br>            return components<br>        }<br>        set {<br>            givenName = newValue.givenName ?? &quot;&quot;<br>            familyName = newValue.familyName ?? &quot;&quot;<br>        }<br>    }<br>}</pre><div name="1f63" id="1f63" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/videos/play/wwdc2021/10018/" data-href="https://developer.apple.com/videos/play/wwdc2021/10018/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/videos/play/wwdc2021/10018/"><strong class="markup--strong markup--mixtapeEmbed-strong">What&#39;s new in SwiftUI - WWDC 2021 - Videos - Apple Developer</strong><br><em class="markup--em markup--mixtapeEmbed-em">There&#39;s never been a better time to develop your apps with SwiftUI. Discover the latest updates to the UI framework …</em>developer.apple.com</a><a href="https://developer.apple.com/videos/play/wwdc2021/10018/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d19ac0a7b713377b64b30eaf33e1879a" data-thumbnail-img-id="0*mew4PMPDMPIEgD4g" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*mew4PMPDMPIEgD4g);"></a></div><p name="4556" id="4556" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/37e824fdc3d9">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

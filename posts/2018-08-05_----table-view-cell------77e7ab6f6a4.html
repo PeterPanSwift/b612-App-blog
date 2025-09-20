@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何讓 table view cell 固定高度</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何讓 table view cell 固定高度</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+table view cell 預設搭配 Auto Layout 條件計算高度，若是沒有在 cell 設定任何 auto layout 條件，cell 將無從計算它的高度，此時高度有兩種可能:
+</section>
+<section data-field="body" class="e-content">
+<section name="7e9d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ba83" id="ba83" class="graf graf--h3 graf--leading graf--title">如何讓 table view cell 固定高度</h3><p name="2f0a" id="2f0a" class="graf graf--p graf-after--h3">table view cell 預設搭配 Auto Layout 條件計算高度，若是沒有在 cell 設定任何 auto layout 條件，cell 將無從計算它的高度，此時高度有兩種可能:</p><ul class="postList"><li name="4d9c" id="4d9c" class="graf graf--li graf-after--p">採用 UIListContentConfiguration，cell 高度依據內容自動調整。</li><li name="02ef" id="02ef" class="graf graf--li graf-after--li">沒有採用 UIListContentConfiguration，cell 的高度將為預設的 44。</li></ul><p name="cffe" id="cffe" class="graf graf--p graf-after--li">如果你很確定你的 cell 要多高，就像彼得潘確定自己要 180 的話，那你也可以將 cell 設為固定高度。</p><h3 name="3bfd" id="3bfd" class="graf graf--h3 graf-after--p"><strong class="markup--strong markup--h3-strong">方法 1: 從 storyboard 設定</strong></h3><p name="bc75" id="bc75" class="graf graf--p graf-after--h3">點選 Table View，切換到 Size inspector 分頁，在 Row Height 輸入數字，讓它不會自動計算高度(Automatic)。</p><figure name="b2b4" id="b2b4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sByDM3cyAc3-n-roAVB9_w.png" data-width="516" data-height="238" src="https://cdn-images-1.medium.com/max/800/1*sByDM3cyAc3-n-roAVB9_w.png"></figure><p name="e401" id="e401" class="graf graf--p graf-after--figure">將 Row Height 設為你想要的 cell 高度，如果不清楚 cell 的高度，可點選 cell 後，在它的 Size inspector 分頁查詢 Row Height。</p><figure name="bd6f" id="bd6f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5bO5rXd8v379TLNwWbuEtg.png" data-width="508" data-height="200" src="https://cdn-images-1.medium.com/max/800/1*5bO5rXd8v379TLNwWbuEtg.png"></figure><h3 name="a237" id="a237" class="graf graf--h3 graf-after--figure"><strong class="markup--strong markup--h3-strong">方法 2: 從程式設定</strong></h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="747e" id="747e" class="graf graf--pre graf-after--h3 graf--trailing graf--preV2"><span class="pre--content">tableView.rowHeight <span class="hljs-operator">=</span> <span class="hljs-number">118</span></span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/77e7ab6f6a4"><time class="dt-published" datetime="2018-08-05T16:19:02.625Z">August 5, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%A6%82%E4%BD%95%E8%AE%93-table-view-cell-%E5%9B%BA%E5%AE%9A%E9%AB%98%E5%BA%A6-77e7ab6f6a4" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

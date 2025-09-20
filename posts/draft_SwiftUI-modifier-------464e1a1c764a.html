@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI modifier 的回傳型別</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI modifier 的回傳型別</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="176e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1751" id="1751" class="graf graf--h3 graf--leading graf--title">SwiftUI modifier 的回傳型別</h3><pre name="009d" id="009d" class="graf graf--pre graf-after--h3"><strong class="markup--strong markup--pre-strong">var</strong> body: <strong class="markup--strong markup--pre-strong">some</strong> View {</pre><pre name="6392" id="6392" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">let</strong> content = Text(&quot;hello&quot;).bold()</pre><pre name="ff28" id="ff28" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   return</strong> content</pre><pre name="9814" id="9814" class="graf graf--pre graf-after--pre">}</pre><figure name="006f" id="006f" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*8wNnbd-4_D2Xr3gIzq8y6w.jpeg" data-width="1234" data-height="376" src="https://cdn-images-1.medium.com/max/800/1*8wNnbd-4_D2Xr3gIzq8y6w.jpeg"></figure><pre name="3494" id="3494" class="graf graf--pre graf-after--figure"><strong class="markup--strong markup--pre-strong">var</strong> body: <strong class="markup--strong markup--pre-strong">some</strong> View {</pre><pre name="67e0" id="67e0" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">let</strong> content = Text(&quot;hello&quot;).background(Color.yellow)</pre><pre name="482f" id="482f" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">return</strong> content</pre><pre name="aa0a" id="aa0a" class="graf graf--pre graf-after--pre">}</pre><figure name="928e" id="928e" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*hcxAZb9cet2x2WUL89AYTg.jpeg" data-width="1450" data-height="390" src="https://cdn-images-1.medium.com/max/800/1*hcxAZb9cet2x2WUL89AYTg.jpeg"></figure><pre name="22eb" id="22eb" class="graf graf--pre graf-after--figure"><strong class="markup--strong markup--pre-strong">var</strong> body: <strong class="markup--strong markup--pre-strong">some</strong> View {</pre><pre name="4e2f" id="4e2f" class="graf graf--pre graf-after--pre">let content = Text(&quot;hello&quot;).background(Color.yellow)</pre><pre name="9b69" id="9b69" class="graf graf--pre graf-after--pre">print(content)</pre><pre name="78d3" id="78d3" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">return</strong> content</pre><pre name="3ba8" id="3ba8" class="graf graf--pre graf-after--pre">}</pre><figure name="a154" id="a154" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*-Us-9oKdlFfDF2t-4SV7-w.jpeg" data-width="1530" data-height="592" src="https://cdn-images-1.medium.com/max/800/1*-Us-9oKdlFfDF2t-4SV7-w.jpeg"></figure><p name="5865" id="5865" class="graf graf--p graf--empty graf-after--figure graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/464e1a1c764a">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

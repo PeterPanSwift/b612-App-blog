@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>移除字串前後空白的 trimmingCharacters</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">移除字串前後空白的 trimmingCharacters</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們一般利用 text field 讓使用者輸入文字，然而有時使用者會不小心在文字的開頭或結尾輸入空白。有沒有方法能移除這些沒用的空白呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="3fa5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="692b" id="692b" class="graf graf--h3 graf--leading graf--title">移除字串前後空白的 trimmingCharacters</h3><p name="1de4" id="1de4" class="graf graf--p graf-after--h3">開發 iOS App 時，我們一般利用 text field 讓使用者輸入文字，然而有時使用者會不小心在文字的開頭或結尾輸入空白。有沒有方法能移除這些沒用的空白呢 ?</p><figure name="d29c" id="d29c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ugikR7Zs7r2rjHse0WY46Q.jpeg" data-width="856" data-height="1450" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*ugikR7Zs7r2rjHse0WY46Q.jpeg"></figure><p name="6605" id="6605" class="graf graf--p graf-after--figure">有的，String 的 function trimmingCharacters(in:) 可以幫助我們，trim 的中文意思是修剪的意思，因此 trimmingCharacters 即代表將字串前後不要的文字剪掉的意思。</p><pre name="ea97" id="ea97" class="graf graf--pre graf-after--p">func trimmingCharacters(in set: CharacterSet) -&gt; String</pre><p name="bbd7" id="bbd7" class="graf graf--p graf-after--pre">在參數 set 傳入不喜歡的文字後 ，它會回傳一個新的字串，將字串前後出現這些文字的地方移除。注意 set 的型別 CharacterSet 是集合，因此我們可以貪心地移除多個不喜歡的字元。</p><div name="c905" id="c905" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundation/nsstring/1415462-trimmingcharacters" data-href="https://developer.apple.com/documentation/foundation/nsstring/1415462-trimmingcharacters" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/nsstring/1415462-trimmingcharacters"><strong class="markup--strong markup--mixtapeEmbed-strong">trimmingCharacters(in:) - NSString | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Returns a new string made by removing from both ends of the receiver characters contained in a given character set.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/nsstring/1415462-trimmingcharacters" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="ae189340dfa2492bc2928a9748c6b502"></a></div><p name="cfea" id="cfea" class="graf graf--p graf-after--mixtapeEmbed">比方以下例子會將字首和字尾的我移除，變成<code class="markup--code markup--p-code">為人人，人人為</code>。</p><pre name="b5d2" id="b5d2" class="graf graf--pre graf-after--p">let text = &quot;我為人人，人人為我&quot;</pre><pre name="ae44" id="ae44" class="graf graf--pre graf-after--pre">let newText = text.trimmingCharacters(in: CharacterSet(charactersIn: &quot;我&quot;))</pre><p name="30e1" id="30e1" class="graf graf--p graf-after--pre">因此我們只要參數傳入 CharacterSet 裡定義的 whitespaces，即可移除文字前後的空白字元。</p><pre name="4d16" id="4d16" class="graf graf--pre graf-after--p">let text = &quot; 我為人人，人人為我 &quot;</pre><pre name="7df3" id="7df3" class="graf graf--pre graf-after--pre">let newText = text.trimmingCharacters(in: .whitespaces)</pre><p name="f402" id="f402" class="graf graf--p graf-after--pre">如果連換行符號也想移除，則可傳入 whitespacesAndNewlines。</p><pre name="23d5" id="23d5" class="graf graf--pre graf-after--p">let text = &quot; 我為人人，人人為我\n&quot;</pre><pre name="c38c" id="c38c" class="graf graf--pre graf-after--pre graf--trailing">let newText = text.trimmingCharacters(in: .whitespacesAndNewlines)</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ff7153513d3d"><time class="dt-published" datetime="2019-02-09T14:43:02.854Z">February 9, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%A7%BB%E9%99%A4%E5%AD%97%E4%B8%B2%E5%89%8D%E5%BE%8C%E7%A9%BA%E7%99%BD%E7%9A%84-trimmingcharacters-ff7153513d3d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

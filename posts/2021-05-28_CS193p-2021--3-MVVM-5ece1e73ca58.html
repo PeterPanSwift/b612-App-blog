@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>CS193p 2021 #3 MVVM</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">CS193p 2021 #3 MVVM</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+影片
+</section>
+<section data-field="body" class="e-content">
+<section name="e4ec" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="bda9" id="bda9" class="graf graf--h3 graf--leading graf--title">CS193p 2021 #3 MVVM</h3><h3 name="511e" id="511e" class="graf graf--h3 graf-after--h3">影片</h3><figure name="00ac" id="00ac" class="graf graf--figure graf--iframe graf-after--h3"><iframe src="https://www.youtube.com/embed/--qKOhdgJAs" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><h3 name="7ac0" id="7ac0" class="graf graf--h3 graf-after--figure">課程範例</h3><h4 name="6e79" id="6e79" class="graf graf--h4 graf-after--h3">model，MemoryGame.swift</h4><pre name="ee4b" id="ee4b" class="graf graf--pre graf-after--h4">import Foundation</pre><pre name="79a5" id="79a5" class="graf graf--pre graf-after--pre">struct MemoryGame&lt;CardContent&gt; {<br>    private(set) var cards: Array&lt;Card&gt;<br>    <br>    func choose(_ card: Card) {<br>        <br>    }<br>    <br>    init(numberOfPairsOfCards: Int, createCardContent: (Int) -&gt; CardContent) {<br>        cards = Array&lt;Card&gt;()<br>        for pairIndex in 0..&lt;numberOfPairsOfCards {<br>            let content = createCardContent(pairIndex)<br>            cards.append(Card(content: content))<br>            cards.append(Card(content: content))<br>        }<br>    }<br>    <br>    struct Card {<br>        var isFaceUp = true<br>        var isMatched = false<br>        var content: CardContent<br>    }<br>}</pre><h4 name="2f45" id="2f45" class="graf graf--h4 graf-after--pre">view model，EmojiMemoryGame.swift</h4><pre name="a27c" id="a27c" class="graf graf--pre graf-after--h4">import Foundation</pre><pre name="8380" id="8380" class="graf graf--pre graf-after--pre">class EmojiMemoryGame {<br>    <br>    static let emojis = [&quot;🚲&quot;, &quot;🚂&quot;, &quot;🚁&quot;, &quot;🚜&quot;, &quot;🚕&quot;, &quot;🏎&quot;, &quot;🚑&quot;, &quot;🚓&quot;, &quot;🚒&quot;, &quot;✈️&quot;, &quot;🚀&quot;, &quot;⛵️&quot;, &quot;🛸&quot;, &quot;🛶&quot;, &quot;🚌&quot;, &quot;🏍&quot;, &quot;🛺&quot;, &quot;🚠&quot;, &quot;🛵&quot;, &quot;🚗&quot;, &quot;🚚&quot;, &quot;🚇&quot;, &quot;🛻&quot;, &quot;🚝&quot;]<br>    <br>    static func createMemoryGame() -&gt; MemoryGame&lt;String&gt; {<br>        MemoryGame&lt;String&gt;(numberOfPairsOfCards: 4) { pairIndex in<br>            emojis[pairIndex]<br>        }<br>    }<br>    <br>    private var model = createMemoryGame()<br>    <br>    var cards: Array&lt;MemoryGame&lt;String&gt;.Card&gt; {<br>        return model.cards<br>    }<br>}</pre><h4 name="f410" id="f410" class="graf graf--h4 graf-after--pre">view，ContentView.swift</h4><p name="1003" id="1003" class="graf graf--p graf-after--h4">尚未調整，程式同 Lecture 2。在 Lecture 4 時 view 將串接 view mode。</p><div name="7482" id="7482" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/cs193p-2021-2-learning-more-about-swiftui-cfd457553c06" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/cs193p-2021-2-learning-more-about-swiftui-cfd457553c06" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/cs193p-2021-2-learning-more-about-swiftui-cfd457553c06"><strong class="markup--strong markup--mixtapeEmbed-strong">CS193p 2021 #2 Learning More about SwiftUI</strong><br><em class="markup--em markup--mixtapeEmbed-em">影片</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/cs193p-2021-2-learning-more-about-swiftui-cfd457553c06" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e08e9509817512fa6a1f857a75b2516f" data-thumbnail-img-id="1*Siyn1HuzTh9Uq4e07BrdcA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*Siyn1HuzTh9Uq4e07BrdcA.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5ece1e73ca58"><time class="dt-published" datetime="2021-05-28T04:01:07.444Z">May 28, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/cs193p-2021-3-mvvm-5ece1e73ca58" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

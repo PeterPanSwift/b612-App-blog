@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>安裝 GitHub CLI 和登入 GitHub 帳號</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">安裝 GitHub CLI 和登入 GitHub 帳號</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+參考 GitHub CLI 網頁的教學安裝 GitHub CLI。
+</section>
+<section data-field="body" class="e-content">
+<section name="12dd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7193" id="7193" class="graf graf--h3 graf--leading graf--title">安裝 GitHub CLI 和登入 GitHub 帳號</h3><p name="30d5" id="30d5" class="graf graf--p graf-after--h3">參考 GitHub CLI 網頁的教學安裝 GitHub CLI。</p><div name="c468" id="c468" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://cli.github.com/" data-href="https://cli.github.com/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://cli.github.com/"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub CLI</strong><br><em class="markup--em markup--mixtapeEmbed-em">Take GitHub to the command line</em>cli.github.com</a><a href="https://cli.github.com/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="79e7d8819e087442e2329acaa49a51e0" data-thumbnail-img-id="0*dNbmiUzMHNva_kb9" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*dNbmiUzMHNva_kb9);"></a></div><figure name="a033" id="a033" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="0*STko79tkeSNxP_g5.png" data-width="1400" data-height="802" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/0*STko79tkeSNxP_g5.png"></figure><p name="e148" id="e148" class="graf graf--p graf-after--figure">安裝好 GitHub CLI 後，從 Terminal 輸入指令登入 GitHub 帳號。只要登入一次，之後執行 gh 指令即可不用再輸入帳號密碼。</p><pre data-code-block-mode="0" spellcheck="false" name="3d68" id="3d68" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">gh auth login</span></pre><pre data-code-block-mode="0" spellcheck="false" name="273d" id="273d" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">? Where do you use GitHub?  [Use arrows to move, type to filter]<br>&gt; GitHub.com<br>  Other</span></pre><pre data-code-block-mode="0" spellcheck="false" name="7273" id="7273" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">? What is your preferred protocol for Git operations on this host?  [Use arrows to move, type to filter]<br>&gt; HTTPS<br>  SSH</span></pre><pre data-code-block-mode="0" spellcheck="false" name="7779" id="7779" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">? Authenticate Git with your GitHub credentials? (Y/n) y</span></pre><p name="5880" id="5880" class="graf graf--p graf-after--pre">打開網頁登入 GitHub 帳號。</p><pre data-code-block-mode="0" spellcheck="false" name="27ba" id="27ba" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">? How would you like to authenticate GitHub CLI?  [Use arrows to move, type to filter]<br>&gt; Login with a web browser<br>  Paste an authentication token</span></pre><pre data-code-block-mode="0" spellcheck="false" name="322f" id="322f" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">! First copy your one-time code: 88CC-267C<br>Press Enter to open https://github.com/login/device in your browser...</span></pre><figure name="19e5" id="19e5" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="0*4gYxHUsw7ZiNIDWp.png" data-width="792" data-height="718" src="https://cdn-images-1.medium.com/max/800/0*4gYxHUsw7ZiNIDWp.png"></figure><figure name="89a4" id="89a4" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="0*qUAf07hrT3jzvRtc.png" data-width="734" data-height="846" src="https://cdn-images-1.medium.com/max/800/0*qUAf07hrT3jzvRtc.png"></figure><figure name="4a26" id="4a26" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="0*3I4_M8GmtDvZA6hO.png" data-width="666" data-height="1510" src="https://cdn-images-1.medium.com/max/800/0*3I4_M8GmtDvZA6hO.png"></figure><figure name="59b3" id="59b3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="0*pSuTJI73PzL_ZQ4S.png" data-width="578" data-height="436" src="https://cdn-images-1.medium.com/max/800/0*pSuTJI73PzL_ZQ4S.png"></figure><p name="d76a" id="d76a" class="graf graf--p graf-after--figure">登入成功，Terminal 顯示 Authentication complete。</p><pre data-code-block-mode="0" spellcheck="false" name="a7b5" id="a7b5" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content">✓ Authentication complete.<br>- gh config set -h github.com git_protocol https<br>✓ Configured git protocol<br>✓ Logged in as PeterPanSwift</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/720e297ae1f2"><time class="dt-published" datetime="2025-04-20T14:12:43.584Z">April 20, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%AE%89%E8%A3%9D-github-cli-%E5%92%8C%E7%99%BB%E5%85%A5-github-%E5%B8%B3%E8%99%9F-720e297ae1f2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

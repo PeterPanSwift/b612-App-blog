@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何查詢型別遵從哪些 protocol</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何查詢型別遵從哪些 protocol</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS SDK 內建的型別往往有很多功能，遵從了很多 protocol，我們要如何知道它遵從了哪些 protocol 呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="953c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3702" id="3702" class="graf graf--h3 graf--leading graf--title">如何查詢型別遵從哪些 protocol</h3><p name="5bb7" id="5bb7" class="graf graf--p graf-after--h3">iOS SDK 內建的型別往往有很多功能，遵從了很多 protocol，我們要如何知道它遵從了哪些 protocol 呢 ?</p><p name="495a" id="495a" class="graf graf--p graf-after--p">讓我們用以下的 URL 為例說明。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3d72" id="3d72" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> url <span class="hljs-operator">=</span> <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://www.youtube.com/watch?v=0-4mm0e2h44&quot;</span>)<span class="hljs-operator">!</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Link</span>(destination: url) {<br />                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;退後&quot;</span>)<br />            }<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;&quot;&quot;<br />    我知道你我都沒有錯<br />    只是忘了怎麼退後<br />    信誓旦旦給了承諾<br />    卻被時間撲了空<br />&quot;&quot;&quot;</span>)<br />        }<br />        <br />    }<br />}</span></pre><h3 name="9115" id="9115" class="graf graf--h3 graf-after--pre">按住 option 鍵後點選 URL，顯示它的說明視窗</h3><figure name="d4f6" id="d4f6" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*9T_bUB_5AqKKTFfoja8y0g.png" data-width="1080" data-height="860" src="https://cdn-images-1.medium.com/max/800/1*9T_bUB_5AqKKTFfoja8y0g.png"></figure><h3 name="2f0c" id="2f0c" class="graf graf--h3 graf-after--figure">滑到說明視窗的底部，點選 Open in Developer Documentation</h3><figure name="99d3" id="99d3" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*td3nHUBm8TBQArvfkczIog.png" data-width="1036" data-height="728" src="https://cdn-images-1.medium.com/max/800/1*td3nHUBm8TBQArvfkczIog.png"></figure><p name="7df4" id="7df4" class="graf graf--p graf-after--figure">此時將打開 URL 型別的詳細說明頁面。</p><figure name="a2d6" id="a2d6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5QXnGZFyOiQg-J3UDdwiwA.png" data-width="2792" data-height="1522" src="https://cdn-images-1.medium.com/max/800/1*5QXnGZFyOiQg-J3UDdwiwA.png"></figure><h3 name="1a20" id="1a20" class="graf graf--h3 graf-after--figure">點選右側清單的 Relationships</h3><figure name="3f7d" id="3f7d" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*MFtPpCdheIHAvl-aegvGpA.png" data-width="2792" data-height="1522" src="https://cdn-images-1.medium.com/max/800/1*MFtPpCdheIHAvl-aegvGpA.png"></figure><p name="7b89" id="7b89" class="graf graf--p graf-after--figure">從 Relationships 區塊可看到 URL 遵從了 6 個 protocol。</p><figure name="c794" id="c794" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*e7dLlzRkR8X3ZMrhaf0yLA.png" data-width="2090" data-height="600" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*e7dLlzRkR8X3ZMrhaf0yLA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/7bdd5e626446"><time class="dt-published" datetime="2021-06-18T07:20:28.570Z">June 18, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%A6%82%E4%BD%95%E6%9F%A5%E8%A9%A2%E5%9E%8B%E5%88%A5%E9%81%B5%E5%BE%9E%E5%93%AA%E4%BA%9B-protocol-7bdd5e626446" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

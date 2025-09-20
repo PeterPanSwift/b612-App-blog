@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI 控制浮點數顯示的 string interpolation</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI 控制浮點數顯示的 string interpolation</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常遇到帶有小數點的浮點數。若是直接將浮點數變成字串顯示在畫面上，往往會顯示成一個超長的數字，例如以下程式的  iOS App 工程師年薪 1000000.878 變成 1000000.878000。
+</section>
+<section data-field="body" class="e-content">
+<section name="947d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="81bc" id="81bc" class="graf graf--h3 graf--leading graf--title">SwiftUI 控制浮點數顯示的 string interpolation</h3><p name="8f95" id="8f95" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常遇到帶有小數點的浮點數。若是直接將浮點數變成字串顯示在畫面上，往往會顯示成一個超長的數字，例如以下程式的 iOS App 工程師年薪 1000000.878 變成 1000000.878000。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="a473" id="a473" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />   <span class="hljs-keyword">let</span> salary <span class="hljs-operator">=</span> <span class="hljs-number">1000000.878</span><br />   <span class="hljs-keyword">return</span> <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;傳說 iOS App 工程師都是年薪 <span class="hljs-subst">\(salary)</span>&quot;</span>)<br />}</span></pre><figure name="54e3" id="54e3" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*Z6IignhPw_CE2DFzQNLKkw.jpeg" data-width="646" data-height="1122" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Z6IignhPw_CE2DFzQNLKkw.jpeg"></figure><p name="ff74" id="ff74" class="graf graf--p graf-after--figure">我們通常會透過一些方法指定顯示時顯示到小數點後第幾位數，讓畫面看起來比較好看。在 SwiftUI 控制浮點數的顯示變得更加容易，因為它在 string interolation 增添了參數 specifier，我們可透過它控制浮點數如何顯示。</p><figure name="d484" id="d484" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*G-kyXLooFk8l2Qs8KVFIzw.jpeg" data-width="1580" data-height="286" src="https://cdn-images-1.medium.com/max/800/1*G-kyXLooFk8l2Qs8KVFIzw.jpeg"></figure><div name="d2b5" id="d2b5" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/swiftui/localizedstringkey/stringinterpolation/appendinterpolation%28_:specifier:%29" data-href="https://developer.apple.com/documentation/swiftui/localizedstringkey/stringinterpolation/appendinterpolation(_:specifier:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/localizedstringkey/stringinterpolation/appendinterpolation(_:specifier:)"><strong class="markup--strong markup--mixtapeEmbed-strong">appendInterpolation(_:specifier:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Appends a type, convertible to a string with a format specifier, to a string interpolation.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/localizedstringkey/stringinterpolation/appendinterpolation%28_:specifier:%29" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d6b51671d12185cbcfe5ad1d14446f93" data-thumbnail-img-id="0*qQAZJCoSdPwfGIIm" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*qQAZJCoSdPwfGIIm);"></a></div><p name="ac65" id="ac65" class="graf graf--p graf-after--mixtapeEmbed">比方我們傳入<code class="markup--code markup--p-code"> &quot;%.2f&quot;</code>，試試它的效果吧。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="93fc" id="93fc" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />   <span class="hljs-keyword">let</span> salary <span class="hljs-operator">=</span> <span class="hljs-number">1000000.878</span><br />   <span class="hljs-keyword">return</span> <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;傳說 iOS App 工程師都是年薪 <span class="hljs-subst">\(salary, specifier: <span class="hljs-string">&quot;%.2f&quot;</span>)</span>&quot;</span>)<br />}</span></pre><p name="c669" id="c669" class="graf graf--p graf-after--pre">如下圖所示，<code class="markup--code markup--p-code">%.2f</code> 將帶來以下影響:</p><ul class="postList"><li name="042f" id="042f" class="graf graf--li graf-after--p">%.2f 表示它將顯示到小數點以下第二位，因此顯示到第三位是 %.3f，其它以此類推。</li><li name="9dcf" id="9dcf" class="graf graf--li graf-after--li">它將四捨五入，因此 1000000.878 變成 1000000.88。</li><li name="369e" id="369e" class="graf graf--li graf-after--li">整數部分每三位數加上逗號分隔，因此 1000000.878 變成 1,000,000.88。</li></ul><figure name="d249" id="d249" class="graf graf--figure graf-after--li graf--trailing"><img class="graf-image" data-image-id="1*EvW_jrhhchiVxi3xoTVx_Q.jpeg" data-width="626" data-height="1152" src="https://cdn-images-1.medium.com/max/800/1*EvW_jrhhchiVxi3xoTVx_Q.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/7944a57418dd"><time class="dt-published" datetime="2019-10-12T04:17:26.389Z">October 12, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-%E6%8E%A7%E5%88%B6%E6%B5%AE%E9%BB%9E%E6%95%B8%E9%A1%AF%E7%A4%BA%E7%9A%84-string-interpolation-7944a57418dd" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

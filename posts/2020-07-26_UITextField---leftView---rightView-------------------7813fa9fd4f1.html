@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>UITextField 的 leftView &amp; rightView ~ 以放大鏡 &amp; 密碼顯示開關為例</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">UITextField 的 leftView &amp; rightView ~ 以放大鏡 &amp; 密碼顯示開關為例</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 UITextField 的 leftView &amp; rightView，我們可以在 text field 的左邊和右邊加上想呈現的內容，比方下圖左邊的放大鏡 icon &amp; 右邊的眼睛  icon。
+</section>
+<section data-field="body" class="e-content">
+<section name="7cab" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b38c" id="b38c" class="graf graf--h3 graf--leading graf--title">UITextField 的 leftView &amp; rightView ~ 以搜尋放大鏡 &amp; 密碼顯示開關為例</h3><p name="ed8a" id="ed8a" class="graf graf--p graf-after--h3">利用 UITextField 的 leftView &amp; rightView，我們可以在 text field 的左邊和右邊加上想呈現的內容，比方下圖左邊的放大鏡 icon &amp; 右邊的眼睛 button。</p><figure name="f5a0" id="f5a0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-Ekn3NuqjdwTumkw4wVlvw.jpeg" data-width="1106" data-height="482" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*-Ekn3NuqjdwTumkw4wVlvw.jpeg"></figure><h3 name="dd04" id="dd04" class="graf graf--h3 graf-after--figure">leftView 範例 - 搜尋輸入框的放大鏡</h3><pre name="5f7b" id="5f7b" class="graf graf--pre graf-after--h3">class SearchTextField: UITextField {<br>    <br>    required init?(coder: NSCoder) {<br>        super.init(coder: coder)<br><strong class="markup--strong markup--pre-strong">        leftViewMode = .always<br>        leftView = UIImageView(image: UIImage(systemName: &quot;magnifyingglass&quot;))<br></strong>    }</pre><pre name="7ed5" id="7ed5" class="graf graf--pre graf-after--pre">}</pre><p name="fede" id="fede" class="graf graf--p graf-after--pre">假設我們在 storyboard 加入 SearchTextField，它產生時將觸發 init?(coder: NSCoder)，因此我們在 init?(coder: NSCoder) 裡設定它的內容。</p><p name="922a" id="922a" class="graf graf--p graf-after--p">我們將 UITextField 的 leftView property 設為顯示放大鏡 icon 的 image view，並將 leftViewMode 設為 always，讓 icon 永遠顯示。leftViewMode 的型別是 UITextField.ViewMode，有 never，whileEditing，unlessEditing，always 4 種選項，可參考以下連結的說明。</p><div name="4b81" id="4b81" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uitextfield/viewmode" data-href="https://developer.apple.com/documentation/uikit/uitextfield/viewmode" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uitextfield/viewmode"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uitextfield/viewmode" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="1b16009ec1bed50a2f00f904e6970293"></a></div><p name="5896" id="5896" class="graf graf--p graf-after--mixtapeEmbed"><strong class="markup--strong markup--p-strong">執行 App</strong></p><p name="a6aa" id="a6aa" class="graf graf--p graf-after--p">放大鏡完美地出現在 text field 的左邊，不過它有點太靠近邊邊了，能不能不要那麼近呢 ?</p><figure name="f8ea" id="f8ea" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ntuEurD6WxFAEMhY7bVWWw.jpeg" data-width="832" data-height="1556" src="https://cdn-images-1.medium.com/max/800/1*ntuEurD6WxFAEMhY7bVWWw.jpeg"></figure><p name="2b7b" id="2b7b" class="graf graf--p graf-after--figure">當然可以，我們可以自訂繼承 UITextField 的類別，然後覆寫 function leftViewRect(forBounds:)，透過它回傳的 CGRect 控制 leftView 的大小和位置。</p><p name="f198" id="f198" class="graf graf--p graf-after--p">以下例子裡，我們將 x 設為 10，height 設為 text field 的預設高度 34，因此 image view 不再跟 text field 的左邊界黏在一起，保持著 10 points 的安全距離。另外我們也將 imageView 的 contentMode 設為 scaleAspectFit，讓圖片維持比例縮放。</p><pre name="0bc1" id="0bc1" class="graf graf--pre graf-after--p">class SearchTextField: UITextField {<br>    <br>    required init?(coder: NSCoder) {<br>        super.init(coder: coder)<br>        leftViewMode = .always<br>        let imageView = UIImageView(image: UIImage(systemName: &quot;magnifyingglass&quot;))<br><strong class="markup--strong markup--pre-strong">        imageView.contentMode = .scaleAspectFit<br></strong>        leftView = imageView<br>    }<br>    <br>    <strong class="markup--strong markup--pre-strong">override func leftViewRect(forBounds bounds: CGRect) -&gt; CGRect {<br>        let width = UIImage(systemName: &quot;magnifyingglass&quot;)?.size.width ?? 0<br>        return CGRect(x: 10, y: 0, width: width, height: 34)<br>    }</strong></pre><pre name="4695" id="4695" class="graf graf--pre graf-after--pre">}</pre><figure name="66ca" id="66ca" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*l8kvEu5jylQxbvCUY_moSg.jpeg" data-width="832" data-height="1556" src="https://cdn-images-1.medium.com/max/800/1*l8kvEu5jylQxbvCUY_moSg.jpeg"></figure><h3 name="c536" id="c536" class="graf graf--h3 graf-after--figure">rightView 範例 — 切換密碼是否顯示的眼睛 button</h3><pre name="a868" id="a868" class="graf graf--pre graf-after--h3">class PasswordTextField: UITextField {<br>    <br>    <a href="http://twitter.com/objc" data-href="http://twitter.com/objc" class="markup--anchor markup--pre-anchor" title="Twitter profile for @objc" rel="noopener" target="_blank">@objc</a> func eyeButtonTap(button: UIButton) {<br>        button.isSelected.toggle()<br>        isSecureTextEntry = button.isSelected<br>    }</pre><pre name="9af6" id="9af6" class="graf graf--pre graf-after--pre">required init?(coder: NSCoder) {<br>        super.init(coder: coder)<br>        isSecureTextEntry = true<br>        rightViewMode = .always<br>        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 34, height: 34))<br><strong class="markup--strong markup--pre-strong">        button.isSelected = true <br></strong>       <strong class="markup--strong markup--pre-strong"> button.setImage(UIImage(systemName: &quot;eye.slash.fill&quot;), for: .selected)<br>        button.setImage(UIImage(systemName: &quot;eye.fill&quot;), for: .normal)</strong><br>        button.imageView?.contentMode = .scaleAspectFit<br><strong class="markup--strong markup--pre-strong">        rightView = button<br></strong>        button.addTarget(self, action: #selector(eyeButtonTap(button:)), for: .touchUpInside)<br>    }<br>    <br>   <strong class="markup--strong markup--pre-strong"> override func rightViewRect(forBounds bounds: CGRect) -&gt; CGRect {<br>        CGRect(x: bounds.width - 10 - 34, y: 0, width: 34, height: 34)<br>    }</strong></pre><pre name="81ca" id="81ca" class="graf graf--pre graf-after--pre">}</pre><p name="bde9" id="bde9" class="graf graf--p graf-after--pre">說明</p><ul class="postList"><li name="5976" id="5976" class="graf graf--li graf-after--p">自訂繼承 UITextField 的類別 PasswordTextField。</li></ul><pre name="9d9a" id="9d9a" class="graf graf--pre graf-after--li">class PasswordTextField: UITextField {</pre><ul class="postList"><li name="35b5" id="35b5" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">將 UITextField 的 rightView property 設為顯示眼睛 icon 的 button。</strong></li></ul><pre name="3b1d" id="3b1d" class="graf graf--pre graf-after--li">rightView = button</pre><ul class="postList"><li name="9808" id="9808" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">設定 button 兩種狀態的眼睛圖片，一開始 isSelected 為 true。</strong></li></ul><p name="fdbe" id="fdbe" class="graf graf--p graf-after--li">我們想要點選眼睛 button 切換密碼是否顯示，因此設定 button 在 selected &amp; normal 狀態顯示不同圖片，一開始 isSelected 為 true，顯示閉著的眼睛，當 isSelected 為 false 時顯示開著的眼睛。</p><pre name="dc0e" id="dc0e" class="graf graf--pre graf-after--p">button.isSelected = true<br>button.setImage(UIImage(systemName: &quot;eye.slash.fill&quot;), for: .selected)<br>button.setImage(UIImage(systemName: &quot;eye.fill&quot;), for: .normal)</pre><p name="7a67" id="7a67" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">執行 App</strong></p><p name="5282" id="5282" class="graf graf--p graf-after--p">眼睛完美地出現在 text field 的邊，不過它有點太靠近邊邊了，能不能不要那麼近呢 ?</p><figure name="8d3e" id="8d3e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*on7Be799davWfIuwiofR_w.jpeg" data-width="782" data-height="1448" src="https://cdn-images-1.medium.com/max/800/1*on7Be799davWfIuwiofR_w.jpeg"></figure><p name="3330" id="3330" class="graf graf--p graf-after--figure">當然可以，我們可以定義 UITextField 的 function rightViewRect(forBounds:)，透過它回傳的 CGRect 控制 rightView 的大小和位置。</p><pre name="cdf1" id="cdf1" class="graf graf--pre graf-after--p">override func rightViewRect(forBounds bounds: CGRect) -&gt; CGRect {<br>        CGRect(x: bounds.width - 10 - 34, y: 0, width: 34, height: 34)<br>}</pre><p name="6c42" id="6c42" class="graf graf--p graf-after--pre">參數 bounds 的 width 為 text field 的寬度，眼睛 button 的寬度是 34，將 x 設為 <code class="markup--code markup--p-code">bounds.width — 10 — 34</code> 將讓眼睛跟 text field 的右邊界保持著 10 points 的安全距離。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="1646" id="1646" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*Ja634yCbFgPTu6kiUwhnsA.jpeg" data-width="782" data-height="1448" src="https://cdn-images-1.medium.com/max/600/1*Ja634yCbFgPTu6kiUwhnsA.jpeg"></figure><figure name="0e45" id="0e45" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*Uv3UUWHo0_ty03eQUjZHIg.jpeg" data-width="782" data-height="1448" src="https://cdn-images-1.medium.com/max/600/1*Uv3UUWHo0_ty03eQUjZHIg.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><figure name="99f5" id="99f5" class="graf graf--figure graf--iframe graf-after--figure graf--trailing"><iframe src="https://www.youtube.com/embed/fIjDpHiT6kY?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/7813fa9fd4f1"><time class="dt-published" datetime="2020-07-26T15:25:09.280Z">July 26, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/uitextfield-%E7%9A%84-leftview-rightview-%E4%BB%A5%E6%94%BE%E5%A4%A7%E9%8F%A1-%E5%AF%86%E7%A2%BC%E9%A1%AF%E7%A4%BA%E9%96%8B%E9%97%9C%E7%82%BA%E4%BE%8B-7813fa9fd4f1" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

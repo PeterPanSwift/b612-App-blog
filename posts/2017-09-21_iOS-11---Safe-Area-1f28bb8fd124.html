@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS 11 的 Safe Area</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS 11 的 Safe Area</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+View 的 safe area 控制內容呈現的範圍，長在 View 的底下。Xcode 9 新開的專案，預設採用 Safe Area，不再是 Top Layout Guide 和 Bottom Layout Guide。
+</section>
+<section data-field="body" class="e-content">
+<section name="b77a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5819" id="5819" class="graf graf--h3 graf--leading graf--title">iOS 11 的 <strong class="markup--strong markup--h3-strong">Safe Area</strong></h3><p name="254c" id="254c" class="graf graf--p graf-after--h3">View 的 safe area 控制內容呈現的範圍，長在 View 的底下。Xcode 9 新開的專案，預設採用 Safe Area，不再是 Top Layout Guide 和 Bottom Layout Guide。</p><figure name="a2ec" id="a2ec" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*rYgGJV-hV_rqBjStukXRWQ.jpeg" data-width="1212" data-height="1240" src="https://cdn-images-1.medium.com/max/800/1*rYgGJV-hV_rqBjStukXRWQ.jpeg"></figure><p name="097e" id="097e" class="graf graf--p graf-after--figure">Xcode 9 新建的專案預設勾選 Use Safe Area Layout Guides。(storyboard 的 File Inspector 頁面)</p><figure name="453a" id="453a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*s9YUSQtY_LH-ZoMOtfrGww.jpeg" data-width="536" data-height="732" src="https://cdn-images-1.medium.com/max/800/1*s9YUSQtY_LH-ZoMOtfrGww.jpeg"></figure><p name="a628" id="a628" class="graf graf--p graf-after--figure">Xcode 9 之前的舊專案勾選 Use Safe Area Layout Guides 後，Top Layout Guide 和 Bottom Layout Guide 將被拿掉，變成使用 Safe Area，一般來說可以無痛轉換，不會有太大的問題。</p><figure name="bbf1" id="bbf1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Wm2JbvG4yKyc9mz9Lt9kPQ.jpeg" data-width="1422" data-height="496" src="https://cdn-images-1.medium.com/max/800/1*Wm2JbvG4yKyc9mz9Lt9kPQ.jpeg"></figure><p name="06e2" id="06e2" class="graf graf--p graf-after--figure">雖然 Safe Area 只支援 iOS 11 以上版本，不過勾選 Use Safe Area Layout Guides 的專案，仍然可以支援之前的 iOS，因為 Safe Area 會被自動轉換為 Top and Bottom layout guide。</p><p name="038a" id="038a" class="graf graf--p graf-after--p">storyboard 和 xib 都可以個別設定是否使用 Safe Area。</p><figure name="dd96" id="dd96" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tqZqlvULXnPH0aiX2rNhmQ.jpeg" data-width="2234" data-height="824" src="https://cdn-images-1.medium.com/max/800/1*tqZqlvULXnPH0aiX2rNhmQ.jpeg"></figure><p name="32ce" id="32ce" class="graf graf--p graf-after--figure">Safe Area 沒有 margin</p><div name="6f33" id="6f33" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%B2%92%E6%9C%89-margin-%E7%9A%84-safe-area-4a6d2ff99280" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%B2%92%E6%9C%89-margin-%E7%9A%84-safe-area-4a6d2ff99280" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%B2%92%E6%9C%89-margin-%E7%9A%84-safe-area-4a6d2ff99280"><strong class="markup--strong markup--mixtapeEmbed-strong">沒有 margin 的 Safe Area</strong><br><em class="markup--em markup--mixtapeEmbed-em">在 Xcode 9，原本的 Top Layout Guide 和 Bottom Layout Guide 被全新角色 Safe Area 取代了。如下圖所示，Safe Area 長在 controller 的 view 底下，定義…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%B2%92%E6%9C%89-margin-%E7%9A%84-safe-area-4a6d2ff99280" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="bcc80f02d03cebcfe74195cca036abe2" data-thumbnail-img-id="1*GaVB7KTD5ek-EMLUwb029A.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*GaVB7KTD5ek-EMLUwb029A.png);"></a></div><p name="f5cf" id="f5cf" class="graf graf--p graf-after--mixtapeEmbed">iPhone X 的全螢幕背景圖片</p><div name="10de" id="10de" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/iphone-x-%E7%9A%84%E5%85%A8%E8%9E%A2%E5%B9%95%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87-1800b2e92d0" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/iphone-x-%E7%9A%84%E5%85%A8%E8%9E%A2%E5%B9%95%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87-1800b2e92d0" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/iphone-x-%E7%9A%84%E5%85%A8%E8%9E%A2%E5%B9%95%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87-1800b2e92d0"><strong class="markup--strong markup--mixtapeEmbed-strong">iPhone X 的全螢幕背景圖片</strong><br><em class="markup--em markup--mixtapeEmbed-em">如果沒有特別調整，設定上下左右間距條件將產生和 Safe Area 的間距。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/iphone-x-%E7%9A%84%E5%85%A8%E8%9E%A2%E5%B9%95%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87-1800b2e92d0" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="80671fb842edb7ea89c299587df37fcf" data-thumbnail-img-id="1*TfDwMAJZfEEJIvC-dAMUQA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*TfDwMAJZfEEJIvC-dAMUQA.jpeg);"></a></div><p name="f45d" id="f45d" class="graf graf--p graf-after--mixtapeEmbed">Safe area 的相關 property</p><pre name="e14d" id="e14d" class="graf graf--pre graf-after--p">class UIView {</pre><pre name="bba8" id="bba8" class="graf graf--pre graf-after--pre">var safeAreaLayoutGuide: UILayoutGuide { get }</pre><pre name="c0e6" id="c0e6" class="graf graf--pre graf-after--pre">var safeAreaInsets: UIEdgeInsets { get }</pre><pre name="5640" id="5640" class="graf graf--pre graf-after--pre">func safeAreaInsetsDidChange()</pre><pre name="f86a" id="f86a" class="graf graf--pre graf-after--pre">}</pre><p name="86b0" id="86b0" class="graf graf--p graf-after--pre">測試程式碼</p><pre name="eaea" id="eaea" class="graf graf--pre graf-after--p">override func viewDidAppear(_ animated: Bool) {</pre><pre name="ed18" id="ed18" class="graf graf--pre graf-after--pre">   super.viewDidAppear(animated)</pre><pre name="f5c7" id="f5c7" class="graf graf--pre graf-after--pre">   print(view.safeAreaInsets)</pre><pre name="2024" id="2024" class="graf graf--pre graf-after--pre">   print(view.safeAreaLayoutGuide)</pre><pre name="cd04" id="cd04" class="graf graf--pre graf-after--pre">}</pre><p name="5f86" id="5f86" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">iPhone 7 範例:</strong></p><figure name="345f" id="345f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*WXxcU099XxTjaCAlfn9U9Q.jpeg" data-width="358" data-height="668" src="https://cdn-images-1.medium.com/max/800/1*WXxcU099XxTjaCAlfn9U9Q.jpeg"></figure><p name="00b1" id="00b1" class="graf graf--p graf-after--figure">標準大小的 navigaiton bar 時，safe area 的 top inset 是 64</p><p name="38e9" id="38e9" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">UIEdgeInsets(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)</strong></p><p name="0181" id="0181" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">&lt;UILayoutGuide: 0x6100001bce00 — “UIViewSafeAreaLayoutGuide”, layoutFrame = {{0, 64}, {375, 603}}, owningView = &lt;UIView: 0x7fb3095185c0; frame = (0 0; 375 667); autoresize = W+H; layer = &lt;CALayer: 0x60800003d140&gt;&gt;&gt;</strong></p><figure name="0390" id="0390" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YiivbHO75ET9HW84tDyGlw.jpeg" data-width="354" data-height="640" src="https://cdn-images-1.medium.com/max/800/1*YiivbHO75ET9HW84tDyGlw.jpeg"></figure><p name="5225" id="5225" class="graf graf--p graf-after--figure">放大版的 navigaiton bar 時，safe area 的 top inset 是 116。</p><p name="b5b9" id="b5b9" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">UIEdgeInsets(top: 116.0, left: 0.0, bottom: 0.0, right: 0.0)</strong></p><p name="c0b1" id="c0b1" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">&lt;UILayoutGuide: 0x6100001ab1a0 — “UIViewSafeAreaLayoutGuide”, layoutFrame = {{0, 116}, {375, 551}}, owningView = &lt;UIView: 0x7ff4d422efe0; frame = (0 0; 375 667); autoresize = W+H; layer = &lt;CALayer: 0x618000033460&gt;&gt;&gt;</strong></p><p name="11f5" id="11f5" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">iPhone X 範例:</strong></p><figure name="7be9" id="7be9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*k_iEx-clU7FU7zJJSK0Nyg.jpeg" data-width="884" data-height="1524" src="https://cdn-images-1.medium.com/max/800/1*k_iEx-clU7FU7zJJSK0Nyg.jpeg"></figure><p name="3630" id="3630" class="graf graf--p graf-after--figure">標準大小的 navigaiton bar 時，safe area 的 top inset 是 88。</p><pre name="918e" id="918e" class="graf graf--pre graf-after--p">UIEdgeInsets(top: 88.0, left: 0.0, bottom: 34.0, right: 0.0)</pre><pre name="65c9" id="65c9" class="graf graf--pre graf-after--pre">&lt;UILayoutGuide: 0x6040001a7b60 - &quot;UIViewSafeAreaLayoutGuide&quot;, layoutFrame = {{0, 88}, {375, 690}}, owningView = &lt;UIView: 0x7fc011501100; frame = (0 0; 375 812); autoresize = W+H; layer = &lt;CALayer: 0x604000224c60&gt;&gt;&gt;</pre><p name="89e5" id="89e5" class="graf graf--p graf-after--pre">放大版的 navigaiton bar 時，safe area 的 top inset 是 140。</p><pre name="f5f1" id="f5f1" class="graf graf--pre graf-after--p">UIEdgeInsets(top: 140.0, left: 0.0, bottom: 34.0, right: 0.0)</pre><pre name="26da" id="26da" class="graf graf--pre graf-after--pre graf--trailing">&lt;UILayoutGuide: 0x6040001bcb60 - &quot;UIViewSafeAreaLayoutGuide&quot;, layoutFrame = {{0, 140}, {375, 638}}, owningView = &lt;UIView: 0x7fcc2d528af0; frame = (0 0; 375 812); autoresize = W+H; layer = &lt;CALayer: 0x60000022b700&gt;&gt;&gt;</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/1f28bb8fd124"><time class="dt-published" datetime="2017-09-21T09:10:01.113Z">September 21, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/ios-11-%E7%9A%84-safe-area-1f28bb8fd124" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

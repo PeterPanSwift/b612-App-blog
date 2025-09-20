@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>遵從 protocol 問題: does not conform to protocol NSObjectProtocol</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">遵從 protocol 問題: does not conform to protocol NSObjectProtocol</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常需要讓自訂的型別遵從 iOS SDK 的 protocol，比方我們自訂的 view controller 為了在表格 cell 點選時執行某段程式，需要遵從 protocol UITableViewDataDelegate。
+</section>
+<section data-field="body" class="e-content">
+<section name="a19a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5d13" id="5d13" class="graf graf--h3 graf--leading graf--title">遵從 protocol 問題: does not conform to protocol NSObjectProtocol</h3><p name="be88" id="be88" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常需要讓自訂的型別遵從 iOS SDK 的 protocol，比方我們自訂的 view controller 為了在表格 cell 點選時執行某段程式，需要遵從 protocol UITableViewDataDelegate。</p><pre name="a867" id="a867" class="graf graf--pre graf-after--p">class MovieViewController: UIViewController, UITableViewDelegate {</pre><pre name="0c3c" id="0c3c" class="graf graf--pre graf-after--pre">   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {</pre><pre name="a70f" id="a70f" class="graf graf--pre graf-after--pre">   }</pre><pre name="5c6b" id="5c6b" class="graf graf--pre graf-after--pre">}</pre><p name="5c8a" id="5c8a" class="graf graf--p graf-after--pre">但如果我們使用沒有繼承任何人的類別遵從 protocol UITableViewDataDelegate 時，卻會產生莫名其妙的錯誤。</p><pre name="0e18" id="0e18" class="graf graf--pre graf-after--p">class MovieTableViewDelegate: UITableViewDelegate {</pre><pre name="3f84" id="3f84" class="graf graf--pre graf-after--pre">  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {</pre><pre name="dad4" id="dad4" class="graf graf--pre graf-after--pre">  }</pre><pre name="1fc3" id="1fc3" class="graf graf--pre graf-after--pre">}</pre><figure name="0596" id="0596" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*PYO7aBXKsn0WUWXrM5Owfw.png" data-width="1688" data-height="378" src="https://cdn-images-1.medium.com/max/800/1*PYO7aBXKsn0WUWXrM5Owfw.png"></figure><p name="f370" id="f370" class="graf graf--p graf-after--figure">錯誤訊息提到 <code class="markup--code markup--p-code">Cannot declare conformance to ‘NSObjectProtocol’ in Swift</code>。但是我們明明是遵從 UITableViewDataDelegate，不是 NSObjectProtocol 呀。</p><p name="37ab" id="37ab" class="graf graf--p graf-after--p">非也。你還不夠了解 UITableViewDataDelegate，就像彼得潘不懂虎克船長一樣。其實它遵從著 UIScrollViewDelegate，而 UIScrollViewDelegate 遵從著 NSObjectProtocol，所以我們遵從 UITableViewDataDelegate 時，也要負責將 UIScrollViewDelegate &amp; NSObjectProtocol 的功能實現。</p><pre name="9394" id="9394" class="graf graf--pre graf-after--p">protocol UITableViewDelegate : UIScrollViewDelegate</pre><pre name="c42b" id="c42b" class="graf graf--pre graf-after--pre">protocol UIScrollViewDelegate : NSObjectProtocol</pre><div name="54b0" id="54b0" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/uikit/uitableviewdragdelegate" data-href="https://developer.apple.com/documentation/uikit/uitableviewdragdelegate" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uitableviewdragdelegate"><strong class="markup--strong markup--mixtapeEmbed-strong">UITableViewDragDelegate - UIKit | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">The interface for initiating drags from a table view.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uitableviewdragdelegate" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="f5538379369ec463b6d6a1bd5cb6b187"></a></div><p name="7059" id="7059" class="graf graf--p graf-after--mixtapeEmbed">問題應該不大，Xcode 現在有貼心的 Fix 按鈕，只要點選 Fix，它會幫我們補上需要定義的 protocol 功能。</p><figure name="d73f" id="d73f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5TUHSeXq-mauMKLTej87DQ.jpeg" data-width="1730" data-height="1036" src="https://cdn-images-1.medium.com/max/800/1*5TUHSeXq-mauMKLTej87DQ.jpeg"></figure><p name="88b8" id="88b8" class="graf graf--p graf-after--figure">但是事實不然。如上圖所示，Xcode 幫我們加了一堆來自 NSObjectProtocol 的 function，而且我們毫無頭緒，不知道該在這些 function 裡寫什麼。</p><p name="e089" id="e089" class="graf graf--p graf-after--p">其實我們不需要一個個辛苦地實現 NSObjectProtocol 的功能，有一個更簡單的方法，我們只要讓自訂的類別繼承 NSObject。</p><pre name="a5d2" id="a5d2" class="graf graf--pre graf-after--p">class MovieTableViewDelegate: NSObject, UITableViewDelegate {</pre><pre name="29bb" id="29bb" class="graf graf--pre graf-after--pre">   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {</pre><pre name="1ca3" id="1ca3" class="graf graf--pre graf-after--pre">   }</pre><pre name="64ed" id="64ed" class="graf graf--pre graf-after--pre">}</pre><p name="67af" id="67af" class="graf graf--p graf-after--pre">NSObject 怎麼會如此厲害呢 ? 答案就藏在它的身世裡。原來它早已遵從 NSObjectProtocol，因此它已經幫我們定義 NSObjectProtocol 的功能。這也是為何當我們的類別繼承 iOS SDK 內建類別再遵從 UITableViewDataDelegate 時不會有問題，因為所有的 iOS SDK 內建類別都繼承自 NSObject。</p><pre name="1e03" id="1e03" class="graf graf--pre graf-after--p">class NSObject : NSObjectProtocol</pre><div name="6a6b" id="6a6b" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/objectivec/nsobject" data-href="https://developer.apple.com/documentation/objectivec/nsobject" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/objectivec/nsobject"><strong class="markup--strong markup--mixtapeEmbed-strong">NSObject - Objective-C Runtime | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">The root class of most Objective-C class hierarchies, from which subclasses inherit a basic interface to the runtime…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/objectivec/nsobject" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="548736f0c411d25f785f8102ec9f5205"></a></div><p name="86ab" id="86ab" class="graf graf--p graf-after--mixtapeEmbed">另外在遵從 iOS SDK 的 protocol 時，還有個小地方要注意。我們只能使用 class 型別，像以下 struct 定義的型別就無法。</p><figure name="33f3" id="33f3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*i76dFhQcNFUv2FW5Gvr8jQ.jpeg" data-width="2314" data-height="432" src="https://cdn-images-1.medium.com/max/800/1*i76dFhQcNFUv2FW5Gvr8jQ.jpeg"></figure><pre name="0896" id="0896" class="graf graf--pre graf-after--figure">Non-class type &#39;MovieTableViewDelegate&#39; cannot conform to class protocol &#39;UITableViewDelegate&#39;</pre><p name="45b6" id="45b6" class="graf graf--p graf-after--pre graf--trailing">錯誤訊息提到 struct 是 Non-class type，無法遵從 class protocol。iOS SDK 裡的 protocol 都是 class protocol，註定只能被 class 型別遵從。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/deac17325185"><time class="dt-published" datetime="2018-08-30T08:13:09.069Z">August 30, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E9%81%B5%E5%BE%9E-protocol-%E5%95%8F%E9%A1%8C-does-not-conform-to-protocol-nsobjectprotocol-deac17325185" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

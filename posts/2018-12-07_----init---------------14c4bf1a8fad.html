@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 .init 的自動完成更快速地建立東西</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 .init 的自動完成更快速地建立東西</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 Swift iOS App 時，我們時常利用型別名字 + ( ) 生成東西。不過為了讓程式的意思更清楚，型別的名字往往超長一串，打起來有點辛苦，比方以下例子的 CGAffineTransform &amp; CGPoint。
+</section>
+<section data-field="body" class="e-content">
+<section name="8455" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="cb16" id="cb16" class="graf graf--h3 graf--leading graf--title">利用 .init 的自動完成更快速地建立東西</h3><p name="a832" id="a832" class="graf graf--p graf-after--h3">開發 Swift iOS App 時，我們時常利用型別名字 + ( ) 生成東西。不過為了讓程式的意思更清楚，型別的名字往往超長一串，打起來有點辛苦，比方以下例子的 CGAffineTransform &amp; CGPoint。</p><pre name="05e3" id="05e3" class="graf graf--pre graf-after--p">let view = UIView()</pre><pre name="7a0f" id="7a0f" class="graf graf--pre graf-after--pre">view.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)</pre><pre name="b019" id="b019" class="graf graf--pre graf-after--pre">view.frame.origin = CGPoint(x: 10, y: 10)</pre><p name="b4e4" id="b4e4" class="graf graf--p graf-after--pre">由於有自動完成，所以真正輸入時只要打前幾個字，比方輸入 cga 後即可選擇 CGAffineTransform。</p><figure name="96f1" id="96f1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yd6GE5CJL5wtdiDR_nyNKA.jpeg" data-width="1452" data-height="268" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*yd6GE5CJL5wtdiDR_nyNKA.jpeg"></figure><p name="b2a3" id="b2a3" class="graf graf--p graf-after--figure">輸入 (s 後可選擇參數 scaleX &amp; scaleY。(s 對應 scaleX 的 s)</p><figure name="928c" id="928c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*MfD5NLat1Un0sFaZrNH5Gg.jpeg" data-width="1778" data-height="304" src="https://cdn-images-1.medium.com/max/800/1*MfD5NLat1Un0sFaZrNH5Gg.jpeg"></figure><figure name="d09b" id="d09b" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*CjfB8fJhMnGE_TNWbfxE2g.jpeg" data-width="1100" data-height="214" src="https://cdn-images-1.medium.com/max/800/1*CjfB8fJhMnGE_TNWbfxE2g.jpeg"></figure><p name="2de9" id="2de9" class="graf graf--p graf-after--figure">不過說實話，CGAffineTransform 對初學者來說是個很難記的單字，因此很容易在輸入 view.transform = 後忘了 transform 的型別名字，需要再查一下，查到 transform 的型別是 CGAffineTransform 後再輸入 cg。</p><p name="2bd6" id="2bd6" class="graf graf--p graf-after--p">其實就算忘記型別名字，我們也能快速輸入。由於 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">型別.init( ) </strong></code>是生東西的另一種寫法， 因此我們可以省略型別，直接輸入 .is，快速選到參數 scaleX &amp; scaleY 的 init。(i 對應 init，s 對應 scaleX 的 s)</p><figure name="18d5" id="18d5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bgDdGjlrxvOYT-R7yOJAPg.jpeg" data-width="1566" data-height="310" src="https://cdn-images-1.medium.com/max/800/1*bgDdGjlrxvOYT-R7yOJAPg.jpeg"></figure><figure name="c162" id="c162" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*1eRslUsEZ2fKbW4isVKM4Q.jpeg" data-width="1126" data-height="208" src="https://cdn-images-1.medium.com/max/800/1*1eRslUsEZ2fKbW4isVKM4Q.jpeg"></figure><p name="47ed" id="47ed" class="graf graf--p graf-after--figure">ps: 省略型別的寫法可參考以下連結的說明。</p><div name="609f" id="609f" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-%E5%AD%98%E5%8F%96-type-property-method-%E7%9A%84%E5%9E%8B%E5%88%A5%E7%9C%81%E7%95%A5%E5%95%8F%E9%A1%8C-bbd57b4d3457" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-%E5%AD%98%E5%8F%96-type-property-method-%E7%9A%84%E5%9E%8B%E5%88%A5%E7%9C%81%E7%95%A5%E5%95%8F%E9%A1%8C-bbd57b4d3457" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-%E5%AD%98%E5%8F%96-type-property-method-%E7%9A%84%E5%9E%8B%E5%88%A5%E7%9C%81%E7%95%A5%E5%95%8F%E9%A1%8C-bbd57b4d3457"><strong class="markup--strong markup--mixtapeEmbed-strong">Swift 存取 type property &amp; method 的型別省略問題</strong><br><em class="markup--em markup--mixtapeEmbed-em">貼心的 Swift 想盡方法幫我們少寫一點 code，因此當我們存取 type property &amp; method 時，以下兩種情況可省略型別。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-%E5%AD%98%E5%8F%96-type-property-method-%E7%9A%84%E5%9E%8B%E5%88%A5%E7%9C%81%E7%95%A5%E5%95%8F%E9%A1%8C-bbd57b4d3457" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a827cabed0b0bd38c3f9e1e71d60b84f" data-thumbnail-img-id="1*D4EJufKoJx-EoStv0ystPA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*D4EJufKoJx-EoStv0ystPA.jpeg);"></a></div><p name="33a7" id="33a7" class="graf graf--p graf-after--mixtapeEmbed">因此剛剛的例子我們可以將 transform 和 origin 改成 .init 的寫法，更快速地設定 transform &amp; origin。</p><pre name="61e0" id="61e0" class="graf graf--pre graf-after--p">let view = UIView()</pre><pre name="dde8" id="dde8" class="graf graf--pre graf-after--pre">view.transform = .init(scaleX: 0.5, y: 0.5)</pre><pre name="35b8" id="35b8" class="graf graf--pre graf-after--pre">view.frame.origin = .init(x: 10, y: 10)</pre><p name="573b" id="573b" class="graf graf--p graf-after--pre">不過有一點要注意的，並非所有東西都能利用 .init 快速生成，比方以下例子，UIImage 的 init(named:) 並不會在輸入 .init 時出現，硬要輸入也會出現錯誤。</p><figure name="3632" id="3632" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2uDBKugcChkDy4rF8IZfSA.jpeg" data-width="1430" data-height="234" src="https://cdn-images-1.medium.com/max/800/1*2uDBKugcChkDy4rF8IZfSA.jpeg"></figure><p name="47ac" id="47ac" class="graf graf--p graf-after--figure">剛剛的例子，我們只能以傳統的方法生成 UIImage。</p><pre name="01e6" id="01e6" class="graf graf--pre graf-after--p">var image: UIImage? = UIImage.init(named: &quot;peter&quot;)</pre><pre name="2688" id="2688" class="graf graf--pre graf-after--pre graf--trailing">image = UIImage(named: &quot;peter&quot;)</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/14c4bf1a8fad"><time class="dt-published" datetime="2018-12-07T16:25:29.704Z">December 7, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-init-%E7%9A%84%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%E6%9B%B4%E5%BF%AB%E9%80%9F%E5%9C%B0%E5%BB%BA%E7%AB%8B%E6%9D%B1%E8%A5%BF-14c4bf1a8fad" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

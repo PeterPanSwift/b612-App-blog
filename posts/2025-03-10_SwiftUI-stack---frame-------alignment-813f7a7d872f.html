@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI stack &amp; frame 控制對齊的 alignment</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI stack &amp; frame 控制對齊的 alignment</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+設計 SwiftUI App 畫面時，我們常常用 stack 排版畫面，而 stack &amp; frame modifier  都有著控制對齊的參數 alignment，它們有什麼差別呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="b93b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5644" id="5644" class="graf graf--h3 graf--leading graf--title">SwiftUI stack &amp; frame 控制對齊的 alignment</h3><p name="c30e" id="c30e" class="graf graf--p graf-after--h3">設計 SwiftUI App 畫面時，我們常常用 stack 排版畫面，而 stack &amp; frame modifier 都有著控制對齊的參數 alignment，它們有什麼差別呢 ?</p><p name="deab" id="deab" class="graf graf--p graf-after--p">以下我們以圖庫網站 pexels 上可愛的企鵝為例，透過一些例子介紹它們的用法和差異。</p><p name="2f33" id="2f33" class="graf graf--p graf-after--p"><a href="https://www.pexels.com/photo/penguins-standing-on-the-snow-during-daytime-52509/" data-href="https://www.pexels.com/photo/penguins-standing-on-the-snow-during-daytime-52509/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://www.pexels.com/photo/penguins-standing-on-the-snow-during-daytime-52509/</a></p><p name="7f60" id="7f60" class="graf graf--p graf-after--p">以 VStack 為例，元件上下排列時預設會對齊中間。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f3a2" id="f3a2" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span> {<br />    <span class="hljs-type">Image</span>(.penguin)<br />        .resizable()<br />        .scaledToFit()<br />        .frame(width: <span class="hljs-number">100</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;企鵝&quot;</span>)<br />}<br />.background(.yellow)</span></pre><figure name="c477" id="c477" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*xCNj1Zyxme6aGLX_48ZgDg.png" data-width="300" data-height="306" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*xCNj1Zyxme6aGLX_48ZgDg.png"></figure><p name="9479" id="9479" class="graf graf--p graf-after--figure">透過參數 alignment 可控制內容元件對齊的方式。</p><p name="0133" id="0133" class="graf graf--p graf-after--p">.leading 讓元件靠前對齊。(ps: 當系統的語言是由左到右的語言時，前面是左邊。 當系統的語言是由右到左的語言時，前面是右邊。)</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f782" id="f782" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span>(alignment: .leading) {<br />    <span class="hljs-type">Image</span>(.penguin)<br />        .resizable()<br />        .scaledToFit()<br />        .frame(width: <span class="hljs-number">100</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;企鵝&quot;</span>)<br />}<br />.background(.yellow)</span></pre><figure name="efa6" id="efa6" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*HNLPmOliQZWRo6oHKt-GjA.png" data-width="300" data-height="306" src="https://cdn-images-1.medium.com/max/800/1*HNLPmOliQZWRo6oHKt-GjA.png"></figure><p name="70a7" id="70a7" class="graf graf--p graf-after--figure">.trailing 會靠後對齊</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3911" id="3911" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span>(alignment: .trailing) {<br />    <span class="hljs-type">Image</span>(.penguin)<br />        .resizable()<br />        .scaledToFit()<br />        .frame(width: <span class="hljs-number">100</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;企鵝&quot;</span>)<br />}<br />.background(.yellow)</span></pre><figure name="a2fc" id="a2fc" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*10aeJghfzrtO-h2wvH9Xgg.png" data-width="300" data-height="306" src="https://cdn-images-1.medium.com/max/800/1*10aeJghfzrtO-h2wvH9Xgg.png"></figure><p name="010e" id="010e" class="graf graf--p graf-after--figure">stack 預設的大小將等於內容的大小，然而我們也可透過 frame 調整大小。frame alignment 將在 stack 大小和內容大小不同時發揮作用。</p><p name="769f" id="769f" class="graf graf--p graf-after--p">以下我們將 stack 的寬度改成 300，此時 stack 的內容元件將在 stack 的中間。因此 stack 的 alignment 只影響元件的對齊，不影響元件在 stack 框框裡的位置。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4002" id="4002" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span>(alignment: .trailing) {<br />    <span class="hljs-type">Image</span>(.penguin)<br />        .resizable()<br />        .scaledToFit()<br />        .frame(width: <span class="hljs-number">100</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;企鵝&quot;</span>)<br />}<br />.frame(width: <span class="hljs-number">300</span>)<br />.background(.yellow)</span></pre><figure name="db78" id="db78" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*u97Z0cZn37pCm5p9v03D3g.png" data-width="900" data-height="306" src="https://cdn-images-1.medium.com/max/800/1*u97Z0cZn37pCm5p9v03D3g.png"></figure><p name="6457" id="6457" class="graf graf--p graf-after--figure">透過 frame 的參數 alignment 可調整內容在 stack 框框裡的位置</p><p name="8045" id="8045" class="graf graf--p graf-after--p">.leading 讓內容靠前對齊，當系統語言是左到右時對齊 stack 框框的左邊。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="47dd" id="47dd" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span>(alignment: .trailing) {<br />    <span class="hljs-type">Image</span>(.penguin)<br />        .resizable()<br />        .scaledToFit()<br />        .frame(width: <span class="hljs-number">100</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;企鵝&quot;</span>)<br />}<br />.frame(width: <span class="hljs-number">300</span>, alignment: .leading)<br />.background(.yellow)</span></pre><figure name="ce9f" id="ce9f" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*e9e1aZvX-tEjsZPB_Z6FxQ.png" data-width="900" data-height="306" src="https://cdn-images-1.medium.com/max/800/1*e9e1aZvX-tEjsZPB_Z6FxQ.png"></figure><p name="c138" id="c138" class="graf graf--p graf-after--figure">.trailing 讓內容靠後對齊，當系統語言是左到右時對齊 stack 框框的右邊。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="c9b6" id="c9b6" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span>(alignment: .trailing) {<br />    <span class="hljs-type">Image</span>(.penguin)<br />        .resizable()<br />        .scaledToFit()<br />        .frame(width: <span class="hljs-number">100</span>)<br />    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;企鵝&quot;</span>)<br />}<br />.frame(width: <span class="hljs-number">300</span>, alignment: .trailing)<br />.background(.yellow)</span></pre><figure name="9da1" id="9da1" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*0u7k7DWE7vskl3qHTd7GWw.png" data-width="900" data-height="306" src="https://cdn-images-1.medium.com/max/800/1*0u7k7DWE7vskl3qHTd7GWw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/813f7a7d872f"><time class="dt-published" datetime="2025-03-10T04:31:00.754Z">March 10, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-stack-frame-%E6%8E%A7%E5%88%B6%E5%B0%8D%E9%BD%8A%E7%9A%84-alignment-813f7a7d872f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

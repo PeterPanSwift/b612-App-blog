@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將東西存到變數常數的型別問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將東西存到變數常數的型別問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在寫程式時，我們時常需要將東西存到變數(常數)裡。請記得 Swift 是個專一的人，他就像彼得潘一樣，小時候喜歡女生，這輩子就只會喜歡女生。因此像以下的程式，變數 age 一開始儲存 18，就代表它只能儲存型別整數的東西，這輩子只喜歡整數。你想要給它字串，它是不會接受的。
+</section>
+<section data-field="body" class="e-content">
+<section name="5ee3" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="829f" id="829f" class="graf graf--h3 graf--leading graf--title">將東西存到變數常數的型別問題</h3><p name="11cc" id="11cc" class="graf graf--p graf-after--h3">在寫程式時，我們時常需要將東西存到變數(常數)裡。請記得 Swift 是個專一的人，他就像彼得潘一樣，小時候喜歡女生，這輩子就只會喜歡女生。因此像以下的程式，變數 age 一開始儲存 18，就代表它只能儲存型別整數的東西，這輩子只喜歡整數。你想要給它字串，它是不會接受的。</p><figure name="6d1b" id="6d1b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eqEzexBS6b0L00rha0rMMg.jpeg" data-width="1374" data-height="196" src="https://cdn-images-1.medium.com/max/800/1*eqEzexBS6b0L00rha0rMMg.jpeg"></figure><p name="9ed5" id="9ed5" class="graf graf--p graf-after--figure">此時的錯誤訊息顯示 Cannot assign value of type ‘String’ to type ‘Int’，assign 的中文是指定的意思，在程式裡 = 就是 assign，因為我們把 = 右邊的東西指定存到左邊的變數或常數裡。因此剛剛錯誤訊息的意思是它不能將型別 String 的東西存到型別 Int 的 age。</p><p name="153d" id="153d" class="graf graf--p graf-after--p">這一類的型別問題，有時會顯示另一種錯誤訊息，例如以下例子:</p><figure name="ecd7" id="ecd7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*q4Dt4OnP40NQQRWk3jPChw.jpeg" data-width="1468" data-height="304" src="https://cdn-images-1.medium.com/max/800/1*q4Dt4OnP40NQQRWk3jPChw.jpeg"></figure><p name="0876" id="0876" class="graf graf--p graf-after--figure graf--trailing">錯誤訊息顯示 Cannot convert value of type ‘Float” to specified type CGFloat ，convert 是轉換的意思，它說它不能將型別 Float 的東西轉換成型別 CGFloat，因為 number2 的型別是 CGFloat，所以需要 CGFloat 型別的東西才能存到變數 number2，但 number1 存的東西的型別是 Float，它是沒可能轉成 CGFloat 的。(就像男人不能變成女人一樣)</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/763029749dc5"><time class="dt-published" datetime="2018-08-21T07:33:28.290Z">August 21, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87%E6%9D%B1%E8%A5%BF%E5%AD%98%E5%88%B0%E8%AE%8A%E6%95%B8%E5%B8%B8%E6%95%B8%E7%9A%84%E5%9E%8B%E5%88%A5%E5%95%8F%E9%A1%8C-763029749dc5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

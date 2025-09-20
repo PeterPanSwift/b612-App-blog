@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何對 The Swift Programming Language 全文搜尋</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何對 The Swift Programming Language 全文搜尋</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 The Swift Programming Language 官網我們可以閱讀 Swift 程式語法的詳細內容，不過有一個小小可惜的地方，它並沒有提供全文搜尋的功能。
+</section>
+<section data-field="body" class="e-content">
+<section name="9241" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6df8" id="6df8" class="graf graf--h3 graf--leading graf--title">如何對 The Swift Programming Language 全文搜尋</h3><p name="3b75" id="3b75" class="graf graf--p graf-after--h3">從 The Swift Programming Language 官網我們可以閱讀 Swift 程式語法的詳細內容，不過有一個小小可惜的地方，它並沒有提供全文搜尋的功能。</p><div name="29d8" id="29d8" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/" data-href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/"><strong class="markup--strong markup--mixtapeEmbed-strong">Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Copyright © 2014-2023 Apple Inc. and the Swift project authors. All rights reserved.</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="6160d5a8c8d33e3b601ead9bac34abd4"></a></div><p name="e81b" id="e81b" class="graf graf--p graf-after--mixtapeEmbed">從官網左下的 Filter 框框可以搜尋章節關鍵字，但是卻無法對 swift book 整本書進行搜尋，比方查詢 escaping 只會出現 No results found。</p><figure name="5681" id="5681" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ImhDt2t8Diakh_d2OMaKfQ.png" data-width="1066" data-height="1312" src="https://cdn-images-1.medium.com/max/800/1*ImhDt2t8Diakh_d2OMaKfQ.png"></figure><p name="7098" id="7098" class="graf graf--p graf-after--figure">彼得潘稍微研究一下後，目前想對 The Swift Programming Language 全文搜尋有以下兩種方法。</p><ul class="postList"><li name="31a0" id="31a0" class="graf graf--li graf-after--p">方法 1: 利用 Google 的站內搜尋。</li><li name="7c07" id="7c07" class="graf graf--li graf-after--li">方法 2: 從 swift book 的 GitHub 搜尋。</li></ul><h3 name="1482" id="1482" class="graf graf--h3 graf-after--li">方法 1: 利用 Google 的站內搜尋</h3><p name="e152" id="e152" class="graf graf--p graf-after--h3">指定搜尋的網站是 swift book 的官網，在 Google 搜尋時加上<code class="markup--code markup--p-code"> site:docs.swift.org/swift-book/documentation/the-swift-programming-language</code>。</p><p name="b169" id="b169" class="graf graf--p graf-after--p">以搜尋 escaping 為例，從 Google 的搜尋結果可看出 escaping 出現在 swift book 的 Closures 章節。</p><figure name="a0ea" id="a0ea" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*wqBBW_MHJhbWjZEFzuitBQ.png" data-width="1872" data-height="1690" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*wqBBW_MHJhbWjZEFzuitBQ.png"></figure><div name="df0a" id="df0a" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" data-href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures"><strong class="markup--strong markup--mixtapeEmbed-strong">Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Copyright © 2014–2023 Apple Inc. and the Swift project authors. All rights reserved.</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="c7bd462001787fff0201e46a9919541f"></a></div><figure name="ffb0" id="ffb0" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*zBHehdjFqOmS8Vt8lldbKQ.png" data-width="3508" data-height="1428" src="https://cdn-images-1.medium.com/max/800/1*zBHehdjFqOmS8Vt8lldbKQ.png"></figure><h3 name="81e8" id="81e8" class="graf graf--h3 graf-after--figure">方法 2: 從 swift book 的 GitHub 搜尋</h3><div name="9ce2" id="9ce2" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://github.com/swiftlang/swift-book" data-href="https://github.com/swiftlang/swift-book" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/swiftlang/swift-book"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - swiftlang/swift-book: The Swift Programming Language book</strong><br><em class="markup--em markup--mixtapeEmbed-em">The Swift Programming Language book. Contribute to swiftlang/swift-book development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/swiftlang/swift-book" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a00208e30fcd3e864ada1f44641a7196" data-thumbnail-img-id="0*WJoQltFpn4xyENch" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*WJoQltFpn4xyENch);"></a></div><p name="afee" id="afee" class="graf graf--p graf-after--mixtapeEmbed">點選右上方的 search 框。</p><figure name="65f7" id="65f7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*08UfBbThHCKnSDC0Dg-3Bg.png" data-width="3410" data-height="1648" src="https://cdn-images-1.medium.com/max/800/1*08UfBbThHCKnSDC0Dg-3Bg.png"></figure><p name="eb7f" id="eb7f" class="graf graf--p graf-after--figure">在下圖的 search 框輸入想查詢的關鍵字。</p><figure name="c8b6" id="c8b6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zZaqemMj-YhG-a8VSxSGOQ.png" data-width="2950" data-height="786" src="https://cdn-images-1.medium.com/max/800/1*zZaqemMj-YhG-a8VSxSGOQ.png"></figure><p name="4cc3" id="4cc3" class="graf graf--p graf-after--figure">以下我們輸入 escaping 後按 enter。</p><figure name="e3f0" id="e3f0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BmfoiRY78jxs_K-2kBqe-w.png" data-width="2954" data-height="350" src="https://cdn-images-1.medium.com/max/800/1*BmfoiRY78jxs_K-2kBqe-w.png"></figure><p name="d52f" id="d52f" class="graf graf--p graf-after--figure">找到 escaping 出現的檔案清單。</p><figure name="7754" id="7754" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*INvNJov8VhDOmxItMPP0dg.png" data-width="3410" data-height="1684" src="https://cdn-images-1.medium.com/max/800/1*INvNJov8VhDOmxItMPP0dg.png"></figure><p name="8df9" id="8df9" class="graf graf--p graf-after--figure">從上圖可看出 escaping 出現在 Closures.md，點選查看它的 Preview 即可瀏覽 escaping 的相關資訊。</p><div name="6be0" id="6be0" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/swiftlang/swift-book/blob/11a2b29983e9401c179d6269c9becc1256b11bc6/TSPL.docc/LanguageGuide/Closures.md" data-href="https://github.com/swiftlang/swift-book/blob/11a2b29983e9401c179d6269c9becc1256b11bc6/TSPL.docc/LanguageGuide/Closures.md" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/swiftlang/swift-book/blob/11a2b29983e9401c179d6269c9becc1256b11bc6/TSPL.docc/LanguageGuide/Closures.md"><strong class="markup--strong markup--mixtapeEmbed-strong">swift-book/TSPL.docc/LanguageGuide/Closures.md at 11a2b29983e9401c179d6269c9becc1256b11bc6 ·…</strong><br><em class="markup--em markup--mixtapeEmbed-em">The Swift Programming Language book. Contribute to swiftlang/swift-book development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/swiftlang/swift-book/blob/11a2b29983e9401c179d6269c9becc1256b11bc6/TSPL.docc/LanguageGuide/Closures.md" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="251514d8a55014eda8494cb05a33c60a" data-thumbnail-img-id="0*LIYK80DCJJS60r0d" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*LIYK80DCJJS60r0d);"></a></div><figure name="44e5" id="44e5" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*UI6wFlGaYyHNeSs_AvQ09g.png" data-width="2938" data-height="1382" src="https://cdn-images-1.medium.com/max/800/1*UI6wFlGaYyHNeSs_AvQ09g.png"></figure><p name="ccb2" id="ccb2" class="graf graf--p graf-after--figure">通常 md 檔的檔名會對應 swift book 的章節，因此我們也可瀏覽 swift book 官網的 Closures 章節。</p><div name="05c8" id="05c8" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" data-href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures"><strong class="markup--strong markup--mixtapeEmbed-strong">Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Copyright © 2014–2023 Apple Inc. and the Swift project authors. All rights reserved.</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="c7bd462001787fff0201e46a9919541f"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/4a4c4026b27f"><time class="dt-published" datetime="2024-09-06T17:30:19.958Z">September 6, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%A6%82%E4%BD%95%E5%B0%8D-the-swift-programming-language-%E5%85%A8%E6%96%87%E6%90%9C%E5%B0%8B-4a4c4026b27f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

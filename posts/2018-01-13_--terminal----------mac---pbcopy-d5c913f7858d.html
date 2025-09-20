@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將 terminal 指令的結果複製到 mac 的 pbcopy</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將 terminal 指令的結果複製到 mac 的 pbcopy</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們在 terminal 輸入指令時，為了將結果複製，傳統的做法是辛苦地將結果選取後再按下 cmd + c 複製。
+</section>
+<section data-field="body" class="e-content">
+<section name="4f4f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d3b5" id="d3b5" class="graf graf--h3 graf--leading graf--title">將 terminal 指令的結果複製到 mac 的 pbcopy</h3><p name="18fb" id="18fb" class="graf graf--p graf-after--h3">當我們在 terminal 輸入指令時，為了將結果複製，傳統的做法是辛苦地將結果選取後再按下 cmd + c 複製。</p><p name="a3bf" id="a3bf" class="graf graf--p graf-after--p">例子：抓取 JSON 資料。</p><pre name="9b6e" id="9b6e" class="graf graf--pre graf-after--p">curl &quot;https://itunes.apple.com/search?term=戴佩妮&amp;media=music&quot;</pre><figure name="f89e" id="f89e" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*KMVzWQgUUNQTolVoNfbQUw.jpeg" data-width="1786" data-height="1116" src="https://cdn-images-1.medium.com/max/800/1*KMVzWQgUUNQTolVoNfbQUw.jpeg"></figure><p name="9e96" id="9e96" class="graf graf--p graf-after--figure">其實用不著這麼麻煩，只要在指令後接上 | pbcopy，即可將結果複製 !</p><pre name="948f" id="948f" class="graf graf--pre graf-after--p">curl &quot;https://itunes.apple.com/search?term=戴佩妮&amp;media=music&quot; | pbcopy</pre><p name="0ff3" id="0ff3" class="graf graf--p graf-after--pre">在 JSON Editor Online 貼上剛剛指令複製的結果，生成漂亮的 JSON 格式。</p><figure name="c9f7" id="c9f7" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*x8aVy8Q5k_5JjpnaF_B4Gg.jpeg" data-width="2526" data-height="1732" src="https://cdn-images-1.medium.com/max/800/1*x8aVy8Q5k_5JjpnaF_B4Gg.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d5c913f7858d"><time class="dt-published" datetime="2018-01-13T09:32:34.949Z">January 13, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87-terminal-%E6%8C%87%E4%BB%A4%E7%9A%84%E7%B5%90%E6%9E%9C%E8%A4%87%E8%A3%BD%E5%88%B0-mac-%E7%9A%84-pbcopy-d5c913f7858d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 storyboard 的 controller 載入 xib 畫面</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 storyboard 的 controller 載入 xib 畫面</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+storyboard 和 xib 有很多共通點，都可以在 Interface Builder 製作畫面，但是如果想讓 storyboard 的 controller 載入 xib 畫面，讓 controller 同時享有 storyboard 拉 segue 和 xib…
+</section>
+<section data-field="body" class="e-content">
+<section name="7d99" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8dfb" id="8dfb" class="graf graf--h3 graf--leading graf--title">從 storyboard 的 controller 載入 xib 畫面</h3><p name="8351" id="8351" class="graf graf--p graf-after--h3">storyboard 和 xib 有很多共通點，都可以在 Interface Builder 製作畫面，但是如果想讓 storyboard 的 controller 載入 xib 畫面，讓 controller 同時享有 storyboard 拉 segue 和 xib 畫面重覆利用的好處，有可能嗎 ?</p><p name="baed" id="baed" class="graf graf--p graf-after--p">當然有呀 ! 接下來，就讓我們實際創作一個情歌 App 示範吧。</p><blockquote name="bd6a" id="bd6a" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1 在 storyboard 設計 App 畫面</strong></blockquote><figure name="a50c" id="a50c" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*BUdNzWC9hMAdyHvCFGQx4Q.png" data-width="1264" data-height="1420" src="https://cdn-images-1.medium.com/max/800/1*BUdNzWC9hMAdyHvCFGQx4Q.png"></figure><p name="0a07" id="0a07" class="graf graf--p graf-after--figure">我們想要實現以下兩點功能:</p><ol class="postList"><li name="f317" id="f317" class="graf graf--li graf-after--p">在 storyboard 拉出開心的歌和傷心的歌 controller ，因此可以用 segue 串接畫面。</li><li name="25b2" id="25b2" class="graf graf--li graf-after--li">開心的歌和傷心的歌將從 xib 載入畫面，因此畫面可以重覆利用。到時候 UI 調整時，只需修改 xib。</li></ol><blockquote name="e0b1" id="e0b1" class="graf graf--blockquote graf-after--li"><strong class="markup--strong markup--blockquote-strong">2 建立新的 controller SongViewController。</strong></blockquote><p name="f36c" id="f36c" class="graf graf--p graf-after--blockquote">記得勾選 Also create XIB file，如此才會同時建立 xib 檔。</p><figure name="6bed" id="6bed" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VFM5LnfzWKcs7w0vJPdBBg.png" data-width="1446" data-height="1036" src="https://cdn-images-1.medium.com/max/800/1*VFM5LnfzWKcs7w0vJPdBBg.png"></figure><figure name="1a9a" id="1a9a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*6b9QLCTUsUuGzKzLsG5NcQ.png" data-width="490" data-height="124" src="https://cdn-images-1.medium.com/max/800/1*6b9QLCTUsUuGzKzLsG5NcQ.png"></figure><figure name="3162" id="3162" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*_2LKtrDpNxQRtkDqL1M9pw.png" data-width="1674" data-height="1692" src="https://cdn-images-1.medium.com/max/800/1*_2LKtrDpNxQRtkDqL1M9pw.png"></figure><p name="1999" id="1999" class="graf graf--p graf-after--figure">仔細觀察 xib 的 File’s Owner。</p><p name="b120" id="b120" class="graf graf--p graf-after--p">(1) 點選 File’s Owner 後，從 Identify Inspector 頁面，可看到它的 Class 被設為 SongViewController。</p><figure name="8d8f" id="8d8f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8Fq2EUrH2LPrGrTAUe8tqg.png" data-width="536" data-height="288" src="https://cdn-images-1.medium.com/max/800/1*8Fq2EUrH2LPrGrTAUe8tqg.png"></figure><p name="cea9" id="cea9" class="graf graf--p graf-after--figure">(2) 選 File’s Owner 後，按右鍵可發現 controller 的 view 連到 xib 的 View 元件。</p><figure name="5aa7" id="5aa7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8s3GvatFdqtSAgKmxxLJzA.png" data-width="914" data-height="398" src="https://cdn-images-1.medium.com/max/800/1*8s3GvatFdqtSAgKmxxLJzA.png"></figure><p name="e186" id="e186" class="graf graf--p graf-after--figure">從以上兩點，我們了解到時候搭配 xib 檔的 controller 物件生成後，畫面將為 xib 裡的 View 元件，而且 controller 的型別為 SongViewController(或是繼承 SongViewController 的類別)。</p><blockquote name="1bd7" id="1bd7" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">3 在 SongViewController.xib 裡加上顯示歌名的 label。</strong></blockquote><figure name="b76e" id="b76e" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*RVfgfeUDhuIQL6_-ok_yAg.png" data-width="1148" data-height="910" src="https://cdn-images-1.medium.com/max/800/1*RVfgfeUDhuIQL6_-ok_yAg.png"></figure><blockquote name="2165" id="2165" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">4 拉 outlet collection songLabels，方便到時候從程式設定歌名。</strong></blockquote><figure name="07e4" id="07e4" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*LmLB7x1nVfnAC7OtYf2rGQ.png" data-width="1714" data-height="800" src="https://cdn-images-1.medium.com/max/800/1*LmLB7x1nVfnAC7OtYf2rGQ.png"></figure><blockquote name="06af" id="06af" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">5 建立繼承 SongViewController 的 HappySongViewController &amp; SadSongViewController</strong></blockquote></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="b3e7" id="b3e7" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--blockquote" style="width: 50.143%;"><img class="graf-image" data-image-id="1*_XP-7mZmEeNjXBkWYkfwOw.png" data-width="1444" data-height="1032" src="https://cdn-images-1.medium.com/max/600/1*_XP-7mZmEeNjXBkWYkfwOw.png"></figure><figure name="d333" id="d333" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 49.857%;"><img class="graf-image" data-image-id="1*_yqh5HrkPBHB7Jb3NGBsCQ.png" data-width="1452" data-height="1044" src="https://cdn-images-1.medium.com/max/600/1*_yqh5HrkPBHB7Jb3NGBsCQ.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><blockquote name="621a" id="621a" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">6 設定開心的歌和傷心的歌</strong></blockquote><p name="6a7d" id="6a7d" class="graf graf--p graf-after--blockquote">開心的歌</p><pre name="cfd5" id="cfd5" class="graf graf--pre graf-after--p">class HappySongViewController: SongViewController {</pre><pre name="78a9" id="78a9" class="graf graf--pre graf-after--pre">override func viewDidLoad() {</pre><pre name="a4ac" id="a4ac" class="graf graf--pre graf-after--pre">   super.viewDidLoad()</pre><pre name="9f26" id="9f26" class="graf graf--pre graf-after--pre">   songLabels[0].text = &quot;有點甜&quot;</pre><pre name="d6f8" id="d6f8" class="graf graf--pre graf-after--pre">   songLabels[1].text = &quot;愛的主旋律&quot;</pre><pre name="bdf6" id="bdf6" class="graf graf--pre graf-after--pre">   songLabels[2].text = &quot;戀愛頻率&quot;</pre><pre name="5ff2" id="5ff2" class="graf graf--pre graf-after--pre">}</pre><p name="dc2e" id="dc2e" class="graf graf--p graf-after--pre">傷心的歌</p><pre name="1795" id="1795" class="graf graf--pre graf-after--p">class SadSongViewController: SongViewController {</pre><pre name="b4db" id="b4db" class="graf graf--pre graf-after--pre">   override func viewDidLoad() {</pre><pre name="5c6c" id="5c6c" class="graf graf--pre graf-after--pre">      super.viewDidLoad()</pre><pre name="9a94" id="9a94" class="graf graf--pre graf-after--pre">      songLabels[0].text = &quot;街角的祝福&quot;</pre><pre name="ade7" id="ade7" class="graf graf--pre graf-after--pre">      songLabels[1].text = &quot;小幸運&quot;</pre><pre name="8c53" id="8c53" class="graf graf--pre graf-after--pre">      songLabels[2].text = &quot;怎樣&quot;</pre><pre name="fc2c" id="fc2c" class="graf graf--pre graf-after--pre">}</pre><blockquote name="4c82" id="4c82" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">7 將開心的歌設為 HappySongViewController，傷心的歌設為 SadSongViewController。</strong></blockquote></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="e86a" id="e86a" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--blockquote" style="width: 50.857%;"><img class="graf-image" data-image-id="1*3PljqFVydlx8kEJBq6pnfQ.png" data-width="532" data-height="256" src="https://cdn-images-1.medium.com/max/800/1*3PljqFVydlx8kEJBq6pnfQ.png"></figure><figure name="2a52" id="2a52" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 49.143%;"><img class="graf-image" data-image-id="1*WCrZUc9-XNUhO5Y8hLG2pQ.png" data-width="514" data-height="256" src="https://cdn-images-1.medium.com/max/600/1*WCrZUc9-XNUhO5Y8hLG2pQ.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><blockquote name="6755" id="6755" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">7 在 SongViewController 裡覆寫 loadView，利用 loadNibNamed(_:owner:options:) 載入 SongViewController.xib 的畫面。</strong></blockquote><pre name="6d81" id="6d81" class="graf graf--pre graf-after--blockquote">class SongViewController: UIViewController {</pre><pre name="66b6" id="66b6" class="graf graf--pre graf-after--pre">   @IBOutlet var songLabels: [UILabel]!</pre><pre name="1658" id="1658" class="graf graf--pre graf-after--pre">   override func loadView() {</pre><pre name="bdea" id="bdea" class="graf graf--pre graf-after--pre">      super.loadView()</pre><pre name="c777" id="c777" class="graf graf--pre graf-after--pre">     <strong class="markup--strong markup--pre-strong"> Bundle.main.loadNibNamed(&quot;SongViewController&quot;, owner: self, options: nil)</strong></pre><pre name="3884" id="3884" class="graf graf--pre graf-after--pre">}</pre><p name="10f0" id="10f0" class="graf graf--p graf-after--pre">在 SongViewController.xib 裡，File’s Owner 的類別是 SongViewController，它代表 SongViewController 或繼承 SongViewController 的類別建立的物件都可以當 File’s Owner。</p><p name="ac51" id="ac51" class="graf graf--p graf-after--p">當 App 顯示開心的歌時，controller 的型別為 HappySongViewController。當 loadView 執行，呼叫 loadNibNamed(_:owner:options:) 時，傳入當 owner 的 self 型別正是 HappySongViewController。此時它會把 controller 的 view 換成 xib 的 view，取代原本 storyboard 裡的 view。至於傷心的歌，也是類似的道理，到時候 owner 的型別將為 SadSongViewController。</p><p name="5bc4" id="5bc4" class="graf graf--p graf-after--p">最後，為了避免打錯字，xib 的名字也可以用 String(describing: SongViewController.self) 生成，以自動完成的方式輸入。</p><pre name="1e44" id="1e44" class="graf graf--pre graf-after--p">Bundle.main.loadNibNamed(String(describing: SongViewController.self), owner: self, options: nil)</pre><blockquote name="2106" id="2106" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">結果</strong></blockquote></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="1757" id="1757" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--blockquote" style="width: 50%;"><img class="graf-image" data-image-id="1*pccrWs0OEpHIlJVQWyrWwg.png" data-width="1010" data-height="1770" src="https://cdn-images-1.medium.com/max/600/1*pccrWs0OEpHIlJVQWyrWwg.png"></figure><figure name="54d6" id="54d6" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*RKVTT_SLQT5KwoaNQdTF8Q.png" data-width="1010" data-height="1770" src="https://cdn-images-1.medium.com/max/600/1*RKVTT_SLQT5KwoaNQdTF8Q.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><div name="2017" id="2017" class="graf graf--mixtapeEmbed graf-after--figure graf--trailing"><a href="https://github.com/AppPeterPan/StoryboardUseXib" data-href="https://github.com/AppPeterPan/StoryboardUseXib" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/AppPeterPan/StoryboardUseXib"><strong class="markup--strong markup--mixtapeEmbed-strong">AppPeterPan/StoryboardUseXib</strong><br><em class="markup--em markup--mixtapeEmbed-em">Contribute to StoryboardUseXib development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/AppPeterPan/StoryboardUseXib" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="fae40f7bb2e5cc7323be32e27c375783" data-thumbnail-img-id="0*87vpipKGg-9zCWXf." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*87vpipKGg-9zCWXf.);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e37698dfd2fb"><time class="dt-published" datetime="2018-03-02T13:00:05.321Z">March 2, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-storyboard-%E7%9A%84-controller-%E8%BC%89%E5%85%A5-xib-%E7%95%AB%E9%9D%A2-e37698dfd2fb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

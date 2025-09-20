@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>請 AI 寫寫 iOS App 請求權限的文字</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">請 AI 寫寫 iOS App 請求權限的文字</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常需要徵求使用者同意獲取權限，比方使用他的相機、GPS 位置和健康資訊等。
+</section>
+<section data-field="body" class="e-content">
+<section name="4acd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f2c8" id="f2c8" class="graf graf--h3 graf--leading graf--title">請 AI 寫寫 iOS App 請求權限的文字</h3><figure name="8ca6" id="8ca6" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*wVuQyDfuit9B2BtjWcJtfw.png" data-width="1836" data-height="1520" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*wVuQyDfuit9B2BtjWcJtfw.png"></figure><p name="d0a8" id="d0a8" class="graf graf--p graf-after--figure">開發 iOS App 時，我們時常需要徵求使用者同意獲取權限，比方使用他的相機、GPS 位置和健康資訊等。</p><p name="970a" id="970a" class="graf graf--p graf-after--p">為了請求權限，我們必須在 Xcode TARGETS 下 App 的 Info 頁面設定使用者看到的請求文字。這段文字可不能隨便寫，寫得不好不只會降低使用者同意的機率，還會讓 App 無法通過審核上架。</p><p name="99d9" id="99d9" class="graf graf--p graf-after--p">彼得潘懶得自己想，想到這個重責大任也許可以交給 AI。試了一下發現 AI 寫得還不錯，可能稍稍修改就可拿來當 App 的請求權限。</p><p name="0837" id="0837" class="graf graf--p graf-after--p">以下是彼得潘做的三種常見權限實驗，使用 Claude 3 Opus。</p><ul class="postList"><li name="4042" id="4042" class="graf graf--li graf-after--p">Privacy — Camera Usage Description。</li><li name="fbdf" id="fbdf" class="graf graf--li graf-after--li">Privacy — Location Always and When In Use Usage Description。</li><li name="2784" id="2784" class="graf graf--li graf-after--li">Privacy — Health Share Usage Description。</li></ul><h3 name="9080" id="9080" class="graf graf--h3 graf-after--li">Privacy — Camera Usage Description</h3><p name="2f26" id="2f26" class="graf graf--p graf-after--h3">我正在開發跟記帳有關的 iOS App，需要用使用者的相機拍照，要在 Privacy — Camera Usage Description 設定請求權限的文字，請給我一些建議。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="markdown" name="f620" id="f620" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">以下是一些適合在 Privacy - Camera Usage Description 設置的文字建議,說明 App 需要使用相機拍照的原因:<br /><br /><span class="hljs-bullet">1.</span> &quot;為了讓您能夠快速記錄收據與帳單,我們需要您允許 App 使用相機拍照。這將使記帳過程更加便捷、準確。您的相片僅會儲存在您的裝置上,不會被上傳或分享。&quot;<br /><br /><span class="hljs-bullet">2.</span> &quot;本 App 提供強大的記帳功能,包括識別收據上的文字,自動歸類支出。為了啟用這些功能,請允許我們使用您的相機拍攝收據。我們確保您的隱私安全,不會將相片用於其他目的。&quot;<br /><br /><span class="hljs-bullet">3.</span> &quot;使用相機記錄消費是現代記帳的重要功能。為了讓您能夠隨時隨地記下支出,請授權 App 使用您的相機。您拍攝的相片將僅在 App 中使用,受到嚴格的隱私保護措施。&quot;<br /><br /><span class="hljs-bullet">4.</span> &quot;我們希望讓記帳成為一種簡單、有趣的體驗。透過允許 App 使用您的相機,您可以輕鬆拍下收據,自動將資料納入您的帳目。這些相片不會在未經您同意的情況下被使用。&quot;<br /><br /><span class="hljs-bullet">5.</span> &quot;為了完整記錄您的財務狀況,除了手動輸入帳目,您還可以使用相機影像作為輔助。請放心授權 App 使用相機,我們將尊重您的隱私,妥善保管您的相片。&quot;<br /><br />在描述中,清楚說明使用相機的目的是為了方便記帳、提升 App 的功能,讓使用者了解其必要性。同時重申照片的使用範圍僅限於 App 內,不會被濫用,且受到隱私保護措施的規範。這樣可以增加使用者對 App 的信任,提高他們授權的意願。</span></pre><h3 name="8e3a" id="8e3a" class="graf graf--h3 graf-after--pre">Privacy — Location Always and When In Use Usage Description</h3><p name="318a" id="318a" class="graf graf--p graf-after--h3">我正在開發跑步相關的 iOS App，需要存取使用者跑步過程的 GPT 資訊，要在 Privacy — Location Always and When In Use Usage Description 設定請求權限的文字，請給我一些建議。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="markdown" name="60ac" id="60ac" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">以下是一些適合在 Privacy - Location Always and When In Use Usage Description 設置的文字建議,說明 App 需要一直取得位置資訊的原因:<br /><br /><span class="hljs-bullet">1.</span> &quot;為了準確記錄您的跑步路線、距離與配速,我們需要在您使用 App 跑步時取得您的位置資訊。這將讓您事後能夠回顧跑步軌跡,分析自己的表現。您的位置資料不會被分享或用於其他目的。&quot;<br /><br /><span class="hljs-bullet">2.</span> &quot;本 App 旨在提供完整的跑步追蹤體驗,包括即時顯示您的跑步進度,以及提供附近跑步路線的推薦。為了實現這些功能,請允許我們在您使用 App 期間取得位置資訊。我們會依照嚴格的隱私政策保護您的資料。&quot;<br /><br /><span class="hljs-bullet">3.</span> &quot;跑步時持續記錄位置資料,是讓 App 為您提供精確的跑步數據分析、個人化訓練計畫與互動社群功能的關鍵。請放心授權我們取得位置資訊,我們將善盡保管之責,不會濫用您的隱私。&quot;<br /><br /><span class="hljs-bullet">4.</span> &quot;我們深知位置資訊的敏感性,因此僅會在您使用 App 跑步時取得位置資料,用於計算里程、配速等跑步指標。這些資訊不會在未經您同意的情況下被使用或儲存。請授權 App 取得位置資訊,享受完善的跑步紀錄功能。&quot;<br /><br /><span class="hljs-bullet">5.</span> &quot;持續取得位置資料是 App 提供即時語音回饋、緊急聯絡人通知等貼心功能的基礎。為了讓您在跑步時獲得最佳的使用體驗與安全保障,請允許 App 在使用期間取得位置資訊。我們將恪守隱私保護原則,尊重您的權益。&quot;<br /><br />在描述中,說明取得位置資訊的目的是為了提供跑步追蹤、數據分析、個人化服務等核心功能,讓使用者了解其重要性。同時保證位置資料的使用範圍限於 App 內,不會被濫用或洩漏,遵守嚴格的隱私保護措施。這樣可以提高使用者的信任度,增加他們授權的意願。</span></pre><h3 name="517d" id="517d" class="graf graf--h3 graf-after--pre">Privacy — Health Share Usage Description</h3><p name="44a9" id="44a9" class="graf graf--p graf-after--h3">我正在開發跟運動有關的 iOS App，需要存取使用者的 step 記錄，要在 Privacy — Health Share Usage Description 設定請求權限的文字，請給我一些建議。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="markdown" name="50e6" id="50e6" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content">以下是一些適合在 Privacy - Health Share Usage Description 設置的文字建議,讓使用者了解為何需要取得計步資料的權限:<br /><br /><span class="hljs-bullet">1.</span> &quot;我們需要您的同意,讀取您的計步資料,以便在 App 中顯示您的運動進度與成就。這些資料絕不會被用於其他用途或分享給第三方。&quot;<br /><br /><span class="hljs-bullet">2.</span> &quot;為了讓您能夠完整使用 App 的健康管理與運動追蹤功能,我們需要您允許讀取您在 iPhone 上記錄的步數。您的資料將被安全地保護,僅用於提供 App 服務。&quot;<br /><br /><span class="hljs-bullet">3.</span> &quot;本 App 透過讀取您的計步資料,提供個人化的運動分析、目標設定與激勵機制。為了達成這些功能,請允許我們存取您的計步記錄,我們將謹慎處理您的資料。&quot;<br /><br /><span class="hljs-bullet">4.</span> &quot;為了讓您透過 App 掌握自己的運動狀況,並獲得有幫助的健康建議,我們需要整合您的步數記錄。這些資料只會在您的裝置上處理,不會傳輸到任何外部伺服器。&quot;<br /><br /><span class="hljs-bullet">5.</span> &quot;我們相信運動是健康生活的關鍵。為了協助您透過 App 培養運動習慣,追蹤自己的進展,請同意我們讀取您的計步資料。這將有助於 App 為您量身打造有益身心的使用體驗。&quot;<br /><br />請根據您 App 的實際功能與資料使用情況,選擇最貼切的描述方式。記得要誠實說明,讓使用者清楚了解其資料的用途,建立信任感。同時強調資料的安全性與隱私保護,消除使用者的疑慮。</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8af5490b7ad3"><time class="dt-published" datetime="2024-05-05T10:24:08.031Z">May 5, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AB%8B-ai-%E5%AF%AB%E5%AF%AB-ios-app-%E8%AB%8B%E6%B1%82%E6%AC%8A%E9%99%90%E7%9A%84%E6%96%87%E5%AD%97-8af5490b7ad3" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

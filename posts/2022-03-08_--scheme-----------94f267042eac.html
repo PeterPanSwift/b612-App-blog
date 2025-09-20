@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 scheme 選單選擇啟動的對象</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 scheme 選單選擇啟動的對象</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 的專案可以產生多個 target，這些 target 有的是 App，有的是 framework 跟 library，因此我們在點選三角形啟動 App 前，最好先確認目前選到的 scheme 對應的 target 是我們想要啟動的對象。
+</section>
+<section data-field="body" class="e-content">
+<section name="3846" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2217" id="2217" class="graf graf--h3 graf--leading graf--title">從 scheme 選單選擇啟動的對象</h3><p name="6033" id="6033" class="graf graf--p graf-after--h3">Xcode 的專案可以產生多個 target，這些 target 有的是 App，有的是 framework 跟 library，因此我們在點選三角形啟動 App 前，最好先確認目前選到的 scheme 對應的 target 是我們想要啟動的對象。</p><ul class="postList"><li name="c418" id="c418" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">範例 1</strong></li></ul><p name="40b5" id="40b5" class="graf graf--p graf-after--li">點選下圖紅色框框可選擇 scheme，FSPagerViewExample &amp; FSPagerViewExample-Objc 都是 App。</p><figure name="a5ce" id="a5ce" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Zlr0y8f0thaNJGNCIh3iQw.png" data-width="1578" data-height="972" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Zlr0y8f0thaNJGNCIh3iQw.png"></figure><p name="3221" id="3221" class="graf graf--p graf-after--figure">注意不要選到黃色 icon 的 FSPagerView，它只是 Framework，並不是可以啟動的 App。</p><figure name="1516" id="1516" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yYFOyI-H9aYSM0BLnRn9TA.png" data-width="178" data-height="172" src="https://cdn-images-1.medium.com/max/800/1*yYFOyI-H9aYSM0BLnRn9TA.png"></figure><ul class="postList"><li name="b3b3" id="b3b3" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">範例 2</strong></li></ul><p name="f172" id="f172" class="graf graf--p graf-after--li">點選下圖紅色框框可選擇 scheme，WaterfallGridSample iOS，WaterfallGridSample macOS，WaterfallGridSample tvOS &amp; WaterfallGridSample watchOS WatchKit App 都是 App。</p><figure name="15c8" id="15c8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*65jIEfWrO_CwQtKKbRHtDg.png" data-width="1420" data-height="812" src="https://cdn-images-1.medium.com/max/800/1*65jIEfWrO_CwQtKKbRHtDg.png"></figure><p name="8781" id="8781" class="graf graf--p graf-after--figure">注意不要選到長得像房子的 WaterfallGrid，它只是 Library，並不是可以啟動的 App。</p><figure name="99e2" id="99e2" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*6-mki-eT23td-oGxh4sN2g.png" data-width="220" data-height="166" src="https://cdn-images-1.medium.com/max/800/1*6-mki-eT23td-oGxh4sN2g.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/94f267042eac"><time class="dt-published" datetime="2022-03-08T06:48:05.480Z">March 8, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-scheme-%E9%81%B8%E5%96%AE%E9%81%B8%E6%93%87%E5%95%9F%E5%8B%95%E7%9A%84%E5%B0%8D%E8%B1%A1-94f267042eac" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

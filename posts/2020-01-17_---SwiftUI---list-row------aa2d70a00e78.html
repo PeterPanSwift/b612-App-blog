@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>設定 SwiftUI 的 list row 點選功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">設定 SwiftUI 的 list row 點選功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們在 iOS App 的畫面上呈現表格時，時常會加入點選 cell 的功能，比方點選下圖 Music App 表格上的怎樣時，可以聽到 Penny 好聽的歌聲。
+</section>
+<section data-field="body" class="e-content">
+<section name="5415" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d8bb" id="d8bb" class="graf graf--h3 graf--leading graf--title">設定 SwiftUI 的 list row 點選功能</h3><p name="9f5b" id="9f5b" class="graf graf--p graf-after--h3">當我們在 iOS App 的畫面上呈現表格時，時常會加入點選 cell 的功能，比方點選下圖 Music App 表格上的怎樣時，可以聽到 Penny 好聽的歌聲。</p><figure name="1848" id="1848" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*CJ_WwQGRDUouXkUE5ppVQg.jpeg" data-width="1154" data-height="976" src="https://cdn-images-1.medium.com/max/800/1*CJ_WwQGRDUouXkUE5ppVQg.jpeg"></figure><p name="22c6" id="22c6" class="graf graf--p graf-after--figure">那麼在 SwiftUI 的 List 要如何設定表格點選的功能呢 ? 如果想點選 row 切換頁面可透過 NavigationLink，但如果不是切換頁面呢 ? 比方剛剛 Music App 的播放音樂功能。</p><div name="4016" id="4016" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-navigationview-navigationlink-%E5%88%87%E6%8F%9B%E9%A0%81%E9%9D%A2-3a062833230f" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-navigationview-navigationlink-%E5%88%87%E6%8F%9B%E9%A0%81%E9%9D%A2-3a062833230f" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-navigationview-navigationlink-%E5%88%87%E6%8F%9B%E9%A0%81%E9%9D%A2-3a062833230f"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 NavigationView &amp; NavigationLink 切換頁面</strong><br><em class="markup--em markup--mixtapeEmbed-em">SwiftUI 利用 NavigationView 管理切換多層頁面，它會在畫面的上方長出一條 navigation bar，bar 的左上角則有 back 返回的按鈕，類似以下的 Music App 畫面。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-navigationview-navigationlink-%E5%88%87%E6%8F%9B%E9%A0%81%E9%9D%A2-3a062833230f" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="55794619f755f5a8732c3e89006eacce" data-thumbnail-img-id="1*5gqkaQOBQCZHxNzQSzhwUg.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*5gqkaQOBQCZHxNzQSzhwUg.png);"></a></div><p name="dab9" id="dab9" class="graf graf--p graf-after--mixtapeEmbed">接下來彼得潘將以偶像 Penny 的經典情歌為例，示範 button &amp; tap gesture 兩種實現表格點選功能的方法。</p><pre name="6f73" id="6f73" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    var songs = [&quot;怎樣&quot;, &quot;你要的愛&quot;, &quot;街角的祝福&quot;, &quot;單身潛逃&quot;, &quot;野薔薇&quot;, &quot;賊&quot;, &quot;防...空洞&quot;, &quot;愛瘋了&quot;, &quot;光著我的腳丫子&quot;]<br>    var body: some View {<br>       <br>        List(songs, id: \.self) { (song)  in<br>            HStack {<br>                Text(song)<br>                Spacer()<br>                Image(systemName: &quot;icloud.and.arrow.down&quot;)<br>                    .onTapGesture {<br>                        print(&quot;download \(song)&quot;)</pre><pre name="421a" id="421a" class="graf graf--pre graf-after--pre">                }<br>                <br>            }<br>        }<br>    }<br>}</pre><p name="ec32" id="ec32" class="graf graf--p graf-after--pre">透過以上程式，我們以表格呈現 Penny 的經典情歌，這些歌都很好聽，可惜只能看不能聽，點選表格時毫無反應，也完全不會有點選變色的效果。</p><figure name="0b1d" id="0b1d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*32sJ6Draz58gFWLkPEHcGQ.jpeg" data-width="862" data-height="1490" src="https://cdn-images-1.medium.com/max/800/1*32sJ6Draz58gFWLkPEHcGQ.jpeg"></figure><h3 name="261d" id="261d" class="graf graf--h3 graf-after--figure">方法1: 利用 button 當 row</h3><pre name="86b6" id="86b6" class="graf graf--pre graf-after--h3">List(songs, id: \.self) { (song)  in<br>            <br>    <strong class="markup--strong markup--pre-strong">Button(action: {<br>        print(&quot;play \(song)&quot;)<br>    }</strong>, label: {<br>        HStack {<br>           Text(song)<br>           Spacer()<br>           Image(systemName: &quot;icloud.and.arrow.down&quot;)<br>              .onTapGesture {<br>                   print(&quot;download \(song)&quot;)</pre><pre name="9b4a" id="9b4a" class="graf graf--pre graf-after--pre">           }<br>        }<br>    })          <br>}</pre><p name="8b33" id="8b33" class="graf graf--p graf-after--pre">利用 Button 當 List 的 row，表格點選時順利觸發 button 的 action，印出歌曲的名稱，而且還有點選變色的效果。</p><figure name="8bb2" id="8bb2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9RJvwZI6rDic0uEw04AZCg.jpeg" data-width="862" data-height="1490" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*9RJvwZI6rDic0uEw04AZCg.jpeg"></figure><figure name="efdb" id="efdb" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Fc1OXpLdIrnpa-drBak4qQ.jpeg" data-width="544" data-height="292" src="https://cdn-images-1.medium.com/max/800/1*Fc1OXpLdIrnpa-drBak4qQ.jpeg"></figure><h3 name="b530" id="b530" class="graf graf--h3 graf-after--figure">方法2: 利用 tap gesture</h3><pre name="ba45" id="ba45" class="graf graf--pre graf-after--h3">List(songs, id: \.self) { (song)  in<br>    HStack {<br>        Text(song)<br>        Spacer()<br>        Image(systemName: &quot;icloud.and.arrow.down&quot;)<br>            .onTapGesture {<br>                print(&quot;download \(song)&quot;)<br>        }<br>    }<br>   <strong class="markup--strong markup--pre-strong"> .onTapGesture {<br>        print(&quot;play \(song)&quot;)<br>    }</strong><br>}</pre><p name="7c0a" id="7c0a" class="graf graf--p graf-after--pre">在代表 row 的 HStack 上呼叫 onTapGesture，設定 row 被點選時印出歌曲名稱。</p><p name="ac2c" id="ac2c" class="graf graf--p graf-after--p">當我們點選表格上的某首情歌時，Console 順利地印出歌名。</p><figure name="2202" id="2202" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Fc1OXpLdIrnpa-drBak4qQ.jpeg" data-width="544" data-height="292" src="https://cdn-images-1.medium.com/max/800/1*Fc1OXpLdIrnpa-drBak4qQ.jpeg"></figure><p name="aa18" id="aa18" class="graf graf--p graf-after--figure">但是等等，當我們點選歌名和下載按鈕中間的空白處時，它卻毫無反應 !</p><figure name="fa4a" id="fa4a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eadJAP0TRy-8V5gwCUhzEA.jpeg" data-width="862" data-height="1490" src="https://cdn-images-1.medium.com/max/800/1*eadJAP0TRy-8V5gwCUhzEA.jpeg"></figure><p name="a157" id="a157" class="graf graf--p graf-after--figure">這是因為空白處是 HStack 沒有顏色的區塊，當我們點選 HStack 無顏色的區塊時，它是不會偵測到 tap gesture 的。此問題可透過呼叫 contentShape 解決。</p><pre name="b469" id="b469" class="graf graf--pre graf-after--p">List(songs, id: \.self) { (song)  in<br>   HStack {<br>      Text(song)<br>      Spacer()<br>      Image(systemName: &quot;icloud.and.arrow.down&quot;)<br>         .onTapGesture {<br>             print(&quot;download \(song)&quot;)<br>      }<br>   }<br>   <strong class="markup--strong markup--pre-strong">.contentShape(Rectangle())</strong><br>   .onTapGesture {<br>      print(&quot;play \(song)&quot;)<br>   }<br>}</pre><p name="59d0" id="59d0" class="graf graf--p graf-after--pre">contentShape 控制可點選的區塊，因此從 HStack 呼叫 contentShape(Rectangle()) 將讓整個 HStack 可點選。</p><div name="5925" id="5925" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://developer.apple.com/documentation/swiftui/view/3278538-contentshape" data-href="https://developer.apple.com/documentation/swiftui/view/3278538-contentshape" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/3278538-contentshape"><strong class="markup--strong markup--mixtapeEmbed-strong">contentShape(_:eoFill:)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/3278538-contentshape" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="76921bd984640eeead0e0360e00dbd90"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/aa2d70a00e78"><time class="dt-published" datetime="2020-01-17T15:22:58.445Z">January 17, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A8%AD%E5%AE%9A-swiftui-%E7%9A%84-list-row-%E9%BB%9E%E9%81%B8%E5%8A%9F%E8%83%BD-aa2d70a00e78" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

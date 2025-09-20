@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 previewInterfaceOrientation 設定橫向的 SwiftUI preview — Xcode 13 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 previewInterfaceOrientation 設定橫向的 SwiftUI preview — Xcode 13 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+接下來我們將示範利用 previewInterfaceOrientation將以下程式的直向預覽畫面變成橫向。(ps: 此功能必須搭配 Xcode 13 &amp; iOS 15 以上版本）
+</section>
+<section data-field="body" class="e-content">
+<section name="0f15" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0326" id="0326" class="graf graf--h3 graf--leading graf--title">利用 previewInterfaceOrientation 設定橫向的 SwiftUI preview — Xcode 13 新功能</h3><p name="33ed" id="33ed" class="graf graf--p graf-after--h3">接下來我們將示範利用 previewInterfaceOrientation 將以下程式的直向預覽畫面變成橫向。</p><pre name="fbd1" id="fbd1" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    var body: some View {<br>        Image(&quot;wwdc&quot;)<br>            .resizable()<br>            .scaledToFit()<br>    }<br>}</pre><pre name="297e" id="297e" class="graf graf--pre graf-after--pre">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        ContentView()</pre><pre name="c805" id="c805" class="graf graf--pre graf-after--pre">    }<br>}</pre><figure name="5bad" id="5bad" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*VqOAsK1AIfmjuSxC5xN1wQ.png" data-width="582" data-height="1004" src="https://cdn-images-1.medium.com/max/800/1*VqOAsK1AIfmjuSxC5xN1wQ.png"></figure><h3 name="7334" id="7334" class="graf graf--h3 graf-after--figure">設定橫向(landscape)的 preview</h3><h4 name="d15b" id="d15b" class="graf graf--h4 graf-after--h3">方法 1: 點選 preview 上方的旋轉按鈕</h4><figure name="c3a7" id="c3a7" class="graf graf--figure graf-after--h4"><img class="graf-image" data-image-id="1*uqF06BE2r8zTFDIt6r0Yqw.png" data-width="582" data-height="1004" src="https://cdn-images-1.medium.com/max/800/1*uqF06BE2r8zTFDIt6r0Yqw.png"></figure><p name="14a9" id="14a9" class="graf graf--p graf-after--figure">Cool，現在 preview 畫面變橫向了。</p><figure name="1039" id="1039" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lmvLSTlYyTAnEByjImQVyA.png" data-width="936" data-height="622" src="https://cdn-images-1.medium.com/max/800/1*lmvLSTlYyTAnEByjImQVyA.png"></figure><p name="2853" id="2853" class="graf graf--p graf-after--figure">而且按三角形啟動後還是可以維持橫向。</p><figure name="9b4e" id="9b4e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Qsxphwr6bwmldvjN-w6rAA.png" data-width="902" data-height="564" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Qsxphwr6bwmldvjN-w6rAA.png"></figure><p name="422e" id="422e" class="graf graf--p graf-after--figure">此時 preview 的程式也新增了 modifier previewInterfaceOrientation。</p><pre name="4a18" id="4a18" class="graf graf--pre graf-after--p">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        ContentView()<br><strong class="markup--strong markup--pre-strong">           .previewInterfaceOrientation(.landscapeLeft)</strong></pre><pre name="7fe9" id="7fe9" class="graf graf--pre graf-after--pre">    }<br>}</pre><p name="a713" id="a713" class="graf graf--p graf-after--pre">ps: 值得注意的，iOS 15 以上才支援 previewInterfaceOrientation，所以 iOS 15 以下版本將出現紅色錯誤。</p><figure name="0cf7" id="0cf7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zmJOX04Hh7baZv73WwYsuw.png" data-width="1720" data-height="824" src="https://cdn-images-1.medium.com/max/800/1*zmJOX04Hh7baZv73WwYsuw.png"></figure><p name="9129" id="9129" class="graf graf--p graf-after--figure">從 TARGETS App 的 General 頁面的 Development Info 可設定 App 支援的最低 iOS 版本。</p><figure name="51ef" id="51ef" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TNTBCNsR9avycuoCGARGvw.png" data-width="1852" data-height="742" src="https://cdn-images-1.medium.com/max/800/1*TNTBCNsR9avycuoCGARGvw.png"></figure><h4 name="9b42" id="9b42" class="graf graf--h4 graf-after--figure">方法 2: 從 Attributes inspector 設定 Orientation</h4><p name="1726" id="1726" class="graf graf--p graf-after--h4">點選 preview 的 ContentView。</p><figure name="401f" id="401f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*iH3Yz7YNnqkpiPkV0zIJJw.png" data-width="1092" data-height="470" src="https://cdn-images-1.medium.com/max/800/1*iH3Yz7YNnqkpiPkV0zIJJw.png"></figure><p name="558b" id="558b" class="graf graf--p graf-after--figure">從 Attributes inspector 設定 Orientation。</p><figure name="aa7a" id="aa7a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*MUlm4Xj48mKeyUrxGPjnaA.png" data-width="510" data-height="670" src="https://cdn-images-1.medium.com/max/800/1*MUlm4Xj48mKeyUrxGPjnaA.png"></figure><figure name="2d1d" id="2d1d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*_cDIHajS5jX42IRkspZA6w.png" data-width="524" data-height="480" src="https://cdn-images-1.medium.com/max/800/1*_cDIHajS5jX42IRkspZA6w.png"></figure><h4 name="fc29" id="fc29" class="graf graf--h4 graf-after--figure"><strong class="markup--strong markup--h4-strong">方法 3: 從程式直接輸入 previewInterfaceOrientation</strong></h4><pre name="c3e8" id="c3e8" class="graf graf--pre graf-after--h4">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        ContentView()<br><strong class="markup--strong markup--pre-strong">            .previewInterfaceOrientation(.landscapeLeft)</strong></pre><pre name="5046" id="5046" class="graf graf--pre graf-after--pre">    }<br>}</pre><h3 name="bb9f" id="bb9f" class="graf graf--h3 graf-after--pre">讓舊版 Xcode 的 preview 橫向</h3><p name="7226" id="7226" class="graf graf--p graf-after--h3">Xcode 13 之前的版本無法使用 previewInterfaceOrientation，不過我們可以利用 previewLayout 設定固定尺寸，比方設定 iPhone 13 橫向的寬高 844 * 390。</p><pre name="03e7" id="03e7" class="graf graf--pre graf-after--p">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        ContentView()<br><strong class="markup--strong markup--pre-strong">            .previewLayout(.fixed(width: 844, height: 390))<br></strong>        <br>    }<br>}</pre><p name="d84e" id="d84e" class="graf graf--p graf-after--pre">ps: 此方法有個小小的缺點，點選 preview 的三角形執行後它將自動變回直向，因此測試 App 執行後的畫面必須透過模擬器。</p><div name="3354" id="3354" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/iphone-%E5%90%84%E6%A9%9F%E5%9E%8B%E7%9A%84-screen-size-%E5%96%AE%E4%BD%8D-points-fe96fce3ae70" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/iphone-%E5%90%84%E6%A9%9F%E5%9E%8B%E7%9A%84-screen-size-%E5%96%AE%E4%BD%8D-points-fe96fce3ae70" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/iphone-%E5%90%84%E6%A9%9F%E5%9E%8B%E7%9A%84-screen-size-%E5%96%AE%E4%BD%8D-points-fe96fce3ae70"><strong class="markup--strong markup--mixtapeEmbed-strong">iPhone 各機型的 Screen Size (單位 points)</strong><br><em class="markup--em markup--mixtapeEmbed-em">有興趣的朋友可透過 SwiftUI &amp; storyboard 研究 iPhone 各機型的 Screen Size (單位 points)。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/iphone-%E5%90%84%E6%A9%9F%E5%9E%8B%E7%9A%84-screen-size-%E5%96%AE%E4%BD%8D-points-fe96fce3ae70" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="0151583524320d7a16dde6536d8dbe02" data-thumbnail-img-id="1*M5Je3vbKp_ztzHZZBs9OlQ.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*M5Je3vbKp_ztzHZZBs9OlQ.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d5f118294bc1"><time class="dt-published" datetime="2021-06-08T06:51:07.760Z">June 8, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-previewinterfaceorientation-%E8%A8%AD%E5%AE%9A%E6%A9%AB%E5%90%91%E7%9A%84-swiftui-preview-xcode-13-%E6%96%B0%E5%8A%9F%E8%83%BD-d5f118294bc1" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

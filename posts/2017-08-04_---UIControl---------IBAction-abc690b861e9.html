@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>繼承 UIControl 的類別才可以拉 IBAction</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">繼承 UIControl 的類別才可以拉 IBAction</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當類別繼承 UIControl 時，表示它們是有溫度的人，可以依據人類的觸碰產生事件，做適當的回應，例如以下這些是 iOS SDK 裡繼承 UIControl 的類別，其實它們就是 App 畫面上我們時常點選的按鈕，開關等元件。
+</section>
+<section data-field="body" class="e-content">
+<section name="5238" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="bb83" id="bb83" class="graf graf--h3 graf--leading graf--title">繼承 UIControl 的類別才可以拉 IBAction</h3><div name="68b8" id="68b8" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://developer.apple.com/documentation/uikit/uicontrol" data-href="https://developer.apple.com/documentation/uikit/uicontrol" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uicontrol"><strong class="markup--strong markup--mixtapeEmbed-strong">UIControl | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">The base class for controls, which are visual elements that convey a specific action or intention in response to user…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uicontrol" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8c6a1c762a1b3d2ce785eefc0d5e523e" data-thumbnail-img-id="0*7_kjSU3XMJhqISBk" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*7_kjSU3XMJhqISBk);"></a></div><p name="f698" id="f698" class="graf graf--p graf-after--mixtapeEmbed">當類別繼承 UIControl 時，表示它們是有溫度的人，可以依據人類的觸碰產生事件，做適當的回應，例如以下這些是 iOS SDK 裡繼承 UIControl 的類別，其實它們就是 App 畫面上我們時常點選的按鈕，開關等元件。</p><ul class="postList"><li name="89eb" id="89eb" class="graf graf--li graf-after--p">UIButton</li><li name="72f3" id="72f3" class="graf graf--li graf-after--li">UISegmentedControl</li><li name="08f1" id="08f1" class="graf graf--li graf-after--li">UISwitch</li><li name="1376" id="1376" class="graf graf--li graf-after--li">UISlider</li><li name="7e6d" id="7e6d" class="graf graf--li graf-after--li">UIStepper</li><li name="764a" id="764a" class="graf graf--li graf-after--li">UIDatePicker</li><li name="552e" id="552e" class="graf graf--li graf-after--li">UIPageControl</li></ul><p name="0c6c" id="0c6c" class="graf graf--p graf-after--li">以上元件皆可透過 action 設定觸發的 function，Send Events 底下的事件即是它們可以產生的事件。</p><figure name="5e03" id="5e03" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*RO0O4b7sbXbartveNv32EQ.png" data-width="464" data-height="846" src="https://cdn-images-1.medium.com/max/800/1*RO0O4b7sbXbartveNv32EQ.png"></figure><p name="b6f7" id="b6f7" class="graf graf--p graf-after--figure">相反的，一般單純繼承 UIView 的類別，就無法拉 action 連線了，只能拉 outlet。</p><figure name="6866" id="6866" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*Mnw36MSMkf4tSb9iXzrl6Q.png" data-width="466" data-height="288" src="https://cdn-images-1.medium.com/max/800/1*Mnw36MSMkf4tSb9iXzrl6Q.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/abc690b861e9"><time class="dt-published" datetime="2017-08-04T09:32:21.756Z">August 4, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/uicontrol-%E9%A1%9E%E5%88%A5-abc690b861e9" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

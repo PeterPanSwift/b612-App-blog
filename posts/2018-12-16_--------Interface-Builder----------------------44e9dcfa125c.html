@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何從程式控制 Interface Builder 的畫面元件 ? 將元件的類別設成自訂類別</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何從程式控制 Interface Builder 的畫面元件 ? 將元件的類別設成自訂類別</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，透過畫面製作工具 Interface Builder 的幫忙，我們可以從 storyboard 和 xib 快速製作 App 畫面。但是若希望 App 有特別的功能，還是需要寫程式呀。
+</section>
+<section data-field="body" class="e-content">
+<section name="18bf" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="965c" id="965c" class="graf graf--h3 graf--leading graf--title">如何從程式控制 Interface Builder 的畫面元件 ? 將元件的類別設成自訂類別</h3><p name="3e1a" id="3e1a" class="graf graf--p graf-after--h3">開發 iOS App 時，透過畫面製作工具 Interface Builder 的幫忙，我們可以從 storyboard 和 xib 快速製作 App 畫面。但是若希望 App 有特別的功能，還是需要寫程式呀。</p><p name="5a02" id="5a02" class="graf graf--p graf-after--p">透過 IBAction 和 IBOutlet，我們可以設定元件事件觸發的 function 和存取元件。但在這之前，還有一個重要的準備動作，我們得先將元件的類別設成自訂的類別，然後才能在類別裡寫程式。不然原本元件的類別都是 iOS SDK 內建的類別，我們是無法修改的。</p><div name="1bdf" id="1bdf" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad"><strong class="markup--strong markup--mixtapeEmbed-strong">連結 IBAction 和 IBOutlet 的步驟說明</strong><br><em class="markup--em markup--mixtapeEmbed-em">以 Yaya 同學的小費 App 為例</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e60c3cb970446acd80b39982aab9cc85" data-thumbnail-img-id="1*vw0Is30y7DgkIhoUHfaF5g.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*vw0Is30y7DgkIhoUHfaF5g.jpeg);"></a></div><p name="8b2b" id="8b2b" class="graf graf--p graf-after--mixtapeEmbed">依不同的情境，可分為以下幾種常見的類別設定:</p><blockquote name="2a71" id="2a71" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">view controller</strong></blockquote><p name="7601" id="7601" class="graf graf--p graf-after--blockquote">我們看到的每一個 App 畫面，都是由 controller 控制。因此只要將 controller 設為自訂的類別，即可在 controller 裡寫程式控制畫面。</p><p name="70a2" id="70a2" class="graf graf--p graf-after--p">(1) 繼承 UIViewController</p><pre name="97a3" id="97a3" class="graf graf--pre graf-after--p">class TrueLoveViewController: UIViewController</pre><figure name="2654" id="2654" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*uQqimvt0EIlyHY4Yto7qKw.jpeg" data-width="1148" data-height="1032" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*uQqimvt0EIlyHY4Yto7qKw.jpeg"></figure><p name="e3b7" id="e3b7" class="graf graf--p graf-after--figure">(2) 繼承 UITableViewController</p><pre name="f146" id="f146" class="graf graf--pre graf-after--p">class MealTableViewController: UITableViewController</pre><figure name="8fed" id="8fed" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*Fwlju9fXyyxo_vIoQ6tL-g.jpeg" data-width="1130" data-height="1192" src="https://cdn-images-1.medium.com/max/800/1*Fwlju9fXyyxo_vIoQ6tL-g.jpeg"></figure><blockquote name="1f76" id="1f76" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">cell</strong></blockquote><p name="6763" id="6763" class="graf graf--p graf-after--blockquote">table view 的 cell 若想拉 outlet，必須設定 cell 的類別。(collection view 也一樣)</p><p name="dd1f" id="dd1f" class="graf graf--p graf-after--p">繼承 UITableViewCell</p><pre name="176c" id="176c" class="graf graf--pre graf-after--p">class MealTableViewCell: UITableViewCell</pre><figure name="461c" id="461c" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*_LyNxytOY-E5mAM8XkUkIQ.jpeg" data-width="1302" data-height="476" src="https://cdn-images-1.medium.com/max/800/1*_LyNxytOY-E5mAM8XkUkIQ.jpeg"></figure><blockquote name="277d" id="277d" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">Objects Library 的其它元件</strong></blockquote><p name="84eb" id="84eb" class="graf graf--p graf-after--blockquote">我們在 Objects Library 看到的所有元件，都可以設成自訂的類別，在類別裡撰寫相關的程式。</p><figure name="3b03" id="3b03" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kCxAbGKcSFnRP9yLBtCr9A.jpeg" data-width="930" data-height="936" src="https://cdn-images-1.medium.com/max/800/1*kCxAbGKcSFnRP9yLBtCr9A.jpeg"></figure><p name="7051" id="7051" class="graf graf--p graf-after--figure">比方 button 元件可以設為繼承自 UIButton 的 LoginButton 類別。</p><figure name="d37c" id="d37c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*fEOWpJOTQp34fpUM91fvAA.jpeg" data-width="1446" data-height="1052" src="https://cdn-images-1.medium.com/max/800/1*fEOWpJOTQp34fpUM91fvAA.jpeg"></figure><blockquote name="1428" id="1428" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">xib 的 File’s Owner</strong></blockquote><p name="e7b1" id="e7b1" class="graf graf--p graf-after--blockquote">想控制 xib 裡的元件，除了自訂 UI 元件的類別，也可以將 File’s Owner 設成自定類別，如此即可從 File’s Owner 寫程式控制。</p><figure name="a69a" id="a69a" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*od0GpcTxkwNSm0FMi3abzg.jpeg" data-width="2022" data-height="864" src="https://cdn-images-1.medium.com/max/800/1*od0GpcTxkwNSm0FMi3abzg.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/44e9dcfa125c"><time class="dt-published" datetime="2018-12-16T14:02:30.017Z">December 16, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%A6%82%E4%BD%95%E5%BE%9E%E7%A8%8B%E5%BC%8F%E6%8E%A7%E5%88%B6-interface-builder-%E7%9A%84%E7%95%AB%E9%9D%A2%E5%85%83%E4%BB%B6-%E5%B0%87%E5%85%83%E4%BB%B6%E7%9A%84%E9%A1%9E%E5%88%A5%E8%A8%AD%E6%88%90%E8%87%AA%E8%A8%82%E9%A1%9E%E5%88%A5-44e9dcfa125c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

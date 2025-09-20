@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 SwiftUI 的 position 定位</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 SwiftUI 的 position 定位</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 position 我們可以指定元件的 x, y 座標(相對於 parent)，但有個要特別小心的地方，它設定的是元件中心點的座標，而不是左上角的座標。
+</section>
+<section data-field="body" class="e-content">
+<section name="db4e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="05dc" id="05dc" class="graf graf--h3 graf--leading graf--title">利用 SwiftUI 的 position 定位</h3><p name="e179" id="e179" class="graf graf--p graf-after--h3">利用 position 我們可以指定元件的 x, y 座標(相對於 parent)，但有個要特別小心的地方，它設定的是元件中心點的座標，而不是左上角的座標。</p><div name="a3a7" id="a3a7" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/view/position%28x:y:%29" data-href="https://developer.apple.com/documentation/swiftui/view/position(x:y:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/position(x:y:)"><strong class="markup--strong markup--mixtapeEmbed-strong">position(x:y:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Positions the center of this view at the specified coordinates in its parent&#39;s coordinate space.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/position%28x:y:%29" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="3aef73237c4f60025899c42d3aa91b22" data-thumbnail-img-id="0*HCQF2I5MpicTAl3n" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*HCQF2I5MpicTAl3n);"></a></div><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="46bb" id="46bb" class="graf graf--pre graf-after--mixtapeEmbed graf--preV2"><span class="pre--content"><span class="hljs-type">ZStack</span> {<br />   <span class="hljs-type">Image</span>(.peter0)<br />      .resizable()<br />      .scaledToFill()<br />      .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />      .clipShape(.circle)<br />      .position(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>)<br />   <span class="hljs-type">Image</span>(.peter1)<br />      .resizable()<br />      .scaledToFill()<br />      .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />      .clipShape(.circle)<br />      .position(x: <span class="hljs-number">200</span>, y: <span class="hljs-number">200</span>)<br />}<br />.frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)<br />.background(.yellow)</span></pre><p name="964d" id="964d" class="graf graf--p graf-after--pre">因此以上的程式將讓 peter 圖片的中心點落在 (0, 0) &amp; (200, 200) 。</p><figure name="1fcf" id="1fcf" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*E-TwtZ4cmDJE4gWgYo3qzg.jpeg" data-width="564" data-height="740" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*E-TwtZ4cmDJE4gWgYo3qzg.jpeg"></figure><p name="5f74" id="5f74" class="graf graf--p graf-after--figure">若我們希望 peter 圖片剛好落在 ZStack 的左上角和右下角，我們要設定的座標應該是 (50, 50) &amp; (150, 150)。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="d351" id="d351" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">ZStack</span> {<br />   <span class="hljs-type">Image</span>(.peter0)<br />      .resizable()<br />      .scaledToFill()<br />      .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />      .clipShape(.circle)<br />      .position(x: <span class="hljs-number">50</span>, y: <span class="hljs-number">50</span>)<br />   <span class="hljs-type">Image</span>(.peter1)<br />      .resizable()<br />      .scaledToFill()<br />      .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />      .clipShape(.circle)<br />      .position(x: <span class="hljs-number">150</span>, y: <span class="hljs-number">150</span>)<br />   }<br />   .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)<br />   .background(.yellow)<br />}</span></pre><figure name="edc2" id="edc2" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*ZnT05VICYzbz7ALFJ-d3pw.jpeg" data-width="620" data-height="764" src="https://cdn-images-1.medium.com/max/800/1*ZnT05VICYzbz7ALFJ-d3pw.jpeg"></figure><p name="b5a3" id="b5a3" class="graf graf--p graf-after--figure">當我們事先知道元件的大小時，設定中心點座標並不是太難的一件事。比方 peter 圖片的大小為 122 * 170，想讓圖片的左上角落在 ZStack 的左上角時，中心點座標即為圖片寬高的一半。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="cef9" id="cef9" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">ZStack</span> {<br />   <span class="hljs-type">Image</span>(.peter0)<br />      .position(x: <span class="hljs-number">61</span>, y: <span class="hljs-number">85</span>)<br />}<br />.frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">300</span>)<br />.background(.yellow)</span></pre><figure name="8f11" id="8f11" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*skwXYmAdcDaZUw4tY_XUxA.jpeg" data-width="552" data-height="592" src="https://cdn-images-1.medium.com/max/800/1*skwXYmAdcDaZUw4tY_XUxA.jpeg"></figure><h3 name="e2e2" id="e2e2" class="graf graf--h3 graf-after--figure">position 的副作用: 改變元件大小</h3><p name="08dd" id="08dd" class="graf graf--p graf-after--h3">雖然 position 可以幫我們固定元件的位置，但它卻有一個不可小看的副作用，它還會改變元件的大小。</p><p name="dd38" id="dd38" class="graf graf--p graf-after--p">沒有設定 position 時， Text 的大小是文字內容的大小。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="41e9" id="41e9" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;position 不可小看的副作用&quot;</span>)<br />            .background(.yellow)<br />    }<br />}</span></pre><p name="35f1" id="35f1" class="graf graf--p graf-after--pre">設定 position 後，Text 變成佔據整個可用空間的大小。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a69a" id="a69a" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;position 不可小看的副作用&quot;</span>)<br />            .background(.yellow)<br />            .position(x: <span class="hljs-number">200</span>, y: <span class="hljs-number">100</span>)<br />            .background(.green)<br />    }<br />}</span></pre><figure name="d5f7" id="d5f7" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*xpebTARJNBfw2NYeHxZW5w.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*xpebTARJNBfw2NYeHxZW5w.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/f60dc694bb96"><time class="dt-published" datetime="2019-09-24T16:30:45.076Z">September 24, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-position-%E5%AE%9A%E4%BD%8D-f60dc694bb96" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

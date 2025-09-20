@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將專案程式模組化的 local Swift package</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將專案程式模組化的 local Swift package</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們可以將常用的功能整理成 Swift package，之後即可方便地在不同的 App 專案使用，而且也能將 package 上傳到 GitHub，分享給需要的人下載使用。
+</section>
+<section data-field="body" class="e-content">
+<section name="ff1f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6f93" id="6f93" class="graf graf--h3 graf--leading graf--title">將專案程式模組化的 local Swift package</h3><p name="d39d" id="d39d" class="graf graf--p graf-after--h3">開發 iOS App 時，我們可以將常用的功能整理成 Swift package，之後即可方便地在不同的 App 專案使用，而且也能將 package 上傳到 GitHub，分享給需要的人下載使用。</p><p name="dc82" id="dc82" class="graf graf--p graf-after--p">關於 Swift package 的製作，使用和分享，彼得潘在之前的文章有分享過。</p><div name="1f2f" id="1f2f" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-package-%E7%9A%84%E8%A3%BD%E4%BD%9C-%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E4%BA%AB-531882182565" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-package-%E7%9A%84%E8%A3%BD%E4%BD%9C-%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E4%BA%AB-531882182565" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-package-%E7%9A%84%E8%A3%BD%E4%BD%9C-%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E4%BA%AB-531882182565"><strong class="markup--strong markup--mixtapeEmbed-strong">Swift package 的製作，使用和分享</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，若能將常用的功能整理成重覆使用的套件，我們就能方便地在不同 App 使用，而且也能提供給需要的人使用。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-package-%E7%9A%84%E8%A3%BD%E4%BD%9C-%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E4%BA%AB-531882182565" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="b605247c13a4dba8062e20cc551d8efb" data-thumbnail-img-id="1*ojxxPPMN9NS1tXpdjhg-7g.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*ojxxPPMN9NS1tXpdjhg-7g.png);"></a></div><p name="18d3" id="18d3" class="graf graf--p graf-after--mixtapeEmbed">不過有時我們只想將 App 專案裡的程式模組化，不需要讓不同的 App 專案共享，而且也不想分享給其它人使用呢 ?</p><p name="4627" id="4627" class="graf graf--p graf-after--p">我們還是可以依功能將程式包成 Swift package，只是它們是 App 專案底下的 local package。以 Apple 的範例程式 Food Truck App 為例，從下圖可看到 Food Truck App 專案有個 FoodTruckKit package，專案的程式只要 import FoodTruckKit 即可使用 FoodTruckKit 提供的功能。</p><figure name="4bd7" id="4bd7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UFejlWwIZvziQHML9vSJRw.png" data-width="738" data-height="1240" src="https://cdn-images-1.medium.com/max/800/1*UFejlWwIZvziQHML9vSJRw.png"></figure><div name="7710" id="7710" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/swiftui/food_truck_building_a_swiftui_multiplatform_app" data-href="https://developer.apple.com/documentation/swiftui/food_truck_building_a_swiftui_multiplatform_app" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/food_truck_building_a_swiftui_multiplatform_app"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/food_truck_building_a_swiftui_multiplatform_app" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="d37e33b44689bd5036734505c45e4300"></a></div><p name="7c86" id="7c86" class="graf graf--p graf-after--mixtapeEmbed">FoodTruckKit package 的資料夾在 App 的專案資料夾下，因此 package 程式的版本管理是由 App 專案的版本管理控制的。</p><figure name="17c1" id="17c1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0msqn0NSJyLeS5nD139Szw.png" data-width="494" data-height="520" src="https://cdn-images-1.medium.com/max/800/1*0msqn0NSJyLeS5nD139Szw.png"></figure><p name="6cfc" id="6cfc" class="graf graf--p graf-after--figure">要如何製作將專案程式模組化的 local Swift package 呢 ? 方法其實跟以下連結介紹的差不多。</p><div name="018f" id="018f" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-package-%E7%9A%84%E8%A3%BD%E4%BD%9C-%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E4%BA%AB-531882182565" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-package-%E7%9A%84%E8%A3%BD%E4%BD%9C-%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E4%BA%AB-531882182565" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-package-%E7%9A%84%E8%A3%BD%E4%BD%9C-%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E4%BA%AB-531882182565"><strong class="markup--strong markup--mixtapeEmbed-strong">Swift package 的製作，使用和分享</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，若能將常用的功能整理成重覆使用的套件，我們就能方便地在不同 App 使用，而且也能提供給需要的人使用。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-package-%E7%9A%84%E8%A3%BD%E4%BD%9C-%E4%BD%BF%E7%94%A8%E5%92%8C%E5%88%86%E4%BA%AB-531882182565" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="b605247c13a4dba8062e20cc551d8efb" data-thumbnail-img-id="1*ojxxPPMN9NS1tXpdjhg-7g.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*ojxxPPMN9NS1tXpdjhg-7g.png);"></a></div><p name="1b7a" id="1b7a" class="graf graf--p graf-after--mixtapeEmbed">唯一要注意的地方是 Swift package 要存在 App 專案下。如下圖所示，打開 App 專案，點選 File &gt; New &gt; Package 後，將 package 存在 App 資料夾下，Add to 欄位選擇 App 專案。</p><figure name="ac11" id="ac11" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*EG92ynjUtzZf66Rr_N0Baw.png" data-width="1070" data-height="542" src="https://cdn-images-1.medium.com/max/800/1*EG92ynjUtzZf66Rr_N0Baw.png"></figure><figure name="8f36" id="8f36" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*7Fsx8B7H6RteIqrbQUW3pQ.png" data-width="1616" data-height="932" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*7Fsx8B7H6RteIqrbQUW3pQ.png"></figure><figure name="5919" id="5919" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*wsLebuhAWmdJkzYay0ngKg.png" data-width="532" data-height="616" src="https://cdn-images-1.medium.com/max/800/1*wsLebuhAWmdJkzYay0ngKg.png"></figure><figure name="d3fd" id="d3fd" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*eP1bCx-ZmQSzzw2oqHZX6w.png" data-width="444" data-height="306" src="https://cdn-images-1.medium.com/max/800/1*eP1bCx-ZmQSzzw2oqHZX6w.png"></figure><h3 name="a60a" id="a60a" class="graf graf--h3 graf-after--figure">參考連結</h3><p name="2079" id="2079" class="graf graf--p graf-after--h3">Organizing your code with local packages</p><div name="f1bc" id="f1bc" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://developer.apple.com/documentation/xcode/organizing-your-code-with-local-packages" data-href="https://developer.apple.com/documentation/xcode/organizing-your-code-with-local-packages" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/xcode/organizing-your-code-with-local-packages"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/xcode/organizing-your-code-with-local-packages" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="a425038aab4412ff425e73ba0b3e3320"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/1d522501cedf"><time class="dt-published" datetime="2023-02-10T04:15:14.037Z">February 10, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87%E5%B0%88%E6%A1%88%E7%A8%8B%E5%BC%8F%E6%A8%A1%E7%B5%84%E5%8C%96%E7%9A%84-local-swift-package-1d522501cedf" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

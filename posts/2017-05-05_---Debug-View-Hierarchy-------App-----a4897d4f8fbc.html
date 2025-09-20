@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Debug View Hierarchy 研究別人的 App 程式碼</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Debug View Hierarchy 研究別人的 App 程式碼</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+身為一位 iOS App 開發魔法師，研究別人寫的 App 幾乎是逃不過的宿命。然而它卻是件十分辛苦的事。尤其當專案裡的程式碼很多時，光找出某個畫面的 controller 是哪一個類別，某個 button 點選將觸發哪一個 function，就要找到天荒地老。
+</section>
+<section data-field="body" class="e-content">
+<section name="5131" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1331" id="1331" class="graf graf--h3 graf--leading graf--title">利用 Debug View Hierarchy 研究別人的 App 程式碼</h3><p name="1cb3" id="1cb3" class="graf graf--p graf-after--h3">身為一位 iOS App 開發魔法師，研究別人寫的 App 幾乎是逃不過的宿命。然而它卻是件十分辛苦的事。尤其當專案裡的程式碼很多時，光找出某個畫面的 controller 是哪一個類別，某個 button 點選將觸發哪一個 function，就要找到天荒地老。</p><p name="19a7" id="19a7" class="graf graf--p graf-after--p">還好，現在有了 Xcode 的 Debug View Hierarchy 幫忙，我們終於可以笑著研究別人的 App 程式碼。透過它，找出點選 button 觸發的 IBAction function 和控制畫面的 controller 類別都變得容易許多 !</p><h3 name="3322" id="3322" class="graf graf--h3 graf-after--p">storyboard 畫面設計</h3><figure name="55a7" id="55a7" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*JVQ374sLcCJeL1VaAKf4OQ.png" data-width="1390" data-height="880" src="https://cdn-images-1.medium.com/max/800/1*JVQ374sLcCJeL1VaAKf4OQ.png"></figure><h3 name="b5cd" id="b5cd" class="graf graf--h3 graf-after--figure">啟動 Debug View Hierarchy</h3><ol class="postList"><li name="dfa6" id="dfa6" class="graf graf--li graf-after--h3">執行 App</li><li name="2a3d" id="2a3d" class="graf graf--li graf-after--li">點選 Xcode 下方的 Debug View Hierarchy。</li></ol><figure name="7000" id="7000" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*o837n3XWK-vXj12QJnBJaw.png" data-width="574" data-height="76" src="https://cdn-images-1.medium.com/max/800/1*o837n3XWK-vXj12QJnBJaw.png"></figure><p name="f080" id="f080" class="graf graf--p graf-after--figure">Xcode 顯示 App 畫面的 View Hierarchy。</p><figure name="0cad" id="0cad" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NUEY3vNFcWrdSq-Fx7iHJQ.png" data-width="2794" data-height="1622" src="https://cdn-images-1.medium.com/max/800/1*NUEY3vNFcWrdSq-Fx7iHJQ.png"></figure><h3 name="c716" id="c716" class="graf graf--h3 graf-after--figure">在 debug navigator 顯示選取的元件</h3><p name="4eb3" id="4eb3" class="graf graf--p graf-after--h3">選取元件後，從右鍵選單點選 Reveal in Debug Navigator。</p><figure name="5a8a" id="5a8a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*DhEXwF5gb6VKJvHqhQ_yeA.png" data-width="914" data-height="1008" src="https://cdn-images-1.medium.com/max/800/1*DhEXwF5gb6VKJvHqhQ_yeA.png"></figure><figure name="6267" id="6267" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*DdCETIA8iHR-zpjbgT85hg.png" data-width="708" data-height="1542" src="https://cdn-images-1.medium.com/max/800/1*DdCETIA8iHR-zpjbgT85hg.png"></figure><h3 name="8a46" id="8a46" class="graf graf--h3 graf-after--figure"><strong class="markup--strong markup--h3-strong">找到控制畫面的 view controller 類別</strong></h3><p name="c17f" id="c17f" class="graf graf--p graf-after--h3">從左邊的 debug navigator 找出控制畫面的 view controller 類別，然後查詢它的 Class Name。</p><figure name="2044" id="2044" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9bd977qRVw5eE305M_fO1Q.png" data-width="698" data-height="910" src="https://cdn-images-1.medium.com/max/800/1*9bd977qRVw5eE305M_fO1Q.png"></figure><figure name="7115" id="7115" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*9FpjY8kxB-ORp4ElXHzQzA.png" data-width="508" data-height="594" src="https://cdn-images-1.medium.com/max/800/1*9FpjY8kxB-ORp4ElXHzQzA.png"></figure><h3 name="1cf9" id="1cf9" class="graf graf--h3 graf-after--figure">結束 Debug View Hierarchy，繼續執行 App</h3><ul class="postList"><li name="ae77" id="ae77" class="graf graf--li graf-after--h3">方法 1: 點選下方的 Continue program execution。(快速鍵 cmd + ctrl + y)</li></ul><figure name="cd00" id="cd00" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*0jeD8AvFKPcubbReFE39Mg.png" data-width="263" data-height="92" src="https://cdn-images-1.medium.com/max/800/1*0jeD8AvFKPcubbReFE39Mg.png"></figure><ul class="postList"><li name="d948" id="d948" class="graf graf--li graf-after--figure">方法 2: 從 Quick Actions 選單點選 Continue。</li></ul><figure name="bad3" id="bad3" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*dblu6WGizB9K8TU4fhhZHw.png" data-width="455" data-height="119" src="https://cdn-images-1.medium.com/max/800/1*dblu6WGizB9K8TU4fhhZHw.png"></figure><h3 name="27cf" id="27cf" class="graf graf--h3 graf-after--figure">利用 Debug View Hierarchy 找到元件觸發的 function</h3><div name="51e7" id="51e7" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-debug-view-hierarchy-%E6%89%BE%E5%88%B0%E5%85%83%E4%BB%B6-%E8%A7%B8%E7%99%BC%E7%9A%84-function-c9872477e23" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-debug-view-hierarchy-%E6%89%BE%E5%88%B0%E5%85%83%E4%BB%B6-%E8%A7%B8%E7%99%BC%E7%9A%84-function-c9872477e23" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-debug-view-hierarchy-%E6%89%BE%E5%88%B0%E5%85%83%E4%BB%B6-%E8%A7%B8%E7%99%BC%E7%9A%84-function-c9872477e23"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 Debug View Hierarchy 找到元件觸發的 function</strong><br><em class="markup--em markup--mixtapeEmbed-em">當元件觸發的 function 透過 IBAction 或 addTarget(_:action:for:) 設定時，我們可利用 Debug View Hierarchy 找到元件觸發的 function。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-debug-view-hierarchy-%E6%89%BE%E5%88%B0%E5%85%83%E4%BB%B6-%E8%A7%B8%E7%99%BC%E7%9A%84-function-c9872477e23" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="5862c624ae85822b178f9eb69db0b564" data-thumbnail-img-id="1*3ToeKoj00OBeD4VbzS2RMg.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*3ToeKoj00OBeD4VbzS2RMg.png);"></a></div><h3 name="e3bb" id="e3bb" class="graf graf--h3 graf-after--mixtapeEmbed">使用 Malloc Stack Logging &amp; Debug View Hierarchy 找出物件在程式裡產生的地方</h3><div name="cdf0" id="cdf0" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-malloc-stack-logging-debug-view-hierarchy-%E6%89%BE%E5%87%BA%E7%89%A9%E4%BB%B6%E5%9C%A8%E7%A8%8B%E5%BC%8F%E8%A3%A1%E7%94%A2%E7%94%9F%E7%9A%84%E5%9C%B0%E6%96%B9-81998f492c2b" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-malloc-stack-logging-debug-view-hierarchy-%E6%89%BE%E5%87%BA%E7%89%A9%E4%BB%B6%E5%9C%A8%E7%A8%8B%E5%BC%8F%E8%A3%A1%E7%94%A2%E7%94%9F%E7%9A%84%E5%9C%B0%E6%96%B9-81998f492c2b" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-malloc-stack-logging-debug-view-hierarchy-%E6%89%BE%E5%87%BA%E7%89%A9%E4%BB%B6%E5%9C%A8%E7%A8%8B%E5%BC%8F%E8%A3%A1%E7%94%A2%E7%94%9F%E7%9A%84%E5%9C%B0%E6%96%B9-81998f492c2b"><strong class="markup--strong markup--mixtapeEmbed-strong">使用 Malloc Stack Logging &amp; Debug View Hierarchy 找出物件在程式裡產生的地方</strong><br><em class="markup--em markup--mixtapeEmbed-em">最近朋友問到一個問題，他接手了公司前輩博大精深的 iOS App 專案，裡面的畫面都是用程式碼產生。當他想修改畫面裡某個元件的大小位置時，要如何快速找到程式修改的地方呢 ?</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-malloc-stack-logging-debug-view-hierarchy-%E6%89%BE%E5%87%BA%E7%89%A9%E4%BB%B6%E5%9C%A8%E7%A8%8B%E5%BC%8F%E8%A3%A1%E7%94%A2%E7%94%9F%E7%9A%84%E5%9C%B0%E6%96%B9-81998f492c2b" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="1d79ff56175dfe8765be96130bc29cf4" data-thumbnail-img-id="1*hk8NUcAEv88bUTPOuTgM-Q.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*hk8NUcAEv88bUTPOuTgM-Q.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/a4897d4f8fbc"><time class="dt-published" datetime="2017-05-05T15:01:59.148Z">May 5, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-debug-view-hierarchy-%E7%A0%94%E7%A9%B6%E5%88%A5%E4%BA%BA%E7%9A%84-app-%E7%A8%8B%E5%BC%8F%E7%A2%BC-a4897d4f8fbc" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

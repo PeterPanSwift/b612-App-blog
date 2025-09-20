@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 extension 搭配 where 擴充型別功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 extension 搭配 where 擴充型別功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+d
+</section>
+<section data-field="body" class="e-content">
+<section name="78f0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ef95" id="ef95" class="graf graf--h3 graf--leading graf--title">利用 extension 搭配 where 擴充型別功能</h3><p name="7a39" id="7a39" class="graf graf--p graf-after--h3">d</p><pre name="6848" id="6848" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">extension</strong> Array <strong class="markup--strong markup--pre-strong">where</strong> Element == Int {</pre><pre name="20c9" id="20c9" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">func</strong> sumInt() -&gt; Element {</pre><pre name="733a" id="733a" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">var</strong> sum = 0</pre><pre name="8879" id="8879" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">for</strong> number <strong class="markup--strong markup--pre-strong">in</strong> <strong class="markup--strong markup--pre-strong">self</strong> {</pre><pre name="d8d1" id="d8d1" class="graf graf--pre graf-after--pre">sum = sum + number</pre><pre name="26c3" id="26c3" class="graf graf--pre graf-after--pre">}</pre><pre name="ff77" id="ff77" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">return</strong> sum</pre><pre name="7992" id="7992" class="graf graf--pre graf-after--pre">}</pre><pre name="20a9" id="20a9" class="graf graf--pre graf-after--pre">}</pre><pre name="07f5" id="07f5" class="graf graf--pre graf-after--pre">[1, 2, 3].sumInt()</pre><p name="e1ae" id="e1ae" class="graf graf--p graf-after--pre">dd</p><pre name="c82e" id="c82e" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">extension</strong> Array <strong class="markup--strong markup--pre-strong">where</strong> Element: Numeric {</pre><pre name="7488" id="7488" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">func</strong> sumNumber() -&gt; Element {</pre><pre name="c2f5" id="c2f5" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">var</strong> sum: Element = 0</pre><pre name="0fe2" id="0fe2" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">for</strong> number <strong class="markup--strong markup--pre-strong">in</strong> <strong class="markup--strong markup--pre-strong">self</strong> {</pre><pre name="a3d3" id="a3d3" class="graf graf--pre graf-after--pre">sum = sum + number</pre><pre name="4773" id="4773" class="graf graf--pre graf-after--pre">}</pre><pre name="31bf" id="31bf" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">return</strong> sum</pre><pre name="e4fc" id="e4fc" class="graf graf--pre graf-after--pre">}</pre><pre name="bf3e" id="bf3e" class="graf graf--pre graf-after--pre">}</pre><pre name="39d4" id="39d4" class="graf graf--pre graf-after--pre">[1.1, 2.2].sumNumber()</pre><pre name="eea2" id="eea2" class="graf graf--pre graf--empty graf-after--pre"><br></pre><p name="bcc3" id="bcc3" class="graf graf--p graf-after--pre">dd</p><p name="3468" id="3468" class="graf graf--p graf-after--p">可描述 generic type 或 associatedtype 的條件</p><p name="5d7d" id="5d7d" class="graf graf--p graf-after--p">可應用於 protocol extension</p><p name="8b7d" id="8b7d" class="graf graf--p graf--empty graf-after--p"><br></p><p name="5ead" id="5ead" class="graf graf--p graf-after--p">dd</p><pre name="ba1a" id="ba1a" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">protocol</strong> GenericProtocol {</pre><pre name="7430" id="7430" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">associatedtype</strong> myType</pre><pre name="5429" id="5429" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">var</strong> anyProperty: myType { <strong class="markup--strong markup--pre-strong">get</strong> <strong class="markup--strong markup--pre-strong">set</strong> }</pre><pre name="de70" id="de70" class="graf graf--pre graf-after--pre">}</pre><pre name="5c63" id="5c63" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="c698" id="c698" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">class</strong> SomeClass: GenericProtocol {</pre><pre name="8208" id="8208" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">var</strong> anyProperty = &quot;Bob&quot;</pre><pre name="531b" id="531b" class="graf graf--pre graf-after--pre">}</pre><pre name="33ed" id="33ed" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="ecd0" id="ecd0" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">extension</strong> GenericProtocol <strong class="markup--strong markup--pre-strong">where</strong> myType == String, Self == SomeClass {</pre><pre name="148f" id="148f" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">func</strong> introduce(){</pre><pre name="2ec9" id="2ec9" class="graf graf--pre graf-after--pre">print(&quot;I&#39;m Bob&quot;)</pre><pre name="ac85" id="ac85" class="graf graf--pre graf-after--pre">}</pre><pre name="5170" id="5170" class="graf graf--pre graf-after--pre">}</pre><pre name="3e12" id="3e12" class="graf graf--pre graf--empty graf-after--pre"><br></pre><div name="7e18" id="7e18" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://www.bobthedeveloper.io/blog/generic-protocols-with-associated-type" data-href="https://www.bobthedeveloper.io/blog/generic-protocols-with-associated-type" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.bobthedeveloper.io/blog/generic-protocols-with-associated-type"><strong class="markup--strong markup--mixtapeEmbed-strong">Generic Protocols with Associated Type</strong><br><em class="markup--em markup--mixtapeEmbed-em">You&#39;ve started learning Protocols and you&#39;ve got addicted to it. One day, you heard some words like associated type and…</em>www.bobthedeveloper.io</a><a href="https://www.bobthedeveloper.io/blog/generic-protocols-with-associated-type" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a083510f043f2d9f95f490e8f55da998" data-thumbnail-img-id="0*x3_OI3wKIa7li72N" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*x3_OI3wKIa7li72N);"></a></div><p name="f919" id="f919" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/95d3a12bf5e8">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS App 跟使用者請求權限時，請說明清楚的理由</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS App 跟使用者請求權限時，請說明清楚的理由</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+有朋友在 App 送審時，因為請求權限的訊息不夠清楚而被打槍。Apple 回報的問題如下:
+</section>
+<section data-field="body" class="e-content">
+<section name="c98d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="34af" id="34af" class="graf graf--h3 graf--leading graf--title">iOS App 跟使用者請求權限時，請說明清楚的理由</h3><p name="e2ea" id="e2ea" class="graf graf--p graf-after--h3">有朋友在 App 送審時，因為請求權限的訊息不夠清楚而被打槍。Apple 回報的問題如下:</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="2430" id="2430" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*S4RqaYjdq1KKhlsw3DNJlQ.jpeg" data-width="1620" data-height="548" src="https://cdn-images-1.medium.com/max/1200/1*S4RqaYjdq1KKhlsw3DNJlQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><pre name="0a5e" id="0a5e" class="graf graf--pre graf-after--figure">Guideline 5.1.1 — Legal — Privacy — Data Collection and Storage</pre><pre name="090a" id="090a" class="graf graf--pre graf-after--pre">We noticed that your app requests the user’s consent to access their photos but does not clarify the use of this feature in the permission modal alert.</pre><pre name="7721" id="7721" class="graf graf--pre graf-after--pre">Next Steps</pre><pre name="2cdb" id="2cdb" class="graf graf--pre graf-after--pre">To resolve this issue, please revise the permission modal alert to specify why the app is requesting access to the user’s photos.</pre><pre name="aa0b" id="aa0b" class="graf graf--pre graf-after--pre">The permission request alert should specify how your app will use this feature to help users understand why your app is requesting access to their personal data.</pre><p name="7e8f" id="7e8f" class="graf graf--p graf-after--pre">我們都知道，如果 App 想存取使用者的私密資料，必須在 App 的 Info 裡加上請求權限的文字訊息，比方下圖 Privacy — Photo Library Usage Description 設定的文字</p><pre name="3952" id="3952" class="graf graf--pre graf-after--p">求求大大，讓我存取你相簿的照片，好嗎 ?</pre></div><div class="section-inner sectionLayout--outsetColumn"><figure name="e077" id="e077" class="graf graf--figure graf--layoutOutsetCenter graf-after--pre"><img class="graf-image" data-image-id="1*sF4nSOnJSjEKYsGW-i0iWw.jpeg" data-width="1708" data-height="692" src="https://cdn-images-1.medium.com/max/1200/1*sF4nSOnJSjEKYsGW-i0iWw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="b80a" id="b80a" class="graf graf--p graf-after--figure">App 執行後顯示的 alert 如下:</p><figure name="fbee" id="fbee" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*FbpZG4BvZzc79Xy6YRs3mQ.jpeg" data-width="852" data-height="1444" src="https://cdn-images-1.medium.com/max/800/1*FbpZG4BvZzc79Xy6YRs3mQ.jpeg"></figure><p name="3222" id="3222" class="graf graf--p graf-after--figure">可惜，這樣子的請求訊息是不好的，Apple 不接受。因為使用者無法從這段文字了解 App 為何需要存取他的私密照片。</p><p name="00ad" id="00ad" class="graf graf--p graf-after--p">好的權限請求訊息應該要描述清楚的理由，解釋 App 為何需要存取使用者的私密資料，比方下圖 VSCO App 的請求訊息:</p><pre name="c131" id="c131" class="graf graf--pre graf-after--p">讓你可編輯及發佈相機膠卷內的圖像。</pre><figure name="bdb2" id="bdb2" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*_lkEK4G-eCmNp2UZJ_amQw.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*_lkEK4G-eCmNp2UZJ_amQw.png"></figure><p name="e240" id="e240" class="graf graf--p graf-after--figure">參考連結</p><figure name="a114" id="a114" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Yi8An_K873XuCsIduFCj-A.jpeg" data-width="1162" data-height="676" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Yi8An_K873XuCsIduFCj-A.jpeg"></figure><div name="1608" id="1608" class="graf graf--mixtapeEmbed graf-after--figure graf--trailing"><a href="https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/requesting-permission/" data-href="https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/requesting-permission/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/requesting-permission/"><strong class="markup--strong markup--mixtapeEmbed-strong">Requesting Permission - App Architecture - iOS - Human Interface Guidelines - Apple Developer</strong><br><em class="markup--em markup--mixtapeEmbed-em">Learn about designing apps for iOS.</em>developer.apple.com</a><a href="https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/requesting-permission/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="0859aa2629af8929deb85455978bb92e" data-thumbnail-img-id="0*IRps4K8dosziMbQ8" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*IRps4K8dosziMbQ8);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/99ec480a835c"><time class="dt-published" datetime="2018-11-19T17:14:58.898Z">November 19, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/ios-app-%E8%B7%9F%E4%BD%BF%E7%94%A8%E8%80%85%E8%AB%8B%E6%B1%82%E6%AC%8A%E9%99%90%E6%99%82-%E8%AB%8B%E8%AA%AA%E6%98%8E%E6%B8%85%E6%A5%9A%E7%9A%84%E7%90%86%E7%94%B1-99ec480a835c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

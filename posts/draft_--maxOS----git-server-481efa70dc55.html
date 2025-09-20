@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 maxOS 架設 git server</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 maxOS 架設 git server</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+參考以下步驟架設 git server。
+</section>
+<section data-field="body" class="e-content">
+<section name="2fc2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ec7c" id="ec7c" class="graf graf--h3 graf--leading graf--title">在 maxOS 架設 git server</h3><ol class="postList"><li name="2cff" id="2cff" class="graf graf--li graf-after--h3">參考以下步驟架設 git server。</li></ol><div name="e6f0" id="e6f0" class="graf graf--mixtapeEmbed graf-after--li"><a href="http://unixnme.blogspot.tw/2016/07/how-to-setup-git-server-on-mac-os-x.html" data-href="http://unixnme.blogspot.tw/2016/07/how-to-setup-git-server-on-mac-os-x.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="http://unixnme.blogspot.tw/2016/07/how-to-setup-git-server-on-mac-os-x.html"><strong class="markup--strong markup--mixtapeEmbed-strong">How to Setup Git Server on Mac OS X</strong><br><em class="markup--em markup--mixtapeEmbed-em">In this tutorial, I will go over the instructions to setup a git server on Mac OS X. Here, I will assume that the…</em>unixnme.blogspot.tw</a><a href="http://unixnme.blogspot.tw/2016/07/how-to-setup-git-server-on-mac-os-x.html" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f48507476b8407733dca7eb25b50d1ce" data-thumbnail-img-id="0*d3IYAYJmdDY5DotZ." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*d3IYAYJmdDY5DotZ.);"></a></div><p name="d302" id="d302" class="graf graf--p graf-after--mixtapeEmbed">2. 利用 ssh 連線到 git server，建立 git repository。</p><pre name="377f" id="377f" class="graf graf--pre graf-after--p">ssh git@12.34.56.78</pre><pre name="fd6e" id="fd6e" class="graf graf--pre graf-after--pre">git init — bare Demo.git</pre><p name="5bb9" id="5bb9" class="graf graf--p graf-after--pre">3. 建立 Xcode project，輸入 Remote 的位址。</p><figure name="70cc" id="70cc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*mDKWtLIP4vr-5kO5dbeckw.jpeg" data-width="682" data-height="626" src="https://cdn-images-1.medium.com/max/800/1*mDKWtLIP4vr-5kO5dbeckw.jpeg"></figure><figure name="9205" id="9205" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*P6b4_QG38gHCdFdTsyzbXg.jpeg" data-width="952" data-height="302" src="https://cdn-images-1.medium.com/max/800/1*P6b4_QG38gHCdFdTsyzbXg.jpeg"></figure><p name="abed" id="abed" class="graf graf--p graf-after--figure">4. 利用 push 將東西上傳。</p><figure name="be8b" id="be8b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*D90dcK6EMU7gBDmgAEGtmg.jpeg" data-width="690" data-height="576" src="https://cdn-images-1.medium.com/max/800/1*D90dcK6EMU7gBDmgAEGtmg.jpeg"></figure><p name="0e2c" id="0e2c" class="graf graf--p graf--empty graf-after--figure graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/481efa70dc55">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

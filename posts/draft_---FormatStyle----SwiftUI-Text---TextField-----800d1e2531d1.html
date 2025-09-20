@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 FormatStyle 設定 SwiftUI Text &amp; TextField 的格式</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 FormatStyle 設定 SwiftUI Text &amp; TextField 的格式</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 iOS 15 開始，我們可以很方便地利用 FormatStyle 設定 SwiftUI Text &amp; TextField 的格式。FormatStyle 是 protocol，如下圖所示，有許多遵從 FormatStyle 的 style…
+</section>
+<section data-field="body" class="e-content">
+<section name="3cc5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1b14" id="1b14" class="graf graf--h3 graf--leading graf--title">利用 FormatStyle 設定 SwiftUI Text &amp; TextField 的格式</h3><p name="b31f" id="b31f" class="graf graf--p graf-after--h3">從 iOS 15 開始，我們可以很方便地利用 FormatStyle 設定 SwiftUI Text &amp; TextField 的格式。FormatStyle 是 protocol，如下圖所示，有許多遵從 FormatStyle 的 style 可選擇，接下來讓我們試試幾種常見的應用。</p><figure name="73db" id="73db" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*X8ZdsbRDSGJp9ZK-hJs1sA.png" data-width="1544" data-height="1282" src="https://cdn-images-1.medium.com/max/800/1*X8ZdsbRDSGJp9ZK-hJs1sA.png"></figure><h3 name="e491" id="e491" class="graf graf--h3 graf-after--figure">指定到小數點後第幾位，number.precision</h3><p name="8b25" id="8b25" class="graf graf--p graf-after--h3">到小數點後第二位，小數點後第三位會四捨五入到第二位</p><pre name="6484" id="6484" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var percent = 20.536<br>    <br>    var body: some View {<br>        VStack {<br>            Text(percent, format: <strong class="markup--strong markup--pre-strong">.number.precision(.fractionLength(2))</strong>)<br>            TextField(&quot;percent&quot;, value: $percent, format: <strong class="markup--strong markup--pre-strong">.number.precision(.fractionLength(2))</strong>)<br>                .textFieldStyle(.roundedBorder)<br>        }<br>        .font(.largeTitle)<br>        .padding()<br>        <br>    }<br>}</pre><figure name="f220" id="f220" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*EwVCa4PaaZgZbiex4siaOA.png" data-width="596" data-height="1256" src="https://cdn-images-1.medium.com/max/800/1*EwVCa4PaaZgZbiex4siaOA.png"></figure><h3 name="c393" id="c393" class="graf graf--h3 graf-after--figure">顯示百分比，percent</h3><pre name="1b48" id="1b48" class="graf graf--pre graf-after--h3">struct ContentView: View {<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var percent = 10<br>    <br>    var body: some View {<br>        VStack {<br>            Text(percent, format: .<strong class="markup--strong markup--pre-strong">percent</strong>)<br>            TextField(&quot;percent&quot;, value: $percent, format: .<strong class="markup--strong markup--pre-strong">percent</strong>)<br>                .textFieldStyle(.roundedBorder)<br>        }<br>        .font(.largeTitle)<br>        .padding()<br>        <br>    }<br>}</pre><figure name="a5b0" id="a5b0" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*UK7ozqNPVIhL5kn-xHPaIg.png" data-width="604" data-height="1264" src="https://cdn-images-1.medium.com/max/800/1*UK7ozqNPVIhL5kn-xHPaIg.png"></figure><h3 name="b08c" id="b08c" class="graf graf--h3 graf-after--figure">顯示世界上最受歡迎的錢，currency(code:)</h3><p name="e1fa" id="e1fa" class="graf graf--p graf-after--h3"><code class="markup--code markup--p-code">.currency(code: &quot;TWD&quot;)</code> 將顯示新台幣，<code class="markup--code markup--p-code">.currency(code: Locale.current.currencyCode ?? &quot;TWD&quot;)</code> 將依據使用者手機設定的 Region 決定顯示的金錢符號，以下例子的手機將 region 設為日本，因此顯示 ¥1,000。</p><pre name="310c" id="310c" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    <a href="http://twitter.com/State" data-href="http://twitter.com/State" class="markup--anchor markup--pre-anchor" title="Twitter profile for @State" rel="noopener" target="_blank">@State</a> private var percent = 1000<br>    <br>    var body: some View {<br>        VStack {<br>            Text(percent, format: <strong class="markup--strong markup--pre-strong">.currency(code: &quot;TWD&quot;)</strong>)<br>            TextField(&quot;percent&quot;, value: $percent, format: <strong class="markup--strong markup--pre-strong">.currency(code: Locale.current.currencyCode ?? &quot;TWD&quot;)</strong>)<br>                .textFieldStyle(.roundedBorder)<br>        }<br>        .font(.largeTitle)<br>        .padding()<br>        <br>    }<br>}</pre><figure name="40a5" id="40a5" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*ZT482BvjRVfGnYItTH7oKw.png" data-width="590" data-height="1244" src="https://cdn-images-1.medium.com/max/800/1*ZT482BvjRVfGnYItTH7oKw.png"></figure><p name="75e2" id="75e2" class="graf graf--p graf-after--figure">ps: 從以下連結可查詢各國的 currency code。</p><div name="d4b2" id="d4b2" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://www.iban.com/currency-codes" data-href="https://www.iban.com/currency-codes" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.iban.com/currency-codes"><strong class="markup--strong markup--mixtapeEmbed-strong">Country Currency Codes</strong><br><em class="markup--em markup--mixtapeEmbed-em">International money transfers can be expensive. Banks could charge you up to 5% in hidden fees for transferring money…</em>www.iban.com</a><a href="https://www.iban.com/currency-codes" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="14ab2b1f42d73de6475a818e0a47882c" data-thumbnail-img-id="0*8oi370z0wCWHN8mX" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*8oi370z0wCWHN8mX);"></a></div><h3 name="ecfa" id="ecfa" class="graf graf--h3 graf-after--mixtapeEmbed">顯示時間</h3><p name="2a4d" id="2a4d" class="graf graf--p graf--empty graf-after--h3"><br></p><div name="7aa4" id="7aa4" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-text-%E9%A1%AF%E7%A4%BA%E6%99%82%E9%96%93-e9d1837be605" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-text-%E9%A1%AF%E7%A4%BA%E6%99%82%E9%96%93-e9d1837be605" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-text-%E9%A1%AF%E7%A4%BA%E6%99%82%E9%96%93-e9d1837be605"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 SwiftUI 的 Text 顯示時間</strong><br><em class="markup--em markup--mixtapeEmbed-em">SwiftUI 的 Text 專門顯示文字，因此我們通常會傳入字串，比方以下學貓叫的例子，</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-text-%E9%A1%AF%E7%A4%BA%E6%99%82%E9%96%93-e9d1837be605" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8febe8ec5150c955c19d0108ceaedccb" data-thumbnail-img-id="1*d0i4ZklfxauL8pjYT08aHQ.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*d0i4ZklfxauL8pjYT08aHQ.jpeg);"></a></div><p name="3924" id="3924" class="graf graf--p graf--empty graf-after--mixtapeEmbed"><br></p><p name="1aad" id="1aad" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/800d1e2531d1">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

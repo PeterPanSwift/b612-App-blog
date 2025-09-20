@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS 10 存取使用者私密資料都要加上 usage description</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS 10 存取使用者私密資料都要加上 usage description</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Apple 十分重視使用者的個人隱私，在 iOS 10 更是做到滴水不漏的地步。我們開發的App想要存取使用者私密資料時，一定要在 App 的 Info 頁面新增相關的 usage description，如此 App 執行，想要取用使用者的資料時，才能跳出 usage…
+</section>
+<section data-field="body" class="e-content">
+<section name="b31d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3070" id="3070" class="graf graf--h3 graf--leading graf--title">iOS 10 存取使用者私密資料都要加上 usage description</h3><p name="159a" id="159a" class="graf graf--p graf-after--h3">Apple 十分重視使用者的個人隱私，在 iOS 10 更是做到滴水不漏的地步。我們開發的App想要存取使用者私密資料時，一定要在 App 的 Info 頁面新增相關的 usage description，如此 App 執行，想要取用使用者的資料時，才能跳出 usage description 設定的詢問訊息，徵求使用者的同意。</p><p name="e43c" id="e43c" class="graf graf--p graf-after--p">如果想偷偷地存取使用者的資料，沒有設定 usage description，那會怎麼樣呢? 人在做，天在看，沒有乖乖設定 usage description 的後果很可怕，結局只有死路一條，App 閃退 !</p><p name="de5d" id="de5d" class="graf graf--p graf-after--p">以下我們就不怕死地以存取使用者的照片為例實驗吧:</p><pre name="f80e" id="f80e" class="graf graf--pre graf-after--p">let imagePicker = UIImagePickerController()<br>imagePicker.sourceType = .photoLibrary<br>self.present(imagePicker, animated: true, completion: nil)</pre><p name="f09e" id="f09e" class="graf graf--p graf-after--pre">以上三行程式碼利用我們熟悉的 UIImagePickerController 物件存取使用者的照片。但是很不幸地，當 App 執行這三行程式碼後，馬上倒地閃退 !</p><p name="f8c3" id="f8c3" class="graf graf--p graf-after--p">閃退並不可恥，知錯能改，善莫大焉。讓我們趕緊看看 Console 的錯誤訊息。</p><p name="1d59" id="1d59" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app’s Info.plist must contain an NSPhotoLibraryUsageDescription key with a string value explaining to the user how the app uses this data.</strong></p><p name="2fe2" id="2fe2" class="graf graf--p graf-after--p">Xcode 貼心地告訴我們 App 閃退是因為存取私密資料，沒有設定 usage description，而且她連解決的方法都說了，要我們在 Info.plist 補上 NSPhotoLibraryUsageDescription 。</p><p name="8c4f" id="8c4f" class="graf graf--p graf-after--p">哇，NSPhotoLibraryUsageDescription 那麼長，應該很容易打錯字吧。別怕，Xcode 早為我們設想好，切換到 App 的 Info 頁面，點選 + 新增一行，在下拉選單即可看到 usage description 的相關欄位，凡以 Privacy 開頭的都是。Xcode 把所有需徵求使用者同意，需設定 usage description 的都陳列在選單裡。</p><figure name="2ad6" id="2ad6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TDsivku3odt-e_wj6ZG59Q.jpeg" data-width="1710" data-height="890" src="https://cdn-images-1.medium.com/max/800/1*TDsivku3odt-e_wj6ZG59Q.jpeg"></figure><p name="2420" id="2420" class="graf graf--p graf-after--figure">我們的目的是存取照片，所以目標很明顯，我們該選的是 Privacy — Photo Library Usage Description。 Value 則輸入為什麼要存取照片的理由，為了提高使用者同意的機率，我們只好說善意的謊言，”你的照片將被用於男神女神選拔大賽”。只要有心，人人都能成為男神女神。</p><figure name="97c8" id="97c8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3ZxCE4qk_61dhG-n7dARqA.jpeg" data-width="1194" data-height="202" src="https://cdn-images-1.medium.com/max/800/1*3ZxCE4qk_61dhG-n7dARqA.jpeg"></figure><p name="fdd9" id="fdd9" class="graf graf--p graf-after--figure">加了 usage description 後，App 終於不再閃退，存取照片前跳出徵求使用者同意的訊息。</p><figure name="5a67" id="5a67" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*jFZt9nbWFMdOCsRsnOPbVA.jpeg" data-width="864" data-height="1404" src="https://cdn-images-1.medium.com/max/800/1*jFZt9nbWFMdOCsRsnOPbVA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/a01715e56491"><time class="dt-published" datetime="2016-07-09T13:26:13.741Z">July 9, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/ios-10%E5%AD%98%E5%8F%96%E4%BD%BF%E7%94%A8%E8%80%85%E7%A7%81%E5%AF%86%E8%B3%87%E6%96%99%E9%83%BD%E8%A6%81%E5%8A%A0%E4%B8%8Ausage-description-a01715e56491" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

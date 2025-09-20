@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI onTapGesture 在透明區塊的偵測問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI onTapGesture 在透明區塊的偵測問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+App 畫面上的點擊區塊有時會包含透明區塊，就像以下例子的文字框，我們希望使用者可以點擊框框裡的任一個地方。
+</section>
+<section data-field="body" class="e-content">
+<section name="000f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="dbf1" id="dbf1" class="graf graf--h3 graf--leading graf--title">SwiftUI onTapGesture 在透明區塊的偵測問題</h3><p name="9c72" id="9c72" class="graf graf--p graf-after--h3">App 畫面上的點擊區塊有時會包含透明區塊，就像以下例子的文字框，我們希望使用者可以點擊框框裡的任一個地方。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0a7d" id="0a7d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;請按按框框裡的透明區塊&quot;</span>)<br />            .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)<br />            .foregroundColor(.orange)<br />            .padding()<br />            .border(.orange, width: <span class="hljs-number">10</span>)<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;真的可以按&quot;</span>)<br />            }<br />    }<br />}</span></pre><figure name="9d75" id="9d75" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*rS4G02RF2gnqqD3SB0aPNg.png" data-width="1179" data-height="2556" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*rS4G02RF2gnqqD3SB0aPNg.png"></figure><p name="3b15" id="3b15" class="graf graf--p graf-after--figure">不過 App 執行後，我們將發現只有點擊文字和框框時會觸發 onTapGesture 的 closure。這是因為 onTapGesture 預設無法偵測到透明區塊的點擊，因此解決的方法有三種。</p><ul class="postList"><li name="9f16" id="9f16" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">方法 1: 設定 contentShape。</strong></li><li name="13ed" id="13ed" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">方法 2: 改用 Button。</strong></li><li name="e1f3" id="e1f3" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">方法 3: 設定背景顏色。</strong></li></ul><h3 name="76d5" id="76d5" class="graf graf--h3 graf-after--li">設定 contentShape</h3><p name="09a5" id="09a5" class="graf graf--p graf-after--h3">contentShape 可設定元件點擊的範圍，我們傳入 Rectangle，因此整個框框的區塊都可點擊。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="aec3" id="aec3" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;請按按框框裡的透明區塊&quot;</span>)<br />            .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)<br />            .foregroundColor(.orange)<br />            .padding()<br />            .border(.orange, width: <span class="hljs-number">10</span>)<br />            .contentShape(<span class="hljs-type">Rectangle</span>())<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;真的可以按&quot;</span>)<br />            }<br />    }<br />}</span></pre><div name="d262" id="d262" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8E%A7%E5%88%B6%E9%BB%9E%E9%81%B8%E7%AF%84%E5%9C%8D%E7%9A%84-contentshape-394fa57e8b34" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8E%A7%E5%88%B6%E9%BB%9E%E9%81%B8%E7%AF%84%E5%9C%8D%E7%9A%84-contentshape-394fa57e8b34" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8E%A7%E5%88%B6%E9%BB%9E%E9%81%B8%E7%AF%84%E5%9C%8D%E7%9A%84-contentshape-394fa57e8b34"><strong class="markup--strong markup--mixtapeEmbed-strong">控制點選範圍的 contentShape</strong><br><em class="markup--em markup--mixtapeEmbed-em">利用 contentShape 我們可以控制點選的範圍，接下來讓我們看看以下幾種應用的例子。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%8E%A7%E5%88%B6%E9%BB%9E%E9%81%B8%E7%AF%84%E5%9C%8D%E7%9A%84-contentshape-394fa57e8b34" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="dbcdc799ffb2114c715d21da8bf651b7" data-thumbnail-img-id="1*bxrcxUdevoYCqstwYhVi3A.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*bxrcxUdevoYCqstwYhVi3A.png);"></a></div><h3 name="973e" id="973e" class="graf graf--h3 graf-after--mixtapeEmbed">改用 Button</h3><p name="a9f9" id="a9f9" class="graf graf--p graf-after--h3">Button 的整個長方形區域都可點擊，包含透明的區塊。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="09c5" id="09c5" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Button</span> {<br />            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;真的可以按&quot;</span>)<br />        } label: {<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;請按按框框裡的透明區塊&quot;</span>)<br />                .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)<br />                .foregroundColor(.orange)<br />                .padding()<br />                .border(.orange, width: <span class="hljs-number">10</span>)<br />        }<br />    }<br />}</span></pre><h3 name="e0af" id="e0af" class="graf graf--h3 graf-after--pre"><strong class="markup--strong markup--h3-strong">設定背景顏色</strong></h3><p name="d22c" id="d22c" class="graf graf--p graf-after--h3">既然問題在透明區塊，我們只要讓它有顏色即可偵測到點擊，因為我們可用 background 設定背景顏色。若是希望背景顏色接近透明的效果，則可將 opacity 設成 0.0001。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f003" id="f003" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;請按按框框裡的透明區塊&quot;</span>)<br />            .frame(width: <span class="hljs-number">200</span>, height: <span class="hljs-number">200</span>)<br />            .foregroundColor(.orange)<br />            .padding()<br />            .border(.orange, width: <span class="hljs-number">10</span>)<br />            .background(content: {<br />                <span class="hljs-type">Color</span>(white: <span class="hljs-number">0</span>, opacity: <span class="hljs-number">0.0001</span>)<br />            })<br />            .onTapGesture {<br />                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;真的可以按&quot;</span>)<br />            }<br />    }<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/93c2aaa485c6"><time class="dt-published" datetime="2023-03-26T14:39:58.632Z">March 26, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-ontapgesture-%E5%9C%A8%E9%80%8F%E6%98%8E%E5%8D%80%E5%A1%8A%E7%9A%84%E5%81%B5%E6%B8%AC%E5%95%8F%E9%A1%8C-93c2aaa485c6" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

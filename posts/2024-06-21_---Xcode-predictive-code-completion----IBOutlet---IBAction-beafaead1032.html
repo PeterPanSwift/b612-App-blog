@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Xcode predictive code completion 產生 IBOutlet / IBAction</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Xcode predictive code completion 產生 IBOutlet / IBAction</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+使用 storyboard 設計 App 畫面時，我們常會從 storyboard 的 UI 元件拉線到 Assistant 產生 IBOutlet &amp; IBAction 的相關程式。
+</section>
+<section data-field="body" class="e-content">
+<section name="0dfb" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8254" id="8254" class="graf graf--h3 graf--leading graf--title">使用 Xcode predictive code completion 產生 IBOutlet / IBAction</h3><p name="bc87" id="bc87" class="graf graf--p graf-after--h3">使用 storyboard 設計 App 畫面時，我們常會從 storyboard 的 UI 元件拉線到 Assistant 產生 IBOutlet &amp; IBAction 的相關程式。</p><div name="75af" id="75af" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad"><strong class="markup--strong markup--mixtapeEmbed-strong">連結 IBAction 和 IBOutlet 的步驟說明</strong><br><em class="markup--em markup--mixtapeEmbed-em">以 Yaya 同學的小費 App 為例</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E9%80%A3%E7%B5%90-iboutlet-%E5%92%8C-ibaction-%E7%9A%84%E6%AD%A5%E9%A9%9F%E8%AA%AA%E6%98%8E-f647f07329ad" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e60c3cb970446acd80b39982aab9cc85" data-thumbnail-img-id="1*vw0Is30y7DgkIhoUHfaF5g.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*vw0Is30y7DgkIhoUHfaF5g.jpeg);"></a></div><p name="9eea" id="9eea" class="graf graf--p graf-after--mixtapeEmbed">最近 Xcode 16 推出聰明的 predictive code completion，我們有時也可以反過來先產生 IBOutlet / IBAction 的程式再拉線。有了 predictive code completion，產生 IBOutlet / IBAction 的速度快上許多，只要輸入簡單的注解，AI 就能產生完整的 IBOutlet / IBAction 程式。</p><p name="6c52" id="6c52" class="graf graf--p graf-after--p">以下我們示範幾個例子。</p><ul class="postList"><li name="3923" id="3923" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">已知 outlet 的名字。</strong></li></ul><p name="9e6d" id="9e6d" class="graf graf--p graf-after--li">想取名 accountTextField。</p><figure name="4d0a" id="4d0a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_gg_6QWfXbifAsvLaa-u1g.png" data-width="1400" data-height="242" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*_gg_6QWfXbifAsvLaa-u1g.png"></figure><p name="b280" id="b280" class="graf graf--p graf-after--figure">用左鍵拉線，從圓圈連到 text field。</p><figure name="e510" id="e510" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jN-lT8JGlLhzp-MXyXbfXQ.png" data-width="2024" data-height="638" src="https://cdn-images-1.medium.com/max/800/1*jN-lT8JGlLhzp-MXyXbfXQ.png"></figure><p name="193b" id="193b" class="graf graf--p graf-after--figure">或從 text filed 用右鍵拉線連到 accountTextField。</p><figure name="1aed" id="1aed" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*n2GCu3qixLunkWCdfw51Tw.png" data-width="1974" data-height="638" src="https://cdn-images-1.medium.com/max/800/1*n2GCu3qixLunkWCdfw51Tw.png"></figure><p name="2976" id="2976" class="graf graf--p graf-after--figure">其它例子。</p><figure name="b105" id="b105" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5uJo6OzsxJDTiY19puoDnQ.png" data-width="1406" data-height="214" src="https://cdn-images-1.medium.com/max/800/1*5uJo6OzsxJDTiY19puoDnQ.png"></figure><figure name="9105" id="9105" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*SdR0Pyei1LKc-nM4QnEnMw.png" data-width="1296" data-height="154" src="https://cdn-images-1.medium.com/max/800/1*SdR0Pyei1LKc-nM4QnEnMw.png"></figure><p name="9808" id="9808" class="graf graf--p graf-after--figure">想取名 isCompleteButton。</p><figure name="1362" id="1362" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NhrtzKmBFnTjGmr4fKiDZQ.png" data-width="1314" data-height="232" src="https://cdn-images-1.medium.com/max/800/1*NhrtzKmBFnTjGmr4fKiDZQ.png"></figure><ul class="postList"><li name="e284" id="e284" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">不知道 outlet 的名字。</strong></li></ul><figure name="684c" id="684c" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*WnL3mAadsVTvsBcfpm55Uw.png" data-width="1342" data-height="166" src="https://cdn-images-1.medium.com/max/800/1*WnL3mAadsVTvsBcfpm55Uw.png"></figure><figure name="a5c7" id="a5c7" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*IfEQeuqx6WRHtMBUgAcvbg.png" data-width="1154" data-height="166" src="https://cdn-images-1.medium.com/max/800/1*IfEQeuqx6WRHtMBUgAcvbg.png"></figure><ul class="postList"><li name="cdff" id="cdff" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">已知 action 的名字。</strong></li></ul><figure name="c707" id="c707" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*BL8blhYSYCcR0LuKNLnulA.png" data-width="1018" data-height="168" src="https://cdn-images-1.medium.com/max/800/1*BL8blhYSYCcR0LuKNLnulA.png"></figure><figure name="2ed9" id="2ed9" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*sCJ1nMltta1qhl3O4deTFg.png" data-width="1044" data-height="192" src="https://cdn-images-1.medium.com/max/800/1*sCJ1nMltta1qhl3O4deTFg.png"></figure><figure name="fe0d" id="fe0d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*LrobPsYmyyxaXGjO6RiF-A.png" data-width="1348" data-height="198" src="https://cdn-images-1.medium.com/max/800/1*LrobPsYmyyxaXGjO6RiF-A.png"></figure><figure name="baeb" id="baeb" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*LxE_G4cbpZOuT7vfYDdXlg.png" data-width="1358" data-height="228" src="https://cdn-images-1.medium.com/max/800/1*LxE_G4cbpZOuT7vfYDdXlg.png"></figure><figure name="1360" id="1360" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*4dUvP43NtuwcNpBTdruXYA.png" data-width="1536" data-height="204" src="https://cdn-images-1.medium.com/max/800/1*4dUvP43NtuwcNpBTdruXYA.png"></figure><ul class="postList"><li name="3f04" id="3f04" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">不知道 action 的名字。</strong></li></ul><figure name="d723" id="d723" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*n_JjmwSnYT8grOFBUcsabQ.png" data-width="1334" data-height="174" src="https://cdn-images-1.medium.com/max/800/1*n_JjmwSnYT8grOFBUcsabQ.png"></figure><figure name="93e3" id="93e3" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*sPmC-EfLsr9oa1sINN6MkQ.png" data-width="1200" data-height="176" src="https://cdn-images-1.medium.com/max/800/1*sPmC-EfLsr9oa1sINN6MkQ.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/beafaead1032"><time class="dt-published" datetime="2024-06-21T04:04:11.905Z">June 21, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-xcode-predictive-code-completion-%E7%94%A2%E7%94%9F-iboutlet-ibaction-beafaead1032" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

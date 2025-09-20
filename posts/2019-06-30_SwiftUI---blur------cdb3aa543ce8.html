@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI 的 blur 模糊效果</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI 的 blur 模糊效果</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SwiftUI 的 protocol View 宣告了 blur function，方便我們將 SwiftUI 創建的 UI 元件加上模糊效果。(Gaussian Blur）
+</section>
+<section data-field="body" class="e-content">
+<section name="7cc0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1d0a" id="1d0a" class="graf graf--h3 graf--leading graf--title">SwiftUI 的 blur 模糊效果</h3><p name="2bc8" id="2bc8" class="graf graf--p graf-after--h3">SwiftUI 的 protocol View 宣告了 blur function，幫助我們方便地將 SwiftUI 的 UI 元件加上模糊效果。(Gaussian Blur）</p><pre name="0cb3" id="0cb3" class="graf graf--pre graf-after--p">func blur(radius: Length, opaque: Bool = false) -&gt; Self.Modified&lt;_BlurEffect&gt;</pre><div name="8710" id="8710" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/swiftui/view/3278522-blur" data-href="https://developer.apple.com/documentation/swiftui/view/3278522-blur" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/3278522-blur"><strong class="markup--strong markup--mixtapeEmbed-strong">blur(radius:opaque:) - View | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">This documentation contains preliminary information about an API or technology in development. This information is…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/3278522-blur" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="380d3bf70ac21ad836eca3aae55680ab"></a></div><h3 name="b452" id="b452" class="graf graf--h3 graf-after--mixtapeEmbed">文字 blur</h3><p name="7b69" id="7b69" class="graf graf--p graf-after--h3">以彼得潘偶像戴佩妮創作的歌詞勢在必行為例。</p><pre name="bbf3" id="bbf3" class="graf graf--pre graf-after--p">VStack {</pre><pre name="fc6e" id="fc6e" class="graf graf--pre graf-after--pre">   Text(&quot;為愛付出瘋狂，為夢受一點傷&quot;)</pre><pre name="227f" id="227f" class="graf graf--pre graf-after--pre">   Text(&quot;為愛付出瘋狂，為夢受一點傷&quot;)</pre><pre name="1ac5" id="1ac5" class="graf graf--pre graf-after--pre">      .blur(radius: 2)</pre><pre name="3980" id="3980" class="graf graf--pre graf-after--pre">   Text(&quot;為愛付出瘋狂，為夢受一點傷&quot;)</pre><pre name="b5a1" id="b5a1" class="graf graf--pre graf-after--pre">      .blur(radius: 10)</pre><pre name="135a" id="135a" class="graf graf--pre graf-after--pre">}</pre><figure name="3e6b" id="3e6b" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*VyuBC05I062XHFjATEhvSQ.jpeg" data-width="626" data-height="1102" src="https://cdn-images-1.medium.com/max/800/1*VyuBC05I062XHFjATEhvSQ.jpeg"></figure><figure name="6475" id="6475" class="graf graf--figure graf--iframe graf-after--figure"><iframe src="https://www.youtube.com/embed/RtQuP-jDj7M?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure><h3 name="57f0" id="57f0" class="graf graf--h3 graf-after--figure">圖片 blur</h3><pre name="e09f" id="e09f" class="graf graf--pre graf-after--h3">VStack {</pre><pre name="208b" id="208b" class="graf graf--pre graf-after--pre">   Image(&quot;peter&quot;)</pre><pre name="4006" id="4006" class="graf graf--pre graf-after--pre">   Image(&quot;peter&quot;)</pre><pre name="0831" id="0831" class="graf graf--pre graf-after--pre">      .blur(radius: 2)</pre><pre name="7b5f" id="7b5f" class="graf graf--pre graf-after--pre">   Image(&quot;peter&quot;)</pre><pre name="9b11" id="9b11" class="graf graf--pre graf-after--pre">      .blur(radius: 10)</pre><pre name="a7ab" id="a7ab" class="graf graf--pre graf-after--pre">}</pre><figure name="42db" id="42db" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*dFefAYlX_FPv_wUVln5cwg.jpeg" data-width="608" data-height="1086" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*dFefAYlX_FPv_wUVln5cwg.jpeg"></figure><h3 name="0187" id="0187" class="graf graf--h3 graf-after--figure">opaque(不透明)調整</h3><p name="b182" id="b182" class="graf graf--p graf-after--h3">套用 blur 效果時，它的 opaque 預設為 false。我們可額外傳入參數 opaque 控制是否不透明。</p><pre name="6d30" id="6d30" class="graf graf--pre graf-after--p">VStack {</pre><pre name="9f76" id="9f76" class="graf graf--pre graf-after--pre">   Image(&quot;peter&quot;)</pre><pre name="652c" id="652c" class="graf graf--pre graf-after--pre">      .blur(radius: 10.0, opaque: false)</pre><pre name="1e0c" id="1e0c" class="graf graf--pre graf-after--pre">   Image(&quot;peter&quot;)</pre><pre name="f425" id="f425" class="graf graf--pre graf-after--pre">      .blur(radius: 10.0, opaque: true)</pre><pre name="acc2" id="acc2" class="graf graf--pre graf-after--pre">}</pre><figure name="fb72" id="fb72" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*xhYiqRE0qNk5UyvcnWOY6g.jpeg" data-width="632" data-height="1056" src="https://cdn-images-1.medium.com/max/800/1*xhYiqRE0qNk5UyvcnWOY6g.jpeg"><figcaption class="imageCaption">上面的圖 opaque 為 false，下面的圖 opaque 為 true</figcaption></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/cdb3aa543ce8"><time class="dt-published" datetime="2019-06-30T04:01:46.823Z">June 30, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-%E7%9A%84-blur-%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C-cdb3aa543ce8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

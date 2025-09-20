@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI / UIKit 產生 asset &amp; SF Symbol 圖片的差異</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI / UIKit 產生 asset &amp; SF Symbol 圖片的差異</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常需要產生來自 asset &amp; SF Symbol 的圖片，兩者寫法的參數名有些許不同。
+</section>
+<section data-field="body" class="e-content">
+<section name="8014" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="62d2" id="62d2" class="graf graf--h3 graf--leading graf--title">SwiftUI / UIKit 產生 asset &amp; SF Symbol 圖片的差異</h3><p name="fa7e" id="fa7e" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常需要產生來自 asset &amp; SF Symbol 的圖片，兩者寫法的參數名有些許不同。</p><p name="77e1" id="77e1" class="graf graf--p graf-after--p">以生成來自 asset 的圖片 peter 為例，以下分別是 SwiftUI &amp; UIKit 的寫法。</p><figure name="0a13" id="0a13" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jSFb2A4EWbzQQwBwmMqYvw.png" data-width="1994" data-height="426" src="https://cdn-images-1.medium.com/max/800/1*jSFb2A4EWbzQQwBwmMqYvw.png"></figure><ul class="postList"><li name="9b49" id="9b49" class="graf graf--li graf-after--figure">SwiftUI</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="858d" id="858d" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-type">Image</span>(.peter)<br /><span class="hljs-type">Image</span>(<span class="hljs-string">&quot;peter&quot;</span>)</span></pre><ul class="postList"><li name="ba47" id="ba47" class="graf graf--li graf-after--pre">UIKit</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="6203" id="6203" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-type">UIImage</span>(resource: .peter)<br /><span class="hljs-type">UIImage</span>(named: <span class="hljs-string">&quot;peter&quot;</span>)</span></pre><p name="d196" id="d196" class="graf graf--p graf-after--pre">除了傳入圖片名的字串，目前更好的寫法是傳入 . 圖片名，因為它可避免字串容易打錯字的問題。</p><figure name="8b23" id="8b23" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aQw4kTVtpEfdfHD6QRMrZw.png" data-width="662" data-height="156" src="https://cdn-images-1.medium.com/max/800/1*aQw4kTVtpEfdfHD6QRMrZw.png"></figure><div name="c90e" id="c90e" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E5%8B%95%E5%B0%87-asset-%E7%9A%84%E5%9C%96%E7%89%87%E5%92%8C%E9%A1%8F%E8%89%B2%E8%AE%8A%E6%88%90-imageresource-%E5%92%8C-colorresource-%E7%9A%84%E5%9E%8B%E5%88%A5%E5%B1%AC%E6%80%A7-xcode-15-%E6%96%B0%E5%8A%9F%E8%83%BD-3e321213a453" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E5%8B%95%E5%B0%87-asset-%E7%9A%84%E5%9C%96%E7%89%87%E5%92%8C%E9%A1%8F%E8%89%B2%E8%AE%8A%E6%88%90-imageresource-%E5%92%8C-colorresource-%E7%9A%84%E5%9E%8B%E5%88%A5%E5%B1%AC%E6%80%A7-xcode-15-%E6%96%B0%E5%8A%9F%E8%83%BD-3e321213a453" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E5%8B%95%E5%B0%87-asset-%E7%9A%84%E5%9C%96%E7%89%87%E5%92%8C%E9%A1%8F%E8%89%B2%E8%AE%8A%E6%88%90-imageresource-%E5%92%8C-colorresource-%E7%9A%84%E5%9E%8B%E5%88%A5%E5%B1%AC%E6%80%A7-xcode-15-%E6%96%B0%E5%8A%9F%E8%83%BD-3e321213a453"><strong class="markup--strong markup--mixtapeEmbed-strong">自動將 asset 的圖片和顏色變成 ImageResource 和 ColorResource 的型別屬性 — Xcode 15 新功能</strong><br><em class="markup--em markup--mixtapeEmbed-em">從 Xcode 15 開始，我們可以更方便地從程式生成圖片和顏色了。Xcode 會自動將 asset 的圖片和顏色變成 ImageResource 和 ColorResource 的型別屬性，我們不用再擔心打錯圖片和顏色的名字。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E5%8B%95%E5%B0%87-asset-%E7%9A%84%E5%9C%96%E7%89%87%E5%92%8C%E9%A1%8F%E8%89%B2%E8%AE%8A%E6%88%90-imageresource-%E5%92%8C-colorresource-%E7%9A%84%E5%9E%8B%E5%88%A5%E5%B1%AC%E6%80%A7-xcode-15-%E6%96%B0%E5%8A%9F%E8%83%BD-3e321213a453" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f62c980faac36c78b953003ce51f2234" data-thumbnail-img-id="1*KHi3ythKgvYG4OOF8OhqPg.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*KHi3ythKgvYG4OOF8OhqPg.png);"></a></div><p name="7abd" id="7abd" class="graf graf--p graf-after--mixtapeEmbed">生成來自 SF Symbol 的圖片時搭配的參數名則是 systemName，以生成 swift 為例，以下分別是 SwiftUI &amp; UIKit 的寫法。</p><figure name="075d" id="075d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sjFK-O8XOc0O2u13jAMBqg.png" data-width="1502" data-height="934" src="https://cdn-images-1.medium.com/max/800/1*sjFK-O8XOc0O2u13jAMBqg.png"></figure><ul class="postList"><li name="f74b" id="f74b" class="graf graf--li graf-after--figure">SwiftUI</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f405" id="f405" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;swift&quot;</span>)</span></pre><ul class="postList"><li name="f319" id="f319" class="graf graf--li graf-after--pre">UIKit</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="1991" id="1991" class="graf graf--pre graf-after--li graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;swift&quot;</span>)</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b8a69d78134b"><time class="dt-published" datetime="2025-01-10T07:10:01.707Z">January 10, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-uikit-%E7%94%A2%E7%94%9F-asset-sf-symbol-%E5%9C%96%E7%89%87%E7%9A%84%E5%B7%AE%E7%95%B0-b8a69d78134b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

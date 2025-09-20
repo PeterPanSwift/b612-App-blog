@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>為什麼 URLSessionTask 要呼叫 resume() 才會啟動 ?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">為什麼 URLSessionTask 要呼叫 resume() 才會啟動 ?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們開發 iOS App，撰寫網路相關功能時，基本上可分為以下兩個步驟:
+</section>
+<section data-field="body" class="e-content">
+<section name="daf5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5422" id="5422" class="graf graf--h3 graf--leading graf--title">為什麼 URLSessionTask 要呼叫 resume() 才會啟動 ?</h3><p name="c854" id="c854" class="graf graf--p graf-after--h3">當我們開發 iOS App，撰寫網路相關功能時，基本上可分為以下兩個步驟:</p><ol class="postList"><li name="79bc" id="79bc" class="graf graf--li graf-after--p">產生 URLSessionTask 物件。</li><li name="b6e6" id="b6e6" class="graf graf--li graf-after--li">從 URLSessionTask 物件呼叫 resume()，開始下載或上傳資料。</li></ol><p name="89ce" id="89ce" class="graf graf--p graf-after--li">比方以下例子:</p><pre name="fd5b" id="fd5b" class="graf graf--pre graf-after--p">let urlStr = &quot;https://wakelandtheatre.files.wordpress.com/2013/11/final-poster.jpg&quot;</pre><pre name="60d5" id="60d5" class="graf graf--pre graf-after--pre">if let url = URL(string: urlStr) {</pre><pre name="2f28" id="2f28" class="graf graf--pre graf-after--pre">   let task = URLSession.shared.dataTask(with: url) { (data, response, error) in</pre><pre name="152b" id="152b" class="graf graf--pre graf-after--pre">      if let data = data {</pre><pre name="f1e5" id="f1e5" class="graf graf--pre graf-after--pre">      }</pre><pre name="b8f3" id="b8f3" class="graf graf--pre graf-after--pre">   }</pre><pre name="2ee6" id="2ee6" class="graf graf--pre graf-after--pre">}</pre><pre name="5ee8" id="5ee8" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">task.resume()</strong></pre><p name="b87c" id="b87c" class="graf graf--p graf-after--pre">其中有個關鍵，我們一定要記得呼叫 resume()，不然 URLSessionTask 是不會開始下載或上傳資料的。因此程式執行的順利將是 resume() 開始任務，然後等任務完成時，才會執行當初產生 task 時傳入的 closure { } 程式碼。</p><pre name="86ed" id="86ed" class="graf graf--pre graf-after--p">let task = URLSession.shared.dataTask(with: url) <strong class="markup--strong markup--pre-strong">{ (data, response, error) in</strong></pre><pre name="62fa" id="62fa" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   if let data = data {</strong></pre><pre name="de32" id="de32" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   }</strong></pre><pre name="4b1c" id="4b1c" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">}</strong></pre><p name="9679" id="9679" class="graf graf--p graf-after--pre">我們可以把產生 URLSessionTask 物件想成產生一個下載或上傳資料的任務。但它只是產生任務，並不代表任務開始執行，要等呼叫 resume 才會開始執行。這就好像不可能的任務的主角伊森·韓特，時常有人給他不可能的任務，但他只是先接收任務，並不會馬上執行。要等美麗的女主角出現時，才會開始執行。</p><figure name="4a15" id="4a15" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://www.youtube.com/embed/KA2_Jyb8jkY?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><p name="bcb3" id="bcb3" class="graf graf--p graf-after--figure">讓我們再仔細看一下 function resume。resume 的意思是<code class="markup--code markup--p-code">(中斷後)繼續，重新開始</code>，這點滿令人疑惑的。為何開始任務的 function 名稱不取名叫 start，而要叫 resume 呢 ? 明明任務才剛產生，為何要繼續啟動它呢 ?</p><div name="03d5" id="03d5" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://dictionary.cambridge.org/dictionary/english/resume" data-href="https://dictionary.cambridge.org/dictionary/english/resume" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://dictionary.cambridge.org/dictionary/english/resume"><strong class="markup--strong markup--mixtapeEmbed-strong">RESUME | meaning in the Cambridge English Dictionary</strong><br><em class="markup--em markup--mixtapeEmbed-em">resume definition: 1. If an activity resumes, or if you resume it, it starts again after a pause: 2. If you resume a…</em>dictionary.cambridge.org</a><a href="https://dictionary.cambridge.org/dictionary/english/resume" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="b2a1f762d96ddf7c1e0d8cf56207ebca" data-thumbnail-img-id="0*hDgW-u_H5HF2kE7R" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*hDgW-u_H5HF2kE7R);"></a></div><p name="29cc" id="29cc" class="graf graf--p graf-after--mixtapeEmbed">答案就藏在 Apple 官方的 resume() 說明文件裡。</p><div name="aff8" id="aff8" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411121-resume" data-href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411121-resume" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/urlsessiontask/1411121-resume"><strong class="markup--strong markup--mixtapeEmbed-strong">resume() - URLSessionTask | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411121-resume" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="cd8738cf61bc20b4eb359ba82849cc91"></a></div><pre name="b174" id="b174" class="graf graf--pre graf-after--mixtapeEmbed">Newly-initialized tasks begin in a suspended state, so you need to call this method to start the task.</pre><p name="2b94" id="2b94" class="graf graf--p graf-after--pre">Apple 提到剛產生的 task 將處在暫停的狀態(suspended state)，因此我們必須呼叫 resume() 來啟動它。</p><p name="cf32" id="cf32" class="graf graf--p graf-after--p">其實 URLSessionTask 很厲害，它還可以隨時呼叫 cancel 和 suspend 來取消或暫停任務(比方下載檔案時下載到一半暫停)。因此 function resume 很方便，不管 task 是剛產生還是執行到一半暫停中，我們都可以呼叫 resume 繼續任務。</p><div name="1b33" id="1b33" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411591-cancel" data-href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411591-cancel" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/urlsessiontask/1411591-cancel"><strong class="markup--strong markup--mixtapeEmbed-strong">cancel() — URLSessionTask | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411591-cancel" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="a3cccf36b913385cf45a2f83f2b5316b"></a></div><div name="d9c4" id="d9c4" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411565-suspend" data-href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411565-suspend" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/urlsessiontask/1411565-suspend"><strong class="markup--strong markup--mixtapeEmbed-strong">suspend() - URLSessionTask | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">A task, while suspended, produces no network traffic and is not subject to timeouts. A download task can continue…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411565-suspend" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="958ae11dce09b26d5d1801fc40eea9ac"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/27e0aaba57ef"><time class="dt-published" datetime="2019-04-08T08:22:24.418Z">April 8, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%82%BA%E4%BB%80%E9%BA%BC-urlsessiontask-%E8%A6%81%E5%91%BC%E5%8F%AB-resume-%E6%89%8D%E6%9C%83%E5%95%9F%E5%8B%95-27e0aaba57ef" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

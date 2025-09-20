@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#177 串接歌詞 API</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#177 串接歌詞 API</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+串接歌詞 API 顯示歌詞。
+</section>
+<section data-field="body" class="e-content">
+<section name="a713" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5bbd" id="5bbd" class="graf graf--h3 graf--leading graf--title">#177 串接歌詞 API</h3><figure name="d249" id="d249" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*OBAO5lsnp75p0Rntqt9slg.png" data-width="1339" data-height="2716" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*OBAO5lsnp75p0Rntqt9slg.png"></figure><p name="7131" id="7131" class="graf graf--p graf-after--figure">串接歌詞 API 顯示歌詞。</p><h3 name="2dfd" id="2dfd" class="graf graf--h3 graf-after--p">基本功能</h3><ul class="postList"><li name="53eb" id="53eb" class="graf graf--li graf-after--h3">串接歌詞 API。</li></ul><p name="b150" id="b150" class="graf graf--p graf-after--li">歌詞 API 的格式如下，歌詞資料庫以英文歌為主。</p><pre data-code-block-mode="0" spellcheck="false" name="6253" id="6253" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">https://some-random-api.com/others/lyrics?title=how long will i love you</span></pre><p name="2cb8" id="2cb8" class="graf graf--p graf-after--pre">ps: 目前 API 已失效，想測試的朋友可從以下網址抓取，此網址將回傳 ow long will i love you 的 JSON 資料。</p><pre data-code-block-mode="0" spellcheck="false" name="c1e7" id="c1e7" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">https://raw.githubusercontent.com/PeterPanSwift/JSON_API/refs/heads/main/lyrics.json</span></pre><p name="5ed3" id="5ed3" class="graf graf--p graf-after--pre">API 回傳的 JSON 範例如下。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="json" name="c9c2" id="c9c2" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-punctuation">{</span><br /><span class="hljs-attr">&quot;title&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;How Long Will I Love You&quot;</span><span class="hljs-punctuation">,</span><br /><span class="hljs-attr">&quot;author&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;Ellie Goulding&quot;</span><span class="hljs-punctuation">,</span><br /><span class="hljs-attr">&quot;lyrics&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;How long will I love you? As long as stars are above you And longer if I can How long will I need you? As long as the seasons need to Follow their plan How long will I be with you? As long as the sea is bound to Wash up on the sand How long will I want you? As long as you want me to And longer by far How long will I hold you? As long as your father told you As long as you can How long will I give to you? As long as I live through you However long you say How long will I love you? As long as stars are above you And longer if I may How long will I love you? &quot;</span><span class="hljs-punctuation">,</span><br /><span class="hljs-attr">&quot;thumbnail&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">{</span><br /><span class="hljs-attr">&quot;genius&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;https://images.genius.com/498d1108967abafb01a799f6555d0344.300x300x1.png&quot;</span><span class="hljs-punctuation">,</span><br /><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span><br /><span class="hljs-attr">&quot;links&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">{</span><br /><span class="hljs-attr">&quot;genius&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;https://genius.com/Ellie-goulding-how-long-will-i-love-you-lyrics&quot;</span><span class="hljs-punctuation">,</span><br /><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span><br /><span class="hljs-attr">&quot;disclaimer&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;What the API returns is not guaranteed to return the right lyrics or have a matching title and author.&quot;</span><span class="hljs-punctuation">,</span><br /><span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br /><span class="hljs-punctuation">}</span></span></pre><ul class="postList"><li name="cd39" id="cd39" class="graf graf--li graf-after--pre">畫面上顯示專輯圖片，歌名，歌手，歌詞和網頁連結的 button。</li></ul><p name="6d96" id="6d96" class="graf graf--p graf-after--li">點選網頁連結的 button 時顯示網頁，網址是 JSON 裡 links &gt; genius 的內容。</p><figure name="f623" id="f623" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*rwPEsJMdHiTjSN0aAazziw.png" data-width="1339" data-height="2716" src="https://cdn-images-1.medium.com/max/800/1*rwPEsJMdHiTjSN0aAazziw.png"></figure><ul class="postList"><li name="c420" id="c420" class="graf graf--li graf-after--figure">加入 search bar，可輸入歌名搜尋歌詞。</li></ul><figure name="3a5a" id="3a5a" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*ix639p_RPYVdytgNUR85Ow.png" data-width="1339" data-height="2716" src="https://cdn-images-1.medium.com/max/800/1*ix639p_RPYVdytgNUR85Ow.png"></figure><h3 name="ec92" id="ec92" class="graf graf--h3 graf-after--figure">進階功能</h3><ul class="postList"><li name="8cb0" id="8cb0" class="graf graf--li graf-after--h3">串接 iTunes API，利用 JSON 的 previewUrl 播放音樂。</li></ul><p name="38de" id="38de" class="graf graf--p graf-after--li">iTunes API 的格式如下。</p><pre name="d64d" id="d64d" class="graf graf--pre graf-after--p"><a href="https://itunes.apple.com/search?term=how" data-href="https://itunes.apple.com/search?term=how" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://itunes.apple.com/search?term=how</a> long will i love you&amp;media=music</pre><figure name="39cc" id="39cc" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*OBAO5lsnp75p0Rntqt9slg.png" data-width="1339" data-height="2716" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*OBAO5lsnp75p0Rntqt9slg.png"></figure><h3 name="7a0e" id="7a0e" class="graf graf--h3 graf-after--figure">作品集</h3><div name="ed16" id="ed16" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/6-2-%E4%B8%B2%E6%8E%A5%E7%AC%AC%E4%B8%89%E6%96%B9api-%E6%AD%8C%E8%A9%9E%E6%90%9C%E5%B0%8B-%E6%AD%8C%E6%9B%B2%E6%92%AD%E6%94%BE-preview-part2-urlsession-d8c9eabaa517" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/6-2-%E4%B8%B2%E6%8E%A5%E7%AC%AC%E4%B8%89%E6%96%B9api-%E6%AD%8C%E8%A9%9E%E6%90%9C%E5%B0%8B-%E6%AD%8C%E6%9B%B2%E6%92%AD%E6%94%BE-preview-part2-urlsession-d8c9eabaa517" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/6-2-%E4%B8%B2%E6%8E%A5%E7%AC%AC%E4%B8%89%E6%96%B9api-%E6%AD%8C%E8%A9%9E%E6%90%9C%E5%B0%8B-%E6%AD%8C%E6%9B%B2%E6%92%AD%E6%94%BE-preview-part2-urlsession-d8c9eabaa517"><strong class="markup--strong markup--mixtapeEmbed-strong">#6.2 串接第三方API｜歌詞搜尋 APP (Part2)_URLSession</strong><br><em class="markup--em markup--mixtapeEmbed-em">【iOS 從零開始寫 #5】</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/6-2-%E4%B8%B2%E6%8E%A5%E7%AC%AC%E4%B8%89%E6%96%B9api-%E6%AD%8C%E8%A9%9E%E6%90%9C%E5%B0%8B-%E6%AD%8C%E6%9B%B2%E6%92%AD%E6%94%BE-preview-part2-urlsession-d8c9eabaa517" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="0a73424ffe62a3118d8acc772566df24" data-thumbnail-img-id="1*mnRz_APXXsX4yGrUvE6dzg.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*mnRz_APXXsX4yGrUvE6dzg.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/186fbb7a6fdc"><time class="dt-published" datetime="2022-09-18T03:30:09.456Z">September 18, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/177-%E4%B8%B2%E6%8E%A5%E6%AD%8C%E8%A9%9E-api-186fbb7a6fdc" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

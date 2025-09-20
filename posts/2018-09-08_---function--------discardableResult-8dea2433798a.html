@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>忽略 function 回傳結果的 @discardableResult</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">忽略 function 回傳結果的 @discardableResult</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+function 可以回傳結果，但如果我們忽略它回傳的結果，就會像情人節忽略女朋友一樣，會產生可怕的警告。
+</section>
+<section data-field="body" class="e-content">
+<section name="f52f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7f6d" id="7f6d" class="graf graf--h3 graf--leading graf--title">忽略 function 回傳結果的 <strong class="markup--strong markup--h3-strong">@discardableResult</strong></h3><p name="fb9f" id="fb9f" class="graf graf--p graf-after--h3">function 可以回傳結果，但如果我們忽略它回傳的結果，就會像情人節忽略女朋友一樣，會產生可怕的警告。</p><pre name="bdfc" id="bdfc" class="graf graf--pre graf-after--p">func add(_ number1: Int, and number2: Int) -&gt; Int {</pre><pre name="5167" id="5167" class="graf graf--pre graf-after--pre">   return number1 + number2</pre><pre name="80ef" id="80ef" class="graf graf--pre graf-after--pre">}</pre><pre name="d2e8" id="d2e8" class="graf graf--pre graf-after--pre">override func viewDidLoad() {</pre><pre name="6514" id="6514" class="graf graf--pre graf-after--pre">   super.viewDidLoad()</pre><pre name="77d5" id="77d5" class="graf graf--pre graf-after--pre">   add(1, and: 2)</pre><pre name="dedf" id="dedf" class="graf graf--pre graf-after--pre">}</pre><p name="0a50" id="0a50" class="graf graf--p graf-after--pre">如以上程式，<code class="markup--code markup--p-code">add(1, and: 2)</code> 回傳的結果被殘忍的拋棄，沒有被存在變數常數，也沒有被任何 function 使用(比方當成 print 的參數，印出回傳的結果)，因此產生黃色警告 Result of call to ‘add(_:and:)’ is unused。</p><figure name="bc37" id="bc37" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*V0AeIulEoc9lthG10W5Mog.jpeg" data-width="1044" data-height="182" src="https://cdn-images-1.medium.com/max/800/1*V0AeIulEoc9lthG10W5Mog.jpeg"></figure><p name="ac83" id="ac83" class="graf graf--p graf-after--figure">Xcode 好心產生警告是怕我們忘了處理 function 回傳的結果，不過如果你確定不想處理，而且不想看到警告的話，其實有個簡單的方法。</p><p name="74eb" id="74eb" class="graf graf--p graf-after--p">只要在 function 前加上 <strong class="markup--strong markup--p-strong">@discardableResult， </strong>Xcode<strong class="markup--strong markup--p-strong"> </strong>就不會再產生煩人的警告了。</p><pre name="351f" id="351f" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">@discardableResult</strong> func add(_ number1: Int, and number2: Int) -&gt; Int? {</pre><pre name="0759" id="0759" class="graf graf--pre graf-after--pre">   return number1 + number2</pre><pre name="3954" id="3954" class="graf graf--pre graf-after--pre graf--trailing">}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8dea2433798a"><time class="dt-published" datetime="2018-09-08T17:49:33.091Z">September 8, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BF%BD%E7%95%A5-function-%E5%9B%9E%E5%82%B3%E7%B5%90%E6%9E%9C%E7%9A%84-discardableresult-8dea2433798a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

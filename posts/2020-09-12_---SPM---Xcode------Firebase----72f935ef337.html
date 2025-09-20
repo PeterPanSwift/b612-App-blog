@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 SPM 在 Xcode 專案加入 Firebase 套件</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 SPM 在 Xcode 專案加入 Firebase 套件</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Firebase 從 6.31.0 版開始，可以從 Xcode 內建的套件管理工具 SPM 安裝了 ! (須搭配 Xcode 12)
+</section>
+<section data-field="body" class="e-content">
+<section name="28ab" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7375" id="7375" class="graf graf--h3 graf--leading graf--title">利用 SPM 在 Xcode 專案加入 Firebase 套件</h3><p name="3a9e" id="3a9e" class="graf graf--p graf-after--h3">對使用 SPM 安裝第三方套件還不熟的朋友可參考以下連結，接下來就讓我們試試利用 SPM 安裝 Firebase 套件吧。</p><div name="1168" id="1168" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-spm-%E5%AE%89%E8%A3%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-2c4ffcf85b4b" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-spm-%E5%AE%89%E8%A3%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-2c4ffcf85b4b" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-spm-%E5%AE%89%E8%A3%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-2c4ffcf85b4b"><strong class="markup--strong markup--mixtapeEmbed-strong">使用 SPM 安裝第三方套件 — 以抓圖套件 Kingfisher 為例</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們有許多管理安裝第三方套件的方法，其中最為人熟知的三大套件管理天王為 CocoaPods，SPM(Swift Package Manager) &amp; Carthage。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-spm-%E5%AE%89%E8%A3%9D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-xcode-11-%E6%96%B0%E5%8A%9F%E8%83%BD-2c4ffcf85b4b" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="68d7ca0f1f357213624de0f00073e1ac" data-thumbnail-img-id="1*iWbMi_VzCywsTrlwWDeNjw.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*iWbMi_VzCywsTrlwWDeNjw.png);"></a></div><p name="f808" id="f808" class="graf graf--p graf-after--mixtapeEmbed">以下為新版 Xcode 的示範操作，使用舊版 Xcode 的同學請參考以上連結的方法 2 操作。</p><h3 name="cf6f" id="cf6f" class="graf graf--h3 graf-after--p">點選 Xcode menu 的 File &gt; Add Packages</h3><figure name="04bd" id="04bd" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*E9-rUyzqQ24VcqBzz0X89g.png" data-width="660" data-height="236" src="https://cdn-images-1.medium.com/max/800/1*E9-rUyzqQ24VcqBzz0X89g.png"></figure><h3 name="7c5c" id="7c5c" class="graf graf--h3 graf-after--figure">輸入套件的網址</h3><pre name="f2f9" id="f2f9" class="graf graf--pre graf-after--h3"><a href="https://github.com/firebase/firebase-ios-sdk" data-href="https://github.com/firebase/firebase-ios-sdk" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank"><strong class="markup--strong markup--pre-strong">https://github.com/firebase/firebase-ios-sdk</strong></a></pre><div name="ed9c" id="ed9c" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://github.com/firebase/firebase-ios-sdk" data-href="https://github.com/firebase/firebase-ios-sdk" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/firebase/firebase-ios-sdk"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - firebase/firebase-ios-sdk: Firebase iOS SDK</strong><br><em class="markup--em markup--mixtapeEmbed-em">This repository contains all Apple platform Firebase SDK source except FirebaseAnalytics. Firebase is an app…</em>github.com</a><a href="https://github.com/firebase/firebase-ios-sdk" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a757f54d2610d95e2fa29bac1057dd42" data-thumbnail-img-id="0*01XylJ7Y4Rjy-rfQ" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*01XylJ7Y4Rjy-rfQ);"></a></div><p name="8eee" id="8eee" class="graf graf--p graf-after--mixtapeEmbed">點選 Add Package。</p><figure name="d88f" id="d88f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pGXhOSKpwy0EH1q2-h67og.png" data-width="2052" data-height="1210" src="https://cdn-images-1.medium.com/max/800/1*pGXhOSKpwy0EH1q2-h67og.png"></figure><p name="b418" id="b418" class="graf graf--p graf-after--figure">勾選要安裝的套件，以下我們勾選比較常用到的三個套件:</p><ul class="postList"><li name="341f" id="341f" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">FirebaseAuth</strong></li></ul><p name="8077" id="8077" class="graf graf--p graf-after--li">帳號登入功能。</p><ul class="postList"><li name="e503" id="e503" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">FirebaseFirestoreSwift</strong></li></ul><p name="8687" id="8687" class="graf graf--p graf-after--li">存取 Firestore 資料庫。</p><ul class="postList"><li name="3c58" id="3c58" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">FirebaseStorage</strong></li></ul><p name="89c6" id="89c6" class="graf graf--p graf-after--li">存取 Storage 上的檔案。</p><figure name="38b4" id="38b4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pekHljd-JABMhy8WNCCC_Q.png" data-width="1588" data-height="1518" src="https://cdn-images-1.medium.com/max/800/1*pekHljd-JABMhy8WNCCC_Q.png"></figure><p name="b544" id="b544" class="graf graf--p graf-after--figure">成功安裝後的畫面如下，它將聰明地安裝其它相關的套件，因此在 Package Dependencies 下可看到一長串的套件。</p><figure name="8808" id="8808" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lW4g8PkDxwPeWdNHcxFWtg.png" data-width="2164" data-height="1046" src="https://cdn-images-1.medium.com/max/800/1*lW4g8PkDxwPeWdNHcxFWtg.png"></figure><figure name="49b3" id="49b3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*zvO8Lc0CTcHJHZWHXK1TyQ.png" data-width="1652" data-height="1226" src="https://cdn-images-1.medium.com/max/800/1*zvO8Lc0CTcHJHZWHXK1TyQ.png"></figure><h3 name="c0b1" id="c0b1" class="graf graf--h3 graf-after--figure">將 SPM package 的 library 加到專案</h3><p name="2501" id="2501" class="graf graf--p graf-after--h3">一個 package 裡可能包含多個 library，假設我們原本只加入 package 裡的某個 library，之後可以再加入其它的 library。</p><div name="f61f" id="f61f" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%B0%87-spm-package-%E7%9A%84-library-%E5%8A%A0%E5%88%B0%E5%B0%88%E6%A1%88-1cd118e37d4c" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%B0%87-spm-package-%E7%9A%84-library-%E5%8A%A0%E5%88%B0%E5%B0%88%E6%A1%88-1cd118e37d4c" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%B0%87-spm-package-%E7%9A%84-library-%E5%8A%A0%E5%88%B0%E5%B0%88%E6%A1%88-1cd118e37d4c"><strong class="markup--strong markup--mixtapeEmbed-strong">將 SPM package 的 library 加到專案</strong><br><em class="markup--em markup--mixtapeEmbed-em">利用 SPM 我們可以方便地安裝各種強大的第三方套件，比方下圖的 Firebase package。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%B0%87-spm-package-%E7%9A%84-library-%E5%8A%A0%E5%88%B0%E5%B0%88%E6%A1%88-1cd118e37d4c" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="68f2c437ebea74349faa86d36a201f36" data-thumbnail-img-id="1*zW7_ljFSg_m31BmJjeLbAw.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*zW7_ljFSg_m31BmJjeLbAw.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/72f935ef337"><time class="dt-published" datetime="2020-09-12T16:08:36.022Z">September 12, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-spm-%E5%9C%A8-xcode-%E5%B0%88%E6%A1%88%E5%8A%A0%E5%85%A5-firebase-%E5%A5%97%E4%BB%B6-72f935ef337" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

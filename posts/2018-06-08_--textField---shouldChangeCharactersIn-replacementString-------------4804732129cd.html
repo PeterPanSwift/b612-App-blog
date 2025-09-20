@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用textField(_:shouldChangeCharactersIn:replacementString:) 控制文字輸入的字數</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用textField(_:shouldChangeCharactersIn:replacementString:) 控制文字輸入的字數</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+定義 protocol UITextFieldDelegate 的 textField(_:shouldChangeCharactersIn:replacementString:)，回傳 true 允許文字輸入，回傳 false 讓文字不能輸入。
+</section>
+<section data-field="body" class="e-content">
+<section name="d508" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4577" id="4577" class="graf graf--h3 graf--leading graf--title">利用textField(_:shouldChangeCharactersIn:replacementString:) 控制文字輸入的字數</h3><p name="32e3" id="32e3" class="graf graf--p graf-after--h3">定義 protocol UITextFieldDelegate 的 textField(_:shouldChangeCharactersIn:replacementString:)，回傳 true 允許文字輸入，回傳 false 讓文字不能輸入。</p><pre name="bdc4" id="bdc4" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">func</strong> textField(<strong class="markup--strong markup--pre-strong">_</strong> textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -&gt; Bool {</pre><pre name="a3d7" id="a3d7" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   var</strong> result = <strong class="markup--strong markup--pre-strong">false</strong></pre><pre name="a832" id="a832" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   if</strong> <strong class="markup--strong markup--pre-strong">let</strong> text = textField.text, <br>      <strong class="markup--strong markup--pre-strong">let</strong> range = Range(range, in: text) {</pre><pre name="8aab" id="8aab" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">       let</strong> newText = text.replacingCharacters(in: range, with: string)</pre><pre name="c99c" id="c99c" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">       if</strong> newText.count &lt; 10 {</pre><pre name="0338" id="0338" class="graf graf--pre graf-after--pre">          result = <strong class="markup--strong markup--pre-strong">true</strong></pre><pre name="055b" id="055b" class="graf graf--pre graf-after--pre">       }</pre><pre name="e334" id="e334" class="graf graf--pre graf-after--pre">   }</pre><pre name="7b9d" id="7b9d" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   return</strong> result</pre><pre name="fd70" id="fd70" class="graf graf--pre graf-after--pre">}</pre><p name="ecf4" id="ecf4" class="graf graf--p graf-after--pre">利用 String 的 replacingCharacters(in:with:) 加入新輸入的字串，得到新的字串後，即可判斷字串長度，決定是否可以輸入。</p><p name="61a5" id="61a5" class="graf graf--p graf-after--p">參考</p><div name="7a66" id="7a66" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://developer.apple.com/documentation/uikit/uitextfielddelegate/1619599-textfield" data-href="https://developer.apple.com/documentation/uikit/uitextfielddelegate/1619599-textfield" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uitextfielddelegate/1619599-textfield"><strong class="markup--strong markup--mixtapeEmbed-strong">textField(_:shouldChangeCharactersIn:replacementString:) - UITextFieldDelegate | Apple Developer…</strong><br><em class="markup--em markup--mixtapeEmbed-em">The replacement string for the specified range. During typing, this parameter normally contains only the single new…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uitextfielddelegate/1619599-textfield" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="89c82cd2e505c33c50d4be5be84cda79"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/4804732129cd"><time class="dt-published" datetime="2018-06-08T09:19:07.715Z">June 8, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8textfield-shouldchangecharactersin-replacementstring-%E6%8E%A7%E5%88%B6%E6%96%87%E5%AD%97%E8%BC%B8%E5%85%A5%E7%9A%84%E5%AD%97%E6%95%B8-4804732129cd" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

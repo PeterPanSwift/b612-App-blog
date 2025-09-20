@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Structures and Classes 程式範例 — Apple’s The Swift Programming Language</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Structures and Classes 程式範例 — Apple’s The Swift Programming Language</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Definition Syntax
+</section>
+<section data-field="body" class="e-content">
+<section name="a2e4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3fba" id="3fba" class="graf graf--h3 graf--leading graf--title">Structures and Classes 程式範例 — Apple’s The Swift Programming Language</h3><div name="09a4" id="09a4" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html" data-href="https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Structures and Classes - The Swift Programming Language (Swift 4.2)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Structures and classes are general-purpose, flexible constructs that become the building blocks of your program&#39;s code…</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="29a356e37c695981b85c5456e5039c92"></a></div><blockquote name="effb" id="effb" class="graf graf--blockquote graf-after--mixtapeEmbed"><strong class="markup--strong markup--blockquote-strong">Definition Syntax</strong></blockquote><p name="5a80" id="5a80" class="graf graf--p graf-after--blockquote">定義 struct 和 class 型別。</p><p name="56cd" id="56cd" class="graf graf--p graf-after--p">例子: 定義 struct Resolution &amp; class VideoMode。</p><pre name="6185" id="6185" class="graf graf--pre graf-after--p">struct Resolution {</pre><pre name="13e1" id="13e1" class="graf graf--pre graf-after--pre">   var width = 0</pre><pre name="ec3e" id="ec3e" class="graf graf--pre graf-after--pre">   var height = 0</pre><pre name="bbbc" id="bbbc" class="graf graf--pre graf-after--pre">}</pre><pre name="3b5b" id="3b5b" class="graf graf--pre graf-after--pre">class VideoMode {</pre><pre name="65c6" id="65c6" class="graf graf--pre graf-after--pre">   var resolution = Resolution()</pre><pre name="4c02" id="4c02" class="graf graf--pre graf-after--pre">   var interlaced = false</pre><pre name="c3d2" id="c3d2" class="graf graf--pre graf-after--pre">   var frameRate = 0.0 </pre><pre name="d449" id="d449" class="graf graf--pre graf-after--pre">   var name: String?</pre><pre name="a2ac" id="a2ac" class="graf graf--pre graf-after--pre">}</pre><blockquote name="3187" id="3187" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">Structure and Class Instances</strong></blockquote><p name="f121" id="f121" class="graf graf--p graf-after--blockquote">建立 struct &amp; class 型別的東西。</p><p name="4a62" id="4a62" class="graf graf--p graf-after--p">例子: 建立 Resolution &amp; VideoMode 型別的東西。</p><pre name="02c5" id="02c5" class="graf graf--pre graf-after--p">let someResolution = Resolution()</pre><pre name="ae91" id="ae91" class="graf graf--pre graf-after--pre">let someVideoMode = VideoMode()</pre><blockquote name="c449" id="c449" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">Accessing Properties</strong></blockquote><p name="5574" id="5574" class="graf graf--p graf-after--blockquote">利用 . 存取 property。</p><pre name="4bdd" id="4bdd" class="graf graf--pre graf-after--p">print(&quot;The width of someResolution is \(someResolution.width)&quot;)</pre><pre name="5c19" id="5c19" class="graf graf--pre graf-after--pre">print(&quot;The width of someVideoMode is \(someVideoMode.resolution.width)&quot;)</pre><pre name="6ff7" id="6ff7" class="graf graf--pre graf-after--pre">someVideoMode.resolution.width = 1280</pre><pre name="0b81" id="0b81" class="graf graf--pre graf-after--pre">print(&quot;The width of someVideoMode is now \(someVideoMode.resolution.width)&quot;)</pre><blockquote name="8b4c" id="8b4c" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">Memberwise Initializers for Structure Types</strong></blockquote><p name="ac25" id="ac25" class="graf graf--p graf-after--blockquote">struct 有 Memberwise Initializer，生成 struct 型別的東西時，可以傳入每個 property 的內容。</p><pre name="a483" id="a483" class="graf graf--pre graf-after--p">let vga = Resolution(width: 640, height: 480)</pre><blockquote name="f175" id="f175" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">Structures and Enumerations Are Value Types</strong></blockquote><p name="6a9e" id="6a9e" class="graf graf--p graf-after--blockquote">struct 是 value type。</p><p name="9647" id="9647" class="graf graf--p graf-after--p">= (assigned) 或當參數傳入 function 時，會複製一個一樣內容的東西。</p><p name="7e8b" id="7e8b" class="graf graf--p graf-after--p">cinema &amp; hd 是不同的東西(two instances)。</p><pre name="930b" id="930b" class="graf graf--pre graf-after--p">let hd = Resolution(width: 1920, height: 1080)</pre><pre name="f8ef" id="f8ef" class="graf graf--pre graf-after--pre">var cinema = hd</pre><pre name="61f1" id="61f1" class="graf graf--pre graf-after--pre">cinema.width = 2048</pre><pre name="1c35" id="1c35" class="graf graf--pre graf-after--pre">print(&quot;cinema is now \(cinema.width) pixels wide&quot;)</pre><pre name="0dc1" id="0dc1" class="graf graf--pre graf-after--pre">print(&quot;hd is still \(hd.width) pixels wide&quot;)</pre><p name="8748" id="8748" class="graf graf--p graf-after--pre">enum 是 value type。</p><pre name="8481" id="8481" class="graf graf--pre graf-after--p">enum CompassPoint {</pre><pre name="0d58" id="0d58" class="graf graf--pre graf-after--pre">   case north, south, east, west</pre><pre name="4120" id="4120" class="graf graf--pre graf-after--pre">   mutating func turnNorth() {</pre><pre name="a2a2" id="a2a2" class="graf graf--pre graf-after--pre">      self = .north</pre><pre name="4708" id="4708" class="graf graf--pre graf-after--pre">   }</pre><pre name="89d7" id="89d7" class="graf graf--pre graf-after--pre">}</pre><pre name="f238" id="f238" class="graf graf--pre graf-after--pre">var currentDirection = CompassPoint.west</pre><pre name="36dc" id="36dc" class="graf graf--pre graf-after--pre">let rememberedDirection = currentDirection</pre><pre name="6033" id="6033" class="graf graf--pre graf-after--pre">currentDirection.turnNorth()</pre><pre name="1df4" id="1df4" class="graf graf--pre graf-after--pre">print(&quot;The current direction is \(currentDirection)&quot;)</pre><pre name="6b9a" id="6b9a" class="graf graf--pre graf-after--pre">print(&quot;The remembered direction is \(rememberedDirection)&quot;)</pre><blockquote name="10ba" id="10ba" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">Classes Are Reference Types</strong></blockquote><p name="5f9e" id="5f9e" class="graf graf--p graf-after--blockquote">class 是 reference type。</p><p name="5965" id="5965" class="graf graf--p graf-after--p">= (assigned) 或當參數傳入 function 時，指到同一個東西。</p><p name="2adb" id="2adb" class="graf graf--p graf-after--p">tenEighty &amp; alsoTenEighty 是同一個東西。</p><pre name="c4b7" id="c4b7" class="graf graf--pre graf-after--p">let tenEighty = VideoMode()</pre><pre name="d28e" id="d28e" class="graf graf--pre graf-after--pre">tenEighty.resolution = hd</pre><pre name="27d9" id="27d9" class="graf graf--pre graf-after--pre">tenEighty.interlaced = true</pre><pre name="7a9a" id="7a9a" class="graf graf--pre graf-after--pre">tenEighty.name = &quot;1080i&quot;</pre><pre name="09d5" id="09d5" class="graf graf--pre graf-after--pre">tenEighty.frameRate = 25.0</pre><pre name="2bfc" id="2bfc" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">let alsoTenEighty = tenEighty</strong></pre><pre name="3b73" id="3b73" class="graf graf--pre graf-after--pre">alsoTenEighty.frameRate = 30.0</pre><pre name="2e31" id="2e31" class="graf graf--pre graf-after--pre">print(&quot;The frameRate property of tenEighty is now \(tenEighty.frameRate)&quot;)</pre><blockquote name="31a6" id="31a6" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">Identity Operators</strong></blockquote><p name="1a4c" id="1a4c" class="graf graf--p graf-after--blockquote">用 === 判斷是否指到同一個東西。</p><pre name="79e1" id="79e1" class="graf graf--pre graf-after--p">if tenEighty === alsoTenEighty {</pre><pre name="c1a5" id="c1a5" class="graf graf--pre graf-after--pre">   print(&quot;tenEighty and alsoTenEighty refer to the same VideoMode instance.&quot;)</pre><pre name="1354" id="1354" class="graf graf--pre graf-after--pre graf--trailing">}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d9887709580e"><time class="dt-published" datetime="2018-09-08T03:12:23.166Z">September 8, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/structures-and-classes-%E7%A8%8B%E5%BC%8F%E7%AF%84%E4%BE%8B-apples-the-swift-programming-language-d9887709580e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

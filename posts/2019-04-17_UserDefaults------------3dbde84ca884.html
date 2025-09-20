@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>UserDefaults 存太多資料會怎樣 ?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">UserDefaults 存太多資料會怎樣 ?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS App 有許多儲存資料的方法，其中 UserDefaults 應該是其中最簡單的方法。因為它可以儲存 Data 型別的資料，所以基本上我們只要將資料轉換成 Data 型別(比方利用 PropertyListEncoder 轉換)，任何資料都能存入…
+</section>
+<section data-field="body" class="e-content">
+<section name="c831" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7d6a" id="7d6a" class="graf graf--h3 graf--leading graf--title">UserDefaults 存太多資料會怎樣 ?</h3><p name="9db4" id="9db4" class="graf graf--p graf-after--h3">iOS App 有許多儲存資料的方法，其中 UserDefaults 應該是其中最簡單的方法。因為它可以儲存 Data 型別的資料，所以我們只要將資料轉換成 Data 型別(比方利用 PropertyListEncoder 轉換)，任何資料都能存入 UserDefaults。</p><div name="3494" id="3494" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundation/userdefaults" data-href="https://developer.apple.com/documentation/foundation/userdefaults" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/userdefaults"><strong class="markup--strong markup--mixtapeEmbed-strong">UserDefaults | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">An interface to the user&#39;s defaults database, where you store key-value pairs persistently across launches of your app.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/userdefaults" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="47e0b02d605cf8e0e4ee59dd88979ce6" data-thumbnail-img-id="0*uNYeFObum4FGC9n0" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*uNYeFObum4FGC9n0);"></a></div><p name="c266" id="c266" class="graf graf--p graf-after--mixtapeEmbed">那如果我們將網路上抓下來的圖片都存在 UserDefaults，在 UserDefaults 存太多資料會怎樣呢 ?</p><p name="19f5" id="19f5" class="graf graf--p graf-after--p">就讓我們用以下程式做個小實驗吧。假設我們按了多次 button，觸發 function saveData 抓圖並存入 UserDefaults。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="8b5f" id="8b5f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">saveData</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">sender</span>: <span class="hljs-keyword">Any</span>) {<br />   <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> data <span class="hljs-operator">=</span> <span class="hljs-keyword">try?</span> <span class="hljs-type">Data</span>(contentsOf: <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://bit.ly/2UlVU5t&quot;</span>)<span class="hljs-operator">!</span>) {<br />       <span class="hljs-type">UserDefaults</span>.standard.set(data, forKey: <span class="hljs-type">UUID</span>().uuidString)<br />   }<br />}</span></pre><blockquote name="c69f" id="c69f" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">啟動 App</strong></blockquote><p name="8a24" id="8a24" class="graf graf--p graf-after--blockquote">App 初次執行時，還是苗條的身材，只有 48.3 MB。</p><figure name="92f2" id="92f2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4D-oIdFlS6Xwhlb5JRCDlQ.jpeg" data-width="776" data-height="268" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*4D-oIdFlS6Xwhlb5JRCDlQ.jpeg"></figure><p name="b586" id="b586" class="graf graf--p graf-after--figure">當我們按下 button 時，程式將抓圖並存入 UserDefaults，此時 UserDefaults 也會佔據愈多的記憶體。</p><p name="01bf" id="01bf" class="graf graf--p graf-after--p">更可怕的是，下一次我們重新啟動 App 時， App 一開始就佔據 100 MB 的記憶體。這是因為 App 啟動時 UserDefaults 將讀取 plist 檔儲存的資料(UserDefaults 的資料其實是存在 plist 檔裡)，將資料全部載入到記憶體，所以當你儲存的資料愈多，佔據的記憶體也會愈多。</p><figure name="2a65" id="2a65" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*SWTjKTsvTlomDhEhn8uJmg.jpeg" data-width="787" data-height="314" src="https://cdn-images-1.medium.com/max/800/1*SWTjKTsvTlomDhEhn8uJmg.jpeg"></figure><p name="2dad" id="2dad" class="graf graf--p graf-after--figure graf--trailing">因此記得不要儲存太多東西在 UserDefaults，因為它將增加 App 使用的記憶體。當 App 使用太多記憶體時，可是被會 iOS 殺掉閃退的。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/3dbde84ca884"><time class="dt-published" datetime="2019-04-17T04:18:00.310Z">April 17, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/userdefaults-%E5%AD%98%E5%A4%AA%E5%A4%9A%E8%B3%87%E6%96%99%E6%9C%83%E6%80%8E%E6%A8%A3-3dbde84ca884" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

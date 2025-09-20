@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>建立不會加入上架 App 的假資料 — development assets &amp; #if DEBUG</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">建立不會加入上架 App 的假資料 — development assets &amp; #if DEBUG</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常會產生一些假資料，方便在 SwiftUI preview 或測試時使用。
+</section>
+<section data-field="body" class="e-content">
+<section name="aa83" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0fad" id="0fad" class="graf graf--h3 graf--leading graf--title">建立不會加入上架 App 的假資料 — development assets &amp; #if DEBUG</h3><figure name="9d2c" id="9d2c" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*poDFkzUuOx3dAE6cqff0Lw.png" data-width="2248" data-height="1106" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*poDFkzUuOx3dAE6cqff0Lw.png"></figure><p name="742f" id="742f" class="graf graf--p graf-after--figure">開發 iOS App 時，我們時常會產生一些假資料，方便在 SwiftUI preview 或測試時使用。</p><p name="e92c" id="e92c" class="graf graf--p graf-after--p">然而 App 實際執行時這些資料是用不到的，若能將這些資料從上架的 App 移除，將可進一步縮減 App 的大小。</p><p name="ff4e" id="ff4e" class="graf graf--p graf-after--p">以下我們介紹兩種移除假資料的方法。</p><ul class="postList"><li name="c0b0" id="c0b0" class="graf graf--li graf-after--p">在 development assets 設定假資料。</li><li name="ddb0" id="ddb0" class="graf graf--li graf-after--li">利用 #if DEBUG 設定假資料。</li></ul><h3 name="250b" id="250b" class="graf graf--h3 graf-after--li">在 development assets 設定假資料</h3><div name="0952" id="0952" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%96%B9%E4%BE%BF%E5%AD%98%E6%94%BE%E6%B8%AC%E8%A9%A6%E6%AA%94%E6%A1%88%E7%9A%84-xcode-development-assets-5f0f7647423b" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%96%B9%E4%BE%BF%E5%AD%98%E6%94%BE%E6%B8%AC%E8%A9%A6%E6%AA%94%E6%A1%88%E7%9A%84-xcode-development-assets-5f0f7647423b" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%96%B9%E4%BE%BF%E5%AD%98%E6%94%BE%E6%B8%AC%E8%A9%A6%E6%AA%94%E6%A1%88%E7%9A%84-xcode-development-assets-5f0f7647423b"><strong class="markup--strong markup--mixtapeEmbed-strong">方便存放測試檔案的 Xcode development assets</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們時常會在專案裡準備一些方便測試的圖片或 JSON 檔，這樣當後台還不能串接或是彼得潘回 Neverland 過年沒有網路時，依然可以測試 App。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E6%96%B9%E4%BE%BF%E5%AD%98%E6%94%BE%E6%B8%AC%E8%A9%A6%E6%AA%94%E6%A1%88%E7%9A%84-xcode-development-assets-5f0f7647423b" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a2325e83a03a3d6934dc395a5d445a43" data-thumbnail-img-id="1*v-5FJCG52ITZ_uvsantipg.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*v-5FJCG52ITZ_uvsantipg.jpeg);"></a></div><h3 name="d775" id="d775" class="graf graf--h3 graf-after--mixtapeEmbed">利用 #if DEBUG 設定假資料</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a7f0" id="a7f0" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Song</span> {<br />    <span class="hljs-keyword">let</span> name: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> singer: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> lyrics: <span class="hljs-type">String</span><br />}<br /><br /><span class="hljs-keyword">#if</span> <span class="hljs-type">DEBUG</span><br /><span class="hljs-keyword">extension</span> <span class="hljs-title class_">Song</span> {<br />    <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> sampleSongs <span class="hljs-operator">=</span> [<br />        <span class="hljs-type">Song</span>(name: <span class="hljs-string">&quot;對的時間點&quot;</span>, singer: <span class="hljs-string">&quot;林俊傑&quot;</span>, lyrics: <span class="hljs-string">&quot;如果 愛情是場遠程的渦旋 儘管繞著圈子 也要走向前 不離心太遠 我要面朝最藍的 晴天 不脫離軌道 有你在身邊&quot;</span>),<br />        <span class="hljs-type">Song</span>(name: <span class="hljs-string">&quot;想見你想見你想見你&quot;</span>, singer: <span class="hljs-string">&quot;八三夭&quot;</span>, lyrics: <span class="hljs-string">&quot;想見你 只想見你 未來過去 我只想見你 穿越了 千個萬個 時間線裡 人海裡相依&quot;</span>)<br />    ]<br /><br />    <span class="hljs-keyword">static</span> <span class="hljs-keyword">let</span> sampleSong <span class="hljs-operator">=</span> sampleSongs[<span class="hljs-number">0</span>]<br />}<br /><span class="hljs-keyword">#endif</span></span></pre><p name="f9ba" id="f9ba" class="graf graf--p graf-after--pre">Apple 官方範例</p><div name="9aa7" id="9aa7" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/tutorials/app-dev-training/creating-a-list-view" data-href="https://developer.apple.com/tutorials/app-dev-training/creating-a-list-view" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/tutorials/app-dev-training/creating-a-list-view"><strong class="markup--strong markup--mixtapeEmbed-strong">Creating a list view | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">In this tutorial, you&#39;ll create your app&#39;s root view, a collection view with a list layout that displays the user&#39;s…</em>developer.apple.com</a><a href="https://developer.apple.com/tutorials/app-dev-training/creating-a-list-view" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8d614112324ac1e31b60ac4b237b0cdd" data-thumbnail-img-id="0*tD8n7-9Y-qnu4Oer" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*tD8n7-9Y-qnu4Oer);"></a></div><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="e924" id="e924" class="graf graf--pre graf-after--mixtapeEmbed graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">#if</span> <span class="hljs-type">DEBUG</span><br /><span class="hljs-keyword">extension</span> <span class="hljs-title class_">Reminder</span> {<br />    <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> sampleData <span class="hljs-operator">=</span> [<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Submit reimbursement report&quot;</span>, dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">800.0</span>),<br />            notes: <span class="hljs-string">&quot;Don&#x27;t forget about taxi receipts&quot;</span>),<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Code review&quot;</span>, dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">14000.0</span>),<br />            notes: <span class="hljs-string">&quot;Check tech specs in shared folder&quot;</span>, isComplete: <span class="hljs-literal">true</span>),<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Pick up new contacts&quot;</span>, dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">24000.0</span>),<br />            notes: <span class="hljs-string">&quot;Optometrist closes at 6:00PM&quot;</span>),<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Add notes to retrospective&quot;</span>, dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">3200.0</span>),<br />            notes: <span class="hljs-string">&quot;Collaborate with project manager&quot;</span>, isComplete: <span class="hljs-literal">true</span>),<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Interview new project manager candidate&quot;</span>,<br />            dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">60000.0</span>), notes: <span class="hljs-string">&quot;Review portfolio&quot;</span>),<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Mock up onboarding experience&quot;</span>, dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">72000.0</span>),<br />            notes: <span class="hljs-string">&quot;Think different&quot;</span>),<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Review usage analytics&quot;</span>, dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">83000.0</span>),<br />            notes: <span class="hljs-string">&quot;Discuss trends with management&quot;</span>),<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Confirm group reservation&quot;</span>, dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">92500.0</span>),<br />            notes: <span class="hljs-string">&quot;Ask about space heaters&quot;</span>),<br />        <span class="hljs-type">Reminder</span>(<br />            title: <span class="hljs-string">&quot;Add beta testers to TestFlight&quot;</span>, dueDate: <span class="hljs-type">Date</span>().addingTimeInterval(<span class="hljs-number">101000.0</span>),<br />            notes: <span class="hljs-string">&quot;v0.9 out on Friday&quot;</span>)<br />    ]<br />}<br /><span class="hljs-keyword">#endif</span><br /><br /><br /></span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/2f353c605f43"><time class="dt-published" datetime="2023-02-03T06:54:57.509Z">February 3, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BB%BA%E7%AB%8B%E4%B8%8D%E6%9C%83%E5%8A%A0%E5%85%A5%E4%B8%8A%E6%9E%B6-app-%E7%9A%84%E5%81%87%E8%B3%87%E6%96%99-development-assets-if-debug-2f353c605f43" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

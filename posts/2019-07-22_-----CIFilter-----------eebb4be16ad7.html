@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>結合多個 CIFilter 實現美麗的圖片濾鏡</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">結合多個 CIFilter 實現美麗的圖片濾鏡</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 CIFilter 我們可以為圖片添加濾鏡效果，相關的程式可參考以下連結。
+</section>
+<section data-field="body" class="e-content">
+<section name="4f3b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1f86" id="1f86" class="graf graf--h3 graf--leading graf--title">結合多個 CIFilter 實現美麗的圖片濾鏡</h3><p name="042a" id="042a" class="graf graf--p graf-after--h3">利用 CIFilter 我們可以為圖片添加濾鏡效果，相關的程式可參考以下連結。</p><div name="ee74" id="ee74" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/74-%E5%88%A9%E7%94%A8-cifilter-%E5%AF%A6%E7%8F%BE%E7%BE%8E%E9%BA%97%E7%9A%84%E5%9C%96%E7%89%87%E6%BF%BE%E9%8F%A1-6b7323612188" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/74-%E5%88%A9%E7%94%A8-cifilter-%E5%AF%A6%E7%8F%BE%E7%BE%8E%E9%BA%97%E7%9A%84%E5%9C%96%E7%89%87%E6%BF%BE%E9%8F%A1-6b7323612188" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/74-%E5%88%A9%E7%94%A8-cifilter-%E5%AF%A6%E7%8F%BE%E7%BE%8E%E9%BA%97%E7%9A%84%E5%9C%96%E7%89%87%E6%BF%BE%E9%8F%A1-6b7323612188"><strong class="markup--strong markup--mixtapeEmbed-strong">#74 利用 CIFilter 實現美麗的圖片濾鏡</strong><br><em class="markup--em markup--mixtapeEmbed-em">iOS 上照片類的 App 十分受歡迎，尤其是 App 裡各式各樣幫我們做出漂亮照片的濾鏡功能。其實基本的濾鏡功能不難做到，因為 iOS SDK 早已為我們提供實現濾鏡功能的 CIFilter。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84%E8%A9%A6%E7%85%89-%E5%8B%87%E8%80%85%E7%9A%84-100-%E9%81%93-swift-ios-app-%E8%AC%8E%E9%A1%8C/74-%E5%88%A9%E7%94%A8-cifilter-%E5%AF%A6%E7%8F%BE%E7%BE%8E%E9%BA%97%E7%9A%84%E5%9C%96%E7%89%87%E6%BF%BE%E9%8F%A1-6b7323612188" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d47f8fc8dcdac3f76f358d1bb98ed7ab" data-thumbnail-img-id="1*xQYrA5IXYczyCM6bo3sQJA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*xQYrA5IXYczyCM6bo3sQJA.png);"></a></div><p name="f27b" id="f27b" class="graf graf--p graf-after--mixtapeEmbed">然而基本的濾鏡效果已經無法滿足我們了，接下來我們來試試結合多個 CIFilter，實現更 Cool 的濾鏡效果。</p><h3 name="b4bf" id="b4bf" class="graf graf--h3 graf-after--p">在專案裡加入可愛的娃娃圖片</h3><figure name="94e9" id="94e9" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*RDT78abMZDgrWei4G1RzYQ.jpeg" data-width="960" data-height="720" src="https://cdn-images-1.medium.com/max/800/1*RDT78abMZDgrWei4G1RzYQ.jpeg"></figure><h3 name="9b57" id="9b57" class="graf graf--h3 graf-after--figure">加入顯示圖片的 image view</h3><figure name="63e6" id="63e6" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*AxZIK_Vypw-7GBVt1vGnOw.jpeg" data-width="1520" data-height="638" src="https://cdn-images-1.medium.com/max/800/1*AxZIK_Vypw-7GBVt1vGnOw.jpeg"></figure><h3 name="489e" id="489e" class="graf graf--h3 graf-after--figure">加入 CoreImage.CIFilterBuiltins</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f6d3" id="f6d3" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> CoreImage.CIFilterBuiltins</span></pre><h3 name="67f7" id="67f7" class="graf graf--h3 graf-after--pre">定義 function，將圖片變成以線條繪製</h3><p name="0cb7" id="0cb7" class="graf graf--p graf-after--h3">利用 CIFilter.edgeWork 製作濾鏡效果。由於 CIFilter 接收的輸入圖片和產生的輸出圖片型別都是 CIImage，因此我們將參數 input 和 function 回傳的型別都宣告為 CIImage。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="236f" id="236f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">edgeWorkFilter</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">input</span>: <span class="hljs-type">CIImage</span>, <span class="hljs-params">radius</span>: <span class="hljs-type">Float</span>) -&gt; <span class="hljs-type">CIImage</span>? {<br />    <span class="hljs-keyword">let</span> filter <span class="hljs-operator">=</span> <span class="hljs-type">CIFilter</span>.edgeWork()<br />    filter.inputImage <span class="hljs-operator">=</span> input<br />    filter.radius <span class="hljs-operator">=</span> radius<br />    <span class="hljs-keyword">return</span> filter.outputImage<br />}</span></pre><p name="9db4" id="9db4" class="graf graf--p graf-after--pre">值得注意的，產生的圖片線條將是白色，所以我們要再搭配顏色反轉的濾鏡將線條變成黑色。</p><h3 name="63fd" id="63fd" class="graf graf--h3 graf-after--p">定義 function，將顏色反轉</h3><p name="5855" id="5855" class="graf graf--p graf-after--h3">我們希望產生黑色的線條，因此我們利用 CIFilter.colorInvert 製作濾鏡效果，將剛剛用 edgeWork 濾鏡產生的白色線條變成黑色。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="c682" id="c682" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">colorInvertFilter</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">input</span>: <span class="hljs-type">CIImage</span>) -&gt; <span class="hljs-type">CIImage</span>? {<br />    <span class="hljs-keyword">let</span> filter <span class="hljs-operator">=</span> <span class="hljs-type">CIFilter</span>.colorInvert()<br />    filter.inputImage <span class="hljs-operator">=</span> input<br />    <span class="hljs-keyword">return</span> filter.outputImage<br />}</span></pre><h3 name="5cad" id="5cad" class="graf graf--h3 graf-after--pre">套用 edgeWork &amp; colorInvert 的濾鏡效果</h3><p name="3200" id="3200" class="graf graf--p graf-after--h3">呼叫 function edgeWorkFilter 得到白色線條圖，然後再傳入 function colorInvertFilter 得到黑色線條圖，最後再將 CIImage 轉換成 UIImage 後，顯示到 UIImageView 上。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="af08" id="af08" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />    <span class="hljs-keyword">super</span>.viewDidLoad()<br />    <span class="hljs-comment">// Do any additional setup after loading the view.</span><br />        <br />    <span class="hljs-keyword">let</span> image <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(named: <span class="hljs-string">&quot;little prince&quot;</span>)<br />        <br />    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> ciImage <span class="hljs-operator">=</span> <span class="hljs-type">CIImage</span>(image: image<span class="hljs-operator">!</span>), <br />       <span class="hljs-keyword">let</span> edgeWorkOutput <span class="hljs-operator">=</span> edgeWorkFilter(ciImage, radius: <span class="hljs-number">3.0</span>),<br />       <span class="hljs-keyword">let</span> colorInvertOutput <span class="hljs-operator">=</span> colorInvertFilter(edgeWorkOutput) {<br />       <span class="hljs-keyword">let</span> filterImage <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(ciImage: colorInvertOutput)<br />       imageView.image <span class="hljs-operator">=</span> filterImage<br />    }<br />}</span></pre><p name="8430" id="8430" class="graf graf--p graf-after--pre">結果</p><figure name="0a25" id="0a25" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*UvDyJabRvOpzH8Bh76QczA.jpeg" data-width="1108" data-height="1978" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*UvDyJabRvOpzH8Bh76QczA.jpeg"></figure><h3 name="392a" id="392a" class="graf graf--h3 graf-after--figure">完整程式</h3><div name="9b38" id="9b38" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://github.com/AppPeterPan/MultilepleCIFilterDemo" data-href="https://github.com/AppPeterPan/MultilepleCIFilterDemo" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/AppPeterPan/MultilepleCIFilterDemo"><strong class="markup--strong markup--mixtapeEmbed-strong">AppPeterPan/MultilepleCIFilterDemo</strong><br><em class="markup--em markup--mixtapeEmbed-em">You can&#39;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or…</em>github.com</a><a href="https://github.com/AppPeterPan/MultilepleCIFilterDemo" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8c41a71ee300f5d6931029d12b280104" data-thumbnail-img-id="0*wtV4o31bvsPwZKfd" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*wtV4o31bvsPwZKfd);"></a></div><h3 name="bb22" id="bb22" class="graf graf--h3 graf-after--mixtapeEmbed">CIImage 變 UIImage 的轉向問題</h3><p name="e07a" id="e07a" class="graf graf--p graf-after--h3">套用濾鏡效果後，若遇到圖片轉向問題，可參考以下連結。</p><div name="963b" id="963b" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/ciimage-%E8%AE%8A-uiimage-%E7%9A%84%E8%BD%89%E5%90%91%E5%95%8F%E9%A1%8C-9e0322a451f1" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/ciimage-%E8%AE%8A-uiimage-%E7%9A%84%E8%BD%89%E5%90%91%E5%95%8F%E9%A1%8C-9e0322a451f1" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/ciimage-%E8%AE%8A-uiimage-%E7%9A%84%E8%BD%89%E5%90%91%E5%95%8F%E9%A1%8C-9e0322a451f1"><strong class="markup--strong markup--mixtapeEmbed-strong">CIImage 變 UIImage 的轉向問題</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，圖片的型別通常是 UIImage，不過有時我們會遇到型別 CIImage 的圖片，需要將它轉換成 UIImage 後才能顯示在 UIImageView 上。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/ciimage-%E8%AE%8A-uiimage-%E7%9A%84%E8%BD%89%E5%90%91%E5%95%8F%E9%A1%8C-9e0322a451f1" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="5678e75a1547d10bf0584e9303994759" data-thumbnail-img-id="1*ebAAWFaUzVMxZk_Ox5011w.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*ebAAWFaUzVMxZk_Ox5011w.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/eebb4be16ad7"><time class="dt-published" datetime="2019-07-22T08:19:38.234Z">July 22, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%B5%90%E5%90%88%E5%A4%9A%E5%80%8B-cifilter-%E5%AF%A6%E7%8F%BE%E7%BE%8E%E9%BA%97%E7%9A%84%E5%9C%96%E7%89%87%E6%BF%BE%E9%8F%A1-eebb4be16ad7" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

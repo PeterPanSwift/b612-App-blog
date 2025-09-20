@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 NWPathMonitor 偵測網路連線</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 NWPathMonitor 偵測網路連線</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS 12 新推出的 Network framework 提供許多網路相關的 API， 其中的  NWPathMonitor 將可幫我們更簡單地偵測網路連線的狀態。
+</section>
+<section data-field="body" class="e-content">
+<section name="ac14" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d10b" id="d10b" class="graf graf--h3 graf--leading graf--title">利用 NWPathMonitor 偵測網路連線</h3><p name="17f5" id="17f5" class="graf graf--p graf-after--h3">iOS 12 新推出的 Network framework 提供許多網路相關的 API， 其中的 NWPathMonitor 將可幫我們更簡單地偵測網路連線的狀態。</p><div name="7037" id="7037" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/network" data-href="https://developer.apple.com/documentation/network" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/network"><strong class="markup--strong markup--mixtapeEmbed-strong">Network | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Create network connections to send and receive data using transport and security protocols.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/network" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="0c99828b15726e34e5a4bfa5e53ebfbe"></a></div><div name="831e" id="831e" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://developer.apple.com/documentation/network/nwpathmonitor" data-href="https://developer.apple.com/documentation/network/nwpathmonitor" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/network/nwpathmonitor"><strong class="markup--strong markup--mixtapeEmbed-strong">NWPathMonitor — Network | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">An observer that you use to monitor and react to network changes.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/network/nwpathmonitor" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="0461d29254a1e75eaa2f3b9a4fd302ad"></a></div><p name="0589" id="0589" class="graf graf--p graf-after--mixtapeEmbed">接下來我們就來瞧瞧如何利用 NWPathMonitor 偵側網路連線吧。</p><blockquote name="f096" id="f096" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1 加入 Network framework。</strong></blockquote><pre name="c5ff" id="c5ff" class="graf graf--pre graf-after--blockquote">import Network</pre><blockquote name="c6b1" id="c6b1" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">2 在 controller 裡宣告 property monitor 儲存 NWPathMonitor 物件。</strong></blockquote><pre name="47bc" id="47bc" class="graf graf--pre graf-after--blockquote">class ViewController: UIViewController {</pre><pre name="f9cd" id="f9cd" class="graf graf--pre graf-after--pre">   let monitor = NWPathMonitor()</pre><p name="5125" id="5125" class="graf graf--p graf-after--pre">在生成 NWPathMonitor 時，我們也可指定想偵測的網路連線，比方 <code class="markup--code markup--p-code">NWPathMonitor(requiredInterfaceType: .wifi)</code> 將偵測 wifi 連線。不過一般的 App 只在乎是否有連線，不在乎是透過 4G 還是 wifi，所以利用 <code class="markup--code markup--p-code">NWPathMonitor()</code> 即可偵測所有的連線。</p><blockquote name="7a47" id="7a47" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">3 在 viewDidLoad 裡加入偵測網路的相關程式。</strong></blockquote><pre name="a313" id="a313" class="graf graf--pre graf-after--blockquote">override func viewDidLoad() {</pre><pre name="48b4" id="48b4" class="graf graf--pre graf-after--pre">   super.viewDidLoad()</pre><pre name="c24a" id="c24a" class="graf graf--pre graf-after--pre">   monitor.pathUpdateHandler = { path in</pre><pre name="b8ce" id="b8ce" class="graf graf--pre graf-after--pre">      if path.status == .satisfied {</pre><pre name="ea11" id="ea11" class="graf graf--pre graf-after--pre">         print(&quot;connected&quot;)</pre><pre name="b161" id="b161" class="graf graf--pre graf-after--pre">      } else {</pre><pre name="54c7" id="54c7" class="graf graf--pre graf-after--pre">         print(&quot;no connection&quot;)</pre><pre name="0deb" id="0deb" class="graf graf--pre graf-after--pre">      }</pre><pre name="853d" id="853d" class="graf graf--pre graf-after--pre">   }</pre><pre name="b280" id="b280" class="graf graf--pre graf-after--pre">   monitor.start(queue: DispatchQueue.global())</pre><pre name="2c86" id="2c86" class="graf graf--pre graf-after--pre">}</pre><p name="1e71" id="1e71" class="graf graf--p graf-after--pre">說明</p><pre name="7a22" id="7a22" class="graf graf--pre graf-after--p">monitor.pathUpdateHandler = { path in</pre><pre name="1e37" id="1e37" class="graf graf--pre graf-after--pre">   if path.status == .satisfied {</pre><pre name="77e1" id="77e1" class="graf graf--pre graf-after--pre">      print(&quot;connected&quot;)</pre><pre name="c9dd" id="c9dd" class="graf graf--pre graf-after--pre">   } else {</pre><pre name="6ad7" id="6ad7" class="graf graf--pre graf-after--pre">      print(&quot;no connection&quot;)</pre><pre name="0e93" id="0e93" class="graf graf--pre graf-after--pre">   }</pre><pre name="379f" id="379f" class="graf graf--pre graf-after--pre">}</pre><p name="8f98" id="8f98" class="graf graf--p graf-after--pre">當網路狀態改變時，將觸發 pathUpdateHandler 儲存的 closure 程式。</p><div name="2400" id="2400" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/network/nwpathmonitor/2998735-pathupdatehandler" data-href="https://developer.apple.com/documentation/network/nwpathmonitor/2998735-pathupdatehandler" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/network/nwpathmonitor/2998735-pathupdatehandler"><strong class="markup--strong markup--mixtapeEmbed-strong">pathUpdateHandler - NWPathMonitor | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/network/nwpathmonitor/2998735-pathupdatehandler" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="16c779005c44a610dc99b10bc7e78c36"></a></div><p name="bc52" id="bc52" class="graf graf--p graf-after--mixtapeEmbed"><code class="markup--code markup--p-code">var pathUpdateHandler: ((NWPath) -&gt; Void)? { get set }</code></p><p name="a49a" id="a49a" class="graf graf--p graf-after--p">pathUpdateHandler 裡 NWPath 型別的參數將告訴我們連線的狀態。當它的 status 為 satisfied 時即為網路有連線。</p><div name="9d2a" id="9d2a" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/network/nwpath" data-href="https://developer.apple.com/documentation/network/nwpath" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/network/nwpath"><strong class="markup--strong markup--mixtapeEmbed-strong">NWPath - Network | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">An object that contains information about the properties of the network used by a connection, or that are available to…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/network/nwpath" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="ec17250d4c396b293816c92f0ba1639d"></a></div><div name="b0ee" id="b0ee" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://developer.apple.com/documentation/network/nwpath/2998725-status" data-href="https://developer.apple.com/documentation/network/nwpath/2998725-status" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/network/nwpath/2998725-status"><strong class="markup--strong markup--mixtapeEmbed-strong">status - NWPath | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/network/nwpath/2998725-status" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="9351f2013faa6b9377245f07d54d0616"></a></div><p name="47b1" id="47b1" class="graf graf--p graf-after--mixtapeEmbed">status 的型別為 enum NWPath.Status，有 requiresConnection，satisfied 和 unsatisfied 三種 case。</p><div name="554c" id="554c" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/network/nwpath/status" data-href="https://developer.apple.com/documentation/network/nwpath/status" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/network/nwpath/status"><strong class="markup--strong markup--mixtapeEmbed-strong">NWPath.Status - NWPath | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/network/nwpath/status" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="ddec476b0260ccc40542857b25c004cc"></a></div><p name="1641" id="1641" class="graf graf--p graf-after--mixtapeEmbed">若想進一步判斷目前的網路連線是 wifi 還是 cellular，則可利用 function usesInterfaceType(_:) 回傳的結果判斷，比方 <code class="markup--code markup--p-code">path.usesInterfaceType(.wifi)</code> 回傳 true 即表示目前為 wifi 連線。</p><div name="443a" id="443a" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/network/nwpath/2998729-usesinterfacetype" data-href="https://developer.apple.com/documentation/network/nwpath/2998729-usesinterfacetype" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/network/nwpath/2998729-usesinterfacetype"><strong class="markup--strong markup--mixtapeEmbed-strong">usesInterfaceType(_:) — NWPath | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/network/nwpath/2998729-usesinterfacetype" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="a69fd147f2a0ae46a15ac7cf29336d5f"></a></div><p name="6853" id="6853" class="graf graf--p graf-after--mixtapeEmbed"><code class="markup--code markup--p-code">monitor.start(queue: DispatchQueue.global())</code></p><p name="a1f1" id="a1f1" class="graf graf--p graf-after--p">呼叫 start 開始偵測。剛剛設定的 pathUpdateHandler closure 程式將被放到 ( ) 裡傳入的參數 queue，比方此時我們傳入代表背景 queue 的 DispatchQueue.global()，因此 pathUpdateHandler 將在背景的 thread 執行。</p><p name="304b" id="304b" class="graf graf--p graf-after--p">以上即為基本的網路連線偵測程式。除此之外，若想在程式裡另外存取目前連線的相關資訊，也可以直接讀取 NWPathMonitor 的 currentPath。</p><pre name="6f41" id="6f41" class="graf graf--pre graf-after--p">print(&quot;網路連線狀態&quot;, monitor.currentPath.status)</pre><div name="dbab" id="dbab" class="graf graf--mixtapeEmbed graf-after--pre graf--trailing"><a href="https://developer.apple.com/documentation/network/nwpathmonitor/2998732-currentpath" data-href="https://developer.apple.com/documentation/network/nwpathmonitor/2998732-currentpath" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/network/nwpathmonitor/2998732-currentpath"><strong class="markup--strong markup--mixtapeEmbed-strong">currentPath - NWPathMonitor | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/network/nwpathmonitor/2998732-currentpath" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="5e89c8ffe21b2633dfb256c9827c36e2"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/58e3c6aa2832"><time class="dt-published" datetime="2019-01-04T08:00:40.422Z">January 4, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-nwpathmonitor-%E5%81%B5%E6%B8%AC%E7%B6%B2%E8%B7%AF%E9%80%A3%E7%B7%9A-58e3c6aa2832" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

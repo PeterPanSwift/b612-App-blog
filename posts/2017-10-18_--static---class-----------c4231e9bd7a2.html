@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>以 static 和 class 宣告型別方法的差異</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">以 static 和 class 宣告型別方法的差異</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+類別的型別方法也可以被繼承覆寫，但是當你用 static 宣告時，是不能覆寫的。如果想把被覆寫的開關打開，請用 class 宣告。
+</section>
+<section data-field="body" class="e-content">
+<section name="184e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8a36" id="8a36" class="graf graf--h3 graf--leading graf--title">以 static 和 class 宣告型別方法的差異</h3><p name="80cf" id="80cf" class="graf graf--p graf-after--h3">類別的型別方法也可以被繼承覆寫，但是當你用 static 宣告時，是不能覆寫的。如果想把被覆寫的開關打開，請用 class 宣告。</p><figure name="80ff" id="80ff" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*DG6GOMEjzr-8ajT7SCkGbQ.jpeg" data-width="1280" data-height="624" src="https://cdn-images-1.medium.com/max/800/1*DG6GOMEjzr-8ajT7SCkGbQ.jpeg"></figure><p name="4287" id="4287" class="graf graf--p graf-after--figure">用 class 宣告的型別方法，才能順利覆寫，定義超級寶寶的最大年齡為 1000 歲。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f8a1" id="f8a1" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Baby</span> {<br />    <span class="hljs-keyword">class</span> <span class="hljs-title class_">func</span> <span class="hljs-title class_">getMaxAge</span>() -&gt; <span class="hljs-title class_">Int</span> {<br />        <span class="hljs-keyword">return</span> <span class="hljs-number">100</span><br />    }<br />}<br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">SuperBaby</span>: <span class="hljs-title class_">Baby</span> {<br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">func</span> <span class="hljs-title class_">getMaxAge</span>() -&gt; <span class="hljs-title class_">Int</span> {<br />        <span class="hljs-keyword">return</span> <span class="hljs-number">1000</span><br />    }<br />}<br /><span class="hljs-type">SuperBaby</span>.getMaxAge()</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c4231e9bd7a2"><time class="dt-published" datetime="2017-10-18T08:24:58.804Z">October 18, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BB%A5-static-%E5%92%8C-class-%E5%AE%A3%E5%91%8A%E5%9E%8B%E5%88%A5%E6%96%B9%E6%B3%95%E7%9A%84%E5%B7%AE%E7%95%B0-c4231e9bd7a2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何將 Playground 上傳到 GitHub</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何將 Playground 上傳到 GitHub</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+打開 Terminal App，切換到 playground 的資料夾。( playground 其實是個資料夾)
+</section>
+<section data-field="body" class="e-content">
+<section name="44e2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3432" id="3432" class="graf graf--h3 graf--leading graf--title">如何將 Playground 上傳到 GitHub</h3><ol class="postList"><li name="7490" id="7490" class="graf graf--li graf-after--h3">打開 Terminal App，切換到 playground 的資料夾。( playground 其實是個資料夾)</li></ol><p name="3722" id="3722" class="graf graf--p graf-after--li">指令範例:</p><pre name="5bfd" id="5bfd" class="graf graf--pre graf-after--p">cd /Users/shih-yingpan/Desktop/MyPlayground.playground</pre><p name="31a6" id="31a6" class="graf graf--p graf-after--pre">2. 輸入 git init</p><figure name="fd65" id="fd65" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LBzrERsMVoEw3yWWjMerAw.jpeg" data-width="2082" data-height="208" src="https://cdn-images-1.medium.com/max/800/1*LBzrERsMVoEw3yWWjMerAw.jpeg"></figure><p name="26e5" id="26e5" class="graf graf--p graf-after--figure">3. 從 Xcode 重新打開 playground 檔案，現在你的 playground 已享有強大的 git 版本管理功能。</p><p name="4aa3" id="4aa3" class="graf graf--p graf-after--p">4. 從 Source Control &gt; Commit 記錄你在 playground 所做的修改。</p><figure name="cff2" id="cff2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Lo5NULdITszxeuQImYY4ug.jpeg" data-width="796" data-height="606" src="https://cdn-images-1.medium.com/max/800/1*Lo5NULdITszxeuQImYY4ug.jpeg"></figure><p name="9fbd" id="9fbd" class="graf graf--p graf-after--figure">記得勾選藍色 playground 下的檔案。</p><figure name="a6e4" id="a6e4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BuSar_Ly8Rc0piA9Lmfw5Q.png" data-width="2660" data-height="1534" src="https://cdn-images-1.medium.com/max/800/1*BuSar_Ly8Rc0piA9Lmfw5Q.png"></figure><p name="c7d0" id="c7d0" class="graf graf--p graf-after--figure">5. 切換到 Source Control navigator，點選 New xxx Remote 上傳。</p><figure name="26b2" id="26b2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ITMqQBHCJ_Y_glentCm0lQ.png" data-width="1064" data-height="850" src="https://cdn-images-1.medium.com/max/800/1*ITMqQBHCJ_Y_glentCm0lQ.png"></figure><figure name="343e" id="343e" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Jv-E-DLSHLPunxOYNiuB1A.png" data-width="946" data-height="814" src="https://cdn-images-1.medium.com/max/800/1*Jv-E-DLSHLPunxOYNiuB1A.png"></figure><p name="7e31" id="7e31" class="graf graf--p graf-after--figure">值得注意的，之後從 GitHub 下載時，它會變成一個資料夾。</p><figure name="ce8e" id="ce8e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*GLRUdhHMfk5b56MO5md0-A.png" data-width="882" data-height="324" src="https://cdn-images-1.medium.com/max/800/1*GLRUdhHMfk5b56MO5md0-A.png"></figure><p name="568b" id="568b" class="graf graf--p graf-after--figure">請將資料夾名稱的結尾加上 .playground，即可從 Xcode 打開 playground。</p><figure name="4f2f" id="4f2f" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*glRCPdTT5BNJLTLSmOLy6A.png" data-width="648" data-height="86" src="https://cdn-images-1.medium.com/max/800/1*glRCPdTT5BNJLTLSmOLy6A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/20cd3d13d1d1"><time class="dt-published" datetime="2016-10-19T09:39:16.222Z">October 19, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%A6%82%E4%BD%95%E5%B0%87-playground-%E4%B8%8A%E5%82%B3%E5%88%B0-github-20cd3d13d1d1" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

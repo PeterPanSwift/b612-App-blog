@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Separator None 造成的 cell 高度問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Separator None 造成的 cell 高度問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當 cell 的高度由 auto layout 決定時，我們可在 cell 裡放入一個 view，然後設定 view 的高度條件控制 cell 的高度。
+</section>
+<section data-field="body" class="e-content">
+<section name="32be" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="47bd" id="47bd" class="graf graf--h3 graf--leading graf--title">Separator None 造成的 cell 高度問題</h3><p name="55db" id="55db" class="graf graf--p graf-after--h3">當 cell 的高度由 auto layout 決定時，我們可在 cell 裡放入一個 view，然後設定 view 的高度條件控制 cell 的高度。</p><figure name="53b6" id="53b6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TB1eUMZBZbRfSvdjNQgvtw.jpeg" data-width="1290" data-height="488" src="https://cdn-images-1.medium.com/max/800/1*TB1eUMZBZbRfSvdjNQgvtw.jpeg"></figure><p name="3013" id="3013" class="graf graf--p graf-after--figure">然而當 table view 的 Separator 設為 None，view 的高度條件設為 0 時，卻會發生奇怪的現象 !</p><figure name="111b" id="111b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pTARPRrewfLLujwCebQhAw.jpeg" data-width="518" data-height="338" src="https://cdn-images-1.medium.com/max/800/1*pTARPRrewfLLujwCebQhAw.jpeg"></figure><p name="dfe3" id="dfe3" class="graf graf--p graf-after--figure">App 執行後，Cell 依然有預設的高度 44，而不是我們期待的高度 0。</p><figure name="71d2" id="71d2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VaLCoDf3YBunHvJU2d9onw.jpeg" data-width="1008" data-height="1764" src="https://cdn-images-1.medium.com/max/800/1*VaLCoDf3YBunHvJU2d9onw.jpeg"></figure><p name="4fd8" id="4fd8" class="graf graf--p graf-after--figure">此時 Xcode 的錯誤訊息如下</p><pre name="8b04" id="8b04" class="graf graf--pre graf-after--p">TableCellHeight[25493:1183731] [LayoutConstraints] Unable to simultaneously satisfy constraints.</pre><pre name="bd83" id="bd83" class="graf graf--pre graf-after--pre">Probably at least one of the constraints in the following list is one you don&#39;t want.</pre><pre name="26e5" id="26e5" class="graf graf--pre graf-after--pre">Try this:</pre><pre name="45b8" id="45b8" class="graf graf--pre graf-after--pre">(1) look at each constraint and try to figure out which you don&#39;t expect;</pre><pre name="c758" id="c758" class="graf graf--pre graf-after--pre">(2) find the code that added the unwanted constraint or constraints and fix it.</pre><pre name="da35" id="da35" class="graf graf--pre graf-after--pre">(</pre><pre name="f554" id="f554" class="graf graf--pre graf-after--pre">&quot;&lt;NSLayoutConstraint:0x608000093600 UIView:0x7fc86d111170.height == 0   (active)&gt;&quot;,</pre><pre name="ef24" id="ef24" class="graf graf--pre graf-after--pre">&quot;&lt;NSLayoutConstraint:0x608000093830 V:|-(0)-[UIView:0x7fc86d111170]   (active, names: &#39;|&#39;:UITableViewCellContentView:0x7fc86d110b50 )&gt;&quot;,</pre><pre name="7374" id="7374" class="graf graf--pre graf-after--pre">&quot;&lt;NSLayoutConstraint:0x608000093920 V:[UIView:0x7fc86d111170]-(0)-|   (active, names: &#39;|&#39;:UITableViewCellContentView:0x7fc86d110b50 )&gt;&quot;,</pre><pre name="1978" id="1978" class="graf graf--pre graf-after--pre">&quot;&lt;NSLayoutConstraint:0x600000093790 &#39;UIView-Encapsulated-Layout-Height&#39; UITableViewCellContentView:0x7fc86d110b50.height == 44   (active)&gt;&quot;</pre><pre name="cb27" id="cb27" class="graf graf--pre graf-after--pre">)</pre><pre name="7978" id="7978" class="graf graf--pre graf-after--pre">Will attempt to recover by breaking constraint</pre><pre name="568e" id="568e" class="graf graf--pre graf-after--pre">&lt;NSLayoutConstraint:0x608000093600 UIView:0x7fc86d111170.height == 0   (active)&gt;</pre><p name="5645" id="5645" class="graf graf--p graf-after--pre">但是，只要表格的 Separator 不是 None，比方設為 Default，即可正常顯示高度 0 的 cell。</p><figure name="fa21" id="fa21" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*oc-BdsG0AFeNZg52qshc0Q.jpeg" data-width="894" data-height="342" src="https://cdn-images-1.medium.com/max/800/1*oc-BdsG0AFeNZg52qshc0Q.jpeg"></figure><p name="0d5e" id="0d5e" class="graf graf--p graf-after--figure">因此，如果想要 cell 高度 0，而且不顯示 Separator 的話，可採用另一個方法，將 Separator 的顏色設為 Clear Color。</p><figure name="d616" id="d616" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*oYeZnR7e1rx2cWe7LAf4cQ.jpeg" data-width="902" data-height="350" src="https://cdn-images-1.medium.com/max/800/1*oYeZnR7e1rx2cWe7LAf4cQ.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8da25c744c9f"><time class="dt-published" datetime="2018-01-10T17:34:49.994Z">January 10, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BD%B1%E9%9F%BF-cell-%E9%AB%98%E5%BA%A6%E7%9A%84-separator-8da25c744c9f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓 App 無法生成的 App Icon 錯誤</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓 App 無法生成的 App Icon 錯誤</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+製作 iOS App 時，App 的 icon 有特別嚴格的尺寸限制，比方 iPhone App 的 icon 一定要 120 * 120 和 180 * 180 (像素)。一旦你加了尺寸錯誤的 icon，Xcode 可是會生氣地讓你生不出 App !
+</section>
+<section data-field="body" class="e-content">
+<section name="58fc" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d955" id="d955" class="graf graf--h3 graf--leading graf--title">讓 App 無法生成的 App Icon 錯誤</h3><p name="5310" id="5310" class="graf graf--p graf-after--h3">製作 iOS App 時，App 的 icon 有特別嚴格的尺寸限制，比方 iPhone App 的 icon 一定要 120 * 120 和 180 * 180 (像素)。一旦你加了尺寸錯誤的 icon，Xcode 可是會生氣地讓你生不出 App !</p><p name="bdb4" id="bdb4" class="graf graf--p graf-after--p">如以下例子，我們在 60pt 的 2x 格子應該放上 120 * 120 的可愛小彼得照片，但卻不小心加入尺寸錯誤的 icon，此時將顯示黃色警告和紅色錯誤，使得 App 無法生成執行。</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="4a55" id="4a55" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*xB-XEIV1Z5aSAtGXssGVWw.jpeg" data-width="2020" data-height="694" src="https://cdn-images-1.medium.com/max/1200/1*xB-XEIV1Z5aSAtGXssGVWw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><figure name="6e1e" id="6e1e" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*BEyY2sdzb6dj6RWRxBB7tg.jpeg" data-width="250" data-height="272" src="https://cdn-images-1.medium.com/max/800/1*BEyY2sdzb6dj6RWRxBB7tg.jpeg"></figure><figure name="474a" id="474a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*t12LiDJAQ2wp_C0QDDcsag.jpeg" data-width="1118" data-height="320" src="https://cdn-images-1.medium.com/max/800/1*t12LiDJAQ2wp_C0QDDcsag.jpeg"></figure><p name="1f11" id="1f11" class="graf graf--p graf-after--figure">黃色警告的文字 xxx is 4032x3024 but should be 120x120 告訴我們 icon 的正確尺寸為 120x120，但我們卻加入 4032x3024 的 icon。</p><p name="448d" id="448d" class="graf graf--p graf-after--p graf--trailing">紅色錯誤 The stickers icon set or app icon set named “AppIcon” did not have any applicable content. 則明白地告訴我們 AppIcon 有問題。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/32ed0479d51c"><time class="dt-published" datetime="2017-07-14T17:33:10.121Z">July 14, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AE%93-app-%E7%84%A1%E6%B3%95%E7%94%9F%E6%88%90%E7%9A%84-app-icon-%E9%8C%AF%E8%AA%A4-32ed0479d51c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

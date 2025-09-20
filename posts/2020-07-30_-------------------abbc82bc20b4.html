@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何知道 ( ) 前的東西是不是型別</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何知道 ( ) 前的東西是不是型別</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常看到 xxx() 的語法，主要分成以下兩種:
+</section>
+<section data-field="body" class="e-content">
+<section name="915d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5e31" id="5e31" class="graf graf--h3 graf--leading graf--title">如何知道 ( ) 前的東西是不是型別</h3><p name="fb1f" id="fb1f" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常看到 xxx() 的語法，主要分成以下兩種:</p><ul class="postList"><li name="8d11" id="8d11" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">xxx 是型別，xxx() 將生成型別 xxx 的東西。</strong></li></ul><p name="c0d1" id="c0d1" class="graf graf--p graf-after--li">Int 是型別，Int(3.5) 將生成整數 3。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="8fa4" id="8fa4" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> number <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>(<span class="hljs-number">3.5</span>)</span></pre><ul class="postList"><li name="9342" id="9342" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">xxx 是某個 function，xxx() 將呼叫 function 做某件事。</strong></li></ul><p name="d3cd" id="d3cd" class="graf graf--p graf-after--li">print 是 function，以下程式將列印訊息。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="b011" id="b011" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;上邪，我欲與君相知，長命無絕衰。<br />山無陵，江水爲竭。冬雷震震，夏雨雪。天地合，乃敢與君絕。&quot;</span>)</span></pre><h3 name="4106" id="4106" class="graf graf--h3 graf-after--pre">如何區別 xxx 是型別還是 function</h3><p name="bdcc" id="bdcc" class="graf graf--p graf-after--h3">透過以下幾個小技巧，我們可以快速看出 xxx 的型別還是 function，明白 xxx( ) 是生成東西還是呼叫 function。</p><ul class="postList"><li name="2318" id="2318" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">判斷第一個字是大寫還是小寫。</strong></li></ul><p name="da06" id="da06" class="graf graf--p graf-after--li">在 Swift 的世界裡，通常型別的第一個字會大寫，function 的第一個字會小寫。</p><p name="d429" id="d429" class="graf graf--p graf-after--p">Int() 的 I 是大寫，因此 Int 是型別。print() 的 p 是小寫，因此 print 是 function。</p><ul class="postList"><li name="1a2d" id="1a2d" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">按住 option 鍵，點選 xxx 查說明。</strong></li></ul><p name="7fc7" id="7fc7" class="graf graf--p graf-after--li">顯示 struct，class，enum 時表示它是型別。</p><figure name="0770" id="0770" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uUZaKu1p6G9Wv_97VinnUQ.jpeg" data-width="1152" data-height="598" src="https://cdn-images-1.medium.com/max/800/1*uUZaKu1p6G9Wv_97VinnUQ.jpeg"></figure><figure name="58e3" id="58e3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*E5tOryVJtsp_0_VQIoHG6A.jpeg" data-width="1284" data-height="388" src="https://cdn-images-1.medium.com/max/800/1*E5tOryVJtsp_0_VQIoHG6A.jpeg"></figure><p name="6699" id="6699" class="graf graf--p graf-after--figure">顯示 func 時表示它是 function。</p><figure name="8d7b" id="8d7b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*XdWnxrdy8iL_K3jumFqg_Q.jpeg" data-width="1372" data-height="384" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*XdWnxrdy8iL_K3jumFqg_Q.jpeg"></figure><figure name="98d0" id="98d0" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*GUwzkatHBxBburb_ePC-Kw.jpeg" data-width="1104" data-height="460" src="https://cdn-images-1.medium.com/max/800/1*GUwzkatHBxBburb_ePC-Kw.jpeg"></figure><ul class="postList"><li name="9224" id="9224" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">輸入程式時觀看提示。</strong></li></ul><p name="93c3" id="93c3" class="graf graf--p graf-after--li">格子裡顯示 S，C，E 表示它是 struct，class，enum，因此是型別。</p><figure name="a9b0" id="a9b0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zS32l5L74m6qsIa_9RmDgg.jpeg" data-width="1126" data-height="194" src="https://cdn-images-1.medium.com/max/800/1*zS32l5L74m6qsIa_9RmDgg.jpeg"></figure><figure name="04d0" id="04d0" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*HNktAD-F_UakeyQ8IPnnwA.jpeg" data-width="1362" data-height="198" src="https://cdn-images-1.medium.com/max/800/1*HNktAD-F_UakeyQ8IPnnwA.jpeg"></figure><figure name="0ab6" id="0ab6" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*-tIn6D4lW0arK96Tg0Ywxw.jpeg" data-width="1132" data-height="356" src="https://cdn-images-1.medium.com/max/800/1*-tIn6D4lW0arK96Tg0Ywxw.jpeg"></figure><p name="07b4" id="07b4" class="graf graf--p graf-after--figure">格子裡顯示 f，M 表示它是 function。</p><figure name="b599" id="b599" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0M4YfX8AUgEowC3XBAF2Vw.jpeg" data-width="846" data-height="172" src="https://cdn-images-1.medium.com/max/800/1*0M4YfX8AUgEowC3XBAF2Vw.jpeg"></figure><figure name="0e6d" id="0e6d" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*ZSsDoRPtfdv7ohcsYrfwbA.jpeg" data-width="912" data-height="316" src="https://cdn-images-1.medium.com/max/800/1*ZSsDoRPtfdv7ohcsYrfwbA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/abbc82bc20b4"><time class="dt-published" datetime="2020-07-30T03:52:44.307Z">July 30, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%A6%82%E4%BD%95%E7%9F%A5%E9%81%93-%E5%89%8D%E7%9A%84%E6%9D%B1%E8%A5%BF%E6%98%AF%E4%B8%8D%E6%98%AF%E5%9E%8B%E5%88%A5-abbc82bc20b4" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

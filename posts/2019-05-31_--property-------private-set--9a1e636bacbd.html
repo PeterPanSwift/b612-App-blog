@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓 property 變成唯讀的 private(set)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓 property 變成唯讀的 private(set)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Swift 的 access control 語法讓我們可以透過 open， public，internal，private &amp; fileprivate 設定東西的存取權限，將權限加在型別，property &amp; method 等東西身上，幫助我們開發更安全的程式。
+</section>
+<section data-field="body" class="e-content">
+<section name="2ba2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f376" id="f376" class="graf graf--h3 graf--leading graf--title">讓 property 變成唯讀的 private(set)</h3><p name="18fe" id="18fe" class="graf graf--p graf-after--h3">Swift 的 access control 語法讓我們可以透過 open， public，internal，private &amp; fileprivate 設定東西的存取權限，將權限加在型別，property &amp; method 等東西身上，幫助我們開發更安全的程式。</p><div name="5df4" id="5df4" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html" data-href="https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Access Control — The Swift Programming Language (Swift 5)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Access control restricts access to parts of your code from code in other source files and modules. This feature enables…</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="b1755a1d8b21eaf7fa9169cf6e9a23fc"></a></div><p name="bdb8" id="bdb8" class="graf graf--p graf-after--mixtapeEmbed">我們都知道女人的年齡是天大的秘密，因此底下就讓我們以 Woman 的 age 為例。我們在 var age 前加上權限 private，因此之後我們只能從 function intro 得知她的年紀，無法從 class Woman { } 外的程式存取 age。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="e535" id="e535" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Woman</span> {<br />   <span class="hljs-keyword">var</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&quot;penny&quot;</span><br />   <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> age <span class="hljs-operator">=</span> <span class="hljs-number">18</span><br />   <span class="hljs-keyword">func</span> <span class="hljs-title function_">intro</span>() {<br />      <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;我的名字是<span class="hljs-subst">\(name)</span>，我的年齡是<span class="hljs-subst">\(age)</span>&quot;</span>)<br />   }<br />}<br /><span class="hljs-keyword">var</span> cuteWoman <span class="hljs-operator">=</span> <span class="hljs-type">Woman</span>()<br />cuteWoman.intro()</span></pre><figure name="8b68" id="8b68" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*B3IgPfnTi2ovIYcsTQrRtg.jpeg" data-width="1296" data-height="380" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*B3IgPfnTi2ovIYcsTQrRtg.jpeg"><figcaption class="imageCaption">因為 age 是 private，所以不能存取</figcaption></figure><p name="992d" id="992d" class="graf graf--p graf-after--figure">由於 private 的關係，age 變成不能從 class Woman { } 外讀取和修改。然而有時我們希望它變成唯讀，想要它不能修改但可以讀取，這有方法辦到嗎 ?</p><h3 name="2fd1" id="2fd1" class="graf graf--h3 graf-after--p">當然可以 !</h3><p name="2b17" id="2b17" class="graf graf--p graf-after--h3">Swift 裡有讀取東西的 getter &amp; 修改東西的 setter。當我們透過 . 讀取 property 時是透過 getter，透過 . 修改 property 時則透過 setter，而剛剛的 <code class="markup--code markup--p-code">private var age</code> 將讓 age 的 getter 和 setter 都變成 private，因此不能讀取也不能修改。但我們其實可另外透過 (set) 指定 setter 的權限，讓 setter 和 getter 擁有不同的權限，比方以下例子:</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="ed05" id="ed05" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Woman</span> {<br />   <span class="hljs-keyword">var</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&quot;penny&quot;</span><br />   <span class="hljs-keyword">private(set)</span> <span class="hljs-keyword">var</span> age <span class="hljs-operator">=</span> <span class="hljs-number">18</span><br />   <span class="hljs-keyword">func</span> <span class="hljs-title function_">getOlder</span>() {<br />      age <span class="hljs-operator">=</span> age <span class="hljs-operator">+</span> <span class="hljs-number">1</span><br />   }<br />}<br /><span class="hljs-keyword">var</span> cuteWoman <span class="hljs-operator">=</span> <span class="hljs-type">Woman</span>()<br /><span class="hljs-built_in">print</span>(cuteWoman.age)<br />cuteWoman.getOlder()</span></pre><p name="a3f1" id="a3f1" class="graf graf--p graf-after--pre"><code class="markup--code markup--p-code">private(set) var age</code> 表示 age 的 setter 權限為 private，但 getter 權限維持預設的 internal，因此我們可從 class Woman { } 外讀取 age，也能呼叫 function getOlder 增加 age，但想直接以 <code class="markup--code markup--p-code">cuteWoman.age = 2</code> 修改 age 卻是萬萬不可!</p><figure name="b6f4" id="b6f4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*MYIPnbdohj3q-MKWRDOGYQ.jpeg" data-width="1510" data-height="234" src="https://cdn-images-1.medium.com/max/800/1*MYIPnbdohj3q-MKWRDOGYQ.jpeg"><figcaption class="imageCaption">別想修改 age，因為它的 setter 是 private</figcaption></figure><p name="7c95" id="7c95" class="graf graf--p graf-after--figure">在設定 setter 權限時，還有以下幾個要注意的小地方:</p><blockquote name="db8a" id="db8a" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1. setter 的權限不能比 getter 高。</strong></blockquote><p name="632d" id="632d" class="graf graf--p graf-after--blockquote">就像彼得潘的女朋友 Wendy 不能比 Peter 高，setter 的權限也不能比 getter 高。因此像 getter 是 internal，setter 是 public 將產生錯誤。</p><figure name="4a28" id="4a28" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*QYgeIpsHJGkiNbLkTGgCig.jpeg" data-width="1406" data-height="244" src="https://cdn-images-1.medium.com/max/800/1*QYgeIpsHJGkiNbLkTGgCig.jpeg"></figure><blockquote name="0749" id="0749" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">2. 可同時指定 getter &amp; setter 的權限。</strong></blockquote><p name="6091" id="6091" class="graf graf--p graf-after--blockquote">比方以下例子，age 的 getter 是 public，setter 是 private。當同時指定 getter &amp; setter 的權限時，只有 setter 要注明 (set)，getter 不須加上 (get)。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="07fa" id="07fa" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Woman</span> {<br />   <span class="hljs-keyword">var</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&quot;penny&quot;</span><br />   <span class="hljs-keyword">public</span> <span class="hljs-keyword">private(set)</span> <span class="hljs-keyword">var</span> age <span class="hljs-operator">=</span> <span class="hljs-number">18</span><br />   <span class="hljs-keyword">func</span> <span class="hljs-title function_">getOlder</span>() {<br />      age <span class="hljs-operator">=</span> age <span class="hljs-operator">+</span> <span class="hljs-number">1</span><br />   }<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9a1e636bacbd"><time class="dt-published" datetime="2019-05-31T16:02:40.187Z">May 31, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AE%93-property-%E8%AE%8A%E6%88%90%E5%94%AF%E8%AE%80%E7%9A%84-private-set-9a1e636bacbd" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

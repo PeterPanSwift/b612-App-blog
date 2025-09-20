@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>調整 tab bar 上 tab icon 的位置</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">調整 tab bar 上 tab icon 的位置</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+問題: tab 沒有文字時，tab icon 的位置偏上
+</section>
+<section data-field="body" class="e-content">
+<section name="a60c" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c519" id="c519" class="graf graf--h3 graf--leading graf--title">調整 tab bar 上 tab icon 的位置</h3><h3 name="9c72" id="9c72" class="graf graf--h3 graf-after--h3">問題: tab 沒有文字時，tab icon 的位置偏上</h3><p name="81c3" id="81c3" class="graf graf--p graf-after--h3">有些時候，我們希望 tab bar 上的 tab 只有圖片，沒有文字。如下圖可愛學生冠禎模仿 instagram 的 App 例子</p><div name="69cc" id="69cc" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%8F%B0%E5%A4%A7-cs-x-ios-app-%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%A3%BD%E4%BD%9C%E4%B8%80%E9%A0%81%E7%BE%8E%E7%BE%8E%E7%9A%84instagram%E7%95%AB%E9%9D%A2-c05dbdad1acd" data-href="https://medium.com/%E5%8F%B0%E5%A4%A7-cs-x-ios-app-%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%A3%BD%E4%BD%9C%E4%B8%80%E9%A0%81%E7%BE%8E%E7%BE%8E%E7%9A%84instagram%E7%95%AB%E9%9D%A2-c05dbdad1acd" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%8F%B0%E5%A4%A7-cs-x-ios-app-%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%A3%BD%E4%BD%9C%E4%B8%80%E9%A0%81%E7%BE%8E%E7%BE%8E%E7%9A%84instagram%E7%95%AB%E9%9D%A2-c05dbdad1acd"><strong class="markup--strong markup--mixtapeEmbed-strong">製作一頁美美的Instagram畫面</strong><br><em class="markup--em markup--mixtapeEmbed-em">用Storyboard做出我很喜歡的插畫家Curtis Wiklund的IG頁面，他2017年的目標是每天畫一幅插畫，紀錄跟妻子、小孩的日常生活。</em>medium.com</a><a href="https://medium.com/%E5%8F%B0%E5%A4%A7-cs-x-ios-app-%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/%E8%A3%BD%E4%BD%9C%E4%B8%80%E9%A0%81%E7%BE%8E%E7%BE%8E%E7%9A%84instagram%E7%95%AB%E9%9D%A2-c05dbdad1acd" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="96997830a66b2b068e87f0201371cce5" data-thumbnail-img-id="1*0Vfwjehg6JJvJ4VDM0F8NA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*0Vfwjehg6JJvJ4VDM0F8NA.jpeg);"></a></div><figure name="8132" id="8132" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*VExsAsMRJBUDx7h5S4SSxw.png" data-width="750" data-height="1334" src="https://cdn-images-1.medium.com/max/800/1*VExsAsMRJBUDx7h5S4SSxw.png"></figure><p name="94cd" id="94cd" class="graf graf--p graf-after--figure graf--trailing">這個 App 畫面做得很棒，唯一美中不足的，tab 上的 icon 圖片有點偏上，因為原本下面的空間是保留給文字的。</p></div></div></section><section name="a967" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="b0b8" id="b0b8" class="graf graf--p graf--leading">解答:</p><p name="7802" id="7802" class="graf graf--p graf-after--p">針對每一個 tab，調整 tab bar item 的 Image Inset。</p><ol class="postList"><li name="70a2" id="70a2" class="graf graf--li graf-after--p">點選 tab bar item 元件，切換到 Size Inspector 頁面。</li></ol><figure name="327c" id="327c" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*QVU5--aEY8pFGwux7MfDdw.jpeg" data-width="522" data-height="270" src="https://cdn-images-1.medium.com/max/800/1*QVU5--aEY8pFGwux7MfDdw.jpeg"></figure><p name="6d84" id="6d84" class="graf graf--p graf-after--figure">2. Image Inset 可以控制圖片距離上面跟下面的間距。當我們將 Top 設為 6 時，即可讓圖片往下偏移，因為上面多了 6 point 的空間。</p><figure name="c7ed" id="c7ed" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kAqz_zRxI8E00yOQmJ8CWA.jpeg" data-width="1076" data-height="734" src="https://cdn-images-1.medium.com/max/800/1*kAqz_zRxI8E00yOQmJ8CWA.jpeg"></figure><p name="befe" id="befe" class="graf graf--p graf-after--figure">不過奇怪的事情發生了，此時圖片竟被狠狠地變形壓扁。這是因為圖片距離下面的間距也要調整，不然它會維持原來跟下面的間距，造成圖片高度變矮。</p><p name="9a46" id="9a46" class="graf graf--p graf-after--p">解法的方法是將 Bottom 設為 Top 間距 * -1，因此我們將它設成 -6。為什麼要這樣呢 ? 因為負數的 Bottom 間距才表示圖片跟下面的間距要變短， 圖片要往下移動，而我們想縮短的距離，正好是 Top 設定的數字。</p><figure name="8d6c" id="8d6c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pTPg97yAOkAQeKxmnjbVGw.jpeg" data-width="1058" data-height="730" src="https://cdn-images-1.medium.com/max/800/1*pTPg97yAOkAQeKxmnjbVGw.jpeg"></figure><p name="dd57" id="dd57" class="graf graf--p graf-after--figure">成果</p><p name="07a6" id="07a6" class="graf graf--p graf-after--p">完美置中的 tab icon 圖片 !</p><figure name="2211" id="2211" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*aQmgf06rMjFOQwwJHmC_kg.png" data-width="750" data-height="1334" src="https://cdn-images-1.medium.com/max/800/1*aQmgf06rMjFOQwwJHmC_kg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/847897969223"><time class="dt-published" datetime="2017-03-12T10:01:14.593Z">March 12, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AA%BF%E6%95%B4-tab-bar-%E4%B8%8A-tab-icon-%E7%9A%84%E4%BD%8D%E7%BD%AE-847897969223" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

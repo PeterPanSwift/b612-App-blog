@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從程式動態加 view 到 stack view</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從程式動態加 view 到 stack view</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+stack view 搭配 scroll view 可以快速做出圖片水平滑動的分頁功能，不過如果圖片是後來才加入，比方從網路抓取的圖片，我們事先不知道圖片數量，這樣做得到嗎 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="8e2c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4357" id="4357" class="graf graf--h3 graf--leading graf--title">從程式動態加 view 到 stack view</h3><p name="7650" id="7650" class="graf graf--p graf-after--h3">stack view 搭配 scroll view 可以快速做出圖片水平滑動的分頁功能，不過如果圖片是後來才加入，比方從網路抓取的圖片，我們事先不知道圖片數量，這樣做得到嗎 ?</p><div name="8886" id="8886" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/stack-view-scroll-view-%E8%A3%BD%E4%BD%9C%E5%88%86%E9%A0%81-tutorial-%E6%87%B6%E5%BE%97%E5%AF%AB%E7%A8%8B%E5%BC%8F%E7%89%88-7ff9021317a0" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/stack-view-scroll-view-%E8%A3%BD%E4%BD%9C%E5%88%86%E9%A0%81-tutorial-%E6%87%B6%E5%BE%97%E5%AF%AB%E7%A8%8B%E5%BC%8F%E7%89%88-7ff9021317a0" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/stack-view-scroll-view-%E8%A3%BD%E4%BD%9C%E5%88%86%E9%A0%81-tutorial-%E6%87%B6%E5%BE%97%E5%AF%AB%E7%A8%8B%E5%BC%8F%E7%89%88-7ff9021317a0"><strong class="markup--strong markup--mixtapeEmbed-strong">stack view + scroll view 製作分頁 tutorial (懶得寫程式版)</strong><br><em class="markup--em markup--mixtapeEmbed-em">在開發 iOS App 時，我們時常以表格實現上下捲動的畫面。那如果是水平左右捲動的畫面呢 ? 左右捲動一般而言比較麻煩，往往要搭配程式，使用 scroll view ，collection view 或 page view…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/stack-view-scroll-view-%E8%A3%BD%E4%BD%9C%E5%88%86%E9%A0%81-tutorial-%E6%87%B6%E5%BE%97%E5%AF%AB%E7%A8%8B%E5%BC%8F%E7%89%88-7ff9021317a0" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7456af11059e9c9ebc60ddbcc2aca61b" data-thumbnail-img-id="1*dMdaxe9XGuJBz6-DUJ5fDA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*dMdaxe9XGuJBz6-DUJ5fDA.jpeg);"></a></div><p name="b863" id="b863" class="graf graf--p graf-after--mixtapeEmbed">當然沒問題，沒有 iOS 做不到的事 !</p><p name="7206" id="7206" class="graf graf--p graf-after--p">我們可以在 storyboard 先加好 scroll view &amp; stack view，然後再從程式將圖片加到 stack view。接下來就讓我們一步步示範說明吧。</p><h3 name="57a4" id="57a4" class="graf graf--h3 graf-after--p">加入 scroll view，設定跟 safe area 0 間距的條件</h3></div><div class="section-inner sectionLayout--outsetColumn"><figure name="cf0b" id="cf0b" class="graf graf--figure graf--layoutOutsetCenter graf-after--h3"><img class="graf-image" data-image-id="1*ohLZz4VnmzmWfr913-qHzQ.jpeg" data-width="1476" data-height="824" src="https://cdn-images-1.medium.com/max/1200/1*ohLZz4VnmzmWfr913-qHzQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="65e9" id="65e9" class="graf graf--h3 graf-after--figure">將 scroll view 的 Paging Enabled 打開</h3><figure name="d97b" id="d97b" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*XPYkADM0vKquI81-RqEbcw.jpeg" data-width="520" data-height="370" src="https://cdn-images-1.medium.com/max/800/1*XPYkADM0vKquI81-RqEbcw.jpeg"></figure><h3 name="1d91" id="1d91" class="graf graf--h3 graf-after--figure">在 scroll view 加入horizontal stack view，設定 stack view 跟 content layout guide 0 間距</h3></div><div class="section-inner sectionLayout--outsetColumn"><figure name="648d" id="648d" class="graf graf--figure graf--layoutOutsetCenter graf-after--h3"><img class="graf-image" data-image-id="1*wBElSco-Ji6YRdwekp3LUw.jpeg" data-width="2162" data-height="1130" src="https://cdn-images-1.medium.com/max/1200/1*wBElSco-Ji6YRdwekp3LUw.jpeg"></figure><figure name="15d8" id="15d8" class="graf graf--figure graf--layoutOutsetCenter graf-after--figure"><img class="graf-image" data-image-id="1*nAJl-_Rjx1vT1HQ3_aYSUg.jpeg" data-width="1612" data-height="806" src="https://cdn-images-1.medium.com/max/1200/1*nAJl-_Rjx1vT1HQ3_aYSUg.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="61f9" id="61f9" class="graf graf--h3 graf-after--figure">設定 stack view 的 Distribution Fill Equally</h3><figure name="ac81" id="ac81" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*uUkeZn_ncCUnP4SeRythgA.jpeg" data-width="526" data-height="324" src="https://cdn-images-1.medium.com/max/800/1*uUkeZn_ncCUnP4SeRythgA.jpeg"></figure><h3 name="c3d1" id="c3d1" class="graf graf--h3 graf-after--figure">設定 stack view 跟 frame layout guide Equal Heights</h3></div><div class="section-inner sectionLayout--outsetColumn"><figure name="f978" id="f978" class="graf graf--figure graf--layoutOutsetCenter graf-after--h3"><img class="graf-image" data-image-id="1*sZnOHsCZv5hq9avaXv8lig.jpeg" data-width="2140" data-height="1090" src="https://cdn-images-1.medium.com/max/1200/1*sZnOHsCZv5hq9avaXv8lig.jpeg"></figure><figure name="a3d0" id="a3d0" class="graf graf--figure graf--layoutOutsetCenter graf-after--figure"><img class="graf-image" data-image-id="1*NOGnrCMSFPTOzVgwyNFlag.jpeg" data-width="1736" data-height="880" src="https://cdn-images-1.medium.com/max/1200/1*NOGnrCMSFPTOzVgwyNFlag.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="10bd" id="10bd" class="graf graf--p graf-after--figure">此時還是會有紅色錯誤，因為 stack view 沒有內容，因此 scroll view 無法算出它捲動的範圍。此錯誤其實可以忽略，因為待會我們將從程式將圖片加到 stack view。</p><h3 name="bc0d" id="bc0d" class="graf graf--h3 graf-after--p">設定 stack view 的 Intrinsic Size(非必要)</h3><p name="4221" id="4221" class="graf graf--p graf-after--h3">不過如果你覺得紅色錯誤很礙眼的話，也可以將 stack view 的 Intrinsic Size 設為 Placeholder，輸入任何的寬高。它將給 stack view 一個假的大小，讓 scroll view 能推算捲動的範圍。</p><figure name="2831" id="2831" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8HIEtnO7sJQa2X6tz7khCw.jpeg" data-width="536" data-height="1296" src="https://cdn-images-1.medium.com/max/800/1*8HIEtnO7sJQa2X6tz7khCw.jpeg"></figure><p name="9195" id="9195" class="graf graf--p graf-after--figure">當 App 執行時，Placeholder 設定的寬高不會有任何作用，所以它只是讓我們比較開心，在 storyboard 不會看到討厭的紅色錯誤。</p><figure name="8078" id="8078" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*T9su0-6quqrFknMh41b0aw.jpeg" data-width="1392" data-height="626" src="https://cdn-images-1.medium.com/max/800/1*T9su0-6quqrFknMh41b0aw.jpeg"></figure><h3 name="da2d" id="da2d" class="graf graf--h3 graf-after--figure">連結 scroll view &amp; stack view 的 outlet</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="31fe" id="31fe" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> scrollView: <span class="hljs-type">UIScrollView</span>!<br /><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> stackView: <span class="hljs-type">UIStackView</span>!</span></pre><h3 name="8e9e" id="8e9e" class="graf graf--h3 graf-after--pre">從程式將 image view 加到 stack view</h3><p name="6177" id="6177" class="graf graf--p graf-after--h3">為了方便測試，我們利用亂數產生隨機數量的圖片加到 stack view。同樣的概念到時可以套用在網路抓取的圖片。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="883d" id="883d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />    <span class="hljs-keyword">super</span>.viewDidLoad()<br />    <span class="hljs-comment">// Do any additional setup after loading the view.</span><br />    <span class="hljs-keyword">let</span> count <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>.random(in: <span class="hljs-number">5</span><span class="hljs-operator">...</span><span class="hljs-number">10</span>)<br />    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">...</span>count {<br />        <span class="hljs-keyword">let</span> number <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>.random(in: <span class="hljs-number">1</span><span class="hljs-operator">...</span><span class="hljs-number">6</span>)<br />        <span class="hljs-keyword">let</span> imageView <span class="hljs-operator">=</span> <span class="hljs-type">UIImageView</span>(image: <span class="hljs-type">UIImage</span>(systemName: <span class="hljs-string">&quot;die.face.<span class="hljs-subst">\(number)</span>.fill&quot;</span>))<br />        imageView.contentMode <span class="hljs-operator">=</span> .scaleAspectFit<br />        stackView.addArrangedSubview(imageView)<br />        <span class="hljs-keyword">if</span> i <span class="hljs-operator">==</span> <span class="hljs-number">1</span> {<br />            imageView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />        }<br />    }<br />}</span></pre><p name="3afa" id="3afa" class="graf graf--p graf-after--pre">利用 addArrangedSubview 將圖片加到 stack view。值得注意的，第一個加入的 image view 須設定跟 frameLayoutGuide 等寬的條件，如此搭配 stack view Distribution Fill Equally 的設定，即可讓每張圖的寬度等於 scroll view 的寬度，讓 scroll view 順利算出捲動範圍的寬度。</p><h3 name="7171" id="7171" class="graf graf--h3 graf-after--p">執行 App</h3></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="7fec" id="7fec" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--h3" style="width: 50%;"><img class="graf-image" data-image-id="1*VdXmHVPb5soHKdI39JzNkg.jpeg" data-width="902" data-height="1684" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*VdXmHVPb5soHKdI39JzNkg.jpeg"></figure><figure name="c6a9" id="c6a9" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*5yILEJC49OC0RPAFXQ7osQ.jpeg" data-width="902" data-height="1684" src="https://cdn-images-1.medium.com/max/600/1*5yILEJC49OC0RPAFXQ7osQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="4da4" id="4da4" class="graf graf--h3 graf-after--figure">當圖片數量很多的時候</h3><p name="bccb" id="bccb" class="graf graf--p graf-after--h3 graf--trailing">建議改用 collection view 實現，scroll view 比較適合數量少的 case。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e5c2a2d01575"><time class="dt-published" datetime="2020-11-13T10:33:21.243Z">November 13, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E%E7%A8%8B%E5%BC%8F%E5%8B%95%E6%85%8B%E5%8A%A0-view-%E5%88%B0-stack-view-e5c2a2d01575" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

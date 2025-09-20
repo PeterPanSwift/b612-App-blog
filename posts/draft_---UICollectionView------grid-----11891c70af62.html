@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 UICollectionView 實現網格(grid)照片牆</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 UICollectionView 實現網格(grid)照片牆</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+以一排 4 張照片為例，
+</section>
+<section data-field="body" class="e-content">
+<section name="f2dd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a4c1" id="a4c1" class="graf graf--h3 graf--leading graf--title">利用 UICollectionView 實現網格(grid)照片牆</h3><figure name="2f37" id="2f37" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*6qw8k4M9OzcsUO2IuIPmiw.png" data-width="984" data-height="1760" src="https://cdn-images-1.medium.com/max/800/1*6qw8k4M9OzcsUO2IuIPmiw.png"></figure><p name="ae3e" id="ae3e" class="graf graf--p graf-after--figure">以一排 4 張照片為例，</p><p name="122f" id="122f" class="graf graf--p graf-after--p">方法 1</p><figure name="41e9" id="41e9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2NFcslCzdzekO0ahEinpdA.png" data-width="1386" data-height="502" src="https://cdn-images-1.medium.com/max/800/1*2NFcslCzdzekO0ahEinpdA.png"></figure><pre name="eee3" id="eee3" class="graf graf--pre graf-after--figure"><strong class="markup--strong markup--pre-strong">override</strong> <strong class="markup--strong markup--pre-strong">func</strong> viewDidLoad() {</pre><pre name="f391" id="f391" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   super</strong>.viewDidLoad()</pre><pre name="e6a0" id="e6a0" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   let</strong> flowLayout = collectionView.collectionViewLayout <strong class="markup--strong markup--pre-strong">as</strong>? UICollectionViewFlowLayout</pre><pre name="9a22" id="9a22" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">   let</strong> width = (view.frame.width - 10 * 3) / 4</pre><pre name="0fd4" id="0fd4" class="graf graf--pre graf-after--pre">   flowLayout?.itemSize = CGSize(width: width, height: width)</pre><pre name="c328" id="c328" class="graf graf--pre graf-after--pre">}</pre><p name="c706" id="c706" class="graf graf--p graf-after--pre">方法2</p><p name="5c46" id="5c46" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/11891c70af62">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

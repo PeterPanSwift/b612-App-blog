@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Swift 的 was never used 黃色警告</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Swift 的 was never used 黃色警告</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+許多初學者在剛開始學習 Swift 程式時，會看到 was never used 的黃色警告，因此覺得有點緊張，擔心自己是否做錯了什麼。
+</section>
+<section data-field="body" class="e-content">
+<section name="6b85" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a0d8" id="a0d8" class="graf graf--h3 graf--leading graf--title">Swift 的 was never used 黃色警告</h3><p name="ed7a" id="ed7a" class="graf graf--p graf-after--h3">許多初學者在剛開始學習 Swift 程式時，會看到 was never used 的黃色警告，因此覺得有點緊張，擔心自己是否做錯了什麼。</p><p name="e980" id="e980" class="graf graf--p graf-after--p">比方以下四種是最常出現 was never used 的程式例子。</p><p name="4197" id="4197" class="graf graf--p graf-after--p">例子 1</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4f51" id="4f51" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">sing</span>() {<br />   <span class="hljs-keyword">let</span> song <span class="hljs-operator">=</span> <span class="hljs-string">&quot;原來你是我最想留住的幸運&quot;</span><br />}</span></pre><figure name="170a" id="170a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*K4JKKpwLPMt_34cwb5I1qg.png" data-width="1986" data-height="340" src="https://cdn-images-1.medium.com/max/800/1*K4JKKpwLPMt_34cwb5I1qg.png"></figure><pre data-code-block-mode="0" spellcheck="false" name="11b4" id="11b4" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content">Initialization of immutable value &#39;song&#39; was never used</span></pre><p name="c08a" id="c08a" class="graf graf--p graf-after--pre">例子 2</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="78de" id="78de" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">sing</span>() {<br />   <span class="hljs-keyword">let</span> song: <span class="hljs-type">String</span><br />   song <span class="hljs-operator">=</span> <span class="hljs-string">&quot;原來你是我最想留住的幸運&quot;</span><br />}</span></pre><figure name="70ee" id="70ee" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*flsNTSFM2vHQLc-PODGQJA.png" data-width="1524" data-height="266" src="https://cdn-images-1.medium.com/max/800/1*flsNTSFM2vHQLc-PODGQJA.png"></figure><pre data-code-block-mode="0" spellcheck="false" name="0e77" id="0e77" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content">Immutable value &#39;song&#39; was never used</span></pre><p name="7d60" id="7d60" class="graf graf--p graf-after--pre">例子 3</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4a42" id="4a42" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">sing</span>() {<br />   <span class="hljs-keyword">var</span> song <span class="hljs-operator">=</span> <span class="hljs-string">&quot;原來你是我最想留住的幸運&quot;</span><br />}</span></pre><figure name="d0e1" id="d0e1" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*Yh0ESIkZAyEA8IghMKT96w.png" data-width="1846" data-height="284" src="https://cdn-images-1.medium.com/max/800/1*Yh0ESIkZAyEA8IghMKT96w.png"></figure><pre data-code-block-mode="0" spellcheck="false" name="bde4" id="bde4" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content">Initialization of variable &#39;song&#39; was never used</span></pre><p name="4bd5" id="4bd5" class="graf graf--p graf-after--pre">以上三個例子都提到 was never used，意思是從未使用。變數和常數都可能遇到這個問題，它代表我們宣告了變數(常數)，也許還存了一些東西，但之後就不理它了。</p><p name="d8f0" id="d8f0" class="graf graf--p graf-after--p">Swift 覺得你這樣不太好，他覺得你既然宣告了變數(常數)，之後要使用它才有意義。就好像你中了樂透，得到十億，將它存到銀行，之後就不管它，不把錢領出來 Shopping，這樣是不對的，老天爺會看不過去，早知道就不讓你中樂透，應該讓會好好利用，拿錢去環遊世界的人中樂透。</p><p name="23a5" id="23a5" class="graf graf--p graf-after--p">只要使用它即可消除 never used 的警告，比方加上 print，把 song 印出來。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="8851" id="8851" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">sing</span>() {<br />    <span class="hljs-keyword">var</span> song <span class="hljs-operator">=</span> <span class="hljs-string">&quot;原來你是我最想留住的幸運&quot;</span><br />    <span class="hljs-built_in">print</span>(song)<br />}</span></pre><p name="cfb5" id="cfb5" class="graf graf--p graf-after--pre">不過剛剛的例子現在還是有警告，顯示 Variable ‘song’ was never mutated; consider changing to ‘let’ constant。因為我們沒有改變 song 的內容，所以 Xcode 建議我們宣告為常數。</p><figure name="08bb" id="08bb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VthBdlS_zBhAmdQawF2lhw.png" data-width="1912" data-height="402" src="https://cdn-images-1.medium.com/max/800/1*VthBdlS_zBhAmdQawF2lhw.png"></figure><p name="3add" id="3add" class="graf graf--p graf-after--figure">最後讓我們再看一種特別的警告例子。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="36ab" id="36ab" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">sing</span>() {<br />   <span class="hljs-keyword">var</span> song <span class="hljs-operator">=</span> <span class="hljs-string">&quot;原來你是我最想留住的幸運&quot;</span><br />   song <span class="hljs-operator">=</span> <span class="hljs-string">&quot;與你相遇好幸運&quot;</span><br />}</span></pre><figure name="f56c" id="f56c" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*pEFhZAprX2SsT3xRfO13fg.png" data-width="1622" data-height="286" src="https://cdn-images-1.medium.com/max/800/1*pEFhZAprX2SsT3xRfO13fg.png"></figure><pre data-code-block-mode="0" spellcheck="false" name="9491" id="9491" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content">variable &#39;song&#39; was written to, but never read</span></pre><p name="7a85" id="7a85" class="graf graf--p graf-after--pre">警告變成了 but never read，不是剛剛介紹的 was never used。but never used 表示你產生了一個變數，存了一些東西，因此你有 write，但你從未讀取，沒有 read。</p><p name="4221" id="4221" class="graf graf--p graf-after--p">Xcode 覺得這樣沒有意義，你將東西存到變數，但卻從不讀取。我們將東西存到變數，就是為了之後能讀取內容呀 。只要再加上一行 print，讀取 song 的內容印出，即可消除警告。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="e74f" id="e74f" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">sing</span>() {<br />    <span class="hljs-keyword">var</span> song <span class="hljs-operator">=</span> <span class="hljs-string">&quot;原來你是我最想留住的幸運&quot;</span><br />    song <span class="hljs-operator">=</span> <span class="hljs-string">&quot;與你相遇好幸運&quot;</span><br />    <span class="hljs-built_in">print</span>(song)<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/33c68c6d768f"><time class="dt-published" datetime="2018-06-08T08:13:35.593Z">June 8, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swift-%E7%9A%84-was-never-used-%E9%BB%83%E8%89%B2%E8%AD%A6%E5%91%8A-33c68c6d768f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

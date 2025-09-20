@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI 控制文字行數的 lineLimit</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI 控制文字行數的 lineLimit</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SwiftUI 的 function lineLimit(_:) 控制文字可顯示的最大行數，因此參數 number 傳入 1 可顯示 1 行， 傳入 2 可顯示 2 行。傳入 nil 呢 ? nil 代表沒有任何限制，顯示一百行，一千行都不是問題。
+</section>
+<section data-field="body" class="e-content">
+<section name="3b88" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9c43" id="9c43" class="graf graf--h3 graf--leading graf--title">SwiftUI 控制文字行數的 lineLimit 和固定行高的 reservesSpace</h3><p name="520b" id="520b" class="graf graf--p graf-after--h3">SwiftUI 的 modifier<code class="markup--code markup--p-code"> lineLimit(_:) </code>控制文字可顯示的最大行數，因此參數 number 傳入 1 可顯示 1 行， 傳入 2 可顯示 2 行。傳入 nil 呢 ? nil 代表沒有任何限制，顯示一百行，一千行都不是問題。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="b9b9" id="b9b9" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">lineLimit</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">number</span>: <span class="hljs-type">Int</span>?) -&gt; <span class="hljs-keyword">some</span> <span class="hljs-type">View</span></span></pre><div name="2033" id="2033" class="graf graf--mixtapeEmbed graf-after--pre"><a href="https://developer.apple.com/documentation/swiftui/view/linelimit%28_:%29-513mb" data-href="https://developer.apple.com/documentation/swiftui/view/linelimit(_:)-513mb" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/linelimit(_:)-513mb"><strong class="markup--strong markup--mixtapeEmbed-strong">lineLimit(_:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Sets the maximum number of lines that text can occupy in this view.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/linelimit%28_:%29-513mb" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a0a9b92cdd1e3110f190f3bcf15feb41" data-thumbnail-img-id="0*7zANAcspnuvJUPZ2" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*7zANAcspnuvJUPZ2);"></a></div><p name="7550" id="7550" class="graf graf--p graf-after--mixtapeEmbed">Text 元件預設的 lineLimit number 為 nil，因此 Text 預設可顯示多行文字，比方以下例子用 Text 顯示電影玩具總動員的名言。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="b7b6" id="b7b6" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />   <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />      <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;To the world you may be just one person, but to one person you may be the whole world.&quot;</span>)<br />         .background(.yellow)<br />   }<br />}</span></pre><figure name="863e" id="863e" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*sBplaLkgEnHIcNKWXsfsnw.png" data-width="1095" data-height="126" src="https://cdn-images-1.medium.com/max/800/1*sBplaLkgEnHIcNKWXsfsnw.png"></figure><p name="ca87" id="ca87" class="graf graf--p graf-after--figure">若想限制行數，則可呼叫 <code class="markup--code markup--p-code">lineLimit(_:)</code>，比方限制行數為一行。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="6fed" id="6fed" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />   <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />      <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;To the world you may be just one person, but to one person you may be the whole world.&quot;</span>)<br />         .background(.yellow)<br />         .lineLimit(<span class="hljs-number">1</span>)<br />   }<br />}</span></pre><figure name="8be2" id="8be2" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*xJ88fcqgNj3ynN8Z_WwrRA.png" data-width="1164" data-height="61" src="https://cdn-images-1.medium.com/max/800/1*xJ88fcqgNj3ynN8Z_WwrRA.png"></figure><p name="f52a" id="f52a" class="graf graf--p graf-after--figure">在 iOS 16 SwiftUI 推出了更厲害的 <code class="markup--code markup--p-code">lineLimit(_:reservesSpace:)</code>，當 reservesSpace 為 true 時，Text 可固定行高，不管它現在有多少字。</p><div name="4c62" id="4c62" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/view/linelimit%28_:reservesspace:%29" data-href="https://developer.apple.com/documentation/swiftui/view/linelimit(_:reservesspace:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/linelimit(_:reservesspace:)"><strong class="markup--strong markup--mixtapeEmbed-strong">lineLimit(_:reservesSpace:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Sets a limit for the number of lines text can occupy in this view.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/linelimit%28_:reservesspace:%29" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="5e49988bafa4aa8ab4e1b5cefdb33947" data-thumbnail-img-id="0*ISk-ynyw5x_voDc6" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*ISk-ynyw5x_voDc6);"></a></div><p name="3abf" id="3abf" class="graf graf--p graf-after--mixtapeEmbed">因為<code class="markup--code markup--p-code"> lineLimit(2, reservesSpace: true)</code>，以下例子的 Peter Pan 雖然只有一行字，但卻可以佔據 2 行的空間。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a82f" id="a82f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />   <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />      <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Peter Pan&quot;</span>)<br />         .background(.yellow)<br />         .lineLimit(<span class="hljs-number">2</span>, reservesSpace: <span class="hljs-literal">true</span>)<br />   }<br />}</span></pre><figure name="c7e5" id="c7e5" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*M_BYlYCGFofAu9SqI3K22Q.png" data-width="220" data-height="126" src="https://cdn-images-1.medium.com/max/800/1*M_BYlYCGFofAu9SqI3K22Q.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/461524259065"><time class="dt-published" datetime="2019-08-17T06:46:12.047Z">August 17, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-%E6%8E%A7%E5%88%B6%E6%96%87%E5%AD%97%E8%A1%8C%E6%95%B8%E7%9A%84-linelimit-461524259065" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

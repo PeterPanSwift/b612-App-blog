@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>protocol 的 optional function 定義不要寫在另一個 function 裡</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">protocol 的 optional function 定義不要寫在另一個 function 裡</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS SDK 裡有許多 protocol 的 function 都是 optional，代表我們在遵從 protocol 時不一定要定義它，比方 protocol UITableViewDelegate 的 tableView(_:didSelectRowAt:)。
+</section>
+<section data-field="body" class="e-content">
+<section name="088b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="fd0a" id="fd0a" class="graf graf--h3 graf--leading graf--title">protocol 的 optional function 定義不要寫在另一個 function 裡</h3><p name="bc65" id="bc65" class="graf graf--p graf-after--h3">iOS SDK 裡有許多 protocol 的 function 都是 optional，代表我們在遵從 protocol 時不一定要定義它，比方 protocol UITableViewDelegate 的 tableView(_:didSelectRowAt:)。</p><pre name="4916" id="4916" class="graf graf--pre graf-after--p">optional func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)</pre><p name="634a" id="634a" class="graf graf--p graf-after--pre">此 function 將在 cell 被點選時呼叫，除非我們想在 cell 點選時做事，才需要定義此 function。</p><p name="97ee" id="97ee" class="graf graf--p graf-after--p">有些朋友在定義這些 optional function 時，不小心將它寫在另一個 function 裡，例如以下例子:</p><pre name="5c80" id="5c80" class="graf graf--pre graf-after--p">override func viewDidLoad() {</pre><pre name="fc6d" id="fc6d" class="graf graf--pre graf-after--pre">   super.viewDidLoad()</pre><pre name="5090" id="5090" class="graf graf--pre graf-after--pre">   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {</pre><pre name="f3b9" id="f3b9" class="graf graf--pre graf-after--pre">      print(&quot;didSelectRowAt&quot;)</pre><pre name="844c" id="844c" class="graf graf--pre graf-after--pre">   }</pre><pre name="19ac" id="19ac" class="graf graf--pre graf-after--pre">}</pre><p name="faba" id="faba" class="graf graf--p graf-after--pre graf--trailing">由於 Swift 允許 function 裡定義 function，因此 App 還是可以順利執行，不會有任何錯誤。但此時 function 將不會再被呼叫，因為它被藏在另一個 function 裡，protocol 的眼睛沒那麼大，他會找不到它，以為我們沒有定義呀。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b10562757a1a"><time class="dt-published" datetime="2018-05-18T14:43:10.370Z">May 18, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/protocol-%E7%9A%84-optional-function-%E5%AE%9A%E7%BE%A9%E4%B8%8D%E8%A6%81%E5%AF%AB%E5%9C%A8%E5%8F%A6%E4%B8%80%E5%80%8B-function-%E8%A3%A1-b10562757a1a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

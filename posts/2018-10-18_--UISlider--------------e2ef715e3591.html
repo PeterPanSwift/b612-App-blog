@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓 UISlider 的數值變成固定數量的整數</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓 UISlider 的數值變成固定數量的整數</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS App 的 slider 很方便，可以讓我們快速滑動選擇某個數值。不過 slider 的數值是浮點數，因此結果有無限多種可能，然而有時我們會希望它是不連續的整數，希望它的結果是固定的數量。比方如下圖利用 slider 選擇文字的字型大小，只有七種字型大小可選擇。
+</section>
+<section data-field="body" class="e-content">
+<section name="68e4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="cd3d" id="cd3d" class="graf graf--h3 graf--leading graf--title">讓 UISlider 的數值變成固定數量的整數</h3><p name="9dbb" id="9dbb" class="graf graf--p graf-after--h3">iOS App 的 UISlider 很方便，可以讓我們快速滑動選擇某個數值。不過 slider 的數值是浮點數，因此結果有無限多種可能，有時我們會希望它是不連續的整數，希望它的結果是固定的數量。比方如下圖利用 slider 選擇文字的字型大小，只有七種字型大小可選擇。</p><figure name="e3c4" id="e3c4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gHXj3O8HAlsl4qni1EsCHQ.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*gHXj3O8HAlsl4qni1EsCHQ.png"></figure><p name="7afc" id="7afc" class="graf graf--p graf-after--figure">UISlider 的 value 型別為 Float。</p><div name="4d03" id="4d03" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uislider/1621346-value" data-href="https://developer.apple.com/documentation/uikit/uislider/1621346-value" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uislider/1621346-value"><strong class="markup--strong markup--mixtapeEmbed-strong">value | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">The slider&#39;s current value.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uislider/1621346-value" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="125fde10fc8f5d6db867db40ef028ece" data-thumbnail-img-id="0*yFoU-rEB3RfNhv9H" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*yFoU-rEB3RfNhv9H);"></a></div><p name="e781" id="e781" class="graf graf--p graf-after--mixtapeEmbed">想讓 slider 的結果是固定數量其實是做得到的 ! 接下來我們就來實作一個只有整數的 slider 來選擇小王子交過的女朋友個數吧 。</p><p name="331e" id="331e" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">1 設定 slider 的目前數值，最小值，最大值。</strong></p><p name="01f6" id="01f6" class="graf graf--p graf-after--p">Value: 0</p><p name="e0f2" id="e0f2" class="graf graf--p graf-after--p">Minimum: 0</p><p name="ef43" id="ef43" class="graf graf--p graf-after--p">Maximum: 10。小王子年紀還小，最大值設 10 應該足夠了。</p><figure name="0ed6" id="0ed6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZRgQyQRI-nabp6aAmx4k2w.jpeg" data-width="1324" data-height="932" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*ZRgQyQRI-nabp6aAmx4k2w.jpeg"></figure><p name="38ec" id="38ec" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">2 連結 slider 的 action 和 label 的 outlet。</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4965" id="4965" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> numberLabel: <span class="hljs-type">UILabel</span>!<br /><br /><span class="hljs-keyword">@IBAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">sliderChange</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">sender</span>: <span class="hljs-type">UISlider</span>) {<br />}</span></pre><p name="bab5" id="bab5" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">3 在 slider 滑動時，將 slider 的 value 四捨五入為整數。</strong></p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="00d4" id="00d4" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">sliderChange</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">sender</span>: <span class="hljs-type">UISlider</span>) {<br />   sender.value.round()<br />   numberLabel.text <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>(sender.value).description<br />}</span></pre><p name="06f8" id="06f8" class="graf graf--p graf-after--pre">說明</p><p name="7afa" id="7afa" class="graf graf--p graf-after--p"><code class="markup--code markup--p-code">sender.value.round()</code></p><p name="b48f" id="b48f" class="graf graf--p graf-after--p">將 value 四捨五入，讓 slider 的圓點滑動到整數的位置，比方 3.2 將變成 3.0，3.6 將變成 4.0。</p><p name="f3a1" id="f3a1" class="graf graf--p graf-after--p"><code class="markup--code markup--p-code">numberLabel.text = Int(sender.value).description</code></p><p name="ce2f" id="ce2f" class="graf graf--p graf-after--p">在 label 上顯示 slider value 的整數值。由於 value 型別為 Float，所以要用 <code class="markup--code markup--p-code">Int(sender.value)</code>變成整數，比方 3.0 將變成 3。</p><figure name="221e" id="221e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*07c5juKuaLzEr_YUFrIamQ.jpeg" data-width="934" data-height="1604" src="https://cdn-images-1.medium.com/max/800/1*07c5juKuaLzEr_YUFrIamQ.jpeg"></figure><p name="97b5" id="97b5" class="graf graf--p graf-after--figure">若直接用 numberLabel.text = sender.value.description ，顯示的女朋友數量將變成 3.0，十分奇怪，小王子交過 3.0 個女朋友 !</p><p name="50f3" id="50f3" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">4 若想要手離開 slider 後圓點才移動到正確的位置，則可將 slider 的 isContinuous 設為 false。</strong></p><p name="1c0e" id="1c0e" class="graf graf--p graf-after--p">如果有連 slider 的 outlet，比方取名為 girlFriendsSlider，則可在 viewDidLoad 裡設定。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="e99f" id="e99f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />   <span class="hljs-keyword">super</span>.viewDidLoad()<br />   girlFriendsSlider.isContinuous <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />}</span></pre><p name="368e" id="368e" class="graf graf--p graf-after--pre">或是在 storyboard 也可以設定，取消 Slider 裡 Continuous Updates 的勾選。</p><figure name="3356" id="3356" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pYX0rHwUrjL2Bu0GJB0ELw.png" data-width="524" data-height="616" src="https://cdn-images-1.medium.com/max/800/1*pYX0rHwUrjL2Bu0GJB0ELw.png"></figure><p name="758d" id="758d" class="graf graf--p graf-after--figure">此時因為 slider 是手放開才更新圓點位置，為了讓呈現的效果更好，可用 <code class="markup--code markup--p-code">setValue(_:animated:) </code>讓圓點以動畫更新位置。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="fffa" id="fffa" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">@IBAction</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">sliderChange</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">sender</span>: <span class="hljs-type">UISlider</span>) {<br />   sender.setValue(sender.value.rounded(), animated: <span class="hljs-literal">true</span>)<br />   numberLabel.text <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>(sender.value).description<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e2ef715e3591"><time class="dt-published" datetime="2018-10-18T04:37:04.972Z">October 18, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AE%93-slider-%E7%9A%84%E6%95%B8%E5%80%BC%E8%AE%8A%E6%88%90%E5%9B%BA%E5%AE%9A%E6%95%B8%E9%87%8F%E7%9A%84%E6%95%B4%E6%95%B8-e2ef715e3591" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

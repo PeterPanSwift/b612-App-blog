@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>UILabel &amp; UIImageView 的 highlighted 狀態</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">UILabel &amp; UIImageView 的 highlighted 狀態</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+image view 和 label 跟 button 一樣，也可以設定 highlighted 時顯示的圖片和文字顏色。只是一般情況下，它們並不會變成 highlighted。
+</section>
+<section data-field="body" class="e-content">
+<section name="9d04" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="64ad" id="64ad" class="graf graf--h3 graf--leading graf--title">UILabel &amp; UIImageView 的 highlighted 狀態</h3><p name="d668" id="d668" class="graf graf--p graf-after--h3">image view 和 label 跟 button 一樣，也可以設定 highlighted 時顯示的圖片和文字顏色。只是一般情況下，它們並不會變成 highlighted。</p><p name="cd07" id="cd07" class="graf graf--p graf-after--p">那它們到底什麼時候會變成 highlighted 呢 ? 其實當 cell 點選變成 highlighted 時，cell 上的 image view 和 label 也會神奇地自動變成 highlighted，例如以下例子。</p><p name="9200" id="9200" class="graf graf--p graf-after--p">當 image view 尚未設定 Highlighted 圖片時，點選 cell 並不會改變圖片。</p><figure name="f16f" id="f16f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1xj8Tfz8miVaN1O3Bxtk6w.png" data-width="534" data-height="306" src="https://cdn-images-1.medium.com/max/800/1*1xj8Tfz8miVaN1O3Bxtk6w.png"></figure><figure name="cc4f" id="cc4f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*6Wwc-EvWIZRIg_btmSuUlg.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*6Wwc-EvWIZRIg_btmSuUlg.png"></figure><p name="6d42" id="6d42" class="graf graf--p graf-after--figure">設定 Highlighted 圖片後，cell 點選時圖片從 Apple 變成愛心。</p><figure name="ac2d" id="ac2d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*mlW0rEUWCBPZb_AY3IL69Q.png" data-width="528" data-height="370" src="https://cdn-images-1.medium.com/max/800/1*mlW0rEUWCBPZb_AY3IL69Q.png"></figure><figure name="f8f8" id="f8f8" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*UTAIe7YOlny7LIKZk9sPJA.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*UTAIe7YOlny7LIKZk9sPJA.png"></figure><p name="e526" id="e526" class="graf graf--p graf-after--figure">label 則可設定 highlighted 時顯示的文字顏色，例如以下例子。</p><figure name="11d2" id="11d2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yflr6LIzZbAV2RdVqpKJbw.png" data-width="524" data-height="886" src="https://cdn-images-1.medium.com/max/800/1*yflr6LIzZbAV2RdVqpKJbw.png"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="d171" id="d171" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*Kub9e8sGnAGKJ7lVCK0LMQ.png" data-width="668" data-height="1138" src="https://cdn-images-1.medium.com/max/600/1*Kub9e8sGnAGKJ7lVCK0LMQ.png"></figure><figure name="f91e" id="f91e" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure graf--trailing" style="width: 50%;"><img class="graf-image" data-image-id="1*a7bGdRJsMRxqZtThrL3buA.png" data-width="668" data-height="1138" src="https://cdn-images-1.medium.com/max/600/1*a7bGdRJsMRxqZtThrL3buA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/3bf956769712"><time class="dt-published" datetime="2018-07-02T15:21:20.291Z">July 2, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/uilabel-uiimageview-%E7%9A%84-highlighted-%E7%8B%80%E6%85%8B-3bf956769712" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

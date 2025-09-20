@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>模擬器無法執行 App 的 architecture arm64 問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">模擬器無法執行 App 的 architecture arm64 問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常會加入套件快速實現某些功能。不過有時套件也會造成一些問題，比方使用 CocoaPods 安裝 GoogleMaps 或 GooglePlaces 套件後，App 將無法在模擬器執行，出現以下錯誤訊息。
+</section>
+<section data-field="body" class="e-content">
+<section name="ef2d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="73f0" id="73f0" class="graf graf--h3 graf--leading graf--title"><strong class="markup--strong markup--h3-strong">模擬器無法執行 App 的 architecture arm64 問題</strong></h3><p name="0bbe" id="0bbe" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常會加入套件快速實現某些功能。不過有時套件也會造成一些問題，比方使用 CocoaPods 安裝 GoogleMaps 或 GooglePlaces 套件後，App 將無法在模擬器執行，出現以下錯誤訊息。</p><pre name="f154" id="f154" class="graf graf--pre graf-after--p">Building for iOS Simulator, but linking in object file built for iOS, file &#39;/Users/peterpan/Desktop/DemoMap/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/GoogleMaps&#39; for architecture arm64</pre><figure name="bcc7" id="bcc7" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*VR7n4wmh_n9NZhkDnimU9w.png" data-width="2788" data-height="1502" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*VR7n4wmh_n9NZhkDnimU9w.png"></figure><p name="7dfb" id="7dfb" class="graf graf--p graf-after--figure">ps: 新版的 GoogleMaps 或 GooglePlaces 已可透過 SPM 安裝，不需要透過 CocoaPods。</p><div name="1bfb" id="1bfb" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/googlemaps/ios-maps-sdk" data-href="https://github.com/googlemaps/ios-maps-sdk" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/googlemaps/ios-maps-sdk"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - googlemaps/ios-maps-sdk: Google Maps SDK for iOS</strong><br><em class="markup--em markup--mixtapeEmbed-em">Google Maps SDK for iOS. Contribute to googlemaps/ios-maps-sdk development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/googlemaps/ios-maps-sdk" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9e33b50718a925541af953b87d259980" data-thumbnail-img-id="0*XStNC4HA6pOgeDWy" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*XStNC4HA6pOgeDWy);"></a></div><div name="ea17" id="ea17" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://github.com/googlemaps/ios-places-sdk" data-href="https://github.com/googlemaps/ios-places-sdk" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/googlemaps/ios-places-sdk"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - googlemaps/ios-places-sdk</strong><br><em class="markup--em markup--mixtapeEmbed-em">Contribute to googlemaps/ios-places-sdk development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/googlemaps/ios-places-sdk" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="28da0d6259a480bc22cc1787e4342e29" data-thumbnail-img-id="0*GGg55odgOdGARqtN" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*GGg55odgOdGARqtN);"></a></div><p name="dd6d" id="dd6d" class="graf graf--p graf-after--mixtapeEmbed">此問題可透過將 Xcode 以 Open using Rosetta 方式打開解決，方法如下。</p><h3 name="4c75" id="4c75" class="graf graf--h3 graf-after--p">找到 Xcode App，從右鍵選單點選 Get Info</h3><figure name="b5eb" id="b5eb" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*Gm1gro7jkSjjyFS3rm4PBg.png" data-width="812" data-height="926" src="https://cdn-images-1.medium.com/max/800/1*Gm1gro7jkSjjyFS3rm4PBg.png"></figure><p name="17ec" id="17ec" class="graf graf--p graf-after--figure">勾選 Open using Rosetta，然後重新啟動 Xcode。</p><figure name="bd63" id="bd63" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ah2fAlvlnodPgsz_NzRSyw.png" data-width="532" data-height="1192" src="https://cdn-images-1.medium.com/max/800/1*Ah2fAlvlnodPgsz_NzRSyw.png"></figure><p name="82a5" id="82a5" class="graf graf--p graf-after--figure">啟動後若發現還是有問題，可先點選 Xcode menu 的 <code class="markup--code markup--p-code">Product &gt; Clean Build Folder</code>，讓它之後可以重新 build App。</p><h3 name="d964" id="d964" class="graf graf--h3 graf-after--p">相關連結</h3><div name="f0d0" id="f0d0" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://github.com/googlemaps/google-maps-ios-utils/issues/355" data-href="https://github.com/googlemaps/google-maps-ios-utils/issues/355" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/googlemaps/google-maps-ios-utils/issues/355"><strong class="markup--strong markup--mixtapeEmbed-strong">GoogleMaps don&#39;t compile at Macbook with M1 chip · Issue #355 · googlemaps/google-maps-ios-utils</strong><br><em class="markup--em markup--mixtapeEmbed-em">Assignees Labels priority: p1 Important issue which blocks shipping the next release. Will be fixed prior to next…</em>github.com</a><a href="https://github.com/googlemaps/google-maps-ios-utils/issues/355" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="16c2072e41d1594564be20fa929c2cc8" data-thumbnail-img-id="0*FeCSdfW4owMvH7yY" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*FeCSdfW4owMvH7yY);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ab57d281bdd6"><time class="dt-published" datetime="2022-05-19T06:33:34.776Z">May 19, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%A8%A1%E6%93%AC%E5%99%A8%E7%84%A1%E6%B3%95%E5%9F%B7%E8%A1%8C-app-%E7%9A%84-architecture-arm64-%E5%95%8F%E9%A1%8C-ab57d281bdd6" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

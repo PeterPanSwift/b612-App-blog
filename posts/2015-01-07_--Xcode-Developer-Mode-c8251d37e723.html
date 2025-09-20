@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>啟動Xcode的Developer Mode</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">啟動Xcode的Developer Mode</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從逢啟動App必輸入密碼的泥沼逃脫
+</section>
+<section data-field="body" class="e-content">
+<section name="10fd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="22b3" id="22b3" class="graf graf--h3 graf--leading graf--title">啟動Xcode的Developer Mode，從逢啟動App必輸入密碼的泥沼逃脫</h3><p name="8fbb" id="8fbb" class="graf graf--p graf-after--h3">第一次從Xcode啟動App時，會跳出Enable Developer Mode的視窗。</p><figure name="32ad" id="32ad" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*calKgHeNv49iTv-p4UEX9g.jpeg" data-width="876" data-height="272" src="https://cdn-images-1.medium.com/max/800/1*calKgHeNv49iTv-p4UEX9g.jpeg"></figure><p name="9492" id="9492" class="graf graf--p graf-after--figure">此時務必選擇Enable，方便未來十年百年的App開發大計。</p><p name="b899" id="b899" class="graf graf--p graf-after--p">如果不幸挑錯對象，選到Don’t Enable，將陷入每次啟動App都要麻煩地輸入密碼的泥沼。</p><figure name="dbd7" id="dbd7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*I_1IBlFGl7z3lsq-gKrt-A.jpeg" data-width="874" data-height="452" src="https://cdn-images-1.medium.com/max/800/1*I_1IBlFGl7z3lsq-gKrt-A.jpeg"></figure><p name="7b11" id="7b11" class="graf graf--p graf-after--figure">令人沮喪的，機會只有一次，Xcode再也不會跳出詢問Enable Developer Mode的視窗。還好，我們還有另一個好朋友Terminal願意幫助我們，只要在Terminal輸入咒語</p><pre name="3911" id="3911" class="graf graf--pre graf-after--p">            DevToolsSecurity -enable</pre><p name="adbc" id="adbc" class="graf graf--p graf-after--pre">即可重新啟動Developer Mode。從今以後，啟動App再也不用輸入密碼了!</p><figure name="2f8f" id="2f8f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*T0cSTXxp5GAUIkflgin3TQ.jpeg" data-width="874" data-height="448" src="https://cdn-images-1.medium.com/max/800/1*T0cSTXxp5GAUIkflgin3TQ.jpeg"></figure><figure name="3014" id="3014" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*pS4OudHVCLyNzdVas8hGPg.jpeg" data-width="910" data-height="136" src="https://cdn-images-1.medium.com/max/800/1*pS4OudHVCLyNzdVas8hGPg.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c8251d37e723"><time class="dt-published" datetime="2015-01-07T05:01:07.773Z">January 7, 2015</time></a>.</p><p><a href="https://medium.com/@apppeterpan/developer-mode-app-c8251d37e723" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

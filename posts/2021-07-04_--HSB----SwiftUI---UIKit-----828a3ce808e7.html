@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 HSB 生成 SwiftUI &amp; UIKit 的顏色</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 HSB 生成 SwiftUI &amp; UIKit 的顏色</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們通常會用 RGB 三原色生成顏色。生成顏色的方法其實有很多，從下圖 Mac 的顏色選擇器，我們看到還有 Grayscale，CMYK &amp; HSB。
+</section>
+<section data-field="body" class="e-content">
+<section name="228f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e267" id="e267" class="graf graf--h3 graf--leading graf--title">從 HSB 生成 SwiftUI &amp; UIKit 的顏色</h3><p name="d23e" id="d23e" class="graf graf--p graf-after--h3">開發 iOS App 時，我們通常會用 RGB 三原色生成顏色。生成顏色的方法其實有很多，從下圖 Mac 的顏色選擇器，我們看到還有 Grayscale，CMYK &amp; HSB。</p><figure name="4618" id="4618" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*s0f1s1-ziyeOnEhB69FUXA.png" data-width="492" data-height="856" src="https://cdn-images-1.medium.com/max/800/1*s0f1s1-ziyeOnEhB69FUXA.png"></figure><p name="40e0" id="40e0" class="graf graf--p graf-after--figure">接下來我們將試著利用 HSB 生成顏色。</p><h3 name="0143" id="0143" class="graf graf--h3 graf-after--p">Hue，Saturation &amp; Brightness (HSB)</h3><p name="671e" id="671e" class="graf graf--p graf-after--h3">HSB 分別對應色度，飽合度和亮度。Hue 可設定顏色，比方 0 度是紅色，196 度是藍色。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="6246" id="6246" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 49.499%;"><img class="graf-image" data-image-id="1*jva0pF9qSmLUMFBuDBNEEg.png" data-width="454" data-height="836" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*jva0pF9qSmLUMFBuDBNEEg.png"></figure><figure name="ed91" id="ed91" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50.501%;"><img class="graf-image" data-image-id="1*ESecdM0tInd9Hl8HkEScHg.png" data-width="464" data-height="838" src="https://cdn-images-1.medium.com/max/800/1*ESecdM0tInd9Hl8HkEScHg.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="49d3" id="49d3" class="graf graf--p graf-after--figure">Saturation 影響顏色的飽合度，數字愈高顏色愈飽合。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="4075" id="4075" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50.181%;"><img class="graf-image" data-image-id="1*F48HjaDeLo6iZteiBfIIZA.png" data-width="464" data-height="838" src="https://cdn-images-1.medium.com/max/600/1*F48HjaDeLo6iZteiBfIIZA.png"></figure><figure name="aca1" id="aca1" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 49.819%;"><img class="graf-image" data-image-id="1*2qeDWzM_TqTBvhZf9-N6OA.png" data-width="460" data-height="836" src="https://cdn-images-1.medium.com/max/600/1*2qeDWzM_TqTBvhZf9-N6OA.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="5be2" id="5be2" class="graf graf--p graf-after--figure">Brightness 影響顏色的亮度，數字愈高顏色愈明亮。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="feb7" id="feb7" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 49.725%;"><img class="graf-image" data-image-id="1*Ha1hyac-X6T3VtbUdg3AQQ.png" data-width="452" data-height="832" src="https://cdn-images-1.medium.com/max/600/1*Ha1hyac-X6T3VtbUdg3AQQ.png"></figure><figure name="8972" id="8972" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50.275%;"><img class="graf-image" data-image-id="1*UR3FwxcSkxCJ__v4piVBog.png" data-width="456" data-height="830" src="https://cdn-images-1.medium.com/max/600/1*UR3FwxcSkxCJ__v4piVBog.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="4e7e" id="4e7e" class="graf graf--p graf-after--figure">了解 HSB 後，接下來我們瞧瞧如何從 HSB 生成 SwiftUI &amp; UIKit 的顏色。</p><h3 name="8b09" id="8b09" class="graf graf--h3 graf-after--p">SwiftUI</h3><p name="a5d1" id="a5d1" class="graf graf--p graf-after--h3">數字的範圍是 0 ~ 1。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="58a4" id="58a4" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">VStack</span> {<br />    <span class="hljs-type">Color</span>(hue: <span class="hljs-number">0.5</span>, saturation: <span class="hljs-number">0.9</span>, brightness: <span class="hljs-number">1</span>)<br />    <span class="hljs-type">Color</span>(hue: <span class="hljs-number">0.5</span>, saturation: <span class="hljs-number">0.3</span>, brightness: <span class="hljs-number">1</span>)<br />}</span></pre><figure name="7c05" id="7c05" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*jJ6qAW2WcZ3Kw4XXXTnrYg.png" data-width="568" data-height="944" src="https://cdn-images-1.medium.com/max/800/1*jJ6qAW2WcZ3Kw4XXXTnrYg.png"></figure><h3 name="fbda" id="fbda" class="graf graf--h3 graf-after--figure">UIKit</h3><p name="398c" id="398c" class="graf graf--p graf-after--h3">數字的範圍是 0 ~ 1。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="8ced" id="8ced" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-type">UIColor</span>(hue: <span class="hljs-number">0.5</span>, saturation: <span class="hljs-number">0.9</span>, brightness: <span class="hljs-number">1</span>, alpha: <span class="hljs-number">1</span>)<br /><span class="hljs-type">UIColor</span>(hue: <span class="hljs-number">0.5</span>, saturation: <span class="hljs-number">0.3</span>, brightness: <span class="hljs-number">1</span>, alpha: <span class="hljs-number">1</span>)</span></pre><figure name="4dca" id="4dca" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*3ShOyCXGkIYTGanHAUdImQ.png" data-width="1472" data-height="556" src="https://cdn-images-1.medium.com/max/800/1*3ShOyCXGkIYTGanHAUdImQ.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/828a3ce808e7"><time class="dt-published" datetime="2021-07-04T14:39:07.425Z">July 4, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-hsb-%E7%94%9F%E6%88%90-swiftui-uikit-%E7%9A%84%E9%A1%8F%E8%89%B2-828a3ce808e7" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

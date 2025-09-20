@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Static Cells 只能搭配 Table View Controller</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Static Cells 只能搭配 Table View Controller</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們將 Table View 的 Content 欄位設為 Static Cells 時，我們可以方便地在 storyboard 設計表格內容，不用寫程式就能產生表格的每個 cell。
+</section>
+<section data-field="body" class="e-content">
+<section name="bf30" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3d27" id="3d27" class="graf graf--h3 graf--leading graf--title">Static Cells 只能搭配 Table View Controller</h3><p name="6da2" id="6da2" class="graf graf--p graf-after--h3">當我們將 Table View 的 Content 欄位設為 Static Cells 時，我們可以方便地在 storyboard 設計表格內容，不用寫程式就能產生表格的每個 cell。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="311b" id="311b" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 57.782%;"><img class="graf-image" data-image-id="1*oWEOVKRYAi7e0hZ3pfihGg.png" data-width="628" data-height="218" src="https://cdn-images-1.medium.com/max/800/1*oWEOVKRYAi7e0hZ3pfihGg.png"></figure><figure name="700c" id="700c" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 42.218%;"><img class="graf-image" data-image-id="1*TJPaO4EnJTYnmJzp_Di1zQ.png" data-width="522" data-height="248" src="https://cdn-images-1.medium.com/max/600/1*TJPaO4EnJTYnmJzp_Di1zQ.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="c1c1" id="c1c1" class="graf graf--p graf-after--figure">如下圖所示，我們利用 Static Cells 製作美麗的 App Store 列表，加入 3 個 cell 顯示三家分店。</p><figure name="6c5b" id="6c5b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ns_iI8uO9PFHFG6EaBTGTQ.png" data-width="1262" data-height="1134" src="https://cdn-images-1.medium.com/max/800/1*ns_iI8uO9PFHFG6EaBTGTQ.png"></figure><p name="1fa3" id="1fa3" class="graf graf--p graf-after--figure">雖然 Static Cells 很方便，不過它有個我們一定要牢牢記在心上的限制。</p><h3 name="bf5a" id="bf5a" class="graf graf--h3 graf-after--p">只有 Table View Controller 裡的 Table View 可以搭配 Static Cells !</h3><figure name="b262" id="b262" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*SAU9xXj_7Cyb7EnlfTBPPw.png" data-width="544" data-height="128" src="https://cdn-images-1.medium.com/max/800/1*SAU9xXj_7Cyb7EnlfTBPPw.png"></figure><figure name="0b42" id="0b42" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*fHmF69bYCMaUKuahPLFEJw.png" data-width="616" data-height="344" src="https://cdn-images-1.medium.com/max/800/1*fHmF69bYCMaUKuahPLFEJw.png"></figure><p name="6403" id="6403" class="graf graf--p graf-after--figure">如果我們使用 View Controller，然後在它的 view 上加入 Table View，這時候 Table View 是不支援 Static Cells 的。</p><figure name="963f" id="963f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*dPghTkT5_AIaWAjUP70Cxw.png" data-width="330" data-height="100" src="https://cdn-images-1.medium.com/max/800/1*dPghTkT5_AIaWAjUP70Cxw.png"></figure><figure name="0007" id="0007" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*a71zq6c3YjgjXko00yPjwg.png" data-width="1092" data-height="886" src="https://cdn-images-1.medium.com/max/800/1*a71zq6c3YjgjXko00yPjwg.png"></figure><p name="09f9" id="09f9" class="graf graf--p graf-after--figure">此時 Xcode 的上方將顯示紅色錯誤，</p><figure name="c4e7" id="c4e7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Fu3dZWxe6vAN-_uEcZ2grg.png" data-width="1726" data-height="1132" src="https://cdn-images-1.medium.com/max/800/1*Fu3dZWxe6vAN-_uEcZ2grg.png"></figure><p name="90da" id="90da" class="graf graf--p graf-after--figure">錯誤訊息說</p><pre name="a75e" id="a75e" class="graf graf--pre graf-after--p">Static table views are only valid when embedded in UITableViewController instances</pre><figure name="1d44" id="1d44" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*I3r3-E0QobGegWgcmuwKyQ.png" data-width="1032" data-height="220" src="https://cdn-images-1.medium.com/max/800/1*I3r3-E0QobGegWgcmuwKyQ.png"></figure><figure name="4f3e" id="4f3e" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*9jOXA72mMiGVu621urHWJw.png" data-width="696" data-height="574" src="https://cdn-images-1.medium.com/max/800/1*9jOXA72mMiGVu621urHWJw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/dc0aa4bf3b4"><time class="dt-published" datetime="2021-06-27T02:45:52.611Z">June 27, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/static-cells-%E5%8F%AA%E8%83%BD%E6%90%AD%E9%85%8D-table-view-controller-dc0aa4bf3b4" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

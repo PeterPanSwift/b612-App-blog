@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS App 在 App Store 顯示的語言欄位</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS App 在 App Store 顯示的語言欄位</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們上架 iOS App 時，App Store 上的 App 介紹頁面會有一個 Languages 欄位，雖然我們的 App 介紹和 App 內容都是中文，但是 App Store 上顯示的 Languages 卻是英文。這是為什麼呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="b6b2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="747f" id="747f" class="graf graf--h3 graf--leading graf--title">iOS App 在 App Store 顯示的語言欄位</h3><p name="c7a7" id="c7a7" class="graf graf--p graf-after--h3">當我們上架 iOS App 時，App Store 上的 App 介紹頁面會有一個 Languages 欄位，雖然我們的 App 介紹和 App 內容都是中文，但是 App Store 上顯示的 Languages 卻是英文。這是為什麼呢 ?</p><figure name="3468" id="3468" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zS4H9LZjuuP7PNMetpRwOA.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*zS4H9LZjuuP7PNMetpRwOA.png"></figure><p name="2b60" id="2b60" class="graf graf--p graf-after--figure">這個欄位顯示的內容跟我們開發 App 時支援的語言有關，如果我們的 App 支援多個語言，比方中文，英文，日文，App Store 上的 Languages 將一一列出，比方下圖的 LINE App。</p><figure name="0827" id="0827" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6ku0-dyAbrHb7GIyZ2BRHA.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*6ku0-dyAbrHb7GIyZ2BRHA.png"></figure><p name="42b5" id="42b5" class="graf graf--p graf-after--figure">不過如果 App 只支援一個語言，有方法讓 App Store 的 Languages 顯示中文呢 ?</p><p name="6672" id="6672" class="graf graf--p graf-after--p">可以的，從 App Info 頁面的 Localization native development region 設定，選擇 Taiwan 即可。</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="fe7a" id="fe7a" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*hxDla2qsJyICBKoXM5Dqvw.jpeg" data-width="2408" data-height="830" data-is-featured="true" src="https://cdn-images-1.medium.com/max/1200/1*hxDla2qsJyICBKoXM5Dqvw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><figure name="5121" id="5121" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*MNO8eSi5BZH3I4W_n4iR4g.jpeg" data-width="714" data-height="542" src="https://cdn-images-1.medium.com/max/800/1*MNO8eSi5BZH3I4W_n4iR4g.jpeg"></figure><figure name="b937" id="b937" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*RkGtFiW1C8fATrI7u9PW9Q.jpeg" data-width="1266" data-height="650" src="https://cdn-images-1.medium.com/max/800/1*RkGtFiW1C8fATrI7u9PW9Q.jpeg"></figure><p name="0b0e" id="0b0e" class="graf graf--p graf-after--figure">之後從 Xcode 將 App 上傳到 App Store 時，我們可從 app store connect 網站上的 Activity 分頁查詢上傳的 iOS Build 資料。如下圖所示，從 Localizations 欄位可看到它變成了 Chinese(Taiwan)。</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="7f7b" id="7f7b" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*sCLBB4H4RTSbYFOOXSm5ZA.jpeg" data-width="2374" data-height="1202" src="https://cdn-images-1.medium.com/max/1200/1*sCLBB4H4RTSbYFOOXSm5ZA.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="16be" id="16be" class="graf graf--p graf-after--figure">當 App 上架後，在 App Store 顯示的 Languages 也成功地變成了 Traditional Chinese。</p><figure name="3002" id="3002" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*KkU1qxt3YPzw5uov2olqHw.png" data-width="1125" data-height="2436" src="https://cdn-images-1.medium.com/max/800/1*KkU1qxt3YPzw5uov2olqHw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/15a87accb619"><time class="dt-published" datetime="2020-01-20T15:37:33.837Z">January 20, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/ios-app-%E5%9C%A8-app-store-%E9%A1%AF%E7%A4%BA%E7%9A%84%E8%AA%9E%E8%A8%80%E6%AC%84%E4%BD%8D-15a87accb619" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Windsurf 快速部署網頁版的 Flutter App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Windsurf 快速部署網頁版的 Flutter App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近 Windsurf 推出了 App Deploy 功能，我們可以快速將網站部署到 Netlify，馬上變身成可公開連線的網站 。(ps: Netlify 是免費部署靜態網站的平台)
+</section>
+<section data-field="body" class="e-content">
+<section name="21dd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8e1f" id="8e1f" class="graf graf--h3 graf--leading graf--title">使用 Windsurf 快速部署網頁版的 Flutter App</h3><p name="472b" id="472b" class="graf graf--p graf-after--h3">最近 Windsurf 推出了 App Deploy 功能，我們可以快速將網站部署到 Netlify，馬上變身成可公開連線的網站 。(ps: Netlify 是免費部署靜態網站的平台)</p><div name="9a61" id="9a61" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://docs.windsurf.com/windsurf/app-deploys" data-href="https://docs.windsurf.com/windsurf/app-deploys" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.windsurf.com/windsurf/app-deploys"><strong class="markup--strong markup--mixtapeEmbed-strong">App Deploys</strong><br><em class="markup--em markup--mixtapeEmbed-em">Docs for Windsurf (formerly Codeium): your modern coding superpowers.</em>docs.windsurf.com</a><a href="https://docs.windsurf.com/windsurf/app-deploys" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a85fc050d5d4ab31fa71e8bcc8b8ac56" data-thumbnail-img-id="0*c4qJPdqwfDXOWGOl" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*c4qJPdqwfDXOWGOl);"></a></div><p name="90a7" id="90a7" class="graf graf--p graf-after--mixtapeEmbed">以下彼得潘以 Flutter 開發的網頁版 App 為例示範。</p><p name="3f45" id="3f45" class="graf graf--p graf-after--p">使用 Windsurf 打開 Flutter App 的專案資料夾，然後在 Cascade Write mode 輸入部署到 Netlify 的 prompt。</p><pre data-code-block-mode="0" spellcheck="false" name="a498" id="a498" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">Deploy this project to Netlify</span></pre><figure name="2b54" id="2b54" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*2T4dfofvrS80i80yXqOfpw.png" data-width="1428" data-height="1454" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*2T4dfofvrS80i80yXqOfpw.png"></figure><p name="599e" id="599e" class="graf graf--p graf-after--figure">依據 AI 的指示點選 Accept 執行指令 <code class="markup--code markup--p-code">flutter build web</code> 生成網頁。</p><figure name="fc7c" id="fc7c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lHMHu50_NM6UyeJ7xF8mmA.png" data-width="1430" data-height="1088" src="https://cdn-images-1.medium.com/max/800/1*lHMHu50_NM6UyeJ7xF8mmA.png"></figure><p name="1402" id="1402" class="graf graf--p graf-after--figure">若是沒有 Netlify 帳號，請先在 Netlify 網站註冊帳號(<a href="https://app.netlify.com/signup" data-href="https://app.netlify.com/signup" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://app.netlify.com/signup</a>)。</p><figure name="e9cd" id="e9cd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*PswQi2hTkaFcVpc0xALYRA.png" data-width="2036" data-height="1142" src="https://cdn-images-1.medium.com/max/800/1*PswQi2hTkaFcVpc0xALYRA.png"></figure><p name="49ed" id="49ed" class="graf graf--p graf-after--figure">點選 Accept 執行指令 <code class="markup--code markup--p-code">npm install -g netlify-cli </code>生成安裝 Netlify CLI。若是不能執行 npm，記得先安裝 Node.js。</p><div name="8744" id="8744" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%9C%A8-mac-%E5%AE%89%E8%A3%9D-node-js-npm-c94e33b5cd86" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%9C%A8-mac-%E5%AE%89%E8%A3%9D-node-js-npm-c94e33b5cd86" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%9C%A8-mac-%E5%AE%89%E8%A3%9D-node-js-npm-c94e33b5cd86"><strong class="markup--strong markup--mixtapeEmbed-strong">在 Mac 安裝 Node.js &amp; NPM</strong><br><em class="markup--em markup--mixtapeEmbed-em">安裝 Node.js 後就會同時安裝 NPM，因此以下我們將示範如何在 Mac 安裝 Node.js。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%9C%A8-mac-%E5%AE%89%E8%A3%9D-node-js-npm-c94e33b5cd86" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="062e579820b908a02e4d5e0dfce0e8ec" data-thumbnail-img-id="1*4BLKKVnl7x3VBz3T8JAKUg.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*4BLKKVnl7x3VBz3T8JAKUg.png);"></a></div><figure name="d6d4" id="d6d4" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*EBPyFvRZSPE3LfD2Rzdnog.png" data-width="1486" data-height="648" src="https://cdn-images-1.medium.com/max/800/1*EBPyFvRZSPE3LfD2Rzdnog.png"></figure><p name="6c50" id="6c50" class="graf graf--p graf-after--figure">ps: 若是遇到權限問題請先遵照指示修改權限。</p><figure name="cf9e" id="cf9e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OsETNuDW3TKb6bTTMc9aYA.png" data-width="1522" data-height="272" src="https://cdn-images-1.medium.com/max/800/1*OsETNuDW3TKb6bTTMc9aYA.png"></figure><p name="c59b" id="c59b" class="graf graf--p graf-after--figure">點選 Accept 執行指令 <code class="markup--code markup--p-code">netlify login</code>登入 netlify。</p><figure name="0a81" id="0a81" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*HHiwhRabHqvNkm_n2LIBNg.png" data-width="1706" data-height="432" src="https://cdn-images-1.medium.com/max/800/1*HHiwhRabHqvNkm_n2LIBNg.png"></figure><figure name="d629" id="d629" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*GKfMoDZTDN13kGOO6RFitg.png" data-width="2170" data-height="878" src="https://cdn-images-1.medium.com/max/800/1*GKfMoDZTDN13kGOO6RFitg.png"></figure><figure name="4d07" id="4d07" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*kH53shVizDroP2XZdezYKg.png" data-width="2120" data-height="560" src="https://cdn-images-1.medium.com/max/800/1*kH53shVizDroP2XZdezYKg.png"></figure><p name="2b1c" id="2b1c" class="graf graf--p graf-after--figure">登入成功後，若是 Cascade 沒有自動繼續，請另外輸入 continue 觸發它執行部署的最後一步，執行指令 <code class="markup--code markup--p-code">netlify deploy --prod</code>。</p><figure name="d2f1" id="d2f1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YChaEWNBKLDWsHSsZedEZw.png" data-width="1560" data-height="576" src="https://cdn-images-1.medium.com/max/800/1*YChaEWNBKLDWsHSsZedEZw.png"></figure><p name="6052" id="6052" class="graf graf--p graf-after--figure">在 Terminal 選擇 Create &amp; Configure a new site。</p><figure name="3fd4" id="3fd4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JjGrgiS1-QrEWXgtDh92AA.png" data-width="1506" data-height="458" src="https://cdn-images-1.medium.com/max/800/1*JjGrgiS1-QrEWXgtDh92AA.png"></figure><p name="5162" id="5162" class="graf graf--p graf-after--figure">輸入 Site name。</p><figure name="518b" id="518b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TPG9Rx_Si36gwFUXAwXsGw.png" data-width="1550" data-height="530" src="https://cdn-images-1.medium.com/max/800/1*TPG9Rx_Si36gwFUXAwXsGw.png"></figure><p name="84fd" id="84fd" class="graf graf--p graf-after--figure">部署成功 ! Website URL 顯示的 <a href="https://peter-counter.netlify.app" data-href="https://peter-counter.netlify.app" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://peter-counter.netlify.app</a> 即為網站的網址。</p><figure name="0612" id="0612" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yrW2UGeTXwEbpq9hMyVreQ.png" data-width="1778" data-height="622" src="https://cdn-images-1.medium.com/max/800/1*yrW2UGeTXwEbpq9hMyVreQ.png"></figure><div name="4da9" id="4da9" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://peter-counter.netlify.app/" data-href="https://peter-counter.netlify.app/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://peter-counter.netlify.app/"><strong class="markup--strong markup--mixtapeEmbed-strong">flutter_application_1</strong><br><em class="markup--em markup--mixtapeEmbed-em">A new Flutter project.</em>peter-counter.netlify.app</a><a href="https://peter-counter.netlify.app/" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="34fa2ec0349b9ab34a11bdae4ebd1781"></a></div><figure name="6f6b" id="6f6b" class="graf graf--figure graf-after--mixtapeEmbed graf--trailing"><img class="graf-image" data-image-id="1*VBCHsuCFud6OUOmLUEZ1hA.png" data-width="2698" data-height="1560" src="https://cdn-images-1.medium.com/max/800/1*VBCHsuCFud6OUOmLUEZ1hA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/f23d585b38ba"><time class="dt-published" datetime="2025-04-03T12:59:14.203Z">April 3, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-windsurf-%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E7%B6%B2%E9%A0%81%E7%89%88%E7%9A%84-flutter-app-f23d585b38ba" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

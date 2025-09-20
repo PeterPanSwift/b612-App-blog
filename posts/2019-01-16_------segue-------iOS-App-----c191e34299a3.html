@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>頁面切換的 segue  — 開發 iOS App 學英文</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">頁面切換的 segue  — 開發 iOS App 學英文</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常在 storyboard 上拉出一條條控制頁面切換的 segue。如下圖所示，button 下江陵的 segue 連到下江陵頁面的 controller，因此我們點擊 button 下江陵時可切換到下江陵頁面。
+</section>
+<section data-field="body" class="e-content">
+<section name="3a91" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b4bb" id="b4bb" class="graf graf--h3 graf--leading graf--title">頁面切換的 segue — 開發 iOS App 學英文</h3><p name="4fae" id="4fae" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常在 storyboard 上拉出一條條控制頁面切換的 segue。如下圖所示，button 下江陵的 segue 連到下江陵頁面的 controller，因此我們點擊 button 下江陵時可切換到下江陵頁面。</p><figure name="88e4" id="88e4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5l7GTD4p2aC7vVD33PJJ_Q.jpeg" data-width="1250" data-height="1232" src="https://cdn-images-1.medium.com/max/800/1*5l7GTD4p2aC7vVD33PJJ_Q.jpeg"></figure><p name="ab56" id="ab56" class="graf graf--p graf-after--figure">為什麼 Apple 要將頁面切換的連線取名為 segue 這個奇怪的單字呢 ? 彼得潘英文不夠好，小時候沒看過 segue。沒關係，我們來查一下字典，現在認識 segue 還來得及。</p><div name="6be3" id="6be3" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://dictionary.cambridge.org/us/dictionary/english/segue" data-href="https://dictionary.cambridge.org/us/dictionary/english/segue" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://dictionary.cambridge.org/us/dictionary/english/segue"><strong class="markup--strong markup--mixtapeEmbed-strong">SEGUE | definition in the Cambridge English Dictionary</strong><br><em class="markup--em markup--mixtapeEmbed-em">segue meaning: 1. to move easily and without interruption from one piece of music, part of a story, subject, or…</em>dictionary.cambridge.org</a><a href="https://dictionary.cambridge.org/us/dictionary/english/segue" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="1cde428300fe6f697b7ec93d8b9b956e" data-thumbnail-img-id="0*TyBweMuVJ1zeHJN5" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*TyBweMuVJ1zeHJN5);"></a></div><figure name="4ab5" id="4ab5" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*2oCbvuCpWHQd-kMQRXBKqg.jpeg" data-width="1434" data-height="482" src="https://cdn-images-1.medium.com/max/800/1*2oCbvuCpWHQd-kMQRXBKqg.jpeg"></figure><p name="6ef9" id="6ef9" class="graf graf--p graf-after--figure">字典告訴我們 segue 是流暢的轉換，它可以是任何東西的轉換，可以是音樂，故事，電影等，比方電影故事情節的轉換，原本是男女主角甜蜜的牽手，然後下個場景變成他們的小孩出生長大了，成為開發 iOS App 的帥氣青年。</p><p name="0cde" id="0cde" class="graf graf--p graf-after--p">我們也可以從 thesaurus.plus 網站裡的 segue 同義字，更清楚 segue 的意思。那麼多的同義字，總有一個是我們認識的吧。</p><figure name="fb04" id="fb04" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sACEVhnRL6KiWDkbMNk8Lw.jpeg" data-width="1096" data-height="672" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*sACEVhnRL6KiWDkbMNk8Lw.jpeg"></figure><div name="d3e0" id="d3e0" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://thesaurus.plus/related/continuation/segue" data-href="https://thesaurus.plus/related/continuation/segue" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://thesaurus.plus/related/continuation/segue"><strong class="markup--strong markup--mixtapeEmbed-strong">Continuation and Segue are synonyms</strong><br><em class="markup--em markup--mixtapeEmbed-em">How are the words Continuation and Segue related? Continuation and Segue are synonymous, and they have mutual synonyms.</em>thesaurus.plus</a><a href="https://thesaurus.plus/related/continuation/segue" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f7aae5eb5ac4d745a7c41353b5a635e0" data-thumbnail-img-id="0*g0keGkZ3uHJHxEZr" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*g0keGkZ3uHJHxEZr);"></a></div><p name="5dd0" id="5dd0" class="graf graf--p graf-after--mixtapeEmbed">因此，Apple 將頁面切換的連線取名為 segue 十分合理，在這裡 segue 代表 App 畫面場景的轉換。我們在 storyboard 拉出的 controller 代表 App 的畫面場景，因此在 Document Outline 裡出現場景的英文單字 Scene。</p><figure name="028c" id="028c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*n_D4HwHKMm_Hlkd22M42Gw.jpeg" data-width="420" data-height="340" src="https://cdn-images-1.medium.com/max/800/1*n_D4HwHKMm_Hlkd22M42Gw.jpeg"></figure><p name="a535" id="a535" class="graf graf--p graf-after--figure">更多 segue 的相關說明</p><div name="f101" id="f101" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://en.wikipedia.org/wiki/Segue" data-href="https://en.wikipedia.org/wiki/Segue" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://en.wikipedia.org/wiki/Segue"><strong class="markup--strong markup--mixtapeEmbed-strong">Segue - Wikipedia</strong><br><em class="markup--em markup--mixtapeEmbed-em">In recorded music, a segue is a seamless transition between one song and another. The effect is often achieved through…</em>en.wikipedia.org</a><a href="https://en.wikipedia.org/wiki/Segue" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="4a7de70655806231a1941a46a60fd5d6" data-thumbnail-img-id="0*M1yGnZ5Sr7uFTBkq" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*M1yGnZ5Sr7uFTBkq);"></a></div><div name="38e1" id="38e1" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a href="https://www.vocabulary.com/dictionary/segue" data-href="https://www.vocabulary.com/dictionary/segue" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.vocabulary.com/dictionary/segue"><strong class="markup--strong markup--mixtapeEmbed-strong">segue - Dictionary Definition</strong><br><em class="markup--em markup--mixtapeEmbed-em">A segue is a smooth transition. When you segue in conversation, you change the topic so smoothly that people might not…</em>www.vocabulary.com</a><a href="https://www.vocabulary.com/dictionary/segue" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="0bd98e151c1477775bdbf24c1db8b819" data-thumbnail-img-id="0*Wo8Nu1Q30VznirQ2" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Wo8Nu1Q30VznirQ2);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c191e34299a3"><time class="dt-published" datetime="2019-01-16T15:32:51.738Z">January 16, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E9%A0%81%E9%9D%A2%E5%88%87%E6%8F%9B%E7%9A%84-segue-%E9%96%8B%E7%99%BC-ios-app-%E5%AD%B8%E8%8B%B1%E6%96%87-c191e34299a3" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 beginUpdates &amp; endUpdates 更新 cell 高度</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 beginUpdates &amp; endUpdates 更新 cell 高度</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="e0be" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="921c" id="921c" class="graf graf--h3 graf--leading graf--title">利用 beginUpdates &amp; endUpdates 更新 cell 高度</h3><pre name="c633" id="c633" class="graf graf--pre graf-after--h3"><strong class="markup--strong markup--pre-strong">@IBAction</strong> <strong class="markup--strong markup--pre-strong">func</strong> add(<strong class="markup--strong markup--pre-strong">_</strong> sender: <strong class="markup--strong markup--pre-strong">Any</strong>) {</pre><pre name="3ed4" id="3ed4" class="graf graf--pre graf-after--pre">label.text = &quot;(為什麼) 非要我說 非要我做\n非要我左右都為你狹路閃躲\n非要我說 非要我做 非要我吃下你嫁禍的傑作\n非要我說 非要我做 非要我畫線的重點輕描帶過\n蓋個章萬事好說&quot;</pre><pre name="3c81" id="3c81" class="graf graf--pre graf-after--pre">tableView.beginUpdates()</pre><pre name="3583" id="3583" class="graf graf--pre graf-after--pre">tableView.endUpdates()</pre><pre name="f3a1" id="f3a1" class="graf graf--pre graf-after--pre">}</pre><p name="0e40" id="0e40" class="graf graf--p graf--empty graf-after--pre"><br></p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="eb47" id="eb47" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*eddQVJlknDr-mAP7ism-BA.jpeg" data-width="846" data-height="1456" src="https://cdn-images-1.medium.com/max/600/1*eddQVJlknDr-mAP7ism-BA.jpeg"></figure><figure name="2cfe" id="2cfe" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*GCbRCQXbYHvNkcg8ZNNbmQ.jpeg" data-width="846" data-height="1456" src="https://cdn-images-1.medium.com/max/600/1*GCbRCQXbYHvNkcg8ZNNbmQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="2e94" id="2e94" class="graf graf--p graf--empty graf-after--figure graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/ed416661533a">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>參考 Apple 官方 Swift 聖經的程式空白縮排格式</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">參考 Apple 官方 Swift 聖經的程式空白縮排格式</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+為了寫出更好更漂亮的 Swift 程式，就算是小小的空白也要隨時記在心上。以下是彼得潘參考 Apple 官方聖經 The Swift Programming Language 整理的小小幾點空白注意事項。
+</section>
+<section data-field="body" class="e-content">
+<section name="4fb6" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3495" id="3495" class="graf graf--h3 graf--leading graf--title">參考 Apple 官方 Swift 聖經的程式空白縮排格式</h3><div name="d149" id="d149" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html" data-href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html"><strong class="markup--strong markup--mixtapeEmbed-strong">The Swift Programming Language (Swift 4): About Swift</strong><br><em class="markup--em markup--mixtapeEmbed-em">The definitive guide to Swift, Apple&#39;s programming language for building iOS, macOS, watchOS, and tvOS apps.</em>developer.apple.com</a><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="0dd14f215fac31fb1bd5eb2b057c208e"></a></div><p name="04a0" id="04a0" class="graf graf--p graf-after--mixtapeEmbed">為了寫出更好更漂亮的 Swift 程式，就算是小小的空白也要隨時記在心上。以下是彼得潘參考 Apple 官方聖經 The Swift Programming Language 整理的小小幾點空白注意事項。</p><figure name="c5db" id="c5db" class="graf graf--figure graf--iframe graf-after--p graf--trailing"><iframe src="https://www.youtube.com/embed/wtYHKjtlXgQ?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure></div></div></section><section name="f9a5" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="5306" id="5306" class="graf graf--p graf--leading">: 後留一個空白，比方 Type Annotation，Inheritance 和 dictionary。</p><pre name="d5e9" id="d5e9" class="graf graf--pre graf-after--p">let name: String = &quot;彼得潘&quot;</pre><pre name="ac80" id="ac80" class="graf graf--pre graf-after--pre">class ViewController: UIViewController {</pre><pre name="1955" id="1955" class="graf graf--pre graf-after--pre">}</pre><pre name="a450" id="a450" class="graf graf--pre graf-after--pre">let songDic: [String: String] = [&quot;singer&quot;: &quot;田馥甄&quot;, &quot;name&quot;: &quot;演員&quot;]</pre><p name="766b" id="766b" class="graf graf--p graf-after--pre">逗號後留一個空白，比方分隔參數，分隔 array 成員，遵從 protocol。</p><pre name="bda2" id="bda2" class="graf graf--pre graf-after--p">func crushOn(name: String, gender: String) {</pre><pre name="93bb" id="93bb" class="graf graf--pre graf-after--pre">}</pre><pre name="1fa4" id="1fa4" class="graf graf--pre graf-after--pre">crushOn(name: &quot;Wendy&quot;, gender: &quot;女&quot;)</pre><pre name="29e9" id="29e9" class="graf graf--pre graf-after--pre">class ViewController: UIViewController, UITableViewDelegate {</pre><pre name="b065" id="b065" class="graf graf--pre graf-after--pre">}</pre><pre name="ef7f" id="ef7f" class="graf graf--pre graf-after--pre">let names = [&quot;Peter&quot;, &quot;Wendy&quot;, &quot;Hook&quot;]</pre><p name="d004" id="d004" class="graf graf--p graf-after--pre">-&gt; 的前後留一個空白</p><pre name="d302" id="d302" class="graf graf--pre graf-after--p">func crushOn(name: String, gender: String) -&gt; Bool {</pre><pre name="d9b3" id="d9b3" class="graf graf--pre graf-after--pre">    if name == &quot;Wendy&quot; &amp;&amp; gender == &quot;女&quot; {</pre><pre name="712c" id="712c" class="graf graf--pre graf-after--pre">        return true</pre><pre name="7859" id="7859" class="graf graf--pre graf-after--pre">    } else {</pre><pre name="f4e6" id="f4e6" class="graf graf--pre graf-after--pre">        return false</pre><pre name="826d" id="826d" class="graf graf--pre graf-after--pre">    }</pre><pre name="62b6" id="62b6" class="graf graf--pre graf-after--pre">}</pre><p name="d831" id="d831" class="graf graf--p graf-after--pre">{ 前留一個空白，比方類別的 {，function 的 {</p><pre name="4fcd" id="4fcd" class="graf graf--pre graf-after--p">class Baby {</pre><pre name="1d77" id="1d77" class="graf graf--pre graf-after--pre">}</pre><p name="4f83" id="4f83" class="graf graf--p graf-after--pre">else 接在 } 的後面，中間留一個空白</p><pre name="ac76" id="ac76" class="graf graf--pre graf-after--p">var age = 18</pre><pre name="fd58" id="fd58" class="graf graf--pre graf-after--pre">if age &lt; 30 {</pre><pre name="381b" id="381b" class="graf graf--pre graf-after--pre">print(&quot;你是我的傳說&quot;)</pre><pre name="4e80" id="4e80" class="graf graf--pre graf-after--pre">} else if age &lt; 50 {</pre><pre name="c0d5" id="c0d5" class="graf graf--pre graf-after--pre">print(&quot;你可能是我的傳說&quot;)</pre><pre name="e759" id="e759" class="graf graf--pre graf-after--pre">} else {</pre><pre name="70a8" id="70a8" class="graf graf--pre graf-after--pre">print(&quot;你不能是我的傳說&quot;)</pre><pre name="ce55" id="ce55" class="graf graf--pre graf-after--pre graf--trailing">}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/20a204d3338e"><time class="dt-published" datetime="2017-08-09T14:21:09.237Z">August 9, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%8F%83%E8%80%83-apple-%E5%AE%98%E6%96%B9-swift-%E8%81%96%E7%B6%93%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A9%BA%E7%99%BD%E7%B8%AE%E6%8E%92%E6%A0%BC%E5%BC%8F-20a204d3338e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

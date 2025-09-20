@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Xcode 的專案名稱衝突問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Xcode 的專案名稱衝突問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 的第一步是建立專案(project)，不過專案名稱取名時可要小心，如果專案名稱和型別或 framework 一樣的話，將產生可怕的錯誤。
+</section>
+<section data-field="body" class="e-content">
+<section name="bba3" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c1ed" id="c1ed" class="graf graf--h3 graf--leading graf--title">Xcode 的專案名稱衝突問題</h3><p name="a199" id="a199" class="graf graf--p graf-after--h3">開發 iOS App 的第一步是建立專案(project)，不過專案名稱取名時可要小心，如果專案名稱和型別或 framework 一樣的話，將產生可怕的錯誤。</p><h3 name="b03c" id="b03c" class="graf graf--h3 graf-after--p">專案名和 framework 一樣</h3><p name="8d82" id="8d82" class="graf graf--p graf-after--h3">範例: 專案取名為 SwiftUI，和 iOS SDK 的 SwiftUI framework 衝突。</p><figure name="a86d" id="a86d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bF8kbC3jXCwNYF3RaNrKHA.jpeg" data-width="700" data-height="506" src="https://cdn-images-1.medium.com/max/800/1*bF8kbC3jXCwNYF3RaNrKHA.jpeg"></figure><p name="252b" id="252b" class="graf graf--p graf-after--figure">警告訊息提到 <code class="markup--code markup--p-code">File ‘ContentView.swift’ is part of module ‘SwiftUI’; ignoring import</code>，因此它無法 import SwiftUI，造成程式裡使用到 SwiftUI 的程式皆產生錯誤。</p><figure name="9041" id="9041" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*DByiol0go363xC-kxf4afg.jpeg" data-width="2118" data-height="1126" src="https://cdn-images-1.medium.com/max/800/1*DByiol0go363xC-kxf4afg.jpeg"></figure><h3 name="9934" id="9934" class="graf graf--h3 graf-after--figure">專案名和型別一樣</h3><p name="7fb0" id="7fb0" class="graf graf--p graf-after--h3">範例: 專案取名為 ContentView。專案裡有個以 struct 定義的型別 ContentView，因此產生衝突。</p><figure name="2139" id="2139" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TkH044_VaMPxu0zrYF0iBQ.jpeg" data-width="532" data-height="488" src="https://cdn-images-1.medium.com/max/800/1*TkH044_VaMPxu0zrYF0iBQ.jpeg"></figure><p name="9620" id="9620" class="graf graf--p graf-after--figure">App 可以執行，但是無法預覽。</p><figure name="ccad" id="ccad" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8tRr0LASzzHOtfsc7dNpSQ.jpeg" data-width="1982" data-height="1122" src="https://cdn-images-1.medium.com/max/800/1*8tRr0LASzzHOtfsc7dNpSQ.jpeg"></figure><p name="d8b4" id="d8b4" class="graf graf--p graf-after--figure">錯誤訊息提到 circular reference。</p><figure name="6836" id="6836" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*SqMcqmqeNvUqpxCM4peCDw.jpeg" data-width="684" data-height="224" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*SqMcqmqeNvUqpxCM4peCDw.jpeg"></figure><figure name="4228" id="4228" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*Y-G0leMZ0_Lv3YHcN1lUiA.jpeg" data-width="1094" data-height="1002" src="https://cdn-images-1.medium.com/max/800/1*Y-G0leMZ0_Lv3YHcN1lUiA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e77fd61b72d3"><time class="dt-published" datetime="2020-04-16T06:08:19.538Z">April 16, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/xcode-%E7%9A%84%E5%B0%88%E6%A1%88%E5%90%8D%E7%A8%B1%E8%A1%9D%E7%AA%81%E5%95%8F%E9%A1%8C-e77fd61b72d3" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

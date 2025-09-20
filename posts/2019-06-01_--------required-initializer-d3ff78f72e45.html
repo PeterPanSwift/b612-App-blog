@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>防止絕技失傳的 required initializer</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">防止絕技失傳的 required initializer</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+定義 Swift 類別時，子類別預設並不會繼承父類別的 initializer，除非滿足某些特殊的條件。
+</section>
+<section data-field="body" class="e-content">
+<section name="6518" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="fba0" id="fba0" class="graf graf--h3 graf--leading graf--title">防止絕技失傳的 <strong class="markup--strong markup--h3-strong">required initializer</strong></h3><p name="9691" id="9691" class="graf graf--p graf-after--h3">定義 Swift 類別時，子類別預設並不會繼承父類別的 initializer，除非滿足某些特殊的條件。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="6f85" id="6f85" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Baby</span> {<br />   <span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span><br />   <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span><br />   <span class="hljs-keyword">init</span>(<span class="hljs-params">age</span>: <span class="hljs-type">Int</span>, <span class="hljs-params">name</span>: <span class="hljs-type">String</span>) {<br />      <span class="hljs-keyword">self</span>.age <span class="hljs-operator">=</span> age<br />      <span class="hljs-keyword">self</span>.name <span class="hljs-operator">=</span> name<br />   }<br />}<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">SuperBaby</span>: <span class="hljs-title class_">Baby</span> {<br />   <span class="hljs-keyword">var</span> magic: <span class="hljs-type">String</span><br />   <span class="hljs-keyword">init</span>(<span class="hljs-params">magic</span>: <span class="hljs-type">String</span>, <span class="hljs-params">name</span>: <span class="hljs-type">String</span>) {<br />      <span class="hljs-keyword">self</span>.magic <span class="hljs-operator">=</span> magic<br />      <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(age: <span class="hljs-number">1</span>, name: name)<br />   }<br />}</span></pre><p name="8cf0" id="8cf0" class="graf graf--p graf-after--pre">比方以上例子，SuperBaby 繼承 Baby，但我們只能使用參數 magic &amp; name 產生 SuperBaby 物件，不能使用參數 age &amp; name，因為 SuperBaby 沒有繼承得到 Baby 的 init(age: Int, name: String)。</p><figure name="823d" id="823d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-M0nb20W0Qreak-FV3YHAA.jpeg" data-width="1626" data-height="212" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*-M0nb20W0Qreak-FV3YHAA.jpeg"></figure><h3 name="fdec" id="fdec" class="graf graf--h3 graf-after--figure">一定要有的 required initializer</h3><p name="e985" id="e985" class="graf graf--p graf-after--h3">但如果你真的想用盡洪荒之力，防止父類別的 initializer 失傳，想要繼續用 age &amp; name 建立 SuperBaby，其實是做得到的。</p><p name="165b" id="165b" class="graf graf--p graf-after--p">只要在 initializer 前加上 required(required 是需要的意思)，即可要求子類別一定得定義 initializer，防止initializer 失傳(若是子類別順利繼承 initializer，因為不會失傳，此時可不定義)。</p><p name="8950" id="8950" class="graf graf--p graf-after--p">因此，若我們不想讓 init(age: Int, name: String) 失傳，我們可以在它前面加上 required，如此當 SuperBaby 沒有定義它時將產生錯誤。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0748" id="0748" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Baby</span> {<br />   <span class="hljs-keyword">var</span> age: <span class="hljs-type">Int</span> <br />   <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span><br />   <span class="hljs-keyword">required</span> <span class="hljs-keyword">init</span>(<span class="hljs-params">age</span>: <span class="hljs-type">Int</span>, <span class="hljs-params">name</span>: <span class="hljs-type">String</span>) {<br />      <span class="hljs-keyword">self</span>.age <span class="hljs-operator">=</span> age<br />      <span class="hljs-keyword">self</span>.name <span class="hljs-operator">=</span> name<br />   }<br />}<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">SuperBaby</span>: <span class="hljs-title class_">Baby</span> {<br />   <span class="hljs-keyword">var</span> magic: <span class="hljs-type">String</span><br />   <span class="hljs-keyword">init</span>(<span class="hljs-params">magic</span>: <span class="hljs-type">String</span>, <span class="hljs-params">name</span>: <span class="hljs-type">String</span>) {<br />      <span class="hljs-keyword">self</span>.magic <span class="hljs-operator">=</span> magic<br />      <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(age: <span class="hljs-number">1</span>, name: name)<br />   }<br />}</span></pre><figure name="9c7f" id="9c7f" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*C_KJ4akFA_kSHFt-LyCynQ.jpeg" data-width="1784" data-height="522" src="https://cdn-images-1.medium.com/max/800/1*C_KJ4akFA_kSHFt-LyCynQ.jpeg"></figure><p name="8720" id="8720" class="graf graf--p graf-after--figure">錯誤訊息清楚地表明我們的子類別也要定義 init(age:name:)。</p><pre data-code-block-mode="0" spellcheck="false" name="a91a" id="a91a" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">&#39;required&#39; initializer &#39;init(age:name:)&#39; must be provided by subclass of &#39;Baby&#39;</span></pre><p name="31e0" id="31e0" class="graf graf--p graf-after--pre">因此，我們只要乖乖聽話，定義 init(age:name:) 即可修正錯誤。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="00c0" id="00c0" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SuperBaby</span>: <span class="hljs-title class_">Baby</span> {<br />   <span class="hljs-keyword">var</span> magic: <span class="hljs-type">String</span><br /><br />   <span class="hljs-keyword">init</span>(<span class="hljs-params">magic</span>: <span class="hljs-type">String</span>, <span class="hljs-params">name</span>: <span class="hljs-type">String</span>) {<br />      <span class="hljs-keyword">self</span>.magic <span class="hljs-operator">=</span> magic<br />      <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(age: <span class="hljs-number">1</span>, name: name)<br />   }<br /><br />   <span class="hljs-keyword">required</span> <span class="hljs-keyword">init</span>(<span class="hljs-params">age</span>: <span class="hljs-type">Int</span>, <span class="hljs-params">name</span>: <span class="hljs-type">String</span>) {<br />      magic <span class="hljs-operator">=</span> <span class="hljs-string">&quot;開發 Swift iOS App&quot;</span><br />      <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(age: age, name: name)<br />   }<br />}</span></pre><p name="758a" id="758a" class="graf graf--p graf-after--pre">有個小地方要特別注意，子類別定義 init(age:name:) 時還是要加上 required，否則將出現錯誤，因為加了 required 才能確保 Baby 的子子孫孫類別都有定義 init(age:name:)，比方繼承 SuperBaby 的 SuperSuperBaby 也會定義 init(age:name:)。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="e31d" id="e31d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">init</span>(<span class="hljs-params">age</span>: <span class="hljs-type">Int</span>, <span class="hljs-params">name</span>: <span class="hljs-type">String</span>) {<br />   magic <span class="hljs-operator">=</span> <span class="hljs-string">&quot;開發 Swift iOS App&quot;</span><br />   <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(age: age, name: name)<br />}</span></pre><p name="96f3" id="96f3" class="graf graf--p graf-after--pre">忘了加上 required 的可怕紅色錯誤。</p><figure name="e653" id="e653" class="graf graf--figure graf--startsWithSingleQuote graf-after--p"><img class="graf-image" data-image-id="1*wYaI7f_jazOorDWV76DTmg.jpeg" data-width="1886" data-height="356" src="https://cdn-images-1.medium.com/max/800/1*wYaI7f_jazOorDWV76DTmg.jpeg"><figcaption class="imageCaption">‘required’ modifier must be present on all overrides of a required initializer</figcaption></figure><h3 name="71f2" id="71f2" class="graf graf--h3 graf-after--figure">iOS SDK 的 required initializer</h3><p name="39dc" id="39dc" class="graf graf--p graf-after--h3">開發 iOS App 時，有時我們會在繼承 iOS SDK 內建類別時遇到需要定義 required init 的情況，比方 UIViewController &amp; UIView 的 init?(cooder:) 都是 required init，若我們在繼承 UIViewController &amp; UIView 的類別自訂 init，必須再定義 init?(cooder:)。</p><p name="f970" id="f970" class="graf graf--p graf-after--p">以下我們實際看個 ColorView 的例子。我們在 ColorView 裡定義 init(color:frame:)，想在生成元件時指定大小位置跟顏色。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="84e9" id="84e9" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ColorView</span>: <span class="hljs-title class_">UIView</span> {<br />   <span class="hljs-keyword">init</span>(<span class="hljs-params">color</span>: <span class="hljs-type">UIColor</span>, <span class="hljs-params">frame</span>: <span class="hljs-type">CGRect</span>) {<br />      <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(frame: frame)<br />      <span class="hljs-keyword">self</span>.backgroundColor <span class="hljs-operator">=</span> color<br />   }<br />}</span></pre><p name="8840" id="8840" class="graf graf--p graf-after--pre">然而這時卻出現了紅色錯誤。</p><figure name="e92f" id="e92f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*76V06ohTqmIbfKITIKouQg.jpeg" data-width="1722" data-height="412" src="https://cdn-images-1.medium.com/max/800/1*76V06ohTqmIbfKITIKouQg.jpeg"></figure><p name="4f2c" id="4f2c" class="graf graf--p graf-after--figure">這是因為 UIView 的 init(coder:) 是 required，所以我們一定要定義。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="03c2" id="03c2" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">required</span> <span class="hljs-keyword">init?</span>(<span class="hljs-params">coder</span> <span class="hljs-params">aDecoder</span>: <span class="hljs-type">NSCoder</span>) {<br />    <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(coder: aDecoder)<br />}</span></pre><p name="444c" id="444c" class="graf graf--p graf-after--pre">不過如果 ColorView 裡沒有寫任何 init，反而不會有任何錯誤。這是因為當我們沒寫 init 時，ColorView 將繼承 UIView 的 init(coder:)，因此我們不用再自己定義。而當我們在 ColorView 裡另外定義 init 時，它就不會再繼承 UIView 的 init(coder:)，因此這時我們得自己定義 init(coder:)。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0d88" id="0d88" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ColorView</span>: <span class="hljs-title class_">UIView</span> {<br /><br />}</span></pre><p name="fa2a" id="fa2a" class="graf graf--p graf-after--pre">關於 init 繼承的相關說明，有興趣的朋友可進一步參考以下連結裡 Automatic Initializer Inheritance 的段落。</p><div name="8c0a" id="8c0a" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://docs.swift.org/swift-book/LanguageGuide/Initialization.html" data-href="https://docs.swift.org/swift-book/LanguageGuide/Initialization.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/LanguageGuide/Initialization.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Initialization - The Swift Programming Language (Swift 5)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Initialization is the process of preparing an instance of a class, structure, or enumeration for use. This process…</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/LanguageGuide/Initialization.html" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="c1e8aa9a72baf5eb90a5353f6b7b5693" data-thumbnail-img-id="0*LReLe3eWT6UsbAwQ" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*LReLe3eWT6UsbAwQ);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d3ff78f72e45"><time class="dt-published" datetime="2019-06-01T14:13:49.079Z">June 1, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E9%98%B2%E6%AD%A2%E7%B5%95%E6%8A%80%E5%A4%B1%E5%82%B3%E7%9A%84-required-initializer-d3ff78f72e45" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

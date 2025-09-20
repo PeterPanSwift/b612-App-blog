@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>觀看 App dark mode 畫面的方法</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">觀看 App dark mode 畫面的方法</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Debug Preview
+</section>
+<section data-field="body" class="e-content">
+<section name="be5d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9d7c" id="9d7c" class="graf graf--h3 graf--leading graf--title">觀看 App dark mode 畫面的方法</h3><p name="dede" id="dede" class="graf graf--p graf--empty graf-after--h3"><br></p><h3 name="3c0f" id="3c0f" class="graf graf--h3 graf-after--p">Debug Preview</h3><div name="9a90" id="9a90" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-11-%E6%96%B9%E4%BE%BF-debug-%E7%9A%84-device-conditions-environment-overrides-dee9596e5d01" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-11-%E6%96%B9%E4%BE%BF-debug-%E7%9A%84-device-conditions-environment-overrides-dee9596e5d01" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-11-%E6%96%B9%E4%BE%BF-debug-%E7%9A%84-device-conditions-environment-overrides-dee9596e5d01"><strong class="markup--strong markup--mixtapeEmbed-strong">Xcode 11 方便 debug 的 Device Conditions &amp;  Environment Overrides</strong><br><em class="markup--em markup--mixtapeEmbed-em">Xcode 11 多了許多方便的 debug 功能，現在我們可以透過 Device Conditions &amp; Environment Overrides 測試在不同情況時 App 的運作和畫面呈現，比方測試不同的網路速度，溫度狀態和…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-11-%E6%96%B9%E4%BE%BF-debug-%E7%9A%84-device-conditions-environment-overrides-dee9596e5d01" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="eabceb1e8697dec56e5337012d8697eb" data-thumbnail-img-id="1*hIGN-Dnjkj3F9f4YiocUPA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*hIGN-Dnjkj3F9f4YiocUPA.jpeg);"></a></div><p name="d37a" id="d37a" class="graf graf--p graf--empty graf-after--mixtapeEmbed"><br></p><figure name="ad7c" id="ad7c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*j-gVsYaEBjsQ4Yi9tQ_Xig.jpeg" data-width="736" data-height="102" src="https://cdn-images-1.medium.com/max/800/1*j-gVsYaEBjsQ4Yi9tQ_Xig.jpeg"></figure><figure name="6152" id="6152" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*6Lwi6iCkR-kjrLkOC7Fh9w.jpeg" data-width="642" data-height="1042" src="https://cdn-images-1.medium.com/max/800/1*6Lwi6iCkR-kjrLkOC7Fh9w.jpeg"></figure><p name="aa83" id="aa83" class="graf graf--p graf--empty graf-after--figure graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/9ff6bfd01378">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

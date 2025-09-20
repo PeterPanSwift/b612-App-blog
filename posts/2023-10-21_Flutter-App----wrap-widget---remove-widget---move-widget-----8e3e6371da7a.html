@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Flutter App 快速 wrap widget / remove widget / move widget 的方法</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Flutter App 快速 wrap widget / remove widget / move widget 的方法</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+製作 Flutter App 畫面時，我們時常需要 wrap widget(用某個 widget 包另一個 widget) 和 remove widget(移除 widget)，因此 IDE 早為我們提供了方便 wrap widget、remove widget 和 move…
+</section>
+<section data-field="body" class="e-content">
+<section name="8ee7" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2a42" id="2a42" class="graf graf--h3 graf--leading graf--title">Flutter App 快速 wrap widget / remove widget / move widget 的方法</h3><p name="c196" id="c196" class="graf graf--p graf-after--h3">製作 Flutter App 畫面時，我們時常需要 wrap widget(用某個 widget 包另一個 widget) 和 remove widget(移除 widget)，因此 IDE 早為我們提供了方便 wrap widget、remove widget 和 move widget 的方法。</p><p name="78b7" id="78b7" class="graf graf--p graf-after--p">以下我們用 VS Code / Firebase Studio 示範三種常見的方法。(ps: Android Studio 也有類似的方法。)</p><ul class="postList"><li name="f95f" id="f95f" class="graf graf--li graf-after--p">按 Quick Fix 的快速鍵。</li><li name="6f9e" id="6f9e" class="graf graf--li graf-after--li">按燈泡(Code Action lightbulb)。</li><li name="7957" id="7957" class="graf graf--li graf-after--li">從 Flutter Outline。</li></ul><p name="db73" id="db73" class="graf graf--p graf-after--li">範例的的程式如下，我們想將原本置頂的圖片變成置中，因此目標是用 Center 包住 Image 裡。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="a8ad" id="a8ad" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;package:flutter/material.dart&#x27;</span>;<br /><br /><span class="hljs-keyword">void</span> main() {<br />  runApp(<span class="hljs-keyword">const</span> MyApp());<br />}<br /><br /><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{<br />  <span class="hljs-keyword">const</span> MyApp({<span class="hljs-keyword">super</span>.key});<br /><br />  <span class="hljs-meta">@override</span><br />  Widget build(BuildContext context) {<br />    <span class="hljs-keyword">return</span> MaterialApp(<br />      home: Scaffold(<br />        body: SafeArea(<br />          child: Image.asset(<span class="hljs-string">&quot;assets/pairProgramming.png&quot;</span>),<br />        ),<br />      ),<br />    );<br />  }<br />}</span></pre><figure name="2a2c" id="2a2c" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*CtHFQOOVA1HXv9kABufRuQ.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*CtHFQOOVA1HXv9kABufRuQ.png"><figcaption class="imageCaption">圖片來自 GPT 繪製的彼得潘和雷姆 Pair Programming</figcaption></figure><h3 name="5ad5" id="5ad5" class="graf graf--h3 graf-after--figure">wrap widget</h3><ul class="postList"><li name="a1e8" id="a1e8" class="graf graf--li graf-after--h3"><strong class="markup--strong markup--li-strong">方法 1: 按 Quick Fix 的快速鍵。</strong></li></ul><p name="9747" id="9747" class="graf graf--p graf-after--li">點選想包住的元件，在此我們點選 Image。</p><figure name="2405" id="2405" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*A5BH_MJSPCxavuqalfJqFQ.png" data-width="707" data-height="91" src="https://cdn-images-1.medium.com/max/800/1*A5BH_MJSPCxavuqalfJqFQ.png"></figure><p name="6286" id="6286" class="graf graf--p graf-after--figure">然後按住 cmd + . 鍵，從 Wrap with 選單點選 Wrap with Center。</p><figure name="e369" id="e369" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*64vpxANEjBKFxe95Cy-HEw.png" data-width="764" data-height="1140" src="https://cdn-images-1.medium.com/max/800/1*64vpxANEjBKFxe95Cy-HEw.png"></figure><p name="d6be" id="d6be" class="graf graf--p graf-after--figure">ps: Windows 的快速鍵是 ctrl + .。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="4762" id="4762" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{<br />  <span class="hljs-keyword">const</span> MyApp({<span class="hljs-keyword">super</span>.key});<br /><br />  <span class="hljs-meta">@override</span><br />  Widget build(BuildContext context) {<br />    <span class="hljs-keyword">return</span> MaterialApp(<br />      home: Scaffold(<br />        body: SafeArea(<br />          child: Center(child: Image.asset(<span class="hljs-string">&quot;assets/pairProgramming.png&quot;</span>)),<br />        ),<br />      ),<br />    );<br />  }<br />}</span></pre><p name="a774" id="a774" class="graf graf--p graf-after--pre">Image 成功包在 Center 裡，圖片置中了 !</p><figure name="247b" id="247b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*x5_4MqzfpyXLQB6fSkYIZQ.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*x5_4MqzfpyXLQB6fSkYIZQ.png"></figure><p name="ac18" id="ac18" class="graf graf--p graf-after--figure">Wrap with xxx 選單提供許多常用的選項，像是 Center、Column、Row、Container、SizeBox、Padding 等。不過 Flutter 有那麼多的 widget，若是選單上找不到想加入的 widget，則有兩種選擇。</p><ol class="postList"><li name="5d15" id="5d15" class="graf graf--li graf-after--p">想要生成搭配 child 的 widget。</li></ol><p name="9da3" id="9da3" class="graf graf--p graf-after--li">點選 Wrap with widget。</p><figure name="9376" id="9376" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zz5bNZt4EtHWI5jOMXUQQw.png" data-width="291" data-height="506" src="https://cdn-images-1.medium.com/max/800/1*zz5bNZt4EtHWI5jOMXUQQw.png"></figure><p name="c264" id="c264" class="graf graf--p graf-after--figure">程式將生成 widget 的框框，搭配參數 child，我們可自由在框框填入 widget 的名字。</p><figure name="fb29" id="fb29" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cDjS8wqdExWgzMGNkCywZQ.png" data-width="717" data-height="97" src="https://cdn-images-1.medium.com/max/800/1*cDjS8wqdExWgzMGNkCywZQ.png"></figure><p name="e740" id="e740" class="graf graf--p graf-after--figure">2. 想要生成搭配 children 的 widget。</p><p name="3d78" id="3d78" class="graf graf--p graf-after--p">點選 Wrap with Column，程式將生成搭配參數 children 的 Column，再將 Column 改成我們想要的 widget 名字。</p><p name="b24d" id="b24d" class="graf graf--p graf-after--p">Wrap 功能也可以一次包含多個 widget，比方選取下圖的兩個 Text 後，再從 Wrap with 選單點選。</p><figure name="c058" id="c058" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xGy3phbK8ul3Qrhq4JQPHg.png" data-width="694" data-height="146" src="https://cdn-images-1.medium.com/max/800/1*xGy3phbK8ul3Qrhq4JQPHg.png"></figure><ul class="postList"><li name="7c57" id="7c57" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">方法 2: 按燈泡(Code Action lightbulb)</strong></li></ul><p name="c34c" id="c34c" class="graf graf--p graf-after--li">點選 Image，然後點選左邊的燈泡，從選單點選 Wrap with Center。</p><figure name="fe84" id="fe84" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*A5BH_MJSPCxavuqalfJqFQ.png" data-width="707" data-height="91" src="https://cdn-images-1.medium.com/max/800/1*A5BH_MJSPCxavuqalfJqFQ.png"></figure><figure name="4d22" id="4d22" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Hy9WdYCE33gVCGHDtmqTyQ.png" data-width="639" data-height="519" src="https://cdn-images-1.medium.com/max/800/1*Hy9WdYCE33gVCGHDtmqTyQ.png"></figure><ul class="postList"><li name="f992" id="f992" class="graf graf--li graf-after--figure">方法 3: 從 Flutter Outline</li></ul><p name="1758" id="1758" class="graf graf--p graf-after--li">從 command palette 點選 Flutter: Focus on Outline View。</p><figure name="6833" id="6833" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tr_ZnyC89wb6qCKPkyyr5w.png" data-width="898" data-height="206" src="https://cdn-images-1.medium.com/max/800/1*tr_ZnyC89wb6qCKPkyyr5w.png"></figure><p name="8d98" id="8d98" class="graf graf--p graf-after--figure">左下方出現 Flutter Outline。</p><figure name="64bd" id="64bd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kZK2DRIZEx2ky1OnoO7NgA.png" data-width="498" data-height="729" src="https://cdn-images-1.medium.com/max/800/1*kZK2DRIZEx2ky1OnoO7NgA.png"></figure><p name="d5dd" id="d5dd" class="graf graf--p graf-after--figure">從 Image 上的右鍵選單點選 Wrap with Center。</p><figure name="4a8f" id="4a8f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3GfXF1Y1JWAUWq5gXe1HgA.png" data-width="638" data-height="371" src="https://cdn-images-1.medium.com/max/800/1*3GfXF1Y1JWAUWq5gXe1HgA.png"></figure><p name="322f" id="322f" class="graf graf--p graf-after--figure">從右上的三個點也可叫出選單點選 Wrap with Center。</p><figure name="07d0" id="07d0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VJvUFY-1b57Eiq7AgzLTQQ.png" data-width="783" data-height="300" src="https://cdn-images-1.medium.com/max/800/1*VJvUFY-1b57Eiq7AgzLTQQ.png"></figure><h3 name="d372" id="d372" class="graf graf--h3 graf-after--figure">remove widget</h3><p name="6b16" id="6b16" class="graf graf--p graf-after--h3">除了 wrap widget，我們也可以 remove widget。比方我們想反悔，不想要圖片置中，透過剛剛的三個方法也可以 remove Center widget。</p><ul class="postList"><li name="9136" id="9136" class="graf graf--li graf-after--p">方法 1 &amp; 2。</li></ul><p name="2d59" id="2d59" class="graf graf--p graf-after--li">點選 Center，然後按快速鍵或按燈泡，從選單點選 Remove this widget。</p><figure name="410d" id="410d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YQDKyypIWOQmfwoYrBH4SQ.png" data-width="378" data-height="564" src="https://cdn-images-1.medium.com/max/800/1*YQDKyypIWOQmfwoYrBH4SQ.png"></figure><ul class="postList"><li name="4982" id="4982" class="graf graf--li graf-after--figure">方法 3。</li></ul><p name="5ce7" id="5ce7" class="graf graf--p graf-after--li">打開 Flutter Outline，點選 Center，然後叫出選單點選 Remove this widget。</p><figure name="8729" id="8729" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZOjxQ9uKhKqGE0sWShUlfA.png" data-width="603" data-height="367" src="https://cdn-images-1.medium.com/max/800/1*ZOjxQ9uKhKqGE0sWShUlfA.png"></figure><h3 name="f95d" id="f95d" class="graf graf--h3 graf-after--figure">move widget</h3><p name="48fd" id="48fd" class="graf graf--p graf-after--h3">有時我們會想調整 Multi-child layout widget children 的順序，比方以下例子 Column 的 children。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="aaf7" id="aaf7" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{<br />  <span class="hljs-keyword">const</span> MyApp({<span class="hljs-keyword">super</span>.key});<br /><br />  <span class="hljs-meta">@override</span><br />  Widget build(BuildContext context) {<br />    <span class="hljs-keyword">return</span> <span class="hljs-keyword">const</span> MaterialApp(<br />      home: Scaffold(<br />        body: SafeArea(<br />          child: Column(<br />            children: [<br />              Text(<span class="hljs-string">&#x27;關於我轉生變成史萊姆這檔事&#x27;</span>),<br />              Text(<span class="hljs-string">&#x27;Re:從零開始的異世界生活&#x27;</span>),<br />              Text(<span class="hljs-string">&#x27;彼得潘&#x27;</span>)<br />            ],<br />          ),<br />        ),<br />      ),<br />    );<br />  }<br />}</span></pre><p name="f0c6" id="f0c6" class="graf graf--p graf-after--pre">點選 <code class="markup--code markup--p-code">Text(&#39;Re:從零開始的異世界生活&#39;)</code>，按燈泡出現選單後可看到選項 Move widget down 和 Move widget up。</p><figure name="0a02" id="0a02" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*HqUvSp8bpqTUzF13FFPy8A.png" data-width="291" data-height="575" src="https://cdn-images-1.medium.com/max/800/1*HqUvSp8bpqTUzF13FFPy8A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8e3e6371da7a"><time class="dt-published" datetime="2023-10-21T16:37:37.426Z">October 21, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/flutter-app-%E5%BF%AB%E9%80%9F-wrap-widget-remove-widget-%E7%9A%84%E6%96%B9%E6%B3%95-8e3e6371da7a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

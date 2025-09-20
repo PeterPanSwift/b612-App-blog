@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 switch 比對 button，判斷使用者點擊的 button</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 switch 比對 button，判斷使用者點擊的 button</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+透過 IBAction，我們可以方便地設定 button 被點擊時觸發 function，執行想做的事情。大部分的時候，每個 button 會搭配自己的 IBAction function，然而如果做的事情差不多，我們也可以將多個 button 連到同一個 IBAction…
+</section>
+<section data-field="body" class="e-content">
+<section name="94ea" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="33f5" id="33f5" class="graf graf--h3 graf--leading graf--title">利用 switch 比對 button，判斷使用者點擊的 button</h3><p name="14cd" id="14cd" class="graf graf--p graf-after--h3">透過 IBAction，我們可以方便地設定 button 被點擊時觸發 function，執行想做的事情。大部分的時候，每個 button 會搭配自己的 IBAction function，然而如果做的事情差不多，我們也可以將多個 button 連到同一個 IBAction function，例如以下選擇要當彼得潘或虎克船長的例子(相信大家一定都選彼得潘吧)，此時畫面上的 2 個 button 都連到 function selectRoleButtonPressed(_:)。</p><figure name="3ea6" id="3ea6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Q4QJs8CxaaShZoczOr2l5w.jpeg" data-width="2020" data-height="1384" src="https://cdn-images-1.medium.com/max/800/1*Q4QJs8CxaaShZoczOr2l5w.jpeg"></figure><p name="318a" id="318a" class="graf graf--p graf-after--figure">為了在 function 裡判斷點選的 button ，我們可以用 tag 區分。不過這方方有個麻煩的地方，我們必須另外設定 button 的 tag，而且 tag 的數字也會讓程式碼看起來較不直覺。</p><pre name="8df7" id="8df7" class="graf graf--pre graf-after--p">@IBAction func selectRoleButtonPressed(_ sender: UIButton) {</pre><pre name="bc8f" id="bc8f" class="graf graf--pre graf-after--pre">switch sender.tag {</pre><pre name="3bbc" id="3bbc" class="graf graf--pre graf-after--pre">case 1:</pre><pre name="bc59" id="bc59" class="graf graf--pre graf-after--pre">name = “peter”</pre><pre name="6344" id="6344" class="graf graf--pre graf-after--pre">case 2:</pre><pre name="3a15" id="3a15" class="graf graf--pre graf-after--pre">name = “hook”</pre><pre name="0710" id="0710" class="graf graf--pre graf-after--pre">default:</pre><pre name="1f53" id="1f53" class="graf graf--pre graf-after--pre">break</pre><pre name="2072" id="2072" class="graf graf--pre graf-after--pre">}</pre><pre name="9f94" id="9f94" class="graf graf--pre graf-after--pre">}</pre><p name="9062" id="9062" class="graf graf--p graf-after--pre">其實， Swift 的 switch 什麼都能比，所以你甚至可以用 switch 比對當初連到 IBOutlet 的 button 物件 !</p><pre name="c2d8" id="c2d8" class="graf graf--pre graf-after--p">@IBAction func selectRoleButtonPressed(_ sender: UIButton) {</pre><pre name="6d33" id="6d33" class="graf graf--pre graf-after--pre">switch sender {</pre><pre name="aa5c" id="aa5c" class="graf graf--pre graf-after--pre">case peterButton:</pre><pre name="8f89" id="8f89" class="graf graf--pre graf-after--pre">name = “peter”</pre><pre name="8330" id="8330" class="graf graf--pre graf-after--pre">case hookButton:</pre><pre name="d0f9" id="d0f9" class="graf graf--pre graf-after--pre">name = “hook”</pre><pre name="12a7" id="12a7" class="graf graf--pre graf-after--pre">default:</pre><pre name="9602" id="9602" class="graf graf--pre graf-after--pre">break</pre><pre name="ee8f" id="ee8f" class="graf graf--pre graf-after--pre">}</pre><pre name="f5e2" id="f5e2" class="graf graf--pre graf-after--pre">}</pre><p name="683f" id="683f" class="graf graf--p graf-after--pre graf--trailing">看到這裡，也再一次地證明了 Swift 的好。剛剛的做法，在 Objective-C 是做不到的，因為 Objective-C 的 switch 只能比對數字。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/611522502aa7"><time class="dt-published" datetime="2017-07-13T14:47:02.102Z">July 13, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-switch-%E6%AF%94%E5%B0%8D-button-%E5%88%A4%E6%96%B7%E4%BD%BF%E7%94%A8%E8%80%85%E9%BB%9E%E6%93%8A%E7%9A%84-button-611522502aa7" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

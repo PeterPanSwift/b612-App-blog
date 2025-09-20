@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在迴圈裡修改 Swift array 成員的內容</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在迴圈裡修改 Swift array 成員的內容</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在迴圈裡修改 array 成員的內容是開發 App 時常遇到的功能，不過最近有同學遇到問題，接下來我們就來看看同學遇到的問題和解決的方法吧。
+</section>
+<section data-field="body" class="e-content">
+<section name="5663" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7022" id="7022" class="graf graf--h3 graf--leading graf--title">在迴圈裡修改 Swift array 成員的內容</h3><p name="9b03" id="9b03" class="graf graf--p graf-after--h3">在迴圈裡修改 array 成員的內容是開發 App 時常遇到的功能，不過最近有同學遇到問題，接下來我們就來看看同學遇到的問題和解決的方法吧。</p><p name="2105" id="2105" class="graf graf--p graf-after--p">假設情人的型別是以 struct 定義的 Lover，我們以 array lovers 儲存 2 個情人。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="7121" id="7121" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Lover</span> {<br />    <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">var</span> weight: <span class="hljs-type">Double</span><br />    <span class="hljs-keyword">var</span> height: <span class="hljs-type">Double</span><br />}<br /><br /><span class="hljs-keyword">var</span> lovers <span class="hljs-operator">=</span> [<br />    <span class="hljs-type">Lover</span>(name: <span class="hljs-string">&quot;Sandy&quot;</span>, weight: <span class="hljs-number">50</span>, height: <span class="hljs-number">160</span>),<br />    <span class="hljs-type">Lover</span>(name: <span class="hljs-string">&quot;Wendy&quot;</span>, weight: <span class="hljs-number">55</span>, height: <span class="hljs-number">155</span>),<br />]</span></pre><p name="d462" id="d462" class="graf graf--p graf-after--pre">五月天愛情的模樣說愛情有謎樣的魔力，也許它可以讓談戀愛的人長高 10 公分。</p><figure name="04a4" id="04a4" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://www.youtube.com/embed/8Zr6QKytnmU?feature=oembed" width="640" height="480" frameborder="0" scrolling="no"></iframe></figure><p name="5e57" id="5e57" class="graf graf--p graf-after--figure">於是我們利用 for loop 將每個情人的身高增加 10 公分。不過很不幸，紅色錯誤出現了，它說 lover 是不能改變的常數。</p><figure name="e089" id="e089" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*s3CNjnaXHKaE23_uNSwGLQ.png" data-width="1366" data-height="286" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*s3CNjnaXHKaE23_uNSwGLQ.png"></figure><p name="180a" id="180a" class="graf graf--p graf-after--figure">錯誤的原因是因為寫在 for in 中間的 lover 預設是不能修改的常數，而且型別 Lover 是 value type，因此我們無法修改它的 property。</p><p name="d58c" id="d58c" class="graf graf--p graf-after--p">此問題可在 for 後加上 var 解決，讓 lover 變成可變的變數。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="2133" id="2133" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">for</span> <span class="hljs-keyword">var</span> lover <span class="hljs-keyword">in</span> lovers {<br />    lover.height <span class="hljs-operator">+=</span> <span class="hljs-number">10</span><br />}<br /><span class="hljs-built_in">print</span>(lovers)</span></pre><p name="be33" id="be33" class="graf graf--p graf-after--pre">但是當我們將 array lovers 印出時，卻發現情人的身高完全沒變。難道是愛情已失去魔力 ?</p><figure name="6540" id="6540" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*IGpkQLkpM0ZnRBONNIPAIA.png" data-width="1680" data-height="218" src="https://cdn-images-1.medium.com/max/800/1*IGpkQLkpM0ZnRBONNIPAIA.png"></figure><p name="2d65" id="2d65" class="graf graf--p graf-after--figure">我們要相信愛情呀，愛情還是有魔力的。問題出在 Lover 是 value type，因此我們在迴圈裡修改的是複製的情人，不是 array 裡的情人。</p><div name="411b" id="411b" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-%E7%9A%84-value-type-%E5%92%8C-reference-type-25f9ae9f54b6" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-%E7%9A%84-value-type-%E5%92%8C-reference-type-25f9ae9f54b6" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-%E7%9A%84-value-type-%E5%92%8C-reference-type-25f9ae9f54b6"><strong class="markup--strong markup--mixtapeEmbed-strong">Swift 的 value type 和 reference type</strong><br><em class="markup--em markup--mixtapeEmbed-em">在 Swift 裡，型別分成 value type 和 reference type。struct，enum 和 tuple 是 value type，而 class，function 和 closure 則是 reference…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swift-%E7%9A%84-value-type-%E5%92%8C-reference-type-25f9ae9f54b6" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d99a1c43a3ed7199255034adb36ba6e6" data-thumbnail-img-id="1*W0rOj2kHnb7mqwC_2bennQ.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*W0rOj2kHnb7mqwC_2bennQ.jpeg);"></a></div><p name="6835" id="6835" class="graf graf--p graf-after--mixtapeEmbed">要修改 array 裡的情人，有以下幾種解法。</p><h3 name="897e" id="897e" class="graf graf--h3 graf-after--p">解法 1</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="bc0d" id="bc0d" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lovers.indices {<br />    lovers[i].height <span class="hljs-operator">+=</span> <span class="hljs-number">10</span><br />}<br /><span class="hljs-built_in">print</span>(lovers)</span></pre><h3 name="783e" id="783e" class="graf graf--h3 graf-after--pre">解法 2</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="959e" id="959e" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">for</span> <span class="hljs-keyword">var</span> (i, lover) <span class="hljs-keyword">in</span> lovers.enumerated() {<br />    lover.height <span class="hljs-operator">+=</span> <span class="hljs-number">10</span><br />    lovers[i] <span class="hljs-operator">=</span> lover<br />}<br /><span class="hljs-built_in">print</span>(lovers)</span></pre><h3 name="3b36" id="3b36" class="graf graf--h3 graf-after--pre">解法 3</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="50e1" id="50e1" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content">lovers <span class="hljs-operator">=</span> lovers.map {<br />    <span class="hljs-keyword">var</span> lover <span class="hljs-operator">=</span> <span class="hljs-variable">$0</span><br />    lover.height <span class="hljs-operator">+=</span> <span class="hljs-number">10</span><br />    <span class="hljs-keyword">return</span> lover<br />}<br /><span class="hljs-built_in">print</span>(lovers)</span></pre><h3 name="95d5" id="95d5" class="graf graf--h3 graf-after--pre">解法 4</h3><p name="36c0" id="36c0" class="graf graf--p graf-after--h3">除了以上三種解法，我們也可以改用 class 定義 Lover，如此情人將變成 reference type，我們將可在 for loop 裡直接修改 array 成員的內容。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3ed5" id="3ed5" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Lover</span> {<br />    <span class="hljs-keyword">var</span> name: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">var</span> weight: <span class="hljs-type">Double</span><br />    <span class="hljs-keyword">var</span> height: <span class="hljs-type">Double</span><br />    <br />    <span class="hljs-keyword">init</span>(<span class="hljs-params">name</span>: <span class="hljs-type">String</span>, <span class="hljs-params">weight</span>: <span class="hljs-type">Double</span>, <span class="hljs-params">height</span>: <span class="hljs-type">Double</span>) {<br />        <span class="hljs-keyword">self</span>.name <span class="hljs-operator">=</span> name<br />        <span class="hljs-keyword">self</span>.weight <span class="hljs-operator">=</span> weight<br />        <span class="hljs-keyword">self</span>.height <span class="hljs-operator">=</span> height<br />    }<br />}<br /><br /><span class="hljs-keyword">var</span> lovers <span class="hljs-operator">=</span> [<br />    <span class="hljs-type">Lover</span>(name: <span class="hljs-string">&quot;Sandy&quot;</span>, weight: <span class="hljs-number">50</span>, height: <span class="hljs-number">160</span>),<br />    <span class="hljs-type">Lover</span>(name: <span class="hljs-string">&quot;Wendy&quot;</span>, weight: <span class="hljs-number">55</span>, height: <span class="hljs-number">155</span>),<br />]<br /><span class="hljs-keyword">for</span> lover <span class="hljs-keyword">in</span> lovers {<br />    lover.height <span class="hljs-operator">+=</span> <span class="hljs-number">10</span><br />}<br /><span class="hljs-keyword">for</span> lover <span class="hljs-keyword">in</span> lovers {<br />    <span class="hljs-built_in">print</span>(lover.name, lover.height)<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/db710bec6d4d"><time class="dt-published" datetime="2022-11-10T06:48:28.717Z">November 10, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BF%AE%E6%94%B9-swift-array-%E6%88%90%E5%93%A1%E7%9A%84%E5%85%A7%E5%AE%B9-db710bec6d4d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

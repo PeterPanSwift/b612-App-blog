@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI ScrollView 的捲動方向</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI ScrollView 的捲動方向</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+預設上下捲動
+</section>
+<section data-field="body" class="e-content">
+<section name="f21e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f922" id="f922" class="graf graf--h3 graf--leading graf--title">SwiftUI ScrollView 的捲動方向</h3><h3 name="95ec" id="95ec" class="graf graf--h3 graf-after--h3">預設上下捲動</h3><p name="0b4e" id="0b4e" class="graf graf--p graf-after--h3">SwiftUI 的 ScrollView 可以上下捲動，也可以左右捲動，若是沒有特別設定，它預設將是上下捲動，此時 ScrollView 裡通常會用 VStack 裝著呈現的內容。</p><pre name="e5aa" id="e5aa" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    let colors = [&quot;blue&quot;, &quot;green&quot;, &quot;pink&quot;, &quot;silver&quot;,<br>    &quot;yellow&quot;, &quot;orange&quot;, &quot;purple&quot;]<br>    var body: some View {<br>        ScrollView {<br>            VStack {<br>                ForEach(colors, id: \.self) { color in<br>                    Image(&quot;\(color)Imac&quot;)<br>                        .resizable()<br>                        .scaledToFit()<br>                        .frame(width: 300, height: 300)<br>                }<br>            }<br>        }<br>    }<br>}</pre></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="b63a" id="b63a" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--pre" style="width: 49.895%;"><img class="graf-image" data-image-id="1*lsgMXqu-UAOCkYYZMpaF0g.png" data-width="550" data-height="1160" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*lsgMXqu-UAOCkYYZMpaF0g.png"></figure><figure name="f3f1" id="f3f1" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50.105%;"><img class="graf-image" data-image-id="1*2CS9jmwpC48wTtHEp2ytcw.png" data-width="542" data-height="1138" src="https://cdn-images-1.medium.com/max/600/1*2CS9jmwpC48wTtHEp2ytcw.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="a3f1" id="a3f1" class="graf graf--h3 graf-after--figure">設定左右或上下捲動</h3><p name="fd94" id="fd94" class="graf graf--p graf-after--h3">我們也可以在生成 ScrollView 時傳入 .horizontal 或 .vertical 控制捲動的方向，比方 horizontal 將讓 ScrollView 水平捲動，此時 ScrollView 裡通常會用 HStack 裝著呈現的內容。</p><pre name="5cbc" id="5cbc" class="graf graf--pre graf-after--p">struct ContentView: View {<br>    let colors = [&quot;blue&quot;, &quot;green&quot;, &quot;pink&quot;, &quot;silver&quot;,<br>    &quot;yellow&quot;, &quot;orange&quot;, &quot;purple&quot;]<br>    var body: some View {<br><strong class="markup--strong markup--pre-strong">        ScrollView(.horizontal) {<br></strong>            HStack {<br>                ForEach(colors, id: \.self) { color in<br>                    Image(&quot;\(color)Imac&quot;)<br>                        .resizable()<br>                        .scaledToFit()<br>                        .frame(width: 300, height: 300)<br>                }<br>            }<br>        }<br>    }<br>}</pre></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="d681" id="d681" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--pre" style="width: 49.48%;"><img class="graf-image" data-image-id="1*_4ySXLi3cIrPlk7LXCgX7g.png" data-width="542" data-height="1138" src="https://cdn-images-1.medium.com/max/600/1*_4ySXLi3cIrPlk7LXCgX7g.png"></figure><figure name="84d7" id="84d7" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50.52%;"><img class="graf-image" data-image-id="1*ZH1jUupKGbeYmczrxqkKpg.png" data-width="550" data-height="1132" src="https://cdn-images-1.medium.com/max/800/1*ZH1jUupKGbeYmczrxqkKpg.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><h3 name="6173" id="6173" class="graf graf--h3 graf-after--figure">設定可以左右 &amp; 上下捲動</h3><p name="125c" id="125c" class="graf graf--p graf-after--h3">我們也可以讓 ScrollView 可以左右 &amp; 上下捲動，只要傳入<code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong"> [.horizontal, .vertical]</strong></code>。比方以下例子，圖片的大小是 1300 * 1300，我們可以左右或上下捲動瀏覽圖片不同區塊的內容。</p><pre name="5665" id="5665" class="graf graf--pre graf-after--p">struct ContentView: View {<br> <br>    var body: some View {<br><strong class="markup--strong markup--pre-strong">        ScrollView([.horizontal, .vertical]) {<br></strong>            Image(&quot;pinkImac&quot;)<br>                .resizable()<br>                .scaledToFit()<br>                .frame(width: 1300, height: 1300)<br>        }<br>    }<br>}</pre><figure name="691a" id="691a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*-Sni5_iENC-HaHu2norj8g.png" data-width="846" data-height="822" src="https://cdn-images-1.medium.com/max/800/1*-Sni5_iENC-HaHu2norj8g.png"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="f1e9" id="f1e9" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 50.5%;"><img class="graf-image" data-image-id="1*Bhr9ulbQcaB0X3kyjeFLdg.png" data-width="514" data-height="1018" src="https://cdn-images-1.medium.com/max/800/1*Bhr9ulbQcaB0X3kyjeFLdg.png"></figure><figure name="b6ce" id="b6ce" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure graf--trailing" style="width: 49.5%;"><img class="graf-image" data-image-id="1*CwUyfnK137B3ApekTEgokA.png" data-width="498" data-height="1006" src="https://cdn-images-1.medium.com/max/600/1*CwUyfnK137B3ApekTEgokA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/68027d8bdf0f"><time class="dt-published" datetime="2021-04-28T15:43:55.412Z">April 28, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-scrollview-%E7%9A%84%E6%8D%B2%E5%8B%95%E6%96%B9%E5%90%91-68027d8bdf0f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

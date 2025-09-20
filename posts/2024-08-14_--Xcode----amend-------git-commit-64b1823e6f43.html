@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 Xcode 使用 amend 修改上次的 git commit</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 Xcode 使用 amend 修改上次的 git commit</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時我們常常透過 git 的 commit 記錄程式的修改，例如下圖的 commit add fox 記錄著彼得潘在 assets 加入可愛的狐狸圖片。
+</section>
+<section data-field="body" class="e-content">
+<section name="8bcb" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d65d" id="d65d" class="graf graf--h3 graf--leading graf--title">從 Xcode 使用 amend 修改上次的 git commit</h3><p name="cfad" id="cfad" class="graf graf--p graf-after--h3">開發 iOS App 時我們常常透過 git 的 commit 記錄程式的修改，例如下圖的 commit add fox 記錄著彼得潘在 assets 加入可愛的狐狸圖片。</p><figure name="869e" id="869e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_JRFz8NdAERqvyNGrraTJA.png" data-width="1866" data-height="494" src="https://cdn-images-1.medium.com/max/800/1*_JRFz8NdAERqvyNGrraTJA.png"></figure><figure name="7272" id="7272" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*ZEbHgtfI1s6dvHxd1fx02g.png" data-width="1876" data-height="482" src="https://cdn-images-1.medium.com/max/800/1*ZEbHgtfI1s6dvHxd1fx02g.png"></figure><p name="fa7d" id="fa7d" class="graf graf--p graf-after--figure">然而有時我們會想修改上次的 commit，比方以下兩種情況。</p><ul class="postList"><li name="e041" id="e041" class="graf graf--li graf-after--p">想修改 commit 的訊息。</li><li name="3de6" id="3de6" class="graf graf--li graf-after--li">發現有忘了修改的地方，想要修改後合併到上次的 commit。</li></ul><p name="32bb" id="32bb" class="graf graf--p graf-after--li">透過 git commit 的 amend 可修改上次的 commit。以下我們以剛剛的 commit add fox 為例說明。(ps: amend 就是修改的意思)</p><p name="60e2" id="60e2" class="graf graf--p graf-after--p">彼得潘後來想到，只在 asset 加入圖片沒有意義，必須在 ContentView 顯示狐狸圖片才能讓小王子開心。</p><figure name="d647" id="d647" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*qijS31gUYfsrbbwf1yekfg.png" data-width="3320" data-height="1686" src="https://cdn-images-1.medium.com/max/800/1*qijS31gUYfsrbbwf1yekfg.png"></figure><p name="e3a1" id="e3a1" class="graf graf--p graf-after--figure">修改 ContentView.swift 後，執行 Xcode Commit 的動作，跳到 Commit 視窗。</p><figure name="a8de" id="a8de" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Kxyflld-jn_KkmJc1wkbAg.png" data-width="3300" data-height="1632" src="https://cdn-images-1.medium.com/max/800/1*Kxyflld-jn_KkmJc1wkbAg.png"></figure><p name="27f5" id="27f5" class="graf graf--p graf-after--figure">打開上方 Amend 的開關，表示我們想修改上次的 commit。</p><figure name="82b7" id="82b7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Xg4PMwion8EAa14rMfL4Ng.png" data-width="2776" data-height="414" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Xg4PMwion8EAa14rMfL4Ng.png"></figure><p name="983d" id="983d" class="graf graf--p graf-after--figure">Amend 後方的 1c9c49c 其實有特殊意義，它代表上次 commit id 的前幾個字元。</p><figure name="643e" id="643e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*h30iPsBbWytWB2lV8N-p_w.png" data-width="1866" data-height="494" src="https://cdn-images-1.medium.com/max/800/1*h30iPsBbWytWB2lV8N-p_w.png"></figure><p name="1c4b" id="1c4b" class="graf graf--p graf-after--figure">當 Amend 開關打開時，下方的輸入框將預設填入上次 commit 的訊息。</p><figure name="dd5f" id="dd5f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gPblbqJj_-HI3WTQ_cYe6A.png" data-width="1682" data-height="212" src="https://cdn-images-1.medium.com/max/800/1*gPblbqJj_-HI3WTQ_cYe6A.png"></figure><p name="8d4e" id="8d4e" class="graf graf--p graf-after--figure">我們可維持原來的訊息，也可以修改訊息。以下彼得潘將訊息改成 add fox and show fox in ContentView，然後再點選 Amend。</p><figure name="c154" id="c154" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*CA3ki9OoSNCJO_wSh9nJtA.png" data-width="1688" data-height="418" src="https://cdn-images-1.medium.com/max/800/1*CA3ki9OoSNCJO_wSh9nJtA.png"></figure><p name="f21c" id="f21c" class="graf graf--p graf-after--figure">點選 Stage All and Commit。</p><figure name="6c63" id="6c63" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bhdy_SX4XqmvXZSFD5Bndg.png" data-width="546" data-height="570" src="https://cdn-images-1.medium.com/max/800/1*bhdy_SX4XqmvXZSFD5Bndg.png"></figure><p name="d718" id="d718" class="graf graf--p graf-after--figure">Yay! 🎉 我們成功修改了 commit，同時更新了 commit 的內容、訊息和 id。</p><figure name="3de4" id="3de4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LL_JL7Fbe6eB4jG1FYFDhQ.png" data-width="2218" data-height="466" src="https://cdn-images-1.medium.com/max/800/1*LL_JL7Fbe6eB4jG1FYFDhQ.png"></figure><p name="bb88" id="bb88" class="graf graf--p graf-after--figure">雙擊上圖的 commit 訊息可進一步查詢 commit 修改的內容。</p><figure name="31cd" id="31cd" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*g_tmUMj0sIWdd6-IzmMEsw.png" data-width="2546" data-height="1928" src="https://cdn-images-1.medium.com/max/800/1*g_tmUMj0sIWdd6-IzmMEsw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/64b1823e6f43"><time class="dt-published" datetime="2024-08-14T07:50:26.520Z">August 14, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-xcode-%E4%BD%BF%E7%94%A8-amend-%E4%BF%AE%E6%94%B9%E4%B8%8A%E6%AC%A1%E7%9A%84-git-commit-64b1823e6f43" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

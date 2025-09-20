@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將 Flutter App 包裝成 APK ，分享安裝到朋友的 Android 手機</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將 Flutter App 包裝成 APK ，分享安裝到朋友的 Android 手機</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們使用 Flutter 開發跨平台 App 時，除了能裝到自己的手機測試，也可以將它包裝成 APK，分享安裝到朋友的 Android 手機。
+</section>
+<section data-field="body" class="e-content">
+<section name="3d1d" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4c96" id="4c96" class="graf graf--h3 graf--leading graf--title">將 Flutter App 包裝成 APK ，分享安裝到朋友的 Android 手機</h3><p name="339f" id="339f" class="graf graf--p graf-after--h3">當我們使用 Flutter 開發跨平台 App 時，除了能裝到自己的手機測試，也可以將它包裝成 APK，分享安裝到朋友的 Android 手機。</p><p name="3ce7" id="3ce7" class="graf graf--p graf-after--p">以下我們一步步介紹分享的步驟。</p><ul class="postList"><li name="eea2" id="eea2" class="graf graf--li graf-after--p">產生 Flutter App 的 APK 檔。</li><li name="408d" id="408d" class="graf graf--li graf-after--li">將 APK 上傳到 Google Drive。</li><li name="c7cd" id="c7cd" class="graf graf--li graf-after--li">請朋友從 Android 手機下載安裝 APK。</li></ul><h3 name="9c9d" id="9c9d" class="graf graf--h3 graf-after--li">產生 Flutter App 的 APK 檔</h3><p name="4d45" id="4d45" class="graf graf--p graf-after--h3">從 IDE 打開 Flutter 專案，在 terminal 輸入以下指令產生 App 的 APK 檔。</p><pre data-code-block-mode="0" spellcheck="false" name="6e00" id="6e00" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">flutter build apk --release</span></pre><p name="a260" id="a260" class="graf graf--p graf-after--pre">在 build/app/outputs/flutter-apk 下產生 app-release.apk。</p><figure name="a763" id="a763" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ll1z4gd9oudPs0CC1PEkZQ.png" data-width="1542" data-height="270" src="https://cdn-images-1.medium.com/max/800/1*Ll1z4gd9oudPs0CC1PEkZQ.png"></figure><figure name="dd5d" id="dd5d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*TaM-8x44LFkElSTv9MjGVA.png" data-width="1152" data-height="882" src="https://cdn-images-1.medium.com/max/800/1*TaM-8x44LFkElSTv9MjGVA.png"></figure><h3 name="1cde" id="1cde" class="graf graf--h3 graf-after--figure">將 APK 上傳到 Google Drive</h3><p name="e3f8" id="e3f8" class="graf graf--p graf-after--h3">將 app-release.apk 上傳到 Google Drive。</p><figure name="40b2" id="40b2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*fTF0LgcZ-GCTV2bZf8WEpg.png" data-width="2010" data-height="658" src="https://cdn-images-1.medium.com/max/800/1*fTF0LgcZ-GCTV2bZf8WEpg.png"></figure><p name="48f6" id="48f6" class="graf graf--p graf-after--figure">從檔案的右鍵選單點選【共用】設定權限。</p><figure name="70ef" id="70ef" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_MAeY3QOfJvkCALaggmyLQ.png" data-width="1886" data-height="586" src="https://cdn-images-1.medium.com/max/800/1*_MAeY3QOfJvkCALaggmyLQ.png"></figure><p name="4dc0" id="4dc0" class="graf graf--p graf-after--figure">將存取權限設為【知道連結的任何人】。</p><figure name="0dd0" id="0dd0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*AIJuHe1Yxnp_ft8neAPrcw.png" data-width="1002" data-height="832" src="https://cdn-images-1.medium.com/max/800/1*AIJuHe1Yxnp_ft8neAPrcw.png"></figure><p name="60d5" id="60d5" class="graf graf--p graf-after--figure">點選【複製連結】，取得 APK 的分享網址。</p><pre data-code-block-mode="0" spellcheck="false" name="4b86" id="4b86" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">https://drive.google.com/file/d/1zUrabPVW3PZ9y5Qrv8qxHuMMj1jAdfNU/view?usp=sharing</span></pre><h3 name="b475" id="b475" class="graf graf--h3 graf-after--pre">請朋友從 Android 手機下載安裝 APK</h3><p name="cba1" id="cba1" class="graf graf--p graf-after--h3">請朋友從 Android 手機打開 APK 的分享網址，點選 Download。</p><figure name="d927" id="d927" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Y6_7sRMa8au1aFCFK87ebQ.png" data-width="1080" data-height="2400" src="https://cdn-images-1.medium.com/max/800/1*Y6_7sRMa8au1aFCFK87ebQ.png"></figure><p name="6855" id="6855" class="graf graf--p graf-after--figure">點選 Download anyway。</p><figure name="4f81" id="4f81" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6Y3b18BsH5nV49w-2n0tpw.png" data-width="1052" data-height="532" src="https://cdn-images-1.medium.com/max/800/1*6Y3b18BsH5nV49w-2n0tpw.png"></figure><p name="4f36" id="4f36" class="graf graf--p graf-after--figure">下載完成後點選開啟。</p><figure name="3800" id="3800" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*d0edK1mx_DbYyeO1XxFaSQ.png" data-width="1057" data-height="631" src="https://cdn-images-1.medium.com/max/800/1*d0edK1mx_DbYyeO1XxFaSQ.png"></figure><p name="6a0f" id="6a0f" class="graf graf--p graf-after--figure">如果之前沒有設定允許安裝不明應用程式，此時會跳出警告，請點選【設定】同意權限。</p><figure name="0484" id="0484" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ngWp5oY5cZv3Jl3UKtccvw.png" data-width="1080" data-height="2400" src="https://cdn-images-1.medium.com/max/800/1*ngWp5oY5cZv3Jl3UKtccvw.png"></figure><p name="3f80" id="3f80" class="graf graf--p graf-after--figure">打開安裝不明應用程式的開關。</p><figure name="db98" id="db98" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lgYm5AlR1Bt3ovNIbOPSOw.png" data-width="1080" data-height="2400" src="https://cdn-images-1.medium.com/max/800/1*lgYm5AlR1Bt3ovNIbOPSOw.png"></figure><p name="6e43" id="6e43" class="graf graf--p graf-after--figure">點選安裝。</p><figure name="5317" id="5317" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eFEZ_Kf1XKKHfMr3NlIK7A.png" data-width="1034" data-height="589" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*eFEZ_Kf1XKKHfMr3NlIK7A.png"></figure><p name="9299" id="9299" class="graf graf--p graf-after--figure">點選開啟。</p><figure name="c4a2" id="c4a2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*X_TjdvTJgBHsh_iZd2Ubdg.png" data-width="1012" data-height="578" src="https://cdn-images-1.medium.com/max/800/1*X_TjdvTJgBHsh_iZd2Ubdg.png"></figure><p name="5045" id="5045" class="graf graf--p graf-after--figure">App 成功運行在 Android 手機 !</p><figure name="6037" id="6037" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KMnVhyepipm-JmBjDJnJog.png" data-width="1080" data-height="2400" src="https://cdn-images-1.medium.com/max/800/1*KMnVhyepipm-JmBjDJnJog.png"></figure><p name="3b57" id="3b57" class="graf graf--p graf-after--figure">桌面上也出現 App 的 icon。</p><figure name="4677" id="4677" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*zPzR6mN_yllQzUb36PJh2A.png" data-width="1080" data-height="2400" src="https://cdn-images-1.medium.com/max/800/1*zPzR6mN_yllQzUb36PJh2A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8930250ab129"><time class="dt-published" datetime="2024-12-15T09:35:41.251Z">December 15, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87-flutter-app-%E5%8C%85%E8%A3%9D%E6%88%90-apk-%E5%88%86%E4%BA%AB%E5%AE%89%E8%A3%9D%E5%88%B0%E6%9C%8B%E5%8F%8B%E7%9A%84-android-%E6%89%8B%E6%A9%9F-8930250ab129" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

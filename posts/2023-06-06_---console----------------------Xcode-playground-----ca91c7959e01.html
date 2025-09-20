@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>搜尋 console  和顯示單行程式多次執行的最後結果 —  Xcode playground 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">搜尋 console  和顯示單行程式多次執行的最後結果 —  Xcode playground 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 15 的 playground 新增了兩個不錯的功能。
+</section>
+<section data-field="body" class="e-content">
+<section name="aad6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7d00" id="7d00" class="graf graf--h3 graf--leading graf--title">搜尋 console 和顯示單行程式多次執行的最後結果 — Xcode playground 新功能</h3><p name="d726" id="d726" class="graf graf--p graf-after--h3">Xcode 15 的 playground 新增了兩個不錯的功能。</p><ul class="postList"><li name="17ea" id="17ea" class="graf graf--li graf-after--p">console 終於可以搜尋印出的內容了。</li><li name="e750" id="e750" class="graf graf--li graf-after--li">當一行的程式執行多次時，sidebar 會聰明地顯示最後一次執行的結果。</li></ul><h3 name="5c7e" id="5c7e" class="graf graf--h3 graf-after--li">console 的搜尋功能</h3><p name="26fc" id="26fc" class="graf graf--p graf-after--h3">以下程式在 console 印出網路抓到的 JSON 內容。</p><figure name="9889" id="9889" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1fNfHGu9PgrAqMIyBpNjAA.png" data-width="1926" data-height="1482" src="https://cdn-images-1.medium.com/max/800/1*1fNfHGu9PgrAqMIyBpNjAA.png"></figure><p name="53e0" id="53e0" class="graf graf--p graf-after--figure">舊版的 Xcode 無法搜尋 console 的內容，在 Xcode 15 按下 cmd + f 即可在 Console 打開我們期待已久的 Find 框框。</p><figure name="ab2c" id="ab2c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jns8eBQWlM2oTHcRDmSZHw.png" data-width="1668" data-height="140" src="https://cdn-images-1.medium.com/max/800/1*jns8eBQWlM2oTHcRDmSZHw.png"></figure><p name="7dfc" id="7dfc" class="graf graf--p graf-after--figure">輸入麋鹿，找到 JSON 裡梁靜茹的麋鹿專輯。</p><figure name="ec99" id="ec99" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*N6re_C1Fl_harU8okyGEMA.png" data-width="1918" data-height="576" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*N6re_C1Fl_harU8okyGEMA.png"></figure><h3 name="0f29" id="0f29" class="graf graf--h3 graf-after--figure">sidebar 會顯示最後一次執行的結果</h3><p name="ad0a" id="ad0a" class="graf graf--p graf-after--h3">當一行的程式執行多次時，sidebar 會聰明地顯示最後一次執行的結果。</p><p name="4e6c" id="4e6c" class="graf graf--p graf-after--p">以下程式是我們熟悉的數字 1 加到 10，sum += i 執行了十次，sidebar 聰明地顯示最後一次運算的結果 55。</p><figure name="813d" id="813d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9oVCWTlpG3BYpxzPWrSReg.png" data-width="806" data-height="228" src="https://cdn-images-1.medium.com/max/800/1*9oVCWTlpG3BYpxzPWrSReg.png"></figure><p name="589d" id="589d" class="graf graf--p graf-after--figure">舊版的 Xcode 在一行程式執行多次時會變成顯示次數，因此 sum += i 會顯示 10 times，必須點選 sidebar 上的 Show Result 或 Quick Look 才能看到結果。</p><figure name="9c07" id="9c07" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ld_LxCOAYssQq6gw72ciDQ.png" data-width="1142" data-height="254" src="https://cdn-images-1.medium.com/max/800/1*ld_LxCOAYssQq6gw72ciDQ.png"></figure><h3 name="b49e" id="b49e" class="graf graf--h3 graf-after--figure">參考連結</h3><div name="c068" id="c068" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://developer.apple.com/documentation/xcode-release-notes/xcode-15-release-notes" data-href="https://developer.apple.com/documentation/xcode-release-notes/xcode-15-release-notes" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/xcode-release-notes/xcode-15-release-notes"><strong class="markup--strong markup--mixtapeEmbed-strong">Xcode 15 Beta Release Notes | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Update your apps to use new features, and test your apps against API changes.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/xcode-release-notes/xcode-15-release-notes" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="62f1809e03faf5e4477e12fe845f284f"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ca91c7959e01"><time class="dt-published" datetime="2023-06-06T13:58:48.327Z">June 6, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%90%9C%E5%B0%8B-console-%E5%92%8C%E9%A1%AF%E7%A4%BA%E5%96%AE%E8%A1%8C%E7%A8%8B%E5%BC%8F%E5%A4%9A%E6%AC%A1%E5%9F%B7%E8%A1%8C%E7%9A%84%E6%9C%80%E5%BE%8C%E7%B5%90%E6%9E%9C-xcode-playground-%E6%96%B0%E5%8A%9F%E8%83%BD-ca91c7959e01" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

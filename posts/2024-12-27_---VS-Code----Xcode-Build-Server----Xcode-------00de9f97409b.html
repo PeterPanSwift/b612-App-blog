@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 VS Code 搭配 Xcode-Build-Server 開發 Xcode 專案的程式</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 VS Code 搭配 Xcode-Build-Server 開發 Xcode 專案的程式</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+VS Code 只要安裝 Swift extension 即可開發 Swift 程式。不過如果使用 VS Code 打開 Xcode 建立的專案資料夾，卻會發現以下問題。
+</section>
+<section data-field="body" class="e-content">
+<section name="ced6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2710" id="2710" class="graf graf--h3 graf--leading graf--title">使用 VS Code 搭配 Xcode-Build-Server 開發 Xcode 專案的程式</h3><p name="a50d" id="a50d" class="graf graf--p graf-after--h3">VS Code 只要安裝 Swift extension 即可開發 Swift 程式。不過如果使用 VS Code 打開 Xcode 建立的專案資料夾，卻會發現以下問題。</p><ul class="postList"><li name="a294" id="a294" class="graf graf--li graf-after--p">偵測錯誤出問題。</li></ul><p name="f476" id="f476" class="graf graf--p graf-after--li">常常無法判斷程式的錯誤，比方以下程式 globe 少了雙引號的簡單錯誤竟然沒偵測到。</p><figure name="0776" id="0776" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1pAuYT5piuP4bK1hzNqRrg.png" data-width="1140" data-height="810" src="https://cdn-images-1.medium.com/max/800/1*1pAuYT5piuP4bK1hzNqRrg.png"></figure><ul class="postList"><li name="d085" id="d085" class="graf graf--li graf-after--figure">自動完成有問題。</li></ul><p name="dea2" id="dea2" class="graf graf--p graf-after--li">常常無法提示可輸入的選項，比方以下程式輸入 .ba 時並沒有出現任何相關的選項。</p><figure name="8ebd" id="8ebd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Pw6SN4agC5kk2ssN9xo9bQ.png" data-width="1142" data-height="858" src="https://cdn-images-1.medium.com/max/800/1*Pw6SN4agC5kk2ssN9xo9bQ.png"></figure><p name="ba19" id="ba19" class="graf graf--p graf-after--figure">以上問題可透過 Xcode-Build-Server 解決。它將幫我們在專案資料夾下生成 buildServer.json，讓 VS Code 能正確解析和識別 Xcode 專案的程式。</p><div name="e3f7" id="e3f7" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/SolaWing/xcode-build-server" data-href="https://github.com/SolaWing/xcode-build-server" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/SolaWing/xcode-build-server"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub — SolaWing/xcode-build-server: a build server protocol implementation for integrate xcode…</strong><br><em class="markup--em markup--mixtapeEmbed-em">a build server protocol implementation for integrate xcode with sourcekit-lsp — SolaWing/xcode-build-server</em>github.com</a><a href="https://github.com/SolaWing/xcode-build-server" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="2671bfa4ea59503a9988bfb4198c8429" data-thumbnail-img-id="0*6j_BGNtEHVbnKzJd" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*6j_BGNtEHVbnKzJd);"></a></div><p name="e21e" id="e21e" class="graf graf--p graf-after--mixtapeEmbed">在 Terminal 輸入以下指令安裝 Xcode-Build-Server。</p><pre data-code-block-mode="0" spellcheck="false" name="4d0a" id="4d0a" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">brew install xcode-build-server</span></pre><p name="935a" id="935a" class="graf graf--p graf-after--pre">ps: 如果無法執行 brew 指令，請先安裝 Homebrew。</p><div name="bc4f" id="bc4f" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://brew.sh/" data-href="https://brew.sh/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://brew.sh/"><strong class="markup--strong markup--mixtapeEmbed-strong">Homebrew</strong><br><em class="markup--em markup--mixtapeEmbed-em">The Missing Package Manager for macOS (or Linux).</em>brew.sh</a><a href="https://brew.sh/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="016a96dcaef6c4d6414647eed749f6b7" data-thumbnail-img-id="0*CJroSkRlDm4o_lsM" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*CJroSkRlDm4o_lsM);"></a></div><p name="fc50" id="fc50" class="graf graf--p graf-after--mixtapeEmbed">用 VS Code 打開專案資料夾，在它的 Terminal 依照以下格式輸入指令可生成 buildServer.json。</p><pre data-code-block-mode="0" spellcheck="false" name="49b2" id="49b2" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"># *.xcworkspace or *.xcodeproj should be unique. can be omit and will auto choose the unique workspace or project.<br>xcode-build-server config -workspace *.xcworkspace -scheme &lt;XXX&gt; <br>xcode-build-server config -project *.xcodeproj -scheme &lt;XXX&gt; </span></pre><p name="48e6" id="48e6" class="graf graf--p graf-after--pre">比方我們的專案檔是 Demo.xcodeproj，輸入以下指令將生成 buildServer.json。</p><pre data-code-block-mode="0" spellcheck="false" name="a8f1" id="a8f1" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">xcode-build-server config -project Demo.xcodeproj -scheme Demo</span></pre><p name="c6cc" id="c6cc" class="graf graf--p graf-after--pre">結果。</p><pre data-code-block-mode="0" spellcheck="false" name="3b4c" id="3b4c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">find root: /Users/shih-yingpan/Library/Developer/Xcode/DerivedData/Demo-egmvhhfzunqgifbpmitcjzxeaxfh<br>updated buildServer.json</span></pre><p name="e8a7" id="e8a7" class="graf graf--p graf-after--pre">有了 buildServer.json，重新用 VS Code 打開專案後，偵錯和自動完成變正常了 !</p><p name="724d" id="724d" class="graf graf--p graf-after--p">成功偵測少了一個雙引號的錯誤。</p><figure name="d23f" id="d23f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*IPL9lP5z5ENyF1YQGatrPg.png" data-width="1136" data-height="758" src="https://cdn-images-1.medium.com/max/800/1*IPL9lP5z5ENyF1YQGatrPg.png"></figure><p name="9bc5" id="9bc5" class="graf graf--p graf-after--figure">輸入 .bac 成功出現相關的一系列選項。</p><figure name="77e5" id="77e5" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*esEpiUaFbrjH6KZFzwdGtA.png" data-width="1484" data-height="768" src="https://cdn-images-1.medium.com/max/800/1*esEpiUaFbrjH6KZFzwdGtA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/00de9f97409b"><time class="dt-published" datetime="2024-12-27T08:52:14.150Z">December 27, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-vs-code-%E6%90%AD%E9%85%8D-xcode-build-server-%E9%96%8B%E7%99%BC-xcode-%E5%B0%88%E6%A1%88%E7%9A%84%E7%A8%8B%E5%BC%8F-00de9f97409b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

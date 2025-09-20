@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>解決 macOS 中文無法選字的問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">解決 macOS 中文無法選字的問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+macOS 偶爾會遇到中文無法選字的問題，尤其當安裝的是 beta 版的 macOS 時，更容易遇到此問題。
+</section>
+<section data-field="body" class="e-content">
+<section name="1f5e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="99e4" id="99e4" class="graf graf--h3 graf--leading graf--title">解決 macOS 中文無法選字的問題</h3><p name="fdf6" id="fdf6" class="graf graf--p graf-after--h3">macOS 偶爾會遇到中文無法選字的問題，尤其當安裝的是 beta 版的 macOS 時，更容易遇到此問題。</p><blockquote name="954c" id="954c" class="graf graf--blockquote graf-after--p">解法</blockquote><p name="4903" id="4903" class="graf graf--p graf-after--blockquote">打開 Terminal App，輸入以下指令即可解決此問題。</p><pre name="4777" id="4777" class="graf graf--pre graf-after--p">killall TCIM_Extension</pre><p name="0b5b" id="0b5b" class="graf graf--p graf-after--pre">ps: 可先輸入 ps aux | grep Input，查詢目前正在執行的輸入法程式。</p><figure name="e1bf" id="e1bf" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kOAt6dmkJGPE3exLXnFvwg.png" data-width="2678" data-height="656" src="https://cdn-images-1.medium.com/max/800/1*kOAt6dmkJGPE3exLXnFvwg.png"></figure><p name="60ef" id="60ef" class="graf graf--p graf-after--figure">參考</p><div name="6165" id="6165" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://zlargon.github.io/blog/MAC/others/selection-box-of-chinese-input-method-is-missing/" data-href="https://zlargon.github.io/blog/MAC/others/selection-box-of-chinese-input-method-is-missing/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://zlargon.github.io/blog/MAC/others/selection-box-of-chinese-input-method-is-missing/"><strong class="markup--strong markup--mixtapeEmbed-strong">中文輸入法選字框 無法顯示</strong><br><em class="markup--em markup--mixtapeEmbed-em">自從我的 MAC OSX 升級到 10.11 之後，就常常會遇到中文輸入法選字框消失的情形只能靠重開機來修復，還滿煩的 我後來有拍影片傳到 Youtube，也有在 Apple 社群發問，終於遇到好心人回覆了ya~ 終於不用再一直重開機了…</em>zlargon.github.io</a><a href="https://zlargon.github.io/blog/MAC/others/selection-box-of-chinese-input-method-is-missing/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="b76b6457b688dae9242c8a348f5038d0" data-thumbnail-img-id="0*JEtKb1bAZEZi7Yxy" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*JEtKb1bAZEZi7Yxy);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/63191bde981b"><time class="dt-published" datetime="2018-07-03T04:20:57.893Z">July 3, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A7%A3%E6%B1%BA-macos-%E4%B8%AD%E6%96%87%E7%84%A1%E6%B3%95%E9%81%B8%E5%AD%97%E7%9A%84%E5%95%8F%E9%A1%8C-63191bde981b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

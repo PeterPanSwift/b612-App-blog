@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>移除 SwiftUI Text 顯示數字時添加的逗號</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">移除 SwiftUI Text 顯示數字時添加的逗號</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們利用 SwiftUI Text 顯示數字時，它會貼心地幫我們做些微調，比方每三位數字加個逗號。
+</section>
+<section data-field="body" class="e-content">
+<section name="1f03" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4ea7" id="4ea7" class="graf graf--h3 graf--leading graf--title">移除 SwiftUI Text 顯示數字時添加的逗號</h3><figure name="28df" id="28df" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*T-dY9kv4bX-6nKTPkt8ieg.png" data-width="1720" data-height="626" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*T-dY9kv4bX-6nKTPkt8ieg.png"></figure><p name="70c4" id="70c4" class="graf graf--p graf-after--figure">當我們利用 SwiftUI Text 顯示數字時，它會貼心地幫我們做些微調，比方每三位數字加個逗號。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="f4a4" id="f4a4" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> price <span class="hljs-operator">=</span> <span class="hljs-number">1000</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;價錢:<span class="hljs-subst">\(price)</span>&quot;</span>)<br />    }<br />}</span></pre><figure name="3077" id="3077" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*7h__Fmx8O9bxtT-mMT5Kfg.png" data-width="241" data-height="61" src="https://cdn-images-1.medium.com/max/800/1*7h__Fmx8O9bxtT-mMT5Kfg.png"></figure><p name="abe0" id="abe0" class="graf graf--p graf-after--figure">在某些情況，比方顯示金額時，每三位數字加逗號的確能讓使用者更容易看出實際的價錢。</p><p name="0600" id="0600" class="graf graf--p graf-after--p">然而並非所有數字都適合加上逗號，比方以下例子的電影年份加上逗號就滿怪的。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="c4dc" id="c4dc" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> name <span class="hljs-operator">=</span> <span class="hljs-string">&quot;小丑：雙重瘋狂&quot;</span><br />    <span class="hljs-keyword">let</span> year <span class="hljs-operator">=</span> <span class="hljs-number">2024</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Text</span>(name)<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;上映年份:<span class="hljs-subst">\(year)</span>&quot;</span>)<br />        }<br />    }<br />}</span></pre><figure name="23c7" id="23c7" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*_0ZN4ou7tXMBBUux6ku_YQ.png" data-width="355" data-height="128" src="https://cdn-images-1.medium.com/max/800/1*_0ZN4ou7tXMBBUux6ku_YQ.png"></figure><p name="2e31" id="2e31" class="graf graf--p graf-after--figure">想讓 Text 顯示數字時不加逗號有許多方法，以下我們示範三種方法。</p><figure name="a2d4" id="a2d4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*S49UsG-_IRKi_xu-bP5frQ.png" data-width="355" data-height="128" src="https://cdn-images-1.medium.com/max/800/1*S49UsG-_IRKi_xu-bP5frQ.png"></figure><ul class="postList"><li name="9f6c" id="9f6c" class="graf graf--li graf-after--figure">方法 1。</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="227f" id="227f" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;上映年份:<span class="hljs-subst">\(String(year))</span>&quot;</span>)</span></pre><ul class="postList"><li name="c136" id="c136" class="graf graf--li graf-after--pre">方法 2。</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="deb2" id="deb2" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;上映年份:<span class="hljs-subst">\(year.formatted(.number.grouping(.never)))</span>&quot;</span>)</span></pre><ul class="postList"><li name="a47e" id="a47e" class="graf graf--li graf-after--pre">方法 3。</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="51dc" id="51dc" class="graf graf--pre graf-after--li graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-type">Text</span>(<span class="hljs-string">&quot;上映年份:<span class="hljs-subst">\(year, format: .number.grouping(.never))</span>)&quot;</span>)</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d4afe89a45c5"><time class="dt-published" datetime="2024-09-23T10:12:48.536Z">September 23, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%A7%BB%E9%99%A4-swiftui-text-%E9%A1%AF%E7%A4%BA%E6%95%B8%E5%AD%97%E6%99%82%E6%B7%BB%E5%8A%A0%E7%9A%84%E9%80%97%E8%99%9F-d4afe89a45c5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

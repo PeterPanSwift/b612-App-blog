@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 BlueStacks 執行 Android App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 BlueStacks 執行 Android App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 Android App 時，我們通常會用 Android Studio 內建的 Android emulator 測試 App，不過若想執行 App 時有較好的效能跟體驗，使用 BlueStacks 這類專門玩遊戲、跑 Android App 的第三方 emulator…
+</section>
+<section data-field="body" class="e-content">
+<section name="2160" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5361" id="5361" class="graf graf--h3 graf--leading graf--title">使用 BlueStacks 執行 Android App</h3><p name="c20a" id="c20a" class="graf graf--p graf-after--h3">開發 Android App 時，我們通常會用 Android Studio 內建的 Android emulator 測試 App，不過若想執行 App 時有較好的效能跟體驗，使用 BlueStacks 這類專門玩遊戲、跑 Android App 的第三方 emulator 會更適合。</p><p name="0bd2" id="0bd2" class="graf graf--p graf-after--p">以下彼得潘以 Flutter 開發的 Android App 為例，一步步介紹使用 BlueStacks 執行 Android App。</p><p name="ca7b" id="ca7b" class="graf graf--p graf-after--p">連到網站下載 Mac 或 Windows 版的 BlueStacks。</p><div name="03cf" id="03cf" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://www.bluestacks.com/" data-href="https://www.bluestacks.com/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://www.bluestacks.com/"><strong class="markup--strong markup--mixtapeEmbed-strong">BlueStacks: Play Games on PC &amp; Mac, Android Emulator and Cloud Gaming Platform</strong><br><em class="markup--em markup--mixtapeEmbed-em">World&#39;s Fastest, Lightest Android Emulator and cloud gaming platform. Play mobile games on Windows &amp; Mac. Perfect for…</em>www.bluestacks.com</a><a href="https://www.bluestacks.com/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="65456cbf44270eefb1245dcde3d8c2d7" data-thumbnail-img-id="0*TqgaKzoP9hfAGusm" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*TqgaKzoP9hfAGusm);"></a></div><figure name="41c5" id="41c5" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*gBn78mT10OySGfxe0-5l-Q.png" data-width="3190" data-height="992" src="https://cdn-images-1.medium.com/max/800/1*gBn78mT10OySGfxe0-5l-Q.png"></figure><p name="148d" id="148d" class="graf graf--p graf-after--figure">安裝 BlueStacks。</p><figure name="bc0b" id="bc0b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*t5Xcgd72HZJ6yHx1m3ZWNA.png" data-width="1240" data-height="896" src="https://cdn-images-1.medium.com/max/800/1*t5Xcgd72HZJ6yHx1m3ZWNA.png"></figure><p name="7385" id="7385" class="graf graf--p graf-after--figure">在 Flutter 專案的 Terminal 輸入指令，將 Flutter App 編譯成 apk。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="bash" name="fb40" id="fb40" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">flutter build apk</span></pre><p name="a8b4" id="a8b4" class="graf graf--p graf-after--pre">Font asset “MaterialIcons-Regular.otf” was tree-shaken, reducing it from 1645184 to 1368 bytes (99.9% reduction). Tree-shaking can be disabled by providing the — no-tree-shake-icons flag when building your app.<br>Running Gradle task ‘assembleRelease’… 31.9s<br>✓ Built build/app/outputs/flutter-apk/app-release.apk (19.2MB)</p><p name="8cbd" id="8cbd" class="graf graf--p graf-after--p">生成 app-release.apk。</p><figure name="971a" id="971a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZeGZ3ja2D05znHH1_kAOAg.png" data-width="990" data-height="450" src="https://cdn-images-1.medium.com/max/800/1*ZeGZ3ja2D05znHH1_kAOAg.png"></figure><p name="af83" id="af83" class="graf graf--p graf-after--figure">打開 BlueStacks App，將 apk 拖曳到 BlueStacks 的桌面。</p><figure name="86fd" id="86fd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zwJbO2MKpHT93g058XDJOA.png" data-width="3262" data-height="1872" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*zwJbO2MKpHT93g058XDJOA.png"></figure><p name="92b7" id="92b7" class="graf graf--p graf-after--figure">執行 App，點選全螢幕按鈕讓 App 全螢幕顯示。</p><figure name="a27b" id="a27b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Rkc-U-yJwIg27VPEvf6qKw.png" data-width="194" data-height="456" src="https://cdn-images-1.medium.com/max/800/1*Rkc-U-yJwIg27VPEvf6qKw.png"></figure><figure name="b6cd" id="b6cd" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*thlpkWx_lp6JkTAGskCf7w.png" data-width="3840" data-height="2160" src="https://cdn-images-1.medium.com/max/800/1*thlpkWx_lp6JkTAGskCf7w.png"></figure><p name="f071" id="f071" class="graf graf--p graf-after--figure">點選下圖紅色框框的按鈕可切換 App 以直向 / 橫向顯示。</p><figure name="4720" id="4720" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Ey7iKUDlX6u_VePITX-cGw.png" data-width="160" data-height="492" src="https://cdn-images-1.medium.com/max/800/1*Ey7iKUDlX6u_VePITX-cGw.png"></figure><p name="c651" id="c651" class="graf graf--p graf-after--figure">以直向顯示的 App。</p><figure name="f4b3" id="f4b3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*djwgnkuPcgMOAYr_MaanvQ.png" data-width="3840" data-height="2160" src="https://cdn-images-1.medium.com/max/800/1*djwgnkuPcgMOAYr_MaanvQ.png"></figure><p name="20ce" id="20ce" class="graf graf--p graf-after--figure">我們也可以直接從 IDE 將 App 裝到 BlueStacks。</p><p name="12c3" id="12c3" class="graf graf--p graf-after--p">首先進入 BlueStacks 的設定頁面。</p><figure name="d50b" id="d50b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hNDnoITuyWMGfhvfAkwGFg.png" data-width="152" data-height="352" src="https://cdn-images-1.medium.com/max/800/1*hNDnoITuyWMGfhvfAkwGFg.png"></figure><p name="2ef4" id="2ef4" class="graf graf--p graf-after--figure">切換到 Advanced 分頁，將 ADB 的開關打開。</p><figure name="7cb6" id="7cb6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*oBGVtoop5zlXtsm6E0dvVg.png" data-width="1680" data-height="1864" src="https://cdn-images-1.medium.com/max/800/1*oBGVtoop5zlXtsm6E0dvVg.png"></figure><p name="a950" id="a950" class="graf graf--p graf-after--figure">在 IDE 的 Terminal 輸入指令連接 BlueStacks。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="bash" name="6fde" id="6fde" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">adb connect 127.0.0.1:5555</span></pre><p name="5769" id="5769" class="graf graf--p graf-after--pre">IDE 的裝置名稱顯示 sdk gphone64 arm64(android-arm64 emulator)。</p><figure name="8ebb" id="8ebb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6B3dbS38XIKmc-HvjanFIQ.png" data-width="952" data-height="114" src="https://cdn-images-1.medium.com/max/800/1*6B3dbS38XIKmc-HvjanFIQ.png"></figure><p name="7a5c" id="7a5c" class="graf graf--p graf-after--figure">從 IDE 執行 App，App 成功從 BlueStacks 啟動 !</p><figure name="67da" id="67da" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*2qMAdOTlkhHxq9_97LWrSw.png" data-width="1082" data-height="1870" src="https://cdn-images-1.medium.com/max/800/1*2qMAdOTlkhHxq9_97LWrSw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/2df239f7a508"><time class="dt-published" datetime="2025-06-28T08:12:07.698Z">June 28, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-bluestacks-%E5%9F%B7%E8%A1%8C-android-app-2df239f7a508" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

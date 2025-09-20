@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>generic type 由 &lt; &gt; 或推理得知</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">generic type 由 &lt; &gt; 或推理得知</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+&lt;&gt;
+</section>
+<section data-field="body" class="e-content">
+<section name="0abc" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="475f" id="475f" class="graf graf--h3 graf--leading graf--title">generic type 由 &lt; &gt; 或推理得知</h3><p name="b7de" id="b7de" class="graf graf--p graf-after--h3">&lt;&gt;</p><pre name="58f7" id="58f7" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">class</strong> Dog&lt;T&gt; {</pre><pre name="eda0" id="eda0" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">var</strong> name: T?</pre><pre name="3a1e" id="3a1e" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">init</strong>(name: T) {</pre><pre name="a091" id="a091" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">self</strong>.name = name</pre><pre name="c4db" id="c4db" class="graf graf--pre graf-after--pre">}</pre><pre name="f7b6" id="f7b6" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="5fd6" id="5fd6" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">init</strong>() {</pre><pre name="856d" id="856d" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="789c" id="789c" class="graf graf--pre graf-after--pre">}</pre><pre name="8d28" id="8d28" class="graf graf--pre graf-after--pre">}</pre><pre name="a5e6" id="a5e6" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="865d" id="865d" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">let</strong> a = Dog&lt;String&gt;()</pre><pre name="9254" id="9254" class="graf graf--pre graf--empty graf-after--pre"><br></pre><p name="4471" id="4471" class="graf graf--p graf-after--pre">推理</p><pre name="8422" id="8422" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">class</strong> Dog&lt;T&gt; {</pre><pre name="e412" id="e412" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">var</strong> name: T?</pre><pre name="e299" id="e299" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">init</strong>(name: T) {</pre><pre name="efc4" id="efc4" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">self</strong>.name = name</pre><pre name="18a4" id="18a4" class="graf graf--pre graf-after--pre">}</pre><pre name="70e6" id="70e6" class="graf graf--pre graf-after--pre">}</pre><pre name="acd0" id="acd0" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="83ef" id="83ef" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">let</strong> a = Dog(name: 3)</pre><pre name="9024" id="9024" class="graf graf--pre graf--empty graf-after--pre"><br></pre><p name="2bac" id="2bac" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/6df7dd081e9">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

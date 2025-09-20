@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Swift iOS App 程式的命名習慣</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Swift iOS App 程式的命名習慣</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 Swift iOS App 時，如何為變數，型別，function 命名，一直是件令人頭大的事。
+</section>
+<section data-field="body" class="e-content">
+<section name="d312" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="58cf" id="58cf" class="graf graf--h3 graf--leading graf--title">Swift iOS App 程式的命名習慣</h3><p name="25c9" id="25c9" class="graf graf--p graf-after--h3">開發 Swift iOS App 時，如何為變數，型別，function 命名，一直是件令人頭大的事。</p><p name="a69c" id="a69c" class="graf graf--p graf-after--p">由於現在 Xcode 擁有強大的自動完成功能，所以我們大可放心地使用完整的單字命名，甚至組合多個單字，讓人一眼就能猜出名稱的意思，不用擔心名字太長。</p><p name="ee0e" id="ee0e" class="graf graf--p graf-after--p">當名稱由多個單字組成時，習慣上以所謂的 Camel case 方法命名，也就是每個單字的開頭大寫，第一個單字例外，比方 resultAnswerLabel。此方法的好處在於我們容易看出名稱是由哪幾個單字組成，方便明白名稱的意思。第一個單字小寫的原因 ，則是因為習慣上只有型別名稱的開頭才大寫。( camel 的意思是駱駝，當單字的字首大寫，多個單字組合起來時，每個單字看起來就像駱駝的駝峰，十分可愛 )</p><figure name="b51f" id="b51f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LsgqFqx2RULRXmpWy4G8yw.jpeg" data-width="1520" data-height="530" src="https://cdn-images-1.medium.com/max/800/1*LsgqFqx2RULRXmpWy4G8yw.jpeg"></figure><p name="8220" id="8220" class="graf graf--p graf-after--figure">然而，因個人的習慣，英文程度和想像力，每個人想的名字往往不盡相同，除非對方是你百年難得一見的知己，你們倆常常心有靈犀。不過如果你想參考的話，倒是可以學習 Apple 官方電子書 App Development with Swift 裡範例的命名方式。畢竟 Swift 是 Apple 發明的，Apple 大大說的一定是對的 !</p><div name="3309" id="3309" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" data-href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11"><strong class="markup--strong markup--mixtapeEmbed-strong">App Development with Swift by Apple Education on iBooks</strong><br><em class="markup--em markup--mixtapeEmbed-em">Read a free sample or buy App Development with Swift by Apple Education. You can read this book with iBooks on your…</em>itunes.apple.com</a><a href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7657203ffb30b7a4c37ce544f41bec87" data-thumbnail-img-id="0*V8GFRZn7XqfPR8Ze." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*V8GFRZn7XqfPR8Ze.);"></a></div><p name="c882" id="c882" class="graf graf--p graf-after--mixtapeEmbed">依此書的範例，我們大致可以整理出以下規則:</p><ol class="postList"><li name="4346" id="4346" class="graf graf--li graf-after--p">當類別繼承 UIViewController 時，類別名以 ViewController 結尾，比方 QuestionViewController。</li><li name="c6cd" id="c6cd" class="graf graf--li graf-after--li">當類別繼承 UITableViewController 時，類別名以 TableViewController 結尾，比方 BookTableViewController，BookFormTableViewController。</li><li name="a68a" id="a68a" class="graf graf--li graf-after--li">畫面上的 UI 元件，其變數名稱結尾和型別有關，比方 UILabel 型別的 questionLabel，UISlider 型別的 rangedSlider。</li><li name="4883" id="4883" class="graf graf--li graf-after--li">畫面上的 UI 元件，如果是 outlet collection，結尾加 s，比方 letterButtons。</li><li name="a591" id="a591" class="graf graf--li graf-after--li">設定畫面元件內容的程式習慣另外定義為 fucntion，並以 update 開頭。比方 controller 型別的 function updateUI( )，updateView( )，cell 型別的 function update(with book: Book)。</li><li name="6011" id="6011" class="graf graf--li graf-after--li">Array 型別的變數名加 s，比方 questions。</li><li name="b276" id="b276" class="graf graf--li graf-after--li graf--trailing">UI 元件事件觸發的 function 名和事件有關，比方點擊按鈕觸發的 function singleAnswerButtonPressed(_ sender: UIButton)。</li></ol></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/a3bcc9ef8fd2"><time class="dt-published" datetime="2017-07-08T15:48:10.686Z">July 8, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swift-ios-app-%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%91%BD%E5%90%8D%E7%BF%92%E6%85%A3-a3bcc9ef8fd2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

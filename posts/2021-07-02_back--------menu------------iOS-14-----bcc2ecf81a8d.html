@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>back 按鈕長按顯示 menu，返回之前的任一頁 — iOS 14 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">back 按鈕長按顯示 menu，返回之前的任一頁 — iOS 14 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 iOS 14 開始，我們可以在 navigation bar 的 back button 長按，它將顯示之前頁面的 menu 清單，方便我們點選返回任何一頁，再也不用辛苦地按很多次 back 了。
+</section>
+<section data-field="body" class="e-content">
+<section name="e484" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d992" id="d992" class="graf graf--h3 graf--leading graf--title">back 按鈕長按顯示 menu，返回之前的任一頁 — iOS 14 新功能</h3><p name="de1a" id="de1a" class="graf graf--p graf-after--h3">從 iOS 14 開始，我們可以在 navigation bar 的 back button 長按，它將顯示之前頁面的 menu 清單，方便我們點選返回任何一頁，再也不用辛苦地按很多次 back 了。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="3a18" id="3a18" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*9_BiCiTOcto5MjkKKQKw_w.png" data-width="1170" data-height="2532" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*9_BiCiTOcto5MjkKKQKw_w.png"></figure><figure name="58fc" id="58fc" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*a4YeQhhYAYoBQHjit_4J3A.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/600/1*a4YeQhhYAYoBQHjit_4J3A.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="714b" id="714b" class="graf graf--p graf-after--figure">開發 App 時，只要使用 SwiftUI 的 NavigationStack 或 UIKit 的 UINavigationController 即有此功能。</p><h3 name="5187" id="5187" class="graf graf--h3 graf-after--p">SwiftUI</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="2fe7" id="2fe7" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">FirstView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">NavigationStack</span> {<br />            <span class="hljs-type">NavigationLink</span> {<br />                <span class="hljs-type">SecondView</span>()<br />            } label: {<br />                <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;1.circle&quot;</span>)<br />                    .resizable()<br />                    .scaledToFit()<br />            }<br />            .navigationTitle(<span class="hljs-string">&quot;1&quot;</span>)<br />        }<br />    }<br />}<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">SecondView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">NavigationLink</span> {<br />            <span class="hljs-type">ThirdView</span>()<br />        } label: {<br />            <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;2.circle&quot;</span>)<br />                .resizable()<br />                .scaledToFit()<br />        }<br />        .navigationTitle(<span class="hljs-string">&quot;2&quot;</span>)<br />    }<br />}<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ThirdView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;3.circle&quot;</span>)<br />            .resizable()<br />            .scaledToFit()<br />            .navigationTitle(<span class="hljs-string">&quot;3&quot;</span>)<br />    }<br />}</span></pre><figure name="8a52" id="8a52" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*0GMcLbIxzLHI9Zo47Wo56A.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/800/1*0GMcLbIxzLHI9Zo47Wo56A.png"></figure><h3 name="769a" id="769a" class="graf graf--h3 graf-after--figure">UIKit</h3><figure name="50ee" id="50ee" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*m_c9Y2zrMvVC7qgpSVTkyw.png" data-width="1984" data-height="918" src="https://cdn-images-1.medium.com/max/800/1*m_c9Y2zrMvVC7qgpSVTkyw.png"></figure><figure name="d191" id="d191" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*qZUL3q2zu8USW8G_1Pc2sg.png" data-width="1170" data-height="2532" src="https://cdn-images-1.medium.com/max/800/1*qZUL3q2zu8USW8G_1Pc2sg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/bcc2ecf81a8d"><time class="dt-published" datetime="2021-07-02T06:03:54.445Z">July 2, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/back-%E6%8C%89%E9%88%95%E9%95%B7%E6%8C%89%E9%A1%AF%E7%A4%BA-menu-%E8%BF%94%E5%9B%9E%E4%B9%8B%E5%89%8D%E7%9A%84%E4%BB%BB%E4%B8%80%E9%A0%81-ios-14-%E6%96%B0%E5%8A%9F%E8%83%BD-bcc2ecf81a8d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

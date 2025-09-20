@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI modifier 的順序(order)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI modifier 的順序(order)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 SwiftUI App 時，我們常串接多個 modifier 調整元件的樣式跟功能。大部分的 modifier 可以用任意順序串接，然而某些 modifier 卻要特別注意順序問題，以下我們分幾種情況討論。
+</section>
+<section data-field="body" class="e-content">
+<section name="81c9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="742d" id="742d" class="graf graf--h3 graf--leading graf--title">SwiftUI modifier 的順序(order)</h3><p name="13c7" id="13c7" class="graf graf--p graf-after--h3">開發 SwiftUI App 時，我們常串接多個 modifier 調整元件的樣式跟功能。大部分的 modifier 可以用任意順序串接，然而某些 modifier 卻要特別注意順序問題，以下我們分幾種情況討論。</p><ul class="postList"><li name="cb60" id="cb60" class="graf graf--li graf-after--p">modifier 的順序不影響結果。</li><li name="790a" id="790a" class="graf graf--li graf-after--li">modifier 的順序影響結果。</li><li name="0c5b" id="0c5b" class="graf graf--li graf-after--li">modifier 的順序影響可呼叫的 modifier。</li></ul><h3 name="fdc6" id="fdc6" class="graf graf--h3 graf-after--li">modifier 的順序不影響結果</h3><p name="b868" id="b868" class="graf graf--p graf-after--h3">有些 modifier 的順序不影響結果，比方以下的 foregroundStyle ＆ background。</p><p name="7b50" id="7b50" class="graf graf--p graf-after--p">先設定前景再設定背景，或是先設定背景再設定前景，結果都是黃色背景的藍色文字。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="b08d" id="b08d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Peter Pan&quot;</span>)<br />            .foregroundStyle(.blue)<br />            .background(.yellow)<br />    }<br />}</span></pre><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="82b9" id="82b9" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Peter Pan&quot;</span>)<br />            .background(.yellow)<br />            .foregroundStyle(.blue)<br />    }<br />}</span></pre><figure name="5189" id="5189" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*7LGENFAmYclfUTYx5W8YSg.png" data-width="220" data-height="61" src="https://cdn-images-1.medium.com/max/800/1*7LGENFAmYclfUTYx5W8YSg.png"></figure><h3 name="4abb" id="4abb" class="graf graf--h3 graf-after--figure">modifier 的順序影響結果</h3><p name="fcf3" id="fcf3" class="graf graf--p graf-after--h3">有些 modifier 的順序會影響結果，比方以下例子的 padding &amp; background。</p><p name="8766" id="8766" class="graf graf--p graf-after--p">先呼叫 padding 加上邊距，再呼叫 background 設定背景，因此文字跟邊框間的邊距也會填滿黃色背景。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3824" id="3824" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Peter Pan&quot;</span>)<br />            .padding(<span class="hljs-number">20</span>)<br />            .background(.yellow)<br />            .border(.black, width: <span class="hljs-number">5</span>)<br />    }<br />}</span></pre><figure name="008d" id="008d" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*Wtr-lkQ9Jo2-DoFj6ICZlQ.png" data-width="340" data-height="181" src="https://cdn-images-1.medium.com/max/800/1*Wtr-lkQ9Jo2-DoFj6ICZlQ.png"></figure><p name="49e1" id="49e1" class="graf graf--p graf-after--figure">先呼叫 background 設定背景，再呼叫 padding 加上邊距，因此文字跟邊框間的邊距沒有填色。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="83d0" id="83d0" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Peter Pan&quot;</span>)<br />            .background(.yellow)<br />            .padding(<span class="hljs-number">20</span>)<br />            .border(.black, width: <span class="hljs-number">5</span>)<br />    }<br />}</span></pre><figure name="7287" id="7287" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*XnzT42W3F8jT7dDA877oJQ.png" data-width="340" data-height="181" src="https://cdn-images-1.medium.com/max/800/1*XnzT42W3F8jT7dDA877oJQ.png"></figure><h3 name="c9d8" id="c9d8" class="graf graf--h3 graf-after--figure">modifier 的順序影響可呼叫的 modifier</h3><p name="8039" id="8039" class="graf graf--p graf-after--h3">大部分的 modifier 可從任何 view 呼叫，不過有些 modifier 只能從特定型別呼叫，因此順序將造成某些 modifier 不能呼叫。</p><p name="1b12" id="1b12" class="graf graf--p graf-after--p">比方 resizable 只能從 Image 型別的資料呼叫，因此以下寫法是合法的。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4cbb" id="4cbb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(systemName: <span class="hljs-string">&quot;swift&quot;</span>)<br />            .resizable()<br />            .scaledToFit()<br />    }<br />}</span></pre><figure name="3db4" id="3db4" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*9bQs5S2wscvdluBKSZ5V2w.png" data-width="1207" data-height="1077" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*9bQs5S2wscvdluBKSZ5V2w.png"></figure><p name="1f69" id="1f69" class="graf graf--p graf-after--figure">然而以下寫法會出現錯誤 <code class="markup--code markup--p-code">Value of type &#39;some View&#39; has no member &#39;resizable&#39;</code>。</p><figure name="9660" id="9660" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0xGHctHUcS-F8HZHNdJazQ.png" data-width="1144" data-height="526" src="https://cdn-images-1.medium.com/max/800/1*0xGHctHUcS-F8HZHNdJazQ.png"></figure><p name="4bee" id="4bee" class="graf graf--p graf-after--figure">scaledToFit 回傳的資料型別是 some View，不再是 Image，因此無法呼叫專屬於 Image 的 resizable。</p><figure name="62ad" id="62ad" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0xGHctHUcS-F8HZHNdJazQ.png" data-width="1144" data-height="526" src="https://cdn-images-1.medium.com/max/800/1*0xGHctHUcS-F8HZHNdJazQ.png"></figure><div name="3ee6" id="3ee6" class="graf graf--mixtapeEmbed graf-after--figure graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/modifier-%E9%A0%86%E5%BA%8F%E9%80%A0%E6%88%90%E7%9A%84-value-of-type-some-view-has-no-member-49b9a9a231e" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/modifier-%E9%A0%86%E5%BA%8F%E9%80%A0%E6%88%90%E7%9A%84-value-of-type-some-view-has-no-member-49b9a9a231e" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/modifier-%E9%A0%86%E5%BA%8F%E9%80%A0%E6%88%90%E7%9A%84-value-of-type-some-view-has-no-member-49b9a9a231e"><strong class="markup--strong markup--mixtapeEmbed-strong">modifier 順序造成的 Value of type ‘some View’ has no member</strong><br><em class="markup--em markup--mixtapeEmbed-em">透過串聯 SwiftUI 大量豐富的 modifier，我們可以快速客製 UI 元件的樣式，比方以下程式將 Agatha Christie 的電影尼羅河謀殺案海報裁切成圓形搭配黑色背景。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/modifier-%E9%A0%86%E5%BA%8F%E9%80%A0%E6%88%90%E7%9A%84-value-of-type-some-view-has-no-member-49b9a9a231e" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f3d12187f9547513806ab19c041a9445" data-thumbnail-img-id="1*quhI5GKtRa8GXBI_vyjuKA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*quhI5GKtRa8GXBI_vyjuKA.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/7ea253870b8d"><time class="dt-published" datetime="2025-03-01T16:48:28.628Z">March 1, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-modifier-%E7%9A%84%E9%A0%86%E5%BA%8F-order-7ea253870b8d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

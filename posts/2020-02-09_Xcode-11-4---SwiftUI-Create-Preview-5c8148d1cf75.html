@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Xcode 11.4 的 SwiftUI Create Preview</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Xcode 11.4 的 SwiftUI Create Preview</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 11.4 多了一個方便的 SwiftUI Create Preview 功能，幫我們自動生成顯示 preview 畫面的型別。接下來就讓我們看看如何操作吧。
+</section>
+<section data-field="body" class="e-content">
+<section name="8663" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="650a" id="650a" class="graf graf--h3 graf--leading graf--title">Xcode 11.4 的 SwiftUI Create Preview</h3><p name="9b27" id="9b27" class="graf graf--p graf-after--h3">Xcode 11.4 多了一個方便的 SwiftUI Create Preview 功能，幫我們自動生成顯示 preview 畫面的型別。接下來就讓我們看看如何操作吧。</p><h3 name="b434" id="b434" class="graf graf--h3 graf-after--p"><strong class="markup--strong markup--h3-strong">定義包裝 WKWebView 的型別 WebView</strong></h3><pre name="be8c" id="be8c" class="graf graf--pre graf-after--h3">import SwiftUI<br>import WebKit</pre><pre name="2171" id="2171" class="graf graf--pre graf-after--pre">struct WebView: UIViewRepresentable {<br>    typealias UIViewType = WKWebView<br>    <br>    let urlString: String<br>    <br>    func makeUIView(context: UIViewRepresentableContext&lt;WebView&gt;) -&gt; WKWebView {<br>        let webView = WKWebView()<br>        if let url = URL(string: urlString) {<br>            let request = URLRequest(url: url)<br>            webView.load(request)<br>        }<br>        <br>        return webView<br>    }<br>    <br>    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext&lt;WebView&gt;) {<br>    }<br>}</pre><h3 name="74fc" id="74fc" class="graf graf--h3 graf-after--pre"><strong class="markup--strong markup--h3-strong">點選 button Create Preview</strong></h3><p name="3dac" id="3dac" class="graf graf--p graf-after--h3">由於尚未定義顯示 preview 畫面的型別，所以我們無法在右邊看到 preview 畫面。此時 Xcode 貼心地提供 button Create Preview，點選它即可自動生成顯示 preview 畫面的型別。</p></div><div class="section-inner sectionLayout--outsetColumn"><figure name="4d1e" id="4d1e" class="graf graf--figure graf--layoutOutsetCenter graf-after--p"><img class="graf-image" data-image-id="1*ucYZ32j5N5AGZIxKAkWkaw.jpeg" data-width="2426" data-height="1328" data-is-featured="true" src="https://cdn-images-1.medium.com/max/1200/1*ucYZ32j5N5AGZIxKAkWkaw.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><figure name="de0e" id="de0e" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*UnyOFUA7sIGCYpBHYkTQVg.jpeg" data-width="906" data-height="300" src="https://cdn-images-1.medium.com/max/800/1*UnyOFUA7sIGCYpBHYkTQVg.jpeg"></figure><h3 name="7557" id="7557" class="graf graf--h3 graf-after--figure">在變數 previews 的 { } 裡回傳 WebView</h3><p name="d256" id="d256" class="graf graf--p graf-after--h3">Create Preview 會幫我們定義型別 WebView_Previews，不過它沒那麼聰明，它不明白我們想顯示什麼，所以我們得自己產生 WebView。</p><pre name="9f39" id="9f39" class="graf graf--pre graf-after--p">struct WebView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        <strong class="markup--strong markup--pre-strong">WebView(urlString: &quot;</strong><a href="https://medium.com/@apppeterpan" data-href="https://medium.com/@apppeterpan" class="markup--anchor markup--pre-anchor" rel="nofollow" target="_blank"><strong class="markup--strong markup--pre-strong">https://medium.com/@apppeterpan</strong></a><strong class="markup--strong markup--pre-strong">&quot;)<br>    }</strong><br>}</pre><p name="b744" id="b744" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">結果</strong></p><figure name="b3f9" id="b3f9" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*EeLkcFmcWgRYNIUB_zn4UA.jpeg" data-width="670" data-height="1094" src="https://cdn-images-1.medium.com/max/800/1*EeLkcFmcWgRYNIUB_zn4UA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5c8148d1cf75"><time class="dt-published" datetime="2020-02-09T15:28:16.827Z">February 9, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/xcode-11-4-%E7%9A%84-swiftui-create-preview-5c8148d1cf75" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

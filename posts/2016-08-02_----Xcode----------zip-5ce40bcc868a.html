@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何將 Xcode 專案資料夾壓縮成 zip</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何將 Xcode 專案資料夾壓縮成 zip</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+常常有學生問彼得潘問題，需要將專案程式碼傳給彼得潘參考。除了分享 Github 連結，另一個較簡單的方法是將專案資料夾壓縮成 zip 後傳給彼得潘，步驟如下。
+</section>
+<section data-field="body" class="e-content">
+<section name="8c17" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a5c6" id="a5c6" class="graf graf--h3 graf--leading graf--title">如何將 Xcode 專案資料夾壓縮成 zip</h3><p name="4d70" id="4d70" class="graf graf--p graf-after--h3">常常有學生問彼得潘問題，需要將專案程式碼傳給彼得潘參考。除了分享 Github 連結，另一個較簡單的方法是將專案資料夾壓縮成 zip 後傳給彼得潘，步驟如下。</p><h3 name="209d" id="209d" class="graf graf--h3 graf-after--p">找到專案的資料夾。</h3><p name="fb2a" id="fb2a" class="graf graf--p graf-after--h3">從 Xcode 的 Project navigator 找到專案的藍色 icon，在上面按右鍵顯示選單，然後點選 Show in Finder。</p><figure name="f31d" id="f31d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*k11CNe2prDHODU_NCM0PAQ.png" data-width="942" data-height="244" src="https://cdn-images-1.medium.com/max/800/1*k11CNe2prDHODU_NCM0PAQ.png"></figure><p name="ac58" id="ac58" class="graf graf--p graf-after--figure">此時 Mac 的 Finder 視窗將顯示專案檔。</p><figure name="4cd3" id="4cd3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*G-LHwTCgHWqxNWtMou_QLQ.png" data-width="1838" data-height="502" src="https://cdn-images-1.medium.com/max/800/1*G-LHwTCgHWqxNWtMou_QLQ.png"></figure><h3 name="1b2b" id="1b2b" class="graf graf--h3 graf-after--figure">將 Finder 的顯示改成直欄</h3><p name="dfd8" id="dfd8" class="graf graf--p graf-after--h3">點選下圖紅色框框的按鈕。</p><figure name="0c94" id="0c94" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_YnNfDWloA_CU6f68xA0jQ.png" data-width="1838" data-height="502" src="https://cdn-images-1.medium.com/max/800/1*_YnNfDWloA_CU6f68xA0jQ.png"></figure><p name="1239" id="1239" class="graf graf--p graf-after--figure">選擇直欄。</p><figure name="a654" id="a654" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*21LUZhahqSvdMNtSYlFhzA.png" data-width="204" data-height="246" src="https://cdn-images-1.medium.com/max/800/1*21LUZhahqSvdMNtSYlFhzA.png"></figure><p name="8c7c" id="8c7c" class="graf graf--p graf-after--figure">此時 Finder 將同時顯示專案檔上一層的清單。如下圖所示，Demo.xcodeproj 上一層的 Demo 為專案的資料夾，它將是我們準備壓縮成 zip 的對象。</p><figure name="b5d8" id="b5d8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TH3MlXTDfBHgOWos7oT1wg.png" data-width="1312" data-height="494" src="https://cdn-images-1.medium.com/max/800/1*TH3MlXTDfBHgOWos7oT1wg.png"></figure><h3 name="5d1c" id="5d1c" class="graf graf--h3 graf-after--figure">將專案的資料夾壓縮成 zip</h3><p name="0588" id="0588" class="graf graf--p graf-after--h3">點選專案的資料夾，從右鍵選單點選<code class="markup--code markup--p-code">壓縮</code>，壓縮產生 zip 檔。</p><figure name="d2d9" id="d2d9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*XyNarkYBReGao4PO2AaI6A.png" data-width="704" data-height="338" src="https://cdn-images-1.medium.com/max/800/1*XyNarkYBReGao4PO2AaI6A.png"></figure><figure name="302b" id="302b" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*EXDZv7CtkXCq09FH7rGn-Q.png" data-width="490" data-height="130" src="https://cdn-images-1.medium.com/max/800/1*EXDZv7CtkXCq09FH7rGn-Q.png"></figure><h3 name="2985" id="2985" class="graf graf--h3 graf-after--figure">請 AI 將 Xcode 專案程式壓縮成 zip</h3><div name="0902" id="0902" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AB%8B-ai-%E5%B0%87%E5%B0%88%E6%A1%88%E7%A8%8B%E5%BC%8F%E5%A3%93%E7%B8%AE%E6%88%90-zip-%E5%92%8C%E5%AF%84%E4%BF%A1%E7%B5%A6%E5%BD%BC%E5%BE%97%E6%BD%98-108f8524527a" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AB%8B-ai-%E5%B0%87%E5%B0%88%E6%A1%88%E7%A8%8B%E5%BC%8F%E5%A3%93%E7%B8%AE%E6%88%90-zip-%E5%92%8C%E5%AF%84%E4%BF%A1%E7%B5%A6%E5%BD%BC%E5%BE%97%E6%BD%98-108f8524527a" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AB%8B-ai-%E5%B0%87%E5%B0%88%E6%A1%88%E7%A8%8B%E5%BC%8F%E5%A3%93%E7%B8%AE%E6%88%90-zip-%E5%92%8C%E5%AF%84%E4%BF%A1%E7%B5%A6%E5%BD%BC%E5%BE%97%E6%BD%98-108f8524527a"><strong class="markup--strong markup--mixtapeEmbed-strong">請 AI 將 Xcode 專案程式壓縮成 zip</strong><br><em class="markup--em markup--mixtapeEmbed-em">常常有同學問彼得潘問題，需要將專案程式傳給彼得潘參考。除了分享 Github 連結，另一個較簡單的方法是將專案資料夾壓縮成 zip 後傳給彼得潘。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AB%8B-ai-%E5%B0%87%E5%B0%88%E6%A1%88%E7%A8%8B%E5%BC%8F%E5%A3%93%E7%B8%AE%E6%88%90-zip-%E5%92%8C%E5%AF%84%E4%BF%A1%E7%B5%A6%E5%BD%BC%E5%BE%97%E6%BD%98-108f8524527a" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="b8259b4bdf195358262613c1c27f6720" data-thumbnail-img-id="1*_L_wcJ5LQ_Fn3C1SLrj9hw.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*_L_wcJ5LQ_Fn3C1SLrj9hw.png);"></a></div><h3 name="5a7f" id="5a7f" class="graf graf--h3 graf-after--mixtapeEmbed">利用 Xcode behavior 一鍵生成專案的 zip 檔</h3><div name="231f" id="231f" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-xcode-behavior-%E4%B8%80%E9%8D%B5%E7%94%9F%E6%88%90%E5%B0%88%E6%A1%88%E7%9A%84-zip-%E6%AA%94-72ec75dc928e" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-xcode-behavior-%E4%B8%80%E9%8D%B5%E7%94%9F%E6%88%90%E5%B0%88%E6%A1%88%E7%9A%84-zip-%E6%AA%94-72ec75dc928e" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-xcode-behavior-%E4%B8%80%E9%8D%B5%E7%94%9F%E6%88%90%E5%B0%88%E6%A1%88%E7%9A%84-zip-%E6%AA%94-72ec75dc928e"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 Xcode behavior 一鍵生成專案的 zip 檔</strong><br><em class="markup--em markup--mixtapeEmbed-em">常常有學生問彼得潘問題，需要將專案程式碼傳給彼得潘參考。除了 Github 連結分享外，另一個比較簡單的方法是直接將專案資料夾壓縮成 zip 後傳給彼得潘。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-xcode-behavior-%E4%B8%80%E9%8D%B5%E7%94%9F%E6%88%90%E5%B0%88%E6%A1%88%E7%9A%84-zip-%E6%AA%94-72ec75dc928e" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="2bc80681eb45c73befbfd70bd7f85d56" data-thumbnail-img-id="1*JCc-0j1bKDGg4DfD3JXJFA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*JCc-0j1bKDGg4DfD3JXJFA.jpeg);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5ce40bcc868a"><time class="dt-published" datetime="2016-08-02T07:38:34.271Z">August 2, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%A6%82%E4%BD%95%E5%B0%87-xcode-%E5%B0%88%E6%A1%88%E5%A3%93%E7%B8%AE%E6%88%90-zip-5ce40bcc868a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

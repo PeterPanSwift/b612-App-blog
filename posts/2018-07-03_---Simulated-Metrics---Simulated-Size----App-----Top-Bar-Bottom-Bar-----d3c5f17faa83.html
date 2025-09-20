@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Simulated Metrics 和 Simulated Size 模擬 App 畫面的 Top Bar，Bottom Bar 和大小</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Simulated Metrics 和 Simulated Size 模擬 App 畫面的 Top Bar，Bottom Bar 和大小</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在 Interface Builder 製作 App 畫面時，我們可利用 Simulated Metrics 模擬畫面有 Top Bar 和 Bottom Bar ，或是利用 Simulated Size 模擬特定尺寸的樣子，幫助我們更方便地設計…
+</section>
+<section data-field="body" class="e-content">
+<section name="9efd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9ef0" id="9ef0" class="graf graf--h3 graf--leading graf--title">利用 Simulated Metrics 和 Simulated Size 模擬 App 畫面的 Top Bar，Bottom Bar 和大小</h3><p name="7730" id="7730" class="graf graf--p graf-after--h3">在 Interface Builder 製作 App 畫面時，我們可利用 Simulated Metrics 模擬畫面有 Top Bar 和 Bottom Bar ，或是利用 Simulated Size 模擬特定尺寸的樣子，幫助我們更方便地設計 App。接下來，就讓我們實際操作看看吧。</p><blockquote name="9435" id="9435" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">模擬 Top Bar &amp; Bottom Bar</strong></blockquote><p name="8c69" id="8c69" class="graf graf--p graf-after--blockquote">1 點選 Storyboard 裡的 controller 後，可在它的 Attributes inspector 頁面看到 Simulated Metrics 區塊。</p><figure name="ec73" id="ec73" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tGx5EjCc5Kxy3HEnnkyjow.png" data-width="538" data-height="282" src="https://cdn-images-1.medium.com/max/800/1*tGx5EjCc5Kxy3HEnnkyjow.png"></figure><figure name="d247" id="d247" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*8JGyG_JxVAdzq2v18BJ34A.png" data-width="524" data-height="316" src="https://cdn-images-1.medium.com/max/800/1*8JGyG_JxVAdzq2v18BJ34A.png"></figure><p name="6307" id="6307" class="graf graf--p graf-after--figure">Simulated Metrics 有三個欄位，Size，Top Bar 和 Bottom Bar。預設它們都是 Inferred，表示 controller 的畫面將經由推理決定大小和是否有 Top Bar &amp; Bottom Bar。比方如下圖所示，當有 navigation controller 時，聰明的 Xcode 將認為上方應長出 navigation bar。</p><figure name="67f8" id="67f8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NLWn_mshvOCo-a-MkXq-0w.png" data-width="1014" data-height="740" src="https://cdn-images-1.medium.com/max/800/1*NLWn_mshvOCo-a-MkXq-0w.png"></figure><p name="b5f0" id="b5f0" class="graf graf--p graf-after--figure">2 將 Top Bar 設為 Translucent Navigation Bar。</p><p name="0206" id="0206" class="graf graf--p graf-after--p">倘若 navigation controller 是從程式生成，再跟 storyboard 的 controller 串接，要如何在 Interface Builder 的 controller 畫面看到 navigation bar 呢 ?</p><p name="dc30" id="dc30" class="graf graf--p graf-after--p">此時 Top Bar 欄位就派上用場了，只要將它設為 Translucent Navigation Bar，即可模擬上方有 bar 的模樣。</p><figure name="3099" id="3099" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*QSDz5CDBcZBKk9FBeu8Y-g.png" data-width="622" data-height="468" src="https://cdn-images-1.medium.com/max/800/1*QSDz5CDBcZBKk9FBeu8Y-g.png"></figure><figure name="d80a" id="d80a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*PUDQc9tvHzVK1hpiRphjZg.png" data-width="518" data-height="318" src="https://cdn-images-1.medium.com/max/800/1*PUDQc9tvHzVK1hpiRphjZg.png"></figure><figure name="b1f4" id="b1f4" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*RCm8id0s1eSS-6r--d0Ncg.png" data-width="434" data-height="744" src="https://cdn-images-1.medium.com/max/800/1*RCm8id0s1eSS-6r--d0Ncg.png"></figure><p name="0508" id="0508" class="graf graf--p graf-after--figure">ps: 請記得 Simulated Metrics 只是模擬， App 執行時想看到 navigation bar 還是需要搭配 navigation controller。</p><p name="7e33" id="7e33" class="graf graf--p graf-after--p">2 將 Bottom Bar 設為 Translucent Tab Bar 可模擬下方有 tab bar 的模樣。</p><figure name="5387" id="5387" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tc1OGbIvmJUO1hntD4Klzw.png" data-width="504" data-height="458" src="https://cdn-images-1.medium.com/max/800/1*tc1OGbIvmJUO1hntD4Klzw.png"></figure><figure name="1cb0" id="1cb0" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Or9DcdsCntpK47SDHrGVHw.png" data-width="528" data-height="308" src="https://cdn-images-1.medium.com/max/800/1*Or9DcdsCntpK47SDHrGVHw.png"></figure><figure name="81cb" id="81cb" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*L-O2fz2wJWAXwUwgglP0YQ.png" data-width="424" data-height="744" src="https://cdn-images-1.medium.com/max/800/1*L-O2fz2wJWAXwUwgglP0YQ.png"></figure><blockquote name="0ee0" id="0ee0" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">調整畫面的大小</strong></blockquote><p name="b136" id="b136" class="graf graf--p graf-after--blockquote">Interface Builder 顯示的畫面預設將為 iPhone 的大小，可由下方的 device configuration pane 設定。</p><figure name="d3da" id="d3da" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tY5PDZHtbXpE1B0MZA3fZg.png" data-width="804" data-height="264" src="https://cdn-images-1.medium.com/max/800/1*tY5PDZHtbXpE1B0MZA3fZg.png"></figure><p name="ed97" id="ed97" class="graf graf--p graf-after--figure">然而當我們設計比 iPhone 螢幕大的畫面時，卻會有一些缺點。比方如下圖所示，我們想在內容尺寸超過螢幕的 scroll view 放很多東西，但因為 Interface Builder 只會笨笨地顯示 iPhone 的大小，而且無法捲動 scroll view，所以我們在設計畫面時有點難操作，也無法一眼看出 scroll view 的內容。</p><figure name="9eb4" id="9eb4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*l4VjgtwIidxEbovUrX6SwA.png" data-width="1258" data-height="1012" src="https://cdn-images-1.medium.com/max/800/1*l4VjgtwIidxEbovUrX6SwA.png"></figure><p name="88d6" id="88d6" class="graf graf--p graf-after--figure">因此，我們希望能調整 controller 畫面顯示的大小，看到 scroll view 的完整內容。</p><p name="6ca2" id="6ca2" class="graf graf--p graf-after--p">點選 controller 後，可從 Size inspector 的 Simulated Size 調整畫面的大小。預設 Fixed 表示不能更改。</p><figure name="5294" id="5294" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZCXEPfLc3L0BDS_jT7nmQQ.png" data-width="526" data-height="194" src="https://cdn-images-1.medium.com/max/800/1*ZCXEPfLc3L0BDS_jT7nmQQ.png"></figure><p name="34b1" id="34b1" class="graf graf--p graf-after--figure">只要將它改為 Freeform，即可指定任意的寬高。</p><figure name="6ccd" id="6ccd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9n4p90drSp7dyuiHIJl8lQ.png" data-width="514" data-height="244" src="https://cdn-images-1.medium.com/max/800/1*9n4p90drSp7dyuiHIJl8lQ.png"></figure><p name="61c5" id="61c5" class="graf graf--p graf-after--figure">指定寬高後，終於可以看到剛剛 scroll view 裡完整的內容。</p><figure name="bef7" id="bef7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*55xQIaYRnO2_ufeXN2PUAA.png" data-width="746" data-height="892" src="https://cdn-images-1.medium.com/max/800/1*55xQIaYRnO2_ufeXN2PUAA.png"></figure><p name="198d" id="198d" class="graf graf--p graf-after--figure">ps: 請記得 Simulated Size 只是模擬，所以並不影響 App 執行時真正的大小。</p><blockquote name="afc4" id="afc4" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">xib 的操作</strong></blockquote><p name="25c0" id="25c0" class="graf graf--p graf-after--blockquote">如果不是在 storyboard ，而是在 controller 的 xib 設計畫面，也一樣可以模擬 Top Bar &amp; Bottom Bar。比方 App 執行時，下方將有 Tab bar，因此希望在設計時能看到 Tab bar。</p><p name="1877" id="1877" class="graf graf--p graf-after--p">點選 xib 裡的 view 後，可在它的 Attributes inspector 頁面看到 Simulated Metrics 區塊。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="3e3b" id="3e3b" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 42.577%;"><img class="graf-image" data-image-id="1*P1AafKhSRVVVHRg0BHcydA.png" data-width="568" data-height="396" src="https://cdn-images-1.medium.com/max/600/1*P1AafKhSRVVVHRg0BHcydA.png"></figure><figure name="4d18" id="4d18" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 57.423%;"><img class="graf-image" data-image-id="1*ugqlYRgXQiwMteVXwSmj9A.png" data-width="526" data-height="272" src="https://cdn-images-1.medium.com/max/800/1*ugqlYRgXQiwMteVXwSmj9A.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="7e52" id="7e52" class="graf graf--p graf-after--figure">若想調整畫面的大小，則需先將 Size 改為 Freeform，然後再於 Size inspector 頁面修改 Width &amp; Height。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="4bb6" id="4bb6" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 54.382%;"><img class="graf-image" data-image-id="1*VN1qv2OkDwsKI6EVPTxJkQ.png" data-width="510" data-height="256" src="https://cdn-images-1.medium.com/max/800/1*VN1qv2OkDwsKI6EVPTxJkQ.png"></figure><figure name="4624" id="4624" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 45.618%;"><img class="graf-image" data-image-id="1*mZwrYcf735wQHWaeOY0sXg.png" data-width="518" data-height="310" src="https://cdn-images-1.medium.com/max/600/1*mZwrYcf735wQHWaeOY0sXg.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><figure name="21b1" id="21b1" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*uCaSgcda3y-ZQiM4drbzmA.png" data-width="1358" data-height="952" src="https://cdn-images-1.medium.com/max/800/1*uCaSgcda3y-ZQiM4drbzmA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d3c5f17faa83"><time class="dt-published" datetime="2018-07-03T07:14:13.931Z">July 3, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-simulated-metrics-%E5%92%8C-simulated-size-%E6%A8%A1%E6%93%AC-app-%E7%95%AB%E9%9D%A2%E7%9A%84-top-bar-bottom-bar-%E5%92%8C%E5%A4%A7%E5%B0%8F-d3c5f17faa83" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

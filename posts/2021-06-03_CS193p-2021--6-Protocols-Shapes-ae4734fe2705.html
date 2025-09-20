@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>CS193p 2021 #6 Protocols Shapes</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">CS193p 2021 #6 Protocols Shapes</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+影片
+</section>
+<section data-field="body" class="e-content">
+<section name="6095" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e25f" id="e25f" class="graf graf--h3 graf--leading graf--title">CS193p 2021 #6 Protocols Shapes</h3><h3 name="ccbd" id="ccbd" class="graf graf--h3 graf-after--h3">影片</h3><figure name="2253" id="2253" class="graf graf--figure graf--iframe graf-after--h3"><iframe src="https://www.youtube.com/embed/Og9gXZpbKWo" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><h3 name="c5f9" id="c5f9" class="graf graf--h3 graf-after--figure">課程範例</h3><h4 name="e904" id="e904" class="graf graf--h4 graf-after--h3">Pie.swift</h4><pre name="1045" id="1045" class="graf graf--pre graf-after--h4">import SwiftUI</pre><pre name="36f5" id="36f5" class="graf graf--pre graf-after--pre">struct Pie: Shape {<br>    var startAngle: Angle<br>    var endAngel: Angle<br>    var clockwise = false <br>    <br>    // <a href="https://zh.wikipedia.org/zh-tw/" data-href="https://zh.wikipedia.org/zh-tw/" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://zh.wikipedia.org/zh-tw/</a>三角函数<br>    func path(in rect: CGRect) -&gt; Path {</pre><pre name="606a" id="606a" class="graf graf--pre graf-after--pre">let center = CGPoint(x: rect.midX, y: rect.midY)<br>        print(&quot;path&quot;, rect, center)</pre><pre name="72c8" id="72c8" class="graf graf--pre graf-after--pre">let radius = min(rect.width, rect.height) / 2<br>        let start = CGPoint(x: center.x + radius * CGFloat(cos(startAngle.radians)), y: center.y + radius * CGFloat(sin(startAngle.radians)))<br>        var path = Path()<br>        path.move(to: center)<br>        path.addLine(to: start)<br>        path.addArc(center: center, radius: radius, startAngle: startAngle, endAngle: endAngel, clockwise: !clockwise)<br>        path.addLine(to: center)<br>        return path<br>    }<br>    <br>}</pre><h4 name="e10b" id="e10b" class="graf graf--h4 graf-after--pre">AspectVGrid.swift</h4><pre name="7245" id="7245" class="graf graf--pre graf-after--h4">import SwiftUI</pre><pre name="3c4d" id="3c4d" class="graf graf--pre graf-after--pre">struct AspectVGrid&lt;Item, ItemView&gt;: View where ItemView: View, Item: Identifiable {<br>    <br>  <br>    var items: [Item]<br>    var aspectRatio: CGFloat<br>    var content: (Item) -&gt; ItemView<br>    <br>    init(items: [Item], aspectRatio: CGFloat, <a href="http://twitter.com/ViewBuilder" data-href="http://twitter.com/ViewBuilder" class="markup--anchor markup--pre-anchor" title="Twitter profile for @ViewBuilder" rel="noopener" target="_blank">@ViewBuilder</a> content: <a href="http://twitter.com/escaping" data-href="http://twitter.com/escaping" class="markup--anchor markup--pre-anchor" title="Twitter profile for @escaping" rel="noopener" target="_blank">@escaping</a> (Item) -&gt; ItemView) {<br>        self.items = items<br>        self.aspectRatio = aspectRatio<br>        self.content = content<br>    }<br>    <br>    <br>    var body: some View {<br>        GeometryReader { geometry in<br>           <br>            VStack {<br>                let width = widthThatFits(itemCount: items.count, in: geometry.size, itemAspectRatio: aspectRatio)<br>                LazyVGrid(columns: [adaptiveGridItem(width: width)], content: {<br>                    ForEach(items) { item in<br>                        content(item).aspectRatio(aspectRatio, contentMode: .fit)<br>                    }<br>                    <br>                })<br>                Spacer(minLength: 0)<br>            }<br>        }<br>    }<br>    <br>    private func adaptiveGridItem(width: CGFloat) -&gt; GridItem {<br>        GridItem(.adaptive(minimum: width), spacing: 0)<br>    }<br>    <br>    private func widthThatFits(itemCount: Int, in size: CGSize, itemAspectRatio: CGFloat) -&gt; CGFloat {<br>        var columnCount = 1<br>        var rowCount = itemCount<br>        repeat {<br>            let itemWidth = size.width / CGFloat(columnCount)<br>            let itemHeight = itemWidth / itemAspectRatio<br>            if CGFloat(rowCount) * itemHeight &lt; size.height {<br>                break<br>            }<br>            columnCount += 1<br>            rowCount = (itemCount + (columnCount - 1)) / columnCount<br>            //rowCount = (itemCount - 1) / columnCount + 1<br>        } while columnCount &lt; itemCount<br>        <br>        if columnCount &gt; itemCount {<br>            columnCount = itemCount<br>        }<br>        return floor(size.width / CGFloat(columnCount))<br>    }<br>}</pre><h4 name="9f18" id="9f18" class="graf graf--h4 graf-after--pre">EmojiMemoryGameView.swift</h4><pre name="de5c" id="de5c" class="graf graf--pre graf-after--h4">import SwiftUI</pre><pre name="5103" id="5103" class="graf graf--pre graf-after--pre">struct EmojiMemoryGameView: View {<br>    @ObservedObject var game: EmojiMemoryGame<br>    <br>    <br>    var body: some View {<br>        <br>        AspectVGrid(items: game.cards, aspectRatio: 2/3) { card in<br>            if card.isMatched, !card.isFaceUp {<br>                Rectangle()<br>                    .opacity(0)<br>            } else {<br>                CardView(card: card)<br>                    .padding(4)<br>                    .onTapGesture {<br>                        game.choose(card)<br>                    }<br>            }<br>            <br>           <br>        }<br>        .foregroundColor(.red)<br>        .padding(.horizontal)<br>    }<br>    <br>}</pre><pre name="fd28" id="fd28" class="graf graf--pre graf-after--pre">struct CardView: View {<br>    let card: EmojiMemoryGame.Card<br>    <br>    <br>    var body: some View {<br>        GeometryReader { geometry in<br>            ZStack {<br>                <br>                let shape = RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)<br>                if card.isFaceUp {<br>                    shape<br>                        .fill()<br>                        .foregroundColor(.white)<br>                    shape<br>                        .strokeBorder(lineWidth: DrawingConstants.lineWidth)<br>                    Pie(startAngle: .degrees(0-90), endAngel: .degrees(110-90))<br>                        .padding(5)<br>                        .opacity(0.5)<br>                    Text(card.content)<br>                        .font(font(in: geometry.size))<br>                } else {<br>                    shape<br>                        .fill()<br>                }<br>            }<br>        }<br>    }<br>    <br>    private func font(in size: CGSize) -&gt; Font {<br>        .system(size: min(size.width, size.height) * DrawingConstants.fontScale )<br>    }<br>    <br>    private struct DrawingConstants {<br>        static let cornerRadius: CGFloat = 10<br>        static let lineWidth: CGFloat = 3<br>        static let fontScale: CGFloat = 0.7<br>    }<br>}</pre><pre name="231c" id="231c" class="graf graf--pre graf-after--pre">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        let game = EmojiMemoryGame()<br>        game.choose(game.cards.first!)<br>        return EmojiMemoryGameView(game: game)<br>            .preferredColorScheme(.dark)<br>       <br>    }<br>}</pre><h4 name="e77f" id="e77f" class="graf graf--h4 graf-after--pre">MemoryGame.swift，EmojiMemoryGame.swift，MemorizeApp.swift</h4><p name="88a6" id="88a6" class="graf graf--p graf-after--h4">參考 #5</p><div name="9a92" id="9a92" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://apppeterpan.medium.com/cs193p-2021-5-properties-layout-viewbuilder-90661dced33a" data-href="https://apppeterpan.medium.com/cs193p-2021-5-properties-layout-viewbuilder-90661dced33a" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://apppeterpan.medium.com/cs193p-2021-5-properties-layout-viewbuilder-90661dced33a"><strong class="markup--strong markup--mixtapeEmbed-strong">CS193p 2021 #5 Properties Layout ViewBuilder</strong><br><em class="markup--em markup--mixtapeEmbed-em">影片</em>apppeterpan.medium.com</a><a href="https://apppeterpan.medium.com/cs193p-2021-5-properties-layout-viewbuilder-90661dced33a" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9844008856608cabbfd4c233107c175c" data-thumbnail-img-id="1*QLDi0FQGewy9WVgQg5Dxng.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*QLDi0FQGewy9WVgQg5Dxng.png);"></a></div><figure name="11be" id="11be" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*ydrWToRYP9dHY3lNUbgVtA.png" data-width="1170" data-height="2532" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*ydrWToRYP9dHY3lNUbgVtA.png"></figure><h3 name="1002" id="1002" class="graf graf--h3 graf-after--figure">Reading Assignment III: The Rest of Swift</h3><figure name="5e9f" id="5e9f" class="graf graf--figure graf--iframe graf-after--h3"></figure><h3 name="9698" id="9698" class="graf graf--h3 graf-after--figure">Assignment III: Set</h3><figure name="9b86" id="9b86" class="graf graf--figure graf--iframe graf-after--h3 graf--trailing"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ae4734fe2705"><time class="dt-published" datetime="2021-06-03T15:45:43.051Z">June 3, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/cs193p-2021-6-protocols-shapes-ae4734fe2705" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

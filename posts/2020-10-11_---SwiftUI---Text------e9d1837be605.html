@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 SwiftUI 的 Text 顯示時間</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 SwiftUI 的 Text 顯示時間</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SwiftUI 的 Text 專門顯示文字，因此我們通常會傳入字串，比方以下學貓叫的例子，
+</section>
+<section data-field="body" class="e-content">
+<section name="4fff" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d24f" id="d24f" class="graf graf--h3 graf--leading graf--title">利用 SwiftUI 的 Text 顯示時間</h3></div><div class="section-inner sectionLayout--outsetColumn"><figure name="cbfd" id="cbfd" class="graf graf--figure graf--layoutOutsetCenter graf-after--h3"><img class="graf-image" data-image-id="1*d0i4ZklfxauL8pjYT08aHQ.jpeg" data-width="1772" data-height="1008" data-is-featured="true" src="https://cdn-images-1.medium.com/max/1200/1*d0i4ZklfxauL8pjYT08aHQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="f722" id="f722" class="graf graf--p graf-after--figure">SwiftUI 的 Text 專門顯示文字，因此我們通常會傳入字串，比方以下學貓叫的例子，</p><pre name="53a1" id="53a1" class="graf graf--pre graf-after--p">Text(&quot;我們一起學貓叫，一起喵喵喵喵喵&quot;)</pre><figure name="9c74" id="9c74" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*kRmmwI_gRxsu1jZm8bogcw.jpeg" data-width="544" data-height="632" src="https://cdn-images-1.medium.com/max/800/1*kRmmwI_gRxsu1jZm8bogcw.jpeg"></figure><p name="6f16" id="6f16" class="graf graf--p graf-after--figure">不過 Text 的能力不僅於此，從 iOS 14 開始，它連顯示時間也不是問題，接下來就讓我們看它表演吧。</p><h3 name="5810" id="5810" class="graf graf--h3 graf-after--p">顯示 Date 型別的資料</h3><p name="c4a2" id="c4a2" class="graf graf--p graf-after--h3">時間的型別是 Date，Text 可以直接傳入Date 型別的資料，然後搭配參數 style 控制顯示的時間格式。(style 的型別為 Text.DateStyle)</p><ul class="postList"><li name="3a8c" id="3a8c" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">顯示日期</strong></li></ul><p name="522d" id="522d" class="graf graf--p graf-after--li">傳入 .date。</p><pre name="c643" id="c643" class="graf graf--pre graf-after--p">Text(Date(), style: .date)</pre><figure name="693a" id="693a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*mDlx7K0Dx7WNjGC8S_oVMw.jpeg" data-width="646" data-height="706" src="https://cdn-images-1.medium.com/max/800/1*mDlx7K0Dx7WNjGC8S_oVMw.jpeg"></figure><ul class="postList"><li name="8127" id="8127" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">顯示時間</strong></li></ul><p name="d08d" id="d08d" class="graf graf--p graf-after--li">傳入 .time。</p><pre name="db92" id="db92" class="graf graf--pre graf-after--p">Text(Date(), style: .time)</pre><figure name="9eec" id="9eec" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*xOo9S9N4_p1kdjSNbLTDgA.jpeg" data-width="610" data-height="688" src="https://cdn-images-1.medium.com/max/800/1*xOo9S9N4_p1kdjSNbLTDgA.jpeg"></figure><ul class="postList"><li name="deda" id="deda" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">顯示現在時間跟某某時間的間距</strong></li></ul><p name="03da" id="03da" class="graf graf--p graf-after--li">傳入 .relative，顯示現在時間跟某某時間的間距。比方以下時間 date 代表距離現在時間 4000 秒以前，所以得到的字串是 1 hr, 6 min，表示跟現在時間距離 1 小時 6 分鐘。</p><pre name="34a6" id="34a6" class="graf graf--pre graf-after--p">var body: some View {<br>        let date = Date().addingTimeInterval(-4000)<br>        return Text(date, style: .relative)<br>}</pre><figure name="ce31" id="ce31" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*mDtlA3BM9rUo__HcYvmXSA.jpeg" data-width="594" data-height="694" src="https://cdn-images-1.medium.com/max/800/1*mDtlA3BM9rUo__HcYvmXSA.jpeg"></figure><p name="4445" id="4445" class="graf graf--p graf-after--figure">我們也可以傳入 .offset，顯示包含正負數的間距，比方以下時間 date 代表距離現在時間 4000 秒以前，所以顯示的字串是 +1 hour，表示現在時間距離 date +1 小時。</p><pre name="c074" id="c074" class="graf graf--pre graf-after--p">var body: some View {<br>        let date = Date().addingTimeInterval(-4000)<br>        return Text(date, style: .offset)<br>}</pre><figure name="e9d8" id="e9d8" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*SDmVLMprhDhreDwjVFWJJg.jpeg" data-width="594" data-height="684" src="https://cdn-images-1.medium.com/max/800/1*SDmVLMprhDhreDwjVFWJJg.jpeg"></figure><p name="742b" id="742b" class="graf graf--p graf-after--figure">當 date 代表距離現在時間 4000 秒以後時，顯示的字串是 -1 hour，表示現在時間距離 date -1 小時。</p><pre name="1fd6" id="1fd6" class="graf graf--pre graf-after--p">var body: some View {<br>        let date = Date().addingTimeInterval(4000)<br>        return Text(date, style: .offset)<br>}</pre><figure name="8696" id="8696" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*bC_wHu2fzgJb8_Eia3VZDA.jpeg" data-width="578" data-height="678" src="https://cdn-images-1.medium.com/max/800/1*bC_wHu2fzgJb8_Eia3VZDA.jpeg"></figure><ul class="postList"><li name="f835" id="f835" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">顯示某時間跟現在時間的差距，以 timer 格式顯示</strong></li></ul><p name="4564" id="4564" class="graf graf--p graf-after--li">比方 date 代表距離現在時間 4000 秒以後，一開始顯示的字串是 1:06:39。然後它會自動開始倒數，數字愈來愈小。值得注意的，當數字變成 0 之後，數字反而會愈來愈大，因此此時 date 跟現在時間的差距將愈來愈大。</p><pre name="0fb1" id="0fb1" class="graf graf--pre graf-after--p">var body: some View {<br>        let date = Date().addingTimeInterval(4000)<br>        return Text(date, style: .timer)<br>}</pre><figure name="53e7" id="53e7" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*s3X8km1LmW_3KMW81DlZJQ.jpeg" data-width="740" data-height="860" src="https://cdn-images-1.medium.com/max/800/1*s3X8km1LmW_3KMW81DlZJQ.jpeg"></figure><h3 name="f7fc" id="f7fc" class="graf graf--h3 graf-after--figure">將 Date 型別的資料以自訂格式顯示</h3><p name="e902" id="e902" class="graf graf--p graf-after--h3">搭配 DateFormatter。</p><pre name="d8dc" id="d8dc" class="graf graf--pre graf-after--p">var body: some View {<br>      let formatter = DateFormatter()<br>      formatter.dateFormat = &quot;MM-dd-yyyy HH:mm:ss&quot;<br>      return Text(Date(), formatter: formatter)<br>}</pre><figure name="b943" id="b943" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*mooNmTGk9EA5b10HnEgCyQ.jpeg" data-width="574" data-height="644" src="https://cdn-images-1.medium.com/max/800/1*mooNmTGk9EA5b10HnEgCyQ.jpeg"></figure><p name="7649" id="7649" class="graf graf--p graf-after--figure">DateFormatter 的格式說明可參考以下連結。</p><div name="3696" id="3696" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://nsdateformatter.com" data-href="https://nsdateformatter.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://nsdateformatter.com"><strong class="markup--strong markup--mixtapeEmbed-strong">NSDateFormatter.com</strong><br><em class="markup--em markup--mixtapeEmbed-em">You should be aware that using a custom dateFormat comes with a risk of falling into some fallacies. Especially, you…</em>nsdateformatter.com</a><a href="https://nsdateformatter.com" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="2847bbe171201900d224b0e39cebaaf5" data-thumbnail-img-id="0*e_qWy6mFuDN9mee8" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*e_qWy6mFuDN9mee8);"></a></div><h3 name="cb4c" id="cb4c" class="graf graf--h3 graf-after--mixtapeEmbed">顯示時間區間</h3><p name="bbd1" id="bbd1" class="graf graf--p graf-after--h3">我們可傳入 … 描述的時間區間。</p><pre name="677f" id="677f" class="graf graf--pre graf-after--p">var body: some View {<br>        let time1 = Date()<br>        let time2 = Date().addingTimeInterval(100)<br>        return Text(time1...time2)<br>}</pre><figure name="8382" id="8382" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*pzkaDuEL6gF6HT-9mBjg6Q.jpeg" data-width="730" data-height="876" src="https://cdn-images-1.medium.com/max/800/1*pzkaDuEL6gF6HT-9mBjg6Q.jpeg"></figure><pre name="ae30" id="ae30" class="graf graf--pre graf-after--figure">var body: some View {<br>        let time1 = Date()<br>        let time2 = Date().addingTimeInterval(100000)<br>        return Text(time1...time2)<br>}</pre><figure name="df5a" id="df5a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*UCaUmD__awTgwdrzp-IuCg.jpeg" data-width="768" data-height="882" src="https://cdn-images-1.medium.com/max/800/1*UCaUmD__awTgwdrzp-IuCg.jpeg"></figure><p name="5c46" id="5c46" class="graf graf--p graf-after--figure">也可以傳入以 DateInterval 描述的時間區間。</p><pre name="4a19" id="4a19" class="graf graf--pre graf-after--p">var body: some View {<br>        let time1 = Date()<br>        let time2 = Date().addingTimeInterval(100000)<br>        return Text(DateInterval(start: time1, end: time2))<br>}</pre><figure name="0c2e" id="0c2e" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*cmbzfkGU_ehoR4kO2wwrPA.jpeg" data-width="734" data-height="898" src="https://cdn-images-1.medium.com/max/800/1*cmbzfkGU_ehoR4kO2wwrPA.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e9d1837be605"><time class="dt-published" datetime="2020-10-11T15:28:07.584Z">October 11, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-text-%E9%A1%AF%E7%A4%BA%E6%99%82%E9%96%93-e9d1837be605" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Set 裡的東西需要 hashable</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Set 裡的東西需要 hashable</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+A type must be hashable in order to be stored in a set — that is, the type must provide a way to compute a hash value for itself. A hash…
+</section>
+<section data-field="body" class="e-content">
+<section name="e125" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8648" id="8648" class="graf graf--h3 graf--leading graf--title">Set 裡的東西需要 <em class="markup--em markup--h3-em">hashable</em></h3><p name="6f4b" id="6f4b" class="graf graf--p graf-after--h3">A type must be <em class="markup--em markup--p-em">hashable</em> in order to be stored in a set — that is, the type must provide a way to compute a <em class="markup--em markup--p-em">hash value</em> for itself. A hash value is an <code class="markup--code markup--p-code">Int</code> value that is the same for all objects that compare equally, such that if <code class="markup--code markup--p-code">a == b</code>, it follows that <code class="markup--code markup--p-code">a.hashValue == b.hashValue</code>.</p><div name="026a" id="026a" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html" data-href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Collection Types - The Swift Programming Language (Swift 4.2)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Swift provides three primary collection types, known as arrays, sets, and dictionaries, for storing collections of…</em>docs.swift.org</a><a href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8a693a2af4a3fee2e4a2ded888b4244d" data-thumbnail-img-id="0*uGj63Kt0ZXYpcTaZ" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*uGj63Kt0ZXYpcTaZ);"></a></div><p name="9cf8" id="9cf8" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/1c8367d3c70e">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

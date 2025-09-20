@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI preview variants &amp; Device Settings: 方便查看不同顏色，方向 &amp; 文字大小設定下的 App 畫面 — Xcode 14 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI preview variants &amp; Device Settings: 方便查看不同顏色，方向 &amp; 文字大小設定下的 App 畫面 — Xcode 14 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 Xcode 14 開始，利用全新的 SwiftUI preview variants &amp; Device Settings 功能，我們可以方便地查看不同顏色，方向 &amp; 文字大小設定下的 App 畫面。
+</section>
+<section data-field="body" class="e-content">
+<section name="15fc" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d24f" id="d24f" class="graf graf--h3 graf--leading graf--title">SwiftUI preview variants &amp; Device Settings: 方便查看不同顏色，方向 &amp; 文字大小設定下的 App 畫面 — Xcode 14 新功能</h3><p name="a810" id="a810" class="graf graf--p graf-after--h3">從 Xcode 14 開始，利用全新的 SwiftUI preview variants &amp; Device Settings 功能，我們可以方便地查看不同顏色，方向 &amp; 文字大小設定下的 App 畫面。</p><p name="7c87" id="7c87" class="graf graf--p graf-after--p">以下就讓我們以 Penny 經典的第一張專輯主打歌習慣這樣為例說明吧。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="7a82" id="7a82" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Image</span>(.習慣這樣)<br />                .clipShape(.circle)<br />                .shadow(color: .primary, radius: <span class="hljs-number">10</span>)<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;習慣這樣的距離<span class="hljs-subst">\n</span>習慣這樣的你的背影<span class="hljs-subst">\n</span>習慣這樣 這樣的你<span class="hljs-subst">\n</span>習慣這樣&quot;</span>)<br />                .font(.title)<br />                .bold()<br />                .foregroundStyle(.orange.gradient)<br />        }<br />    }<br />}</span></pre><figure name="006b" id="006b" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*_d-sjW0JlZVbYcINkwI71w.png" data-width="992" data-height="1370" src="https://cdn-images-1.medium.com/max/800/1*_d-sjW0JlZVbYcINkwI71w.png"></figure><h3 name="7ced" id="7ced" class="graf graf--h3 graf-after--figure">設定 SwiftUI preview variants</h3><p name="11bd" id="11bd" class="graf graf--p graf-after--h3">點擊下方的 Variants 按鈕。</p><figure name="693f" id="693f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lwfGPctv-2ITLX04ayFU5w.png" data-width="180" data-height="94" src="https://cdn-images-1.medium.com/max/800/1*lwfGPctv-2ITLX04ayFU5w.png"></figure><p name="bd82" id="bd82" class="graf graf--p graf-after--figure">可選擇 <strong class="markup--strong markup--p-strong">Color Scheme Variants，Orientation Variants &amp; Dynamic Type Variants</strong>。</p><figure name="fb8d" id="fb8d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BYDcSJlzXnt-urutsI6hLA.png" data-width="434" data-height="244" src="https://cdn-images-1.medium.com/max/800/1*BYDcSJlzXnt-urutsI6hLA.png"></figure><h3 name="2906" id="2906" class="graf graf--h3 graf-after--figure"><strong class="markup--strong markup--h3-strong">Color Scheme Variants</strong></h3><p name="ebcd" id="ebcd" class="graf graf--p graf-after--h3">顯示 light mode &amp; dark mode 的 App 畫面。</p><figure name="4222" id="4222" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*njz1s2rcqwzPetBGCGroQQ.png" data-width="1024" data-height="1444" src="https://cdn-images-1.medium.com/max/800/1*njz1s2rcqwzPetBGCGroQQ.png"></figure><p name="3ac1" id="3ac1" class="graf graf--p graf-after--figure">點擊畫面後還能讓畫面變成主角放大顯示，比方點選 dark mode 畫面的結果如下。</p><figure name="f583" id="f583" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TdOwNdHrA7stSzZsFgIQZg.png" data-width="998" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*TdOwNdHrA7stSzZsFgIQZg.png"></figure><h3 name="375f" id="375f" class="graf graf--h3 graf-after--figure"><strong class="markup--strong markup--h3-strong">Orientation Variants</strong></h3><p name="594d" id="594d" class="graf graf--p graf-after--h3">顯示 Portrait(直向) &amp; Landscape(橫向) 的 App 畫面。</p><figure name="ced0" id="ced0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Bus7RRWX6rEt66-idHc2TQ.png" data-width="1022" data-height="1374" src="https://cdn-images-1.medium.com/max/800/1*Bus7RRWX6rEt66-idHc2TQ.png"></figure><h3 name="2741" id="2741" class="graf graf--h3 graf-after--figure"><strong class="markup--strong markup--h3-strong">Dynamic Type Variants</strong></h3><p name="fa14" id="fa14" class="graf graf--p graf-after--h3">顯示依據 Dynamic Type 調整文字大小的 App 畫面，從最小的 X Small 到最大的 AX 5。</p><figure name="15ff" id="15ff" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*afGOv-GuOJkqw1scR0K35g.png" data-width="1392" data-height="1378" src="https://cdn-images-1.medium.com/max/800/1*afGOv-GuOJkqw1scR0K35g.png"></figure><figure name="4d48" id="4d48" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*oP6blkNIG7IIQLdjbJPUyQ.png" data-width="1362" data-height="1366" src="https://cdn-images-1.medium.com/max/800/1*oP6blkNIG7IIQLdjbJPUyQ.png"></figure><h3 name="6a11" id="6a11" class="graf graf--h3 graf-after--figure">調整顏色，方向 &amp; 文字大小的 Device Settings</h3><p name="d0c2" id="d0c2" class="graf graf--p graf-after--h3">從 Device Settings 也可以調整顏色，方向 &amp; 文字大小的設定，而且還能結合剛剛的 Variants。</p><p name="1ca6" id="1ca6" class="graf graf--p graf-after--p">以下我們試試觀看搭配 dark mode 的 Dynamic Type Variants。</p><p name="79d1" id="79d1" class="graf graf--p graf-after--p">先將 Variants 選擇 Dynamic Type Variants，然後點選 Device Settings。</p><figure name="4942" id="4942" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tDBdg6S6ozQhZE_aF_OjWQ.png" data-width="386" data-height="104" src="https://cdn-images-1.medium.com/max/800/1*tDBdg6S6ozQhZE_aF_OjWQ.png"></figure><p name="ba9a" id="ba9a" class="graf graf--p graf-after--figure">打開 Color Scheme 的開關，選擇 Dark appearance。</p><figure name="bd99" id="bd99" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1-fzKxVNYJcxbBA11UPVmg.png" data-width="698" data-height="680" src="https://cdn-images-1.medium.com/max/800/1*1-fzKxVNYJcxbBA11UPVmg.png"></figure><p name="3f68" id="3f68" class="graf graf--p graf-after--figure">Cool，我們成功看到了 dark mode 下各種文字大小的 App 畫面。</p><figure name="b834" id="b834" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YUGrGwhY_mEWtvjt4q5k6g.png" data-width="1388" data-height="1374" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*YUGrGwhY_mEWtvjt4q5k6g.png"></figure><figure name="eddb" id="eddb" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*2sM3-6LDxjA1LER7eBnxZQ.png" data-width="1380" data-height="1366" src="https://cdn-images-1.medium.com/max/800/1*2sM3-6LDxjA1LER7eBnxZQ.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/a5c98b39633a"><time class="dt-published" datetime="2022-06-11T09:00:15.222Z">June 11, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-preview-variants-device-settings-%E6%96%B9%E4%BE%BF%E6%9F%A5%E7%9C%8B%E4%B8%8D%E5%90%8C%E9%A1%8F%E8%89%B2-%E6%96%B9%E5%90%91-%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F%E8%A8%AD%E5%AE%9A%E4%B8%8B%E7%9A%84-app-%E7%95%AB%E9%9D%A2-xcode-14-%E6%96%B0%E5%8A%9F%E8%83%BD-a5c98b39633a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

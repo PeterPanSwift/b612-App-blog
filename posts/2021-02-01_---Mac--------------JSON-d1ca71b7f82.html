@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Mac 當後台，存放測試的圖片和 JSON</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Mac 當後台，存放測試的圖片和 JSON</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常需要透過網路連結後台抓資料。不過若是還在測試階段，倒是可以使用本機 Mac 當後台，然後將測試的圖片和 JSON 檔放在 /Library/WebServer/Documents，方法如下:
+</section>
+<section data-field="body" class="e-content">
+<section name="8847" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f9bd" id="f9bd" class="graf graf--h3 graf--leading graf--title">使用 Mac 當後台，存放測試的圖片和 JSON</h3><p name="56de" id="56de" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常需要透過網路連結後台抓資料。不過若是還在測試階段，也可使用本機 Mac 當後台，連線到自己的 Mac 抓取圖片和 JSON。</p><p name="8561" id="8561" class="graf graf--p graf-after--p">以下我們介紹兩種使用 Mac 當後台的方法。</p><ul class="postList"><li name="1d88" id="1d88" class="graf graf--li graf-after--p">用 python 啟動 HTTP server。</li><li name="10ac" id="10ac" class="graf graf--li graf-after--li">啟動 Apache HTTP Server。</li></ul><h3 name="3ade" id="3ade" class="graf graf--h3 graf-after--li">用 python 啟動 HTTP server</h3><p name="c27e" id="c27e" class="graf graf--p graf-after--h3">先建立一個資料夾存放 App 存取的資料。</p><p name="f4d6" id="f4d6" class="graf graf--p graf-after--p">然後打開 Terminal，切換到資料夾下，輸入以下指令啟動 HTTP Server。</p><pre data-code-block-mode="0" spellcheck="false" name="d706" id="d706" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">python3 -m http.server</span></pre><p name="d807" id="d807" class="graf graf--p graf-after--pre">HTTP Server 啟動後，我們可透過網址 <a href="http://127.0.0.1/" data-href="http://127.0.0.1/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">http://127.0.0.1/</a> 存取資料夾下的檔案，比方從 <a href="http://127.0.0.1/peter.png" data-href="http://127.0.0.1/peter.png" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">http://127.0.0.1/peter.png</a> 存取資料下的 peter.png。(127.0.0.1 也可以改成 localhost 或 Mac 目前的 IP)</p><p name="701c" id="701c" class="graf graf--p graf-after--p">python 啟動的 HTTP Server 預設的 port 是 8000，我們也可以在啟動時指定 port 的數字。</p><pre data-code-block-mode="0" spellcheck="false" name="36a8" id="36a8" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">python3 -m http.server 80</span></pre><h3 name="7764" id="7764" class="graf graf--h3 graf-after--pre">啟動 Apache HTTP Server</h3><p name="5527" id="5527" class="graf graf--p graf-after--h3">打開 Terminal，輸入以下指令啟動 HTTP Server。</p><pre name="03c9" id="03c9" class="graf graf--pre graf-after--p">sudo apachectl start</pre><p name="c545" id="c545" class="graf graf--p graf-after--pre">輸入以下指令，打開存放資料的 Documents 資料夾。</p><pre name="d58b" id="d58b" class="graf graf--pre graf-after--p">cd /Library/WebServer/Documents<br>open .</pre><figure name="71bc" id="71bc" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*J79H9NwcKGD7oQYifXdksQ.png" data-width="1952" data-height="1104" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*J79H9NwcKGD7oQYifXdksQ.png"></figure><p name="26ce" id="26ce" class="graf graf--p graf-after--figure">將測試的圖片和 JSON 加到 Documents 資料夾下，之後我們可透過網址 <a href="http://127.0.0.1/" data-href="http://127.0.0.1/" class="markup--anchor markup--p-anchor" rel="nofollow noopener noopener noopener" target="_blank">http://127.0.0.1/</a> 存取 Documents 資料夾下的檔案。</p><figure name="f831" id="f831" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*58Xmgx3yM_YzjY2AhURHlw.png" data-width="1152" data-height="420" src="https://cdn-images-1.medium.com/max/800/1*58Xmgx3yM_YzjY2AhURHlw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d1ca71b7f82"><time class="dt-published" datetime="2021-02-01T13:56:54.859Z">February 1, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8%E6%9C%AC%E6%A9%9F-mac-%E7%95%B6%E5%BE%8C%E5%8F%B0-%E5%AD%98%E6%94%BE%E6%B8%AC%E8%A9%A6%E7%9A%84%E5%9C%96%E7%89%87%E5%92%8C-json-d1ca71b7f82" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

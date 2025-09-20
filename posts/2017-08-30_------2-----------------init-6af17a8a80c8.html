@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>建立東西的 2 種寫法，型別 ( ) 和 型別.init</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">建立東西的 2 種寫法，型別 ( ) 和 型別.init</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 Swift 程式時，生成某個型別的東西很簡單，只要以型別名稱 + ( )，( ) 裡再視需要傳入參數即可。比方以下生成 Song 的例子:
+</section>
+<section data-field="body" class="e-content">
+<section name="8e2b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7e62" id="7e62" class="graf graf--h3 graf--leading graf--title">建立東西的 2 種寫法，型別 ( ) 和 型別.init</h3><p name="db1c" id="db1c" class="graf graf--p graf-after--h3">開發 Swift 程式時，生成某個型別的東西很簡單，只要以型別名稱 + ( )，( ) 裡再視需要傳入參數即可。比方以下生成 Song 的例子:</p><pre name="76f3" id="76f3" class="graf graf--pre graf-after--p">struct Song {</pre><pre name="85f9" id="85f9" class="graf graf--pre graf-after--pre">    var name: String</pre><pre name="b245" id="b245" class="graf graf--pre graf-after--pre">    var singer: String</pre><pre name="6abf" id="6abf" class="graf graf--pre graf-after--pre">}</pre><figure name="9a30" id="9a30" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*881dxW7u2kzXlpRj9luVUQ.png" data-width="1232" data-height="406" src="https://cdn-images-1.medium.com/max/800/1*881dxW7u2kzXlpRj9luVUQ.png"></figure><pre name="c0a0" id="c0a0" class="graf graf--pre graf-after--figure">loveSong = Song(name: &quot;你好不好&quot;, singer: &quot;周興哲&quot;)</pre><p name="8fd5" id="8fd5" class="graf graf--p graf-after--pre">然而當彼得潘試著在類別的 property 生成自訂型別的資料時，自動完成完全不理我 ! (如果在 function 的 { } 裡，倒是不會有這個問題。)</p><figure name="9a51" id="9a51" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*grBlTa0dbI11uNVkQTUqkw.png" data-width="2128" data-height="782" src="https://cdn-images-1.medium.com/max/800/1*grBlTa0dbI11uNVkQTUqkw.png"></figure><p name="66ba" id="66ba" class="graf graf--p graf-after--figure">難道我們只剩下一字一字輸入這條坎坷的路可以走了嗎 ? 看來只好放棄了，沒有自動完成，我們的程式功力大概只剩三成吧。</p><p name="c242" id="c242" class="graf graf--p graf-after--p">其實還有另一個方法生東西啦，只要輸入型別名稱加 .init，自動完成就可以再度復活了 !</p><figure name="1bd1" id="1bd1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1eI_ilpieii6SJCC-wQffA.png" data-width="1430" data-height="288" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*1eI_ilpieii6SJCC-wQffA.png"></figure><pre name="14e6" id="14e6" class="graf graf--pre graf-after--figure graf--trailing">var loveSong = Song.init(name: &quot;你好不好&quot;, singer: &quot;周興哲&quot;)</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/6af17a8a80c8"><time class="dt-published" datetime="2017-08-30T04:23:10.770Z">August 30, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BB%BA%E7%AB%8B%E6%9D%B1%E8%A5%BF%E7%9A%84-2-%E7%A8%AE%E5%AF%AB%E6%B3%95-%E5%9E%8B%E5%88%A5-%E5%92%8C-%E5%9E%8B%E5%88%A5-init-6af17a8a80c8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

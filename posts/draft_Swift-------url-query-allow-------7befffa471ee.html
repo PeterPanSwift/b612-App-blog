@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Swift 將網址變成 url query allow 的兩個方法</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Swift 將網址變成 url query allow 的兩個方法</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+方法 1
+</section>
+<section data-field="body" class="e-content">
+<section name="2998" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4c36" id="4c36" class="graf graf--h3 graf--leading graf--title">Swift 將網址變成 url query allow 的兩個方法</h3><p name="042b" id="042b" class="graf graf--p graf-after--h3">方法 1</p><pre name="636a" id="636a" class="graf graf--pre graf-after--p">var components = URLComponents()<br>components.host = &quot;<a href="http://www.myinspireproject.com" data-href="http://www.myinspireproject.com" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">www.myinspireproject.com</a>&quot;<br>components.scheme = &quot;https&quot;<br>components.path = &quot;/post/future-nostalgia-nye-glamping-event-跨時空旅人跨年露營&quot;</pre><p name="c5a1" id="c5a1" class="graf graf--p graf-after--pre">方法 2</p><pre name="3789" id="3789" class="graf graf--pre graf-after--p">&quot;<a href="https://www.myinspireproject.com/post/future-nostalgia-nye-glamping-event-" data-href="https://www.myinspireproject.com/post/future-nostalgia-nye-glamping-event-" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://www.myinspireproject.com/post/future-nostalgia-nye-glamping-event-</a>跨時空旅人跨年露營&quot;.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)</pre><p name="a74b" id="a74b" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/7befffa471ee">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

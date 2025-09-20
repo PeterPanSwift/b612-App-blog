@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Xcode 的 Coding Assistant 生成 SwiftUI preview 需要的假資料</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Xcode 的 Coding Assistant 生成 SwiftUI preview 需要的假資料</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SwiftUI preview 顯示畫面時常常需要搭配一些假資料，以下我們示範使用 Xcode 的 Coding Assistant 生成 preview 需要的假資料。
+</section>
+<section data-field="body" class="e-content">
+<section name="069a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8736" id="8736" class="graf graf--h3 graf--leading graf--title">使用 Xcode 的 Coding Assistant 生成 SwiftUI preview 需要的假資料</h3><p name="ab97" id="ab97" class="graf graf--p graf-after--h3">SwiftUI preview 顯示畫面時常常需要搭配一些假資料，以下我們示範使用 Xcode 的 Coding Assistant 生成 preview 需要的假資料。</p><p name="1713" id="1713" class="graf graf--p graf-after--p">以下我們用顯示可愛動物的 AnimalRow 說明。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3a34" id="3a34" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">AnimalRow</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> name: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> emoji: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> description: <span class="hljs-type">String</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span>(alignment: .leading, spacing: <span class="hljs-number">8</span>) {<br />            <span class="hljs-type">HStack</span> {<br />                <span class="hljs-type">Text</span>(emoji)<br />                    .font(.largeTitle)<br />                <span class="hljs-type">Text</span>(name)<br />                    .font(.title)<br />                    .bold()<br />            }<br />            <span class="hljs-type">Text</span>(description)<br />                .font(.body)<br />        }<br />        .padding()<br />    }<br />}<br /><br />#<span class="hljs-type">Preview</span> {<br />    <span class="hljs-type">AnimalRow</span>()<br />}</span></pre><p name="b582" id="b582" class="graf graf--p graf-after--pre">我們加了三個 property，因此產生錯誤 Missing arguments。</p><figure name="67c6" id="67c6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YJsCqoFV_E2y8wMId1Mglg.png" data-width="1366" data-height="602" src="https://cdn-images-1.medium.com/max/800/1*YJsCqoFV_E2y8wMId1Mglg.png"></figure><p name="4e94" id="4e94" class="graf graf--p graf-after--figure">請 AI 幫忙在 AnimalRow 輸入資料有三種方法。</p><ul class="postList"><li name="b460" id="b460" class="graf graf--li graf-after--p">方法 1: 點選 Generate，AI 自動生成需傳入的參數，以下 AI 生成了叢林之王獅子。</li></ul><figure name="b1fa" id="b1fa" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*CHpAtxUTWiLtkJfpf-rG5Q.png" data-width="2586" data-height="864" src="https://cdn-images-1.medium.com/max/800/1*CHpAtxUTWiLtkJfpf-rG5Q.png"></figure><ul class="postList"><li name="d1f4" id="d1f4" class="graf graf--li graf-after--figure">方法 2: 從 AnimalRow 叫出 Coding Tools，請 AI 生成指定的資料。</li></ul><figure name="fe36" id="fe36" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*yyOPp7efRgUVE1RZuCAFLw.png" data-width="990" data-height="514" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*yyOPp7efRgUVE1RZuCAFLw.png"></figure><p name="7799" id="7799" class="graf graf--p graf-after--figure">請 AI 生成企鵝的相關資料，description 包含 100 字的中文。</p><figure name="830d" id="830d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*J1tq19EBm9P_yvtaUHIWSA.png" data-width="454" data-height="152" src="https://cdn-images-1.medium.com/max/800/1*J1tq19EBm9P_yvtaUHIWSA.png"></figure><figure name="ef42" id="ef42" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*RSEOod-HA0Yy-AumUMsCEw.png" data-width="3224" data-height="1368" src="https://cdn-images-1.medium.com/max/800/1*RSEOod-HA0Yy-AumUMsCEw.png"></figure><ul class="postList"><li name="3212" id="3212" class="graf graf--li graf-after--figure">方法 3: 選取 Preview 裡的 Animal( ) 後，從 Coding Assistant 請 AI 生成企鵝的相關資料，description 包含 100 字的中文。</li></ul><figure name="2848" id="2848" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*fFMcVlWtV80UybbfJR_fmA.png" data-width="1580" data-height="1152" src="https://cdn-images-1.medium.com/max/800/1*fFMcVlWtV80UybbfJR_fmA.png"></figure><figure name="b45a" id="b45a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*rofWVc-VQCmPjYMVw5lcig.png" data-width="3334" data-height="1006" src="https://cdn-images-1.medium.com/max/800/1*rofWVc-VQCmPjYMVw5lcig.png"></figure><p name="bd3a" id="bd3a" class="graf graf--p graf-after--figure">當 AnimalRow 顯示的資料型別另外定義在 Animal.swift 時，AI 也能聰明地在 Preview 生成假資料。</p><p name="cec3" id="cec3" class="graf graf--p graf-after--p">比方以下分別為 Animal.swift &amp; AnimalRow.swift 的內容。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3df1" id="3df1" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Animal</span> {<br />    <span class="hljs-keyword">let</span> name: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> emoji: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> description: <span class="hljs-type">String</span><br />}</span></pre><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="1fbd" id="1fbd" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">AnimalRow</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> animal: <span class="hljs-type">Animal</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span>(alignment: .leading, spacing: <span class="hljs-number">8</span>) {<br />            <span class="hljs-type">HStack</span> {<br />                <span class="hljs-type">Text</span>(animal.emoji)<br />                    .font(.largeTitle)<br />                <span class="hljs-type">Text</span>(animal.name)<br />                    .font(.title)<br />                    .bold()<br />            }<br />            <span class="hljs-type">Text</span>(animal.description)<br />                .font(.body)<br />        }<br />        .padding()<br />    }<br />}<br /><br />#<span class="hljs-type">Preview</span> {<br />    <span class="hljs-type">AnimalRow</span>()<br />}</span></pre><p name="128a" id="128a" class="graf graf--p graf-after--pre">從 AnimalRow 叫出 Coding Tools，請 AI 生成企鵝的相關資料。</p><figure name="22af" id="22af" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*L_bPmgZRBgolm8GciQYetw.png" data-width="3238" data-height="1454" src="https://cdn-images-1.medium.com/max/800/1*L_bPmgZRBgolm8GciQYetw.png"></figure><p name="d57e" id="d57e" class="graf graf--p graf-after--figure">我們也常在資料的型別裡以 static 定義資料，以下我們在 Animal 生成 preview 需要的假資料，從 struct Animal 叫出 Coding Tools，輸入 create sample data, 企鵝，100 字的中文 description。</p><figure name="8021" id="8021" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*epm6V_-LDN_CRcIcuDH_xQ.png" data-width="1324" data-height="556" src="https://cdn-images-1.medium.com/max/800/1*epm6V_-LDN_CRcIcuDH_xQ.png"></figure><figure name="9a27" id="9a27" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*TMCbHsVv5lDMDz_NbcV6bA.png" data-width="3660" data-height="1234" src="https://cdn-images-1.medium.com/max/800/1*TMCbHsVv5lDMDz_NbcV6bA.png"></figure><p name="5166" id="5166" class="graf graf--p graf-after--figure">請 AI 生成包含多筆資料的 array 也不是問題，以下我們從 struct SampleData 叫出 Coding Tools，輸入宣告 animals 儲存 5 種動物，型別為 [Animal]。</p><figure name="63b6" id="63b6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KKiMWaihLWMyBByfLYlufQ.png" data-width="1078" data-height="268" src="https://cdn-images-1.medium.com/max/800/1*KKiMWaihLWMyBByfLYlufQ.png"></figure><figure name="b720" id="b720" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*xwZ-7eXQyPUKgFPi71Rmhg.png" data-width="3648" data-height="1370" src="https://cdn-images-1.medium.com/max/800/1*xwZ-7eXQyPUKgFPi71Rmhg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/155b8fae8872"><time class="dt-published" datetime="2025-07-20T13:55:51.181Z">July 20, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-xcode-%E7%9A%84-coding-assistant-%E7%94%9F%E6%88%90-swiftui-preview-%E9%9C%80%E8%A6%81%E7%9A%84%E5%81%87%E8%B3%87%E6%96%99-155b8fae8872" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 AI 製作表單資料(csv)的抽獎網頁</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 AI 製作表單資料(csv)的抽獎網頁</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近彼得潘剛好有讀取表單資料抽獎的需求，想到可以請 Claude 幫忙，請它製作一個通用的抽獎網頁。未來任何的表單只要匯出 csv 後上傳到網頁即可抽獎。
+</section>
+<section data-field="body" class="e-content">
+<section name="5dd1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4b23" id="4b23" class="graf graf--h3 graf--leading graf--title">使用 AI 製作表單資料(csv)的抽獎網頁</h3><p name="3579" id="3579" class="graf graf--p graf-after--h3">最近彼得潘剛好有讀取表單資料抽獎的需求，想到可以請 Claude 幫忙，請它製作一個通用的抽獎網頁。未來任何的表單只要匯出 csv 後上傳到網頁即可抽獎。</p><p name="934a" id="934a" class="graf graf--p graf-after--p">彼得潘在和 Claude 聊天開發的過程中不斷地微調功能和修正 bug，輸入的一系列 prompt 如下。</p><pre data-code-block-mode="0" spellcheck="false" name="eed8" id="eed8" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">請寫一個網頁程式，可以上傳使用者名單的 csv，然後從資料隨機選出中獎的使用者</span></pre><pre data-code-block-mode="0" spellcheck="false" name="813f" id="813f" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">請加一個開關，控制抽獎後是否移除被抽中的人</span></pre><pre data-code-block-mode="0" spellcheck="false" name="5beb" id="5beb" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">請加一個開關，控制是否過濾重覆的名字</span></pre><pre data-code-block-mode="0" spellcheck="false" name="8115" id="8115" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">&quot;過濾重複名字&quot; 改成&quot;過濾重複資料&quot;，勾選和未勾選時要更新尚未抽中人數</span></pre><pre data-code-block-mode="0" spellcheck="false" name="ded7" id="ded7" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">有 bug，我的 csv 如下，切換成用 email 過濾時應該有 4 位參與者 (已過濾 1 個重複)<br>name, email<br>aa, aa@gmail.com<br>bb, bb@gmail.com<br>cc, cc@gmail.com<br>bb, bb@gmail.com<br>cc, fff@gmail.com</span></pre><pre data-code-block-mode="0" spellcheck="false" name="8ed4" id="8ed4" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">將畫面變漂亮，活潑可愛的風格</span></pre><pre data-code-block-mode="0" spellcheck="false" name="b77e" id="b77e" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">有 bug，抽獎時不應該增加已過濾的數量</span></pre><pre data-code-block-mode="0" spellcheck="false" name="1175" id="1175" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">上傳新的 csv 後，狀態要重設</span></pre><pre data-code-block-mode="0" spellcheck="false" name="9d2c" id="9d2c" class="graf graf--pre graf-after--pre graf--preV2"><span class="pre--content">拖曳檔案功能有問題</span></pre><p name="bfd5" id="bfd5" class="graf graf--p graf-after--pre">經歷千辛萬苦，Claude 終於成功寫出漂亮無 bug 的抽獎網頁。</p><div name="19b0" id="19b0" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://claude.site/artifacts/04e13263-31d3-48f4-843f-80bb036131c5" data-href="https://claude.site/artifacts/04e13263-31d3-48f4-843f-80bb036131c5" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://claude.site/artifacts/04e13263-31d3-48f4-843f-80bb036131c5"><strong class="markup--strong markup--mixtapeEmbed-strong">Claude Artifact</strong><br><em class="markup--em markup--mixtapeEmbed-em">Try out Artifacts created by Claude users</em>claude.site</a><a href="https://claude.site/artifacts/04e13263-31d3-48f4-843f-80bb036131c5" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f9bb6d6c2b0e7702c1acd8d00cc9d275" data-thumbnail-img-id="0*AjlbSnJ2GrTugDo_" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*AjlbSnJ2GrTugDo_);"></a></div><p name="e64c" id="e64c" class="graf graf--p graf-after--mixtapeEmbed">網頁包含以下功能。</p><ul class="postList"><li name="e515" id="e515" class="graf graf--li graf-after--p">點選或拖曳上傳抽獎名單的 csv 檔。</li><li name="5791" id="5791" class="graf graf--li graf-after--li">開始抽獎和重新開始的按鈕。</li><li name="a043" id="a043" class="graf graf--li graf-after--li">抽中後從名單中移除的開關。</li><li name="8652" id="8652" class="graf graf--li graf-after--li">過濾重複資料的開關，而且可選擇過濾的欄位。</li><li name="58ea" id="58ea" class="graf graf--li graf-after--li">歷史中獎記錄。</li><li name="7d89" id="7d89" class="graf graf--li graf-after--li">抽獎動畫。</li></ul><p name="bf4b" id="bf4b" class="graf graf--p graf-after--li">以下是彼得潘將 Google 表單匯出 csv 上傳後進行的操作畫面。</p><figure name="b0f2" id="b0f2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hvMUR50ghmXVO-c1CUpPwg.png" data-width="3078" data-height="1650" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*hvMUR50ghmXVO-c1CUpPwg.png"></figure><figure name="3812" id="3812" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*5w0xDXtcRrZewnyXgNfz7Q.png" data-width="550" data-height="392" src="https://cdn-images-1.medium.com/max/800/1*5w0xDXtcRrZewnyXgNfz7Q.png"><figcaption class="imageCaption">抽獎動畫</figcaption></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/2c14dbe7be2a"><time class="dt-published" datetime="2025-01-06T07:40:02.606Z">January 6, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-ai-%E8%A3%BD%E4%BD%9C%E8%A1%A8%E5%96%AE%E8%B3%87%E6%96%99-csv-%E7%9A%84%E6%8A%BD%E7%8D%8E%E7%B6%B2%E9%A0%81-2c14dbe7be2a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

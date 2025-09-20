@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>App development with swift 的 OpenRestaurant 問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">App development with swift 的 OpenRestaurant 問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+app development with swift 第五章的 Guided Project 將實作出串接後台，讀取上傳資料的功能。串接後台不難，難的是我們必須先有一個後台程式。還好，Apple 早幫我們寫好了後台 App，只要在 Mac 上點兩下 OpenRestaurant…
+</section>
+<section data-field="body" class="e-content">
+<section name="45e6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="353b" id="353b" class="graf graf--h3 graf--leading graf--title">App development with swift 的 OpenRestaurant 問題</h3><p name="8050" id="8050" class="graf graf--p graf-after--h3">app development with swift 第五章的 Guided Project 將實作出串接後台，讀取上傳資料的功能。串接後台不難，難的是我們必須先有一個後台程式。還好，Apple 早幫我們寫好了後台 App，只要在 Mac 上點兩下 OpenRestaurant App 啟動即可。不過令人難過的，它似乎有 bug，當我們的 App 連線到 <a href="http://localhost:8090/" data-href="http://localhost:8090/" class="markup--anchor markup--p-anchor" target="_blank">http://localhost:8090/</a>categories 時，只能得到一個空的 array。</p><div name="5721" id="5721" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" data-href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11"><strong class="markup--strong markup--mixtapeEmbed-strong">App Development with Swift by Apple Education on iBooks</strong><br><em class="markup--em markup--mixtapeEmbed-em">Read a free sample or buy App Development with Swift by Apple Education. You can read this book with iBooks on your…</em>itunes.apple.com</a><a href="https://itunes.apple.com/us/book/app-development-with-swift/id1219117996?mt=11" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7657203ffb30b7a4c37ce544f41bec87" data-thumbnail-img-id="0*il0l6GkwFC3L27P0." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*il0l6GkwFC3L27P0.);"></a></div><figure name="20a4" id="20a4" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*mdayFufb_zmE2z1012W_BA.jpeg" data-width="1368" data-height="934" src="https://cdn-images-1.medium.com/max/800/1*mdayFufb_zmE2z1012W_BA.jpeg"></figure><figure name="d104" id="d104" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Ap-DnpLisSfKEDcF2kf_GA.jpeg" data-width="952" data-height="312" src="https://cdn-images-1.medium.com/max/800/1*Ap-DnpLisSfKEDcF2kf_GA.jpeg"></figure><pre name="900d" id="900d" class="graf graf--pre graf-after--figure">SHIH-YINGs-MacBook-Pro:Restaurant shih-yingpan$ curl http://localhost:8090/categories</pre><pre name="3c92" id="3c92" class="graf graf--pre graf-after--pre">{</pre><pre name="01c2" id="01c2" class="graf graf--pre graf-after--pre">&quot;categories&quot; : [</pre><pre name="71d6" id="71d6" class="graf graf--pre graf-after--pre">]</pre><pre name="7d83" id="7d83" class="graf graf--pre graf-after--pre">}SHIH-YINGs-MacBook-Pro:Restaurant shih-yingpan$</pre><p name="db72" id="db72" class="graf graf--p graf-after--pre">}SHIH-YINGs-MacBook-Pro:Restaurant shih-yingpan$</p><p name="4fc0" id="4fc0" class="graf graf--p graf-after--p">還好，網路上的大大幫我們寫了一份 OpenRestaurant.py，只要將它下載放在目錄Restaurant 下，在 terminal 執行 python OpenRestaurant.py 即可。</p><figure name="6314" id="6314" class="graf graf--figure graf--iframe graf-after--p"></figure><figure name="d115" id="d115" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*IjyNADA2QtGvF3Z9vdx6Jg.jpeg" data-width="872" data-height="330" src="https://cdn-images-1.medium.com/max/800/1*IjyNADA2QtGvF3Z9vdx6Jg.jpeg"></figure><figure name="30c2" id="30c2" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*1gOXYwfhWVQXO0ZXkppQbw.jpeg" data-width="1634" data-height="330" src="https://cdn-images-1.medium.com/max/800/1*1gOXYwfhWVQXO0ZXkppQbw.jpeg"></figure></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="e947" id="e947" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*G-P1xwKuSmBoS653OVHgFA.jpeg" data-width="884" data-height="1524" src="https://cdn-images-1.medium.com/max/600/1*G-P1xwKuSmBoS653OVHgFA.jpeg"></figure><figure name="7cd1" id="7cd1" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*qx1KuRcyIb71ULXEyRxYZQ.jpeg" data-width="884" data-height="1524" data-is-featured="true" src="https://cdn-images-1.medium.com/max/600/1*qx1KuRcyIb71ULXEyRxYZQ.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="9c46" id="9c46" class="graf graf--p graf-after--figure">ps:</p><p name="06b3" id="06b3" class="graf graf--p graf-after--p">1 OpenRestaurant.py 只是一個讀取 menu.json 和處理 get, post API 的後台程式，有興趣的朋友也可以另外用 ruby, swift, php 等程式語言自己實作。</p><p name="d38f" id="d38f" class="graf graf--p graf-after--p">2. 可以另外修改 json，比方設定圖片，改變後台回傳的資料。</p><figure name="fe85" id="fe85" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*SoW8KhbOCvA13dPfL1K1bg.jpeg" data-width="718" data-height="234" src="https://cdn-images-1.medium.com/max/800/1*SoW8KhbOCvA13dPfL1K1bg.jpeg"></figure><figure name="251a" id="251a" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*HBybw4tWIUUAwPCGZ1z1Rg.jpeg" data-width="1290" data-height="520" src="https://cdn-images-1.medium.com/max/800/1*HBybw4tWIUUAwPCGZ1z1Rg.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9bfa35ade6c2"><time class="dt-published" datetime="2017-09-18T03:56:43.302Z">September 18, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/app-development-with-swift-%E7%9A%84-openrestaurant-%E5%95%8F%E9%A1%8C-9bfa35ade6c2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

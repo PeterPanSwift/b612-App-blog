@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Extract Subview 後將 view 型別搬到新檔的 Extract to File — Xcode 16 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Extract Subview 後將 view 型別搬到新檔的 Extract to File — Xcode 16 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 SwiftUI App 時，我們常會用 Extract Subview 將 subview 變成獨立的型別，增加程式的可讀性，方便未來重覆使用。
+</section>
+<section data-field="body" class="e-content">
+<section name="4ff6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b0eb" id="b0eb" class="graf graf--h3 graf--leading graf--title">Extract Subview 後將 view 型別搬到新檔的 Extract to File — Xcode 16 新功能</h3><p name="3c1c" id="3c1c" class="graf graf--p graf-after--h3">開發 SwiftUI App 時，我們常會將 subview 變成獨立的型別，增加程式的可讀性，方便未來重覆使用。</p><p name="6d1d" id="6d1d" class="graf graf--p graf-after--p">用以下程式的小王子角色介紹為例，每個角色由 VStack 搭配 Image 和 Text 組成，我們可將它變成獨立的型別 CharacterView。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="48de" id="48de" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">HStack</span> {<br />            <span class="hljs-type">VStack</span> {<br />                <span class="hljs-type">Image</span>(.prince)<br />                    .resizable()<br />                    .scaledToFill()<br />                    .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />                    .clipShape(.circle)<br />                    .shadow(color: .primary.opacity(<span class="hljs-number">0.7</span>), radius: <span class="hljs-number">20</span>)<br />                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;小王子&quot;</span>)<br />            }<br />            <span class="hljs-type">VStack</span> {<br />                <span class="hljs-type">Image</span>(.fox)<br />                    .resizable()<br />                    .scaledToFill()<br />                    .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />                    .clipShape(.circle)<br />                    .shadow(color: .primary.opacity(<span class="hljs-number">0.7</span>), radius: <span class="hljs-number">20</span>)<br />                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;狐狸&quot;</span>)<br />            }<br />            <span class="hljs-type">VStack</span> {<br />                <span class="hljs-type">Image</span>(.rose)<br />                    .resizable()<br />                    .scaledToFill()<br />                    .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />                    .clipShape(.circle)<br />                    .shadow(color: .primary.opacity(<span class="hljs-number">0.7</span>), radius: <span class="hljs-number">20</span>)<br />                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;玫瑰&quot;</span>)<br />            }<br />        }<br />    }<br />}</span></pre><figure name="4644" id="4644" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*6hHDpqwVrxjdr6q7eFlCug.png" data-width="1222" data-height="414" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*6hHDpqwVrxjdr6q7eFlCug.png"></figure><p name="6538" id="6538" class="graf graf--p graf-after--figure">將 VStack 的內容定義成顯示角色頭像和名字的 CharacterView，之後只要用 CharacterView 即可生成小王子故事的可愛角色。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="93d7" id="93d7" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">HStack</span> {<br />            <span class="hljs-type">CharacterView</span>(avatar: .prince, name: <span class="hljs-string">&quot;小王子&quot;</span>)<br />            <span class="hljs-type">CharacterView</span>(avatar: .fox, name: <span class="hljs-string">&quot;狐狸&quot;</span>)<br />            <span class="hljs-type">CharacterView</span>(avatar: .rose, name: <span class="hljs-string">&quot;玫瑰&quot;</span>)<br />        }<br />    }<br />}<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">CharacterView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> avatar: <span class="hljs-type">ImageResource</span><br />    <span class="hljs-keyword">let</span> name: <span class="hljs-type">String</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Image</span>(avatar)<br />                .resizable()<br />                .scaledToFill()<br />                .frame(width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span>)<br />                .clipShape(.circle)<br />                .shadow(color: .primary.opacity(<span class="hljs-number">0.7</span>), radius: <span class="hljs-number">20</span>)<br />            <span class="hljs-type">Text</span>(name)<br />        }<br />    }<br />}</span></pre><p name="f452" id="f452" class="graf graf--p graf-after--pre">subview 的型別可以在同一檔案，也可在不同檔案。</p><p name="e368" id="e368" class="graf graf--p graf-after--p">從 Xcode 16 開始，我們可透過 Extract to File 將選取的程式搬到新檔。因此我們可在 CharacterView 上按出右鍵選單，點選 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">Refactor &gt; Extract to File</strong></code>。</p><figure name="0331" id="0331" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BzXsa2H2Dk0TqBDu8R2ayw.png" data-width="1626" data-height="1132" src="https://cdn-images-1.medium.com/max/800/1*BzXsa2H2Dk0TqBDu8R2ayw.png"></figure><p name="4810" id="4810" class="graf graf--p graf-after--figure">Xcode 聰明地將 struct CharacterView 搬到新檔 CharacterView.swift。</p><figure name="6f70" id="6f70" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ETN-ybeKYAyGcbQRPDMjzA.png" data-width="2346" data-height="1666" src="https://cdn-images-1.medium.com/max/800/1*ETN-ybeKYAyGcbQRPDMjzA.png"></figure><p name="defa" id="defa" class="graf graf--p graf-after--figure">現在 ContentView.swift 的程式也變精簡了，只剩下 struct ContentView 和 preview。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="bb6d" id="bb6d" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">HStack</span> {<br />            <span class="hljs-type">CharacterView</span>(avatar: .prince, name: <span class="hljs-string">&quot;小王子&quot;</span>)<br />            <span class="hljs-type">CharacterView</span>(avatar: .fox, name: <span class="hljs-string">&quot;狐狸&quot;</span>)<br />            <span class="hljs-type">CharacterView</span>(avatar: .rose, name: <span class="hljs-string">&quot;玫瑰&quot;</span>)<br />        }<br />    }<br />}<br /><br />#<span class="hljs-type">Preview</span>(traits: .sizeThatFitsLayout) {<br />    <span class="hljs-type">ContentView</span>()<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/bc0a7fc1206f"><time class="dt-published" datetime="2024-09-03T03:33:30.391Z">September 3, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/extract-subview-%E5%BE%8C%E5%B0%87-view-%E5%9E%8B%E5%88%A5%E6%90%AC%E5%88%B0%E6%96%B0%E6%AA%94%E7%9A%84-extract-to-file-xcode-16-%E6%96%B0%E5%8A%9F%E8%83%BD-bc0a7fc1206f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

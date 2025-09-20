@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 NumberFormatter 將 7 變成 Seven</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 NumberFormatter 將 7 變成 Seven</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們常常會依 App 的需求，將數字變成特定格式的字串，比方將 7 變成文字 Seven，或是變成金額 $7.00。
+</section>
+<section data-field="body" class="e-content">
+<section name="e920" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8020" id="8020" class="graf graf--h3 graf--leading graf--title">利用 NumberFormatter 將 7 變成 Seven</h3><p name="8172" id="8172" class="graf graf--p graf-after--h3">開發 iOS App 時，我們常常會依 App 的需求，將數字變成特定格式的字串，比方將 7 變成文字 Seven，或是變成金額 $7.00。</p><p name="e501" id="e501" class="graf graf--p graf-after--p">當然我們可以自己寫程式轉換，如以下例子用 dictionary 定義阿拉伯數字對應的英文。</p><pre name="bee1" id="bee1" class="graf graf--pre graf-after--p">let digitNames = [ 0: &quot;Zero&quot;, 1: &quot;One&quot;, 2: &quot;Two&quot;, 3: &quot;Three&quot;, 4: &quot;Four&quot;, 5: &quot;Five&quot;, 6: &quot;Six&quot;, 7: &quot;Seven&quot;, 8: &quot;Eight&quot;, 9: &quot;Nine&quot; ]</pre><p name="0815" id="0815" class="graf graf--p graf-after--pre">但是我們其實可以偷懶，因為 NumberFormatter 已經幫我們做好了 ! 將數字變成字串的工作就交給它吧。</p><div name="ff68" id="ff68" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundation/numberformatter" data-href="https://developer.apple.com/documentation/foundation/numberformatter" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/numberformatter"><strong class="markup--strong markup--mixtapeEmbed-strong">NumberFormatter</strong><br><em class="markup--em markup--mixtapeEmbed-em">Instances of NumberFormatter format the textual representation of cells that contain objects and convert textual…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/numberformatter" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="4dd9965818ba4c82c4cc2241d9acf6a0"></a></div><p name="0f57" id="0f57" class="graf graf--p graf-after--mixtapeEmbed">NumberFormatter 的 numberStyle 決定轉換的格式，接下來我們就來看看常用的一些格式吧。</p><div name="098b" id="098b" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundation/numberformatter/style" data-href="https://developer.apple.com/documentation/foundation/numberformatter/style" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/numberformatter/style"><strong class="markup--strong markup--mixtapeEmbed-strong">NumberFormatter.Style - NumberFormatter | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Examples of formatting styles for different locales</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/numberformatter/style" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="088c5e7504a04e0fcc03c0fd63932a50"></a></div><blockquote name="626b" id="626b" class="graf graf--blockquote graf-after--mixtapeEmbed"><strong class="markup--strong markup--blockquote-strong">1 spellOut</strong></blockquote><p name="2e35" id="2e35" class="graf graf--p graf-after--blockquote">將數字變成我們平常講的文字。</p><pre name="b199" id="b199" class="graf graf--pre graf-after--p">let formatter = NumberFormatter()</pre><pre name="e632" id="e632" class="graf graf--pre graf-after--pre">formatter.numberStyle = .spellOut</pre><pre name="dfb4" id="dfb4" class="graf graf--pre graf-after--pre">var numberString = formatter.string(from: 7)</pre><pre name="a567" id="a567" class="graf graf--pre graf-after--pre">numberString = formatter.string(from: 31)</pre><figure name="3d0d" id="3d0d" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*-EJ9KiJEI0ci49_NghhUOA.jpeg" data-width="1052" data-height="318" src="https://cdn-images-1.medium.com/max/800/1*-EJ9KiJEI0ci49_NghhUOA.jpeg"></figure><p name="cdb0" id="cdb0" class="graf graf--p graf-after--figure">設定語言</p><pre name="4b68" id="4b68" class="graf graf--pre graf-after--p">formatter.locale = Locale(identifier: &quot;zh_TW&quot;)</pre><figure name="c4b6" id="c4b6" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*j3tBy8SvwzqByLvBPCh7nQ.jpeg" data-width="1034" data-height="326" src="https://cdn-images-1.medium.com/max/800/1*j3tBy8SvwzqByLvBPCh7nQ.jpeg"></figure><blockquote name="ff24" id="ff24" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">2 currency</strong></blockquote><p name="9d8e" id="9d8e" class="graf graf--p graf-after--blockquote">金錢格式。</p><pre name="01bd" id="01bd" class="graf graf--pre graf-after--p">formatter.numberStyle = .currency</pre><figure name="e61a" id="e61a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*iznNFkDUsLchgn16gZ7qNA.jpeg" data-width="1024" data-height="322" src="https://cdn-images-1.medium.com/max/800/1*iznNFkDUsLchgn16gZ7qNA.jpeg"></figure><p name="4127" id="4127" class="graf graf--p graf-after--figure">設定金錢符號對應的國家。</p><pre name="d968" id="d968" class="graf graf--pre graf-after--p">formatter.currencyCode = &quot;JPY&quot;</pre><figure name="a58a" id="a58a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*GxSC5_cuJ3pwSkp_NmokeA.jpeg" data-width="1016" data-height="312" src="https://cdn-images-1.medium.com/max/800/1*GxSC5_cuJ3pwSkp_NmokeA.jpeg"></figure><blockquote name="12cb" id="12cb" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">3 ordinal</strong></blockquote><p name="d858" id="d858" class="graf graf--p graf-after--blockquote">序數，數字的順序表達格式。</p><pre name="3e5d" id="3e5d" class="graf graf--pre graf-after--p">formatter.numberStyle = .ordinal</pre><figure name="e75e" id="e75e" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*eiNf4T7NXXaTXy0SlK_Enw.jpeg" data-width="1016" data-height="318" src="https://cdn-images-1.medium.com/max/800/1*eiNf4T7NXXaTXy0SlK_Enw.jpeg"></figure><pre name="3344" id="3344" class="graf graf--pre graf-after--figure">formatter.numberStyle = .ordinal</pre><pre name="a0db" id="a0db" class="graf graf--pre graf-after--pre">formatter.locale = Locale(identifier: &quot;zh_TW&quot;)</pre><figure name="7bba" id="7bba" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*rnkWyq_j2d3vDgP9_q992w.jpeg" data-width="1034" data-height="322" src="https://cdn-images-1.medium.com/max/800/1*rnkWyq_j2d3vDgP9_q992w.jpeg"></figure><blockquote name="198c" id="198c" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">4 percent</strong></blockquote><p name="3b5b" id="3b5b" class="graf graf--p graf-after--blockquote">百分比格式。</p><pre name="423f" id="423f" class="graf graf--pre graf-after--p">formatter.numberStyle = .percent</pre><pre name="4ad3" id="4ad3" class="graf graf--pre graf-after--pre">numberString = formatter.string(from: 0.7)</pre><pre name="0d95" id="0d95" class="graf graf--pre graf-after--pre">numberString = formatter.string(from: 0.32)</pre><figure name="e1b7" id="e1b7" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*x6olQF2bU0EVauTf-v5znQ.jpeg" data-width="998" data-height="324" src="https://cdn-images-1.medium.com/max/800/1*x6olQF2bU0EVauTf-v5znQ.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c99b7216b718"><time class="dt-published" datetime="2018-09-07T08:36:01.034Z">September 7, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-numberformatter-%E5%B0%87-7-%E8%AE%8A%E6%88%90-seven-c99b7216b718" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

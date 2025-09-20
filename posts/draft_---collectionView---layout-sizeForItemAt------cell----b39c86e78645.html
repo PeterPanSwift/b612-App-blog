@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 collectionView(_:layout:sizeForItemAt:) 自訂 cell 大小</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 collectionView(_:layout:sizeForItemAt:) 自訂 cell 大小</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="a7ea" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="bfe1" id="bfe1" class="graf graf--h3 graf--leading graf--title">利用 collectionView(_:layout:sizeForItemAt:) 自訂 cell 大小</h3><p name="af3c" id="af3c" class="graf graf--p graf--empty graf-after--h3"><br></p><pre name="cf30" id="cf30" class="graf graf--pre graf-after--p">//<br>//  CollectionViewController.swift<br>//  Demo2<br>//<br>//  Created by Peter Pan on 2022/1/9.<br>//</pre><pre name="bbcf" id="bbcf" class="graf graf--pre graf-after--pre">import UIKit</pre><pre name="38b4" id="38b4" class="graf graf--pre graf-after--pre">private let reuseIdentifier = &quot;Cell&quot;</pre><pre name="cb4c" id="cb4c" class="graf graf--pre graf-after--pre">class LeftAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {</pre><pre name="f028" id="f028" class="graf graf--pre graf-after--pre">override func layoutAttributesForElements(in rect: CGRect) -&gt; [UICollectionViewLayoutAttributes]? {<br>        let attributes = super.layoutAttributesForElements(in: rect)</pre><pre name="3b1a" id="3b1a" class="graf graf--pre graf-after--pre">var leftMargin = sectionInset.left<br>        var maxY: CGFloat = -1.0<br>        attributes?.forEach { layoutAttribute in<br>            if layoutAttribute.frame.origin.y &gt;= maxY {<br>                leftMargin = sectionInset.left<br>            }</pre><pre name="2033" id="2033" class="graf graf--pre graf-after--pre">layoutAttribute.frame.origin.x = leftMargin</pre><pre name="6051" id="6051" class="graf graf--pre graf-after--pre">leftMargin += layoutAttribute.frame.width + minimumInteritemSpacing<br>            maxY = max(layoutAttribute.frame.maxY , maxY)<br>        }</pre><pre name="b0a6" id="b0a6" class="graf graf--pre graf-after--pre">return attributes<br>    }<br>}</pre><pre name="1b36" id="1b36" class="graf graf--pre graf-after--pre">class CollectionViewController: UICollectionViewController {<br>    var cellSizeDic = [Int: CGSize]()<br>    var tempArray = [<br>        &quot;hello1&quot;,<br>        &quot;hello2hello2hello2hello2hello2hello2hello2hello2hello2hello2&quot;,<br>        &quot;hello3&quot;,<br>        &quot;hello4&quot;,<br>        &quot;hello5hello5hello5hello5hello5&quot;,<br>        &quot;hello6hello6hello6hello6hello6hello6hello6hello6hello6&quot;,</pre><pre name="59c8" id="59c8" class="graf graf--pre graf-after--pre">]<br>    var array = [String]()<br>        <br>    override func viewDidLoad() {<br>        super.viewDidLoad()<br>        <br>        collectionView.collectionViewLayout = LeftAlignedCollectionViewFlowLayout()<br>        <br>        calculateCellSize()<br>    }<br>    <br>    <br>    <a href="http://twitter.com/IBAction" data-href="http://twitter.com/IBAction" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBAction" rel="noopener" target="_blank">@IBAction</a> func add(_ sender: Any) {<br>        if !tempArray.isEmpty  {<br>            array.append(tempArray.removeFirst())<br>            calculateCellSize()<br>            collectionView.reloadData()<br>        }<br>       <br>    }<br>    <br>    func calculateCellSize() {<br>        cellSizeDic = [:]<br>        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: IndexPath(row: 0, section: 0)) as! CollectionViewCell<br>        let imageTextSpace: Double = 10<br>        let imageWidth: Double = 20<br>        let cellSpace: Double = 10<br>        let maxLabelWidth = collectionView.bounds.width - imageWidth - imageTextSpace<br>        var remainLabelWidth = maxLabelWidth<br>        cell.label.text = &quot;one line&quot;<br>        let oneLineHeight = cell.label.sizeThatFits(CGSize(width: 1000, height: 0)).height<br>        array.enumerated().forEach { data in<br>            cell.label.text = data.element<br>            <br>            let size = cell.label.sizeThatFits(CGSize(width: remainLabelWidth, height: 0))<br>            if size.height &gt; oneLineHeight {<br>                if remainLabelWidth == maxLabelWidth {<br>                    let cellWidth = size.width + imageWidth + imageTextSpace<br>                    cellSizeDic[data.offset] = CGSize(width: cellWidth, height: size.height)<br>                } else {<br>                    remainLabelWidth = maxLabelWidth<br>                    let size = cell.label.sizeThatFits(CGSize(width: remainLabelWidth, height: 0))<br>                    let cellWidth = size.width + imageWidth + imageTextSpace<br>                    cellSizeDic[data.offset] = CGSize(width: cellWidth, height: size.height)<br>                    if size.height == oneLineHeight {<br>                        remainLabelWidth -= (size.width + cellSpace + imageWidth + imageTextSpace)<br>                        if remainLabelWidth &lt; 0 {<br>                            remainLabelWidth = maxLabelWidth<br>                        }<br>                    }<br>                }<br>            } else {<br>                let cellWidth = size.width + imageWidth + imageTextSpace<br>                cellSizeDic[data.offset] = CGSize(width: cellWidth, height: size.height)<br>                remainLabelWidth -= (size.width + cellSpace + imageWidth + imageTextSpace)<br>                if remainLabelWidth &lt; 0 {<br>                    remainLabelWidth = maxLabelWidth<br>                }<br>            }<br>        }<br>    }</pre><pre name="d95b" id="d95b" class="graf graf--pre graf-after--pre">// MARK: UICollectionViewDataSource</pre><pre name="8730" id="8730" class="graf graf--pre graf-after--pre">override func numberOfSections(in collectionView: UICollectionView) -&gt; Int {<br>       <br>        return 1<br>    }</pre><pre name="1458" id="1458" class="graf graf--pre graf-after--pre">override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int {<br>        return array.count<br>    }</pre><pre name="7523" id="7523" class="graf graf--pre graf-after--pre">override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell {<br>        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell<br>    <br>        cell.label.text = array[indexPath.item]<br>        return cell<br>    }</pre><pre name="0b35" id="0b35" class="graf graf--pre graf--empty graf-after--pre"><br></pre><pre name="0e23" id="0e23" class="graf graf--pre graf-after--pre">}</pre><pre name="b179" id="b179" class="graf graf--pre graf-after--pre">extension CollectionViewController: UICollectionViewDelegateFlowLayout {</pre><pre name="c505" id="c505" class="graf graf--pre graf-after--pre">func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -&gt; CGSize {<br>        return cellSizeDic[indexPath.item] ?? .zero<br>    }<br>}</pre><p name="2fea" id="2fea" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/b39c86e78645">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

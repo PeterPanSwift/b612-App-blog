@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#223 串接 GitHub API 顯示可愛的程式 logo</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#223 串接 GitHub API 顯示可愛的程式 logo</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近看到 SAWARATSUKI 大大在 GitHub 分享他繪製的可愛程式 logo，有興趣的朋友也可以串接 GitHub API 做個顯示可愛程式 logo 的 App。
+</section>
+<section data-field="body" class="e-content">
+<section name="e010" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="7dee" id="7dee" class="graf graf--h3 graf--leading graf--title">#223 串接 GitHub API 顯示可愛的程式 logo</h3><p name="b734" id="b734" class="graf graf--p graf-after--h3">最近看到 SAWARATSUKI 大大在 GitHub 分享他繪製的可愛程式 logo，有興趣的朋友也可以串接 GitHub API 做個顯示可愛程式 logo 的 App。</p><div name="ed02" id="ed02" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/SAWARATSUKI/ServiceLogos" data-href="https://github.com/SAWARATSUKI/ServiceLogos" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/SAWARATSUKI/ServiceLogos"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - SAWARATSUKI/ServiceLogos: ロゴを可愛く作ろう 節度を持って利用してください🫠</strong><br><em class="markup--em markup--mixtapeEmbed-em">ロゴを可愛く作ろう 節度を持って利用してください🫠. Contribute to SAWARATSUKI/ServiceLogos development by creating an account on GitHub.</em>github.com</a><a href="https://github.com/SAWARATSUKI/ServiceLogos" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="6cc6ff475f8a89973dc33eb6cf9897cb" data-thumbnail-img-id="0*m8EAktvrRKzbGKg5" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*m8EAktvrRKzbGKg5);"></a></div><h3 name="9ed6" id="9ed6" class="graf graf--h3 graf-after--mixtapeEmbed">功能需求</h3><ul class="postList"><li name="a17e" id="a17e" class="graf graf--li graf-after--h3">第一頁顯示名字列表。</li></ul><figure name="3227" id="3227" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*_5jKU1dNyQWIDv1DUWcF_w.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*_5jKU1dNyQWIDv1DUWcF_w.png"></figure><p name="4f3e" id="4f3e" class="graf graf--p graf-after--figure">使用以下 API 抓取名字列表。</p><pre data-code-block-mode="0" spellcheck="false" name="2e70" id="2e70" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">https://api.github.com/repos/SAWARATSUKI/ServiceLogos/contents</span></pre><p name="1ab1" id="1ab1" class="graf graf--p graf-after--pre">欄位 name 是名字，url 是下一頁抓取圖片資訊的網址。</p><figure name="d909" id="d909" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-YSGpMPnYntV_GqLAHQIEQ.png" data-width="1610" data-height="1018" src="https://cdn-images-1.medium.com/max/800/1*-YSGpMPnYntV_GqLAHQIEQ.png"></figure><ul class="postList"><li name="a915" id="a915" class="graf graf--li graf-after--figure">第二頁顯示圖片。</li></ul><figure name="6423" id="6423" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*20AyFaM4bYY4_r6WMXK-1w.png" data-width="1179" data-height="2556" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*20AyFaM4bYY4_r6WMXK-1w.png"></figure><p name="a2c7" id="a2c7" class="graf graf--p graf-after--figure">從第一頁 JSON 裡的 url 抓取圖片資訊，比方用以下網址抓取 Swift 的資訊。</p><pre data-code-block-mode="0" spellcheck="false" name="522d" id="522d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">https://api.github.com/repos/SAWARATSUKI/ServiceLogos/contents/Swift</span></pre><p name="f628" id="f628" class="graf graf--p graf-after--pre">從 JSON 的 download_url 取得圖片網址。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="json" name="d1b5" id="d1b5" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-punctuation">[</span><br />  <span class="hljs-punctuation">{</span><br />    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Swift.png&quot;</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Swift/Swift.png&quot;</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;sha&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;807b288fc745c750d7843c1bad4f0f351c267553&quot;</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">87573</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.github.com/repos/SAWARATSUKI/ServiceLogos/contents/Swift/Swift.png?ref=main&quot;</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;html_url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://github.com/SAWARATSUKI/ServiceLogos/blob/main/Swift/Swift.png&quot;</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;git_url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.github.com/repos/SAWARATSUKI/ServiceLogos/git/blobs/807b288fc745c750d7843c1bad4f0f351c267553&quot;</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;download_url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/SAWARATSUKI/ServiceLogos/main/Swift/Swift.png&quot;</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;file&quot;</span><span class="hljs-punctuation">,</span><br />    <span class="hljs-attr">&quot;_links&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><br />      <span class="hljs-attr">&quot;self&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.github.com/repos/SAWARATSUKI/ServiceLogos/contents/Swift/Swift.png?ref=main&quot;</span><span class="hljs-punctuation">,</span><br />      <span class="hljs-attr">&quot;git&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.github.com/repos/SAWARATSUKI/ServiceLogos/git/blobs/807b288fc745c750d7843c1bad4f0f351c267553&quot;</span><span class="hljs-punctuation">,</span><br />      <span class="hljs-attr">&quot;html&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://github.com/SAWARATSUKI/ServiceLogos/blob/main/Swift/Swift.png&quot;</span><br />    <span class="hljs-punctuation">}</span><br />  <span class="hljs-punctuation">}</span><br /><span class="hljs-punctuation">]</span></span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/204b6137506f"><time class="dt-published" datetime="2024-04-24T04:33:09.859Z">April 24, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/223-%E4%B8%B2%E6%8E%A5-github-api-%E9%A1%AF%E7%A4%BA%E5%8F%AF%E6%84%9B%E7%9A%84%E7%A8%8B%E5%BC%8F-logo-204b6137506f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

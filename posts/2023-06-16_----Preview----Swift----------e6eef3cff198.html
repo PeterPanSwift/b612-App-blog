@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 #Preview 研究 Swift 的畫星星蘋果迴圈</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 #Preview 研究 Swift 的畫星星蘋果迴圈</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+彼得潘之前教學時發現 nested loop 對程式初學者是個滿大的難題，尤其經典的畫星星程式，同學們常常要研究很久，不斷地修改研究後才能想出解法。
+</section>
+<section data-field="body" class="e-content">
+<section name="e41e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="1f7f" id="1f7f" class="graf graf--h3 graf--leading graf--title">使用 #Preview 研究 Swift 的畫星星蘋果迴圈</h3><p name="f827" id="f827" class="graf graf--p graf-after--h3">彼得潘之前教學時發現 nested loop 對程式初學者是個滿大的難題，尤其經典的畫星星程式，同學們常常要研究很久，不斷地修改研究後才能想出解法。</p><p name="66a8" id="66a8" class="graf graf--p graf-after--p">最近 Xcode 15 推出了方便預覽 App 畫面的 #Preview 功能，彼得潘想到利用它即時預覽的特性，同學們練習畫星星時可以更方便地一邊修改程式，一邊從預覽畫面觀看成果。</p><p name="413d" id="413d" class="graf graf--p graf-after--p">以下我們分別介紹 SwiftUI &amp; UIKit 程式裡練習寫畫星星迴圈的方法。</p><h3 name="e0f8" id="e0f8" class="graf graf--h3 graf-after--p">SwiftUI</h3><p name="ce36" id="ce36" class="graf graf--p graf-after--h3">在 ContentView 裡宣告 property content，在 let content = 後的 { } 裡練習用 nested loop 產生多排 🍎 的字串。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="4e58" id="4e58" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> content <span class="hljs-operator">=</span> {<br />        <span class="hljs-keyword">var</span> content <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span><br />        <span class="hljs-keyword">let</span> count <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br />        <span class="hljs-keyword">for</span> <span class="hljs-keyword">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">...</span>count {<br />            <span class="hljs-keyword">for</span> <span class="hljs-keyword">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">...</span>count {<br />                content <span class="hljs-operator">+=</span> <span class="hljs-string">&quot;🍎&quot;</span><br />            }<br />            content <span class="hljs-operator">+=</span> <span class="hljs-string">&quot;<span class="hljs-subst">\n</span>&quot;</span><br />        }<br />        <span class="hljs-keyword">return</span> content<br />    }()<br /><br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Text</span>(content)<br />            .font(.largeTitle)<br />    }<br />}<br /><br />#<span class="hljs-type">Preview</span> {<br />    <span class="hljs-type">ContentView</span>()<br />}</span></pre><p name="6a04" id="6a04" class="graf graf--p graf-after--pre">由於下方的 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">#Preview { ContentView() }</strong></code>，Xcode 的右邊出現了預覽畫面，顯示我們辛苦畫出的 🍎。</p><figure name="1994" id="1994" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*MnWBM_pR6TOMOpizRNjLrA.png" data-width="2042" data-height="1374" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*MnWBM_pR6TOMOpizRNjLrA.png"></figure><p name="d70f" id="d70f" class="graf graf--p graf-after--figure">當我們練習其它形狀時，只要修改程式，即可馬上從預覽畫面觀看成果。比方以下是三角形的程式和預覽畫面。</p><figure name="21f1" id="21f1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kqPNJZOTrhqEJeOekFE10A.png" data-width="2060" data-height="1366" src="https://cdn-images-1.medium.com/max/800/1*kqPNJZOTrhqEJeOekFE10A.png"></figure><h3 name="f1af" id="f1af" class="graf graf--h3 graf-after--figure">UIKit</h3><ul class="postList"><li name="409e" id="409e" class="graf graf--li graf-after--h3">在 function viewDidLoad 裡練習用 nested loop 產生多排 🍎 的字串，然後顯示到 label 上。</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="361c" id="361c" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <br />    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> label: <span class="hljs-type">UILabel</span>!<br />    <br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-comment">// Do any additional setup after loading the view.</span><br />        <br />        <span class="hljs-keyword">var</span> content <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span><br />        <span class="hljs-keyword">let</span> count <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br />        <span class="hljs-keyword">for</span> <span class="hljs-keyword">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">...</span>count {<br />            <span class="hljs-keyword">for</span> <span class="hljs-keyword">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">...</span>count {<br />                content <span class="hljs-operator">+=</span> <span class="hljs-string">&quot;🍎&quot;</span><br />            }<br />            content <span class="hljs-operator">+=</span> <span class="hljs-string">&quot;<span class="hljs-subst">\n</span>&quot;</span><br />        }<br />        label.text <span class="hljs-operator">=</span> content<br />    }<br />}</span></pre><ul class="postList"><li name="34f8" id="34f8" class="graf graf--li graf-after--pre">在 class ViewController { } 的下方加入以下程式產生預覽畫面。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4d86" id="4d86" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content">#<span class="hljs-type">Preview</span> {<br />    <span class="hljs-keyword">let</span> storyboard <span class="hljs-operator">=</span> <span class="hljs-type">UIStoryboard</span>(name: <span class="hljs-string">&quot;Main&quot;</span>, bundle: <span class="hljs-literal">nil</span>)<br />    <span class="hljs-keyword">return</span> storyboard.instantiateInitialViewController()<span class="hljs-operator">!</span><br />}</span></pre><p name="c5e0" id="c5e0" class="graf graf--p graf-after--pre">Xcode 的右邊出現了預覽畫面，顯示我們辛苦畫出的 🍎。</p><figure name="846b" id="846b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*SUjNyEXZ0YkYALHC3Jk7wg.png" data-width="2252" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*SUjNyEXZ0YkYALHC3Jk7wg.png"></figure><p name="b7ba" id="b7ba" class="graf graf--p graf-after--figure">當我們練習其它形狀時，只要修改程式，即可馬上從預覽畫面觀看成果。比方以下是三角形的程式和預覽畫面。</p><figure name="7790" id="7790" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*lIiTR4tI2Vrnpo_Hlk1N-A.png" data-width="2250" data-height="1386" src="https://cdn-images-1.medium.com/max/800/1*lIiTR4tI2Vrnpo_Hlk1N-A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e6eef3cff198"><time class="dt-published" datetime="2023-06-16T09:51:02.634Z">June 16, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-preview-%E7%A0%94%E7%A9%B6-swift-%E7%9A%84%E7%95%AB%E6%98%9F%E6%98%9F%E8%98%8B%E6%9E%9C%E8%BF%B4%E5%9C%88-e6eef3cff198" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

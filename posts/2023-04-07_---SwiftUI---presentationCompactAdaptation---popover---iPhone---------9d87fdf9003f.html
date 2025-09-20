@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 SwiftUI 的 presentationCompactAdaptation &amp; popover 在 iPhone 上顯示彈出視窗</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 SwiftUI 的 presentationCompactAdaptation &amp; popover 在 iPhone 上顯示彈出視窗</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 iOS 16.4 開始，SwiftUI App 在 iPhone 上可以利用 presentationCompactAdaptation &amp; popover 顯示 iPad 上常見的彈出視窗。
+</section>
+<section data-field="body" class="e-content">
+<section name="f2ad" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9076" id="9076" class="graf graf--h3 graf--leading graf--title">利用 SwiftUI 的 presentationCompactAdaptation &amp; popover 在 iPhone 上顯示彈出視窗</h3><p name="db77" id="db77" class="graf graf--p graf-after--h3">從 iOS 16.4 開始，SwiftUI App 在 iPhone 上可以利用 presentationCompactAdaptation &amp; popover 顯示 iPad 上常見的彈出視窗。</p><p name="e78c" id="e78c" class="graf graf--p graf-after--p">以下我們以可愛狐狸為例，點選按鈕後會顯示 FoxView，看到認真寫程式的可愛狐狸。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="03fa" id="03fa" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> show <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;show&quot;</span>) {<br />            show <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />        }<br />        .font(.largeTitle)<br />        .popover(isPresented: <span class="hljs-variable">$show</span>) {<br />            <span class="hljs-type">FoxView</span>()<br />        }<br />    }<br />}<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">FoxView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Image</span>(<span class="hljs-string">&quot;fox&quot;</span>)<br />                .resizable()<br />                .scaledToFit()<br />                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;認真寫程式的可愛狐狸&quot;</span>)<br />                .foregroundColor(.white)<br />        }<br />        .padding()<br />        .background(.black.gradient)<br />    }<br />}</span></pre><p name="6ab2" id="6ab2" class="graf graf--p graf-after--pre">我們呼叫 popover 顯示 FoxView，因此狐狸畫面會以彈出視窗的效果呈現。</p><figure name="63c4" id="63c4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Af4Dye-3tGesOysYBilrgw.png" data-width="934" data-height="1280" src="https://cdn-images-1.medium.com/max/800/1*Af4Dye-3tGesOysYBilrgw.png"></figure><p name="c51e" id="c51e" class="graf graf--p graf-after--figure">在 iOS 16.4 之前，popover 只有在 iPad 會以彈出視窗顯示，在 iPhone 還是會以 sheet 或 full screen 的方式顯示。</p><figure name="774a" id="774a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*CUBcA9a6W7fTh_SG_rcNgg.png" data-width="632" data-height="1280" src="https://cdn-images-1.medium.com/max/800/1*CUBcA9a6W7fTh_SG_rcNgg.png"></figure><p name="f8d0" id="f8d0" class="graf graf--p graf-after--figure">從 16.4 開始，我們可以在顯示新頁面時呼叫 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">presentationCompactAdaptation</strong></code>，傳入 .none 要求它在 compact size 時維持以彈出視窗的方式呈現，不要做特別的調整。相較於 iPad，iPhone 在直向跟橫向時都會至少有一邊是 compact size，因此 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">presentationCompactAdaptation(.none)</strong></code> 將讓 iPhone 以彈出視窗的方式顯示新頁面。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="ce48" id="ce48" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> show <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;show&quot;</span>) {<br />            show <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />        }<br />        .font(.largeTitle)<br />        .popover(isPresented: <span class="hljs-variable">$show</span>) {<br />            <span class="hljs-type">FoxView</span>()<br />                .presentationCompactAdaptation(.none)<br />        }<br />    }<br />}</span></pre><figure name="13c2" id="13c2" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*Sx3C12vux2hPxFESWR9nmw.png" data-width="632" data-height="1280" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Sx3C12vux2hPxFESWR9nmw.png"></figure><p name="8740" id="8740" class="graf graf--p graf-after--figure">我們也可以調整 popover 的大小，比方設定它的寬高為 300 * 200。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="69aa" id="69aa" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> show <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;show&quot;</span>) {<br />            show <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />        }<br />        .font(.largeTitle)<br />        .popover(isPresented: <span class="hljs-variable">$show</span>) {<br />            <span class="hljs-type">FoxView</span>()<br />                .frame(width: <span class="hljs-number">300</span>, height: <span class="hljs-number">200</span>)<br />                .presentationCompactAdaptation(.none)<br /><br />        }<br />    }<br />}</span></pre><figure name="5806" id="5806" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*8tK0X1h584sET3NVpTFP2w.png" data-width="632" data-height="1280" src="https://cdn-images-1.medium.com/max/800/1*8tK0X1h584sET3NVpTFP2w.png"></figure><p name="3e3f" id="3e3f" class="graf graf--p graf-after--figure">除了 presentationCompactAdaptation(_:)，若想對水平和垂直的 compact size 做不同處理，則可參考 presentationCompactAdaptation(horizontal:vertical:)。</p><div name="176f" id="176f" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/charts/chart/presentationcompactadaptation%28_:%29" data-href="https://developer.apple.com/documentation/charts/chart/presentationcompactadaptation(_:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/charts/chart/presentationcompactadaptation(_:)"><strong class="markup--strong markup--mixtapeEmbed-strong">presentationCompactAdaptation(_:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Specifies how to adapt a presentation to compact size classes.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/charts/chart/presentationcompactadaptation%28_:%29" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="c0a16978006a255bf68c870bc00a949e"></a></div><div name="7851" id="7851" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed graf--trailing"><a href="https://developer.apple.com/documentation/swiftui/view/presentationcompactadaptation%28horizontal:vertical:%29" data-href="https://developer.apple.com/documentation/swiftui/view/presentationcompactadaptation(horizontal:vertical:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/presentationcompactadaptation(horizontal:vertical:)"><strong class="markup--strong markup--mixtapeEmbed-strong">presentationCompactAdaptation(horizontal:vertical:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Specifies how to adapt a presentation to horizontally and vertically compact size classes.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/presentationcompactadaptation%28horizontal:vertical:%29" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="dee28b49c649a1349c3e5a2f95e18502"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9d87fdf9003f"><time class="dt-published" datetime="2023-04-07T09:40:35.761Z">April 7, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-presentationcompactadaptation-popover-%E5%9C%A8-iphone-%E4%B8%8A%E9%A1%AF%E7%A4%BA%E5%BD%88%E5%87%BA%E8%A6%96%E7%AA%97-9d87fdf9003f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

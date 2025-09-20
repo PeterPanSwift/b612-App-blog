@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓 enum 型別遵從 protocol  Identifiable</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓 enum 型別遵從 protocol  Identifiable</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="bc71" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8af6" id="8af6" class="graf graf--h3 graf--leading graf--title">讓 enum 型別遵從 protocol Identifiable</h3><p name="8ae1" id="8ae1" class="graf graf--p graf-after--h3">開發 SwiftUI App 時，我們時常會讓資料型別遵從 protocol Identifiable，讓資料可以識別區分，方便搭配 ForEach 或 List。</p><p name="2291" id="2291" class="graf graf--p graf-after--p">不過如果資料的型別是 enum，可以讓它遵從 protocol Identifiable 嗎 ? 它要如何定義 id 呢 ? 有以下幾種方法。</p><h3 name="119e" id="119e" class="graf graf--h3 graf-after--p">方法 1: 利用 enum 本身當 id</h3><p name="3c26" id="3c26" class="graf graf--p graf-after--h3">enum 預設遵從 protocol Hashable，所以它的每個 case 本來就可以區分，可以當成 id。</p><pre name="f025" id="f025" class="graf graf--pre graf-after--p">enum Animal: Identifiable {<br>    case cat<br>    case dog<br>    case rabbit<br>    <br>    var id: Self {<br>        self<br>    }<br>}</pre><h3 name="3188" id="3188" class="graf graf--h3 graf-after--pre">方法 2: 利用 hashValue 當 id</h3><p name="f54a" id="f54a" class="graf graf--p graf-after--h3">enum 預設遵從 protocol Hashable，每個 case 將擁有一個可以區分彼此的數字，儲存在 hashValue，所以我們可以將 hashValue 當成 id。</p><pre name="79f7" id="79f7" class="graf graf--pre graf-after--p">enum Animal: Identifiable {<br>    case cat<br>    case dog<br>    case rabbit<br>    <br>    var id: Int {<br>        hashValue<br>    }<br>}</pre><h3 name="1279" id="1279" class="graf graf--h3 graf-after--pre">方法 3: 利用 rawValue 當 id</h3><p name="1bec" id="1bec" class="graf graf--p graf-after--h3">當 enum 有 rawValue 時，我們可以將 rawValue 當成 id。</p><pre name="7935" id="7935" class="graf graf--pre graf-after--p graf--trailing">enum Animal: String, Identifiable {<br>    case cat<br>    case dog<br>    case rabbit<br>    <br>    var id: String {<br>        rawValue<br>    }<br>}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/93f6dbb480f5"><time class="dt-published" datetime="2021-06-04T14:25:19.738Z">June 4, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AE%93-enum-%E5%9E%8B%E5%88%A5%E9%81%B5%E5%BE%9E-protocol-identifiable-93f6dbb480f5" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

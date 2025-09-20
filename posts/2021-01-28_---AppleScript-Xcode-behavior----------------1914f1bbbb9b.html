@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 AppleScript，Xcode behavior &amp; 自訂快速鍵同時全選跟縮排</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 AppleScript，Xcode behavior &amp; 自訂快速鍵同時全選跟縮排</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近彼得潘在寫 SwiftUI App 時，發現時常使用全選跟縮排的快速鍵，cmd+a &amp; ctrl + i。然而要分兩個步驟還是有點麻煩，能不能自訂一組新的快速鍵，結合全選跟縮排的功能呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="8001" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6dd5" id="6dd5" class="graf graf--h3 graf--leading graf--title">利用 AppleScript，Xcode behavior &amp; 自訂快速鍵同時全選跟縮排</h3><p name="db51" id="db51" class="graf graf--p graf-after--h3">最近彼得潘在寫 SwiftUI App 時，時常使用全選跟縮排的快速鍵，cmd+a &amp; ctrl + i。然而要分兩個步驟還是有點麻煩，能不能自訂一組新的快速鍵，結合全選跟縮排的功能呢 ?</p><p name="1b40" id="1b40" class="graf graf--p graf-after--p">當然可以，只要結合 AppleScript 指令，Xcode behavior &amp; 自訂快速鍵。接下來就讓我們一步一腳印完成同時全選跟縮排的懶人功能。</p><h3 name="4833" id="4833" class="graf graf--h3 graf-after--p">啟動 TextEdit，建立新檔案</h3><p name="a3b9" id="a3b9" class="graf graf--p graf-after--h3">File &gt; New。</p><figure name="c6c6" id="c6c6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-UUXjpdKKQgiJpLq_KuHtw.png" data-width="662" data-height="132" src="https://cdn-images-1.medium.com/max/800/1*-UUXjpdKKQgiJpLq_KuHtw.png"></figure><h3 name="e953" id="e953" class="graf graf--h3 graf-after--figure">格式改成 plain text</h3><p name="324d" id="324d" class="graf graf--p graf-after--h3">Format &gt; Make Plain Text。</p><figure name="c31a" id="c31a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*a48xzq-GsMFKQ1leDLlbqw.png" data-width="524" data-height="248" src="https://cdn-images-1.medium.com/max/800/1*a48xzq-GsMFKQ1leDLlbqw.png"></figure><h3 name="d5d1" id="d5d1" class="graf graf--h3 graf-after--figure">輸入以下 AppleScript 指令控制 Xcode Select All &amp; Re-Indent</h3><pre name="a9f2" id="a9f2" class="graf graf--pre graf-after--h3">#!/bin/sh</pre><pre name="11d3" id="11d3" class="graf graf--pre graf-after--pre">osascript &lt;&lt;END<br>tell application &quot;System Events&quot;<br>   tell process &quot;Xcode&quot;<br>      set frontmost to true<br>      click menu item &quot;Select All&quot; of menu &quot;Edit&quot; of menu bar 1<br>      click menu item &quot;Re-Indent&quot; of menu of menu item &quot;Structure&quot; of menu &quot;Editor&quot; of menu bar 1<br>   end tell<br>end tell<br>END</pre><p name="3f41" id="3f41" class="graf graf--p graf-after--pre">以上指令對應 Xcode menu 的 Edit &gt; Select All &amp; Editor &gt; Structure &gt; Re-Indent。</p><figure name="1a40" id="1a40" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*65f6D6i9cSmlfnYQRHrZCg.png" data-width="836" data-height="594" src="https://cdn-images-1.medium.com/max/800/1*65f6D6i9cSmlfnYQRHrZCg.png"></figure><figure name="40a7" id="40a7" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*RHHr8BsfT4-7gB3JHiYsHA.png" data-width="1590" data-height="956" src="https://cdn-images-1.medium.com/max/800/1*RHHr8BsfT4-7gB3JHiYsHA.png"></figure><h3 name="c492" id="c492" class="graf graf--h3 graf-after--figure">存檔為 SelectAllAndReIndent.sh</h3><figure name="ee52" id="ee52" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*O4Z701UtqJ4NY4N1uOLAOg.png" data-width="490" data-height="328" src="https://cdn-images-1.medium.com/max/800/1*O4Z701UtqJ4NY4N1uOLAOg.png"></figure><h3 name="69e7" id="69e7" class="graf graf--h3 graf-after--figure">將 SelectAllAndReIndent.sh 變成可執行的檔案</h3><p name="30ae" id="30ae" class="graf graf--p graf-after--h3">打開 Terminal App，輸入以下指令。(假設 SelectAllAndReIndent.sh 存在 Desktop 資料夾下)</p><pre name="9f37" id="9f37" class="graf graf--pre graf-after--p">cd Desktop<br>chmod +x SelectAllAndReIndent.sh</pre><p name="3682" id="3682" class="graf graf--p graf-after--pre">現在 SelectAllAndReIndent.sh 變成可執行的檔案，接下來我們將新增自訂的 Xcode behavior，讓 Xcode 執行它。</p><h3 name="46a2" id="46a2" class="graf graf--h3 graf-after--p">打開 Xcode 的 Behaviors 視窗</h3><p name="2414" id="2414" class="graf graf--p graf-after--h3">從 Xcode 的 menu 選擇 Xcode &gt; Behaviors &gt; Edit Behaviors。</p><figure name="322c" id="322c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JAozhrOd4uAwRgaBCWJYvw.png" data-width="804" data-height="354" src="https://cdn-images-1.medium.com/max/800/1*JAozhrOd4uAwRgaBCWJYvw.png"></figure><figure name="142c" id="142c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Aiq6hD7-qekpN1FoPMhdpw.jpeg" data-width="1400" data-height="944" src="https://cdn-images-1.medium.com/max/800/1*Aiq6hD7-qekpN1FoPMhdpw.jpeg"></figure><h3 name="1604" id="1604" class="graf graf--h3 graf-after--figure">點選左下的 + 新增 Behavior</h3><figure name="959c" id="959c" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*nwAaq72ZoulY5uQXU-UyVg.jpeg" data-width="1400" data-height="944" src="https://cdn-images-1.medium.com/max/800/1*nwAaq72ZoulY5uQXU-UyVg.jpeg"></figure><h3 name="c448" id="c448" class="graf graf--h3 graf-after--figure">輸入名稱 Select all and reindent &amp; 勾選下方的 Run</h3><figure name="46f8" id="46f8" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*igIu_4ryGuUSm5PypTN5tQ.png" data-width="1630" data-height="910" src="https://cdn-images-1.medium.com/max/800/1*igIu_4ryGuUSm5PypTN5tQ.png"></figure><h3 name="b0e4" id="b0e4" class="graf graf--h3 graf-after--figure">點選 Run 旁的 Choose Script，選擇 SelectAllAndReIndent.sh</h3><figure name="dc58" id="dc58" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*e9hSsPLmBoJswMDIr4RBww.png" data-width="1590" data-height="890" src="https://cdn-images-1.medium.com/max/800/1*e9hSsPLmBoJswMDIr4RBww.png"></figure><figure name="2bbd" id="2bbd" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*EOAjKxOr38xD196wodsAJw.png" data-width="1646" data-height="208" src="https://cdn-images-1.medium.com/max/800/1*EOAjKxOr38xD196wodsAJw.png"></figure><p name="c7ba" id="c7ba" class="graf graf--p graf-after--figure">大功告成 ! 現在我們可以測試一鍵全選和縮排程式的功能了。</p><h3 name="1362" id="1362" class="graf graf--h3 graf-after--p">使用 Xcode Behavior 全選和縮排</h3><p name="0f2f" id="0f2f" class="graf graf--p graf-after--h3">原本縮排慘不忍睹的程式如下。</p><figure name="f46d" id="f46d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*szBuGc5NdwDCLM1Z-UfSTg.png" data-width="2438" data-height="1312" src="https://cdn-images-1.medium.com/max/800/1*szBuGc5NdwDCLM1Z-UfSTg.png"></figure><p name="2e4c" id="2e4c" class="graf graf--p graf-after--figure">點選 Xcode &gt; Behaviors &gt; Select all and reindent。</p><figure name="0511" id="0511" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*WMOBwSblkeWsuuFb3Jv_Tw.png" data-width="808" data-height="378" src="https://cdn-images-1.medium.com/max/800/1*WMOBwSblkeWsuuFb3Jv_Tw.png"></figure><p name="3cef" id="3cef" class="graf graf--p graf-after--figure">若是第一次要求 Xcode 控制 System Events，此時將跳出以下視窗，點選 OK 即可。(剛剛的 SelectAllAndReIndent.sh 透過 System Events 控制 Xcode 執行全選和縮排)</p><figure name="08cb" id="08cb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*o81b-y30BjPj3xTeZCstEw.png" data-width="570" data-height="588" src="https://cdn-images-1.medium.com/max/800/1*o81b-y30BjPj3xTeZCstEw.png"></figure><p name="301b" id="301b" class="graf graf--p graf-after--figure">接著請再點選 Xcode &gt; Behaviors &gt; Select all and reindent。不過令人難過的，還是有問題。</p><p name="0e84" id="0e84" class="graf graf--p graf-after--p">別灰心，只剩最後一步了。請點選 Open System Preferences，將 Security &amp; Privacy 下 Privacy &gt; Accessibility 的 Xcode 勾選。</p><figure name="dc52" id="dc52" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZxdrCLDVCnOMa91crPPTiA.png" data-width="958" data-height="390" src="https://cdn-images-1.medium.com/max/800/1*ZxdrCLDVCnOMa91crPPTiA.png"></figure><figure name="3b74" id="3b74" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*sGe_uv5fSU_LQJs5xi4a_g.png" data-width="1320" data-height="1164" src="https://cdn-images-1.medium.com/max/800/1*sGe_uv5fSU_LQJs5xi4a_g.png"></figure><p name="89c5" id="89c5" class="graf graf--p graf-after--figure">現在終於沒問題了。點選 Xcode &gt; Behaviors &gt; Select all and reindent，程式順利地全選和縮排 !</p><figure name="6b4e" id="6b4e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ijT70C6vWdfYb37aqPDKXA.png" data-width="2366" data-height="1354" src="https://cdn-images-1.medium.com/max/800/1*ijT70C6vWdfYb37aqPDKXA.png"></figure><h3 name="e772" id="e772" class="graf graf--h3 graf-after--figure">設定快速鍵</h3><p name="832e" id="832e" class="graf graf--p graf-after--h3">不過點選 Xcode behavior 還不夠快，因為要使用滑鼠，聽說厲害的大神都是用快速鍵，接下來請參考以下連結，幫 Select all and reindent 加入快速鍵 cmd + ctrl + a。</p><div name="c3a3" id="c3a3" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E8%A8%82-app-menu-command-%E5%BF%AB%E9%80%9F%E9%8D%B5-2f2542ed3fda" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E8%A8%82-app-menu-command-%E5%BF%AB%E9%80%9F%E9%8D%B5-2f2542ed3fda" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E8%A8%82-app-menu-command-%E5%BF%AB%E9%80%9F%E9%8D%B5-2f2542ed3fda"><strong class="markup--strong markup--mixtapeEmbed-strong">自訂 App menu command 快速鍵</strong><br><em class="markup--em markup--mixtapeEmbed-em">快速鍵可以大幅提高我們做事的效率，因此很多 App 都為常用功能定義了快速鍵。然後App 不太可能為每個功能定義快速鍵，不過沒關係，只要出現在 App menu 的 command，我們都可以幫它加上快速鍵。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E8%A8%82-app-menu-command-%E5%BF%AB%E9%80%9F%E9%8D%B5-2f2542ed3fda" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f321ea0b84ed9c94d02e098165391b89" data-thumbnail-img-id="1*QwiB0WcoZxG6i6eX3vX1mw.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*QwiB0WcoZxG6i6eX3vX1mw.png);"></a></div><p name="fa9d" id="fa9d" class="graf graf--p graf-after--mixtapeEmbed">Cool，現在可以用 cmd + ctrl + a 全選跟縮排了。</p><figure name="1344" id="1344" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*2W5W-l1lUq4j7nKKEt5wIg.png" data-width="888" data-height="352" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*2W5W-l1lUq4j7nKKEt5wIg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/1914f1bbbb9b"><time class="dt-published" datetime="2021-01-28T15:09:15.527Z">January 28, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-applescript-xcode-behavior-%E8%87%AA%E8%A8%82%E5%BF%AB%E9%80%9F%E9%8D%B5%E5%90%8C%E6%99%82%E5%85%A8%E9%81%B8%E8%B7%9F%E7%B8%AE%E6%8E%92-1914f1bbbb9b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

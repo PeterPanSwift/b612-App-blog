@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Windsurf 的 AI Cascade 修改專案程式</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Windsurf 的 AI Cascade 修改專案程式</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+現在 IDE 的 AI 功能愈來愈厲害，許多 IDE 的 AI 都可以分析整個專案，直接對專案的多個檔案進行修改。
+</section>
+<section data-field="body" class="e-content">
+<section name="ed1c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c3b3" id="c3b3" class="graf graf--h3 graf--leading graf--title">使用 Windsurf 的 AI Cascade 修改專案程式</h3><p name="3c96" id="3c96" class="graf graf--p graf-after--h3">現在 IDE 的 AI 功能愈來愈厲害，許多 IDE 的 AI 都可以分析整個專案，直接對專案的多個檔案進行修改。</p><p name="16c6" id="16c6" class="graf graf--p graf-after--p">以下彼得潘以 IDE Windsurf 為例，示範利用 Windsurf 的 AI Cascad 修改 Xcode 開發的 SwiftUI App 專案，請 Cascad 替推理小說作家增加國家欄位並在畫面上顯示國家資訊。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="1817" id="1817" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> Foundation<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Author</span>: <span class="hljs-title class_">Identifiable</span>, <span class="hljs-title class_">Hashable</span> {<br />    <span class="hljs-keyword">let</span> id <span class="hljs-operator">=</span> <span class="hljs-type">UUID</span>()<br />    <span class="hljs-keyword">let</span> name: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> image: <span class="hljs-type">String</span><br />    <span class="hljs-keyword">let</span> books: [<span class="hljs-type">Book</span>]<br />}</span></pre><figure name="37ad" id="37ad" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*iOTNr9F9fErTX1Xqje1w_A.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*iOTNr9F9fErTX1Xqje1w_A.png"></figure><h3 name="d353" id="d353" class="graf graf--h3 graf-after--figure">下載安裝 Windsurf</h3><p name="e1fd" id="e1fd" class="graf graf--p graf-after--h3">連到 Windsurf 網頁，點選 Download the Windsurf Editor。</p><div name="206e" id="206e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://codeium.com/windsurf" data-href="https://codeium.com/windsurf" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://codeium.com/windsurf"><strong class="markup--strong markup--mixtapeEmbed-strong">Windsurf Editor by Codeium</strong><br><em class="markup--em markup--mixtapeEmbed-em">Tomorrow’s editor, today. Windsurf Editor is the first AI agent-powered IDE that keeps developers in the flow…</em>codeium.com</a><a href="https://codeium.com/windsurf" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e7b71bb5f0bbf07d5017be0e531a59bb" data-thumbnail-img-id="0*P0p6HTd_87D4kdu1" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*P0p6HTd_87D4kdu1);"></a></div><figure name="f257" id="f257" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*GVjlyI2st63Fszc7Z3mHnQ.png" data-width="2168" data-height="918" src="https://cdn-images-1.medium.com/max/800/1*GVjlyI2st63Fszc7Z3mHnQ.png"></figure><figure name="410c" id="410c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*kyanjiuJuHYVUtFDl0C12w.png" data-width="1474" data-height="802" src="https://cdn-images-1.medium.com/max/800/1*kyanjiuJuHYVUtFDl0C12w.png"></figure><p name="ee9d" id="ee9d" class="graf graf--p graf-after--figure">將 Windsurf 移到 Applications。</p><figure name="3fb0" id="3fb0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*bQO2u__GtyzT74i_5ZGnhQ.png" data-width="1586" data-height="1080" src="https://cdn-images-1.medium.com/max/800/1*bQO2u__GtyzT74i_5ZGnhQ.png"></figure><p name="2eee" id="2eee" class="graf graf--p graf-after--figure">啟動 Windsurf，點選 Get started。</p><figure name="a574" id="a574" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*s0i-5jvP0aFUcAj5lpoeDw.png" data-width="2080" data-height="1638" src="https://cdn-images-1.medium.com/max/800/1*s0i-5jvP0aFUcAj5lpoeDw.png"></figure><p name="d884" id="d884" class="graf graf--p graf-after--figure">點選 Start fresh 進行相關設定，或是點選 Import from VS Code / Cursor 加入 VS Code / Cursor 的設定。</p><figure name="62f5" id="62f5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YRSVxp_p7sLmxlzqxmcdkw.png" data-width="930" data-height="878" src="https://cdn-images-1.medium.com/max/800/1*YRSVxp_p7sLmxlzqxmcdkw.png"></figure><p name="29aa" id="29aa" class="graf graf--p graf-after--figure">選擇喜歡的鍵盤快速鍵(keybindings)設定。</p><figure name="ac6f" id="ac6f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4drXYxNb4vvkU2YUrxtVuQ.png" data-width="912" data-height="692" src="https://cdn-images-1.medium.com/max/800/1*4drXYxNb4vvkU2YUrxtVuQ.png"></figure><p name="1c15" id="1c15" class="graf graf--p graf-after--figure">選擇喜歡的配色樣式(theme)。</p><figure name="3303" id="3303" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zKsDI6GkYTzQfOM3dKHAQw.png" data-width="1738" data-height="1076" src="https://cdn-images-1.medium.com/max/800/1*zKsDI6GkYTzQfOM3dKHAQw.png"></figure><p name="f588" id="f588" class="graf graf--p graf-after--figure">使用 Windsurf 必須搭配 Codeium 帳號，在此彼得潘點選 Sign up 註冊帳號。</p><figure name="eeb3" id="eeb3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nsFa2UpT6BDrpF17tuGfhA.png" data-width="990" data-height="826" src="https://cdn-images-1.medium.com/max/800/1*nsFa2UpT6BDrpF17tuGfhA.png"></figure><figure name="b83f" id="b83f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*RGPdkhFiDkJNccJKCiswDQ.png" data-width="864" data-height="1346" src="https://cdn-images-1.medium.com/max/800/1*RGPdkhFiDkJNccJKCiswDQ.png"></figure><p name="df08" id="df08" class="graf graf--p graf-after--figure">成功註冊帳號後，點選 Allow 打開 Windsurf App。</p><figure name="4dcb" id="4dcb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LwvW94GUekcoNpmiOJw94g.png" data-width="1148" data-height="690" src="https://cdn-images-1.medium.com/max/800/1*LwvW94GUekcoNpmiOJw94g.png"></figure><h3 name="769b" id="769b" class="graf graf--h3 graf-after--figure">使用 AI Cascade 修改專案程式</h3><p name="dd46" id="dd46" class="graf graf--p graf-after--h3">打開 Windsurf App，點選 Open Folder 打開專案的資料夾。</p><figure name="14b9" id="14b9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6V2BQxcXdJW1vZYAvaNziA.png" data-width="2060" data-height="1614" src="https://cdn-images-1.medium.com/max/800/1*6V2BQxcXdJW1vZYAvaNziA.png"></figure><p name="b620" id="b620" class="graf graf--p graf-after--figure">以下彼得潘打開 Xcode 專案的資料夾。</p><figure name="d31f" id="d31f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BWbRNzGi-6U25ej8QFFZxQ.png" data-width="2354" data-height="1532" src="https://cdn-images-1.medium.com/max/800/1*BWbRNzGi-6U25ej8QFFZxQ.png"></figure><p name="7589" id="7589" class="graf graf--p graf-after--figure">從右邊的輸入框跟 AI Cascade 聊天。以下我們請它幫 Author 增加 property country。</p><figure name="fb21" id="fb21" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*SauQJMSNlG8rHsgzM9F65g.png" data-width="916" data-height="278" src="https://cdn-images-1.medium.com/max/800/1*SauQJMSNlG8rHsgzM9F65g.png"></figure><p name="e7a5" id="e7a5" class="graf graf--p graf-after--figure">ps: Write 的開關記得打開，它表示 AI 將直接對程式進行修改。</p><figure name="d749" id="d749" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*dYQt8tHbdDAhaLXpgHzaSQ.png" data-width="916" data-height="278" src="https://cdn-images-1.medium.com/max/800/1*dYQt8tHbdDAhaLXpgHzaSQ.png"></figure><p name="8a99" id="8a99" class="graf graf--p graf-after--figure">Cascade 聰明地分析資料夾的內容後找出需調整的檔案。以下 Cascade 找到 Author.swift &amp; SampleData.swift 並進行修改。</p><figure name="270a" id="270a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5PhPh2wMRtxOi-OonrW4ww.png" data-width="974" data-height="1366" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*5PhPh2wMRtxOi-OonrW4ww.png"></figure><figure name="a116" id="a116" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*ne7cedq7uRyqVdITJrOBOw.png" data-width="968" data-height="962" src="https://cdn-images-1.medium.com/max/800/1*ne7cedq7uRyqVdITJrOBOw.png"></figure><figure name="9447" id="9447" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*VwIUISK8wGKDBU7TwCkTdg.png" data-width="1046" data-height="456" src="https://cdn-images-1.medium.com/max/800/1*VwIUISK8wGKDBU7TwCkTdg.png"></figure><p name="3194" id="3194" class="graf graf--p graf-after--figure">我們可檢視 Author.swift &amp; SampleData.swift 的改動，選擇接受改動或拒絕改動。</p><figure name="c372" id="c372" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*QhhsfV1kwRplzKV5izcIzQ.png" data-width="998" data-height="226" src="https://cdn-images-1.medium.com/max/800/1*QhhsfV1kwRplzKV5izcIzQ.png"></figure><p name="6fbe" id="6fbe" class="graf graf--p graf-after--figure">Cascade 在 struct Author 增添 country。</p><figure name="277a" id="277a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*lqhoUD7y8lN1ujt36fa9OQ.png" data-width="1598" data-height="1436" src="https://cdn-images-1.medium.com/max/800/1*lqhoUD7y8lN1ujt36fa9OQ.png"></figure><p name="cc87" id="cc87" class="graf graf--p graf-after--figure">Cascade 在 SampleData 進行的修改更令人驚豔，它不只幫資料加入 country，而且連填寫的內容也完全正確。Cascade 不只會寫程式，對推理小說也略懂，它也知道克莉絲蒂是英國作家，伊坂幸太郎是日本作家。</p><figure name="94e9" id="94e9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BM0gAgcTaL_i7tA6axALBQ.png" data-width="1562" data-height="1442" src="https://cdn-images-1.medium.com/max/800/1*BM0gAgcTaL_i7tA6axALBQ.png"></figure><p name="c102" id="c102" class="graf graf--p graf-after--figure">成功增添 Author 的 country 後，接著讓我們調整畫面，在作家列表頁面顯示國家資訊。</p><p name="18b7" id="18b7" class="graf graf--p graf-after--p">請 Cascade 在 AuthorList 顯示 country。</p><figure name="d86b" id="d86b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Fxjy2nb6xES3XdUZKNU9Ig.png" data-width="1014" data-height="140" src="https://cdn-images-1.medium.com/max/800/1*Fxjy2nb6xES3XdUZKNU9Ig.png"></figure><p name="3dd3" id="3dd3" class="graf graf--p graf-after--figure">Cascade 聰明地找出 AuthorList 利用 AuthorRow 顯示作家資訊，因此它修改 AuthorRow 顯示國家資訊。</p><figure name="3b00" id="3b00" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*r8CYupCUF7OhVXPUwt3rIg.png" data-width="984" data-height="1344" src="https://cdn-images-1.medium.com/max/800/1*r8CYupCUF7OhVXPUwt3rIg.png"></figure><figure name="8b0a" id="8b0a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*NtvXbqukw67U1QUM7Pvfmg.png" data-width="1560" data-height="1470" src="https://cdn-images-1.medium.com/max/800/1*NtvXbqukw67U1QUM7Pvfmg.png"></figure><figure name="7af9" id="7af9" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*j_a_88rM3iFyu1LtAgYK0w.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*j_a_88rM3iFyu1LtAgYK0w.png"></figure><h3 name="5948" id="5948" class="graf graf--h3 graf-after--figure">Windsurf 的使用額度</h3><p name="49ac" id="49ac" class="graf graf--p graf-after--h3">Windsurf 提供免費和付費的方案，點選個人頭像的 Usage 可查詢目前的使用額度。</p><figure name="eb85" id="eb85" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*mZfge7wrR3K3KGRLSNHPxA.png" data-width="650" data-height="232" src="https://cdn-images-1.medium.com/max/800/1*mZfge7wrR3K3KGRLSNHPxA.png"></figure><figure name="734c" id="734c" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*etF6ivXO4zODQxoFBuwPww.png" data-width="2230" data-height="1324" src="https://cdn-images-1.medium.com/max/800/1*etF6ivXO4zODQxoFBuwPww.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d826b0644e6e"><time class="dt-published" datetime="2024-11-28T17:51:43.313Z">November 28, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-windsurf-%E7%9A%84-ai-cascade-%E4%BF%AE%E6%94%B9%E5%B0%88%E6%A1%88%E7%A8%8B%E5%BC%8F-d826b0644e6e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

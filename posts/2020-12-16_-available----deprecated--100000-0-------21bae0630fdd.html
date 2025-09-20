@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>@available 裡的 deprecated: 100000.0 是什麼意思</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">@available 裡的 deprecated: 100000.0 是什麼意思</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS 每年推出新的 SDK，包含許多的 API，為我們帶來厲害的新技術。不過舊的不去，新的不來，因此 Apple 會將一些舊的 API 加上 deprecated，警告我們別再使用。（deprecated 的意思是不建議使用）
+</section>
+<section data-field="body" class="e-content">
+<section name="9ecb" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4749" id="4749" class="graf graf--h3 graf--leading graf--title">@available 裡的 deprecated: 100000.0 是什麼意思</h3><p name="edd7" id="edd7" class="graf graf--p graf-after--h3">iOS 每年推出新的 SDK，包含許多的 API，為我們帶來厲害的新技術。不過舊的不去，新的不來，因此 Apple 會將一些舊的 API 加上 deprecated，警告我們別再使用。（deprecated 的意思是不建議使用）</p><p name="9982" id="9982" class="graf graf--p graf-after--p">比方以下例子，UIWebView 前的 <code class="markup--code markup--p-code u-paddingRight0 u-marginRight0"><a href="http://twitter.com/available" data-href="http://twitter.com/available" class="markup--anchor markup--p-anchor" title="Twitter profile for @available" rel="noopener" target="_blank">@available</a>(iOS, introduced: 2.0, deprecated: 12.0 </code>說明從 iOS 12 開始，最好別再使用 UIWebView。</p><pre name="e53a" id="e53a" class="graf graf--pre graf-after--p"><a href="http://twitter.com/available" data-href="http://twitter.com/available" class="markup--anchor markup--pre-anchor" title="Twitter profile for @available" rel="noopener" target="_blank">@available</a>(iOS, introduced: 2.0, deprecated: 12.0, message: &quot;No longer supported; please adopt WKWebView.&quot;)<br>open class UIWebView : UIView, NSCoding, UIScrollViewDelegate {</pre><p name="f9c2" id="f9c2" class="graf graf--p graf-after--pre">若是一意孤行使用 UIWebView，Xcode 將溫柔地產生黃色警告，提醒我們不要使用。</p><figure name="cc2b" id="cc2b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Z543OwxJMADxxg5_uIUIMA.png" data-width="1188" data-height="338" src="https://cdn-images-1.medium.com/max/800/1*Z543OwxJMADxxg5_uIUIMA.png"></figure><p name="d10a" id="d10a" class="graf graf--p graf-after--figure">不過彼得潘最近發現一種很特別的 deprecated，它後面的數字是驚人的 100000.0 ！</p><p name="87ed" id="87ed" class="graf graf--p graf-after--p">比方以下 function navigationBarTitle(_:) 的例子。</p><pre name="d001" id="d001" class="graf graf--pre graf-after--p"><a href="http://twitter.com/available" data-href="http://twitter.com/available" class="markup--anchor markup--pre-anchor" title="Twitter profile for @available" rel="noopener" target="_blank">@available</a>(iOS, introduced: 13.0, <strong class="markup--strong markup--pre-strong">deprecated: 100000.0</strong>, renamed: &quot;navigationTitle(_:)&quot;)  <br>public func navigationBarTitle(_ title: Text) -&gt; some View</pre><p name="3e71" id="3e71" class="graf graf--p graf-after--pre">難道是要等 iOS 100000 才不建議使用嗎 ? 應該不太可能，在這之前應該已經世界末日了。它的意思一樣是提醒我們不要使用，只是當我們在程式裡使用時並不會產生黃色警告。</p><figure name="a7a8" id="a7a8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-qhfU1j-94c7Pc7XvudlkQ.png" data-width="2472" data-height="1278" src="https://cdn-images-1.medium.com/max/800/1*-qhfU1j-94c7Pc7XvudlkQ.png"></figure><p name="357f" id="357f" class="graf graf--p graf-after--figure">如果我們查詢 Apple 的官方文章，可看到 Apple 明白地告訴我們它 deprecated 了。</p><figure name="2687" id="2687" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*U1dYj1oXlpld-Peg36Zttg.png" data-width="2032" data-height="1454" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*U1dYj1oXlpld-Peg36Zttg.png"></figure><p name="1c0b" id="1c0b" class="graf graf--p graf-after--figure">至於為什麼是 100000.0 呢？ 秘密藏在 availability.h 裡，裡頭的 API_TO_BE_DEPRECATED 正是 100000。</p><pre name="6be3" id="6be3" class="graf graf--pre graf-after--p graf--trailing">#ifndef API_TO_BE_DEPRECATED<br>#define API_TO_BE_DEPRECATED 100000<br>#endif</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/21bae0630fdd"><time class="dt-published" datetime="2020-12-16T14:00:02.063Z">December 16, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/available-%E8%A3%A1%E7%9A%84-deprecated-100000-0-%E6%98%AF%E4%BB%80%E9%BA%BC%E6%84%8F%E6%80%9D-21bae0630fdd" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

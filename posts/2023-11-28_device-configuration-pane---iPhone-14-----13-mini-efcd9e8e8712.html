@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>device configuration pane 的 iPhone 14 其實是 13 mini</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">device configuration pane 的 iPhone 14 其實是 13 mini</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近遇到同學反應奇怪的問題，他的 device configuration pane 和模擬器都是選 iPhone 14，跑起來的畫面卻有一點點的差異，storyboard 裡全滿的圖片在模擬器上出現了空白。
+</section>
+<section data-field="body" class="e-content">
+<section name="cabe" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f003" id="f003" class="graf graf--h3 graf--leading graf--title">device configuration pane 的 iPhone 14 其實是 13 mini</h3><p name="43da" id="43da" class="graf graf--p graf-after--h3">最近遇到同學反應奇怪的問題，他的 device configuration pane 和模擬器都是選 iPhone 14，跑起來的畫面卻有一點點的差異，storyboard 裡全滿的圖片在模擬器上出現了空白。</p><figure name="0ca3" id="0ca3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*d2XcGkaiYFqkGEikJw6emQ.png" data-width="1610" data-height="1888" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*d2XcGkaiYFqkGEikJw6emQ.png"></figure><p name="f5b1" id="f5b1" class="graf graf--p graf-after--figure">為什麼會這樣呢 ? 原來 device configuration pane 的 iPhone 14 是 375 * 812，它其實是 13 mini、12 min、11 Pro、XS、X 的大小呀。</p><figure name="f656" id="f656" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TTWnyMe0yKsMPLCAilPElQ.png" data-width="2252" data-height="1462" src="https://cdn-images-1.medium.com/max/800/1*TTWnyMe0yKsMPLCAilPElQ.png"></figure><p name="c5fb" id="c5fb" class="graf graf--p graf-after--figure">而 iPhone 14 實際的大小是 390 * 844，因此模擬器上才會看到圖片無法填滿。</p><figure name="150d" id="150d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="0*eOx0qlm-pWJdKN0m.png" data-width="1400" data-height="491" src="https://cdn-images-1.medium.com/max/800/0*eOx0qlm-pWJdKN0m.png"></figure><p name="6fa8" id="6fa8" class="graf graf--p graf-after--figure">剛好 device configuration pane 目前沒有 mini 可選，因此彼得潘猜 iPhone 14 應該改成 13 mini，這樣想測試 390 * 844 大小時可選擇 13 Pro，想測試 375 * 812 大小時可選擇 13 mini(目前 Xcode 筆誤寫 14)。希望 Apple 能在之後的版本修正這個小小的問題。</p><figure name="2bc8" id="2bc8" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*IpXNViQgLE4JiXdSoMB0YA.png" data-width="722" data-height="286" src="https://cdn-images-1.medium.com/max/800/1*IpXNViQgLE4JiXdSoMB0YA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/efcd9e8e8712"><time class="dt-published" datetime="2023-11-28T15:26:41.367Z">November 28, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/device-configuration-pane-%E7%9A%84-iphone-14-%E5%85%B6%E5%AF%A6%E6%98%AF-13-mini-efcd9e8e8712" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

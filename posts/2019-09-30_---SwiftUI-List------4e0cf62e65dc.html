@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>清除 SwiftUI List 的分隔線</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">清除 SwiftUI List 的分隔線</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 SwiftUI 的 List 我們可以快速製作出以分隔線分隔的表格頁面。
+</section>
+<section data-field="body" class="e-content">
+<section name="93b6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ca6f" id="ca6f" class="graf graf--h3 graf--leading graf--title">清除 SwiftUI List 的分隔線</h3><p name="4924" id="4924" class="graf graf--p graf-after--h3">利用 SwiftUI 的 List 我們可以快速製作出以分隔線分隔的表格頁面。</p><pre name="56f9" id="56f9" class="graf graf--pre graf-after--p">List(0..&lt;5) { (index) in</pre><pre name="e7f0" id="e7f0" class="graf graf--pre graf-after--pre">   Image(&quot;pic\(index)&quot;)</pre><pre name="9166" id="9166" class="graf graf--pre graf-after--pre">      .resizable()</pre><pre name="cd29" id="cd29" class="graf graf--pre graf-after--pre">      .scaledToFill()</pre><pre name="bd4c" id="bd4c" class="graf graf--pre graf-after--pre">      .frame(width: 170, height: 170)</pre><pre name="8372" id="8372" class="graf graf--pre graf-after--pre">      .clipped()</pre><pre name="2cc5" id="2cc5" class="graf graf--pre graf-after--pre">}</pre><p name="3a86" id="3a86" class="graf graf--p graf-after--pre">比方以上的程式將以表格陳列著 Apple 美麗的產品插圖。但是有時我們希望畫面上不要顯示分隔線，有辦法將它消除嗎 ?</p><figure name="6aae" id="6aae" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*vbfRO_RJPfBPvZQvPPnsGg.jpeg" data-width="734" data-height="1246" src="https://cdn-images-1.medium.com/max/800/1*vbfRO_RJPfBPvZQvPPnsGg.jpeg"></figure><p name="a644" id="a644" class="graf graf--p graf-after--figure">目前 SwiftUI 尚未提供清除分隔線的 function，因此我們只能使用某種特別的方法。如以下程式所示，我們從 List 呼叫 function onAppear，設定畫面出現時執行清除分隔線的程式。</p><figure name="e04a" id="e04a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*qIk1wfe1bD61qUPgJOoRKw.jpeg" data-width="946" data-height="444" src="https://cdn-images-1.medium.com/max/800/1*qIk1wfe1bD61qUPgJOoRKw.jpeg"></figure><p name="70c5" id="70c5" class="graf graf--p graf-after--figure">我們將畫面出現時要執行的程式以 { } 傳入，在裡面寫 <code class="markup--code markup--p-code">UITableView.appearance().separatorColor = .clear</code>。此行程式會將整個 App 的表格分隔線變成透明顏色，實現清除分隔線的效果。</p><pre name="db35" id="db35" class="graf graf--pre graf-after--p">.onAppear {</pre><pre name="7e30" id="7e30" class="graf graf--pre graf-after--pre">   UITableView.appearance().separatorColor = .clear</pre><pre name="d5be" id="d5be" class="graf graf--pre graf-after--pre">}</pre><p name="6dc4" id="6dc4" class="graf graf--p graf-after--pre">如下圖所示，此時分隔線果然不見了。不過未來在別的畫面若想看到分隔線，記得要將 UITableView.appearance().separatorColor 設為 nil，讓分隔線顯示預設的顏色。</p><figure name="87ff" id="87ff" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*abUnm2kq0tWnymst29zn_Q.jpeg" data-width="660" data-height="1168" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*abUnm2kq0tWnymst29zn_Q.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/4e0cf62e65dc"><time class="dt-published" datetime="2019-09-30T16:30:35.245Z">September 30, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%B8%85%E9%99%A4-swiftui-list-%E7%9A%84%E5%88%86%E9%9A%94%E7%B7%9A-4e0cf62e65dc" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

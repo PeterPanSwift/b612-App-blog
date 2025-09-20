@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓 for 迴圈不只加 1 的 stride</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓 for 迴圈不只加 1 的 stride</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Swift 深藏不露，惦惦呷三碗公，大家都以為她只會每次加 1。其實她數學好得很，每次加 100 都難不到它，甚至要她加浮點數或加負數都不是問題 !
+</section>
+<section data-field="body" class="e-content">
+<section name="973c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="90ff" id="90ff" class="graf graf--h3 graf--leading graf--title">讓 for 迴圈不只加 1 的 stride</h3><p name="fc30" id="fc30" class="graf graf--p graf-after--h3">Swift 深藏不露，惦惦呷三碗公，大家都以為她只會每次加 1。其實她數學好得很，每次加 100 都難不到它，甚至要她加浮點數或加負數都不是問題 !</p><p name="29ae" id="29ae" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">例1: 從 0, 100, 200，一直加到 900。(每次加 100，不包含 1000)</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="dfdf" id="dfdf" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> sum <span class="hljs-operator">=</span> <span class="hljs-number">0</span><br /><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">stride</span>(from: <span class="hljs-number">0</span>, to: <span class="hljs-number">1000</span>, by: <span class="hljs-number">100</span>) {<br />    sum <span class="hljs-operator">=</span> sum <span class="hljs-operator">+</span> i<br />}</span></pre><p name="357b" id="357b" class="graf graf--p graf-after--pre">利用 stride function 決定 for in 語法的數字範圍，以下為參數的說明:<br>from: 開始的數字<br>to: 結束的數字 (不過很可憐地，它被排除在外，所以最後只加 到900，不包含 1000)<br>by: 每次相加的數字</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="e44a" id="e44a" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">public</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">stride</span>&lt;<span class="hljs-type">T</span>&gt;(<span class="hljs-params">from</span> <span class="hljs-params">start</span>: <span class="hljs-type">T</span>, <span class="hljs-params">to</span> <span class="hljs-params">end</span>: <span class="hljs-type">T</span>, <span class="hljs-params">by</span> <span class="hljs-params">stride</span>: <span class="hljs-type">T</span>.<span class="hljs-type">Stride</span>) -&gt; <span class="hljs-type">StrideTo</span>&lt;<span class="hljs-type">T</span>&gt; <span class="hljs-keyword">where</span> <span class="hljs-type">T</span> : <span class="hljs-type">Strideable</span></span></pre><p name="f66a" id="f66a" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">例2: 從 0, 100, 200，一直加到 1000。(每次加 100，包含 1000)</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="52e6" id="52e6" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> sum <span class="hljs-operator">=</span> <span class="hljs-number">0</span><br /><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">stride</span>(from: <span class="hljs-number">0</span>, through: <span class="hljs-number">1000</span>, by: <span class="hljs-number">100</span>) {<br />    sum <span class="hljs-operator">=</span> sum <span class="hljs-operator">+</span> i<br />}</span></pre><p name="5a1f" id="5a1f" class="graf graf--p graf-after--pre">跟剛剛的例子幾乎長得一樣，只是參數從 to 變成 through。比 to 幸運，through 的數字將被包含。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="c8d7" id="c8d7" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">public</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">stride</span>&lt;<span class="hljs-type">T</span>&gt;(<span class="hljs-params">from</span> <span class="hljs-params">start</span>: <span class="hljs-type">T</span>, <span class="hljs-params">through</span> <span class="hljs-params">end</span>: <span class="hljs-type">T</span>, <span class="hljs-params">by</span> <span class="hljs-params">stride</span>: <span class="hljs-type">T</span>.<span class="hljs-type">Stride</span>) -&gt; <span class="hljs-type">StrideThrough</span>&lt;<span class="hljs-type">T</span>&gt; <span class="hljs-keyword">where</span> <span class="hljs-type">T</span> : <span class="hljs-type">Strideable</span></span></pre><p name="ed2d" id="ed2d" class="graf graf--p graf-after--pre"><strong class="markup--strong markup--p-strong">例3: 從 0, 0.3, 0.6，一直加到 0.9。(每次加 0.3)</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="ea91" id="ea91" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> sum <span class="hljs-operator">=</span> <span class="hljs-number">0.0</span><br /><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">stride</span>(from: <span class="hljs-number">0</span>, to: <span class="hljs-number">1</span>, by: <span class="hljs-number">0.3</span>) {<br />    sum <span class="hljs-operator">=</span> sum <span class="hljs-operator">+</span> i<br />}</span></pre><p name="51e1" id="51e1" class="graf graf--p graf-after--pre">當 by 參數為 0.3 時，i 將每次加 0.3。</p><p name="9905" id="9905" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">例4: 從 1000, 900, 800，一直加到 100。(每次少 100(加 -100))</strong></p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="341b" id="341b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> sum <span class="hljs-operator">=</span> <span class="hljs-number">0</span><br /><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">stride</span>(from: <span class="hljs-number">1000</span>, to: <span class="hljs-number">0</span>, by: <span class="hljs-operator">-</span><span class="hljs-number">100</span>) {<br />    sum <span class="hljs-operator">=</span> sum <span class="hljs-operator">+</span> i<br />}</span></pre><p name="d531" id="d531" class="graf graf--p graf-after--pre">當 by 參數為負數時，即可由大加到小。比方以上例子，利用 by 參數 -100，即可讓 i 每次少 100，由 1000, 900 加到 100。</p><p name="60e9" id="60e9" class="graf graf--p graf-after--p">文章內容為彼得潘的 Swift 程式設計入門新增章節 ，<strong class="markup--strong markup--p-strong">23–7 讓 for 迴圈不只加 1 的 stride。</strong></p><div name="4e4b" id="4e4b" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="http://swiftbook.strikingly.com" data-href="http://swiftbook.strikingly.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="http://swiftbook.strikingly.com"><strong class="markup--strong markup--mixtapeEmbed-strong">彼得潘的 Swift 程式設計入門</strong><br><em class="markup--em markup--mixtapeEmbed-em">本書搭配全新的 Swift 4、Xcode 9 和 iOS 11 SDK，以各種生動有趣的實例帶領讀者由淺入深認識 Swift，並在 Xcode 全新打造的練功樂園 playground 盡情敞佯，學習關於 Swift…</em>swiftbook.strikingly.com</a><a href="http://swiftbook.strikingly.com" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="fc2e5dddacd017ff26e6a0f6a524c76a" data-thumbnail-img-id="0*zzMOtNe7b3JVR93p." style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*zzMOtNe7b3JVR93p.);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5d4d6e14197"><time class="dt-published" datetime="2016-07-03T14:40:47.167Z">July 3, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swift-3%E7%9A%84for%E8%BF%B4%E5%9C%88%E4%B8%8D%E5%8F%AA%E6%9C%83%E6%AF%8F%E6%AC%A1%E5%8A%A01-5d4d6e14197" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

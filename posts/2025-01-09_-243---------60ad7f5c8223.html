@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#243 課程日期計算器</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#243 課程日期計算器</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+彼得潘平常主要的工作是教課，因此常常需要規劃上課的日期。最近想到不如請 AI 用 Flutter 開發一個課程日期計算器 App，部署到 Firebase 上，即可變成方便規劃上課日期的網站。
+</section>
+<section data-field="body" class="e-content">
+<section name="a483" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d38c" id="d38c" class="graf graf--h3 graf--leading graf--title">#243 課程日期計算器</h3><p name="6ddb" id="6ddb" class="graf graf--p graf-after--h3">彼得潘平常主要的工作是教課，因此常常需要規劃上課的日期。最近想到不如請 AI 用 Flutter 開發一個課程日期計算器 App，部署到 Firebase 上，即刻變身成方便規劃上課日期的網站。</p><p name="8ae1" id="8ae1" class="graf graf--p graf-after--p">以下是彼得潘使用 VS Code 搭配 GitHub Copilot(Claude 3.5) 完成的課程日期計算器，有興趣的朋友也可以練習不靠 AI，自己用 SwiftUI、UIKit 或 Flutter 開發一個類似功能的 App。</p><div name="e3ef" id="e3ef" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://my-course-calc.web.app" data-href="https://my-course-calc.web.app" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://my-course-calc.web.app"><strong class="markup--strong markup--mixtapeEmbed-strong">course_calc</strong><br><em class="markup--em markup--mixtapeEmbed-em">A new Flutter project.</em>my-course-calc.web.app</a><a href="https://my-course-calc.web.app" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="799cf8a8d3787f3fbe55bf31a8d2632b"></a></div><figure name="3a76" id="3a76" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*CQjTokP-yOGI4rV2t9qUsQ.png" data-width="2256" data-height="1944" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*CQjTokP-yOGI4rV2t9qUsQ.png"></figure><h3 name="d6a6" id="d6a6" class="graf graf--h3 graf-after--figure">功能需求</h3><ul class="postList"><li name="5b23" id="5b23" class="graf graf--li graf-after--h3">從月曆選擇開始日期。</li><li name="e923" id="e923" class="graf graf--li graf-after--li">輸入堂數。</li><li name="3816" id="3816" class="graf graf--li graf-after--li">選擇上課日是星期幾，可多選。</li><li name="71b1" id="71b1" class="graf graf--li graf-after--li">可排除台灣的國定假日。</li></ul><p name="a2d9" id="a2d9" class="graf graf--p graf-after--li">國定假日透過 ruyut 大大提供的 API 抓取。</p><div name="2a8a" id="2a8a" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/ruyut/TaiwanCalendar" data-href="https://github.com/ruyut/TaiwanCalendar" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/ruyut/TaiwanCalendar"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - ruyut/TaiwanCalendar: 紀錄中華民國政府行政機關辦公日曆表的 JSON 資料，內容包含日期、星期、是否放假、說明。</strong><br><em class="markup--em markup--mixtapeEmbed-em">紀錄中華民國政府行政機關辦公日曆表的 JSON 資料，內容包含日期、星期、是否放假、說明。. Contribute to ruyut/TaiwanCalendar development by creating an account on…</em>github.com</a><a href="https://github.com/ruyut/TaiwanCalendar" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="3cb4e85bbe3369bcd7b48778567a9614" data-thumbnail-img-id="0*Wcpn_V8EG47iOrv5" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Wcpn_V8EG47iOrv5);"></a></div><p name="afd9" id="afd9" class="graf graf--p graf-after--mixtapeEmbed">API 的格式為</p><pre data-code-block-mode="0" spellcheck="false" name="075c" id="075c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/年份.json</span></pre><p name="088f" id="088f" class="graf graf--p graf-after--pre">比方以下為 2025 國定假日的 API。</p><pre data-code-block-mode="0" spellcheck="false" name="e589" id="e589" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">https://cdn.jsdelivr.net/gh/ruyut/TaiwanCalendar/data/2025.json</span></pre><ul class="postList"><li name="27b9" id="27b9" class="graf graf--li graf-after--pre">依據以上條件顯示課程日期清單。</li><li name="7ab0" id="7ab0" class="graf graf--li graf-after--li">顯示課程日期裡排除的國定假日。</li><li name="5637" id="5637" class="graf graf--li graf-after--li">選擇開始日期後，清除之前選擇的上課日，並將上課日更新成開始日對應的星期幾。比方選擇 2025/3/10，上課日更新為星期一。</li><li name="c601" id="c601" class="graf graf--li graf-after--li">課程日期包含多個年份時，要抓取多個年份的國家假日。比方開始日為 2024/10/3，堂數 30，上課日為週四時，排除的假日為 2024/10/10、2025/1/30、2025/4/03。</li></ul><figure name="822d" id="822d" class="graf graf--figure graf-after--li graf--trailing"><img class="graf-image" data-image-id="1*w-n0QDgJknDZEDziHPdIrg.png" data-width="2256" data-height="1944" src="https://cdn-images-1.medium.com/max/800/1*w-n0QDgJknDZEDziHPdIrg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/60ad7f5c8223"><time class="dt-published" datetime="2025-01-09T05:44:53.668Z">January 9, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/243-%E8%AA%B2%E7%A8%8B%E6%97%A5%E6%9C%9F%E8%A8%88%E7%AE%97%E5%99%A8-60ad7f5c8223" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

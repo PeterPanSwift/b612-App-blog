@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>關掉模擬器的紅色錯誤 signal SIGTERM</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">關掉模擬器的紅色錯誤 signal SIGTERM</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 App 時，我們時常將 App 跑在模擬器上，就像下圖可愛的間諜家家酒。
+</section>
+<section data-field="body" class="e-content">
+<section name="4b0e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h2 name="46ba" id="46ba" class="graf graf--h2 graf--leading graf--title">關掉模擬器的紅色錯誤 signal SIGTERM</h2><p name="50e8" id="50e8" class="graf graf--p graf-after--h2">開發 App 時，我們時常將 App 跑在模擬器上，就像下圖可愛的間諜家家酒。</p><figure name="e143" id="e143" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*B90MTM3l6mN9GV32Z72gRg.png" data-width="720" data-height="1546" src="https://cdn-images-1.medium.com/max/800/1*B90MTM3l6mN9GV32Z72gRg.png"></figure><p name="cf01" id="cf01" class="graf graf--p graf-after--figure">有些朋友測試完 App 後，隨手點選模擬器左上的紅色 X 關掉模擬器。</p><figure name="2b82" id="2b82" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*91_AnFfaucXWxk3OArV1Tg.png" data-width="720" data-height="114" src="https://cdn-images-1.medium.com/max/800/1*91_AnFfaucXWxk3OArV1Tg.png"></figure><p name="7dbb" id="7dbb" class="graf graf--p graf-after--figure">結果卻出現了可怕的紅色錯誤，顯示 signal SIGTERM。難道是程式有問題嗎？</p><figure name="acc4" id="acc4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*HSZw7biLWH2b5aYRkQpuvA.png" data-width="2788" data-height="896" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*HSZw7biLWH2b5aYRkQpuvA.png"></figure><p name="c4ab" id="c4ab" class="graf graf--p graf-after--figure">別緊張，你的程式完全沒問題。你在 App 執行時直接關掉模擬器，模擬器都不在了，App 當然也只好死掉呀，因此才會出現 signal SIGTERM 的紅色錯誤。</p><p name="67ac" id="67ac" class="graf graf--p graf-after--p graf--trailing">通常測完 App 後，比較建議按正方形結束 App，而不是關掉模擬器，這樣下次執行 App 時才會比較快，不用再重新等待模擬器啟動的時間。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/daef25e8ffe9"><time class="dt-published" datetime="2023-01-29T03:03:38.669Z">January 29, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E9%97%9C%E6%8E%89%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E7%B4%85%E8%89%B2%E9%8C%AF%E8%AA%A4-signal-sigterm-daef25e8ffe9" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

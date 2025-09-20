@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 protocol 讓 table view cell &amp; collection view cell 的程式共用</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 protocol 讓 table view cell &amp; collection view cell 的程式共用</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Develop in Swift Data Collections Xcode 12
+</section>
+<section data-field="body" class="e-content">
+<section name="5bbb" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="16a8" id="16a8" class="graf graf--h3 graf--leading graf--title">利用 protocol 讓 table view cell &amp; collection view cell 的程式共用</h3><p name="05ac" id="05ac" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="22bb" id="22bb" class="graf graf--p graf-after--p">Develop in Swift Data Collections Xcode 12</p><p name="bc93" id="bc93" class="graf graf--p graf-after--p">3–3 Lab</p><p name="4b70" id="4b70" class="graf graf--p graf-after--p">iTunes Search</p><p name="1dda" id="1dda" class="graf graf--p graf--empty graf-after--p"><br></p><pre name="349e" id="349e" class="graf graf--pre graf-after--p">protocol ItemDisplaying {<br>    var itemImageView: UIImageView! { get set }<br>    var titleLabel: UILabel! { get set }<br>    var detailLabel: UILabel! { get set }<br>}</pre><pre name="541e" id="541e" class="graf graf--pre graf-after--pre">extension ItemDisplaying {<br>    func configure(for item: StoreItem, storeItemController: StoreItemController) {<br>        titleLabel.text = item.name<br>        detailLabel.text = item.artist<br>        itemImageView?.image = UIImage(systemName: &quot;photo&quot;)</pre><pre name="fac0" id="fac0" class="graf graf--pre graf-after--pre">storeItemController.fetchImage(from: item.artworkURL) { (result) in<br>            DispatchQueue.main.async {<br>                switch result {<br>                case .success(let image):<br>                    self.itemImageView.image = image<br>                case .failure(let error):<br>                    self.itemImageView.image = UIImage(systemName: &quot;photo&quot;)<br>                    print(&quot;Error fetching image: \(error)&quot;)<br>                }<br>            }<br>        }<br>    }<br>}</pre><p name="a44d" id="a44d" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/4319e97c6c72">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

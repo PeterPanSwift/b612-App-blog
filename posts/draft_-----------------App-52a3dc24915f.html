@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>判斷是否顯示登入畫面或第一次啟動 App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">判斷是否顯示登入畫面或第一次啟動 App</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="755b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ed52" id="ed52" class="graf graf--h3 graf--leading graf--title">判斷是否顯示登入畫面或第一次啟動 App</h3><p name="4980" id="4980" class="graf graf--p graf--empty graf-after--h3"><br></p><div name="56c0" id="56c0" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://stackoverflow.com/questions/51244608/skip-initial-view-controller-on-second-launch-of-app-in-swift-4-xcode-10" data-href="https://stackoverflow.com/questions/51244608/skip-initial-view-controller-on-second-launch-of-app-in-swift-4-xcode-10" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://stackoverflow.com/questions/51244608/skip-initial-view-controller-on-second-launch-of-app-in-swift-4-xcode-10"><strong class="markup--strong markup--mixtapeEmbed-strong">Skip initial view controller on Second launch of App in swift 4 / Xcode 10</strong><br><em class="markup--em markup--mixtapeEmbed-em">I want to skip my Initial View Controller if the user has already opened app earlier. I got the value in Bool whether…</em>stackoverflow.com</a><a href="https://stackoverflow.com/questions/51244608/skip-initial-view-controller-on-second-launch-of-app-in-swift-4-xcode-10" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9c03fc8108e15cbf8d4363e39732482a" data-thumbnail-img-id="0*7r8xlfa2VLihD79s" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*7r8xlfa2VLihD79s);"></a></div><pre name="e4d8" id="e4d8" class="graf graf--pre graf-after--mixtapeEmbed"><strong class="markup--strong markup--pre-strong">func</strong> scene(<strong class="markup--strong markup--pre-strong">_</strong> scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {</pre><pre name="3cae" id="3cae" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.</em></pre><pre name="0a8d" id="0a8d" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.</em></pre><pre name="bb26" id="bb26" class="graf graf--pre graf-after--pre"><em class="markup--em markup--pre-em">// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).</em></pre><pre name="f37a" id="f37a" class="graf graf--pre graf-after--pre"><strong class="markup--strong markup--pre-strong">guard</strong> <strong class="markup--strong markup--pre-strong">let</strong> <strong class="markup--strong markup--pre-strong">_</strong> = (scene <strong class="markup--strong markup--pre-strong">as</strong>? UIWindowScene) <strong class="markup--strong markup--pre-strong">else</strong> { <strong class="markup--strong markup--pre-strong">return</strong> }</pre><pre name="f850" id="f850" class="graf graf--pre graf-after--pre">}</pre><p name="56c4" id="56c4" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/52a3dc24915f">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

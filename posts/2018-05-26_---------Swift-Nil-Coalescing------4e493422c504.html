@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>初學者容易誤解的 Swift Nil-Coalescing 語法範例</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">初學者容易誤解的 Swift Nil-Coalescing 語法範例</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近在看 iOS App 開發教學影片時，發現範例裡有個初學者容易看不懂的寫法，程式如下:
+</section>
+<section data-field="body" class="e-content">
+<section name="ea6e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b840" id="b840" class="graf graf--h3 graf--leading graf--title">初學者容易誤解的 Swift Nil-Coalescing 語法範例</h3><p name="e5f1" id="e5f1" class="graf graf--p graf-after--h3">最近在看 iOS App 開發教學影片時，發現範例裡有個初學者容易看不懂的寫法，程式如下:</p><pre name="a40d" id="a40d" class="graf graf--pre graf-after--p">let isInputValid = textField.text?.count ?? 0 &gt; 0</pre><p name="ed33" id="ed33" class="graf graf--p graf-after--pre">它使用了 ??，Nil-Coalescing 的技巧。利用它，程式將判斷 optional 是否有值，如果有的話將讀取 optional 的內容，無值的話將使用 ?? 後的值。</p><p name="683a" id="683a" class="graf graf--p graf-after--p">問題出在剛剛的程式又多了一個 &gt; 0，所以有的人可能誤以為後面的 0 &gt; 0 要合起來看，因此覺得奇怪， 0 &gt; 0 是 false，而 count 的型別卻是整數， ?? 的左邊和右邊的內容應該要同一個型別呀。</p><p name="fc88" id="fc88" class="graf graf--p graf-after--p">其實 0 &gt; 0 不能合起來看，一旦我們為 0 &gt; 0 加上 ( )，程式馬上會顯示紅色錯誤。</p><figure name="f6bc" id="f6bc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*PItsjR6s5QiDVVWPW-0bsQ.jpeg" data-width="2398" data-height="324" src="https://cdn-images-1.medium.com/max/800/1*PItsjR6s5QiDVVWPW-0bsQ.jpeg"></figure><p name="55a2" id="55a2" class="graf graf--p graf-after--figure">所以剛剛程式的正確解讀應該是 textField.text?.count ?? 0 要合起來看，它們運算的結果再來跟 0 比大小。如果想讓程式更清楚，可以改成以下寫法</p><pre name="7885" id="7885" class="graf graf--pre graf-after--p">let isInputValid = (textField.text?.count ?? 0) &gt; 0</pre><p name="7239" id="7239" class="graf graf--p graf-after--pre graf--trailing">這樣子就清楚多了，此行程式的目的是先讀取文字的字數，如果沒有文字，字數將設為 0，然後再判斷是否大於 0，若大於 0 即表示使用者有輸入文字。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/4e493422c504"><time class="dt-published" datetime="2018-05-26T15:30:49.484Z">May 26, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%9D%E5%AD%B8%E8%80%85%E5%AE%B9%E6%98%93%E8%AA%A4%E8%A7%A3%E7%9A%84-swift-nil-coalescing-%E8%AA%9E%E6%B3%95%E7%AF%84%E4%BE%8B-4e493422c504" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

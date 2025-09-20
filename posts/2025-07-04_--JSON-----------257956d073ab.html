@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將 JSON 變成容易看懂的表格</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將 JSON 變成容易看懂的表格</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近彼得潘家教同學利用 AI Vibe Coding 開發 App 時，發現一個重要的需求，如何讓一般人快速看懂 API 回傳的 JSON 格式資料 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="080a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="4b37" id="4b37" class="graf graf--h3 graf--leading graf--title">將 JSON 變成容易看懂的表格</h3><p name="ba98" id="ba98" class="graf graf--p graf-after--h3">最近彼得潘家教同學利用 AI Vibe Coding 開發 App 時，發現一個重要的需求，如何讓一般人快速看懂 API 回傳的 JSON 格式資料 ?</p><p name="9257" id="9257" class="graf graf--p graf-after--p">對某些同學來說，Vibe Coding 的目的是利用 AI 做出成品，是否理解 JSON 並不重要。因此彼得潘想到不如請 AI 做個網頁，方便同學將 JSON 變成易懂的表格。</p><p name="4ce8" id="4ce8" class="graf graf--p graf-after--p">以下彼得潘利用 Firebase Studio 製作 B612 星球小王子風格的 JSON Table Viewer，然後部署到 Vercel。</p><div name="d99c" id="d99c" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://json-table-viewer-mu.vercel.app/" data-href="https://json-table-viewer-mu.vercel.app/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://json-table-viewer-mu.vercel.app/"><strong class="markup--strong markup--mixtapeEmbed-strong">B612 Star-Chart Viewer</strong><br><em class="markup--em markup--mixtapeEmbed-em">Explore your data, just as the Little Prince explores the stars.</em>json-table-viewer-mu.vercel.app</a><a href="https://json-table-viewer-mu.vercel.app/" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="6b6c1b8d785c5483ad65b05db5e6fd77"></a></div><figure name="552f" id="552f" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*YL5Nn5xEXMysnAYBKS3aDw.png" data-width="2306" data-height="1276" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*YL5Nn5xEXMysnAYBKS3aDw.png"></figure><p name="0781" id="0781" class="graf graf--p graf-after--figure">它包含以下功能。</p><ul class="postList"><li name="c09f" id="c09f" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">將上傳的 JSON 檔的 array 變成表格。</strong></li></ul><p name="f830" id="f830" class="graf graf--p graf-after--li">程式將自動找出 JSON 裡的 array，將它變成表格，滑動時 row 的行號和 column 的標題將固定不動。</p><figure name="4222" id="4222" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*2moxi9D3CtEbRCRw3U7ANA.png" data-width="2604" data-height="1100" src="https://cdn-images-1.medium.com/max/800/1*2moxi9D3CtEbRCRw3U7ANA.png"></figure><p name="1b47" id="1b47" class="graf graf--p graf-after--figure">如果找不到 array，我們可另外點選下圖的 Select a data path to display 輸入 array 所在的路徑。</p><figure name="fb60" id="fb60" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OnDP7m1udW-H6zNNFcn-ng.png" data-width="2258" data-height="472" src="https://cdn-images-1.medium.com/max/800/1*OnDP7m1udW-H6zNNFcn-ng.png"></figure><p name="39e8" id="39e8" class="graf graf--p graf-after--figure">以下我們選擇 feed.results。</p><figure name="1e96" id="1e96" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*fE-MMp6XK7WE2Q50Oa46KQ.png" data-width="2268" data-height="992" src="https://cdn-images-1.medium.com/max/800/1*fE-MMp6XK7WE2Q50Oa46KQ.png"></figure><p name="992d" id="992d" class="graf graf--p graf-after--figure">成功顯示 feed.results 的 array 內容。</p><figure name="6542" id="6542" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LbfewWthP_yDOyrw0BfEDQ.png" data-width="2606" data-height="1154" src="https://cdn-images-1.medium.com/max/800/1*LbfewWthP_yDOyrw0BfEDQ.png"></figure><ul class="postList"><li name="3ded" id="3ded" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">JSON 找不到 array 時，將第一層 { } 的 key 當 table 的欄位。</strong></li></ul><p name="cac9" id="cac9" class="graf graf--p graf-after--li">由於沒有 array，表格只顯示一筆資料。</p><figure name="6acc" id="6acc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tXBhaNbiUyI_b2ppwQ8mOQ.png" data-width="2610" data-height="980" src="https://cdn-images-1.medium.com/max/800/1*tXBhaNbiUyI_b2ppwQ8mOQ.png"></figure><ul class="postList"><li name="e556" id="e556" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">表格裡的資料呈現。</strong></li></ul><p name="b7c8" id="b7c8" class="graf graf--p graf-after--li">圖片網址將顯示縮圖，時間將顯示一般人熟悉的格式。</p><figure name="6d64" id="6d64" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6HOtcScOrDzzwVmlmTuGbw.png" data-width="1134" data-height="322" src="https://cdn-images-1.medium.com/max/800/1*6HOtcScOrDzzwVmlmTuGbw.png"></figure><ul class="postList"><li name="a94e" id="a94e" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">表格裡圖片和網址的點擊。</strong></li></ul><p name="cf75" id="cf75" class="graf graf--p graf-after--li">點擊圖片將開啟新分頁顯示圖片，點擊圖片以外的網址將開啟新分頁顯示內容。</p><ul class="postList"><li name="9d50" id="9d50" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">表格裡 { } 和 [ ] 資料的點擊。</strong></li></ul><p name="33f9" id="33f9" class="graf graf--p graf-after--li">當表格呈現的資料是 { } 或 [ ] 時，點擊將開啟新分頁顯示可展開合併的樹狀圖。</p><figure name="782c" id="782c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*MpOkdRHPs-20bj85bleL8g.png" data-width="590" data-height="536" src="https://cdn-images-1.medium.com/max/800/1*MpOkdRHPs-20bj85bleL8g.png"></figure><p name="4de3" id="4de3" class="graf graf--p graf-after--figure">點擊後顯示 JSON Object Viewer，可點擊 { } 和 [ ] 展開合併。</p><figure name="99e4" id="99e4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KCkz2Tk-_puOM7UhMpWSEQ.png" data-width="1220" data-height="1246" src="https://cdn-images-1.medium.com/max/800/1*KCkz2Tk-_puOM7UhMpWSEQ.png"></figure><figure name="07e1" id="07e1" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*AHYJJOoAO2JuJK8KMKqE-A.png" data-width="1598" data-height="1166" src="https://cdn-images-1.medium.com/max/800/1*AHYJJOoAO2JuJK8KMKqE-A.png"></figure><ul class="postList"><li name="e0ab" id="e0ab" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">排序。</strong></li></ul><p name="b074" id="b074" class="graf graf--p graf-after--li">點選欄位名字排序。</p><p name="f41e" id="f41e" class="graf graf--p graf-after--p">由小到大排序。</p><figure name="788c" id="788c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kIa6JMx4nr4pvadptF-r1g.png" data-width="448" data-height="890" src="https://cdn-images-1.medium.com/max/800/1*kIa6JMx4nr4pvadptF-r1g.png"></figure><p name="608e" id="608e" class="graf graf--p graf-after--figure">由大到小排序。</p><figure name="126d" id="126d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ms2EoJTx_BepOfeVJxgvfQ.png" data-width="390" data-height="816" src="https://cdn-images-1.medium.com/max/800/1*ms2EoJTx_BepOfeVJxgvfQ.png"></figure><ul class="postList"><li name="3dde" id="3dde" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">搜尋過濾。</strong></li></ul><p name="a5bb" id="a5bb" class="graf graf--p graf-after--li">在 Filter 框框輸入搜尋過濾的關鍵字。</p><figure name="ea8c" id="ea8c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0oFKf7kPlYOA5d0Uvc-OeA.png" data-width="2240" data-height="292" src="https://cdn-images-1.medium.com/max/800/1*0oFKf7kPlYOA5d0Uvc-OeA.png"></figure><p name="900a" id="900a" class="graf graf--p graf-after--figure">顯示包含劉德華的資料。</p><figure name="d0cb" id="d0cb" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*1eDCPlLQvU8gz_qEBlMaog.png" data-width="2626" data-height="432" src="https://cdn-images-1.medium.com/max/800/1*1eDCPlLQvU8gz_qEBlMaog.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/257956d073ab"><time class="dt-published" datetime="2025-07-04T08:40:03.098Z">July 4, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87-json-%E8%AE%8A%E6%88%90%E5%AE%B9%E6%98%93%E7%9C%8B%E6%87%82%E7%9A%84%E8%A1%A8%E6%A0%BC-257956d073ab" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>playground &amp; project 的程式差異</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">playground &amp; project 的程式差異</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 提供適合初學者學習程式的 playground。當我們只是想練習 if else，function 等基本語法，或是嘗試學習某個特別的功能時，並不需要大費周章地建立製作 App 的 project。我們可以在 playground…
+</section>
+<section data-field="body" class="e-content">
+<section name="069a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a935" id="a935" class="graf graf--h3 graf--leading graf--title">playground &amp; project 的程式差異 : Expressions are not allowed at the top level</h3><p name="f64e" id="f64e" class="graf graf--p graf-after--h3">Xcode 提供適合初學者學習程式的 playground。當我們只是想練習 if else，function 等基本語法，或是嘗試學習某個特別的功能時，並不需要大費周章地建立製作 App 的 project。我們可以在 playground 單純的環境下輸入程式，然後從右邊的灰色區塊觀看結果。</p><figure name="88f3" id="88f3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jX8I39rTkvutt976WuFQOg.jpeg" data-width="1090" data-height="376" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*jX8I39rTkvutt976WuFQOg.jpeg"></figure><p name="1a0e" id="1a0e" class="graf graf--p graf-after--figure">因此，很多初學者會先在 playground 學習程式的基本語法，然後下個階段才開始在專案寫程式製作 App。不過這時候有些小地方要特別注意，有些在 playground 允許的寫法在專案裡是不允許的。</p><p name="416f" id="416f" class="graf graf--p graf-after--p">playground 是一個特殊的環境，程式在其中將由上而下一行行執行。</p><figure name="c360" id="c360" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OmtNYX6uIVs5RKDbIN0uag.jpeg" data-width="1978" data-height="320" src="https://cdn-images-1.medium.com/max/800/1*OmtNYX6uIVs5RKDbIN0uag.jpeg"></figure><p name="4096" id="4096" class="graf graf--p graf-after--figure">但專案不太一樣。一個專案有很多檔案，程式執行時並不是從一個檔案的第一行跑到最後一行，然後再執行下一個檔案。專案裡的程式大部分是因為事件觸發執行的，比方使用者點擊畫面上的 button，於是呼叫某個檔案的某個 function。</p><p name="1246" id="1246" class="graf graf--p graf-after--p">因此，如下圖所示，當我們在專案裡寫程式時，第 11 行到 13 行將造成錯誤。</p><figure name="9b37" id="9b37" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_NKIHLu-EuAo7liZk3y4aw.jpeg" data-width="2556" data-height="1358" src="https://cdn-images-1.medium.com/max/800/1*_NKIHLu-EuAo7liZk3y4aw.jpeg"></figure><p name="881c" id="881c" class="graf graf--p graf-after--figure">錯誤訊息說 Expressions are not allowed at the top level。expression 指的是一行運算的程式，比方呼叫 function 或是像 3 * 3 這樣的運算。</p><p name="a091" id="a091" class="graf graf--p graf-after--p">在專案裡寫程式時，expression 主要寫在 function 的 { } 裡，而不會寫在剛剛 11 ~ 14 行的位置。因為專案的程式執行時，並非由上而下執行，所以它不知道何時該執行 11 ~ 14 行的程式。</p><p name="153c" id="153c" class="graf graf--p graf-after--p graf--trailing">像 11 ~ 14 行這種不被任何 { } 包圍的程式區塊，又稱為 top level。在這裡唯一能寫的程式是變數(常數)的宣告，function 的定義 &amp; 型別的定義。因此請記得，在專案裡寫 App 時，限制會比 playground 嚴格，不能直接在 top lovel 寫運算的程式。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/eccaa25f0142"><time class="dt-published" datetime="2019-01-26T06:06:50.744Z">January 26, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/expressions-are-not-allowed-at-the-top-level-eccaa25f0142" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

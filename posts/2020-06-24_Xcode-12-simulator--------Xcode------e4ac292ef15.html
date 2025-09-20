@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Xcode 12 simulator 的全螢幕 &amp; Xcode 並排功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Xcode 12 simulator 的全螢幕 &amp; Xcode 並排功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 12 的 simulator(模擬器)變得更厲害了 ! 有多厲害呢 ? 超厲害的，我們一眼就能看到，接下來就讓我們見識它的全螢幕 &amp; Xcode 並排功能吧。
+</section>
+<section data-field="body" class="e-content">
+<section name="fdc8" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="dbb8" id="dbb8" class="graf graf--h3 graf--leading graf--title">Xcode simulator 的全螢幕 &amp; 並排功能</h3><h3 name="c800" id="c800" class="graf graf--h3 graf-after--h3">全螢幕功能(full screen)</h3><p name="3b96" id="3b96" class="graf graf--p graf-after--h3">點選模擬器左上的綠色按鈕或 menu 的 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">Window &gt; Enter Full Screen</strong></code>(fn + f) ，讓模擬器勇敢地全螢幕展現。</p><figure name="fad5" id="fad5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*87nBwNggcCFB6RdWHoNgag.png" data-width="690" data-height="188" src="https://cdn-images-1.medium.com/max/800/1*87nBwNggcCFB6RdWHoNgag.png"></figure><figure name="7792" id="7792" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*fgcak0yZFQ_cVBp7mat7Cg.png" data-width="3840" data-height="2160" src="https://cdn-images-1.medium.com/max/800/1*fgcak0yZFQ_cVBp7mat7Cg.png"></figure><h3 name="91a7" id="91a7" class="graf graf--h3 graf-after--figure">simulator &amp; Xcode 並排</h3><p name="0b77" id="0b77" class="graf graf--p graf-after--h3">當我們專心開發 Swift iOS App 時，世界上重要的東西只剩下 Xcode &amp; simulator，因此我們希望螢幕只有 Xcode &amp; simulator，別被其它的 App 干擾，實現的方法如下。</p><h3 name="00a0" id="00a0" class="graf graf--h3 graf-after--p">讓 simulator 佔據螢幕的右邊(或左邊)</h3><ul class="postList"><li name="37b3" id="37b3" class="graf graf--li graf-after--h3">方法 1: 滑鼠游標移到綠色的放大按鈕上，然後點選 Full Screen &gt; Right of Screen 或 Left of Screen。</li></ul><figure name="860e" id="860e" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*3RBtDIquhxjFIZPiQjKJDQ.png" data-width="912" data-height="600" src="https://cdn-images-1.medium.com/max/800/1*3RBtDIquhxjFIZPiQjKJDQ.png"></figure><ul class="postList"><li name="2a4c" id="2a4c" class="graf graf--li graf-after--figure">方法 2: 點選 simulator menu 的 Window &gt; Full Screen Tile &gt; Right of Screen 或 Left of Screen。</li></ul><figure name="9c50" id="9c50" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*kdlsxQbOiqb4epmCK0tb2w.png" data-width="876" data-height="468" src="https://cdn-images-1.medium.com/max/800/1*kdlsxQbOiqb4epmCK0tb2w.png"></figure><figure name="0d0f" id="0d0f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*PZ0Q9R0z3WRuO5kVq6T3iw.png" data-width="3840" data-height="2160" src="https://cdn-images-1.medium.com/max/800/1*PZ0Q9R0z3WRuO5kVq6T3iw.png"></figure><h3 name="57cd" id="57cd" class="graf graf--h3 graf-after--figure">選擇顯示在螢幕左邊的 Xcode 視窗</h3><figure name="681e" id="681e" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*6luxyQYqIvpTjhROaXaUZQ.jpeg" data-width="2560" data-height="1600" src="https://cdn-images-1.medium.com/max/800/1*6luxyQYqIvpTjhROaXaUZQ.jpeg"></figure><p name="2adc" id="2adc" class="graf graf--p graf-after--figure">Cool，我們的螢幕現在被 simulator &amp; Xcode 並排佔滿，再也容不下讓我們分心的其它 App 了。</p><figure name="3c30" id="3c30" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*V2dCv5XSLXBUaO2Vkj2NjA.png" data-width="3840" data-height="2160" src="https://cdn-images-1.medium.com/max/800/1*V2dCv5XSLXBUaO2Vkj2NjA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/e4ac292ef15"><time class="dt-published" datetime="2020-06-24T05:58:44.290Z">June 24, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/xcode-12-simulator-%E7%9A%84%E5%85%A8%E8%9E%A2%E5%B9%95-xcode-%E4%B8%A6%E6%8E%92%E5%8A%9F%E8%83%BD-e4ac292ef15" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

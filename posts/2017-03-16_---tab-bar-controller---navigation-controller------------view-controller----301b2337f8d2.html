@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>經過 tab bar controller 和 navigation controller，終於將資料交到目標的 view controller 手上</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">經過 tab bar controller 和 navigation controller，終於將資料交到目標的 view controller 手上</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+問題: 點選 Welcome 頁面的 Login 按鈕後，將顯示第一個 tab 的小王子頁面，想將資料從 Welcome 頁面傳到小王子頁面，中間會經過重重難關，先經過 tab bar controller，再經過 navigation controller。
+</section>
+<section data-field="body" class="e-content">
+<section name="8df0" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f22e" id="f22e" class="graf graf--h3 graf--leading graf--title">經過 tab bar controller 和 navigation controller，終於將資料交到目標的 view controller 手上</h3><p name="59b2" id="59b2" class="graf graf--p graf-after--h3">問題: 點選 Welcome 頁面的 Login 按鈕後，將顯示第一個 tab 的小王子頁面，想將資料從 Welcome 頁面傳到小王子頁面，中間會經過重重難關，先經過 tab bar controller，再經過 navigation controller。</p><figure name="26ac" id="26ac" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZYHg3njTrNmnRoebX57xXg.jpeg" data-width="1620" data-height="1254" src="https://cdn-images-1.medium.com/max/800/1*ZYHg3njTrNmnRoebX57xXg.jpeg"></figure><p name="3ac7" id="3ac7" class="graf graf--p graf-after--figure">解答:</p><p name="3d23" id="3d23" class="graf graf--p graf-after--p">在 Welcome 頁面的 controller 定義 prepare function 傳資料。</p><pre name="0eb7" id="0eb7" class="graf graf--pre graf-after--p">override func prepare(for segue: UIStoryboardSegue, sender: Any?) {</pre><pre name="1b46" id="1b46" class="graf graf--pre graf-after--pre">  let tabBarController = segue.destination as! UITabBarController<br>  let navController = tabBarController.viewControllers?.first as? <br>       UINavigationController<br>  let bookController = navController?.viewControllers.first as?<br>       BookViewController<br>  bookController?.bookName = &quot;小王子和彼得潘的那些年&quot;</pre><pre name="e573" id="e573" class="graf graf--pre graf-after--pre graf--trailing">}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/301b2337f8d2"><time class="dt-published" datetime="2017-03-16T17:25:41.259Z">March 16, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%B6%93%E9%81%8E-tab-bar-controller-%E5%92%8C-navigation-controller-%E7%B5%82%E6%96%BC%E5%B0%87%E8%B3%87%E6%96%99%E4%BA%A4%E5%88%B0%E7%9B%AE%E6%A8%99%E7%9A%84-view-controller-%E6%89%8B%E4%B8%8A-301b2337f8d2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>自動轉換為 CGColor 的 color literals</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">自動轉換為 CGColor 的 color literals</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在 iOS App 裡設定顏色時，有些情況必須使用 CGColor，而非一般熟悉的 UIColor，例如邊框的顏色
+</section>
+<section data-field="body" class="e-content">
+<section name="df6b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="80e9" id="80e9" class="graf graf--h3 graf--leading graf--title">自動轉換為 CGColor 的 color literals</h3><p name="622d" id="622d" class="graf graf--p graf-after--h3">在 iOS App 裡設定顏色時，有些情況必須使用 CGColor，而非一般熟悉的 UIColor，例如邊框的顏色</p><pre name="92e3" id="92e3" class="graf graf--pre graf-after--p">view.layer.borderColor = UIColor.red.cgColor</pre><p name="fc98" id="fc98" class="graf graf--p graf-after--pre">不過如果你用 color literals 的話，它將自動貼心地轉換為 CGColor 呢，例如以下例子</p><figure name="a255" id="a255" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*ETyhGHqC5b8fEZIOxNJ-ZQ.jpeg" data-width="860" data-height="146" src="https://cdn-images-1.medium.com/max/800/1*ETyhGHqC5b8fEZIOxNJ-ZQ.jpeg"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/29323de3138c"><time class="dt-published" datetime="2018-04-12T09:05:48.154Z">April 12, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%87%AA%E5%8B%95%E8%BD%89%E6%8F%9B%E7%82%BA-cgcolor-%E7%9A%84-color-literals-29323de3138c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

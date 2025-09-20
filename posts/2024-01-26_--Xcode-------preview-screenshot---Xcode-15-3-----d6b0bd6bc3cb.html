@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 Xcode 輸出和複製 preview screenshot — Xcode 15.3 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 Xcode 輸出和複製 preview screenshot — Xcode 15.3 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近 Xcode 15.3 推出了彼得潘夢寐以求的新功能 ! 現在我們可以從 Xcode 輸出和複製 preview screenshot，彼得潘在製作教材時終於可以方便地一邊修改程式，一邊生成螢幕截圖。
+</section>
+<section data-field="body" class="e-content">
+<section name="e384" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5ee8" id="5ee8" class="graf graf--h3 graf--leading graf--title">從 Xcode 輸出和複製 preview screenshot — Xcode 15.3 新功能</h3><p name="5d1a" id="5d1a" class="graf graf--p graf-after--h3">最近 Xcode 15.3 推出了彼得潘夢寐以求的新功能 ! 現在我們可以從 Xcode 輸出和複製 preview screenshot，彼得潘在製作教材時終於能在修改程式時一鍵生成螢幕截圖。</p><p name="df70" id="df70" class="graf graf--p graf-after--p">以下我們用 Apple 的 SwiftUI 範例 Backyard Birds 示範。</p><div name="408e" id="408e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/backyard-birds-sample" data-href="https://developer.apple.com/documentation/swiftui/backyard-birds-sample" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/backyard-birds-sample"><strong class="markup--strong markup--mixtapeEmbed-strong">Backyard Birds: Building an app with SwiftData and widgets | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Create an app with persistent data, interactive widgets, and an all new in-app purchase experience.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/backyard-birds-sample" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="85325be8a6abae3d13f9fe90b7e7079a" data-thumbnail-img-id="0*x71fI6hxi_vswwNW" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*x71fI6hxi_vswwNW);"></a></div><ul class="postList"><li name="993c" id="993c" class="graf graf--li graf-after--mixtapeEmbed">輸出 preview 的畫面截圖。</li><li name="036f" id="036f" class="graf graf--li graf-after--li">複製 preview 的畫面截圖。</li><li name="f17b" id="f17b" class="graf graf--li graf-after--li">設定 preview screenshot 的快速鍵。</li></ul><h3 name="d88b" id="d88b" class="graf graf--h3 graf-after--li">輸出 preview 的畫面截圖</h3><figure name="3806" id="3806" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*RdGM9TxhhXmSYvRitNo95A.png" data-width="2790" data-height="1620" src="https://cdn-images-1.medium.com/max/800/1*RdGM9TxhhXmSYvRitNo95A.png"></figure><ul class="postList"><li name="97d0" id="97d0" class="graf graf--li graf-after--figure">方法 1: 從 Quick Actions 選單點選 Export Preview Screenshot。</li></ul><figure name="3932" id="3932" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*ybTk7eu7IDrLmXYBjOIMNw.png" data-width="1156" data-height="244" src="https://cdn-images-1.medium.com/max/800/1*ybTk7eu7IDrLmXYBjOIMNw.png"></figure><ul class="postList"><li name="7f35" id="7f35" class="graf graf--li graf-after--figure">方法 2: 點選 Xcode menu 的 Editor &gt; Canvas &gt; Export Preview Screenshot。</li></ul><p name="64f2" id="64f2" class="graf graf--p graf-after--li">成功輸出 preview 的畫面截圖。</p><figure name="0129" id="0129" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9zKzIL5T9vzpoJpuNdE9Gw.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*9zKzIL5T9vzpoJpuNdE9Gw.png"></figure><h3 name="34d9" id="34d9" class="graf graf--h3 graf-after--figure">複製 preview 的畫面截圖</h3><p name="7673" id="7673" class="graf graf--p graf-after--h3">從 Quick Actions 選單點選 Copy Preview Screenshot。</p><figure name="4258" id="4258" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-qN_ZhiU-SpLZ9qNWw3uYQ.png" data-width="1174" data-height="248" src="https://cdn-images-1.medium.com/max/800/1*-qN_ZhiU-SpLZ9qNWw3uYQ.png"></figure><p name="a463" id="a463" class="graf graf--p graf-after--figure">成功複製 preview 的畫面截圖，之後可以在任何地方按 cmd + v 貼上。</p><figure name="24fd" id="24fd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*czRrUWw_wSkbJpPOzSde9w.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*czRrUWw_wSkbJpPOzSde9w.png"></figure><h3 name="9109" id="9109" class="graf graf--h3 graf-after--figure">設定 preview screenshot 的快速鍵</h3><p name="c8ae" id="c8ae" class="graf graf--p graf-after--h3">我們也可以另外設定輸出 preview screenshot 的快速鍵。</p><p name="b2de" id="b2de" class="graf graf--p graf-after--p">打開 Xcode 的 Settings，切換到 Shortcuts 分頁後找到 Export Preview Screenshot 或 Copy Preview Screenshot。彼得潘較常用到 Copy Preview Screenshot，因此將它的快速鍵設為 cmd + p，同時為了避免衝突，也將原本採用 cmd + p 的 print 快速鍵取消。</p><figure name="67e8" id="67e8" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*2BEVAJKScDnjngusYQi_iA.png" data-width="1700" data-height="1336" src="https://cdn-images-1.medium.com/max/800/1*2BEVAJKScDnjngusYQi_iA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d6b0bd6bc3cb"><time class="dt-published" datetime="2024-01-26T09:46:48.178Z">January 26, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-xcode-%E8%BC%B8%E5%87%BA%E5%92%8C%E8%A4%87%E8%A3%BD-preview-screenshot-xcode-15-3-%E6%96%B0%E5%8A%9F%E8%83%BD-d6b0bd6bc3cb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

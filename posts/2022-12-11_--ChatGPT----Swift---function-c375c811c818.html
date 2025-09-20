@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>用 ChatGPT 學習 Swift 的 function</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">用 ChatGPT 學習 Swift 的 function</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+用 swift 寫計算梯形面積的 function，function 不要回傳東西
+</section>
+<section data-field="body" class="e-content">
+<section name="23ec" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0933" id="0933" class="graf graf--h3 graf--leading graf--title">用 ChatGPT 學習 Swift 的 function</h3><h3 name="7a72" id="7a72" class="graf graf--h3 graf-after--h3">用 swift 寫計算梯形面積的 function，function 不要回傳東西</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="fbcf" id="fbcf" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">calculateTrapezoidArea</span>(<span class="hljs-params">topLength</span>: <span class="hljs-type">Double</span>, <span class="hljs-params">bottomLength</span>: <span class="hljs-type">Double</span>, <span class="hljs-params">height</span>: <span class="hljs-type">Double</span>) {<br />    <span class="hljs-keyword">let</span> area <span class="hljs-operator">=</span> (topLength <span class="hljs-operator">+</span> bottomLength) <span class="hljs-operator">*</span> height <span class="hljs-operator">/</span> <span class="hljs-number">2</span><br />    <span class="hljs-built_in">print</span>(area)<br />}<br /><br />calculateTrapezoidArea(topLength: <span class="hljs-number">2.0</span>, bottomLength: <span class="hljs-number">4.0</span>, height: <span class="hljs-number">3.0</span>) <span class="hljs-comment">// 9.0</span></span></pre><h3 name="23b5" id="23b5" class="graf graf--h3 graf-after--pre">用 swift 寫計算梯形面積的 function</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="b66c" id="b66c" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">calculateTrapezoidArea</span>(<span class="hljs-params">topLength</span>: <span class="hljs-type">Double</span>, <span class="hljs-params">bottomLength</span>: <span class="hljs-type">Double</span>, <span class="hljs-params">height</span>: <span class="hljs-type">Double</span>) -&gt; <span class="hljs-type">Double</span> {<br />    <span class="hljs-keyword">return</span> (topLength <span class="hljs-operator">+</span> bottomLength) <span class="hljs-operator">*</span> height <span class="hljs-operator">/</span> <span class="hljs-number">2</span><br />}<br /><br /><span class="hljs-keyword">let</span> area <span class="hljs-operator">=</span> calculateTrapezoidArea(topLength: <span class="hljs-number">2.0</span>, bottomLength: <span class="hljs-number">4.0</span>, height: <span class="hljs-number">3.0</span>)<br /><span class="hljs-built_in">print</span>(area) <span class="hljs-comment">// 9.0</span></span></pre><h3 name="22d7" id="22d7" class="graf graf--h3 graf-after--pre">用 swift 寫計算 BMR 的 function</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="ea5d" id="ea5d" class="graf graf--pre graf-after--h3 graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">func</span> <span class="hljs-title function_">calculateBMR</span>(<span class="hljs-params">weight</span>: <span class="hljs-type">Double</span>, <span class="hljs-params">height</span>: <span class="hljs-type">Double</span>, <span class="hljs-params">age</span>: <span class="hljs-type">Int</span>, <span class="hljs-params">gender</span>: <span class="hljs-type">String</span>) -&gt; <span class="hljs-type">Double</span> {<br />    <span class="hljs-keyword">let</span> bmr: <span class="hljs-type">Double</span><br />    <span class="hljs-keyword">if</span> gender <span class="hljs-operator">==</span> <span class="hljs-string">&quot;male&quot;</span> {<br />        bmr <span class="hljs-operator">=</span> <span class="hljs-number">66</span> <span class="hljs-operator">+</span> (<span class="hljs-number">6.2</span> <span class="hljs-operator">*</span> weight) <span class="hljs-operator">+</span> (<span class="hljs-number">12.7</span> <span class="hljs-operator">*</span> height) <span class="hljs-operator">-</span> (<span class="hljs-number">6.76</span> <span class="hljs-operator">*</span> <span class="hljs-type">Double</span>(age))<br />    } <span class="hljs-keyword">else</span> {<br />        bmr <span class="hljs-operator">=</span> <span class="hljs-number">655</span> <span class="hljs-operator">+</span> (<span class="hljs-number">4.35</span> <span class="hljs-operator">*</span> weight) <span class="hljs-operator">+</span> (<span class="hljs-number">4.7</span> <span class="hljs-operator">*</span> height) <span class="hljs-operator">-</span> (<span class="hljs-number">4.7</span> <span class="hljs-operator">*</span> <span class="hljs-type">Double</span>(age))<br />    }<br />    <span class="hljs-keyword">return</span> bmr<br />}<br /><br /><span class="hljs-keyword">let</span> bmr <span class="hljs-operator">=</span> calculateBMR(weight: <span class="hljs-number">70.0</span>, height: <span class="hljs-number">175.0</span>, age: <span class="hljs-number">25</span>, gender: <span class="hljs-string">&quot;male&quot;</span>)<br /><span class="hljs-built_in">print</span>(bmr) <span class="hljs-comment">// 1729.8</span></span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c375c811c818"><time class="dt-published" datetime="2022-12-11T10:07:37.524Z">December 11, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%94%A8-chatgpt-%E8%88%89%E4%BE%8B-%E5%AD%B8%E7%BF%92-swift-%E7%9A%84-function-c375c811c818" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

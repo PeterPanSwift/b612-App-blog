@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>同樣的符號，在不同的地方有不同的意義 — Swift 程式初學者的常見問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">同樣的符號，在不同的地方有不同的意義 — Swift 程式初學者的常見問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在我們撰寫程式時，常會用到一些有著特別意義的符號，比方冒號，驚嘆號，問號等。不過請注意，這些符號在不同的地方使用時，將有不同的意義和作用，就像同一個英文單字，在不同的地方，會有不同的意義，比方以下兩個 miss 分別代表不同的意思。
+</section>
+<section data-field="body" class="e-content">
+<section name="44a3" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="fa2a" id="fa2a" class="graf graf--h3 graf--leading graf--title">同樣的符號，在不同的地方有不同的意義 — Swift 程式初學者的常見問題</h3><p name="77bb" id="77bb" class="graf graf--p graf-after--h3">在我們撰寫程式時，常會用到一些有著特別意義的符號，比方冒號，驚嘆號，問號等。不過請注意，這些符號在不同的地方使用時，將有不同的意義和作用，就像同一個英文單字，在不同的地方，會有不同的意義，比方以下兩個 miss 分別代表不同的意思。</p><blockquote name="e206" id="e206" class="graf graf--blockquote graf-after--p">代表想念的 miss。</blockquote><pre name="7671" id="7671" class="graf graf--pre graf-after--blockquote">I know how you miss your ex-girlfriend.</pre><blockquote name="efa5" id="efa5" class="graf graf--blockquote graf-after--pre">代表沒有打中的 miss。</blockquote><pre name="2e88" id="2e88" class="graf graf--pre graf-after--blockquote">The hunter fired at the deer but missed it.</pre><p name="69a3" id="69a3" class="graf graf--p graf-after--pre">在 Swift 裡也常看到類似的情況，比方以下兩個冒號的例子:</p><blockquote name="72e6" id="72e6" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">例子 1</strong></blockquote><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="4e88" id="4e88" class="graf graf--pre graf-after--blockquote graf--preV2"><span class="pre--content"><span class="hljs-keyword">var</span> cuteBaby: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;peter&quot;</span></span></pre><blockquote name="2917" id="2917" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">例子 2</strong></blockquote><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="9cf6" id="9cf6" class="graf graf--pre graf-after--blockquote graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Baby</span> {<br />   <span class="hljs-keyword">var</span> age <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />}<br /><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">MagicBaby</span>: <span class="hljs-title class_">Baby</span> {<br />   <span class="hljs-keyword">var</span> magic <span class="hljs-operator">=</span> <span class="hljs-string">&quot;魔音穿腦&quot;</span><br />}</span></pre><p name="d7de" id="d7de" class="graf graf--p graf-after--pre">在例子 1，<strong class="markup--strong markup--p-strong">var cuteBaby: String</strong> 的冒號代表變數 cuteBaby 的型別是字串，只能儲存字串，不能儲存字串以外的東西。</p><p name="72ff" id="72ff" class="graf graf--p graf-after--p graf--trailing">在例子 2，<strong class="markup--strong markup--p-strong">class MagicBaby: Baby </strong>的冒號代表我們新定義的類別 MagicBaby<strong class="markup--strong markup--p-strong"> </strong>繼承 Baby，將得到 Baby 裡定義的東西，比方它的 age。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/ebb4a55475b6"><time class="dt-published" datetime="2018-04-13T09:13:00.515Z">April 13, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%90%8C%E6%A8%A3%E7%9A%84%E7%AC%A6%E8%99%9F-%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9C%B0%E6%96%B9%E6%9C%89%E4%B8%8D%E5%90%8C%E7%9A%84%E6%84%8F%E7%BE%A9-swift-%E7%A8%8B%E5%BC%8F%E5%88%9D%E5%AD%B8%E8%80%85%E7%9A%84%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C-ebb4a55475b6" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

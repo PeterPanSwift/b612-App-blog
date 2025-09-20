@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>如何從 Xcode 產生 Certificate</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">如何從 Xcode 產生 Certificate</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+分成自動跟手動兩種方法。
+</section>
+<section data-field="body" class="e-content">
+<section name="17fd" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="abd6" id="abd6" class="graf graf--h3 graf--leading graf--title">如何從 Xcode 產生 Certificate</h3><p name="752a" id="752a" class="graf graf--p graf-after--h3">分成自動跟手動兩種方法。</p><h3 name="b4ce" id="b4ce" class="graf graf--h3 graf-after--p">自動產生</h3><div name="b9ae" id="b9ae" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E5%8B%95%E5%B9%AB%E6%88%91%E5%80%91%E7%94%A2%E7%94%9F-certificate-%E7%9A%84-xcode-85a8dc79ba2b" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E5%8B%95%E5%B9%AB%E6%88%91%E5%80%91%E7%94%A2%E7%94%9F-certificate-%E7%9A%84-xcode-85a8dc79ba2b" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E5%8B%95%E5%B9%AB%E6%88%91%E5%80%91%E7%94%A2%E7%94%9F-certificate-%E7%9A%84-xcode-85a8dc79ba2b"><strong class="markup--strong markup--mixtapeEmbed-strong">自動幫我們產生 certificate 的 Xcode</strong><br><em class="markup--em markup--mixtapeEmbed-em">想將 App 安裝到實機和上架 App Store，有個十分重要的東西，叫做 certificate。App 必須綁定 certificate，Apple 才能知道 App 是誰做的，到時候如果有人做了邪惡的 App，Apple…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%87%AA%E5%8B%95%E5%B9%AB%E6%88%91%E5%80%91%E7%94%A2%E7%94%9F-certificate-%E7%9A%84-xcode-85a8dc79ba2b" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="36eb7eb87c8e452bcec1ed4a88bc6083" data-thumbnail-img-id="1*xPphY1JH9u7vfSfKz3ri3A.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*xPphY1JH9u7vfSfKz3ri3A.jpeg);"></a></div><h3 name="5302" id="5302" class="graf graf--h3 graf-after--mixtapeEmbed">手動產生</h3><p name="6283" id="6283" class="graf graf--p graf-after--h3">以產生上架 App Store 或製作 Ad Hoc App 需要的 production certificate 為例:</p><ol class="postList"><li name="bcfe" id="bcfe" class="graf graf--li graf-after--p">點選 Xcode &gt; Preferences。</li></ol><figure name="4603" id="4603" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*lxEQrlFz88vICzkgpJ1MBQ.png" data-width="462" data-height="234" src="https://cdn-images-1.medium.com/max/800/1*lxEQrlFz88vICzkgpJ1MBQ.png"></figure><p name="11ea" id="11ea" class="graf graf--p graf-after--figure">2. 切換到 Accounts 分頁。選擇某個 Apple ID 後，點選右下角的 Manage Certificates。</p><figure name="f45b" id="f45b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uVVmgqaREooV_kLXleSedg.png" data-width="1662" data-height="1090" src="https://cdn-images-1.medium.com/max/800/1*uVVmgqaREooV_kLXleSedg.png"></figure><p name="8736" id="8736" class="graf graf--p graf-after--figure">3. 點選左下角的 +，從選單裡點選 Apple Distribution，新增 production certificate。</p><figure name="c6f4" id="c6f4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0_8ZprHLa72_CvicQXb-Ig.png" data-width="1272" data-height="1000" src="https://cdn-images-1.medium.com/max/800/1*0_8ZprHLa72_CvicQXb-Ig.png"></figure><p name="47ba" id="47ba" class="graf graf--p graf-after--figure">4. 順利生成新的 certificate，建立的時間( Date Created) 為 2022/3/15。值得注意的，就像食物一樣，certificate 也會過期，它的有效期限為一年，將在建立的一年後到期。</p><figure name="0fc8" id="0fc8" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*BioLlRxd9F4CagdsR4nXGA.png" data-width="1202" data-height="754" src="https://cdn-images-1.medium.com/max/800/1*BioLlRxd9F4CagdsR4nXGA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/30c127a382f1"><time class="dt-published" datetime="2017-04-20T17:09:39.168Z">April 20, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%A6%82%E4%BD%95%E5%BE%9E-xcode-%E7%94%A2%E7%94%9F-certificate-30c127a382f1" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

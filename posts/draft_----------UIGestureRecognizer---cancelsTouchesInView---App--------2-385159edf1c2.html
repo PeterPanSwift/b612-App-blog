@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>表格點選收鍵盤 — UIGestureRecognizer 的 cancelsTouchesInView — App 功能實作解密 2</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">表格點選收鍵盤 — UIGestureRecognizer 的 cancelsTouchesInView — App 功能實作解密 2</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們在 table  view 加入 tap gesture recognizer 時，cell 的點選會沒有反應。
+</section>
+<section data-field="body" class="e-content">
+<section name="5ad5" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="651d" id="651d" class="graf graf--h3 graf--leading graf--title">表格點選收鍵盤 — UIGestureRecognizer 的 cancelsTouchesInView — App 功能實作解密 2</h3><p name="f817" id="f817" class="graf graf--p graf-after--h3">當我們在 table  view 加入 tap gesture recognizer 時，cell 的點選會沒有反應。</p><p name="0a6a" id="0a6a" class="graf graf--p graf-after--p">cell 上有 text field ，想要打字收鍵盤，但有的 cell 是點了要進下一頁。</p><p name="58ae" id="58ae" class="graf graf--p graf-after--p">此問題可將  gesture recognizer 的 cancelsTouchesInView 設為 false 解決 。</p><div name="992a" id="992a" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uigesturerecognizer/1624218-cancelstouchesinview" data-href="https://developer.apple.com/documentation/uikit/uigesturerecognizer/1624218-cancelstouchesinview" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uigesturerecognizer/1624218-cancelstouchesinview"><strong class="markup--strong markup--mixtapeEmbed-strong">cancelsTouchesInView - UIGestureRecognizer | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Edit description</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uigesturerecognizer/1624218-cancelstouchesinview" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="587dc140182aa4d55b44c8f55654bb03"></a></div><p name="c3b5" id="c3b5" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/385159edf1c2">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

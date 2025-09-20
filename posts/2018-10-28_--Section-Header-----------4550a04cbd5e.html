@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>讓 Section Header 跟著表格一起捲動吧</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">讓 Section Header 跟著表格一起捲動吧</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+iOS App 的表格利用 section 實現分類的概念，然後每個 section 下有各自的 cells。比方下圖的情詩 App 有兩個  section，一個是唐詩，一個是宋詞，section 下是讓人一秒落淚的詩詞內容。
+</section>
+<section data-field="body" class="e-content">
+<section name="f5d4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="94e5" id="94e5" class="graf graf--h3 graf--leading graf--title">讓 Section Header 跟著表格一起捲動吧</h3><p name="b80a" id="b80a" class="graf graf--p graf-after--h3">iOS App 的表格利用 section 實現分類的概念，然後每個 section 下有各自的 cells。比方下圖的情詩 App 有兩個 section，一個是唐詩，一個是宋詞，section 下是讓人一秒落淚的詩詞內容。</p><figure name="0069" id="0069" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*vxMmWfgzLVheJr52HLfQgw.jpeg" data-width="932" data-height="1600" src="https://cdn-images-1.medium.com/max/800/1*vxMmWfgzLVheJr52HLfQgw.jpeg"></figure><p name="9028" id="9028" class="graf graf--p graf-after--figure">每個 section 的前後可分別添加 header 和 footer，比方圖片裡的唐詩和宋詞即是 header 的標題。然而 header 和 footer 有個十分神奇的特性。它會一直卡在表格的上方，直到它對應的 section 內容都已消失在畫面上時，它才會向上捲動，變成下一個 section 的 header 卡在表格上方。</p><p name="34bb" id="34bb" class="graf graf--p graf-after--p">如下圖所示，唐詩 header 將一直卡在表格的上方，直到表格已經捲動到看不到唐詩 section 下的 cell 時，唐詩 header 才會往上捲動消失不見。此設計的好處在於它能幫我們更清楚目前正在瀏覽的 cells 屬於哪一類，屬於哪一個 section。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="3"><figure name="2599" id="2599" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 33.333%;"><img class="graf-image" data-image-id="1*vxMmWfgzLVheJr52HLfQgw.jpeg" data-width="932" data-height="1600" src="https://cdn-images-1.medium.com/max/400/1*vxMmWfgzLVheJr52HLfQgw.jpeg"></figure><figure name="7829" id="7829" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*EAM0CfY7xWgWyOzz2qu-0w.jpeg" data-width="932" data-height="1600" src="https://cdn-images-1.medium.com/max/400/1*EAM0CfY7xWgWyOzz2qu-0w.jpeg"></figure><figure name="ecd7" id="ecd7" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 33.333%;"><img class="graf-image" data-image-id="1*lYDvFJw_8uefxygQdCh4xA.jpeg" data-width="932" data-height="1600" src="https://cdn-images-1.medium.com/max/400/1*lYDvFJw_8uefxygQdCh4xA.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="eb94" id="eb94" class="graf graf--p graf-after--figure">不過有時我們會希望 section header 跟著表格一起捲動，不要卡在上面。想實現這樣子的功能，有兩種解法可以做到:</p><blockquote name="5bca" id="5bca" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">方法1: 利用特別的 cell 當分類的標題。</strong></blockquote><p name="ed4f" id="ed4f" class="graf graf--p graf-after--blockquote">整個表格只有一個 section，不設定 section header，而是利用特別的 cell 當分類的標題。</p><p name="f642" id="f642" class="graf graf--p graf-after--p">如下圖所示，第一個和第六個 cell 是特別的灰底 cell，分別顯示唐詩和宋詞，其它 cells 才是真正的情詩內容。</p><figure name="9613" id="9613" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*CvmtBL8E0PkOpJPIBvE1SQ.jpeg" data-width="1032" data-height="792" src="https://cdn-images-1.medium.com/max/800/1*CvmtBL8E0PkOpJPIBvE1SQ.jpeg"></figure><blockquote name="bd92" id="bd92" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">方法2: 將 table view 的樣式改成 Grouped。</strong></blockquote><p name="26cb" id="26cb" class="graf graf--p graf-after--blockquote">表格的 section header 之所以卡住，其實和 table view 的 style 有關。預設 table view 的 style 為 Plain，因此會有這樣的特性。只要將它的 Style 改成 Grouped，即可讓 section header 跟著表格一起捲動。</p><figure name="56b9" id="56b9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*SOzmtVHuMNAXYGVjZFgGCA.jpeg" data-width="514" data-height="374" src="https://cdn-images-1.medium.com/max/800/1*SOzmtVHuMNAXYGVjZFgGCA.jpeg"></figure><p name="c942" id="c942" class="graf graf--p graf-after--figure">如下圖所示，改成 Grouped 後，section header 果然跟著表格一起捲動了 !</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="c514" id="c514" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 50%;"><img class="graf-image" data-image-id="1*aKlY_SUVy2oDIXmNE8F6-w.jpeg" data-width="932" data-height="1600" src="https://cdn-images-1.medium.com/max/600/1*aKlY_SUVy2oDIXmNE8F6-w.jpeg"></figure><figure name="f4e1" id="f4e1" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50%;"><img class="graf-image" data-image-id="1*aqKwwziBeG0Ffy_P28iMFA.jpeg" data-width="932" data-height="1600" src="https://cdn-images-1.medium.com/max/600/1*aqKwwziBeG0Ffy_P28iMFA.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="1672" id="1672" class="graf graf--p graf-after--figure">但是它也有副作用。由於 Style 是 Grouped，所以表格長得樣子會不太一樣，不同 section 之間會有較明顯的分隔，就好像每個 section 的 cells 搞小團體，彼此不能太靠近，不然會吵架一樣。</p><p name="5b58" id="5b58" class="graf graf--p graf-after--p">若是不滿意 Grouped 表格的呈現效果，希望它長得和原本的 Plain 樣式類似，其實也有方法。Grouped 表格之所以 section 之間的分隔較大和 header / footer 的高度有關。所以我們只要定義以下兩個決定 header / footer 高度的 function 即可。</p><pre name="8df2" id="8df2" class="graf graf--pre graf-after--p">override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -&gt; CGFloat {</pre><pre name="330c" id="330c" class="graf graf--pre graf-after--pre">   return 28</pre><pre name="3687" id="3687" class="graf graf--pre graf-after--pre">}</pre><pre name="9f5d" id="9f5d" class="graf graf--pre graf-after--pre">override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -&gt; CGFloat {</pre><pre name="fbd7" id="fbd7" class="graf graf--pre graf-after--pre">   return 0.1</pre><pre name="c1a3" id="c1a3" class="graf graf--pre graf-after--pre">}</pre><p name="5fb7" id="5fb7" class="graf graf--p graf-after--pre">我們將 header 高度設為 28，如此才有空間顯示 header 的文字。而 footer 其實我們不需要，應該要設為 0。不過如果設為 0，iOS 會讓它依然有預設的高度，所以此處我們將它設為 0.1，讓它有一點點高度，但正常人的眼睛是看不出來的。</p><figure name="d712" id="d712" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uRlm91IYGllmVlMc2sU43w.jpeg" data-width="932" data-height="1600" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*uRlm91IYGllmVlMc2sU43w.jpeg"></figure><p name="7a62" id="7a62" class="graf graf--p graf-after--figure graf--trailing">ps: 眼尖的朋友也許還注意到 Grouped 表格的分隔線長得跟 Plain 不太一樣，Grouped 表格的分隔線會讓每個 section 的第一條和最後一條分隔線連到底，但 cell 之間的分隔線則不會連到底。如果想針對 Grouped 表格的分隔線做調整，建議直接將 table view 的 Separator 設成 None，自己再另外於 cell 上加入分隔線。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/4550a04cbd5e"><time class="dt-published" datetime="2018-10-28T14:44:18.836Z">October 28, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%AE%93-section-header-%E8%B7%9F%E8%91%97%E8%A1%A8%E6%A0%BC%E4%B8%80%E8%B5%B7%E6%8D%B2%E5%8B%95%E5%90%A7-4550a04cbd5e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

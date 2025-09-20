@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#8 IG 的 po 文頁面 — 使用 NSAttributedString</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#8 IG 的 po 文頁面 — 使用 NSAttributedString</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+實作 IG  的 po 文頁面。
+</section>
+<section data-field="body" class="e-content">
+<section name="b1e2" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="08c9" id="08c9" class="graf graf--h3 graf--leading graf--title">#8 IG 的 po 文頁面 — 使用 NSAttributedString</h3><p name="373d" id="373d" class="graf graf--p graf-after--h3">實作 IG 的 po 文頁面。</p><figure name="a01f" id="a01f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JvVCtrls_StnvXzmOVuB-Q.png" data-width="1826" data-height="1284" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*JvVCtrls_StnvXzmOVuB-Q.png"></figure><p name="8bb0" id="8bb0" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">功能和畫面需求</strong></p><ul class="postList"><li name="a1aa" id="a1aa" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">包含多種文字樣式。</strong></li></ul><p name="d739" id="d739" class="graf graf--p graf-after--li">比方名字 unilions_official 是粗體，HAPPY BIRTHDAY 比較細，<a href="http://twitter.com/unilions" data-href="http://twitter.com/unilions" class="markup--anchor markup--p-anchor" title="Twitter profile for @unilions" rel="noopener" target="_blank">@unilions</a>.1 是藍色。</p><figure name="c5a3" id="c5a3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*N9VJKsBj-flreX4wYmOVTA.png" data-width="642" data-height="1198" src="https://cdn-images-1.medium.com/max/800/1*N9VJKsBj-flreX4wYmOVTA.png"></figure><ul class="postList"><li name="8b87" id="8b87" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">文章預設顯示兩行，點選 more 顯示完整內容。</strong></li></ul><figure name="090a" id="090a" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*lVz72xtLJoMQfcFm9yhY5A.png" data-width="1490" data-height="1226" src="https://cdn-images-1.medium.com/max/800/1*lVz72xtLJoMQfcFm9yhY5A.png"></figure><ul class="postList"><li name="3481" id="3481" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">某些文字是連結，點選可到下一頁。</strong></li></ul><figure name="7363" id="7363" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*3EoABAKItlFzWJbUanemJA.png" data-width="1464" data-height="1204" src="https://cdn-images-1.medium.com/max/800/1*3EoABAKItlFzWJbUanemJA.png"></figure><h3 name="64c2" id="64c2" class="graf graf--h3 graf-after--figure">提示</h3><div name="c082" id="c082" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-attributedstring-%E6%88%96-nsattributedstring-%E5%AF%A6%E7%8F%BE%E5%A4%9A%E7%A8%AE%E6%A8%A3%E5%BC%8F%E7%B5%84%E5%90%88%E7%9A%84%E6%96%87%E5%AD%97-dba0794c09de" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-attributedstring-%E6%88%96-nsattributedstring-%E5%AF%A6%E7%8F%BE%E5%A4%9A%E7%A8%AE%E6%A8%A3%E5%BC%8F%E7%B5%84%E5%90%88%E7%9A%84%E6%96%87%E5%AD%97-dba0794c09de" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-attributedstring-%E6%88%96-nsattributedstring-%E5%AF%A6%E7%8F%BE%E5%A4%9A%E7%A8%AE%E6%A8%A3%E5%BC%8F%E7%B5%84%E5%90%88%E7%9A%84%E6%96%87%E5%AD%97-dba0794c09de"><strong class="markup--strong markup--mixtapeEmbed-strong">利用 AttributedString 或 NSAttributedString 實現多種樣式組合的文字</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們時常會看到多種樣式組合的文字，比方下圖 IG App 紅色框框的文字區塊，人名 anwei20 跟終於 … 的文字是不同的樣式。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%88%A9%E7%94%A8-attributedstring-%E6%88%96-nsattributedstring-%E5%AF%A6%E7%8F%BE%E5%A4%9A%E7%A8%AE%E6%A8%A3%E5%BC%8F%E7%B5%84%E5%90%88%E7%9A%84%E6%96%87%E5%AD%97-dba0794c09de" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d990709d6006b830173a8c298226bff7" data-thumbnail-img-id="1*hxZz_p9w-Xi1OnyjingHnA.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*hxZz_p9w-Xi1OnyjingHnA.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8c9e7ce19e6e"><time class="dt-published" datetime="2022-03-17T10:30:17.151Z">March 17, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/8-ig-%E7%9A%84-po-%E6%96%87%E9%A0%81%E9%9D%A2-%E4%BD%BF%E7%94%A8-nsattributedstring-8c9e7ce19e6e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

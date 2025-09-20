@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 Flutter 官方的 sample code 學習 widget</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 Flutter 官方的 sample code 學習 widget</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+學習開發 Flutter App 時，最重要的莫過於研究 Flutter 滿山滿谷的 widget。每個 widget 都有自己獨特的功能，有沒有方法能快速學習呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="72ca" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="b603" id="b603" class="graf graf--h3 graf--leading graf--title">從 Flutter 官方的 sample code 學習 widget</h3><p name="5d41" id="5d41" class="graf graf--p graf-after--h3">學習開發 Flutter App 時，最重要的莫過於研究 Flutter 滿山滿谷的 widget。每個 widget 都有自己獨特的功能，有沒有方法能快速學習呢 ?</p><h3 name="d306" id="d306" class="graf graf--h3 graf-after--p">從 Flutter 官方的 sample code 學習</h3><p name="37e3" id="37e3" class="graf graf--p graf-after--h3">Flutter 為大部分的 widget 提供了範例程式，以 <a href="https://api.flutter.dev/flutter/material/Scaffold-class.html" data-href="https://api.flutter.dev/flutter/material/Scaffold-class.html" class="markup--anchor markup--p-anchor" title="https://api.flutter.dev/flutter/material/Scaffold-class.html" rel="noopener" target="_blank">Scaffold</a> 為例，<a href="https://api.flutter.dev/flutter/material/Scaffold-class.html" data-href="https://api.flutter.dev/flutter/material/Scaffold-class.html" class="markup--anchor markup--p-anchor" title="https://api.flutter.dev/flutter/material/Scaffold-class.html" rel="noopener" target="_blank">Scaffold</a> class 的網頁不只提供 <a href="https://api.flutter.dev/flutter/material/Scaffold-class.html" data-href="https://api.flutter.dev/flutter/material/Scaffold-class.html" class="markup--anchor markup--p-anchor" title="https://api.flutter.dev/flutter/material/Scaffold-class.html" rel="noopener" target="_blank">Scaffold</a> 的使用說明，還包含豐富的範例程式。</p><div name="616f" id="616f" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://api.flutter.dev/flutter/material/Scaffold-class.html" data-href="https://api.flutter.dev/flutter/material/Scaffold-class.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://api.flutter.dev/flutter/material/Scaffold-class.html"><strong class="markup--strong markup--mixtapeEmbed-strong">Scaffold class</strong><br><em class="markup--em markup--mixtapeEmbed-em">API docs for the Scaffold class from the material library, for the Dart programming language.</em>api.flutter.dev</a><a href="https://api.flutter.dev/flutter/material/Scaffold-class.html" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="e1a8cf2d5f06d5f36183d78b3867bf3c"></a></div><p name="6311" id="6311" class="graf graf--p graf-after--mixtapeEmbed">而且我們不只能從網頁編輯執行範例，還可以在自己的電腦用 flutter command 抓取範例程式。</p><figure name="3163" id="3163" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*u5lMKC1Hzl2VnihoOYLO0A.png" data-width="1732" data-height="617" src="https://cdn-images-1.medium.com/max/800/1*u5lMKC1Hzl2VnihoOYLO0A.png"></figure><p name="5fa4" id="5fa4" class="graf graf--p graf-after--figure">比方以下指令將抓取 Scaffold 的範例程式，範例的 id 為 <code class="markup--code markup--p-code">material.Scaffold.1</code>，專案取名為 mysample。</p><pre data-code-block-mode="0" spellcheck="false" name="95ed" id="95ed" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">flutter create --sample=material.Scaffold.1 mysample</span></pre><p name="2e4b" id="2e4b" class="graf graf--p graf-after--pre">執行結果。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="bash" name="48cf" id="48cf" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">Creating project mysample...<br />Resolving dependencies <span class="hljs-keyword">in</span> mysample... <br />Got dependencies <span class="hljs-keyword">in</span> mysample.<br />Wrote 128 files.<br /><br />All <span class="hljs-keyword">done</span>!<br />You can find general documentation <span class="hljs-keyword">for</span> Flutter at: https://docs.flutter.dev/<br />Detailed API documentation is available at: https://api.flutter.dev/<br />If you prefer video documentation, consider: https://www.youtube.com/c/flutterdev<br /><br />In order to run your sample application, <span class="hljs-built_in">type</span>:<br /><br />  $ <span class="hljs-built_in">cd</span> mysample<br />  $ flutter run<br /><br />Your sample application code is <span class="hljs-keyword">in</span> mysample/lib/main.dart.</span></pre><p name="ffcb" id="ffcb" class="graf graf--p graf-after--pre">成功抓取專案後，現在我們可以方便地用 VS Code 編輯程式和執行 App。</p><figure name="8dc0" id="8dc0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JzmXomGsnhzes6wkEvQGZg.png" data-width="1569" data-height="841" src="https://cdn-images-1.medium.com/max/800/1*JzmXomGsnhzes6wkEvQGZg.png"></figure><figure name="c786" id="c786" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*MGCaH5r_r8G6IlPZ7R0muw.png" data-width="1179" data-height="2556" src="https://cdn-images-1.medium.com/max/800/1*MGCaH5r_r8G6IlPZ7R0muw.png"></figure><h3 name="e76c" id="e76c" class="graf graf--h3 graf-after--figure">如何知道有哪些 sample code</h3><ul class="postList"><li name="b0e2" id="b0e2" class="graf graf--li graf-after--h3"><strong class="markup--strong markup--li-strong">從 Widget class 的網頁。</strong></li></ul><p name="959d" id="959d" class="graf graf--p graf-after--li">比方從 PageView 的網頁得知 sample code 的 id 是 widgets.PageView.1。</p><div name="fa17" id="fa17" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://api.flutter.dev/flutter/widgets/PageView-class.html" data-href="https://api.flutter.dev/flutter/widgets/PageView-class.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://api.flutter.dev/flutter/widgets/PageView-class.html"><strong class="markup--strong markup--mixtapeEmbed-strong">PageView class</strong><br><em class="markup--em markup--mixtapeEmbed-em">API docs for the PageView class from the widgets library, for the Dart programming language.</em>api.flutter.dev</a><a href="https://api.flutter.dev/flutter/widgets/PageView-class.html" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="0ea6a2f0018a41e8a7cc91d1fb5f6c96"></a></div><pre data-code-block-mode="0" spellcheck="false" name="889a" id="889a" class="graf graf--pre graf-after--mixtapeEmbed graf--preV2"><span class="pre--content">flutter create --sample=widgets.PageView.1 mysample</span></pre><ul class="postList"><li name="410f" id="410f" class="graf graf--li graf-after--pre"><strong class="markup--strong markup--li-strong">用 flutter 指令列出全部 sample code 的 id。</strong></li></ul><p name="d11a" id="d11a" class="graf graf--p graf-after--li">輸入以下指令產生 sample code 的清單，將結果存成 samples.json。</p><pre data-code-block-mode="0" spellcheck="false" name="c21c" id="c21c" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">flutter create --list-samples=samples.json</span></pre><figure name="3134" id="3134" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*9KfBPaGOHH0_B_JOArRGBw.png" data-width="1489" data-height="892" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*9KfBPaGOHH0_B_JOArRGBw.png"></figure><ul class="postList"><li name="ff41" id="ff41" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">從 Flutter 的 GitHub。</strong></li></ul><p name="5194" id="5194" class="graf graf--p graf-after--li">Flutter GitHub 的 <a href="https://github.com/flutter/flutter/tree/master/examples/api/lib" data-href="https://github.com/flutter/flutter/tree/master/examples/api/lib" class="markup--anchor markup--p-anchor" title="https://github.com/flutter/flutter/tree/master/examples/api/lib" rel="noopener" target="_blank">examples/api/lib</a> 下包含豐富的 sample code。</p><div name="3aa0" id="3aa0" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/flutter/flutter/tree/master/examples/api/lib" data-href="https://github.com/flutter/flutter/tree/master/examples/api/lib" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/flutter/flutter/tree/master/examples/api/lib"><strong class="markup--strong markup--mixtapeEmbed-strong">flutter/examples/api/lib at master · flutter/flutter</strong><br><em class="markup--em markup--mixtapeEmbed-em">Flutter makes it easy and fast to build beautiful apps for mobile and beyond - flutter/examples/api/lib at master ·…</em>github.com</a><a href="https://github.com/flutter/flutter/tree/master/examples/api/lib" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f07012e0b7100c532147d8817d3c53bd" data-thumbnail-img-id="0*ozpr3oNZGT-v3rrc" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*ozpr3oNZGT-v3rrc);"></a></div><figure name="c70d" id="c70d" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*MelDBu-X9VAIxAugY0K5Eg.png" data-width="753" data-height="595" src="https://cdn-images-1.medium.com/max/800/1*MelDBu-X9VAIxAugY0K5Eg.png"></figure><p name="0a82" id="0a82" class="graf graf--p graf-after--figure">比方以下是 Scaffold 的 sample code。</p><div name="4489" id="4489" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/flutter/flutter/tree/master/examples/api/lib/material/scaffold" data-href="https://github.com/flutter/flutter/tree/master/examples/api/lib/material/scaffold" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/flutter/flutter/tree/master/examples/api/lib/material/scaffold"><strong class="markup--strong markup--mixtapeEmbed-strong">flutter/examples/api/lib/material/scaffold at master · flutter/flutter</strong><br><em class="markup--em markup--mixtapeEmbed-em">Flutter makes it easy and fast to build beautiful apps for mobile and beyond …</em>github.com</a><a href="https://github.com/flutter/flutter/tree/master/examples/api/lib/material/scaffold" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="89f568006d201d5b3de17a86352d1952" data-thumbnail-img-id="0*U_bWvSwbyWzeyvXo" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*U_bWvSwbyWzeyvXo);"></a></div><figure name="0bf6" id="0bf6" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*fakjQojHWbvPFZ0bErvlkQ.png" data-width="1831" data-height="841" src="https://cdn-images-1.medium.com/max/800/1*fakjQojHWbvPFZ0bErvlkQ.png"></figure><p name="89cc" id="89cc" class="graf graf--p graf-after--figure">scaffold 資料夾下的 scaffold.1.dart 即為我們剛剛用 <code class="markup--code markup--p-code">flutter create — sample=material.Scaffold.1 mysample</code> 抓取的範例程式。</p><div name="c649" id="c649" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/flutter/flutter/blob/master/examples/api/lib/material/scaffold/scaffold.1.dart" data-href="https://github.com/flutter/flutter/blob/master/examples/api/lib/material/scaffold/scaffold.1.dart" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/flutter/flutter/blob/master/examples/api/lib/material/scaffold/scaffold.1.dart"><strong class="markup--strong markup--mixtapeEmbed-strong">flutter/examples/api/lib/material/scaffold/scaffold.1.dart at master · flutter/flutter</strong><br><em class="markup--em markup--mixtapeEmbed-em">Flutter makes it easy and fast to build beautiful apps for mobile and beyond …</em>github.com</a><a href="https://github.com/flutter/flutter/blob/master/examples/api/lib/material/scaffold/scaffold.1.dart" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="68a01b9a8de93a2be0f3f68040fd167a" data-thumbnail-img-id="0*mHLg1yV-VxWE9bLF" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*mHLg1yV-VxWE9bLF);"></a></div><figure name="8274" id="8274" class="graf graf--figure graf-after--mixtapeEmbed graf--trailing"><img class="graf-image" data-image-id="1*e5K1WcDimIvWv4blteAbyw.png" data-width="578" data-height="846" src="https://cdn-images-1.medium.com/max/800/1*e5K1WcDimIvWv4blteAbyw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/d5309ab5dd51"><time class="dt-published" datetime="2024-01-06T07:21:03.275Z">January 6, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-flutter-%E5%AE%98%E6%96%B9%E7%9A%84-sample-code-%E5%AD%B8%E7%BF%92-widget-d5309ab5dd51" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

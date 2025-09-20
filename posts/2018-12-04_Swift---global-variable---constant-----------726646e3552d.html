@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Swift 的 global variable / constant (全域變數/常數)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Swift 的 global variable / constant (全域變數/常數)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們時常需要在不同的 controller 畫面間傳遞資料，也因為傳遞資料有許多不同的方法，所以初學者往往需要一段時間才能理解熟練這些技巧。
+</section>
+<section data-field="body" class="e-content">
+<section name="4a64" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e109" id="e109" class="graf graf--h3 graf--leading graf--title">Swift 的 global variable / constant (全域變數/常數)</h3><p name="b3bd" id="b3bd" class="graf graf--p graf-after--h3">開發 iOS App 時，我們時常需要在不同的 controller 畫面間傳遞資料，也因為傳遞資料有許多不同的方法，所以初學者往往需要一段時間才能理解熟練這些技巧。</p><p name="919d" id="919d" class="graf graf--p graf-after--p">如果想讓 controller 讀取其它 controller 的資料，其實有一招很簡單的偷懶方法，宣告專案裡每個檔案都可存取的 global variable / constant。</p><p name="7033" id="7033" class="graf graf--p graf-after--p">此方法大神們會告訴我們最好少用，因為任何檔案皆可存取，到時候當變數內容出問題時，我們需要花很多時間研究，因為每個檔案都可能使用到它。</p><p name="22c9" id="22c9" class="graf graf--p graf-after--p">的確 global variable 最好少用。不過初學者剛開始開發 App 時，如果希望不同畫面的 controller 能夠存取同一份資料，也可以先用 global variable 實現。等未來學了更厲害的技術後，再改用更好的寫法。</p><p name="dab0" id="dab0" class="graf graf--p graf-after--p">在 Swift 裡要如何宣告 global variable 呢 ? 很簡單，只要在型別 { } 之外宣告，不被任何 { } 包圍，即可成為身份特別，大家都認識，每個檔案都可使用的 global variable。比方以下例子的 grade :</p><pre name="6d0d" id="6d0d" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">var grade = 0</strong></pre><pre name="1502" id="1502" class="graf graf--pre graf-after--pre">class QuestionViewController: UIViewController {</pre><pre name="f321" id="f321" class="graf graf--pre graf-after--pre">   override func viewDidLoad() {</pre><pre name="5916" id="5916" class="graf graf--pre graf-after--pre">      super.viewDidLoad()</pre><pre name="eae1" id="eae1" class="graf graf--pre graf-after--pre">   }</pre><pre name="1c07" id="1c07" class="graf graf--pre graf-after--pre">}</pre><p name="c571" id="c571" class="graf graf--p graf-after--pre">一旦宣告 { } 裡，它就無緣成為 global variable，比方以下例子的 number1, number2 &amp; number3，分別被 class，func 和 if 的 { } 包含，因此不夠格當 global variable。</p><pre name="8300" id="8300" class="graf graf--pre graf-after--p">class QuestionViewController: UIViewController {</pre><pre name="0c96" id="0c96" class="graf graf--pre graf-after--pre">   var number1 = 0</pre><pre name="a306" id="a306" class="graf graf--pre graf-after--pre">   override func viewDidLoad() {</pre><pre name="8cff" id="8cff" class="graf graf--pre graf-after--pre">      super.viewDidLoad()</pre><pre name="c993" id="c993" class="graf graf--pre graf-after--pre">      var number2 = 0</pre><pre name="eaa5" id="eaa5" class="graf graf--pre graf-after--pre">      if number2 &gt; 0 {</pre><pre name="63ce" id="63ce" class="graf graf--pre graf-after--pre">         var number3 = 0</pre><pre name="f9d8" id="f9d8" class="graf graf--pre graf-after--pre">      }</pre><pre name="75a4" id="75a4" class="graf graf--pre graf-after--pre">   }</pre><p name="c6a0" id="c6a0" class="graf graf--p graf-after--pre">接下來讓我們以選擇題 App 為例，實際瞧瞧 global variable 的應用。兩個畫面分別為 QuestionViewController &amp; GradeViewController。我們可宣告 global variable grade，在 QuestionViewController 回答問題時增加 grade 的分數，然後在 GradeViewController 讀取 grade 顯示分數。</p><figure name="17bf" id="17bf" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ncFbMgqQ-VjB_IK82iAVJQ.jpeg" data-width="1062" data-height="954" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*ncFbMgqQ-VjB_IK82iAVJQ.jpeg"><figcaption class="imageCaption">左邊是 QuestionViewController，右邊是 GradeViewController</figcaption></figure><blockquote name="2e03" id="2e03" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">QuestionViewController</strong></blockquote><p name="0b10" id="0b10" class="graf graf--p graf-after--blockquote">宣告 global variable 的 <code class="markup--code markup--p-code">var grade = 0</code> 寫在 QuestionViewController，不過其實要寫在 GradeViewController 也可以，因為它是任何檔案皆可存取的 global variable，所以寫在哪個檔案都可以。</p><p name="bc52" id="bc52" class="graf graf--p graf-after--p">假設答對時會呼叫 answerCorrect()，答錯時會呼叫 answerWrong() 調整 grade 的分數。</p><pre name="1132" id="1132" class="graf graf--pre graf-after--p">var grade = 0</pre><pre name="466e" id="466e" class="graf graf--pre graf-after--pre">class QuestionViewController: UIViewController {</pre><pre name="2aca" id="2aca" class="graf graf--pre graf-after--pre">   func answerCorrect() {</pre><pre name="5855" id="5855" class="graf graf--pre graf-after--pre">      grade = grade + 10</pre><pre name="75fc" id="75fc" class="graf graf--pre graf-after--pre">   }</pre><pre name="bb1c" id="bb1c" class="graf graf--pre graf-after--pre">   func answerWrong() {</pre><pre name="3bbb" id="3bbb" class="graf graf--pre graf-after--pre">      grade = grade - 10</pre><pre name="f60c" id="f60c" class="graf graf--pre graf-after--pre">   }</pre><blockquote name="8709" id="8709" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">GradeViewController</strong></blockquote><pre name="32e2" id="32e2" class="graf graf--pre graf-after--blockquote">class GradeViewController: UIViewController {</pre><pre name="2462" id="2462" class="graf graf--pre graf-after--pre">   @IBOutlet var gradeLabel: UILabel!</pre><pre name="066f" id="066f" class="graf graf--pre graf-after--pre">   override func viewDidLoad() {</pre><pre name="5545" id="5545" class="graf graf--pre graf-after--pre">      super.viewDidLoad()</pre><pre name="ee1a" id="ee1a" class="graf graf--pre graf-after--pre">      gradeLabel.text = grade.description</pre><pre name="7933" id="7933" class="graf graf--pre graf-after--pre graf--trailing">   }</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/726646e3552d"><time class="dt-published" datetime="2018-12-04T08:19:41.256Z">December 4, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swift-%E7%9A%84-global-variable-constant-%E5%85%A8%E5%9F%9F%E8%AE%8A%E6%95%B8-%E5%B8%B8%E6%95%B8-726646e3552d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

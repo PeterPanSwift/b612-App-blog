@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從 Apple 開發網站的 Updates 頁面研究最新的開發技術</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從 Apple 開發網站的 Updates 頁面研究最新的開發技術</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+每年 WWDC Apple 都會發表大量的新技術，我們要怎麼跟上 Apple 的腳步，如何知道有哪些新功能和 API 呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="6420" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9f3a" id="9f3a" class="graf graf--h3 graf--leading graf--title">從 Apple 開發網站的 Updates 頁面研究最新的開發技術</h3><p name="4855" id="4855" class="graf graf--p graf-after--h3">每年 WWDC Apple 都會發表大量的新技術，我們要怎麼跟上 Apple 的腳步，如何知道有哪些新功能和 API 呢 ?</p><p name="717c" id="717c" class="graf graf--p graf-after--p">別擔心，Apple 的開發網站的 Updates 頁面早為我們分門別類各種技術更新的文件，方便我們快速查詢相關的更新。</p><figure name="a0fc" id="a0fc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*cu1WT59JuVaBrXZWOjC6qA.png" data-width="1974" data-height="1280" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*cu1WT59JuVaBrXZWOjC6qA.png"></figure><div name="db18" id="db18" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/updates" data-href="https://developer.apple.com/documentation/updates" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/updates"><strong class="markup--strong markup--mixtapeEmbed-strong">Updates | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">View major documentation updates and highlights from WWDC, browse ongoing updates from a set of framework releases over…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/updates" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e3a927d5c45621016629dfcde6fdef7a" data-thumbnail-img-id="0*4y5xvAzB22Qu0Jlj" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*4y5xvAzB22Qu0Jlj);"></a></div><p name="a2ee" id="a2ee" class="graf graf--p graf-after--mixtapeEmbed">Updates 分類的方式有兩種，依每年的 WWDC 分類或依技術主題分類。</p><p name="3831" id="3831" class="graf graf--p graf-after--p">比方你對 WWDC24 的新技術亮點有興趣，可瀏覽 WWDC24 的 Update 頁面。</p><figure name="a2de" id="a2de" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Nfu3lIzCQbbEOt5w8iH1iw.png" data-width="1444" data-height="1240" src="https://cdn-images-1.medium.com/max/800/1*Nfu3lIzCQbbEOt5w8iH1iw.png"></figure><div name="29a1" id="29a1" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/updates/wwdc2024" data-href="https://developer.apple.com/documentation/updates/wwdc2024" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/updates/wwdc2024"><strong class="markup--strong markup--mixtapeEmbed-strong">WWDC24 | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Highlights of new technologies introduced at WWDC24.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/updates/wwdc2024" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="784429d368accde3220eb88ce9b23338" data-thumbnail-img-id="0*98pVVR4ide2zWgBB" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*98pVVR4ide2zWgBB);"></a></div><p name="b6e0" id="b6e0" class="graf graf--p graf-after--mixtapeEmbed">對某項技術主題有興趣，可瀏覽它的 Update 頁面，例如以下 Xcode、SwiftUI &amp; UIKit 的例子。</p><figure name="68bb" id="68bb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*vi2G7C0nWTd0ttc48p4OsA.png" data-width="1466" data-height="1198" src="https://cdn-images-1.medium.com/max/800/1*vi2G7C0nWTd0ttc48p4OsA.png"></figure><div name="ccde" id="ccde" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/updates/xcode" data-href="https://developer.apple.com/documentation/updates/xcode" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/updates/xcode"><strong class="markup--strong markup--mixtapeEmbed-strong">Xcode updates | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Learn about important changes to Xcode.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/updates/xcode" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="e98d7ce15faf03dc8b0427efb3411a67" data-thumbnail-img-id="0*qqfwx3rR7ldBlt29" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*qqfwx3rR7ldBlt29);"></a></div><figure name="4722" id="4722" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*HcirN0N6e-IZqPjkoR4Osw.png" data-width="1484" data-height="1232" src="https://cdn-images-1.medium.com/max/800/1*HcirN0N6e-IZqPjkoR4Osw.png"></figure><div name="334a" id="334a" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/updates/swiftui" data-href="https://developer.apple.com/documentation/updates/swiftui" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/updates/swiftui"><strong class="markup--strong markup--mixtapeEmbed-strong">SwiftUI updates | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Learn about important changes to SwiftUI.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/updates/swiftui" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="efe491e925886154310973cadcfa5ab0" data-thumbnail-img-id="0*pumnvXv_B21DHO5o" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*pumnvXv_B21DHO5o);"></a></div><figure name="d098" id="d098" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*2Sv5Nc4hKJMWYmKiIjTw-A.png" data-width="1554" data-height="1178" src="https://cdn-images-1.medium.com/max/800/1*2Sv5Nc4hKJMWYmKiIjTw-A.png"></figure><div name="b046" id="b046" class="graf graf--mixtapeEmbed graf-after--figure graf--trailing"><a href="https://developer.apple.com/documentation/updates/uikit" data-href="https://developer.apple.com/documentation/updates/uikit" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/updates/uikit"><strong class="markup--strong markup--mixtapeEmbed-strong">UIKit updates | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Learn about important changes to UIKit.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/updates/uikit" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a6bc201170283c2f783a3ce629b49315" data-thumbnail-img-id="0*oUvHONhJ5VjuKlB4" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*oUvHONhJ5VjuKlB4);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c954f789a4a6"><time class="dt-published" datetime="2024-06-14T04:12:02.776Z">June 14, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%BE%9E-apple-%E9%96%8B%E7%99%BC%E7%B6%B2%E7%AB%99%E7%9A%84-updates-%E9%A0%81%E9%9D%A2%E7%A0%94%E7%A9%B6%E6%9C%80%E6%96%B0%E7%9A%84%E9%96%8B%E7%99%BC%E6%8A%80%E8%A1%93-c954f789a4a6" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

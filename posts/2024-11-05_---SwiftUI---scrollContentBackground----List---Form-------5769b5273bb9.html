@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 SwiftUI 的 scrollContentBackground 取消 List / Form 預設的背景</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 SwiftUI 的 scrollContentBackground 取消 List / Form 預設的背景</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們使用 SwiftUI 的 List / Form 設計 App 畫面時，它會預設有背景顏色，就像以下可愛 emoji 動物清單的例子。
+</section>
+<section data-field="body" class="e-content">
+<section name="be71" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f010" id="f010" class="graf graf--h3 graf--leading graf--title">利用 SwiftUI 的 scrollContentBackground 取消 List / Form 預設的背景</h3><p name="0ea6" id="0ea6" class="graf graf--p graf-after--h3">當我們使用 SwiftUI 的 List / Form 設計 App 畫面時，它會預設有背景顏色，就像以下可愛 emoji 動物清單的例子。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="eec3" id="eec3" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> animals <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;🐶&quot;</span>, <span class="hljs-string">&quot;🐱&quot;</span>, <span class="hljs-string">&quot;🐭&quot;</span>, <span class="hljs-string">&quot;🐹&quot;</span>, <span class="hljs-string">&quot;🐰&quot;</span>, <span class="hljs-string">&quot;🦊&quot;</span>, <span class="hljs-string">&quot;🐻&quot;</span>]<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">List</span>(animals, id: \.<span class="hljs-keyword">self</span>) { animal <span class="hljs-keyword">in</span><br />            <span class="hljs-type">Text</span>(animal)<br />                .font(.largeTitle)<br />        }<br />    }<br />}</span></pre><figure name="3a55" id="3a55" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*WpwmWInFTlBhF3Ia0PoT9A.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*WpwmWInFTlBhF3Ia0PoT9A.png"></figure><p name="68cc" id="68cc" class="graf graf--p graf-after--figure">此時就算加了 background modifier 也無法改變背景顏色。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="5e51" id="5e51" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> animals <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;🐶&quot;</span>, <span class="hljs-string">&quot;🐱&quot;</span>, <span class="hljs-string">&quot;🐭&quot;</span>, <span class="hljs-string">&quot;🐹&quot;</span>, <span class="hljs-string">&quot;🐰&quot;</span>, <span class="hljs-string">&quot;🦊&quot;</span>, <span class="hljs-string">&quot;🐻&quot;</span>]<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">List</span>(animals, id: \.<span class="hljs-keyword">self</span>) { animal <span class="hljs-keyword">in</span><br />            <span class="hljs-type">Text</span>(animal)<br />                .font(.largeTitle)<br />        }<br />        .background(.yellow)<br />    }<br />}</span></pre><p name="f21f" id="f21f" class="graf graf--p graf-after--pre">若想改變 List / Form 的背景色，我們必須透過 scrollContentBackground 隱藏它預設的背景。</p><div name="986f" id="986f" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/view/scrollcontentbackground%28_:%29" data-href="https://developer.apple.com/documentation/swiftui/view/scrollcontentbackground(_:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/scrollcontentbackground(_:)"><strong class="markup--strong markup--mixtapeEmbed-strong">scrollContentBackground(_:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Specifies the visibility of the background for scrollable views within this view.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/scrollcontentbackground%28_:%29" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="17a9594ad0604b90cde62150f4f4a4bf" data-thumbnail-img-id="0*01seGIBpqpYdZEsB" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*01seGIBpqpYdZEsB);"></a></div><p name="3c6f" id="3c6f" class="graf graf--p graf-after--mixtapeEmbed">加了 <code class="markup--code markup--p-code">scrollContentBackground(.hidden)</code>後，background modifier 終於能成功設定背景顏色。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="1be9" id="1be9" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> animals <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;🐶&quot;</span>, <span class="hljs-string">&quot;🐱&quot;</span>, <span class="hljs-string">&quot;🐭&quot;</span>, <span class="hljs-string">&quot;🐹&quot;</span>, <span class="hljs-string">&quot;🐰&quot;</span>, <span class="hljs-string">&quot;🦊&quot;</span>, <span class="hljs-string">&quot;🐻&quot;</span>]<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">List</span>(animals, id: \.<span class="hljs-keyword">self</span>) { animal <span class="hljs-keyword">in</span><br />            <span class="hljs-type">Text</span>(animal)<br />                .font(.largeTitle)<br />        }<br />        .scrollContentBackground(.hidden)<br />        .background(.yellow)<br />    }<br />}</span></pre><figure name="ec3a" id="ec3a" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*EEZ6wYGULVT8jj-L6uRCyw.png" data-width="1206" data-height="2622" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*EEZ6wYGULVT8jj-L6uRCyw.png"></figure><p name="83fa" id="83fa" class="graf graf--p graf-after--figure">ps: 當 List 的 style 設為 plain 時也能取消預設的背景。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="94ef" id="94ef" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> animals <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;🐶&quot;</span>, <span class="hljs-string">&quot;🐱&quot;</span>, <span class="hljs-string">&quot;🐭&quot;</span>, <span class="hljs-string">&quot;🐹&quot;</span>, <span class="hljs-string">&quot;🐰&quot;</span>, <span class="hljs-string">&quot;🦊&quot;</span>, <span class="hljs-string">&quot;🐻&quot;</span>]<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">List</span>(animals, id: \.<span class="hljs-keyword">self</span>) { animal <span class="hljs-keyword">in</span><br />            <span class="hljs-type">Text</span>(animal)<br />                .font(.largeTitle)<br />        }<br />        .listStyle(.plain)<br />        .background(.yellow)<br />    }<br />}</span></pre><figure name="80cf" id="80cf" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*J2Ice3zaZ0nETQy95XqyhQ.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*J2Ice3zaZ0nETQy95XqyhQ.png"></figure><h3 name="5b94" id="5b94" class="graf graf--h3 graf-after--figure">設定 SwiftUI List 的背景顏色或圖片</h3><div name="9f03" id="9f03" class="graf graf--mixtapeEmbed graf-after--h3 graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-swiftui-list-%E7%9A%84%E8%83%8C%E6%99%AF%E9%A1%8F%E8%89%B2%E6%88%96%E5%9C%96%E7%89%87-02f326ea13f4" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-swiftui-list-%E7%9A%84%E8%83%8C%E6%99%AF%E9%A1%8F%E8%89%B2%E6%88%96%E5%9C%96%E7%89%87-02f326ea13f4" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-swiftui-list-%E7%9A%84%E8%83%8C%E6%99%AF%E9%A1%8F%E8%89%B2%E6%88%96%E5%9C%96%E7%89%87-02f326ea13f4"><strong class="markup--strong markup--mixtapeEmbed-strong">設定 SwiftUI List 的背景顏色或圖片</strong><br><em class="markup--em markup--mixtapeEmbed-em">SwiftUI List 預設會搭配淺灰色的背景(dark mode 為黑色)，以下我們介紹如何設定它的背景顏色或圖片。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-swiftui-list-%E7%9A%84%E8%83%8C%E6%99%AF%E9%A1%8F%E8%89%B2%E6%88%96%E5%9C%96%E7%89%87-02f326ea13f4" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="7ac1b88ce35b68d51807ac7e7a973f30" data-thumbnail-img-id="1*fNQI42KFpDF31QVZXYdU1w.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*fNQI42KFpDF31QVZXYdU1w.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/5769b5273bb9"><time class="dt-published" datetime="2024-11-05T03:25:43.361Z">November 5, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-scrollcontentbackground-%E5%8F%96%E6%B6%88-list-form-%E9%A0%90%E8%A8%AD%E7%9A%84%E8%83%8C%E6%99%AF-5769b5273bb9" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

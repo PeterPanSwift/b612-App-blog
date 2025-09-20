@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>設定 App 文字兩端對齊的 justify — UIKit、Flutter &amp; Jetpack Compose</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">設定 App 文字兩端對齊的 justify — UIKit、Flutter &amp; Jetpack Compose</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+App 顯示多行文字時，通常預設會類似下圖的排版，邊界會參差不齊(尤其是右邊)。
+</section>
+<section data-field="body" class="e-content">
+<section name="6477" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ce39" id="ce39" class="graf graf--h3 graf--leading graf--title">設定 App 文字兩端對齊的 justify — UIKit、Flutter &amp; Jetpack Compose</h3><p name="fc9c" id="fc9c" class="graf graf--p graf-after--h3">App 顯示多行文字時，通常預設會類似下圖的排版，邊界會參差不齊(尤其是右邊)。</p><figure name="efc4" id="efc4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*SptiHN9gLoZzwESuMxzXsA.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*SptiHN9gLoZzwESuMxzXsA.png"></figure><p name="9f9b" id="9f9b" class="graf graf--p graf-after--figure">若是希望顯示多行文字時能兩邊對齊，可設定文字對齊的方式為 justify。如下圖所示，為了兩邊對齊，單字間的空白間距也會跟著調整，有些間距較大，有些間距較小。</p><figure name="4cbc" id="4cbc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*u4U8MA-nL7HiB_8dATKAJg.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*u4U8MA-nL7HiB_8dATKAJg.png"></figure><p name="3f89" id="3f89" class="graf graf--p graf-after--figure">以下我們分別介紹 UIKit、Flutter 和 Jetpack Compose 實現的方法。</p><h3 name="fadd" id="fadd" class="graf graf--h3 graf-after--p">UIKit</h3><ul class="postList"><li name="0878" id="0878" class="graf graf--li graf-after--h3">從 storyboard 設定。</li></ul><p name="3ca2" id="3ca2" class="graf graf--p graf-after--li">點選 label 元件紅色框框的 justify 按鈕。</p><figure name="b135" id="b135" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*S0CoQ-3NZxooRH7Jxlz9xg.png" data-width="1502" data-height="962" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*S0CoQ-3NZxooRH7Jxlz9xg.png"></figure><ul class="postList"><li name="1170" id="1170" class="graf graf--li graf-after--figure">從程式設定 label 的 textAlignment 為 justified。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0ae1" id="0ae1" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> label <span class="hljs-operator">=</span> <span class="hljs-type">UILabel</span>(frame: <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">10</span>, y: <span class="hljs-number">50</span>, width: <span class="hljs-number">300</span>, height: <span class="hljs-number">100</span>))<br />label.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;And now here is my secret, a very simple secret: It is only with the heart that one can see rightly; what is essential is invisible to the eye.&quot;</span><br />label.numberOfLines <span class="hljs-operator">=</span> <span class="hljs-number">0</span> <span class="hljs-comment">// 支援多行文字</span><br />label.textAlignment <span class="hljs-operator">=</span> .justified</span></pre><h3 name="1631" id="1631" class="graf graf--h3 graf-after--pre">Flutter</h3><p name="a2ed" id="a2ed" class="graf graf--p graf-after--h3">設定 Text 的 textAlign 為 TextAlign.justify。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="dart" name="db73" id="db73" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">Text(<br />    <span class="hljs-string">&#x27;And now here is my secret, a very simple secret: It is only with the heart that one can see rightly; what is essential is invisible to the eye.&#x27;</span>,<br />    style: TextStyle(fontSize: <span class="hljs-number">30</span>),<br />    textAlign: TextAlign.justify,<br />)</span></pre><figure name="4ed0" id="4ed0" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*XXGFlDDttUu5bO964KMsDg.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*XXGFlDDttUu5bO964KMsDg.png"></figure><h3 name="41e5" id="41e5" class="graf graf--h3 graf-after--figure">JetPact Compose</h3><p name="4744" id="4744" class="graf graf--p graf-after--h3">設定 Text 的 textAlign 為 TextAlign.Justify。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="kotlin" name="df29" id="df29" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">Text(<br />    text = <span class="hljs-string">&quot;And now here is my secret, a very simple secret: It is only with the heart that one can see rightly; what is essential is invisible to the eye.&quot;</span>,<br />    fontSize = <span class="hljs-number">30.</span>sp,<br />    textAlign = TextAlign.Justify,<br />)</span></pre><figure name="f1f6" id="f1f6" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*Eers8mpu4cMsg7KyLllBeg.png" data-width="687" data-height="230" src="https://cdn-images-1.medium.com/max/800/1*Eers8mpu4cMsg7KyLllBeg.png"></figure><h3 name="24b3" id="24b3" class="graf graf--h3 graf-after--figure">為什麼叫 justify</h3><p name="86f5" id="86f5" class="graf graf--p graf-after--h3">Claude 的說明。</p><pre data-code-block-mode="0" spellcheck="false" name="7108" id="7108" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content">&quot;Justify&quot; 這個詞在文字排版中表示「兩端對齊」的原因主要與這個詞的本意和歷史有關：<br><br>1. 詞源解釋：<br>&quot;Justify&quot; 源自拉丁文 &quot;justificare&quot;，意為「使正確」或「使整齊」。其中 &quot;justus&quot; 意為「正確的、公正的」，&quot;facere&quot; 則是「使成為」的意思。<br><br>2. 印刷歷史：<br>- 在早期活字印刷時代，印刷工人需要手動調整每行文字間的間距，使文字能夠精確地對齊左右邊界<br>- 這個過程被稱為 &quot;justification&quot;，因為它使文字變得「正確」且「整齊」<br><br>3. 視覺效果：<br>- Justify 排版讓文字左右兩側形成整齊的直線<br>- 這種對齊方式給人一種正式、整潔和專業的感覺，就像文字被「校正」(justified)過一樣<br><br>4. 專業用語：<br>在印刷和排版領域，&quot;justify&quot; 這個詞已經成為了專業術語，表示文字的兩端對齊處理。<br><br>所以，&quot;justify&quot; 用來表示文字左右對齊，是因為這個詞本身就有「使整齊、使正確」的含義，非常符合這種排版方式的特點和目的。</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/69543b2e7aa9"><time class="dt-published" datetime="2025-01-24T06:48:39.305Z">January 24, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%A8%AD%E5%AE%9A-app-%E6%96%87%E5%AD%97%E5%85%A9%E7%AB%AF%E5%B0%8D%E9%BD%8A%E7%9A%84-justify-uikit-flutter-jetpack-compose-69543b2e7aa9" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

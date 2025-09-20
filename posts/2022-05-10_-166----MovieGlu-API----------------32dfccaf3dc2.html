@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>#166 串接 MovieGlu API 製作電影時刻表 &amp; 播放預告</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">#166 串接 MovieGlu API 製作電影時刻表 &amp; 播放預告</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+使用 MovieGlu API 製作電影時刻表 &amp; 播放預告。
+</section>
+<section data-field="body" class="e-content">
+<section name="9896" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c71a" id="c71a" class="graf graf--h3 graf--leading graf--title">#166 串接 MovieGlu API 製作電影時刻表 &amp; 播放預告</h3><figure name="0bda" id="0bda" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*BsjcKapZWS9d9Q7Gg7jCSw.png" data-width="992" data-height="1032" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*BsjcKapZWS9d9Q7Gg7jCSw.png"></figure><figure name="7442" id="7442" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*tmRKxoj7b4kESwzGen5H5Q.png" data-width="966" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*tmRKxoj7b4kESwzGen5H5Q.png"></figure><p name="3cb9" id="3cb9" class="graf graf--p graf-after--figure">使用 MovieGlu API 製作電影時刻表 &amp; 播放預告。</p><div name="c521" id="c521" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E6%8A%93%E5%8F%96%E9%9B%BB%E5%BD%B1%E8%B3%87%E8%A8%8A-%E9%A0%90%E5%91%8A%E5%BD%B1%E7%89%87-%E9%9B%BB%E5%BD%B1%E6%99%82%E5%88%BB%E8%A1%A8%E7%9A%84-movieglu-api-3a82a30e53fa" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E6%8A%93%E5%8F%96%E9%9B%BB%E5%BD%B1%E8%B3%87%E8%A8%8A-%E9%A0%90%E5%91%8A%E5%BD%B1%E7%89%87-%E9%9B%BB%E5%BD%B1%E6%99%82%E5%88%BB%E8%A1%A8%E7%9A%84-movieglu-api-3a82a30e53fa" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E6%8A%93%E5%8F%96%E9%9B%BB%E5%BD%B1%E8%B3%87%E8%A8%8A-%E9%A0%90%E5%91%8A%E5%BD%B1%E7%89%87-%E9%9B%BB%E5%BD%B1%E6%99%82%E5%88%BB%E8%A1%A8%E7%9A%84-movieglu-api-3a82a30e53fa"><strong class="markup--strong markup--mixtapeEmbed-strong">抓取電影資訊，預告影片 &amp; 電影時刻表的 MovieGlu API</strong><br><em class="markup--em markup--mixtapeEmbed-em">透過 MovieGlu API 我們可以抓取精彩的電影資訊，預告影片 &amp; 電影時刻表。以下我們示範如何申請串接 API 的 API key &amp; 使用 PostMan 測試 API。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E6%8A%93%E5%8F%96%E9%9B%BB%E5%BD%B1%E8%B3%87%E8%A8%8A-%E9%A0%90%E5%91%8A%E5%BD%B1%E7%89%87-%E9%9B%BB%E5%BD%B1%E6%99%82%E5%88%BB%E8%A1%A8%E7%9A%84-movieglu-api-3a82a30e53fa" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="4935bd7584d59d1a62f561099e82bde6" data-thumbnail-img-id="1*67OsXQYNVetCikp1A-2o7Q.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*67OsXQYNVetCikp1A-2o7Q.png);"></a></div><p name="742c" id="742c" class="graf graf--p graf-after--mixtapeEmbed">範例:</p><p name="4504" id="4504" class="graf graf--p graf-after--p">從 <a href="https://developer.movieglu.com/v2/api-index/filmshowtimes/" data-href="https://developer.movieglu.com/v2/api-index/filmshowtimes/" class="markup--anchor markup--p-anchor" rel="nofollow noopener noopener" target="_blank">https://developer.movieglu.com/v2/api-index/filmshowtimes/</a> 可取得奇異博士 2 的電影時刻表，從 JSON 的 key cinemas 下的 cinema_name &amp; showings 取得電影院的名稱和時刻表。</p><pre name="5475" id="5475" class="graf graf--pre graf-after--p graf--trailing">&quot;cinemas&quot;: [<br>        {<br>            &quot;cinema_id&quot;: 9399,<br>            &quot;cinema_name&quot;: &quot;Picturehouse - Picturehouse Central, London&quot;,<br>            &quot;distance&quot;: 0.017695257558188,<br>            &quot;logo_url&quot;: &quot;<a href="https://assets.movieglu.com/chain_logos/uk/UK-1100-sq.jpg" data-href="https://assets.movieglu.com/chain_logos/uk/UK-1100-sq.jpg" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://assets.movieglu.com/chain_logos/uk/UK-1100-sq.jpg</a>&quot;,<br>            &quot;showings&quot;: {<br>                &quot;Standard&quot;: {<br>                    &quot;film_id&quot;: 296301,<br>                    &quot;film_name&quot;: &quot;Doctor Strange in the Multiverse of Madness&quot;,<br>                    &quot;times&quot;: [<br>                        {<br>                            &quot;start_time&quot;: &quot;12:10&quot;,<br>                            &quot;end_time&quot;: &quot;14:41&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;13:40&quot;,<br>                            &quot;end_time&quot;: &quot;16:11&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;15:05&quot;,<br>                            &quot;end_time&quot;: &quot;17:36&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;16:35&quot;,<br>                            &quot;end_time&quot;: &quot;19:06&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;18:00&quot;,<br>                            &quot;end_time&quot;: &quot;20:31&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;19:30&quot;,<br>                            &quot;end_time&quot;: &quot;22:01&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;21:00&quot;,<br>                            &quot;end_time&quot;: &quot;23:31&quot;<br>                        }<br>                    ]<br>                }<br>            }<br>        },<br>        {<br>            &quot;cinema_id&quot;: 8797,<br>            &quot;cinema_name&quot;: &quot;ODEON Luxe Haymarket&quot;,<br>            &quot;distance&quot;: 0.068853580735194,<br>            &quot;logo_url&quot;: &quot;<a href="https://assets.movieglu.com/chain_logos/uk/UK-614-sq.jpg" data-href="https://assets.movieglu.com/chain_logos/uk/UK-614-sq.jpg" class="markup--anchor markup--pre-anchor" rel="nofollow noopener" target="_blank">https://assets.movieglu.com/chain_logos/uk/UK-614-sq.jpg</a>&quot;,<br>            &quot;showings&quot;: {<br>                &quot;Standard&quot;: {<br>                    &quot;film_id&quot;: 296301,<br>                    &quot;film_name&quot;: &quot;Doctor Strange in the Multiverse of Madness&quot;,<br>                    &quot;times&quot;: [<br>                        {<br>                            &quot;start_time&quot;: &quot;14:45&quot;,<br>                            &quot;end_time&quot;: &quot;17:16&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;16:45&quot;,<br>                            &quot;end_time&quot;: &quot;19:16&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;17:45&quot;,<br>                            &quot;end_time&quot;: &quot;20:16&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;19:00&quot;,<br>                            &quot;end_time&quot;: &quot;21:31&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;19:45&quot;,<br>                            &quot;end_time&quot;: &quot;22:16&quot;<br>                        },<br>                        {<br>                            &quot;start_time&quot;: &quot;20:45&quot;,<br>                            &quot;end_time&quot;: &quot;23:16&quot;<br>                        }<br>                    ]<br>                }<br>            }<br>        },</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/32dfccaf3dc2"><time class="dt-published" datetime="2022-05-10T06:18:58.981Z">May 10, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/166-%E4%B8%B2%E6%8E%A5-movieglu-api-%E8%A3%BD%E4%BD%9C%E9%9B%BB%E5%BD%B1%E6%99%82%E5%88%BB%E8%A1%A8-32dfccaf3dc2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

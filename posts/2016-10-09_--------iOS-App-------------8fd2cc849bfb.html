@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>免費開發帳號的 iOS App 命中注定只能活七天 !</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">免費開發帳號的 iOS App 命中注定只能活七天 !</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+電影大話西遊裡曾經有段著名的對白:
+</section>
+<section data-field="body" class="e-content">
+<section name="930e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f58e" id="f58e" class="graf graf--h3 graf--leading graf--title">免費開發帳號的 iOS App 命中注定只能活七天 !</h3><figure name="bee5" id="bee5" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*Qa0tCahtoxwb7AFh6dR2Og.jpeg" data-width="590" data-height="542" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*Qa0tCahtoxwb7AFh6dR2Og.jpeg"></figure><p name="7a17" id="7a17" class="graf graf--p graf-after--figure">電影大話西遊裡曾經有段著名的對白:</p><blockquote name="0eb8" id="0eb8" class="graf graf--blockquote graf-after--p">曾經有一份真誠的愛擺在我的面前，但是我沒有珍惜，<br>等到失去的時候才後悔莫及，塵世間最痛苦的事莫過於此。<br>如果上天可以給我個機會再來一次的話，我會對這個女孩說我愛她，<br>如果非要在這份愛加上一個期限，我希望是一萬年……</blockquote><p name="2dd8" id="2dd8" class="graf graf--p graf-after--blockquote">可惜 App 不像愛那麼珍貴，不值得有一萬年的壽命，免費開發帳號從 Xcode 安裝到實機的 App，有效期限只有 7 天。過期後即無法啟動，得重新從 Xcode 安裝才能重生。( 付費帳號一樣有期限，不過期限會長一點，和 Development Certificate 一致。)</p><p name="6341" id="6341" class="graf graf--p graf-after--p">App 生命只有短短 7 天的關鍵在檔案 Provisioning Profile 身上，接下來就我們進行深度解密，找出 Profile 的有效期限吧。</p><p name="de15" id="de15" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">方法1:</strong></p><p name="92a3" id="92a3" class="graf graf--p graf-after--p">點選 App General 分頁裡， Provisioning Profile 旁的 i 按鈕，如下圖所示，紅色的 Expires in 6 days 標示出 6 天後過期。</p><figure name="0ecd" id="0ecd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*OEN-6yZ0cgYmUjo00PO2Fg.jpeg" data-width="1752" data-height="836" src="https://cdn-images-1.medium.com/max/800/1*OEN-6yZ0cgYmUjo00PO2Fg.jpeg"></figure><p name="9dad" id="9dad" class="graf graf--p graf-after--figure"><strong class="markup--strong markup--p-strong">方法2:</strong></p><p name="0d1b" id="0d1b" class="graf graf--p graf-after--p">1 點選 Window &gt; Devices and Simulators。</p><figure name="9897" id="9897" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*WnSaW0SmeqEfQVZ_oG72tQ.jpeg" data-width="812" data-height="504" src="https://cdn-images-1.medium.com/max/800/1*WnSaW0SmeqEfQVZ_oG72tQ.jpeg"></figure><p name="1732" id="1732" class="graf graf--p graf-after--figure">2 點選自己的 iPhone 後，點選下方的齒輪按鈕，再點擊 Show Provisioning Profiles。</p><figure name="057e" id="057e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3BQEBhd2JFkx7ev4XM8vhA.jpeg" data-width="580" data-height="1464" src="https://cdn-images-1.medium.com/max/800/1*3BQEBhd2JFkx7ev4XM8vhA.jpeg"></figure><p name="48b6" id="48b6" class="graf graf--p graf-after--figure">3 跳出的視窗裡顯示著 iPhone 上的 Profile 清單，從中可找到對應 App ID com.peterpan.Demo 的 Profile 有效期限為 2016/10/16，距離現在時間，2016/10/9，果然只有命中注定的七天 !</p><figure name="c9a0" id="c9a0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5rJfo6yNHaDH5ztRhw3t2Q.jpeg" data-width="2430" data-height="662" src="https://cdn-images-1.medium.com/max/800/1*5rJfo6yNHaDH5ztRhw3t2Q.jpeg"></figure><h3 name="c976" id="c976" class="graf graf--h3 graf-after--figure">七天到了會世界末日嗎</h3><p name="826f" id="826f" class="graf graf--p graf-after--h3 graf--trailing">不會，App 的 icon 還是會出現在 iPhone 的桌面，只是無法打開。復活的方法很簡單，重新用 Xcode 將 App 裝到手機即可。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8fd2cc849bfb"><time class="dt-published" datetime="2016-10-09T14:30:40.730Z">October 9, 2016</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%85%8D%E8%B2%BB%E9%96%8B%E7%99%BC%E5%B8%B3%E8%99%9F%E7%9A%84-ios-app-%E5%91%BD%E4%B8%AD%E6%B3%A8%E5%AE%9A%E5%8F%AA%E8%83%BD%E6%B4%BB%E4%B8%83%E5%A4%A9-8fd2cc849bfb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

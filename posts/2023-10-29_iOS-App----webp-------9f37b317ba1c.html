@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>iOS App 顯示 webp 格式的圖片</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">iOS App 顯示 webp 格式的圖片</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 iOS 14 開始，iOS App 也能顯示 webp 格式的圖片。以下我們逐一說明如何在三種不同情況用 SwiftUI 和 UIKit 顯示 webp 圖片，
+</section>
+<section data-field="body" class="e-content">
+<section name="f8e1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2cab" id="2cab" class="graf graf--h3 graf--leading graf--title">iOS App 顯示 webp 格式的圖片</h3><p name="5b7f" id="5b7f" class="graf graf--p graf-after--h3">從 iOS 14 開始，iOS App 也能顯示 webp 格式的圖片。以下我們逐一說明如何在三種不同情況用 SwiftUI 和 UIKit 顯示 webp 圖片，</p><ul class="postList"><li name="b42c" id="b42c" class="graf graf--li graf-after--p">asset 裡的 webp 圖片。</li><li name="0ab4" id="0ab4" class="graf graf--li graf-after--li">Project navigator 下的 webp 圖片。</li><li name="daa0" id="daa0" class="graf graf--li graf-after--li">網路上的 webp 圖片。</li></ul><p name="9cbb" id="9cbb" class="graf graf--p graf-after--li">我們的目標是以下 AI 繪製的可愛 Pair Programming 圖片。</p><figure name="53b3" id="53b3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kJ7N7uGNjMWnUESSA2zEAA.png" data-width="300" data-height="300" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*kJ7N7uGNjMWnUESSA2zEAA.png"></figure><h3 name="afaa" id="afaa" class="graf graf--h3 graf-after--figure">asset 裡的 webp 圖片</h3><p name="7248" id="7248" class="graf graf--p graf-after--h3">當圖片的附檔名是 webp 時，加到 asset 時將無法被識別為圖片。</p><figure name="e8db" id="e8db" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*W-J4umNzWkf13SKGjn4LZw.png" data-width="1125" data-height="287" src="https://cdn-images-1.medium.com/max/800/1*W-J4umNzWkf13SKGjn4LZw.png"></figure><p name="a0c2" id="a0c2" class="graf graf--p graf-after--figure">因此請將圖片的附檔名改成 png 或 jpg，然後再加到 asset，即可成功識別為圖片。</p><figure name="72e4" id="72e4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*jBcKEMZZjD2V3q6cijJyzA.png" data-width="860" data-height="226" src="https://cdn-images-1.medium.com/max/800/1*jBcKEMZZjD2V3q6cijJyzA.png"></figure><ul class="postList"><li name="4230" id="4230" class="graf graf--li graf-after--figure">SwiftUI</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="2c4d" id="2c4d" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(.pic)<br />    }<br />}</span></pre><ul class="postList"><li name="326e" id="326e" class="graf graf--li graf-after--pre">UIKit</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="63c4" id="63c4" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-keyword">let</span> imageView <span class="hljs-operator">=</span> <span class="hljs-type">UIImageView</span>(image: .pic)<br />        view.addSubview(imageView)<br />    }<br />}</span></pre><h3 name="134a" id="134a" class="graf graf--h3 graf-after--pre">Project navigator 下的 webp 圖片</h3><figure name="453d" id="453d" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*AGPXXbpEGfiZiEGH8X8qyQ.png" data-width="530" data-height="460" src="https://cdn-images-1.medium.com/max/800/1*AGPXXbpEGfiZiEGH8X8qyQ.png"></figure><ul class="postList"><li name="a172" id="a172" class="graf graf--li graf-after--figure">SwiftUI</li></ul><p name="ba0c" id="ba0c" class="graf graf--p graf-after--li">當圖片加到 Project Navigator 下，沒有放在 asset 時，使用<code class="markup--code markup--p-code">Image(&quot;pic.webp&quot;) </code>是無法讀到圖片的。因此我們必須先產生 UIImage，再用 <code class="markup--code markup--p-code">Image(uiImage:) </code>生成圖片。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="92f8" id="92f8" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">Image</span>(uiImage: <span class="hljs-type">UIImage</span>(named: <span class="hljs-string">&quot;pic.webp&quot;</span>)<span class="hljs-operator">!</span>)<br />    }<br />}</span></pre><ul class="postList"><li name="5e93" id="5e93" class="graf graf--li graf-after--pre">UIKit</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="2e96" id="2e96" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-keyword">let</span> imageView <span class="hljs-operator">=</span> <span class="hljs-type">UIImageView</span>(image: <span class="hljs-type">UIImage</span>(named: <span class="hljs-string">&quot;pic.webp&quot;</span>))<br />        view.addSubview(imageView)<br />    }<br />}</span></pre><h3 name="34b7" id="34b7" class="graf graf--h3 graf-after--pre">網路上的 webp 圖片</h3><ul class="postList"><li name="c7c1" id="c7c1" class="graf graf--li graf-after--h3">SwiftUI</li></ul><p name="abba" id="abba" class="graf graf--p graf-after--li">使用 AsyncImage。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="3b43" id="3b43" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">AsyncImage</span>(url: <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://raw.githubusercontent.com/PeterPanSwift/JSON_API/main/pic.webp&quot;</span>)<span class="hljs-operator">!</span>)<br />    }<br />}</span></pre><ul class="postList"><li name="26cf" id="26cf" class="graf graf--li graf-after--pre">UIKit</li></ul><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="c51f" id="c51f" class="graf graf--pre graf-after--li graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ViewController</span>: <span class="hljs-title class_">UIViewController</span> {<br /><br />    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {<br />        <span class="hljs-keyword">super</span>.viewDidLoad()<br />        <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> url <span class="hljs-operator">=</span> <span class="hljs-type">URL</span>(string: <span class="hljs-string">&quot;https://raw.githubusercontent.com/PeterPanSwift/JSON_API/main/pic.webp&quot;</span>) {<br />            <span class="hljs-type">Task</span> {<br />                <span class="hljs-keyword">do</span> {<br />                    <span class="hljs-keyword">let</span> (data, <span class="hljs-keyword">_</span>) <span class="hljs-operator">=</span> <span class="hljs-keyword">try</span> <span class="hljs-keyword">await</span> <span class="hljs-type">URLSession</span>.shared.data(from: url)<br />                    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> image <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>(data: data) {<br />                        <span class="hljs-keyword">let</span> imageView <span class="hljs-operator">=</span> <span class="hljs-type">UIImageView</span>(image: image)<br />                        view.addSubview(imageView)<br />                    }<br />                } <span class="hljs-keyword">catch</span> {<br />                    <span class="hljs-built_in">print</span>(error)<br />                }<br />            }<br />        }<br />        <br />    }<br /><br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/9f37b317ba1c"><time class="dt-published" datetime="2023-10-29T12:12:57.606Z">October 29, 2023</time></a>.</p><p><a href="https://medium.com/@apppeterpan/ios-app-%E9%A1%AF%E7%A4%BA-webp-%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9C%96%E7%89%87-9f37b317ba1c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

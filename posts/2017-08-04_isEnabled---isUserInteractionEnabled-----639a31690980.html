@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>isEnabled 和 isUserInteractionEnabled 的比較</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">isEnabled 和 isUserInteractionEnabled 的比較</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+UIControl 的 isEnabled 和 UIView 的 isUserInteractionEnabled 看起來很像，都代表著元件是否可以操作，當我們的手指觸碰它時，它會不會理我們。
+</section>
+<section data-field="body" class="e-content">
+<section name="fde9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="237d" id="237d" class="graf graf--h3 graf--leading graf--title">isEnabled 和 isUserInteractionEnabled 的比較</h3><p name="34b9" id="34b9" class="graf graf--p graf-after--h3">UIControl 的 isEnabled 和 UIView 的 isUserInteractionEnabled 看起來很像，都代表著元件是否可以操作，當我們的手指觸碰它時，它會不會理我們。</p><figure name="b7b4" id="b7b4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*MsqYgphxOxR3kwjo6BzskQ.png" data-width="538" data-height="682" src="https://cdn-images-1.medium.com/max/800/1*MsqYgphxOxR3kwjo6BzskQ.png"></figure><div name="af1f" id="af1f" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/uikit/uiview/1622577-isuserinteractionenabled" data-href="https://developer.apple.com/documentation/uikit/uiview/1622577-isuserinteractionenabled" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uiview/1622577-isuserinteractionenabled"><strong class="markup--strong markup--mixtapeEmbed-strong">isUserInteractionEnabled | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">A Boolean value that determines whether user events are ignored and removed from the event queue.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uiview/1622577-isuserinteractionenabled" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="026ccc2d430dca0c096981ae245809a5" data-thumbnail-img-id="0*_hqCRHOk_nj4lzoM" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*_hqCRHOk_nj4lzoM);"></a></div><div name="87d9" id="87d9" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed"><a href="https://developer.apple.com/documentation/uikit/uicontrol/1618217-isenabled" data-href="https://developer.apple.com/documentation/uikit/uicontrol/1618217-isenabled" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uicontrol/1618217-isenabled"><strong class="markup--strong markup--mixtapeEmbed-strong">isEnabled | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">A Boolean value indicating whether the control is in the enabled state.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uicontrol/1618217-isenabled" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="951ff7272436265868a2e1d006a1658f" data-thumbnail-img-id="0*5hvfrZQOeHqK_Rn3" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*5hvfrZQOeHqK_Rn3);"></a></div><p name="7d85" id="7d85" class="graf graf--p graf-after--mixtapeEmbed">不過如果你希望不能操作的元件長得稍微不一樣，提醒使用者它不能點選，那麼你應該選擇將 isEnabled 設為 false，因為它才會讓元件自動變成不能點選的模樣，如下圖顯示的畫面。</p><figure name="6810" id="6810" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*IpVLcHr_eyQT2aq7QRvCuA.png" data-width="1066" data-height="1860" src="https://cdn-images-1.medium.com/max/800/1*IpVLcHr_eyQT2aq7QRvCuA.png"></figure><p name="07b1" id="07b1" class="graf graf--p graf-after--figure">不過並非所有的 UI 元件都能設定 isEnabled，只有繼承 UIControl 的可以。如下圖所示，isEnabled 是 UIControl 的 property，isUserInteractionEnabled 是 UIView 的 property。所有的 UI 元件都有 isUserInteractionEnabled，因為它們都繼承 UIView，但卻不是所有的 UI 元件都有 isEnabled，只有 UIControl 的子孫能得到它。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="bb7d" id="bb7d" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 49.259%;"><img class="graf-image" data-image-id="1*ssxfDZbutRk2ylV5uQdPOQ.png" data-width="514" data-height="336" src="https://cdn-images-1.medium.com/max/600/1*ssxfDZbutRk2ylV5uQdPOQ.png"></figure><figure name="fdfc" id="fdfc" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 50.741%;"><img class="graf-image" data-image-id="1*4n174eTxutcVZaFvZQ-TSA.png" data-width="520" data-height="330" src="https://cdn-images-1.medium.com/max/800/1*4n174eTxutcVZaFvZQ-TSA.png"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="db1f" id="db1f" class="graf graf--p graf-after--figure">關於 UIControl 的介紹，有興趣的朋友可參考以下連結:</p><div name="18d4" id="18d4" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/uicontrol-%E9%A1%9E%E5%88%A5-abc690b861e9" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/uicontrol-%E9%A1%9E%E5%88%A5-abc690b861e9" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/uicontrol-%E9%A1%9E%E5%88%A5-abc690b861e9"><strong class="markup--strong markup--mixtapeEmbed-strong">UIControl 類別</strong><br><em class="markup--em markup--mixtapeEmbed-em">當類別繼承 UIControl 時，表示它們是有溫度的人，可以依據人類的觸碰產生事件，做適當的回應，例如以下這些是 iOS SDK 裡繼承 UIControl 的類別，其實它們就是 App 畫面上我們時常點選的按鈕，開關等元件。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/uicontrol-%E9%A1%9E%E5%88%A5-abc690b861e9" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="505beb655455ed3de8b3e0f0753b3a5f" data-thumbnail-img-id="1*RO0O4b7sbXbartveNv32EQ.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*RO0O4b7sbXbartveNv32EQ.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/639a31690980"><time class="dt-published" datetime="2017-08-04T08:53:45.652Z">August 4, 2017</time></a>.</p><p><a href="https://medium.com/@apppeterpan/isenabled-%E5%92%8C-isuserinteractionenabled-%E7%9A%84%E6%AF%94%E8%BC%83-639a31690980" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

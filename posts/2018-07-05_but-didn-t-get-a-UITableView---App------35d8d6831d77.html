@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>but didn’t get a UITableView ~ App 閃退問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">but didn’t get a UITableView ~ App 閃退問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+有朋友在開發 iOS App 時，發現 App 啟動後就閃退，出現以下錯誤訊息 :
+</section>
+<section data-field="body" class="e-content">
+<section name="1e1e" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f18e" id="f18e" class="graf graf--h3 graf--leading graf--title"><strong class="markup--strong markup--h3-strong">but didn’t get a UITableView ~ App 閃退問題</strong></h3><p name="76d9" id="76d9" class="graf graf--p graf-after--h3">有朋友在開發 iOS App 時，發現 App 啟動後就閃退，出現以下錯誤訊息 :</p><figure name="2bf0" id="2bf0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*5V_aJ7HDonxQX2MntiwKpQ.jpeg" data-width="1706" data-height="1090" src="https://cdn-images-1.medium.com/max/800/1*5V_aJ7HDonxQX2MntiwKpQ.jpeg"></figure><p name="9ac5" id="9ac5" class="graf graf--p graf-after--figure">這段文字說明了錯誤的原因</p><pre name="99e3" id="99e3" class="graf graf--pre graf-after--p"><strong class="markup--strong markup--pre-strong">&#39;-[UITableViewController loadView] instantiated view controller with identifier &quot;UIViewController-BYZ-38-t0r&quot; from storyboard &quot;Main&quot;, but didn&#39;t get a UITableView.&#39;</strong></pre><p name="b1f5" id="b1f5" class="graf graf--p graf-after--pre">問題出在 storyboard 裡我們利用 View Controller 建立畫面，然後在設定它的 class 時，卻設成繼承自 UITableViewController 的類別。</p><figure name="8e44" id="8e44" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*n2Pg62kJS2GPPj4qfSvX-w.jpeg" data-width="840" data-height="264" src="https://cdn-images-1.medium.com/max/800/1*n2Pg62kJS2GPPj4qfSvX-w.jpeg"></figure><figure name="01e5" id="01e5" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*a-LcPlU7o-uqlwuEeEcB_g.jpeg" data-width="546" data-height="250" src="https://cdn-images-1.medium.com/max/800/1*a-LcPlU7o-uqlwuEeEcB_g.jpeg"></figure><figure name="cedc" id="cedc" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*3WqEps7tRNDvaEcQPLBqTQ.jpeg" data-width="1442" data-height="1038" src="https://cdn-images-1.medium.com/max/800/1*3WqEps7tRNDvaEcQPLBqTQ.jpeg"></figure><pre name="8b74" id="8b74" class="graf graf--pre graf-after--figure">class DemoTableViewController: UITableViewController </pre><figure name="3e87" id="3e87" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*wsZWig2CgxOao4bkdhiCvQ.jpeg" data-width="528" data-height="252" src="https://cdn-images-1.medium.com/max/800/1*wsZWig2CgxOao4bkdhiCvQ.jpeg"></figure><p name="6165" id="6165" class="graf graf--p graf-after--figure graf--trailing">當 DemoTableViewController 物件生成時，它將載入 table view，然而此時 storyboard 的 controller 只是一般的 view controller，底下長的是 view，並不是 table view，因此才會在載入 table view 時發生問題，造成 App 閃退。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/35d8d6831d77"><time class="dt-published" datetime="2018-07-05T13:55:41.323Z">July 5, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/but-didnt-get-a-uitableview-app-%E9%96%83%E9%80%80%E5%95%8F%E9%A1%8C-35d8d6831d77" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

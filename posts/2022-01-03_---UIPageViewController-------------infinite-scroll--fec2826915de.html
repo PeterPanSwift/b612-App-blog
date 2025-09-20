@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 UIPageViewController 實現無限循環的分頁效果(infinite scroll)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 UIPageViewController 實現無限循環的分頁效果(infinite scroll)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+利用 UIPageViewController 我們可以輕易實現無限循環的分頁效果，接下來我們將以 Xcode 的 Page-Based App template 為例，實現無限循環的月份分頁效果。
+</section>
+<section data-field="body" class="e-content">
+<section name="61f4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="03f2" id="03f2" class="graf graf--h3 graf--leading graf--title">利用 UIPageViewController 實現無限循環的分頁效果(infinite scroll)</h3><p name="73bd" id="73bd" class="graf graf--p graf-after--h3">利用 UIPageViewController 我們可以輕易實現無限循環的分頁效果，接下來我們將以 Xcode 的 Page-Based App template 為例，實現無限循環的月份分頁效果。</p><h3 name="3bd5" id="3bd5" class="graf graf--h3 graf-after--p">使用 Xcode 的 Page-Based App template 建立專案</h3><p name="c216" id="c216" class="graf graf--p graf-after--h3">新版的 Xcode 沒有 Page-Based App template，請參考以下連結取得 Page-Based App template。</p><div name="47f8" id="47f8" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-page-based-app-template-69f20a9937f7" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-page-based-app-template-69f20a9937f7" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-page-based-app-template-69f20a9937f7"><strong class="markup--strong markup--mixtapeEmbed-strong">Xcode 的 Page-Based App template</strong><br><em class="markup--em markup--mixtapeEmbed-em">UIKit 的 UIPageViewController 可以方便地做出 App 的分頁效果，因此舊版的 Xcode 在建立專案時提供了 Page-Based App template 給我們參考。不過在新版的 Xcode…</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-page-based-app-template-69f20a9937f7" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8691fa0ffd2d02981f6db29d22f6d9d5" data-thumbnail-img-id="1*_eHjfUQmNBXYZCsxJvAKKg.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*_eHjfUQmNBXYZCsxJvAKKg.png);"></a></div><h3 name="9d6f" id="9d6f" class="graf graf--h3 graf-after--mixtapeEmbed">將捲動效果改成 scroll</h3><p name="ee06" id="ee06" class="graf graf--p graf-after--h3">修改 RootViewController.swift，將 UIPageViewController 的 transitionStyle 設為 scroll。</p><pre name="fd22" id="fd22" class="graf graf--pre graf-after--p">override func viewDidLoad() {<br>        super.viewDidLoad()<br>       <br>        self.pageViewController = UIPageViewController(transitionStyle: .<strong class="markup--strong markup--pre-strong">scroll</strong>, navigationOrientation: .horizontal, options: nil)</pre><h3 name="1dc4" id="1dc4" class="graf graf--h3 graf-after--pre">沒有無限循環的分頁效果</h3><p name="0e6f" id="0e6f" class="graf graf--p graf-after--h3">Page-Based App template 將實現 1 ~ 12 月的分頁瀏覽 App，不過它並不會無限循環。</p><p name="78fb" id="78fb" class="graf graf--p graf-after--p">從 1 月往右滑，無法滑到 12 月。</p><figure name="f240" id="f240" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*yRjwl_tv5KnElUyxq0apdA.png" data-width="866" data-height="872" src="https://cdn-images-1.medium.com/max/800/1*yRjwl_tv5KnElUyxq0apdA.png"></figure><p name="a245" id="a245" class="graf graf--p graf-after--figure">從 12 月往左滑，無法滑到 1 月。</p><figure name="6490" id="6490" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xzrzSn8-yU05-lJD_OO3pA.png" data-width="838" data-height="860" src="https://cdn-images-1.medium.com/max/800/1*xzrzSn8-yU05-lJD_OO3pA.png"></figure><h3 name="2163" id="2163" class="graf graf--h3 graf-after--figure">修改 pageViewController(_:viewControllerBefore:) &amp; pageViewController(_:viewControllerAfter:)</h3><p name="22c8" id="22c8" class="graf graf--p graf-after--h3">修改 ModelController.swift 裡控制頁面切換的 pageViewController(_:viewControllerBefore:) &amp; pageViewController(_:viewControllerAfter:)。</p><pre name="b683" id="b683" class="graf graf--pre graf-after--p">func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -&gt; UIViewController? {<br>        var index = indexOfViewController(viewController as! DataViewController)<br>        if index == NSNotFound {<br>            return nil<br>        }<br>        index = (index - 1 + pageData.count) % pageData.count<br>        return viewControllerAtIndex(index, storyboard: viewController.storyboard!)<br>}</pre><pre name="55bc" id="55bc" class="graf graf--pre graf-after--pre">func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -&gt; UIViewController? {<br>        var index = indexOfViewController(viewController as! DataViewController)<br>        if index == NSNotFound {<br>            return nil<br>        }<br>        index = (index + 1) % pageData.count<br>        return viewControllerAtIndex(index, storyboard: viewController.storyboard!)<br>}</pre><p name="19f8" id="19f8" class="graf graf--p graf-after--pre">說明</p><ul class="postList"><li name="fda2" id="fda2" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">瀏覽上一頁</strong></li></ul><p name="14d8" id="14d8" class="graf graf--p graf-after--li">當使用者往右滑瀏覽上一頁時，將觸發 pageViewController(_:viewControllerBefore:)，我們透過 <code class="markup--code markup--p-code">index = (index — 1 + pageData.count) % pageData.count</code> 計算上一頁的 index，由於加上 pageData.count，因此可以確保結果不會變成負數。</p><ul class="postList"><li name="f775" id="f775" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">瀏覽下一頁</strong></li></ul><p name="2dd8" id="2dd8" class="graf graf--p graf-after--li">當使用者往左滑瀏覽下一頁時，將觸發 pageViewController(_:viewControllerAfter:)，我們透過 <code class="markup--code markup--p-code">index = (index + 1) % pageData.count</code> 計算下一頁的 index。</p><h3 name="a1c5" id="a1c5" class="graf graf--h3 graf-after--p">執行 App</h3><p name="cd60" id="cd60" class="graf graf--p graf-after--h3">從 12 月往左滑，滑到下一頁的 1 月。</p><figure name="2f3f" id="2f3f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ErHbazlyUubJlO1dliiuBA.png" data-width="1210" data-height="862" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*ErHbazlyUubJlO1dliiuBA.png"></figure><p name="ffe7" id="ffe7" class="graf graf--p graf-after--figure">從 1 月往右滑，滑到上一頁的 12 月。</p><figure name="7cb3" id="7cb3" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*1bAYtYRSe0cOv9u6h9HiOQ.png" data-width="1212" data-height="868" src="https://cdn-images-1.medium.com/max/800/1*1bAYtYRSe0cOv9u6h9HiOQ.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/fec2826915de"><time class="dt-published" datetime="2022-01-03T06:55:51.119Z">January 3, 2022</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-uipageviewcontroller-%E5%AF%A6%E7%8F%BE%E7%84%A1%E9%99%90%E5%BE%AA%E7%92%B0%E7%9A%84%E5%88%86%E9%A0%81%E6%95%88%E6%9E%9C-infinite-scroll-fec2826915de" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>結合 optional chaining &amp; compound assignment</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">結合 optional chaining &amp; compound assignment</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們使用 optional chaining 時，讀取的內容會變成 optional，不過若是內容的型別當初宣告時不是 optional，我們將可方便地使用 compound assignment 做運算。
+</section>
+<section data-field="body" class="e-content">
+<section name="206c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8748" id="8748" class="graf graf--h3 graf--leading graf--title">結合 optional chaining &amp; compound assignment</h3><p name="02c8" id="02c8" class="graf graf--p graf-after--h3">當我們使用 optional chaining 時，讀取的內容會變成 optional，不過若是內容的型別當初宣告時不是 optional，我們將可方便地使用 compound assignment 做運算。</p><p name="a041" id="a041" class="graf graf--p graf-after--p">接下來就讓我們以增加 Baby 的年紀為例說明吧。</p><figure name="c51e" id="c51e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*gXpSnUb7VuvcN9AwN2uKrw.png" data-width="1970" data-height="926" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*gXpSnUb7VuvcN9AwN2uKrw.png"></figure><p name="631d" id="631d" class="graf graf--p graf-after--figure">cuteBaby?.age 是 optional，因此無法加 1。此問題可透過 optional binding 修正。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="ee4a" id="ee4a" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Baby</span> {<br />    <span class="hljs-keyword">var</span> age <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />}<br /><br /><span class="hljs-keyword">var</span> cuteBaby: <span class="hljs-type">Baby</span>? <span class="hljs-operator">=</span> <span class="hljs-type">Baby</span>()<br /><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> age <span class="hljs-operator">=</span> cuteBaby<span class="hljs-operator">?</span>.age {<br />    cuteBaby<span class="hljs-operator">?</span>.age <span class="hljs-operator">=</span> age <span class="hljs-operator">+</span> <span class="hljs-number">1</span><br />}</span></pre><p name="6054" id="6054" class="graf graf--p graf-after--pre">不過殺雞焉用牛刀，使用 compound assignment 可以更簡單呢。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="322c" id="322c" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Baby</span> {<br />    <span class="hljs-keyword">var</span> age <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />}<br /><br /><span class="hljs-keyword">var</span> cuteBaby: <span class="hljs-type">Baby</span>? <span class="hljs-operator">=</span> <span class="hljs-type">Baby</span>()<br />cuteBaby<span class="hljs-operator">?</span>.age <span class="hljs-operator">+=</span> <span class="hljs-number">1</span></span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/7e3e0862888c"><time class="dt-published" datetime="2020-11-26T10:30:09.419Z">November 26, 2020</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E7%B5%90%E5%90%88-optional-chaining-compound-assignment-7e3e0862888c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 PyInstaller 將 Python 程式變成 Mac App</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 PyInstaller 將 Python 程式變成 Mac App</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+在 Mac 上執行 Python 程式有許多方法，最常見的莫過於從 terminal 輸入指令，比方以下指令將執行 main.py。
+</section>
+<section data-field="body" class="e-content">
+<section name="bc43" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="2867" id="2867" class="graf graf--h3 graf--leading graf--title">使用 PyInstaller 將 Python 程式變成 Mac App</h3><p name="8112" id="8112" class="graf graf--p graf-after--h3">在 Mac 上執行 Python 程式有許多方法，最常見的莫過於從 terminal 輸入指令，比方以下指令將執行 main.py。</p><pre data-code-block-mode="0" spellcheck="false" name="6f75" id="6f75" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">python3 main.py</span></pre><p name="d4a1" id="d4a1" class="graf graf--p graf-after--pre">不過最近有同學問彼得潘，能將 python 程式變成 Mac App，方便使用者雙擊 App Icon 執行嗎 ?</p><p name="a93f" id="a93f" class="graf graf--p graf-after--p">當然可以呀，而且方法不只一種。以下我們介紹利用 PyInstaller 將 Python 程式變成 Mac App。</p><div name="d9c5" id="d9c5" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://pyinstaller.org/en/stable/" data-href="https://pyinstaller.org/en/stable/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://pyinstaller.org/en/stable/"><strong class="markup--strong markup--mixtapeEmbed-strong">PyInstaller Manual - PyInstaller 6.10.0 documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">PyInstaller is tested against Windows, MacOS X, and Linux. However, it is not a cross-compiler; to make a Windows app…</em>pyinstaller.org</a><a href="https://pyinstaller.org/en/stable/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="27c8681a395a67f26aa6e816db193ab2" data-thumbnail-img-id="0*qeBVpOZQkvVVxhWu" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*qeBVpOZQkvVVxhWu);"></a></div><p name="1c12" id="1c12" class="graf graf--p graf-after--mixtapeEmbed">我們用以下的 main.py 為例，它執行時會在 Mac 上建立伺服器，然後打開 Safari 連到 <a href="http://localhost:8080/" data-href="http://localhost:8080/" class="markup--anchor markup--p-anchor" target="_blank">http://localhost:8080/</a>，顯示小王子的名言<code class="markup--code markup--p-code">只有用心看，才能看清楚。重要的東西是眼睛看不見的</code>。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="python" name="273d" id="273d" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> http.server<br /><span class="hljs-keyword">import</span> socketserver<br /><span class="hljs-keyword">import</span> webbrowser<br /><br /><span class="hljs-comment"># 設定處理程序，會回應 &quot;Hello World&quot;</span><br /><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyHandler</span>(http.server.SimpleHTTPRequestHandler):<br />    <span class="hljs-keyword">def</span> <span class="hljs-title function_">do_GET</span>(<span class="hljs-params">self</span>):<br />        <span class="hljs-comment"># 回應 200 狀態碼（成功）</span><br />        self.send_response(<span class="hljs-number">200</span>)<br />        <span class="hljs-comment"># 設定內容類型為 text/html 並加上 utf-8 編碼</span><br />        self.send_header(<span class="hljs-string">&quot;Content-type&quot;</span>, <span class="hljs-string">&quot;text/html; charset=utf-8&quot;</span>)<br />        self.end_headers()<br />        <span class="hljs-comment"># 回應內容 &quot;只有用心看，才能看清楚。重要的東西是眼睛看不見的。&quot;</span><br />        message = <span class="hljs-string">&quot;只有用心看，才能看清楚。重要的東西是眼睛看不見的。&quot;</span><br />        self.wfile.write(message.encode(<span class="hljs-string">&quot;utf-8&quot;</span>))<br /><br /><span class="hljs-comment"># 埠號，可以使用任何非佔用的本地埠</span><br />PORT = <span class="hljs-number">8080</span><br /><br /><span class="hljs-comment"># 創建伺服器</span><br /><span class="hljs-keyword">with</span> socketserver.TCPServer((<span class="hljs-string">&quot;&quot;</span>, PORT), MyHandler) <span class="hljs-keyword">as</span> httpd:<br />    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Serving at port <span class="hljs-subst">{PORT}</span>&quot;</span>)<br /><br />    <span class="hljs-comment"># 使用 Safari 開啟本地連結</span><br />    webbrowser.get(<span class="hljs-string">&quot;safari&quot;</span>).<span class="hljs-built_in">open</span>(<span class="hljs-string">f&quot;http://localhost:<span class="hljs-subst">{PORT}</span>&quot;</span>)<br /><br />    <span class="hljs-comment"># 啟動伺服器並等待請求</span><br />    httpd.serve_forever()</span></pre><figure name="b164" id="b164" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*V5FRUPCIkdh-6V5IIc4czA.png" data-width="2252" data-height="726" src="https://cdn-images-1.medium.com/max/800/1*V5FRUPCIkdh-6V5IIc4czA.png"></figure><p name="cdbc" id="cdbc" class="graf graf--p graf-after--figure">為了用 PyInstaller 將 main.py 變成 Mac App，我們必須先用 pip 安裝 pyinstaller。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="typescript" name="3578" id="3578" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">pip3 install pyinstaller</span></pre><p name="4132" id="4132" class="graf graf--p graf-after--pre">裝好 pyinstaller 後，輸入以下指令生成 Mac App，參數 — onefile 表示要生成單一執行檔，參數 — windowed 表示 App 啟動時不要顯示 terminal 視窗。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="bash" name="7a0b" id="7a0b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">pyinstaller --onefile --windowed main.py</span></pre><p name="ee2a" id="ee2a" class="graf graf--p graf-after--pre">生成的 App 將在 dist 資料夾下，之後將下圖的 main application 傳給朋友，對方即可在 Mac 上執行 App。</p><figure name="a27c" id="a27c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ueFdluL8JX43Z-y01valSQ.png" data-width="1418" data-height="746" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*ueFdluL8JX43Z-y01valSQ.png"></figure><p name="ade9" id="ade9" class="graf graf--p graf-after--figure">由於這是未上架的 App，macOS 預設會阻止 App 啟動，因此啟動時可能會出現以下錯誤。</p><figure name="7dff" id="7dff" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nW-N-jkso0DAZnNLXoPAgg@2x.png" data-width="520" data-height="464" src="https://cdn-images-1.medium.com/max/800/1*nW-N-jkso0DAZnNLXoPAgg@2x.png"></figure><p name="e668" id="e668" class="graf graf--p graf-after--figure">若看到上圖的錯誤，請到設定 App 的 Privacy &amp; Security 分頁，點擊 app 旁的 Open Anyway。調整過權限後，之後即可正常啟動包裝成 Mac App 的 python 程式。</p><figure name="4f92" id="4f92" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*B8NQRn35lCBp2faB1rRW_Q.png" data-width="1430" data-height="1684" src="https://cdn-images-1.medium.com/max/800/1*B8NQRn35lCBp2faB1rRW_Q.png"></figure><figure name="1968" id="1968" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*c3Y4vx_ZpmFFYdYd1Sw7yw.png" data-width="520" data-height="656" src="https://cdn-images-1.medium.com/max/800/1*c3Y4vx_ZpmFFYdYd1Sw7yw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/12f4a05b6d3a"><time class="dt-published" datetime="2024-10-03T13:27:57.675Z">October 3, 2024</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-pyinstaller-%E5%B0%87-python-%E7%A8%8B%E5%BC%8F%E8%AE%8A%E6%88%90-mac-app-12f4a05b6d3a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

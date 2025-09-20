@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 SwiftUI 的 NavigationView 實現 iPad 分割畫面</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 SwiftUI 的 NavigationView 實現 iPad 分割畫面</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當我們使用 SwiftUI 的 NavigationView 管理頁面時，它在 iPad 上會變成分割畫面，NavigationView 管理的第一個頁面則成為隱藏的側邊選單。
+</section>
+<section data-field="body" class="e-content">
+<section name="479b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="171d" id="171d" class="graf graf--h3 graf--leading graf--title">利用 SwiftUI 的 NavigationView 實現 iPad 分割畫面</h3><p name="a80b" id="a80b" class="graf graf--p graf-after--h3">當我們使用 iPad App 時，時常看到如下圖的分割畫面設計。透過 SwiftUI ，我們可以輕易實現這樣的功能。</p></div><div class="section-inner sectionLayout--outsetRow" data-paragraph-count="2"><figure name="7341" id="7341" class="graf graf--figure graf--layoutOutsetRow is-partialWidth graf-after--p" style="width: 37.119%;"><img class="graf-image" data-image-id="1*TuxZwDJ71cHYr_LSU2ca4Q.jpeg" data-width="1254" data-height="1632" src="https://cdn-images-1.medium.com/max/600/1*TuxZwDJ71cHYr_LSU2ca4Q.jpeg"></figure><figure name="d8c0" id="d8c0" class="graf graf--figure graf--layoutOutsetRowContinue is-partialWidth graf-after--figure" style="width: 62.881%;"><img class="graf-image" data-image-id="1*4lNZ4fUKeo3X1Z4SbxSQ3A.jpeg" data-width="1632" data-height="1254" src="https://cdn-images-1.medium.com/max/800/1*4lNZ4fUKeo3X1Z4SbxSQ3A.jpeg"></figure></div><div class="section-inner sectionLayout--insetColumn"><p name="b149" id="b149" class="graf graf--p graf-after--figure">當我們使用 SwiftUI 的 NavigationView 管理頁面時，它在 iPad 上將自動變身分割畫面(split)，NavigationView 管理的第一個頁面則成為隱藏的側邊選單。</p><h3 name="f912" id="f912" class="graf graf--h3 graf-after--p">預設隱藏的側邊選單</h3><p name="3be5" id="3be5" class="graf graf--p graf-after--h3">以下顯示情歌歌單的 SongList 預設會成為隱藏的側邊選單，造成 iPad 一開始顯示一片空白的畫面。</p><pre name="dd77" id="dd77" class="graf graf--pre graf-after--p">struct SongList: View {<br>    let songs = [&quot;怎樣&quot;, &quot;街角的祝福&quot;, &quot;野薔薇&quot;, &quot;愛瘋了&quot;, &quot;光著我的腳丫子&quot;, &quot;多麼想念你&quot;, &quot;一個人的行李&quot;, &quot;習慣這樣&quot;, &quot;不想&quot;]<br>    <br>    var body: some View {<br>        NavigationView {<br>            List(songs, id: \.self) { song  in<br>                <br>                NavigationLink {<br>                    Image(song)<br>                        .resizable()<br>                        .scaledToFit()<br>                } label: {<br>                    Text(song)<br>                }<br>            }<br>            .navigationBarTitle(&quot;戴佩妮&quot;)<br>        }<br>    }<br>}</pre><figure name="6880" id="6880" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*vExlUTlnYY9kaBH0B85qhw.png" data-width="1640" data-height="2360" src="https://cdn-images-1.medium.com/max/800/1*vExlUTlnYY9kaBH0B85qhw.png"></figure><p name="902e" id="902e" class="graf graf--p graf-after--figure">別緊張，只要在畫面上向右拖曳，即可叫出側邊選單，在左邊顯示 SongList。</p><figure name="6924" id="6924" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6JpzAp5tbSlZ2RlYf1MXXQ.png" data-width="1640" data-height="2360" src="https://cdn-images-1.medium.com/max/800/1*6JpzAp5tbSlZ2RlYf1MXXQ.png"></figure><p name="6b0e" id="6b0e" class="graf graf--p graf-after--figure">點選 SongList 裡的某一首歌時，NavigationLink 參數 destination 設定的頁面將立即出現。如下圖所示，點選怎樣後，怎樣的專輯圖片出現了。</p><figure name="566d" id="566d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1tTjHBPSz41rvsb7I4W3uw.png" data-width="1640" data-height="2360" src="https://cdn-images-1.medium.com/max/800/1*1tTjHBPSz41rvsb7I4W3uw.png"></figure><p name="9b36" id="9b36" class="graf graf--p graf-after--figure">若想呈現完整的專輯圖片，可點選畫面空白處將側邊選單隱藏。</p><figure name="46c1" id="46c1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hecNbbp_LLgfNKzOW_rnAg.png" data-width="1640" data-height="2360" src="https://cdn-images-1.medium.com/max/800/1*hecNbbp_LLgfNKzOW_rnAg.png"></figure><h3 name="f1f0" id="f1f0" class="graf graf--h3 graf-after--figure">橫向 iPad 時，不再隱藏的側邊選單</h3><p name="d51e" id="d51e" class="graf graf--p graf-after--h3">iPad 的分割畫面在螢幕直向(portrait) &amp; 橫向(landscape)時有不同的設計，接下來就讓我們點選 Simulator 選單的 Rotate，將它轉成橫向瞧瞧吧。</p><figure name="4ef0" id="4ef0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*IEwtlwVpfXvNJENvh-3OHg.png" data-width="1086" data-height="132" src="https://cdn-images-1.medium.com/max/800/1*IEwtlwVpfXvNJENvh-3OHg.png"></figure><p name="7e6a" id="7e6a" class="graf graf--p graf-after--figure">當 iPad 是橫向時，側邊選單將不再隱藏，永遠顯示在左邊。此時畫面的寬度較長，因此 App 覺得它有足夠空間同時顯示兩個畫面。</p><figure name="c2a0" id="c2a0" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3D_70bH3w6VY3hi6OwtDcw.png" data-width="2360" data-height="1640" src="https://cdn-images-1.medium.com/max/800/1*3D_70bH3w6VY3hi6OwtDcw.png"></figure><p name="1bf8" id="1bf8" class="graf graf--p graf-after--figure graf--trailing">此時當我們點選某一首歌時，NavigationLink 參數 destination 設定的頁面將顯示在右邊。</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/eb0ed1eaf404"><time class="dt-published" datetime="2019-10-13T04:07:04.570Z">October 13, 2019</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-swiftui-%E7%9A%84-navigationview-%E5%AF%A6%E7%8F%BE-ipad-%E5%88%86%E5%89%B2%E7%95%AB%E9%9D%A2-eb0ed1eaf404" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

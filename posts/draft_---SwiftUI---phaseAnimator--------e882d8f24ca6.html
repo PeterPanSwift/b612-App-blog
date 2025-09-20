@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 SwiftUI 的 phaseAnimator 設計多段動畫</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 SwiftUI 的 phaseAnimator 設計多段動畫</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Apple 範例
+</section>
+<section data-field="body" class="e-content">
+<section name="b380" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6169" id="6169" class="graf graf--h3 graf--leading graf--title">使用 SwiftUI 的 phaseAnimator 設計多段動畫</h3><p name="12f5" id="12f5" class="graf graf--p graf--empty graf-after--h3"><br></p><p name="5258" id="5258" class="graf graf--p graf--empty graf-after--p"><br></p><div name="084b" id="084b" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/view/phaseanimator%28_:content:animation:%29" data-href="https://developer.apple.com/documentation/swiftui/view/phaseanimator(_:content:animation:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/phaseanimator(_:content:animation:)"><strong class="markup--strong markup--mixtapeEmbed-strong">phaseAnimator(_:content:animation:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Animates effects that you apply to a view over a sequence of phases that change continuously.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/phaseanimator%28_:content:animation:%29" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="3057110cb5c6a3b04aa2ceb99deb8f79" data-thumbnail-img-id="0*_FXJHMZTvwfzVptK" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*_FXJHMZTvwfzVptK);"></a></div><p name="3231" id="3231" class="graf graf--p graf--empty graf-after--mixtapeEmbed"><br></p><div name="6620" id="6620" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/view/phaseanimator%28_:trigger:content:animation:%29" data-href="https://developer.apple.com/documentation/swiftui/view/phaseanimator(_:trigger:content:animation:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/phaseanimator(_:trigger:content:animation:)"><strong class="markup--strong markup--mixtapeEmbed-strong">phaseAnimator(_:trigger:content:animation:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Animates effects that you apply to a view over a sequence of phases that change based on a trigger.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/phaseanimator%28_:trigger:content:animation:%29" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="40ecddff457153e27359e9ab7cdce61f" data-thumbnail-img-id="0*ZgF9M1509iUA92SC" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*ZgF9M1509iUA92SC);"></a></div><p name="b51e" id="b51e" class="graf graf--p graf--empty graf-after--mixtapeEmbed"><br></p><p name="792d" id="792d" class="graf graf--p graf-after--p">Apple 範例</p><div name="caf5" id="caf5" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/controlling-the-timing-and-movements-of-your-animations" data-href="https://developer.apple.com/documentation/swiftui/controlling-the-timing-and-movements-of-your-animations" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/controlling-the-timing-and-movements-of-your-animations"><strong class="markup--strong markup--mixtapeEmbed-strong">Controlling the timing and movements of your animations | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Build sophisticated animations that you control using phase and keyframe animators.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/controlling-the-timing-and-movements-of-your-animations" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="4e459c82d562447d7ecdfaac202783fe" data-thumbnail-img-id="0*byT2be8uZXDrXltJ" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*byT2be8uZXDrXltJ);"></a></div><p name="1864" id="1864" class="graf graf--p graf--empty graf-after--mixtapeEmbed graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/e882d8f24ca6">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

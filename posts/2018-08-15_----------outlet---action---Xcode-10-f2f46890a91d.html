@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>從拉線位置聰明判斷 outlet / action 的 Xcode 10</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">從拉線位置聰明判斷 outlet / action 的 Xcode 10</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，我們每天照三餐拉著 outlet 和 action。outlet 產生存取畫面上元件的變數，action 產生事件發生時觸發的 function。
+</section>
+<section data-field="body" class="e-content">
+<section name="3731" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="02b2" id="02b2" class="graf graf--h3 graf--leading graf--title">從拉線位置聰明判斷 outlet / action 的 Xcode 10</h3><p name="375d" id="375d" class="graf graf--p graf-after--h3">開發 iOS App 時，我們每天照三餐拉著 outlet 和 action。outlet 產生存取畫面上元件的變數，action 產生事件發生時觸發的 function。</p><p name="005a" id="005a" class="graf graf--p graf-after--p">在舊版的 Xcode 拉 action 比較麻煩，因為拉線預設會產生 outlet，要另外手動切換才會變成 action。</p><p name="fe3c" id="fe3c" class="graf graf--p graf-after--p">Xcode 10 看到了我們的困擾，現在它變得更聰明貼心了。從我們拉線到程式碼的位置就能判斷我們想要 outlet 還是 action。</p><p name="541a" id="541a" class="graf graf--p graf-after--p">定義 class 時，我們習慣在前面宣告 property，後面定義 function，就像以下類別 Baby 的例子。</p><pre name="4f3e" id="4f3e" class="graf graf--pre graf-after--p">class Baby {</pre><pre name="be28" id="be28" class="graf graf--pre graf-after--pre">   var age = 1</pre><pre name="ed63" id="ed63" class="graf graf--pre graf-after--pre">   var name = &quot;peter&quot;</pre><pre name="09e3" id="09e3" class="graf graf--pre graf-after--pre">  <br>   func sleep() {</pre><pre name="25a5" id="25a5" class="graf graf--pre graf-after--pre">      print(&quot;😴😴😴&quot;)</pre><pre name="b61e" id="b61e" class="graf graf--pre graf-after--pre">   }</pre><pre name="a3b8" id="a3b8" class="graf graf--pre graf-after--pre">   func eat() {</pre><pre name="3352" id="3352" class="graf graf--pre graf-after--pre">      print(&quot;🍼🍼🍼&quot;)</pre><pre name="9d66" id="9d66" class="graf graf--pre graf-after--pre">   }</pre><pre name="9407" id="9407" class="graf graf--pre graf-after--pre">}</pre><p name="2a6e" id="2a6e" class="graf graf--p graf-after--pre">因此當我們拉線到 class 的第一個 function 之前時，Xcode 將猜測我們想要拉 outlet。若是拉線到第一個 function 之後，則認為我們想要拉 action。</p><p name="1730" id="1730" class="graf graf--p graf-after--p">任何事都要親眼看見才能相信，不然誰知道 Xcode 是不是說說而已。接下來我們就以 Yaya 同學的擇偶條件 App 實驗證明吧。</p><figure name="c2b2" id="c2b2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*hu4uxmzX9qCXvmOy1_iPgA.jpeg" data-width="1798" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*hu4uxmzX9qCXvmOy1_iPgA.jpeg"></figure><div name="52e6" id="52e6" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E9%B4%A8%E9%B4%A8-the-one-app-8405efa06f04" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E9%B4%A8%E9%B4%A8-the-one-app-8405efa06f04" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E9%B4%A8%E9%B4%A8-the-one-app-8405efa06f04"><strong class="markup--strong markup--mixtapeEmbed-strong">鴨鴨 The One App</strong><br><em class="markup--em markup--mixtapeEmbed-em">終於要把APP介面跟swift code結合在一起惹</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E9%B4%A8%E9%B4%A8-the-one-app-8405efa06f04" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f695c527c11cbd324743c6b30bf9ad91" data-thumbnail-img-id="1*efurTzOpgDbk4aKwbR1_NA.gif" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*efurTzOpgDbk4aKwbR1_NA.gif);"></a></div><blockquote name="92df" id="92df" class="graf graf--blockquote graf-after--mixtapeEmbed"><strong class="markup--strong markup--blockquote-strong">1 拉線到第一個 function viewDidLoad 之前將產生 outlet。</strong></blockquote><figure name="b551" id="b551" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*xq9nNOSE8LTtvKUWCVeJzg.jpeg" data-width="1376" data-height="654" src="https://cdn-images-1.medium.com/max/800/1*xq9nNOSE8LTtvKUWCVeJzg.jpeg"></figure><figure name="8c25" id="8c25" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Lc273IccQ5yucafLlu5GSQ.jpeg" data-width="552" data-height="330" src="https://cdn-images-1.medium.com/max/800/1*Lc273IccQ5yucafLlu5GSQ.jpeg"></figure><pre name="996d" id="996d" class="graf graf--pre graf-after--figure">@IBOutlet weak var starTextField: UITextField!</pre><blockquote name="b42c" id="b42c" class="graf graf--blockquote graf-after--pre"><strong class="markup--strong markup--blockquote-strong">2 拉線到第一個 function viewDidLoad 之後將產生 action。</strong></blockquote><figure name="f5cb" id="f5cb" class="graf graf--figure graf-after--blockquote"><img class="graf-image" data-image-id="1*reqfHelVMAdimVhU9ebtLA.jpeg" data-width="1426" data-height="760" src="https://cdn-images-1.medium.com/max/800/1*reqfHelVMAdimVhU9ebtLA.jpeg"></figure><figure name="bc5b" id="bc5b" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*mPrLGv7Hxy6oqiNYiLAjww.jpeg" data-width="554" data-height="356" src="https://cdn-images-1.medium.com/max/800/1*mPrLGv7Hxy6oqiNYiLAjww.jpeg"></figure><pre name="57a6" id="57a6" class="graf graf--pre graf-after--figure">@IBAction func buttonPressed(_ sender: Any) {</pre><pre name="b149" id="b149" class="graf graf--pre graf-after--pre">}</pre><p name="9275" id="9275" class="graf graf--p graf-after--pre">Xcode 10 果然真心不騙，就像它在 release note 裡說的:</p><pre name="db21" id="db21" class="graf graf--pre graf-after--p graf--trailing">Control-dragging from Interface Builder to a Swift source file defaults to creating @IBOutlet when the insertion point is above the first method in a class, and @IBAction otherwise.</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/f2f46890a91d"><time class="dt-published" datetime="2018-08-15T10:22:05.576Z">August 15, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E8%81%B0%E6%98%8E%E4%BE%9D%E6%8B%89%E7%B7%9A%E4%BD%8D%E7%BD%AE%E5%88%87%E6%8F%9B-outlet-action-%E7%9A%84-xcode-10-f2f46890a91d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

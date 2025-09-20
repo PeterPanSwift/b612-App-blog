@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>UISearchBar 的樣式調整</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">UISearchBar 的樣式調整</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+search bar 的預設樣式
+</section>
+<section data-field="body" class="e-content">
+<section name="3b4a" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6c5d" id="6c5d" class="graf graf--h3 graf--leading graf--title">UISearchBar 的樣式調整</h3><h3 name="13d5" id="13d5" class="graf graf--h3 graf-after--h3">search bar 的預設樣式</h3><figure name="b4db" id="b4db" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*1EwDenEP-K9YkjLzB0dYNA.png" data-width="750" data-height="372" src="https://cdn-images-1.medium.com/max/800/1*1EwDenEP-K9YkjLzB0dYNA.png"></figure><h3 name="e690" id="e690" class="graf graf--h3 graf-after--figure">消除 search bar 的背景顏色</h3><p name="611c" id="611c" class="graf graf--p graf-after--h3">讓下圖的白色區塊變透明。</p><figure name="b260" id="b260" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*J71KfwpewfE9FtDOliAW_A.png" data-width="768" data-height="156" src="https://cdn-images-1.medium.com/max/800/1*J71KfwpewfE9FtDOliAW_A.png"></figure><h4 name="675d" id="675d" class="graf graf--h4 graf-after--figure">方法 1: Search Style 設為 Minimal</h4><ul class="postList"><li name="6ab6" id="6ab6" class="graf graf--li graf-after--h4"><strong class="markup--strong markup--li-strong">從 Interface Builder</strong></li></ul><figure name="dd69" id="dd69" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*wZaevVLr4K4MnFSwARTRuw.png" data-width="782" data-height="382" src="https://cdn-images-1.medium.com/max/800/1*wZaevVLr4K4MnFSwARTRuw.png"></figure><ul class="postList"><li name="c851" id="c851" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">從程式</strong></li></ul><pre name="5521" id="5521" class="graf graf--pre graf-after--li">class ViewController: UIViewController {<br>    <a href="http://twitter.com/IBOutlet" data-href="http://twitter.com/IBOutlet" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBOutlet" rel="noopener" target="_blank">@IBOutlet</a> weak var searchBar: UISearchBar! {<br>        didSet {<br>            searchBar.searchBarStyle = .minimal<br>        }<br>    }</pre><figure name="0ee7" id="0ee7" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*1UDxFfJeLhyJsWsZ0g17Wg.png" data-width="1038" data-height="430" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*1UDxFfJeLhyJsWsZ0g17Wg.png"></figure><h4 name="e5e9" id="e5e9" class="graf graf--h4 graf-after--figure">方法 2: backgroundImage 設為看不到的圖片</h4><pre name="cbdb" id="cbdb" class="graf graf--pre graf-after--h4">class ViewController: UIViewController {<br>    <a href="http://twitter.com/IBOutlet" data-href="http://twitter.com/IBOutlet" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBOutlet" rel="noopener" target="_blank">@IBOutlet</a> weak var searchBar: UISearchBar! {<br>        didSet {<br>            searchBar.backgroundImage = UIImage()<br>        }<br>    }</pre><h3 name="e87c" id="e87c" class="graf graf--h3 graf-after--pre">調整 search 框框的顏色</h3><p name="0853" id="0853" class="graf graf--p graf-after--h3">修改下圖灰色區塊的顏色。</p><figure name="ce27" id="ce27" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*J71KfwpewfE9FtDOliAW_A.png" data-width="768" data-height="156" src="https://cdn-images-1.medium.com/max/800/1*J71KfwpewfE9FtDOliAW_A.png"></figure><p name="11e4" id="11e4" class="graf graf--p graf-after--figure">修改 search bar 的 searchTextField.backgroundColor。</p><ul class="postList"><li name="bf92" id="bf92" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">從 User Defined Runtime Attributes。</strong></li></ul><figure name="b333" id="b333" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*-H8pUi0DQi89Mcfv_tyGCA.png" data-width="784" data-height="644" src="https://cdn-images-1.medium.com/max/800/1*-H8pUi0DQi89Mcfv_tyGCA.png"></figure><ul class="postList"><li name="45bd" id="45bd" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">從程式</strong></li></ul><pre name="3956" id="3956" class="graf graf--pre graf-after--li">class ViewController: UIViewController {<br>    <a href="http://twitter.com/IBOutlet" data-href="http://twitter.com/IBOutlet" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBOutlet" rel="noopener" target="_blank">@IBOutlet</a> weak var searchBar: UISearchBar! {<br>        didSet {<br>            searchBar.searchTextField.backgroundColor = .systemGreen<br>        }<br>    }</pre><figure name="f4f3" id="f4f3" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*43Y6mDhHVAPuAPqELGy6Yg.png" data-width="764" data-height="182" src="https://cdn-images-1.medium.com/max/800/1*43Y6mDhHVAPuAPqELGy6Yg.png"></figure><h3 name="342e" id="342e" class="graf graf--h3 graf-after--figure">調整 search bar 的背景顏色</h3><p name="5f9b" id="5f9b" class="graf graf--p graf-after--h3">透過 backgroundColor 設定背景顏色。記得要將 searchBarStyle 設為 minimal，背景顏色才能顯示。</p><ul class="postList"><li name="5586" id="5586" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">從 Interface Builder</strong></li></ul><figure name="9991" id="9991" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*_Nav23fRwB9eaaFsqBXkyw.png" data-width="786" data-height="386" src="https://cdn-images-1.medium.com/max/800/1*_Nav23fRwB9eaaFsqBXkyw.png"></figure><figure name="ec78" id="ec78" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*fKB038wwxNa4WkDrXhW51w.png" data-width="784" data-height="1200" src="https://cdn-images-1.medium.com/max/800/1*fKB038wwxNa4WkDrXhW51w.png"></figure><figure name="1d8b" id="1d8b" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*ew1uRa-212Qge6QdmmjyyA.png" data-width="778" data-height="650" src="https://cdn-images-1.medium.com/max/800/1*ew1uRa-212Qge6QdmmjyyA.png"></figure><ul class="postList"><li name="47d1" id="47d1" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">從程式</strong></li></ul><pre name="27be" id="27be" class="graf graf--pre graf-after--li">class ViewController: UIViewController {<br>    <a href="http://twitter.com/IBOutlet" data-href="http://twitter.com/IBOutlet" class="markup--anchor markup--pre-anchor" title="Twitter profile for @IBOutlet" rel="noopener" target="_blank">@IBOutlet</a> weak var searchBar: UISearchBar! {<br>        didSet {<br>            searchBar.searchBarStyle = .minimal<br><strong class="markup--strong markup--pre-strong">            searchBar.backgroundColor = .systemGreen<br></strong>            searchBar.searchTextField.backgroundColor = .white<br>        }<br>    }</pre><figure name="6f21" id="6f21" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*3nw_MIv2hr9FXUSI6tnq8A.png" data-width="762" data-height="164" src="https://cdn-images-1.medium.com/max/800/1*3nw_MIv2hr9FXUSI6tnq8A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/763767570b11"><time class="dt-published" datetime="2021-07-16T13:37:20.686Z">July 16, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/uisearchbar-%E7%9A%84%E6%A8%A3%E5%BC%8F%E8%AA%BF%E6%95%B4-763767570b11" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

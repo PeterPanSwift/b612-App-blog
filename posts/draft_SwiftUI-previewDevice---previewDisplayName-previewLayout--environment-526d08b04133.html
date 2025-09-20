@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI previewDevice &amp; previewDisplayName，previewLayout, environment</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI previewDevice &amp; previewDisplayName，previewLayout, environment</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+dd
+</section>
+<section data-field="body" class="e-content">
+<section name="e0be" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c015" id="c015" class="graf graf--h3 graf--leading graf--title">SwiftUI previewDevice &amp; previewDisplayName，previewLayout, environment</h3><p name="84c6" id="84c6" class="graf graf--p graf--empty graf-after--h3"><br></p><pre name="1923" id="1923" class="graf graf--pre graf-after--p">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        <br>        Group {<br>            ContentView()<br>                .previewDevice(&quot;iPhone SE&quot;)<br>            ContentView()<br>                .previewDevice(&quot;iPhone XR&quot;)<br>        }<br>    }<br>}</pre><p name="2ecb" id="2ecb" class="graf graf--p graf-after--pre">dd</p><figure name="abf4" id="abf4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*7CRkT4PZMPR1CpzWt6GJfg.jpeg" data-width="1152" data-height="902" src="https://cdn-images-1.medium.com/max/800/1*7CRkT4PZMPR1CpzWt6GJfg.jpeg"></figure><div name="59a4" id="59a4" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/documentation/swiftui/view/3278637-previewdevice" data-href="https://developer.apple.com/documentation/swiftui/view/3278637-previewdevice" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/3278637-previewdevice"><strong class="markup--strong markup--mixtapeEmbed-strong">previewDevice(_:)</strong><br><em class="markup--em markup--mixtapeEmbed-em">&quot;Mac&quot; &quot;iPhone 7&quot; &quot;iPhone 7 Plus&quot; &quot;iPhone 8&quot; &quot;iPhone 8 Plus&quot; &quot;iPhone SE&quot; &quot;iPhone X&quot; &quot;iPhone Xs&quot; &quot;iPhone Xs Max&quot; &quot;iPhone…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/3278637-previewdevice" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="53badde50b5b6ed8a48c325366172816"></a></div><p name="e9e4" id="e9e4" class="graf graf--p graf--empty graf-after--mixtapeEmbed"><br></p><pre name="dca4" id="dca4" class="graf graf--pre graf-after--p">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        <br>        struct ContentView_Previews: PreviewProvider {<br>            static var previews: some View {<br>                <br>                Group {<br>                    ContentView()<br>                        .previewDevice(&quot;iPhone SE&quot;)<br>                        .previewDisplayName(&quot;iPhone SE&quot;)<br>                    ContentView()<br>                        .previewDevice(&quot;iPhone XR&quot;)<br>                        .previewDisplayName(&quot;iPhone XR&quot;)</pre><pre name="08ad" id="08ad" class="graf graf--pre graf-after--pre">}<br>            }<br>        }<br>    }<br>}</pre><p name="416b" id="416b" class="graf graf--p graf-after--pre">比方看 cell </p><pre name="26ad" id="26ad" class="graf graf--pre graf-after--p">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        <br>       <br>            ContentView()<br>                .previewLayout(.sizeThatFits)<br>        <br>    }<br>}</pre><p name="de8a" id="de8a" class="graf graf--p graf--empty graf-after--pre"><br></p><p name="43a8" id="43a8" class="graf graf--p graf-after--p">用 fixed 固定大小</p><pre name="f660" id="f660" class="graf graf--pre graf-after--p">struct CardView_Previews: PreviewProvider {<br>  static var previews: some View {<br>    CardView(honeymoon: honeymoonData[0])<br>      .previewLayout(.fixed(width: 375, height: 600))<br>  }<br>}</pre><p name="209e" id="209e" class="graf graf--p graf-after--pre">dd</p><pre name="8cfb" id="8cfb" class="graf graf--pre graf-after--p">struct ContentView_Previews: PreviewProvider {<br>    static var previews: some View {<br>        <br>        <br>            ContentView()<br>                .environment(\.sizeCategory, .extraLarge)<br>    }<br>}</pre><p name="e690" id="e690" class="graf graf--p graf-after--pre">dark mode</p><p name="653d" id="653d" class="graf graf--p graf--empty graf-after--p graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/526d08b04133">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

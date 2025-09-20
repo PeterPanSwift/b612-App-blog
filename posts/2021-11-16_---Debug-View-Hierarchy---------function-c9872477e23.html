@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Debug View Hierarchy 找到元件觸發的 function</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Debug View Hierarchy 找到元件觸發的 function</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+當元件觸發的 function 透過 IBAction 或 addTarget(_:action:for:) 設定時，我們可利用 Debug View Hierarchy 找到元件觸發的 function。
+</section>
+<section data-field="body" class="e-content">
+<section name="f4c4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="beb6" id="beb6" class="graf graf--h3 graf--leading graf--title">利用 Debug View Hierarchy 找到元件觸發的 function</h3><p name="b8b2" id="b8b2" class="graf graf--p graf-after--h3">當元件觸發的 function 透過 IBAction 或 addTarget(_:action:for:) 設定時，我們可利用 Debug View Hierarchy 找到元件觸發的 function。</p><p name="5bf3" id="5bf3" class="graf graf--p graf-after--p">接下來我們將以 Disney 好看的洛基(Loki)影集為例，示範如何找出點選 Loki button 觸發的 function。</p><h3 name="964a" id="964a" class="graf graf--h3 graf-after--p">設定 button 點選觸發的 IBAction tapLoki。</h3><figure name="6d05" id="6d05" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*Ke5LrXEsQXRBLfihHgaGzg.png" data-width="2796" data-height="1182" src="https://cdn-images-1.medium.com/max/800/1*Ke5LrXEsQXRBLfihHgaGzg.png"></figure><h3 name="e490" id="e490" class="graf graf--h3 graf-after--figure">執行 App，點選 Debug View Hierarchy</h3><figure name="95b2" id="95b2" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*kzz0nDgCqUenCy1BTwbRDQ.png" data-width="546" data-height="70" src="https://cdn-images-1.medium.com/max/800/1*kzz0nDgCqUenCy1BTwbRDQ.png"></figure><h3 name="c49c" id="c49c" class="graf graf--h3 graf-after--figure">點選 Debug View Hierarchy 畫面裡的 Loki button</h3><figure name="6c56" id="6c56" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*OPx-Y7RK3m61tDcCKIOzUg.png" data-width="1606" data-height="1210" src="https://cdn-images-1.medium.com/max/800/1*OPx-Y7RK3m61tDcCKIOzUg.png"></figure><h3 name="997c" id="997c" class="graf graf--h3 graf-after--figure">從 Object inspector 找到元件對應的 action &amp; target</h3><p name="3796" id="3796" class="graf graf--p graf-after--h3">從下圖的 Target &amp; Action 可知點選 button 時將觸發 ViewController 的 function tapLoki。</p><figure name="02db" id="02db" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*h0py1A6z2dViTdUiArqsbg.png" data-width="678" data-height="674" src="https://cdn-images-1.medium.com/max/800/1*h0py1A6z2dViTdUiArqsbg.png"></figure><h3 name="2264" id="2264" class="graf graf--h3 graf-after--figure">從 Find navigator 搜尋 function 名稱</h3><p name="380f" id="380f" class="graf graf--p graf-after--h3">快速找到元件觸發的 function 程式碼。</p><figure name="b29d" id="b29d" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*JzAMErdxCXNJisCnt96cXg.png" data-width="2120" data-height="634" src="https://cdn-images-1.medium.com/max/800/1*JzAMErdxCXNJisCnt96cXg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/c9872477e23"><time class="dt-published" datetime="2021-11-16T06:36:07.556Z">November 16, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-debug-view-hierarchy-%E6%89%BE%E5%88%B0%E5%85%83%E4%BB%B6-%E8%A7%B8%E7%99%BC%E7%9A%84-function-c9872477e23" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

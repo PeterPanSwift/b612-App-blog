@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 AVAudioPlayer 或 AVPlayer 播放 App 裡的 mp3 檔</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 AVAudioPlayer 或 AVPlayer 播放 App 裡的 mp3 檔</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+想播放 App 裡的音檔，我們可以選擇用 AVAudioPlayer 或 AVPlayer 播放。（ 如果是網路上的音樂，則建議用 AVPlayer ) 方法如下:
+</section>
+<section data-field="body" class="e-content">
+<section name="3788" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e3ef" id="e3ef" class="graf graf--h3 graf--leading graf--title">利用 AVAudioPlayer 或 AVPlayer 播放 App 裡的 mp3 檔</h3><p name="8a75" id="8a75" class="graf graf--p graf-after--h3">想播放 App 裡的音檔，我們可以選擇用 AVAudioPlayer 或 AVPlayer 播放。（ 如果是網路上的音樂，則建議用 AVPlayer ) 方法如下:</p><blockquote name="ee2a" id="ee2a" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">1 將 mp3 檔加入 Xcode 專案。</strong></blockquote><p name="0b66" id="0b66" class="graf graf--p graf-after--blockquote">加入檔案時記得要勾選 Copy items if needed。</p><div name="5890" id="5890" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-no-such-file-or-directory-%E9%8C%AF%E8%AA%A4-5413a5e633a3" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-no-such-file-or-directory-%E9%8C%AF%E8%AA%A4-5413a5e633a3" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-no-such-file-or-directory-%E9%8C%AF%E8%AA%A4-5413a5e633a3"><strong class="markup--strong markup--mixtapeEmbed-strong">加入檔案時記得勾選 Copy items if needed</strong><br><em class="markup--em markup--mixtapeEmbed-em">當我們在開發 iOS App 時，有時會需要從別的地方將檔案加到 Xcode 專案的 Project Navigator 裡，比方下圖的 button.mp3。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-no-such-file-or-directory-%E9%8C%AF%E8%AA%A4-5413a5e633a3" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="70e85be85fcc40e44288b114f92c492d" data-thumbnail-img-id="1*nv3L9pIrT8nXm-HvmS_LSA.jpeg" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*nv3L9pIrT8nXm-HvmS_LSA.jpeg);"></a></div><p name="0c5e" id="0c5e" class="graf graf--p graf-after--mixtapeEmbed"><strong class="markup--strong markup--p-strong">2 利用 AVAudioPlayer 播放。</strong></p><pre name="2c01" id="2c01" class="graf graf--pre graf-after--p">import UIKit</pre><pre name="10d0" id="10d0" class="graf graf--pre graf-after--pre">import AVFoundation</pre><pre name="9a59" id="9a59" class="graf graf--pre graf-after--pre"><br>class ViewController: UIViewController {</pre><pre name="41fa" id="41fa" class="graf graf--pre graf-after--pre">   var player: AVAudioPlayer?</pre><pre name="bd0e" id="bd0e" class="graf graf--pre graf-after--pre">   @IBAction func playMusic(_ sender: Any) {</pre><pre name="ce5a" id="ce5a" class="graf graf--pre graf-after--pre">      if let url = Bundle.main.url(forResource: &quot;Rolling A Dice&quot;, withExtension: &quot;mp3&quot;) {</pre><pre name="795d" id="795d" class="graf graf--pre graf-after--pre">         player = try? AVAudioPlayer(contentsOf: url)</pre><pre name="eae3" id="eae3" class="graf graf--pre graf-after--pre">         player?.play()</pre><pre name="bef3" id="bef3" class="graf graf--pre graf-after--pre">      }</pre><pre name="f3af" id="f3af" class="graf graf--pre graf-after--pre">   }</pre><pre name="62b7" id="62b7" class="graf graf--pre graf-after--pre">}</pre><p name="e581" id="e581" class="graf graf--p graf-after--pre">說明</p><p name="00eb" id="00eb" class="graf graf--p graf-after--p"><code class="markup--code markup--p-code">Bundle.main.url(forResource: &quot;Rolling A Dice&quot;, withExtension: &quot;mp3&quot;)</code></p><p name="2908" id="2908" class="graf graf--p graf-after--p">利用 Bundle.main 得到主要的 Bundle 物件，可用來讀取專案裡的檔案。呼叫它的 function url(forResource:withExtension:) 可得到檔案路徑的 URL。</p><div name="c0cd" id="c0cd" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundation/bundle/1411540-url" data-href="https://developer.apple.com/documentation/foundation/bundle/1411540-url" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundation/bundle/1411540-url"><strong class="markup--strong markup--mixtapeEmbed-strong">url(forResource:withExtension:)</strong><br><em class="markup--em markup--mixtapeEmbed-em">Declaration The name of the resource file. If you specify , the method returns the first resource file it finds with…</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundation/bundle/1411540-url" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="811ca203d4e3a5eea8d19292e2ee7a0b"></a></div><figure name="6924" id="6924" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*CaK03gVieBtBYkOL9hrDvQ.jpeg" data-width="2262" data-height="914" src="https://cdn-images-1.medium.com/max/800/1*CaK03gVieBtBYkOL9hrDvQ.jpeg"></figure><blockquote name="8dbc" id="8dbc" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">3 利用 AVPlayer 播放。</strong></blockquote><pre name="03a1" id="03a1" class="graf graf--pre graf-after--blockquote">import UIKit</pre><pre name="a9b9" id="a9b9" class="graf graf--pre graf-after--pre">import AVFoundation</pre><pre name="1a23" id="1a23" class="graf graf--pre graf-after--pre">class ViewController: UIViewController {</pre><pre name="ce5e" id="ce5e" class="graf graf--pre graf-after--pre">   var player: AVPlayer?</pre><pre name="c087" id="c087" class="graf graf--pre graf-after--pre">   @IBAction func buttonPressed(_ sender: Any) {</pre><pre name="ec18" id="ec18" class="graf graf--pre graf-after--pre">      if let url = Bundle.main.url(forResource: &quot;Rolling A Dice&quot;, withExtension: &quot;mp3&quot;) {</pre><pre name="52e1" id="52e1" class="graf graf--pre graf-after--pre">           player = AVPlayer(url: url)</pre><pre name="2470" id="2470" class="graf graf--pre graf-after--pre">           player?.play()</pre><pre name="2570" id="2570" class="graf graf--pre graf-after--pre">   }</pre><pre name="e17a" id="e17a" class="graf graf--pre graf-after--pre">}</pre><p name="e9d4" id="e9d4" class="graf graf--p graf-after--pre">如果還不懂 optional binding 的同學，則可先用 ! 讀取 function url(forResource:withExtension:) 回傳的 optional 路徑。</p><pre name="f2df" id="f2df" class="graf graf--pre graf-after--p">import AVFoundation</pre><pre name="41e6" id="41e6" class="graf graf--pre graf-after--pre">class ViewController: UIViewController {</pre><pre name="7c8b" id="7c8b" class="graf graf--pre graf-after--pre">   var player: AVPlayer?</pre><pre name="299c" id="299c" class="graf graf--pre graf-after--pre">   @IBAction func buttonPressed(_ sender: Any) {</pre><pre name="106b" id="106b" class="graf graf--pre graf-after--pre">      url = Bundle.main.url(forResource: &quot;Rolling A Dice&quot;, withExtension: &quot;mp3&quot;)!</pre><pre name="c234" id="c234" class="graf graf--pre graf-after--pre">      player = AVPlayer(url: url)</pre><pre name="ec99" id="ec99" class="graf graf--pre graf-after--pre">      player?.play()</pre><pre name="0b0a" id="0b0a" class="graf graf--pre graf-after--pre graf--trailing">}</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/20c4633c4a03"><time class="dt-published" datetime="2018-07-25T13:06:53.095Z">July 25, 2018</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-avplayer-%E6%92%AD%E6%94%BE-app-%E8%A3%A1%E7%9A%84-mp3-%E6%AA%94-20c4633c4a03" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>

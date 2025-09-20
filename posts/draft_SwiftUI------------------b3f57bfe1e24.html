@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI 新增或修改資料時，如何更新前一頁</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI 新增或修改資料時，如何更新前一頁</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+方法 1: 設定編輯頁的 onDisappear
+</section>
+<section data-field="body" class="e-content">
+<section name="cb39" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="045a" id="045a" class="graf graf--h3 graf--leading graf--title">SwiftUI 新增或修改資料時，如何更新前一頁</h3><p name="1a89" id="1a89" class="graf graf--p graf--empty graf-after--h3"><br></p><h3 name="cd5f" id="cd5f" class="graf graf--h3 graf-after--p">方法 1: 設定編輯頁的 onDisappear</h3><pre name="bf7b" id="bf7b" class="graf graf--pre graf-after--h3">StickerPicker(stickerImage: $stickerImage)<br>            .onDisappear {<br>              if let stickerImage = stickerImage {<br>                card.addElement(uiImage: stickerImage)<br>              }<br>              stickerImage = nil<br>            }</pre><h3 name="7523" id="7523" class="graf graf--h3 graf-after--pre">方法 2: 將 navigationBarItems 設定在前一頁</h3><pre name="802b" id="802b" class="graf graf--pre graf-after--h3">.sheet(isPresented: $isPresented) {<br>            NavigationView {<br>                EditView(scrumData: $newScrumData)<br>                    .navigationBarItems(leading: Button(&quot;Dismiss&quot;) {<br>                        isPresented = false<br>                    }, trailing: Button(&quot;Add&quot;) {<br>                        let newScrum = DailyScrum(title: newScrumData.title, attendees: newScrumData.attendees,<br>                                                  lengthInMinutes: Int(newScrumData.lengthInMinutes), color: newScrumData.color)<br>                        scrums.append(newScrum)<br>                        isPresented = false<br>                    })<br>            }<br>        }</pre><p name="aff5" id="aff5" class="graf graf--p graf--empty graf-after--pre graf--trailing"><br></p></div></div></section>
+</section>
+<footer><p><a href="https://medium.com/p/b3f57bfe1e24">View original.</a></p><p>Exported from <a href="https://medium.com">Medium</a> on September 17, 2025.</p></footer></article></body></html>
