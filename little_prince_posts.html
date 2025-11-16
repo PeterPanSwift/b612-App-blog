@@ -139,6 +139,7 @@
       background: rgba(255, 255, 255, 0.9);
       box-shadow: inset 0 0 0 1px rgba(61, 58, 47, 0.12);
       transition: box-shadow 0.2s ease, transform 0.2s ease;
+      height: 3rem;
     }
 
     input[type="search"]:focus,
@@ -481,6 +482,7 @@
         <select id="year">
           <option value="all">全宇宙</option>
         </select>
+        <div class="checkbox-wrapper" style="visibility: hidden; height: 2rem;"></div>
       </label>
     </section>
   </header>
@@ -688,11 +690,19 @@
         date.className = 'post-date';
         date.textContent = formatDate(post.dateObj, post.date);
 
-        card.addEventListener('click', () => openPost(post));
+        card.addEventListener('click', () => {
+          const mediumUrl = buildMediumUrl(post.path);
+          if (mediumUrl) {
+            window.open(mediumUrl, '_blank', 'noopener,noreferrer');
+          }
+        });
         card.addEventListener('keydown', event => {
           if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
-            openPost(post);
+            const mediumUrl = buildMediumUrl(post.path);
+            if (mediumUrl) {
+              window.open(mediumUrl, '_blank', 'noopener,noreferrer');
+            }
           }
         });
 
