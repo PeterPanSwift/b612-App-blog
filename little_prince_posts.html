@@ -148,6 +148,28 @@
       transform: translateY(-2px);
     }
 
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+    }
+
+    input[type="checkbox"] {
+      width: 1.2rem;
+      height: 1.2rem;
+      cursor: pointer;
+      accent-color: var(--rose);
+    }
+
+    .checkbox-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      user-select: none;
+    }
+
     main {
       margin: 0 auto;
       padding: 0 clamp(1.5rem, 5vw, 5rem) clamp(4rem, 8vw, 6rem);
@@ -449,6 +471,10 @@
       <label>
         星光搜尋
         <input type="search" id="search" placeholder="輸入關鍵字（可用空白分隔）" autocomplete="off">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="searchTitleOnly">
+          <span class="checkbox-label" onclick="document.getElementById('searchTitleOnly').click()">僅搜尋標題</span>
+        </div>
       </label>
       <label>
         以年份尋找星球
@@ -487,6 +513,7 @@
     const postsContainer = document.getElementById('posts');
     const summary = document.getElementById('summary');
     const searchInput = document.getElementById('search');
+    const searchTitleOnlyCheckbox = document.getElementById('searchTitleOnly');
     const yearSelect = document.getElementById('year');
 
     const modal = document.getElementById('modal');
@@ -567,6 +594,7 @@
             content,
             dateObj,
             searchText: [item.title, item.subtitle, content].join(' ').toLowerCase(),
+            titleText: item.title.toLowerCase(),
           };
         });
 
@@ -592,6 +620,7 @@
       });
 
     searchInput.addEventListener('input', handleFilters);
+    searchTitleOnlyCheckbox.addEventListener('change', handleFilters);
     yearSelect.addEventListener('change', handleFilters);
     modalCloseButton.addEventListener('click', closeModal);
     modal.addEventListener('click', event => {
@@ -610,9 +639,11 @@
       const keywordInput = searchInput.value.trim().toLowerCase();
       const keywords = keywordInput ? keywordInput.split(/\s+/).filter(Boolean) : [];
       const year = yearSelect.value;
+      const titleOnly = searchTitleOnlyCheckbox.checked;
 
       filteredPosts = posts.filter(post => {
-        const matchKeyword = keywords.length === 0 || keywords.every(kw => post.searchText.includes(kw));
+        const searchTarget = titleOnly ? post.titleText : post.searchText;
+        const matchKeyword = keywords.length === 0 || keywords.every(kw => searchTarget.includes(kw));
         const matchYear = year === 'all' || (post.dateObj && String(post.dateObj.getFullYear()) === year);
         return matchKeyword && matchYear;
       });

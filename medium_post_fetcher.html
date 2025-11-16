@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>Medium 文章 JSON 整理器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f5f0;
+      --panel: #ffffff;
+      --text: #1c1c1c;
+      --accent: #00796b;
+      --accent-soft: rgba(0, 121, 107, 0.12);
+      --border: rgba(0, 0, 0, 0.08);
+      font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1rem, 3vw, 3rem);
+    }
+
+    main {
+      width: min(860px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: clamp(1.8rem, 4vw, 3rem);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 0.6rem;
+      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+      font-weight: 700;
+    }
+
+    p.description {
+      margin: 0 0 1.8rem;
+      line-height: 1.6;
+      color: rgba(28, 28, 28, 0.7);
+    }
+
+    form {
+      display: grid;
+      gap: 1.2rem;
+      margin-bottom: 1.6rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(28, 28, 28, 0.85);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    input[type="text"] {
+      font: inherit;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+      background-color: rgba(255, 255, 255, 0.92);
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    button[type="submit"],
+    button[type="button"] {
+      font: inherit;
+      cursor: pointer;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button[type="submit"] {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(0, 121, 107, 0.24);
+    }
+
+    button[type="button"] {
+      background: rgba(0, 121, 107, 0.08);
+      color: var(--accent);
+      border-color: rgba(0, 121, 107, 0.18);
+    }
+
+    button[type="submit"]:hover,
+    button[type="button"]:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    #status {
+      min-height: 1.8rem;
+      font-size: 0.95rem;
+      color: rgba(28, 28, 28, 0.7);
+    }
+
+    pre {
+      margin: 0;
+      background: rgba(247, 247, 245, 0.7);
+      border-radius: 14px;
+      padding: 1.4rem;
+      overflow-x: auto;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: 600px) {
+      .actions {
+        flex-direction: column;
+      }
+
+      button[type="submit"],
+      button[type="button"] {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Medium 文章 JSON 整理器</h1>
+    <p class="description">輸入 Medium 文章 ID，系統會呼叫 <code>https://medium.com/_/api/posts/&lt;文章ID&gt;</code>，移除保護前綴並顯示可讀的 JSON。</p>
+
+    <form id="fetch-form">
+      <label for="post-id">Medium 文章 ID</label>
+      <input id="post-id" name="post-id" type="text" placeholder="例如：94c8ba86ac01" autocomplete="off" required>
+      <div class="actions">
+        <button type="submit">取得 JSON</button>
+        <button type="button" id="use-sample">填入範例 ID</button>
+      </div>
+    </form>
+
+    <div id="status" role="status" aria-live="polite"></div>
+    <pre id="output" hidden></pre>
+  </main>
+
+  <script>
+    const form = document.getElementById('fetch-form');
+    const input = document.getElementById('post-id');
+    const statusEl = document.getElementById('status');
+    const outputEl = document.getElementById('output');
+    const sampleBtn = document.getElementById('use-sample');
+
+    sampleBtn.addEventListener('click', () => {
+      input.value = '94c8ba86ac01';
+      input.focus();
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const postId = input.value.trim();
+
+      if (!postId) {
+        statusEl.textContent = '請先輸入文章 ID。';
+        outputEl.hidden = true;
+        return;
+      }
+
+      statusEl.textContent = '正在向 Medium 要求資料…';
+      outputEl.hidden = true;
+      outputEl.textContent = '';
+
+      try {
+        const endpoint = `https://medium.com/_/api/posts/${encodeURIComponent(postId)}`;
+        const response = await fetch(endpoint, {
+          method: 'GET',
+          headers: {
+            'accept': 'application/json, text/plain, */*'
+          },
+          credentials: 'omit'
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}：${response.statusText}`);
+        }
+
+        const rawText = await response.text();
+        const firstBrace = rawText.indexOf('{');
+
+        if (firstBrace === -1) {
+          throw new Error('回應內容格式異常，找不到 JSON 物件。');
+        }
+
+        const sanitized = rawText.slice(firstBrace);
+        let parsed;
+
+        try {
+          parsed = JSON.parse(sanitized);
+        } catch (parseErr) {
+          throw new Error(`JSON 解析失敗：${parseErr.message}`);
+        }
+
+        outputEl.textContent = JSON.stringify(parsed, null, 2);
+        outputEl.hidden = false;
+        statusEl.textContent = '成功完成，JSON 已整理完成。';
+      } catch (error) {
+        const message = error && typeof error.message === 'string' && error.message.trim()
+          ? error.message.trim()
+          : 'Load failed';
+        statusEl.textContent = `發生錯誤：${message}`;
+        outputEl.hidden = true;
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
