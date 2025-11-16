@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>數學和程式的經典分組問題(Ceiling Division)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">數學和程式的經典分組問題(Ceiling Division)</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="8583" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="27fb" id="27fb" class="graf graf--h3 graf--leading graf--title">數學和程式的經典分組問題(Ceiling Division)</h3><figure name="c584" id="c584" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*cfoKdO-nk9GjNasUyzioNw.png" data-width="1024" data-height="1024" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*cfoKdO-nk9GjNasUyzioNw.png"></figure><p name="bab6" id="bab6" class="graf graf--p graf-after--figure">算數學和寫程式時，我們時常會遇到經典的分組問題，例如以下例子。</p><p name="fe01" id="fe01" class="graf graf--p graf-after--p">有 8 個小 🦊，每 3 個一組，可分成幾組呢 ?</p><p name="ca34" id="ca34" class="graf graf--p graf-after--p">彼得潘跟 AI 討論後，整理了以下幾種算法。</p><ul class="postList"><li name="8c2a" id="8c2a" class="graf graf--li graf-after--p">無條件進位、天花板除法。</li><li name="1657" id="1657" class="graf graf--li graf-after--li">判斷餘數，有餘數加 1 組。</li><li name="e85b" id="e85b" class="graf graf--li graf-after--li">加上一組的數量 — 1 後再除。</li><li name="5b08" id="5b08" class="graf graf--li graf-after--li">Swift Algorithms 的 chunks(ofCount:)。</li></ul><h3 name="7aa5" id="7aa5" class="graf graf--h3 graf-after--li">無條件進位、天花板除法</h3><p name="acad" id="acad" class="graf graf--p graf-after--h3">8 / 3 = 2.667，進位成 3。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="89e5" id="89e5" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> Foundation<br /><br /><span class="hljs-keyword">let</span> total <span class="hljs-operator">=</span> <span class="hljs-number">8</span><br /><span class="hljs-keyword">let</span> perGroup <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br /><span class="hljs-keyword">let</span> groups <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>(ceil(<span class="hljs-type">Double</span>(total) <span class="hljs-operator">/</span> <span class="hljs-type">Double</span>(perGroup)))</span></pre><h3 name="bc5a" id="bc5a" class="graf graf--h3 graf-after--pre">判斷餘數，有餘數加 1 組</h3><p name="1fd4" id="1fd4" class="graf graf--p graf-after--h3">8 / 3 的商為 2，餘數為 2，因此需要加 1，結果為 3。</p><ul class="postList"><li name="9b6c" id="9b6c" class="graf graf--li graf-after--p">寫法 1。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="bbc0" id="bbc0" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> total <span class="hljs-operator">=</span> <span class="hljs-number">8</span><br /><span class="hljs-keyword">let</span> perGroup <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br /><span class="hljs-keyword">let</span> (quotient, remainder) <span class="hljs-operator">=</span> total.quotientAndRemainder(dividingBy: perGroup)<br /><span class="hljs-keyword">let</span> groups <span class="hljs-operator">=</span> quotient <span class="hljs-operator">+</span> (remainder <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span> <span class="hljs-operator">?</span> <span class="hljs-number">1</span> : <span class="hljs-number">0</span>)</span></pre><ul class="postList"><li name="c83f" id="c83f" class="graf graf--li graf-after--pre">寫法 2。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="b2da" id="b2da" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> total <span class="hljs-operator">=</span> <span class="hljs-number">8</span><br /><span class="hljs-keyword">let</span> perGroup <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br /><span class="hljs-keyword">let</span> isDivisible <span class="hljs-operator">=</span> total.isMultiple(of: perGroup)<br /><span class="hljs-keyword">let</span> groups <span class="hljs-operator">=</span> total <span class="hljs-operator">/</span> perGroup <span class="hljs-operator">+</span> (isDivisible <span class="hljs-operator">?</span> <span class="hljs-number">0</span> : <span class="hljs-number">1</span>)</span></pre><h3 name="1a54" id="1a54" class="graf graf--h3 graf-after--pre">加上一組的數量 — 1 後再除</h3><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="e4e3" id="e4e3" class="graf graf--pre graf-after--h3 graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> total <span class="hljs-operator">=</span> <span class="hljs-number">8</span><br /><span class="hljs-keyword">let</span> perGroup <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br /><span class="hljs-keyword">let</span> groups <span class="hljs-operator">=</span> (total <span class="hljs-operator">+</span> perGroup <span class="hljs-operator">-</span> <span class="hljs-number">1</span>) <span class="hljs-operator">/</span> perGroup</span></pre><p name="5f98" id="5f98" class="graf graf--p graf-after--pre">剛剛的 (total + perGroup — 1) / perGroup 也可以改成以下寫法。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="59d1" id="59d1" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">let</span> groups <span class="hljs-operator">=</span> (total <span class="hljs-operator">-</span> <span class="hljs-number">1</span>) <span class="hljs-operator">/</span> perGroup <span class="hljs-operator">+</span> <span class="hljs-number">1</span></span></pre><h3 name="a80f" id="a80f" class="graf graf--h3 graf-after--pre">Swift Algorithms 的 chunks(ofCount:)</h3><div name="1486" id="1486" class="graf graf--mixtapeEmbed graf-after--h3"><a href="https://github.com/apple/swift-algorithms" data-href="https://github.com/apple/swift-algorithms" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/apple/swift-algorithms"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - apple/swift-algorithms: Commonly used sequence and collection algorithms for Swift</strong><br><em class="markup--em markup--mixtapeEmbed-em">Commonly used sequence and collection algorithms for Swift - apple/swift-algorithms</em>github.com</a><a href="https://github.com/apple/swift-algorithms" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="8d85dafc4eab5fc4afbb65167d71b54b" data-thumbnail-img-id="0*nCdnvOfLb8GAlybl" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*nCdnvOfLb8GAlybl);"></a></div><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="50c9" id="50c9" class="graf graf--pre graf-after--mixtapeEmbed graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> Algorithms<br /><br /><span class="hljs-keyword">let</span> total <span class="hljs-operator">=</span> <span class="hljs-number">8</span><br /><span class="hljs-keyword">let</span> perGroup <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br /><span class="hljs-keyword">let</span> groups <span class="hljs-operator">=</span> (<span class="hljs-number">1</span><span class="hljs-operator">...</span>total).chunks(ofCount: perGroup).count</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/b7b798c36b9a"><time class="dt-published" datetime="2025-10-11T08:41:37.677Z">October 11, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%95%B8%E5%AD%B8%E5%92%8C%E7%A8%8B%E5%BC%8F%E7%9A%84%E7%B6%93%E5%85%B8%E5%88%86%E7%B5%84%E5%95%8F%E9%A1%8C-ceiling-division-b7b798c36b9a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

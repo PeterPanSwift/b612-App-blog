@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 Xcode project 新增執行 #playground 的檔案</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 Xcode project 新增執行 #playground 的檔案</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近彼得潘看了 Apple 官方的教學影片，發現除了在 Project 原本的檔案加入 #Playground，另外建立 Playgrounds 資料夾，然後在下面新增 swift 檔來輸入 #Playground 也是不錯的方法。
+</section>
+<section data-field="body" class="e-content">
+<section name="96f6" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="5207" id="5207" class="graf graf--h3 graf--leading graf--title">在 Xcode project 新增執行 #playground 的檔案</h3><p name="5026" id="5026" class="graf graf--p graf-after--h3">最近彼得潘看了 Apple 官方的教學影片，發現除了在 Project 原本的檔案加入 #Playground，另外建立 Playgrounds 資料夾，然後在下面新增 swift 檔來輸入 #Playground 也是不錯的方法。</p><figure name="f566" id="f566" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://www.youtube.com/embed/S5F196tqRMI?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><div name="8ec7" id="8ec7" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://developer.apple.com/events/resources/code-along-205/" data-href="https://developer.apple.com/events/resources/code-along-205/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/events/resources/code-along-205/"><strong class="markup--strong markup--mixtapeEmbed-strong">Meet with Apple - Apple Developer</strong><br><em class="markup--em markup--mixtapeEmbed-em">Join us around the world for a variety of sessions, labs, and workshops - tailored for you.</em>developer.apple.com</a><a href="https://developer.apple.com/events/resources/code-along-205/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="cfad7b76cb1dbaf43fca5379fa22daec" data-thumbnail-img-id="0*WEEeXRrijXUvekSn" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*WEEeXRrijXUvekSn);"></a></div><p name="6a5a" id="6a5a" class="graf graf--p graf-after--mixtapeEmbed">如下圖所示，Apple 在 Playgrounds 資料夾下新增 Playground.swift。</p><figure name="d552" id="d552" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*QX7z9n0wmLph7teASzdvaw.png" data-width="2180" data-height="944" src="https://cdn-images-1.medium.com/max/800/1*QX7z9n0wmLph7teASzdvaw.png"></figure><p name="9fda" id="9fda" class="graf graf--p graf-after--figure">然後在其中輸入 #Playground 實驗 LanguageModelSession 的相關功能。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="0cf3" id="0cf3" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">#<span class="hljs-type">Playground</span> {<br />    <span class="hljs-keyword">let</span> instructions <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;<br />        Your job is to create an itinerary for the user.<br />        Each day needs an activity, hotel and restaurant.<br />        <br />        Always include a title, a short description, and a day-by-day plan.<br />        &quot;&quot;&quot;</span><br />    <br />    <span class="hljs-keyword">let</span> session <span class="hljs-operator">=</span> <span class="hljs-type">LanguageModelSession</span>(instructions: instructions)<br />    <span class="hljs-keyword">let</span> response <span class="hljs-operator">=</span> <span class="hljs-keyword">try</span> <span class="hljs-keyword">await</span> session.respond(to: <span class="hljs-string">&quot;Generate a 3-day itinerary to Paris.&quot;</span>)<br />}</span></pre><p name="f1ec" id="f1ec" class="graf graf--p graf-after--pre">模仿 Apple 的架構，我們也可在專案採用類似的寫法。比方以下彼得潘在 Playground.swift 測試計算 BMI 的程式。</p><figure name="9836" id="9836" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*vVcZocUPKZuJ2BWRNFD5nA.png" data-width="598" data-height="450" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*vVcZocUPKZuJ2BWRNFD5nA.png"></figure><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="f069" id="f069" class="graf graf--pre graf-after--figure graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> Playgrounds<br /><br />#<span class="hljs-type">Playground</span> {<br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">calculateBMI</span>(<span class="hljs-params">weight</span>: <span class="hljs-type">Double</span>, <span class="hljs-params">height</span>: <span class="hljs-type">Double</span>) -&gt; <span class="hljs-type">Double</span> {<br />        <span class="hljs-keyword">return</span> weight <span class="hljs-operator">/</span> (height <span class="hljs-operator">*</span> height)<br />    }<br />    <span class="hljs-keyword">let</span> bmi <span class="hljs-operator">=</span> calculateBMI(weight: <span class="hljs-number">60</span>, height: <span class="hljs-number">1.8</span>)<br />}</span></pre><p name="1acb" id="1acb" class="graf graf--p graf-after--pre">從右邊的 Canvas 驗證 BMI 計算的結果。</p><figure name="9334" id="9334" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*CgI6qvxu9CHIrnOxK4VUvg.png" data-width="1740" data-height="866" src="https://cdn-images-1.medium.com/max/800/1*CgI6qvxu9CHIrnOxK4VUvg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/527f5d382446"><time class="dt-published" datetime="2025-10-01T07:32:41.428Z">October 1, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%9C%A8-xcode-project-%E6%96%B0%E5%A2%9E%E5%9F%B7%E8%A1%8C-playground-%E7%9A%84%E6%AA%94%E6%A1%88-527f5d382446" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

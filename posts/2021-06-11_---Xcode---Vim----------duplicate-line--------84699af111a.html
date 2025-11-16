@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 Xcode 的 Vim 模式寫程式，比方 duplicate line(複製貼上行)</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 Xcode 的 Vim 模式寫程式，比方 duplicate line(複製貼上行)</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+江湖傳說程式高手都會用 Vim 打程式，因為它有以下好處:
+</section>
+<section data-field="body" class="e-content">
+<section name="055f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="aba3" id="aba3" class="graf graf--h3 graf--leading graf--title">利用 Xcode 的 Vim 模式寫程式，比方 duplicate line(複製貼上行)</h3><p name="18f5" id="18f5" class="graf graf--p graf-after--h3">江湖傳說程式高手都會用 Vim 打程式，因為它有以下好處:</p><ul class="postList"><li name="938d" id="938d" class="graf graf--li graf-after--p">不用動到滑鼠，手指完全在鍵盤上操作，達到神人般快如閃電的開發速度。</li><li name="8361" id="8361" class="graf graf--li graf-after--li">有許多特別的指令，比方它有 Xcode 沒有的 duplicate line，輸入 yy5p 可複製貼上 5 行程式。</li></ul><p name="dbf0" id="dbf0" class="graf graf--p graf-after--li">從 Xcode 13 開始，我們也可以在 Xcode 用 vim 模式打程式了。彼得潘雖然不是 vim 高手，接下來也來試試 vim 打字的滋味，假裝自己是程式高手。(ps: 彼得潘跟 Vim 最熟的時候應該是研究所用 Linux 時候，其實離現在也沒有很久啦。)</p><h3 name="ad2c" id="ad2c" class="graf graf--h3 graf-after--p">打開 Xcode 的 Vim 編輯模式</h3><p name="a341" id="a341" class="graf graf--p graf-after--h3">方法 1: 從 Quick Actions 啟動 Vim Mode。</p><figure name="0445" id="0445" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0a8Ytm-mVBtTH3C235yA9g.png" data-width="1176" data-height="242" src="https://cdn-images-1.medium.com/max/800/1*0a8Ytm-mVBtTH3C235yA9g.png"></figure><p name="7ebc" id="7ebc" class="graf graf--p graf-after--figure">方法 2: 點選 Xcode menu 的 Editor &gt; Vim Mode。</p><figure name="3ce7" id="3ce7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ZvntipLFMNAfTyy-BJIoKA.png" data-width="624" data-height="1494" src="https://cdn-images-1.medium.com/max/800/1*ZvntipLFMNAfTyy-BJIoKA.png"></figure><h3 name="808f" id="808f" class="graf graf--h3 graf-after--figure">Vim 操作畫面</h3><p name="794a" id="794a" class="graf graf--p graf-after--h3">Vim 操作畫面一開始是指令模式，此時不能打字，但可以輸入一些特別的指令。如下圖所示，黑色長條是游標，下方紅色框框區塊是 Vim 常用的指令說明。</p><figure name="6278" id="6278" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Dz_jv2KP0V5TvDyxjLSSXw.png" data-width="2798" data-height="1504" src="https://cdn-images-1.medium.com/max/800/1*Dz_jv2KP0V5TvDyxjLSSXw.png"></figure><h3 name="89cf" id="89cf" class="graf graf--h3 graf-after--figure">編輯模式 &amp; 指令模式的切換</h3><p name="593b" id="593b" class="graf graf--p graf-after--h3">在指令模式時，輸入 i 可進入編輯模式( i 是 insert 的縮寫)，此時可以開始打字。在編輯模式時，按下 esc 可回到指令模式，開始輸入一些特殊的指令。</p><figure name="9cab" id="9cab" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1tyYYnsLRbEsh-NoLSPQvQ.png" data-width="1612" data-height="904" src="https://cdn-images-1.medium.com/max/800/1*1tyYYnsLRbEsh-NoLSPQvQ.png"></figure><p name="fd7e" id="fd7e" class="graf graf--p graf-after--figure">接下來讓我們玩玩一些 Vim 常用的指令吧。</p><h3 name="7836" id="7836" class="graf graf--h3 graf-after--p">刪除整行程式的 dd</h3><p name="7c7c" id="7c7c" class="graf graf--p graf-after--h3">輸入 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">dd</strong></code> 可刪除整行程式，比方我們想將 helicopter 的前兩行歌詞刪除，連續按兩次 dd 後，前兩行歌詞被刪除了。(ps: d 是 delete 的縮寫，意思是刪除。)</p><figure name="0232" id="0232" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*ttpyvSAGDf_6MYppqktOvQ.png" data-width="1968" data-height="752" src="https://cdn-images-1.medium.com/max/800/1*ttpyvSAGDf_6MYppqktOvQ.png"></figure><h3 name="345b" id="345b" class="graf graf--h3 graf-after--figure">duplicate line 的 yyp</h3><p name="1a76" id="1a76" class="graf graf--p graf-after--h3">輸入 <code class="markup--code markup--p-code"><strong class="markup--strong markup--p-strong">yyp</strong></code> 可複製貼上整行程式，比方我們想將感人的最後一句歌詞 I’m a helicopter ’cause I love you so 再寫一次，輸入 yyp 後，它被複製貼上了。(ps: y 是 yank 的縮寫，意思是複製。p 是 paste 的縮寫，意思是貼上。)</p><figure name="2f74" id="2f74" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*I21asy5tY50okGKOLIpojg.png" data-width="1948" data-height="774" src="https://cdn-images-1.medium.com/max/800/1*I21asy5tY50okGKOLIpojg.png"></figure><p name="08c5" id="08c5" class="graf graf--p graf-after--figure">yy 是複製，p 是貼上，所以如果想再多打幾行 I’m a helicopter ’cause I love you so，只要再按 p 即可。比方再按 3 次 p，現在我們有滿滿五行的 I’m a helicopter ’cause I love you so。</p><figure name="7f73" id="7f73" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*IYgTojrsAXbbSs7Aok8zFA.png" data-width="1150" data-height="414" src="https://cdn-images-1.medium.com/max/800/1*IYgTojrsAXbbSs7Aok8zFA.png"></figure><h3 name="103b" id="103b" class="graf graf--h3 graf-after--figure">搭配數字指定次數</h3><p name="5f03" id="5f03" class="graf graf--p graf-after--h3">Vim 的指令通常前方可加上數字指定次數。</p><ul class="postList"><li name="7842" id="7842" class="graf graf--li graf-after--p"><strong class="markup--strong markup--li-strong">複製貼上多行程式</strong></li></ul><p name="23ca" id="23ca" class="graf graf--p graf-after--li">輸入 yy5p 複製 I’m a helicopter ’cause I love you so，然後將它連貼 5 行。</p><figure name="37cb" id="37cb" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*HrTUXFJ7lXfaJQXKeQwhbA.png" data-width="1658" data-height="596" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*HrTUXFJ7lXfaJQXKeQwhbA.png"></figure><p name="b4d8" id="b4d8" class="graf graf--p graf-after--figure">我們也可以複製多行程式，比方輸入 2yyjp 將複製兩行程式，將游標下移一行，然後貼上兩行程式。(ps: j 可下移游標)</p><figure name="62c5" id="62c5" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*M9nOC2qp5PqcFPgyEurqtQ.png" data-width="1968" data-height="592" src="https://cdn-images-1.medium.com/max/800/1*M9nOC2qp5PqcFPgyEurqtQ.png"></figure><ul class="postList"><li name="1ce3" id="1ce3" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">刪除多行程式</strong></li></ul><p name="d0c3" id="d0c3" class="graf graf--p graf-after--li">輸入 3dd 刪除 3 行程式。</p><figure name="56d4" id="56d4" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*o_GV4_uQQaBNgajx502kYg.png" data-width="1718" data-height="606" src="https://cdn-images-1.medium.com/max/800/1*o_GV4_uQQaBNgajx502kYg.png"></figure><ul class="postList"><li name="240a" id="240a" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong">向上 / 向下移動 n 行</strong></li></ul><p name="8044" id="8044" class="graf graf--p graf-after--li">輸入 3k 可向上移動 3 行，輸入 3j 可向下移動 3 行。</p><figure name="43a9" id="43a9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*mocYU1SPBXC6Mjf1vOaXZA.png" data-width="1944" data-height="724" src="https://cdn-images-1.medium.com/max/800/1*mocYU1SPBXC6Mjf1vOaXZA.png"></figure><h3 name="b9a6" id="b9a6" class="graf graf--h3 graf-after--figure">參考連結</h3><p name="d1e4" id="d1e4" class="graf graf--p graf-after--h3">Vim 還有許多強大的指令，有興趣的朋友可進一步參考 Vim Cheat Sheet 的說明。</p><div name="356e" id="356e" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://vim.rtorr.com" data-href="https://vim.rtorr.com" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://vim.rtorr.com"><strong class="markup--strong markup--mixtapeEmbed-strong">Vim Cheat Sheet</strong><br><em class="markup--em markup--mixtapeEmbed-em">h[elp] keyword - open help for keyword :sav[eas] file - save file as :clo[se] - close current pane :ter[minal] - open a…</em>vim.rtorr.com</a><a href="https://vim.rtorr.com" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock" data-media-id="b8c666b6aefeaeb900a884cd710e29f3"></a></div><figure name="8515" id="8515" class="graf graf--figure graf--iframe graf-after--mixtapeEmbed graf--trailing"><iframe src="https://www.youtube.com/embed/jfiP-5vhac8" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/84699af111a"><time class="dt-published" datetime="2021-06-11T14:58:03.380Z">June 11, 2021</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-xcode-13-%E7%9A%84-vim-%E6%A8%A1%E5%BC%8F%E5%AF%AB%E7%A8%8B%E5%BC%8F-%E6%AF%94%E6%96%B9-duplicate-line-%E8%A4%87%E8%A3%BD%E8%B2%BC%E4%B8%8A%E8%A1%8C-84699af111a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

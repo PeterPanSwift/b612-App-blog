@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>SwiftUI App 實現全螢幕背景圖的幾種方法</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">SwiftUI App 實現全螢幕背景圖的幾種方法</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+開發 iOS App 時，有時我們會想設定全螢幕的背景圖，因此通常會從背景圖的 Image 呼叫 modifier resizable、scaledToFill、ignoresSafeArea。
+</section>
+<section data-field="body" class="e-content">
+<section name="eb84" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a847" id="a847" class="graf graf--h3 graf--leading graf--title">SwiftUI App 實現全螢幕背景圖的幾種方法</h3><p name="e987" id="e987" class="graf graf--p graf-after--h3">開發 iOS App 時，有時我們會想設定全螢幕的背景圖，因此通常會從背景圖的 Image 呼叫 modifier resizable、scaledToFill、ignoresSafeArea。</p><p name="5e46" id="5e46" class="graf graf--p graf-after--p">不過此時卻可能遇到圖片超出螢幕的問題，例如以下例子。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="1145" id="1145" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />   <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">ZStack</span>(alignment: .bottomTrailing) {<br />            <span class="hljs-type">Image</span>(.prince)<br />                .resizable()<br />                .scaledToFill()<br />                .ignoresSafeArea()<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;冰島極光寫程式&quot;</span>)<br />                .font(.largeTitle)<br />                .foregroundStyle(.white)<br />                .padding()<br />        }<br />    }<br />}</span></pre><p name="6b80" id="6b80" class="graf graf--p graf-after--pre">我們希望圖片和文字對齊右下方，但是文字卻被切到了。</p><figure name="c138" id="c138" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aSS4_KPAbnNWaBT-KYlvnA.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*aSS4_KPAbnNWaBT-KYlvnA.png"></figure><p name="9a29" id="9a29" class="graf graf--p graf-after--figure">為什麼呢 ? 都是背景圖惹的禍，點選下方的箭頭切到 Selectable 模式後，可看到圖片為了維持比例填滿，它的寬度超出了螢幕，因此和圖片對齊 bottomTrailing 的文字也跑到了螢幕之外。</p><figure name="01db" id="01db" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NqtprwZuROw2NvV5fpPHQw.png" data-width="1232" data-height="1560" src="https://cdn-images-1.medium.com/max/800/1*NqtprwZuROw2NvV5fpPHQw.png"><figcaption class="imageCaption">圖片的框框</figcaption></figure><figure name="b2b1" id="b2b1" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*2NnrAznTUl-c5YUqdLvshg.png" data-width="982" data-height="1568" src="https://cdn-images-1.medium.com/max/800/1*2NnrAznTUl-c5YUqdLvshg.png"><figcaption class="imageCaption">文字的框框</figcaption></figure><p name="6edf" id="6edf" class="graf graf--p graf-after--figure">為了讓圖片的寬度等於螢幕的寬度，我們有幾種做法。</p><ul class="postList"><li name="46e4" id="46e4" class="graf graf--li graf-after--p">containerRelativeFrame(.horizontal)。</li><li name="4c84" id="4c84" class="graf graf--li graf-after--li">frame(minWidth: 0, maxWidth: .infinity)。</li><li name="8af4" id="8af4" class="graf graf--li graf-after--li">GeometryReader。</li></ul><p name="1dbb" id="1dbb" class="graf graf--p graf-after--li">ps: 通常問題都是圖片的寬度超出螢幕，不過某些比例的圖也可能讓圖片的高度超出螢幕，此時一樣可用這三個方法修正，只是要改成調整高度。</p><h3 name="b839" id="b839" class="graf graf--h3 graf-after--p">containerRelativeFrame(.horizontal) — iOS 17 以上</h3><p name="af84" id="af84" class="graf graf--p graf-after--h3"><code class="markup--code markup--p-code">containerRelativeFrame(.horizontal) </code>將讓圖片的寬度等於容器的寬度，對以下例子的 Image 來說，它的容器是螢幕，因此圖片的寬度將等於螢幕的寬度。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="fac7" id="fac7" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />   <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">ZStack</span>(alignment: .bottomTrailing) {<br />            <span class="hljs-type">Image</span>(.prince)<br />                .resizable()<br />                .scaledToFill()<br />                .containerRelativeFrame(.horizontal)<br />                .ignoresSafeArea()<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;冰島極光寫程式&quot;</span>)<br />                .font(.largeTitle)<br />                .foregroundStyle(.white)<br />                .padding()<br />        }<br />    }<br />}</span></pre><figure name="e0a9" id="e0a9" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*gmtnrqxr4wYwsKC8M3CfpA.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*gmtnrqxr4wYwsKC8M3CfpA.png"></figure><p name="d345" id="d345" class="graf graf--p graf-after--figure">從 Selectable 模式可看到圖片果然不再超出螢幕。</p><figure name="186f" id="186f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*d-Ar4RUdqhwmoLuJPeCFOA.png" data-width="1224" data-height="1572" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*d-Ar4RUdqhwmoLuJPeCFOA.png"></figure><figure name="2c3d" id="2c3d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*jYkN5-Q9_zFnJ--NU2XOAw.png" data-width="978" data-height="1568" src="https://cdn-images-1.medium.com/max/800/1*jYkN5-Q9_zFnJ--NU2XOAw.png"></figure><p name="845a" id="845a" class="graf graf--p graf-after--figure">加上 TabView &amp; NavigationStack 後依然是全螢幕。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="72f1" id="72f1" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">TabView</span> {<br />            <span class="hljs-type">Tab</span>(<span class="hljs-string">&quot;star&quot;</span>, systemImage: <span class="hljs-string">&quot;star&quot;</span>) {<br />                <span class="hljs-type">NavigationStack</span> {<br />                    <span class="hljs-type">ZStack</span>(alignment: .bottomTrailing) {<br />                        <span class="hljs-type">Image</span>(.prince)<br />                            .resizable()<br />                            .scaledToFill()<br />                            .containerRelativeFrame(.horizontal)<br />                            .ignoresSafeArea()<br />                        <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;冰島極光寫程式&quot;</span>)<br />                            .font(.largeTitle)<br />                            .foregroundStyle(.white)<br />                            .padding()<br />                    }<br />                }<br />            }<br />        }<br />    }<br />}</span></pre><figure name="96bd" id="96bd" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*slhtnHhyALeBINo12oD3UA.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*slhtnHhyALeBINo12oD3UA.png"></figure><h3 name="3cbd" id="3cbd" class="graf graf--h3 graf-after--figure">frame(minWidth: 0, maxWidth: .infinity)</h3><p name="13fb" id="13fb" class="graf graf--p graf-after--h3">透過 <code class="markup--code markup--p-code">frame(minWidth: 0, maxWidth: .infinity) </code>限制圖片的最大寬度為可用空間的寬度，因此圖片的寬度將等於螢幕的寬度。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="a46f" id="a46f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />   <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">ZStack</span>(alignment: .bottomTrailing) {<br />            <span class="hljs-type">Image</span>(.prince)<br />                .resizable()<br />                .scaledToFill()<br />                .frame(minWidth: <span class="hljs-number">0</span>, maxWidth: .infinity)<br />                .ignoresSafeArea()<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;冰島極光寫程式&quot;</span>)<br />                .font(.largeTitle)<br />                .foregroundStyle(.white)<br />                .padding()<br />        }<br />    }<br />}</span></pre><h3 name="2b6f" id="2b6f" class="graf graf--h3 graf-after--pre">GeometryReader</h3><p name="6f67" id="6f67" class="graf graf--p graf-after--h3">透過 GeometryReader 取得可用空間的寬度，在以下例子 <code class="markup--code markup--p-code">geometryProxy.size.width</code> 將取得螢幕的寬度。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="e054" id="e054" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">GeometryReader</span> { geometryProxy <span class="hljs-keyword">in</span><br />            <span class="hljs-type">ZStack</span>(alignment: .bottomTrailing) {<br />                <span class="hljs-type">Image</span>(.prince)<br />                    .resizable()<br />                    .scaledToFill()<br />                    .frame(width: geometryProxy.size.width)<br />                    .ignoresSafeArea()<br />                <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;冰島極光寫程式&quot;</span>)<br />                    .font(.largeTitle)<br />                    .foregroundStyle(.white)<br />                    .padding()<br />            }<br />        }<br />    }<br />}</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/46853f910b71"><time class="dt-published" datetime="2025-11-02T15:08:35.272Z">November 2, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/swiftui-app-%E5%AF%A6%E7%8F%BE%E5%85%A8%E8%9E%A2%E5%B9%95%E8%83%8C%E6%99%AF%E5%9C%96%E7%9A%84%E5%B9%BE%E7%A8%AE%E6%96%B9%E6%B3%95-46853f910b71" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

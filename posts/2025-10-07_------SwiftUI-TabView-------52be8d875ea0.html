@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>捲動畫面裡 SwiftUI TabView 的尺寸問題</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">捲動畫面裡 SwiftUI TabView 的尺寸問題</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+透過 SwiftUI TabView 的 tabViewStyle(.page) 可以快速做出水平捲動的分頁效果，例如以下小王子畫作的例子。(ps: 圖片為古典玫瑰園打狗英國領事館文化園區牆上的畫作)
+</section>
+<section data-field="body" class="e-content">
+<section name="4070" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c51a" id="c51a" class="graf graf--h3 graf--leading graf--title">捲動畫面裡 SwiftUI TabView 的尺寸問題</h3><p name="38b0" id="38b0" class="graf graf--p graf-after--h3">透過 SwiftUI TabView 的 tabViewStyle(.page) 可以快速做出水平捲動的分頁效果，例如以下小王子畫作的例子。(ps: 圖片為古典玫瑰園打狗英國領事館文化園區牆上的畫作)</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="9deb" id="9deb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> names <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;prince1&quot;</span>, <span class="hljs-string">&quot;prince2&quot;</span>]<br /><br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">TabView</span> {<br />            <span class="hljs-type">ForEach</span>(names, id: \.<span class="hljs-keyword">self</span>) { name <span class="hljs-keyword">in</span><br />                <span class="hljs-type">Image</span>(name)<br />                    .resizable()<br />                    .scaledToFill()<br />                    .frame(height: <span class="hljs-number">260</span>)<br />                    .clipped()<br />            }<br />        }<br />        .tabViewStyle(.page)<br />    }<br />}</span></pre><figure name="4042" id="4042" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*wnQu78OsZZCkSj9geWmnWw.png" data-width="1172" data-height="1154" src="https://cdn-images-1.medium.com/max/800/1*wnQu78OsZZCkSj9geWmnWw.png"></figure><p name="8acd" id="8acd" class="graf graf--p graf-after--figure">然而當我們用 ScrollView 或 List 等捲動容器裝 TabView 時，將遇到小小的麻煩。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="c041" id="c041" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> names <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;prince1&quot;</span>, <span class="hljs-string">&quot;prince2&quot;</span>]<br /><br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">ZStack</span> {<br />            <span class="hljs-type">LinearGradient</span>(<br />                colors: [<span class="hljs-type">Color</span>.blue.opacity(<span class="hljs-number">0.15</span>), <span class="hljs-type">Color</span>.purple.opacity(<span class="hljs-number">0.15</span>)],<br />                startPoint: .topLeading,<br />                endPoint: .bottomTrailing<br />            )<br />            .ignoresSafeArea()<br /><br />            <span class="hljs-type">ScrollView</span>(.vertical) {<br />                <span class="hljs-type">VStack</span>(spacing: <span class="hljs-number">24</span>) {<br />                    <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;The Little Prince&quot;</span>)<br />                        .font(.largeTitle.bold())<br />                        .foregroundStyle(.primary)<br />                        .frame(maxWidth: .infinity, alignment: .leading)<br /><br />                    <span class="hljs-type">TabView</span> {<br />                        <span class="hljs-type">ForEach</span>(names, id: \.<span class="hljs-keyword">self</span>) { name <span class="hljs-keyword">in</span><br />                            <span class="hljs-type">Image</span>(name)<br />                                .resizable()<br />                                .scaledToFill()<br />                                .frame(height: <span class="hljs-number">260</span>)<br />                                .clipped()<br />                        }<br />                    }<br />                    .tabViewStyle(.page)<br /><br />                    <span class="hljs-type">Text</span>(<br />                        <span class="hljs-string">&quot;The Little Prince (French: Le Petit Prince) is a novella written and illustrated by French writer and aviator Antoine de Saint-Exupéry. It was first published in English and French in the United States by Reynal &amp; Hitchcock in April 1943 and was published posthumously in France following liberation; Saint-Exupéry&#x27;s works had been banned by the Vichy Regime. The story follows a young prince who visits various planets, including Earth, and addresses themes of loneliness, friendship, love, and loss. Despite its style as a children&#x27;s book, The Little Prince makes observations about life, adults, and human nature.<span class="hljs-subst">\n</span><span class="hljs-subst">\n</span>The Little Prince became Saint-Exupéry&#x27;s most successful work, selling an estimated 140 million copies worldwide, which makes it one of the best-selling in history. The book has been translated into over 505 different languages and dialects worldwide, being the second most translated work ever published, trailing only the Bible. The Little Prince has been adapted to numerous art forms and media, including audio recordings, radio plays, live stage, film, cinema television, ballet, and opera.&quot;</span><br />                    )<br />                    .foregroundStyle(.secondary)<br />                }<br />                .padding(<span class="hljs-number">20</span>)<br />            }<br />        }<br />    }<br />}</span></pre><p name="36b0" id="36b0" class="graf graf--p graf-after--pre">此時 TabView 將無法呈現正確的高度，造成 TabView 的內容被裁切，因此下圖小王子只露出身體，可愛的臉龐不見了 !</p><figure name="d481" id="d481" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*6u81JU3YGk2xZ5UGBIS1sA.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*6u81JU3YGk2xZ5UGBIS1sA.png"><figcaption class="imageCaption">ScrollView 裝 TabView 的問題範例</figcaption></figure><figure name="6c1c" id="6c1c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*OAoqAF2SpffcipP7DEPHHQ.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*OAoqAF2SpffcipP7DEPHHQ.png"><figcaption class="imageCaption">List 裝 TabView 的問題範例</figcaption></figure><p name="29f5" id="29f5" class="graf graf--p graf-after--figure">解決的方法很簡單，只要另外調整 TabView 的高度即可。以下我們示範兩種解法。</p><ul class="postList"><li name="ab4c" id="ab4c" class="graf graf--li graf-after--p">從 TabView 呼叫 modifier frame 設定高度。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="90f0" id="90f0" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-type">TabView</span> {<br />    <span class="hljs-type">ForEach</span>(names, id: \.<span class="hljs-keyword">self</span>) { name <span class="hljs-keyword">in</span><br />        <span class="hljs-type">Image</span>(name)<br />            .resizable()<br />            .scaledToFill()<br />            .clipped()<br />    }<br />}<br />.tabViewStyle(.page)<br />.frame(height: <span class="hljs-number">260</span>)</span></pre><figure name="153b" id="153b" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*nU7gJhR8za8JcJGFoI2t2w.png" data-width="675" data-height="1380" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*nU7gJhR8za8JcJGFoI2t2w.png"><figcaption class="imageCaption">ScrollView 裝 TabView</figcaption></figure><figure name="0bca" id="0bca" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*TsSJx_V3S2ofFnR_BNJAOg.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*TsSJx_V3S2ofFnR_BNJAOg.png"><figcaption class="imageCaption">List 裝 TabView</figcaption></figure><ul class="postList"><li name="c94a" id="c94a" class="graf graf--li graf-after--figure">從 TabView 呼叫 modifier aspectRatio 設定比例。</li></ul><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="1013" id="1013" class="graf graf--pre graf-after--li graf--preV2"><span class="pre--content"><span class="hljs-type">TabView</span> {<br />    <span class="hljs-type">ForEach</span>(names, id: \.<span class="hljs-keyword">self</span>) { name <span class="hljs-keyword">in</span><br />        <span class="hljs-type">Image</span>(name)<br />            .resizable()<br />            .scaledToFill()<br />            .clipped()<br />    }<br />}<br />.tabViewStyle(.page)<br />.aspectRatio(<span class="hljs-number">16</span><span class="hljs-operator">/</span><span class="hljs-number">9</span>, contentMode: .fit)</span></pre><figure name="0e2a" id="0e2a" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*Yb3uEKjX4ghruHZlXgJ20Q.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*Yb3uEKjX4ghruHZlXgJ20Q.png"><figcaption class="imageCaption">ScrollView 裝 TabView</figcaption></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/52be8d875ea0"><time class="dt-published" datetime="2025-10-07T03:04:22.012Z">October 7, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%8D%B2%E5%8B%95%E7%95%AB%E9%9D%A2%E8%A3%A1-swiftui-tabview-%E7%9A%84%E5%B0%BA%E5%AF%B8%E5%95%8F%E9%A1%8C-52be8d875ea0" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

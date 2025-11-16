@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Xcode 快速複製貼上 { } 區塊程式的方法</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Xcode 快速複製貼上 { } 區塊程式的方法</h1>
+</header>
+<section data-field="body" class="e-content">
+<section name="cea7" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="028a" id="028a" class="graf graf--h3 graf--leading graf--title">Xcode 快速複製貼上 { } 區塊程式的方法</h3><figure name="c6aa" id="c6aa" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*BF6kfit9WSJFqhxR8Z6h9A.jpeg" data-width="1024" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*BF6kfit9WSJFqhxR8Z6h9A.jpeg"><figcaption class="imageCaption">Quickly Duplicate Code Blocks in Xcode</figcaption></figure><p name="83ee" id="83ee" class="graf graf--p graf-after--figure">初學者在練習開發 iOS App 時，時常會複製貼上 { } 區塊的程式，比方以下製作球類運動清單的例子，複製貼上顯示桌球的 HStack，然後再改成棒球。</p><figure name="c558" id="c558" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*qJdz-EW9MLn1pqRxLI9n2A.png" data-width="1454" data-height="1124" src="https://cdn-images-1.medium.com/max/800/1*qJdz-EW9MLn1pqRxLI9n2A.png"></figure><figure name="d0cd" id="d0cd" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*fdvkL0NSPdtN-VbPBjmbTw.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*fdvkL0NSPdtN-VbPBjmbTw.png"></figure><p name="8f75" id="8f75" class="graf graf--p graf-after--figure">不過手動拖曳觸控版選取程式其實不太好選，按下 cmd + c 複製再按 cmd + v 貼上也有點麻煩，因此以下彼得潘另外介紹五種更快的方法。</p><ul class="postList"><li name="1dee" id="1dee" class="graf graf--li graf-after--p">按住 shift 選取再按 cmd + d 貼上。</li><li name="f29f" id="f29f" class="graf graf--li graf-after--li">折疊程式後雙擊選取，再按 cmd + d 貼上。</li><li name="cebf" id="cebf" class="graf graf--li graf-after--li">雙擊 {，按 option + shift + 向左鍵選取，再按 cmd + d 貼上。</li><li name="01d5" id="01d5" class="graf graf--li graf-after--li">使用 Vim 模式貼上多個。</li><li name="722b" id="722b" class="graf graf--li graf-after--li">請 AI 幫忙。</li></ul><h3 name="335e" id="335e" class="graf graf--h3 graf-after--li">按住 shift 選取再按 cmd + d 貼上。</h3><p name="2afa" id="2afa" class="graf graf--p graf-after--h3">在 HStack { } 後空白一行。</p><figure name="e60c" id="e60c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*tV79PgnIfviVk86SU1SwZg.png" data-width="1140" data-height="700" src="https://cdn-images-1.medium.com/max/800/1*tV79PgnIfviVk86SU1SwZg.png"></figure><p name="804a" id="804a" class="graf graf--p graf-after--figure">點擊 HStack 的 H 左邊，按住 shift 鍵，再點擊 HStack } 的下一行選取整段程式。</p><figure name="70e9" id="70e9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*GAswVYrOUFvIjHMNrPd1fg.png" data-width="1312" data-height="886" src="https://cdn-images-1.medium.com/max/800/1*GAswVYrOUFvIjHMNrPd1fg.png"></figure><p name="9e90" id="9e90" class="graf graf--p graf-after--figure">放開 shift 鍵，按下 cmd + d 貼上選取的程式。</p><figure name="e3ac" id="e3ac" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*FnYB54oiIs0rHh9T5nLdXw.png" data-width="1026" data-height="1174" src="https://cdn-images-1.medium.com/max/800/1*FnYB54oiIs0rHh9T5nLdXw.png"></figure><p name="2016" id="2016" class="graf graf--p graf-after--figure">將貼上的內容改成棒球。</p><figure name="6fa7" id="6fa7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*166JT3rEmNWrIWCumdxECQ.png" data-width="1016" data-height="1068" src="https://cdn-images-1.medium.com/max/800/1*166JT3rEmNWrIWCumdxECQ.png"></figure><figure name="84a3" id="84a3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Lzp-69jVgOfisu616hQVNQ.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*Lzp-69jVgOfisu616hQVNQ.png"></figure><h3 name="a4d0" id="a4d0" class="graf graf--h3 graf-after--figure">折疊程式後雙擊選取，再按 cmd + d 貼上</h3><p name="3f0e" id="3f0e" class="graf graf--p graf-after--h3">點選 HStack 左邊的箭頭折疊。</p><figure name="cc8d" id="cc8d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KmGNBkpiAYH6NExvCYuZiw.png" data-width="1328" data-height="610" src="https://cdn-images-1.medium.com/max/800/1*KmGNBkpiAYH6NExvCYuZiw.png"></figure><figure name="b63a" id="b63a" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*d0is5Bp6RXnJpE03YOPHWQ.png" data-width="714" data-height="100" src="https://cdn-images-1.medium.com/max/800/1*d0is5Bp6RXnJpE03YOPHWQ.png"></figure><p name="f16a" id="f16a" class="graf graf--p graf-after--figure">ps: 如果沒看到箭頭，請參考以下連結打開 Code folding ribbon。</p><div name="9ced" id="9ced" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-code-folding-ribbon-99bc8c3bd680" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-code-folding-ribbon-99bc8c3bd680" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-code-folding-ribbon-99bc8c3bd680"><strong class="markup--strong markup--mixtapeEmbed-strong">Xcode 的 Code folding ribbon</strong><br><em class="markup--em markup--mixtapeEmbed-em">我們常常不知不覺寫出長長的一大串程式，不過沒關係，Xcode 的 Code folding 功能可以幫我們將整段程式收起(折疊)，等想念它的時候再將它展開。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/xcode-%E7%9A%84-code-folding-ribbon-99bc8c3bd680" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="29209b0c6ea116407c1a55ce194690b4" data-thumbnail-img-id="1*LOWji8QKL2qQVdWLGClzbg.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*LOWji8QKL2qQVdWLGClzbg.png);"></a></div><p name="e749" id="e749" class="graf graf--p graf-after--mixtapeEmbed">雙擊選取折疊的程式。</p><figure name="ab35" id="ab35" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kmoVPVp_UvOeB57ThNQdfg.png" data-width="710" data-height="104" src="https://cdn-images-1.medium.com/max/800/1*kmoVPVp_UvOeB57ThNQdfg.png"></figure><p name="b338" id="b338" class="graf graf--p graf-after--figure">按下 cmd + d 貼上選取的程式。</p><figure name="6871" id="6871" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*a-BLJmCg8fLgsfuMhX4E1Q.png" data-width="1194" data-height="1202" src="https://cdn-images-1.medium.com/max/800/1*a-BLJmCg8fLgsfuMhX4E1Q.png"></figure><h3 name="9ec3" id="9ec3" class="graf graf--h3 graf-after--figure">雙擊 {，按 option + shift + 向左鍵選取，再按 cmd + d 貼上</h3><p name="8f7e" id="8f7e" class="graf graf--p graf-after--h3">雙擊 { 選取 { } 包含的程式。</p><figure name="ff23" id="ff23" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*xm-izbLPTy1DmI8Vl5OrPQ.png" data-width="1112" data-height="638" src="https://cdn-images-1.medium.com/max/800/1*xm-izbLPTy1DmI8Vl5OrPQ.png"></figure><p name="e85a" id="e85a" class="graf graf--p graf-after--figure">按 option + shift + 向左鍵選取 { 前的 HStack。</p><figure name="a198" id="a198" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zqiXX5wK_Ha0q5IwBvLgvw.png" data-width="1126" data-height="642" src="https://cdn-images-1.medium.com/max/800/1*zqiXX5wK_Ha0q5IwBvLgvw.png"></figure><p name="ef8c" id="ef8c" class="graf graf--p graf-after--figure">按下 cmd + d 貼上選取的程式。</p><figure name="f9bc" id="f9bc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Rb7-Y7XSNsxdqUlDcu3BTg.png" data-width="1074" data-height="1056" src="https://cdn-images-1.medium.com/max/800/1*Rb7-Y7XSNsxdqUlDcu3BTg.png"></figure><p name="ba78" id="ba78" class="graf graf--p graf-after--figure">按下向左鍵 + return 換行。</p><figure name="5a38" id="5a38" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TSL7WVAl3WHbexoJglIb7g.png" data-width="1128" data-height="1190" src="https://cdn-images-1.medium.com/max/800/1*TSL7WVAl3WHbexoJglIb7g.png"></figure><h3 name="054d" id="054d" class="graf graf--h3 graf-after--figure">使用 Vim 模式貼上多個</h3><p name="501d" id="501d" class="graf graf--p graf-after--h3">進入 vim 模式。(ps: 點選 Vim mode 可進入跟離開 Vim 模式)</p><figure name="1399" id="1399" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*f3TWlY6C9s_X8Urib3DiXg.png" data-width="1160" data-height="240" src="https://cdn-images-1.medium.com/max/800/1*f3TWlY6C9s_X8Urib3DiXg.png"></figure><p name="709d" id="709d" class="graf graf--p graf-after--figure">在 HStack 上按住 shift 後按 v % y %。(ps: shift v 是選取整行，% 會跳到對應的括號，y 是複製)</p><figure name="fc55" id="fc55" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KLs2YJd4kwzVCqsDGOKZow.png" data-width="1122" data-height="674" src="https://cdn-images-1.medium.com/max/800/1*KLs2YJd4kwzVCqsDGOKZow.png"></figure><p name="e1b3" id="e1b3" class="graf graf--p graf-after--figure">放開 shift，按 p 貼上。</p><figure name="af43" id="af43" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*rYl5SD7gntMmAu4B4FQXBQ.png" data-width="1104" data-height="1098" src="https://cdn-images-1.medium.com/max/800/1*rYl5SD7gntMmAu4B4FQXBQ.png"></figure><p name="aa0e" id="aa0e" class="graf graf--p graf-after--figure">若想一次貼上多個，可加上數字，比方 2p 會貼上 2 個。</p><figure name="6c72" id="6c72" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0wnXz8v0nfpzAO4WsvhQrg.png" data-width="766" data-height="1154" src="https://cdn-images-1.medium.com/max/800/1*0wnXz8v0nfpzAO4WsvhQrg.png"></figure><h3 name="cbff" id="cbff" class="graf graf--h3 graf-after--figure">請 AI 幫忙</h3><p name="3ed2" id="3ed2" class="graf graf--p graf-after--h3">從 HStack 叫出 Coding Tools。</p><figure name="563f" id="563f" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*_EpL2C74WL6cxYd5Ka58PQ.png" data-width="1882" data-height="750" src="https://cdn-images-1.medium.com/max/800/1*_EpL2C74WL6cxYd5Ka58PQ.png"></figure><p name="e277" id="e277" class="graf graf--p graf-after--figure">輸入 duplicate 3 times。</p><figure name="2a33" id="2a33" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*DhlTXfjrcG-nhClmkzof0A.png" data-width="548" data-height="154" src="https://cdn-images-1.medium.com/max/800/1*DhlTXfjrcG-nhClmkzof0A.png"></figure><figure name="3df5" id="3df5" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*WVo5WiIQRBeesNwrMfd1-A.png" data-width="1918" data-height="1408" src="https://cdn-images-1.medium.com/max/800/1*WVo5WiIQRBeesNwrMfd1-A.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/115a7d73a41b"><time class="dt-published" datetime="2025-11-01T03:44:28.903Z">November 1, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/xcode-%E5%BF%AB%E9%80%9F%E8%A4%87%E8%A3%BD%E8%B2%BC%E4%B8%8A-%E5%8D%80%E5%A1%8A%E7%A8%8B%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95-115a7d73a41b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

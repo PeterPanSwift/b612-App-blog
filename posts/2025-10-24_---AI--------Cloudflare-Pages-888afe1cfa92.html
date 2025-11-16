@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 AI 將網頁部署到 Cloudflare Pages</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 AI 將網頁部署到 Cloudflare Pages</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近彼得潘將網頁部署到 GitHub Pages，發現有時候網頁上圖片載入的速度慢到無法忍受，因此跟 AI 請教後，決定將網頁部署到效能更好的 Cloudflare Pages。
+</section>
+<section data-field="body" class="e-content">
+<section name="a989" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="008a" id="008a" class="graf graf--h3 graf--leading graf--title">使用 AI 將網頁部署到 Cloudflare Pages</h3><p name="5aba" id="5aba" class="graf graf--p graf-after--h3">最近彼得潘將網頁部署到 GitHub Pages，發現有時候網頁上圖片載入的速度慢到無法忍受，因此跟 AI 請教後，決定將網頁部署到效能更好的 Cloudflare Pages。</p><p name="8c59" id="8c59" class="graf graf--p graf-after--p">相較於免費的 GitHub Pages，Cloudflare Pages 也有提供免費方案，可滿足一般小網站的需求。</p><figure name="b36b" id="b36b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3MT_Iif5MU0qR-srFLqjNA.png" data-width="1620" data-height="1066" src="https://cdn-images-1.medium.com/max/800/1*3MT_Iif5MU0qR-srFLqjNA.png"></figure><div name="4b4d" id="4b4d" class="graf graf--mixtapeEmbed graf-after--figure"><a href="https://pages.cloudflare.com/" data-href="https://pages.cloudflare.com/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://pages.cloudflare.com/"><strong class="markup--strong markup--mixtapeEmbed-strong">Cloudflare Pages</strong><br><em class="markup--em markup--mixtapeEmbed-em">Build your next application with Cloudflare Pages</em>pages.cloudflare.com</a><a href="https://pages.cloudflare.com/" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="6cd98a5a96baaca92dae7ebdbb913af2" data-thumbnail-img-id="0*PMCYHnPoKQvu6G4E" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*PMCYHnPoKQvu6G4E);"></a></div><p name="8df4" id="8df4" class="graf graf--p graf-after--mixtapeEmbed">接下來彼得潘從 VS Code 打開整理 Apple 官方程式範例的專案 Apple App Samples，請 AI 將網頁部署到 Cloudflare Pages。</p><pre data-code-block-mode="0" spellcheck="false" name="e22f" id="e22f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">prompt: 將網頁部署到 Cloudflare Pages</span></pre><p name="1574" id="1574" class="graf graf--p graf-after--pre">AI 辛苦地做了很多事，比方安裝 Wrangler(管理與部署 Cloudflare 專案的 CLI 工具)和請我們登入 Cloudflare，最後成功將網頁部署到 Cloudflare Pages。詳情可參考以下對話。</p><figure name="8c0b" id="8c0b" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/PeterPanSwift/9afc5f85353d54de4d51b83184d11e90.js"></script></figure><p name="fe27" id="fe27" class="graf graf--p graf-after--figure">聊天裡提到的 <a href="https://895d82f4.swift-app-samples.pages.dev" data-href="https://895d82f4.swift-app-samples.pages.dev" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://895d82f4.swift-app-samples.pages.dev</a> 是此次部署版本的網址，每次部署的版本都會產生一個新網址，開頭有不一樣的序號，例如 895d82f4。</p><p name="ca46" id="ca46" class="graf graf--p graf-after--p">如果要連到最新版本的網頁，則可省略序號，直接連 <a href="https://swift-app-samples.pages.dev" data-href="https://swift-app-samples.pages.dev" class="markup--anchor markup--p-anchor" rel="nofollow noopener noopener" target="_blank">https://swift-app-samples.pages.dev</a>。</p><div name="40d4" id="40d4" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://swift-app-samples.pages.dev" data-href="https://swift-app-samples.pages.dev" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://swift-app-samples.pages.dev"><strong class="markup--strong markup--mixtapeEmbed-strong">Apple App Samples - Little Prince Style</strong><br><em class="markup--em markup--mixtapeEmbed-em">&quot;It is the time you have wasted for your Swift that makes your Swift so important.&quot; iOS Version: All iOS 26 iOS 18 iOS…</em>swift-app-samples.pages.dev</a><a href="https://swift-app-samples.pages.dev" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="dbcb6be30d1cad3d15862ff09b98da98" data-thumbnail-img-id="0*kWE6tr-PvXrKC2ZN" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*kWE6tr-PvXrKC2ZN);"></a></div><p name="2794" id="2794" class="graf graf--p graf-after--mixtapeEmbed">網頁的圖片載入變得超快的，給 Cloudflare Pages 五顆星評價 !</p><figure name="ed93" id="ed93" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*cBiEnfTp_XxEBtSXa08iQQ.png" data-width="2882" data-height="1860" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*cBiEnfTp_XxEBtSXa08iQQ.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/888afe1cfa92"><time class="dt-published" datetime="2025-10-24T05:58:55.113Z">October 24, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-ai-%E5%B0%87%E7%B6%B2%E9%A0%81%E9%83%A8%E7%BD%B2%E5%88%B0-cloudflare-pages-888afe1cfa92" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

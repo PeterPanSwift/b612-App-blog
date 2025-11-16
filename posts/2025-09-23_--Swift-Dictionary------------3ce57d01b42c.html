@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將 Swift Dictionary 印出的內容變成樹狀圖</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將 Swift Dictionary 印出的內容變成樹狀圖</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近利用 Claude 製作一個小工具，可將 Swift Dictionary 印出的內容變成可讀性較高的樹狀圖，特別處理的地方有以下兩個。
+</section>
+<section data-field="body" class="e-content">
+<section name="742b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c467" id="c467" class="graf graf--h3 graf--leading graf--title">將 Swift Dictionary 印出的內容變成樹狀圖</h3><p name="4c0e" id="4c0e" class="graf graf--p graf-after--h3">最近利用 Claude 製作一個小工具，可將 Swift Dictionary 印出的內容變成可讀性較高的樹狀圖，特別處理的地方有以下兩個。</p><p name="fc62" id="fc62" class="graf graf--p graf-after--p">1. 智能 Key 處理</p><ul class="postList"><li name="fd60" id="fd60" class="graf graf--li graf-after--p">自動識別 <code class="markup--code markup--li-code">_rawValue:</code> 格式</li><li name="4e3b" id="4e3b" class="graf graf--li graf-after--li">只顯示實際的值，例如：</li><li name="2931" id="2931" class="graf graf--li graf-after--li">原本：<code class="markup--code markup--li-code">__C.UIImagePickerControllerInfoKey(_rawValue: UIImagePickerControllerOriginalImage)</code></li><li name="da33" id="da33" class="graf graf--li graf-after--li">現在：<code class="markup--code markup--li-code">UIImagePickerControllerOriginalImage</code></li></ul><p name="1dec" id="1dec" class="graf graf--p graf-after--li">2. 物件類型優雅顯示</p><ul class="postList"><li name="aa38" id="aa38" class="graf graf--li graf-after--p">Swift 物件（如 <code class="markup--code markup--li-code">&lt;UIImage:0x112600280...&gt;</code>）現在會：</li><li name="67ad" id="67ad" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">預設顯示</strong>：只顯示類型名稱（如 <code class="markup--code markup--li-code">UIImage</code>）</li><li name="5431" id="5431" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong">點擊展開</strong>：顯示完整的物件詳細資訊</li></ul><p name="904d" id="904d" class="graf graf--p graf-after--li">AI 生成的網頁如下。</p><p name="0971" id="0971" class="graf graf--p graf-after--p"><a href="https://claude.ai/public/artifacts/0ffa0efa-88f7-4c58-9283-82d659da7e5c" data-href="https://claude.ai/public/artifacts/0ffa0efa-88f7-4c58-9283-82d659da7e5c" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://claude.ai/public/artifacts/0ffa0efa-88f7-4c58-9283-82d659da7e5c</a></p><figure name="7c3e" id="7c3e" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*RnASFdMpKjBg4RIz1TVI2Q.png" data-width="1946" data-height="848" src="https://cdn-images-1.medium.com/max/800/1*RnASFdMpKjBg4RIz1TVI2Q.png"></figure><p name="b963" id="b963" class="graf graf--p graf-after--figure">以下我們示範兩個例子。</p><ul class="postList"><li name="a740" id="a740" class="graf graf--li graf-after--p">UIImagePickerController 取得的照片 info。</li></ul><p name="6481" id="6481" class="graf graf--p graf-after--li">[__C.UIImagePickerControllerInfoKey(_rawValue: UIImagePickerControllerOriginalImage): &lt;UIImage:0x112600280 anonymous {3024, 4032} renderingMode=automatic(original)&gt;, __C.UIImagePickerControllerInfoKey(_rawValue: UIImagePickerControllerMediaType): public.image, __C.UIImagePickerControllerInfoKey(_rawValue: UIImagePickerControllerImageURL): file:///private/var/mobile/Containers/Data/Application/B6284075–2861–4812-BC33-A78BCE4A3D51/tmp/D5BE5724–3B9F-4F9B-AB96–2C09D8E27EED.jpeg, __C.UIImagePickerControllerInfoKey(_rawValue: UIImagePickerControllerReferenceURL): assets-library://asset/asset.HEIC?id=8BA55587-AA2A-4E4E-A897–4E9FB0FCE0CE&amp;ext=HEIC]</p><figure name="f1c6" id="f1c6" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TSDF2zB9nNajZlHBNTFbpA.png" data-width="1880" data-height="628" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*TSDF2zB9nNajZlHBNTFbpA.png"></figure><ul class="postList"><li name="ee2a" id="ee2a" class="graf graf--li graf-after--figure">NSAttributedString 的 attributes。</li></ul><p name="3db0" id="3db0" class="graf graf--p graf-after--li">[__C.NSAttributedStringKey(_rawValue: NSFont): &lt;UICTFont: 0x111a19680&gt; font-family: “.SFUI-Regular”; font-weight: normal; font-style: normal; font-size: 16.00pt, __C.NSAttributedStringKey(_rawValue: NSColor): UIExtendedSRGBColorSpace 1 0 0 1, __C.NSAttributedStringKey(_rawValue: NSUnderline): 1]</p><figure name="de0c" id="de0c" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*KNGa22t9zI-ii2qPZjIQtw.png" data-width="1842" data-height="494" src="https://cdn-images-1.medium.com/max/800/1*KNGa22t9zI-ii2qPZjIQtw.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/3ce57d01b42c"><time class="dt-published" datetime="2025-09-23T03:22:16.040Z">September 23, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87-swift-dictionary-%E5%8D%B0%E5%87%BA%E7%9A%84%E5%85%A7%E5%AE%B9%E8%AE%8A%E6%88%90%E6%A8%B9%E7%8B%80%E5%9C%96-3ce57d01b42c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

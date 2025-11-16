@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>捲動時將 tab bar 縮小到角落的  tabBarMinimizeBehavior — iOS 26 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">捲動時將 tab bar 縮小到角落的  tabBarMinimizeBehavior — iOS 26 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 iOS 26 開始，tab bar 多了一個貼心的功能，它可在我們上下捲動瀏覽內容時縮小到角落，讓我們一眼看到更多的內容。
+</section>
+<section data-field="body" class="e-content">
+<section name="f323" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="e5c7" id="e5c7" class="graf graf--h3 graf--leading graf--title">捲動時將 tab bar 縮小到角落的 tabBarMinimizeBehavior — iOS 26 新功能</h3><figure name="6a64" id="6a64" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*se3bAjrQtdcaM1ZBOkoKyQ.png" data-width="1344" data-height="768" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*se3bAjrQtdcaM1ZBOkoKyQ.png"></figure><p name="fbe5" id="fbe5" class="graf graf--p graf-after--figure">從 iOS 26 開始，tab bar 多了一個貼心的功能，它可在我們上下捲動瀏覽內容時縮小到角落，讓我們一眼看到更多的內容。</p><p name="69cb" id="69cb" class="graf graf--p graf-after--p">比方以下彼得潘往下滑動瀏覽偶像蔡淳佳的歌曲時，tab bar 偷偷地縮小躲到角落，只剩下小小的 Library tab icon。</p><figure name="c1be" id="c1be" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*YRaeFLe1kk3YKDxWgXYBDA.png" data-width="1320" data-height="1340" src="https://cdn-images-1.medium.com/max/800/1*YRaeFLe1kk3YKDxWgXYBDA.png"></figure><p name="0d6b" id="0d6b" class="graf graf--p graf-after--figure">這麼棒的功能只要透過 tabBarMinimizeBehavior 就能實現。以下我們分別介紹 SwiftUI &amp; UIKit App 的做法，用包含福爾摩斯 &amp; 亞森羅蘋作品集的 2 個 tab 為例說明。</p><h3 name="3a7d" id="3a7d" class="graf graf--h3 graf-after--p">SwiftUI App</h3><p name="c7fc" id="c7fc" class="graf graf--p graf-after--h3">從 TabView 呼叫 modifier tabBarMinimizeBehavior，傳入 .onScrollDown 或 .onScrollUp 都可縮小 tab bar，onScrollDown 會在往下滑動時縮小，onScrollUp 會在往上滑動時縮小。</p><div name="2bea" id="2bea" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/swiftui/view/tabbarminimizebehavior%28_:%29" data-href="https://developer.apple.com/documentation/swiftui/view/tabbarminimizebehavior(_:)" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/swiftui/view/tabbarminimizebehavior(_:)"><strong class="markup--strong markup--mixtapeEmbed-strong">tabBarMinimizeBehavior(_:) | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Sets the behavior for tab bar minimization.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/swiftui/view/tabbarminimizebehavior%28_:%29" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="a3fa3dcf0de68fca24a5c44447dbf4ae" data-thumbnail-img-id="0*Q1NjjhqE7XaqORSz" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Q1NjjhqE7XaqORSz);"></a></div><p name="7ee6" id="7ee6" class="graf graf--p graf-after--mixtapeEmbed">程式範例。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="94dc" id="94dc" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> SwiftUI<br /><br /><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-keyword">let</span> sherlockHolmesNovels <span class="hljs-operator">=</span> [<br />        <span class="hljs-string">&quot;暗紅色研究&quot;</span>,<br />        <span class="hljs-string">&quot;四個人的簽名&quot;</span>,<br />        <span class="hljs-string">&quot;福爾摩斯辦案記&quot;</span>,<br />        <span class="hljs-string">&quot;福爾摩斯回憶記&quot;</span>,<br />        <span class="hljs-string">&quot;巴斯克村獵犬&quot;</span>,<br />        <span class="hljs-string">&quot;福爾摩斯歸來記&quot;</span>,<br />        <span class="hljs-string">&quot;恐懼之谷&quot;</span>,<br />        <span class="hljs-string">&quot;福爾摩斯退場記&quot;</span>,<br />        <span class="hljs-string">&quot;福爾摩斯檔案簿&quot;</span>,<br />        <span class="hljs-string">&quot;柯南．道爾的一生&quot;</span><br />    ]<br />    <span class="hljs-keyword">let</span> arseneLupinNovels <span class="hljs-operator">=</span> [<br />        <span class="hljs-string">&quot;怪盜亞森‧羅蘋&quot;</span>,<br />        <span class="hljs-string">&quot;虎牙&quot;</span>,<br />        <span class="hljs-string">&quot;黃金三角&quot;</span>,<br />        <span class="hljs-string">&quot;八大奇案&quot;</span>,<br />        <span class="hljs-string">&quot;奇巖城&quot;</span>,<br />        <span class="hljs-string">&quot;玻璃瓶塞的祕密&quot;</span>,<br />        <span class="hljs-string">&quot;棺材島&quot;</span>,<br />        <span class="hljs-string">&quot;怪盜與名偵探&quot;</span>,<br />        <span class="hljs-string">&quot;七大祕密&quot;</span>,<br />        <span class="hljs-string">&quot;綠眼睛的少女&quot;</span>,<br />        <span class="hljs-string">&quot;8‧1‧3的謎&quot;</span>,<br />        <span class="hljs-string">&quot;奇怪的屋子&quot;</span>,<br />        <span class="hljs-string">&quot;消失的王冠&quot;</span>,<br />        <span class="hljs-string">&quot;金字塔的祕密&quot;</span>,<br />        <span class="hljs-string">&quot;魔女與羅蘋&quot;</span>,<br />        <span class="hljs-string">&quot;魔人與海盜王&quot;</span>,<br />        <span class="hljs-string">&quot;羅蘋的大冒險&quot;</span>,<br />        <span class="hljs-string">&quot;幻影殺手&quot;</span>,<br />        <span class="hljs-string">&quot;羅蘋的大失敗&quot;</span>,<br />        <span class="hljs-string">&quot;妖魔與女偵探&quot;</span>,<br />        <span class="hljs-string">&quot;名探羅蘋&quot;</span>,<br />        <span class="hljs-string">&quot;惡魔詛咒的紅圈&quot;</span>,<br />        <span class="hljs-string">&quot;羅蘋與怪人&quot;</span>,<br />        <span class="hljs-string">&quot;魔女的復仇&quot;</span>,<br />        <span class="hljs-string">&quot;黑色的吸血蝙蝠&quot;</span>,<br />        <span class="hljs-string">&quot;惡魔鑽石&quot;</span>,<br />        <span class="hljs-string">&quot;白色秋牡丹的祕密&quot;</span>,<br />        <span class="hljs-string">&quot;雙面人&quot;</span>,<br />        <span class="hljs-string">&quot;羅蘋與殺人魔王&quot;</span>,<br />        <span class="hljs-string">&quot;千鈞一髮&quot;</span><br />    ]<br /><br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">TabView</span> {<br />            <span class="hljs-type">Tab</span>(<span class="hljs-string">&quot;福爾摩斯&quot;</span>, systemImage: <span class="hljs-string">&quot;doc.text.magnifyingglass&quot;</span>) {<br />                <span class="hljs-type">NavigationStack</span> {<br />                    <span class="hljs-type">List</span>(sherlockHolmesNovels, id: \.<span class="hljs-keyword">self</span>) { novel <span class="hljs-keyword">in</span><br />                        <span class="hljs-type">Text</span>(novel)<br />                    }<br />                    .navigationTitle(<span class="hljs-string">&quot;福爾摩斯作品集&quot;</span>)<br />                }<br />                <br />            }<br />            <span class="hljs-type">Tab</span>(<span class="hljs-string">&quot;亞森羅蘋&quot;</span>, systemImage: <span class="hljs-string">&quot;theatermasks&quot;</span>) {<br />                <span class="hljs-type">NavigationStack</span> {<br />                    <span class="hljs-type">List</span>(arseneLupinNovels, id: \.<span class="hljs-keyword">self</span>) { novel <span class="hljs-keyword">in</span><br />                        <span class="hljs-type">Text</span>(novel)<br />                    }<br />                    .navigationTitle(<span class="hljs-string">&quot;亞森羅蘋作品集&quot;</span>)<br />                }<br />            }<br />        }<br />        .tabBarMinimizeBehavior(.onScrollDown)<br />    }<br />}</span></pre><p name="2d58" id="2d58" class="graf graf--p graf-after--pre">如下圖所示，亞森羅蘋作品集一開始顯示完整的 tab bar。</p><figure name="41f1" id="41f1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*VlLb-2DF3VuguldMbHdKYA.png" data-width="1350" data-height="2760" src="https://cdn-images-1.medium.com/max/800/1*VlLb-2DF3VuguldMbHdKYA.png"></figure><p name="0a3c" id="0a3c" class="graf graf--p graf-after--figure">當我們往下捲動時， tab bar 縮小到角落，剩下亞森羅蘋的面具 icon。</p><figure name="5db3" id="5db3" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*RPsuOYGKb8ff1Z22g98FqQ.png" data-width="1350" data-height="2760" src="https://cdn-images-1.medium.com/max/800/1*RPsuOYGKb8ff1Z22g98FqQ.png"></figure><p name="7f4b" id="7f4b" class="graf graf--p graf-after--figure">那縮小的 tab bar 要如何還原回原本的大小呢 ? 以下三種情況都可以還原。</p><ul class="postList"><li name="3707" id="3707" class="graf graf--li graf-after--p">滑到最上面。</li><li name="d2da" id="d2da" class="graf graf--li graf-after--li">滑到最下面，然後再繼續往下滑。</li><li name="c08c" id="c08c" class="graf graf--li graf-after--li">點選 tab icon。</li></ul><p name="681a" id="681a" class="graf graf--p graf-after--li">值得注意的，福爾摩斯的 tab 並不會有縮小的行為，難道是福爾摩斯比亞森羅蘋弱嗎 ?</p><p name="f52b" id="f52b" class="graf graf--p graf-after--p">當然不是呀，原因很簡單，因為福爾摩斯的頁面長度不夠長，tab bar 只有在頁面超過一定長度時才會縮小。</p><figure name="557b" id="557b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3aN_FO9d-1z9TeisaXAA2g.png" data-width="1350" data-height="2760" src="https://cdn-images-1.medium.com/max/800/1*3aN_FO9d-1z9TeisaXAA2g.png"></figure><h3 name="dbd4" id="dbd4" class="graf graf--h3 graf-after--figure">UIKit App</h3><p name="cd92" id="cd92" class="graf graf--p graf-after--h3">設定 tab bar controller 的 tabBarMinimizeBehavior，設為 .onScrollDown 或 .onScrollUp 都可縮小 tab bar，onScrollDown 會在往下滑動時縮小，onScrollUp 會在往上滑動時縮小。</p><div name="2eea" id="2eea" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/tabbarminimizebehavior" data-href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/tabbarminimizebehavior" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/uikit/uitabbarcontroller/tabbarminimizebehavior"><strong class="markup--strong markup--mixtapeEmbed-strong">tabBarMinimizeBehavior | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Defines the minimize behavior for the tab bar, if it is supported.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/tabbarminimizebehavior" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="9a84f8a4f553965bf28bed3ac897fee7" data-thumbnail-img-id="0*c_wldqI8jatX5ur1" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*c_wldqI8jatX5ur1);"></a></div><p name="12ae" id="12ae" class="graf graf--p graf-after--mixtapeEmbed">程式範例。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="fbd1" id="fbd1" class="graf graf--pre graf-after--p graf--trailing graf--preV2"><span class="pre--content">tabBarController<span class="hljs-operator">?</span>.tabBarMinimizeBehavior <span class="hljs-operator">=</span> .onScrollDown</span></pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/8b2132144303"><time class="dt-published" datetime="2025-09-28T16:21:49.985Z">September 28, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E6%8D%B2%E5%8B%95%E6%99%82%E5%B0%87-tab-bar-%E7%B8%AE%E5%B0%8F%E5%88%B0%E8%A7%92%E8%90%BD%E7%9A%84-tabbarminimizebehavior-ios-26-%E6%96%B0%E5%8A%9F%E8%83%BD-8b2132144303" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Apple 的人物對話動畫範例 — 使用 Task.sleep</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Apple 的人物對話動畫範例 — 使用 Task.sleep</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+最近彼得潘研究 Apple 在 WWDC25 的範例 Generate dynamic game content with guided generation and tools，發現它實現了一個遊戲常見的功能 — 人物對話。
+</section>
+<section data-field="body" class="e-content">
+<section name="7e89" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="a11b" id="a11b" class="graf graf--h3 graf--leading graf--title">Apple 的人物對話動畫範例 — 使用 Task.sleep</h3><p name="a2ed" id="a2ed" class="graf graf--p graf-after--h3">最近彼得潘研究 Apple 在 WWDC25 的範例 Generate dynamic game content with guided generation and tools，發現它實現了一個遊戲常見的功能 — 人物對話。</p><div name="ff81" id="ff81" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://developer.apple.com/documentation/foundationmodels/generate-dynamic-game-content-with-guided-generation-and-tools" data-href="https://developer.apple.com/documentation/foundationmodels/generate-dynamic-game-content-with-guided-generation-and-tools" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://developer.apple.com/documentation/foundationmodels/generate-dynamic-game-content-with-guided-generation-and-tools"><strong class="markup--strong markup--mixtapeEmbed-strong">Generate dynamic game content with guided generation and tools | Apple Developer Documentation</strong><br><em class="markup--em markup--mixtapeEmbed-em">Make gameplay more lively with AI generated dialog and encounters personalized to the player.</em>developer.apple.com</a><a href="https://developer.apple.com/documentation/foundationmodels/generate-dynamic-game-content-with-guided-generation-and-tools" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="14b75226756bb75449c596bd717535e4" data-thumbnail-img-id="0*OuZ2v-pMfjQ0Q0LW" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*OuZ2v-pMfjQ0Q0LW);"></a></div><figure name="9567" id="9567" class="graf graf--figure graf-after--mixtapeEmbed"><img class="graf-image" data-image-id="1*qxj91NapSXWokbD6H1kltA.gif" data-width="295" data-height="640" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*qxj91NapSXWokbD6H1kltA.gif"></figure><p name="6889" id="6889" class="graf graf--p graf-after--figure">查看程式碼後，發現原來 Apple 利用 Task.sleep 實現對話一字一字出現的動畫效果。</p><p name="4a9f" id="4a9f" class="graf graf--p graf-after--p">以下我們將 Appe 的程式精簡成以下範例說明。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="0f2b" id="0f2b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> isTalking <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />    <span class="hljs-keyword">let</span> text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;All grown-ups were once children... but only few of them remember it.&quot;</span><br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> renderedText <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span>(alignment: .leading, spacing: <span class="hljs-number">0</span>) {<br />            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Little Prince&quot;</span>)<br />                .fontWeight(.bold)<br />            <span class="hljs-type">HStack</span> {<br />                <span class="hljs-type">Text</span>(renderedText)<br />                    .onChange(of: renderedText, typingAnimation)<br />                <span class="hljs-type">Spacer</span>()<br />            }<br />        }<br />        .frame(width: <span class="hljs-number">250</span>)<br />        .padding()<br />        .background(.brown.secondary)<br />        .border(.brown, width: <span class="hljs-number">6</span>)<br />        .onAppear(perform: typingAnimation)<br />    }<br />    <br />    <span class="hljs-keyword">func</span> <span class="hljs-title function_">typingAnimation</span>() {<br />        <span class="hljs-keyword">if</span> renderedText.count <span class="hljs-operator">&lt;</span> text.count {<br />            isTalking <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br />            <span class="hljs-type">Task</span> {<br />                <span class="hljs-keyword">try?</span> <span class="hljs-keyword">await</span> <span class="hljs-type">Task</span>.sleep(for: .seconds(<span class="hljs-number">0.025</span>))<br />                <span class="hljs-keyword">if</span> renderedText.count <span class="hljs-operator">&lt;</span> text.count {<br />                    <span class="hljs-keyword">let</span> next <span class="hljs-operator">=</span> text[renderedText.endIndex]<br />                    renderedText.append(next)<br />                } <span class="hljs-keyword">else</span> {<br />                    isTalking <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />                }<br />            }<br />        } <span class="hljs-keyword">else</span> {<br />            isTalking <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br />        }<br />    }<br />}</span></pre><p name="8ccc" id="8ccc" class="graf graf--p graf-after--pre">text 是對話的完整內容，renderedText 是畫面上看到的對話，我們透過 function typingAnimation 讓 renderedText 一字一字增加到跟 text 一模一樣，利用 <code class="markup--code markup--p-code">Task.sleep(for: .seconds(0.025))</code>稍做停頓，實現對話慢慢長出的動畫效果。</p><p name="94ab" id="94ab" class="graf graf--p graf-after--p">呼叫 typingAnimation 的地方有兩種，一個是 onAppear，一個是 Text(renderedText) 的 onChange(of:initial:_:)，因此畫面一出現就會觸發 typingAnimation，然後在 renderedText 改變時繼續觸發 typingAnimation。</p><figure name="5be7" id="5be7" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*O8ZibN74t76tYmer_PkS-Q.gif" data-width="295" data-height="640" src="https://cdn-images-1.medium.com/max/800/1*O8ZibN74t76tYmer_PkS-Q.gif"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/76c2ba7fe84f"><time class="dt-published" datetime="2025-10-23T05:56:11.339Z">October 23, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/apple-%E7%9A%84%E4%BA%BA%E7%89%A9%E5%B0%8D%E8%A9%B1%E5%8B%95%E7%95%AB%E7%AF%84%E4%BE%8B-%E4%BD%BF%E7%94%A8-task-sleep-76c2ba7fe84f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>

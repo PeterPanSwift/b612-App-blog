@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>利用 SwiftUI scaleEffect(_:anchor:) 的 anchor 控制元件放大時固定的位置</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">利用 SwiftUI scaleEffect(_:anchor:) 的 anchor 控制元件放大時固定的位置</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+SwiftUI 的 scaleEffect 可以方便地將元件變大，例如以下例子按下變大吧會將圖片放大 3 倍，按下還原吧會將圖片還原。
+</section>
+<section data-field="body" class="e-content">
+<section name="28a1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="6701" id="6701" class="graf graf--h3 graf--leading graf--title">利用 SwiftUI scaleEffect(_:anchor:) 的 anchor 控制元件放大時固定的位置</h3><p name="6f68" id="6f68" class="graf graf--p graf-after--h3">SwiftUI 的 scaleEffect 可以方便地將元件變大，例如以下例子按下<code class="markup--code markup--p-code">變大吧</code>會將圖片放大 3 倍，按下還原吧會將圖片還原。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="24b4" id="24b4" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> scale: <span class="hljs-type">Double</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Image</span>(.coding)<br />                .resizable()<br />                .scaledToFit()<br />                .frame(width: <span class="hljs-number">100</span>)<br />                .scaleEffect(scale)<br />            <span class="hljs-type">HStack</span> {<br />                <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;變大吧&quot;</span>) {<br />                    scale <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br />                }<br />                <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;還原吧&quot;</span>) {<br />                    scale <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />                }<br />            }<br />            .buttonStyle(.borderedProminent)<br />        }<br />    }<br />}</span></pre><figure name="a1ed" id="a1ed" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*b4XosmoAUg9VcjtGUEslqw.png" data-width="675" data-height="1380" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*b4XosmoAUg9VcjtGUEslqw.png"></figure><p name="d819" id="d819" class="graf graf--p graf-after--figure">不過放大時元件預設將維持它的中心點，因此如下圖所示，放大後的圖片跟按鈕重疊了。</p><figure name="c306" id="c306" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*FxlglkZ_uF6VPr1_d7KFww.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*FxlglkZ_uF6VPr1_d7KFww.png"></figure><p name="fddd" id="fddd" class="graf graf--p graf-after--figure">其實 scaleEffect 還有一個 anchor 參數可控制元件放大時固定的位置。以下例子 <code class="markup--code markup--p-code">scaleEffect(scale, anchor: .bottom) </code>將讓元件固定下方的位置，因此放大時圖片不再和按鈕重疊。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="swift" name="279b" id="279b" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> scale: <span class="hljs-type">Double</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Image</span>(.coding)<br />                .resizable()<br />                .scaledToFit()<br />                .frame(width: <span class="hljs-number">100</span>)<br />                .scaleEffect(scale, anchor: .bottom)<br />            <span class="hljs-type">HStack</span> {<br />                <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;變大吧&quot;</span>) {<br />                    scale <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br />                }<br />                <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;還原吧&quot;</span>) {<br />                    scale <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />                }<br />            }<br />            .buttonStyle(.borderedProminent)<br />        }<br />    }<br />}</span></pre><figure name="89c7" id="89c7" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*3OPRRTnlbx_fXJAi5L5a9Q.png" data-width="675" data-height="1380" src="https://cdn-images-1.medium.com/max/800/1*3OPRRTnlbx_fXJAi5L5a9Q.png"></figure><p name="7af5" id="7af5" class="graf graf--p graf-after--figure">透過 anchor 還可生成特別的動畫效果，以下例子的 anchor bottom 將讓圖片變大由下而上生成。</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="swift" name="d90e" id="d90e" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ContentView</span>: <span class="hljs-title class_">View</span> {<br />    <span class="hljs-meta">@State</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> scale: <span class="hljs-type">Double</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />    <br />    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {<br />        <span class="hljs-type">VStack</span> {<br />            <span class="hljs-type">Image</span>(.coding)<br />                .resizable()<br />                .scaledToFit()<br />                .frame(width: <span class="hljs-number">100</span>)<br />                .scaleEffect(scale, anchor: .bottom)<br />                .animation(.easeInOut(duration: <span class="hljs-number">3</span>), value: scale)<br />            <span class="hljs-type">HStack</span> {<br />                <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;變大吧&quot;</span>) {<br />                    scale <span class="hljs-operator">=</span> <span class="hljs-number">3</span><br />                }<br />                <span class="hljs-type">Button</span>(<span class="hljs-string">&quot;還原吧&quot;</span>) {<br />                    scale <span class="hljs-operator">=</span> <span class="hljs-number">1</span><br />                }<br />            }<br />            .buttonStyle(.borderedProminent)<br />        }<br />    }<br />}</span></pre><figure name="3c21" id="3c21" class="graf graf--figure graf-after--pre graf--trailing"><img class="graf-image" data-image-id="1*WGUpcBqVy2QtZI_tobsOrg.gif" data-width="295" data-height="640" src="https://cdn-images-1.medium.com/max/800/1*WGUpcBqVy2QtZI_tobsOrg.gif"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/fc3d4b2792c2"><time class="dt-published" datetime="2025-11-09T06:32:59.144Z">November 9, 2025</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%88%A9%E7%94%A8-swiftui-scaleeffect-anchor-%E7%9A%84-anchor-%E6%8E%A7%E5%88%B6%E5%85%83%E4%BB%B6%E6%94%BE%E5%A4%A7%E6%99%82%E5%9B%BA%E5%AE%9A%E7%9A%84%E4%BD%8D%E7%BD%AE-fc3d4b2792c2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 16, 2025.</p></footer></article></body></html>
