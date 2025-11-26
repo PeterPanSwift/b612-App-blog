@@ -15,18 +15,16 @@ POSTS_DIR = BASE_DIR / "posts"
 OUTPUT_PATH = BASE_DIR / "posts_summary.json"
 
 
-def is_comment(title: str, body_text: str) -> bool:
+def is_comment(body_section) -> bool:
     """判斷是否為留言而非文章。
     
-    留言的特徵是標題和內文幾乎相同。
+    最可靠的判斷方法：真正的文章 body 裡會有 <h3 class="graf--title">，
+    而留言沒有這個標籤。
     """
-    # 標題和內文完全相同
-    if title == body_text:
-        return True
-    # 內文以標題開頭，且內文長度不超過標題太多（留言通常很短）
-    if body_text.startswith(title) and len(body_text) < len(title) + 50:
-        return True
-    return False
+    # 檢查是否有 h3.graf--title 標籤
+    h3_title = body_section.find("h3", class_="graf--title")
+    # 如果沒有 h3.graf--title，就是留言
+    return h3_title is None
 
 
 def load_posts(directory: Path) -> List[Dict[str, Any]]:
@@ -43,6 +41,10 @@ def load_posts(directory: Path) -> List[Dict[str, Any]]:
         if not body_section:
             continue
 
+        # 過濾留言：沒有 h3.graf--title 的是留言
+        if is_comment(body_section):
+            continue
+
         title_tag = soup.find("h1", class_="p-name")
         time_tag = soup.find("time", class_="dt-published")
 
@@ -56,11 +58,6 @@ def load_posts(directory: Path) -> List[Dict[str, Any]]:
         subtitle_section = soup.find("section", attrs={"data-field": "subtitle"})
         subtitle = subtitle_section.get_text(strip=True) if subtitle_section else ""
         body_text = body_section.get_text(" ", strip=True)
-
-        # 過濾留言：標題和內文幾乎相同的是留言而非文章
-        body_text_stripped = body_section.get_text(strip=True)
-        if is_comment(title, body_text_stripped):
-            continue
 
         if iso_datetime:
             sort_key = parse_datetime(iso_datetime)
