@@ -18,13 +18,14 @@ OUTPUT_PATH = BASE_DIR / "posts_summary.json"
 def is_comment(body_section) -> bool:
     """判斷是否為留言而非文章。
     
-    最可靠的判斷方法：真正的文章 body 裡會有 <h3 class="graf--title">，
+    最可靠的判斷方法：真正的文章 body 裡會有 <h2 class="graf--title"> 或 <h3 class="graf--title">，
     而留言沒有這個標籤。
     """
-    # 檢查是否有 h3.graf--title 標籤
+    # 檢查是否有 h2.graf--title 或 h3.graf--title 標籤
+    h2_title = body_section.find("h2", class_="graf--title")
     h3_title = body_section.find("h3", class_="graf--title")
-    # 如果沒有 h3.graf--title，就是留言
-    return h3_title is None
+    # 如果沒有 h2.graf--title 或 h3.graf--title，就是留言
+    return h2_title is None and h3_title is None
 
 
 def load_posts(directory: Path) -> List[Dict[str, Any]]:
