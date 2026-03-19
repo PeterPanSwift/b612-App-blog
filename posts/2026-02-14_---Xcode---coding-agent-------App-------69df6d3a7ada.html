@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Xcode 的 coding agent 從網路下載 App 需要的圖片</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Xcode 的 coding agent 從網路下載 App 需要的圖片</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 從 26.3 開始支援 agentic coding，因此它現在不只能生成程式，還能存取網路資料和執行各種指令。
+</section>
+<section data-field="body" class="e-content">
+<section name="e656" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="d670" id="d670" class="graf graf--h3 graf--leading graf--title">使用 Xcode 的 coding agent 從網路下載 App 需要的圖片</h3><p name="6d83" id="6d83" class="graf graf--p graf-after--h3">Xcode 從 26.3 開始支援 agentic coding，它現在不只能生成程式，還能存取網路資料和執行各種指令。</p><p name="05f3" id="05f3" class="graf graf--p graf-after--p">以下彼得潘以製作冰島好好玩 App 為例，成功從 Xcode 使用 Codex 下載冰島景點圖片並加到 assets。</p><p name="af23" id="af23" class="graf graf--p graf-after--p">ps: 目前 Xcode 的 coding agent 還無法用 AI 直接生圖。</p><figure name="7b7d" id="7b7d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kqoyeBn-pA4F6kdFh656tg.png" data-width="778" data-height="1566" src="https://cdn-images-1.medium.com/max/800/1*kqoyeBn-pA4F6kdFh656tg.png"></figure><p name="e935" id="e935" class="graf graf--p graf-after--figure">prompt。</p><pre data-code-block-mode="0" spellcheck="false" name="7e19" id="7e19" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">製作 App 冰島好好玩，從三個冰島的景點隨機一個。請生成三張景點的圖片並加到 assets </span></pre><figure name="87e4" id="87e4" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*mHt-tTMMjW6tq7iPevQVnw.png" data-width="772" data-height="246" src="https://cdn-images-1.medium.com/max/800/1*mHt-tTMMjW6tq7iPevQVnw.png"></figure><figure name="b26d" id="b26d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*uIoNcFsfHbBdxtEBl867VA.png" data-width="772" data-height="628" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*uIoNcFsfHbBdxtEBl867VA.png"></figure><p name="dff9" id="dff9" class="graf graf--p graf-after--figure">agent 執行指令時會徵求同意。</p><figure name="9d51" id="9d51" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*1BIeUb3Bq75sfunPE1HA0g.png" data-width="778" data-height="740" src="https://cdn-images-1.medium.com/max/800/1*1BIeUb3Bq75sfunPE1HA0g.png"></figure><p name="ab71" id="ab71" class="graf graf--p graf-after--figure">agent 使用 curl 指令抓取網路圖片。</p><figure name="8e0c" id="8e0c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*QwC5bNeTqF_Gx96Hb3n5Kg.png" data-width="774" data-height="1110" src="https://cdn-images-1.medium.com/max/800/1*QwC5bNeTqF_Gx96Hb3n5Kg.png"></figure><p name="fd81" id="fd81" class="graf graf--p graf-after--figure">agent 還會檢查圖片是否正確。</p><figure name="adcd" id="adcd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*BrwD6CZvTi3zhD8wDALK_A.png" data-width="788" data-height="670" src="https://cdn-images-1.medium.com/max/800/1*BrwD6CZvTi3zhD8wDALK_A.png"></figure><p name="aa84" id="aa84" class="graf graf--p graf-after--figure">agent 發現圖片有問題，嘗試新的方法抓圖。</p><figure name="73d1" id="73d1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*LDTCcQpSBxcaCHk-IrXxgA.png" data-width="780" data-height="858" src="https://cdn-images-1.medium.com/max/800/1*LDTCcQpSBxcaCHk-IrXxgA.png"></figure><figure name="fbe9" id="fbe9" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*hYUApSkFbhQYxFwtRB1sig.png" data-width="768" data-height="1198" src="https://cdn-images-1.medium.com/max/800/1*hYUApSkFbhQYxFwtRB1sig.png"></figure><p name="ba4f" id="ba4f" class="graf graf--p graf-after--figure">agent 成功完成冰島好好玩，在 assets 加入三張冰島景點的圖片。</p><figure name="02e9" id="02e9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*s2sATrmTkNaZgxQ2K4OVCg.png" data-width="766" data-height="1196" src="https://cdn-images-1.medium.com/max/800/1*s2sATrmTkNaZgxQ2K4OVCg.png"></figure><figure name="36a4" id="36a4" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*KTpsM6Brz1LBRsp9Fq-m6Q.png" data-width="1690" data-height="1164" src="https://cdn-images-1.medium.com/max/800/1*KTpsM6Brz1LBRsp9Fq-m6Q.png"></figure><p name="fcbf" id="fcbf" class="graf graf--p graf-after--figure">程式碼連結。</p><p name="ac4c" id="ac4c" class="graf graf--p graf-after--p"><a href="https://gist.github.com/PeterPanSwift/a5acc3d1c4252bd507928b08db8d618b" data-href="https://gist.github.com/PeterPanSwift/a5acc3d1c4252bd507928b08db8d618b" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">https://gist.github.com/PeterPanSwift/a5acc3d1c4252bd507928b08db8d618b</a></p><figure name="6f5d" id="6f5d" class="graf graf--figure graf-after--p graf--trailing"><img class="graf-image" data-image-id="1*KbOtu_qZm7mX7wELs3P3YA.png" data-width="1350" data-height="2760" src="https://cdn-images-1.medium.com/max/800/1*KbOtu_qZm7mX7wELs3P3YA.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 iOS App Neverland</a> on <a href="https://medium.com/p/69df6d3a7ada"><time class="dt-published" datetime="2026-02-14T10:32:14.772Z">February 14, 2026</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-xcode-%E7%9A%84-coding-agent-%E4%B8%8B%E8%BC%89-app-%E9%9C%80%E8%A6%81%E7%9A%84%E5%9C%96%E7%89%87-69df6d3a7ada" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on March 17, 2026.</p></footer></article></body></html>
