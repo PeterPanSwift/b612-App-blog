@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Codex &amp; Claude 的 Computer use 操控 Xcode 透過 SPM 安裝套件</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Codex &amp; Claude 的 Computer use 操控 Xcode 透過 SPM 安裝套件</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+目前在 Xcode 專案透過 SPM 安裝套件並沒有方便的指令，因此請 AI 加套件時它必須修改 xcodeproj、Package.resolved 之類的檔案，不保證百分百成功。
+</section>
+<section data-field="body" class="e-content">
+<section name="3e50" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="f03e" id="f03e" class="graf graf--h3 graf--leading graf--title">使用 Codex &amp; Claude 的 Computer use 操控 Xcode 透過 SPM 安裝套件</h3><p name="5adb" id="5adb" class="graf graf--p graf-after--h3">目前在 Xcode 專案透過 SPM 安裝套件並沒有方便的指令，因此請 AI 加套件時它必須修改 xcodeproj、Package.resolved 之類的檔案，不保證百分百成功。</p><p name="aebc" id="aebc" class="graf graf--p graf-after--p">若想請 AI 加套件而且保證成功，目前較可行的做法是透過 AI 軟體的 Computer use 功能，它能操控 Xcode 的 UI 介面，因此可以實現我們平常操作 Xcode 做的各種工作。</p><p name="04ae" id="04ae" class="graf graf--p graf-after--p">之前彼得潘介紹過使用 Claude 的 Computer use 操控 Xcode 安裝套件，以下我們再示範使用 Codex 操作。</p><div name="89e0" id="89e0" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-claude-%E7%9A%84-computer-use-%E6%8E%A7%E5%88%B6-mac-%E9%96%8B%E7%99%BC-ios-app-%E5%BB%BA%E7%AB%8B-xcode-%E5%B0%88%E6%A1%88-%E5%AF%AB%E7%A8%8B%E5%BC%8F-%E5%9F%B7%E8%A1%8C%E6%A8%A1%E6%93%AC%E5%99%A8-%E8%9E%A2%E5%B9%95%E9%8C%84%E5%BD%B1-7058da91318f" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-claude-%E7%9A%84-computer-use-%E6%8E%A7%E5%88%B6-mac-%E9%96%8B%E7%99%BC-ios-app-%E5%BB%BA%E7%AB%8B-xcode-%E5%B0%88%E6%A1%88-%E5%AF%AB%E7%A8%8B%E5%BC%8F-%E5%9F%B7%E8%A1%8C%E6%A8%A1%E6%93%AC%E5%99%A8-%E8%9E%A2%E5%B9%95%E9%8C%84%E5%BD%B1-7058da91318f" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-claude-%E7%9A%84-computer-use-%E6%8E%A7%E5%88%B6-mac-%E9%96%8B%E7%99%BC-ios-app-%E5%BB%BA%E7%AB%8B-xcode-%E5%B0%88%E6%A1%88-%E5%AF%AB%E7%A8%8B%E5%BC%8F-%E5%9F%B7%E8%A1%8C%E6%A8%A1%E6%93%AC%E5%99%A8-%E8%9E%A2%E5%B9%95%E9%8C%84%E5%BD%B1-7058da91318f"><strong class="markup--strong markup--mixtapeEmbed-strong">使用 Claude 的 Computer use 控制 Mac 開發 iOS App — 建立 Xcode 專案、寫程式、執行模擬器、螢幕錄影、上架 App</strong><br><em class="markup--em markup--mixtapeEmbed-em">最近 Claude 推出強大的 Computer use 功能，我們平常在電腦的大部分操作它都能辦到。它就像真人一樣能看到螢幕畫面，然後進行點擊移動滑鼠和打字等操作。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-claude-%E7%9A%84-computer-use-%E6%8E%A7%E5%88%B6-mac-%E9%96%8B%E7%99%BC-ios-app-%E5%BB%BA%E7%AB%8B-xcode-%E5%B0%88%E6%A1%88-%E5%AF%AB%E7%A8%8B%E5%BC%8F-%E5%9F%B7%E8%A1%8C%E6%A8%A1%E6%93%AC%E5%99%A8-%E8%9E%A2%E5%B9%95%E9%8C%84%E5%BD%B1-7058da91318f" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="2e32ee0cc3a22067e826b35dc18965b5" data-thumbnail-img-id="1*eVwVmp01JLGJXN9nzix11Q.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*eVwVmp01JLGJXN9nzix11Q.png);"></a></div><p name="01ab" id="01ab" class="graf graf--p graf-after--mixtapeEmbed">ps: 記得先開啟 Codex 的 Computer use 功能。</p><figure name="7f5b" id="7f5b" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*snLg1hd8JgH47xIhW43S-Q.png" data-width="2034" data-height="1362" src="https://cdn-images-1.medium.com/max/800/1*snLg1hd8JgH47xIhW43S-Q.png"></figure><p name="8809" id="8809" class="graf graf--p graf-after--figure">打開 Codex，設定專案為 Xcode 的專案資料夾，輸入以下 prompt。</p><pre data-code-block-mode="0" spellcheck="false" name="67ba" id="67ba" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">操作 Xcode 加入 Firebase iOS SDK，不要直接修改專案的相關檔案</span></pre><p name="ef40" id="ef40" class="graf graf--p graf-after--pre">當 Codex 操控 Xcode 加套件時，有些步驟需要較長的等待，此時 Codex 可能會放棄等待，改成修改專案的相關檔案，因此我們在 prompt 提醒它不要直接修改專案的相關檔案，確保它透過 Xcode 的 UI 介面加套件。</p><p name="4698" id="4698" class="graf graf--p graf-after--p">Codex 的 Computer use 工作時將在背景操作，我們還是可以繼續在電腦做其它工作。</p><figure name="7063" id="7063" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*iM1zGa4BXAC_HktcPmwfZQ.png" data-width="2234" data-height="1242" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*iM1zGa4BXAC_HktcPmwfZQ.png"></figure><figure name="6d2f" id="6d2f" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*9kXq11vLXCr1ppTm7ob05w.png" data-width="2204" data-height="1242" src="https://cdn-images-1.medium.com/max/800/1*9kXq11vLXCr1ppTm7ob05w.png"></figure><p name="6214" id="6214" class="graf graf--p graf-after--figure">Codex 成功加入套件，Library 加入 Firebase 最基本的 Library FirebaseCore。</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="markdown" name="a249" id="a249" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">已透過 Xcode 介面加入 Firebase iOS SDK，沒有直接手動修改專案檔。<br /><br />結果：<br /><span class="hljs-bullet">-</span> Package：<span class="hljs-code">`https://github.com/firebase/firebase-ios-sdk`</span><br /><span class="hljs-bullet">-</span> Version rule：<span class="hljs-code">`Up to Next Major Version`</span><br /><span class="hljs-bullet">-</span> 目前版本：<span class="hljs-code">`12.13.0 &lt; 13.0.0`</span><br /><span class="hljs-bullet">-</span> 加到 target 的產品：<span class="hljs-code">`FirebaseCore`</span><br /><span class="hljs-bullet">-</span> Xcode 建置結果：<span class="hljs-code">`Build Succeeded`</span></span></pre><figure name="89f2" id="89f2" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*q-THUG6IHw33PjMAi545bg.png" data-width="2424" data-height="1200" src="https://cdn-images-1.medium.com/max/800/1*q-THUG6IHw33PjMAi545bg.png"></figure><p name="567c" id="567c" class="graf graf--p graf-after--figure">我們也可以指定加入的 Library，比方請 Codex 加入 Firebase 最常用到的 FirebaseAuth、FirebaseFirestore、FirebaseStorage。</p><pre data-code-block-mode="0" spellcheck="false" name="0c11" id="0c11" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">操作 Xcode 加入 Firebase iOS SDK，<br>加入 FirebaseAuth、FirebaseFirestore、FirebaseStorage，<br>不要直接修改專案的相關檔案</span></pre><figure name="a204" id="a204" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*YDhMYTEFwgD7ewM1M7dljA.png" data-width="1394" data-height="338" src="https://cdn-images-1.medium.com/max/800/1*YDhMYTEFwgD7ewM1M7dljA.png"></figure><p name="13e1" id="13e1" class="graf graf--p graf-after--figure">Codex 成功加入 FirebaseAuth、FirebaseFirestore、FirebaseStorage。</p><figure name="414d" id="414d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*uahgVV1h0yixnwnpzxsk8w.png" data-width="1420" data-height="598" src="https://cdn-images-1.medium.com/max/800/1*uahgVV1h0yixnwnpzxsk8w.png"></figure><figure name="faa1" id="faa1" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*fhjAc52R98ELBoZJo9No8g.png" data-width="1685" data-height="934" src="https://cdn-images-1.medium.com/max/800/1*fhjAc52R98ELBoZJo9No8g.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 App / AI Neverland</a> on <a href="https://medium.com/p/0f76315c7523"><time class="dt-published" datetime="2026-05-09T03:39:04.422Z">May 9, 2026</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-codex-claude-%E7%9A%84-computer-use-%E6%93%8D%E6%8E%A7-xcode-%E9%80%8F%E9%81%8E-spm-%E5%AE%89%E8%A3%9D%E5%A5%97%E4%BB%B6-0f76315c7523" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on August 17, 2026.</p></footer></article></body></html>

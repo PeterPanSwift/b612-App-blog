@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>使用 Xcode AI agent 進行 App 的啟動、操作、截圖和錄影 — Xcode 27 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">使用 Xcode AI agent 進行 App 的啟動、操作、截圖和錄影 — Xcode 27 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+從 Xcode 27 開始，我們可以請內建的 AI agent(Coding agent)幫忙啟動和操作 App 了。
+</section>
+<section data-field="body" class="e-content">
+<section name="432c" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="3298" id="3298" class="graf graf--h3 graf--leading graf--title">使用 Xcode AI agent 進行 App 的啟動、操作、截圖和錄影 — Xcode 27 新功能</h3><p name="473a" id="473a" class="graf graf--p graf-after--h3">從 Xcode 27 開始，我們可以請內建的 AI agent(Coding agent)幫忙啟動和操作 App 了。</p><p name="1d5c" id="1d5c" class="graf graf--p graf-after--p">以下彼得潘以一個簡單的丟骰子為例示範。</p><figure name="d8d7" id="d8d7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*eiA2-1vWvFHyYunA1sCQog.png" data-width="2800" data-height="1800" src="https://cdn-images-1.medium.com/max/800/1*eiA2-1vWvFHyYunA1sCQog.png"></figure><h3 name="eba3" id="eba3" class="graf graf--h3 graf-after--figure">請 AI 啟動 App</h3><p name="1e70" id="1e70" class="graf graf--p graf-after--h3">AI agent 才能啟動和操作 App，因此我們必須先點選左上的星星按鈕(Coding Assistant)，選擇使用 Agent 類的 AI，像是 Claude Agent、Codex 和 Gemini。</p><figure name="80bd" id="80bd" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-KVi1J7aFDRucRRJPZTIsg.png" data-width="604" data-height="512" src="https://cdn-images-1.medium.com/max/800/1*-KVi1J7aFDRucRRJPZTIsg.png"></figure><p name="6862" id="6862" class="graf graf--p graf-after--figure">點選上方的 + (New Conversation) 打開 AI 聊天畫面。</p><figure name="c836" id="c836" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aQKruA-5TXQWEvLQa58yHA.png" data-width="636" data-height="108" src="https://cdn-images-1.medium.com/max/800/1*aQKruA-5TXQWEvLQa58yHA.png"></figure><p name="adf8" id="adf8" class="graf graf--p graf-after--figure">輸入 prompt，請 AI 從指定的模擬器執行 App。</p><pre data-code-block-mode="0" spellcheck="false" name="8285" id="8285" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">run app on iPhone 17 Pro simulator</span></pre><figure name="3cac" id="3cac" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*TWgbZDrWsc3OMQ5vZIyN2Q.png" data-width="2202" data-height="1412" src="https://cdn-images-1.medium.com/max/800/1*TWgbZDrWsc3OMQ5vZIyN2Q.png"></figure><p name="774c" id="774c" class="graf graf--p graf-after--figure">AI 將上方的裝置選到我們指定的 iPhone 17 Pro。</p><figure name="c647" id="c647" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*nmJRpmERglq4hMNDGMfAmw.png" data-width="2186" data-height="1230" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*nmJRpmERglq4hMNDGMfAmw.png"></figure><p name="15fa" id="15fa" class="graf graf--p graf-after--figure">App 成功從 iPhone 17 Pro 模擬器啟動 !</p><figure name="db9c" id="db9c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*0uV9653uiMZAmw-7WndW9Q.png" data-width="606" data-height="1354" src="https://cdn-images-1.medium.com/max/800/1*0uV9653uiMZAmw-7WndW9Q.png"></figure><p name="e1c3" id="e1c3" class="graf graf--p graf-after--figure">想結束 App 也很簡單，請 AI stop app 即可。</p><pre data-code-block-mode="0" spellcheck="false" name="c30f" id="c30f" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">stop app</span></pre><figure name="5e37" id="5e37" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*ehK3Yew14lW3qpZoXL6vjA.png" data-width="1492" data-height="506" src="https://cdn-images-1.medium.com/max/800/1*ehK3Yew14lW3qpZoXL6vjA.png"></figure><figure name="4809" id="4809" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*KMQc_RZE0MRomjhANo_tDg.png" data-width="1626" data-height="114" src="https://cdn-images-1.medium.com/max/800/1*KMQc_RZE0MRomjhANo_tDg.png"></figure><p name="e34d" id="e34d" class="graf graf--p graf-after--figure">App 被終結了，模擬器的畫面回到桌面。</p><figure name="2355" id="2355" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*690CY6g_R9BGnCpiVJ-Jpw.png" data-width="596" data-height="1336" src="https://cdn-images-1.medium.com/max/800/1*690CY6g_R9BGnCpiVJ-Jpw.png"></figure><h3 name="3bb7" id="3bb7" class="graf graf--h3 graf-after--figure">請 AI 操作 App</h3><p name="cb4f" id="cb4f" class="graf graf--p graf-after--h3">不只是啟動 App，我們還可以請 AI 操作 App。</p><pre data-code-block-mode="0" spellcheck="false" name="57e5" id="57e5" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">點擊 play</span></pre><p name="1cd8" id="1cd8" class="graf graf--p graf-after--pre">AI 自己一個人開心地丟骰子。</p><figure name="6d39" id="6d39" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*KplPX477LxGfCzEyuFhe9g.png" data-width="2194" data-height="1422" src="https://cdn-images-1.medium.com/max/800/1*KplPX477LxGfCzEyuFhe9g.png"></figure><figure name="971b" id="971b" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*ifUc8k1YlNORrjZ6E9qQZw.png" data-width="596" data-height="1336" src="https://cdn-images-1.medium.com/max/800/1*ifUc8k1YlNORrjZ6E9qQZw.png"></figure><p name="e0e7" id="e0e7" class="graf graf--p graf-after--figure">我們也可以結合起來，一個 prompt 請 AI 啟動並測試 App。</p><pre data-code-block-mode="0" spellcheck="false" name="f6bb" id="f6bb" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">run app on iPhone 17 Pro simulator, test app</span></pre><figure name="da54" id="da54" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*stF5lk54xddlKciAIcdVsw.png" data-width="2554" data-height="1260" src="https://cdn-images-1.medium.com/max/800/1*stF5lk54xddlKciAIcdVsw.png"></figure><figure name="71ee" id="71ee" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*z8oAgp1Yx2iS0sIaVQebTw.png" data-width="2708" data-height="932" src="https://cdn-images-1.medium.com/max/800/1*z8oAgp1Yx2iS0sIaVQebTw.png"></figure><figure name="5ef3" id="5ef3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*lo26E1cgk6yqzEpprHOKEw.png" data-width="590" data-height="1324" src="https://cdn-images-1.medium.com/max/800/1*lo26E1cgk6yqzEpprHOKEw.png"></figure><h3 name="b3c1" id="b3c1" class="graf graf--h3 graf-after--figure">取得 App 畫面的截圖</h3><p name="ceaf" id="ceaf" class="graf graf--p graf-after--h3">AI 操作 App 時會進行一些畫面的截圖，如果想取得圖檔，我們可以直接在 prompt 跟他說。</p><figure name="a1f8" id="a1f8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*wBvaSjWyMOoaPhp0xakKdw.png" data-width="890" data-height="708" src="https://cdn-images-1.medium.com/max/800/1*wBvaSjWyMOoaPhp0xakKdw.png"></figure><p name="b4a0" id="b4a0" class="graf graf--p graf-after--figure">選取圖片路徑後，從右鍵選單點選 <code class="markup--code markup--p-code">Services &gt; Open</code> 打開圖片。</p><figure name="6f40" id="6f40" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*T2BDF1Vgs1HUq5jn3787Kg.png" data-width="1404" data-height="1222" src="https://cdn-images-1.medium.com/max/800/1*T2BDF1Vgs1HUq5jn3787Kg.png"></figure><figure name="bb4c" id="bb4c" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*qsg4zdlzFr_MWdIuOnVIvw.png" data-width="1418" data-height="1936" src="https://cdn-images-1.medium.com/max/800/1*qsg4zdlzFr_MWdIuOnVIvw.png"></figure><p name="4596" id="4596" class="graf graf--p graf-after--figure">我們也可以點選 <code class="markup--code markup--p-code">Services &gt; Show in Finder</code>，從 Finder 顯示圖檔。</p><figure name="bdf7" id="bdf7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*J6PjBTSlpibn_QGpt6qnrg.png" data-width="1614" data-height="1012" src="https://cdn-images-1.medium.com/max/800/1*J6PjBTSlpibn_QGpt6qnrg.png"></figure><p name="7681" id="7681" class="graf graf--p graf-after--figure">從下圖可看到 AI 拍下的畫面截圖都在 Run xxx 的資料夾下。</p><figure name="1b43" id="1b43" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*wZpL3qNt6m_VAgxPZlJbLg.png" data-width="2300" data-height="754" src="https://cdn-images-1.medium.com/max/800/1*wZpL3qNt6m_VAgxPZlJbLg.png"></figure><h3 name="b7e5" id="b7e5" class="graf graf--h3 graf-after--figure">請 AI 錄製 App 操作影片</h3><figure name="9ea9" id="9ea9" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*P7_dgYPB0nd2A356M_9Wig.png" data-width="934" data-height="1482" src="https://cdn-images-1.medium.com/max/800/1*P7_dgYPB0nd2A356M_9Wig.png"></figure><figure name="6757" id="6757" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*cA0-BGgHKrpC5a2MM5gCHA.png" data-width="1412" data-height="1384" src="https://cdn-images-1.medium.com/max/800/1*cA0-BGgHKrpC5a2MM5gCHA.png"></figure><p name="30b9" id="30b9" class="graf graf--p graf-after--figure">影片存在 /tmp/dice-app-test.mp4，可用前面介紹的 Services &gt; Open 或 Services &gt; Show in Finder 打開。</p><figure name="889d" id="889d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*NxYAEGw0dtqzVDVvcSMXmA.png" data-width="1884" data-height="1048" src="https://cdn-images-1.medium.com/max/800/1*NxYAEGw0dtqzVDVvcSMXmA.png"></figure><h3 name="a7e1" id="a7e1" class="graf graf--h3 graf-after--figure">詢問 AI App 畫面的相關問題</h3><p name="5beb" id="5beb" class="graf graf--p graf-after--h3">AI 看得到目前模擬器顯示的 App 畫面，因此我們可以詢問它相關問題。</p><figure name="9a02" id="9a02" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*v2hJiEKnE_o_r8yA3DLR9w.png" data-width="616" data-height="1374" src="https://cdn-images-1.medium.com/max/800/1*v2hJiEKnE_o_r8yA3DLR9w.png"></figure><p name="38c6" id="38c6" class="graf graf--p graf-after--figure">AI 看到目前顯示的點數是 3。</p><figure name="3a69" id="3a69" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*PBGJqOBhvSRtIxAuiw8cQw.png" data-width="2778" data-height="894" src="https://cdn-images-1.medium.com/max/800/1*PBGJqOBhvSRtIxAuiw8cQw.png"></figure><p name="e82f" id="e82f" class="graf graf--p graf-after--figure">請 AI 修改程式，將畫面變超級漂亮。</p><figure name="9346" id="9346" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*JzpvRZvstF1XVEikAllDpw.png" data-width="3228" data-height="1938" src="https://cdn-images-1.medium.com/max/800/1*JzpvRZvstF1XVEikAllDpw.png"></figure><figure name="a4a3" id="a4a3" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*qvZb7SwJOyuN_c9ZwQiz-A.png" data-width="1458" data-height="1000" src="https://cdn-images-1.medium.com/max/800/1*qvZb7SwJOyuN_c9ZwQiz-A.png"></figure><figure name="7481" id="7481" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*P0ExivixES_NJAoXXdUNGg.png" data-width="1206" data-height="2622" src="https://cdn-images-1.medium.com/max/800/1*P0ExivixES_NJAoXXdUNGg.png"></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 App / AI Neverland</a> on <a href="https://medium.com/p/cb4c0447c84b"><time class="dt-published" datetime="2026-06-12T04:24:49.092Z">June 12, 2026</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E4%BD%BF%E7%94%A8-xcode-ai-agent-%E9%80%B2%E8%A1%8C-app-%E7%9A%84%E5%95%9F%E5%8B%95-%E6%93%8D%E4%BD%9C-%E6%88%AA%E5%9C%96%E5%92%8C%E9%8C%84%E5%BD%B1-xcode-27-%E6%96%B0%E5%8A%9F%E8%83%BD-cb4c0447c84b" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on August 17, 2026.</p></footer></article></body></html>

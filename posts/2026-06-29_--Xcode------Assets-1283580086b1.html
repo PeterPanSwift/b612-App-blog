@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>在 Xcode 專案加入 Assets</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">在 Xcode 專案加入 Assets</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 專案的 Assets 專門存放 App 的圖片和素材，通常專案剛建立時就會自動準備好一個可用的 Assets。
+</section>
+<section data-field="body" class="e-content">
+<section name="9bdf" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="42d0" id="42d0" class="graf graf--h3 graf--leading graf--title">在 Xcode 專案加入 Assets</h3><p name="53fb" id="53fb" class="graf graf--p graf-after--h3">Xcode 專案的 Assets 專門存放 App 的圖片和素材，通常專案剛建立時就會自動準備好一個可用的 Assets。</p><figure name="4412" id="4412" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Yor_RzKA3P9KhhmlcQnd5w.png" data-width="1006" data-height="476" src="https://cdn-images-1.medium.com/max/800/1*Yor_RzKA3P9KhhmlcQnd5w.png"></figure><p name="2f31" id="2f31" class="graf graf--p graf-after--figure">然而有時我們會不小心將它刪除，或是使用 New Project &gt; App 快速建立沒有 Assets 的專案。</p><p name="5443" id="5443" class="graf graf--p graf-after--p">接下來我們說明如何自己在專案加入 Assets。</p><p name="e5ed" id="e5ed" class="graf graf--p graf-after--p">從右鍵選單點選 New File from Template。</p><figure name="fb9d" id="fb9d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*8Bk5TkLNwBiICfOh5KelOg.png" data-width="808" data-height="524" src="https://cdn-images-1.medium.com/max/800/1*8Bk5TkLNwBiICfOh5KelOg.png"></figure><p name="3873" id="3873" class="graf graf--p graf-after--figure">選擇 Asset Catalog。</p><figure name="1985" id="1985" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*E_kD4rMKaaub3BMY8kUTLA.png" data-width="1446" data-height="1012" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*E_kD4rMKaaub3BMY8kUTLA.png"></figure><p name="1354" id="1354" class="graf graf--p graf-after--figure">取名為 Assets 或任何你喜歡的名字。</p><figure name="2e77" id="2e77" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*niVlESPtqVdwOQw6uFYkdw.png" data-width="1362" data-height="1002" src="https://cdn-images-1.medium.com/max/800/1*niVlESPtqVdwOQw6uFYkdw.png"></figure><p name="fc95" id="fc95" class="graf graf--p graf-after--figure">新增的 Assets 預設不會有任何東西。</p><figure name="ddde" id="ddde" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*dEShRlecGhorpRYxxxB7vw.png" data-width="1056" data-height="784" src="https://cdn-images-1.medium.com/max/800/1*dEShRlecGhorpRYxxxB7vw.png"></figure><p name="d7b1" id="d7b1" class="graf graf--p graf-after--figure">通常 Assets 裡會有 AppIcon 和 AccentColor，設定 App 的 Icon 和主要顏色。以下我們再添加 AppIcon 和 AccentColor。</p><ul class="postList"><li name="9daa" id="9daa" class="graf graf--li graf-after--p">添加 AppIcon。</li></ul><p name="64ab" id="64ab" class="graf graf--p graf-after--li">點選 iOS &gt; New iOS App Icon。</p><figure name="1d17" id="1d17" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Nl_g0nRZo6uklk0yk8lZDA.png" data-width="1210" data-height="1040" src="https://cdn-images-1.medium.com/max/800/1*Nl_g0nRZo6uklk0yk8lZDA.png"></figure><figure name="7d2d" id="7d2d" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*Qxo-RIyz3fMqRHZVB_J8JA.png" data-width="1714" data-height="1142" src="https://cdn-images-1.medium.com/max/800/1*Qxo-RIyz3fMqRHZVB_J8JA.png"></figure><ul class="postList"><li name="746b" id="746b" class="graf graf--li graf-after--figure">添加 AccentColor。</li></ul><p name="e919" id="e919" class="graf graf--p graf-after--li">點選 New Color Set。</p><figure name="cca1" id="cca1" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TokEpMjsz6Vpxsf55jgp6A.png" data-width="684" data-height="554" src="https://cdn-images-1.medium.com/max/800/1*TokEpMjsz6Vpxsf55jgp6A.png"></figure><p name="3ff7" id="3ff7" class="graf graf--p graf-after--figure">取名 AccentColor 或其它你喜歡的名字。</p><figure name="387d" id="387d" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*zG5G96hBn79Qvkuxpz-hfg.png" data-width="1698" data-height="444" src="https://cdn-images-1.medium.com/max/800/1*zG5G96hBn79Qvkuxpz-hfg.png"></figure><p name="0a7a" id="0a7a" class="graf graf--p graf-after--figure">參考以下連結設定 accent color name。</p><div name="eae8" id="eae8" class="graf graf--mixtapeEmbed graf-after--p graf--trailing"><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-xcode-%E5%B0%88%E6%A1%88-build-settings-%E7%9A%84-user-defined-setting-56c4833d7d8f" data-href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-xcode-%E5%B0%88%E6%A1%88-build-settings-%E7%9A%84-user-defined-setting-56c4833d7d8f" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-xcode-%E5%B0%88%E6%A1%88-build-settings-%E7%9A%84-user-defined-setting-56c4833d7d8f"><strong class="markup--strong markup--mixtapeEmbed-strong">設定 Xcode 專案 Build Settings 的 User-Defined Setting</strong><br><em class="markup--em markup--mixtapeEmbed-em">開發 iOS App 時，我們可在 Xcode 專案 Build Settings 加入額外的設定，透過在 User-Defined Setting 區塊新增欄位。</em>medium.com</a><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%A8%AD%E5%AE%9A-xcode-%E5%B0%88%E6%A1%88-build-settings-%E7%9A%84-user-defined-setting-56c4833d7d8f" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="330d1e8d51a06f4c7e23fefad43ee7ea" data-thumbnail-img-id="1*pvqEWnBEkFtZlfeqCgMiKQ.png" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/1*pvqEWnBEkFtZlfeqCgMiKQ.png);"></a></div></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 App / AI Neverland</a> on <a href="https://medium.com/p/1283580086b1"><time class="dt-published" datetime="2026-06-29T09:23:01.535Z">June 29, 2026</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%9C%A8-xcode-%E5%B0%88%E6%A1%88%E5%8A%A0%E5%85%A5-assets-1283580086b1" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on August 17, 2026.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>將 Xcode 開發 App 的 skills 加到 Codex 和 Claude Code - Xcode 27 新功能</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">將 Xcode 開發 App 的 skills 加到 Codex 和 Claude Code - Xcode 27 新功能</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Xcode 27 內建許多開發 App 的 skill，因此能幫助 AI 寫出更好的 App 。然而有時我們也想從別的軟體透過 AI 開發 App，比方 Codex 和 Claude Code，能不能讓它們的 AI 也享用這些好用的 skill 呢 ?
+</section>
+<section data-field="body" class="e-content">
+<section name="d823" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="8f4a" id="8f4a" class="graf graf--h3 graf--leading graf--title">將 Xcode 開發 App 的 skills 加到 Codex 和 Claude Code — Xcode 27 新功能</h3><figure name="1697" id="1697" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*l8uHsRMtxj4NLynLrKNk2g.png" data-width="1448" data-height="1086" src="https://cdn-images-1.medium.com/max/800/1*l8uHsRMtxj4NLynLrKNk2g.png"></figure><p name="dcfe" id="dcfe" class="graf graf--p graf-after--figure">Xcode 27 內建許多開發 App 的 skill，因此能幫助 AI 寫出更好的 App 。然而有時我們也想從別的軟體透過 AI 開發 App，比方 Codex 和 Claude Code，能不能讓它們的 AI 也享用這些好用的 skill 呢 ?</p><p name="96fb" id="96fb" class="graf graf--p graf-after--p">當然可以，Xcode 是很大方的。只要從 Terminal 輸入以下指令即可輸出這些強大的 skill。</p><pre data-code-block-mode="0" spellcheck="false" name="0179" id="0179" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">xcrun agent skills export</span></pre><p name="4e54" id="4e54" class="graf graf--p graf-after--pre">結果。</p><pre data-code-block-mode="0" spellcheck="false" name="c019" id="c019" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">Exported 10 skills to /Users/shih-yingpan/Desktop/xcode-skills<br>  ✓ uikit-app-modernization<br>  ✓ swiftui-whats-new-27<br>  ✓ audit-xcode-security-settings<br>  ✓ building-document-based-swiftui-applications<br>  ✓ app-intents-whats-new-27<br>  ✓ device-interaction<br>  ✓ modernize-tests<br>  ✓ adopt-c-bounds-safety<br>  ✓ swiftui-specialist<br>  ✓ app-intents-specialist</span></pre><p name="a8e2" id="a8e2" class="graf graf--p graf-after--pre">從下圖可看到 Xcode 目前內建 10 個 skill。</p><figure name="05de" id="05de" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Gw9ANoLirAu_VkChg8D6Qg.png" data-width="560" data-height="662" src="https://cdn-images-1.medium.com/max/800/1*Gw9ANoLirAu_VkChg8D6Qg.png"></figure><p name="03cb" id="03cb" class="graf graf--p graf-after--figure">比方 swiftui-specialist skill 將幫助 AI 開發更好的 SwiftUI App。</p><figure name="b69a" id="b69a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*Y2q-Qi7FADj2IXVMGO-xtQ.png" data-width="506" data-height="704" src="https://cdn-images-1.medium.com/max/800/1*Y2q-Qi7FADj2IXVMGO-xtQ.png"></figure><figure name="2707" id="2707" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*_jVxAsLfgILsK0YkrK5-Eg.png" data-width="2750" data-height="2006" src="https://cdn-images-1.medium.com/max/800/1*_jVxAsLfgILsK0YkrK5-Eg.png"></figure><h3 name="5166" id="5166" class="graf graf--h3 graf-after--figure">加到 Codex 和 Claude Code</h3><p name="f9e3" id="f9e3" class="graf graf--p graf-after--h3">拿到 skill 後，剩下的事就只是複製貼上了。</p><p name="97ba" id="97ba" class="graf graf--p graf-after--p">將 xcode-skills 下想要的 skill 資料夾複製到 Codex 和 Claude Code 存放 skill 的資料夾。</p><ul class="postList"><li name="5dd0" id="5dd0" class="graf graf--li graf-after--p">Codex: <code class="markup--code markup--li-code">~/.codex/skills</code>。</li><li name="8363" id="8363" class="graf graf--li graf-after--li">Claude Code: <code class="markup--code markup--li-code">~/.claude/skills</code>。</li></ul><p name="e235" id="e235" class="graf graf--p graf-after--li">如果 ~/.claude 下沒有 skills 資料夾，請先在 ~/.claude 下建立 skills 資料夾。</p><p name="e2f2" id="e2f2" class="graf graf--p graf-after--p">以下我們以 Codex 為例說明。</p><p name="7764" id="7764" class="graf graf--p graf-after--p">比方想加入 swiftui-specialist skill，假設它的路徑是 ~/Desktop/xcode-skills/swiftui-specialist，請在 Terminal 輸入以下指令。</p><pre data-code-block-mode="0" spellcheck="false" name="7716" id="7716" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">cp -r ~/Desktop/xcode-skills/swiftui-specialist ~/.codex/skills</span></pre><p name="98c6" id="98c6" class="graf graf--p graf-after--pre">若想將 xcode-skills 全部的 skill 資料夾複製到 ~/.codex/skills/，請輸入以下指令。</p><pre data-code-block-mode="0" spellcheck="false" name="0529" id="0529" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content">cp -r ~/Desktop/xcode-skills/* ~/.codex/skills </span></pre><p name="8879" id="8879" class="graf graf--p graf-after--pre">加入 swiftui-specialist skill 後，Codex 和 Claude Code 打 / 時都可看到 SwiftUI Specialist。</p><figure name="16c2" id="16c2" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*9XMnmgi0sIOYXIjzQpKq0g.png" data-width="2114" data-height="610" src="https://cdn-images-1.medium.com/max/800/1*9XMnmgi0sIOYXIjzQpKq0g.png"><figcaption class="imageCaption">Codex</figcaption></figure><figure name="5e0f" id="5e0f" class="graf graf--figure graf-after--figure graf--trailing"><img class="graf-image" data-image-id="1*t_0RDXprD28CCoduIpSTNw.png" data-width="594" data-height="396" src="https://cdn-images-1.medium.com/max/800/1*t_0RDXprD28CCoduIpSTNw.png"><figcaption class="imageCaption">Claude Code</figcaption></figure></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@apppeterpan" class="p-author h-card">彼得潘的 App / AI Neverland</a> on <a href="https://medium.com/p/5e7dba1b5cff"><time class="dt-published" datetime="2026-06-18T16:42:37.695Z">June 18, 2026</time></a>.</p><p><a href="https://medium.com/@apppeterpan/%E5%B0%87-xcode-%E9%96%8B%E7%99%BC-app-%E7%9A%84-skills-%E5%8A%A0%E5%88%B0-codex-%E5%92%8C-claude-code-5e7dba1b5cff" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on August 17, 2026.</p></footer></article></body></html>
